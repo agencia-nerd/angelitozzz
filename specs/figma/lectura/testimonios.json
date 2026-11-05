@@ -1,0 +1,177 @@
+{
+  "formato": 1,
+  "pagina": "testimonios",
+  "fuente": {
+    "fileKey": "FumWuCPT1PPDg5vBTYoufA",
+    "nodeId": "3747:4319",
+    "ancho": 1920,
+    "alto": 2870.49
+  },
+  "tokens": {
+    "colores": {
+      "color/texto": "#000000",
+      "color/verde": "#234549",
+      "color/verde-suave": "#56706f",
+      "color/teal": "#9cb0b0",
+      "color/blanco": "#ffffff",
+      "color/beige": "#d7d0b5",
+      "color/frambuesa": "#a8566a",
+      "color/crema": "#f8f6f1",
+      "color/blush": "#f1dbd5",
+      "green 80": "#492343"
+    },
+    "texto": {
+      "2026/Body S": { "familia": "Barlow Condensed", "peso": 400, "tamano": 16, "interlineado": 1.5, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Body": { "familia": "Barlow Condensed", "peso": 400, "tamano": 18, "interlineado": 1.5, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Body L": { "familia": "Barlow Condensed", "peso": 400, "tamano": 20, "interlineado": 1.5, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Label S": { "familia": "Barlow Condensed", "peso": 500, "tamano": 15, "interlineado": 1.3, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Label": { "familia": "Barlow Condensed", "peso": 500, "tamano": 18, "interlineado": 1.3, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Eyebrow": { "familia": "Barlow Condensed", "peso": 500, "tamano": 18, "interlineado": 1.3, "espaciado": { "valor": 4, "unidad": "%" } },
+      "2026/H1": { "familia": "Barlow Condensed", "peso": 600, "tamano": 50, "interlineado": 1.1, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/H2": { "familia": "Barlow Condensed", "peso": 500, "tamano": 46, "interlineado": 1.15, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/H4": { "familia": "Barlow Condensed", "peso": 500, "tamano": 26, "interlineado": 1.25, "espaciado": { "valor": 0, "unidad": "%" } }
+    },
+    "sombras": {
+      "shadow header": "DROP_SHADOW #CAC29B26 (-2, 0) blur 12 spread 0; DROP_SHADOW #CAC29B21 (-10, 10) blur 22 spread 0; DROP_SHADOW #CAC29B14 (-22, 40) blur 30 spread 0; DROP_SHADOW #CAC29B05 (-39, 80) blur 36 spread 0"
+    }
+  },
+  "secciones": [
+    {
+      "nombre": "seccion-testimonios",
+      "nodeId": "3749:4214",
+      "nombreCapa": "Testimonios",
+      "estado": "leida",
+      "leidoEn": "2026-11-05",
+      "tamano": { "ancho": 1920, "alto": 1779 },
+      "referencia": "testimonios/seccion-testimonios.ref.txt",
+      "captura": "testimonios/seccion-testimonios.png",
+      "textos": [
+        { "nodeId": "3749:4215", "texto": "Historias reales", "estilo": "2026/Eyebrow", "color": "color/verde-suave", "rol": "eyebrow" },
+        { "nodeId": "3749:4216", "texto": "Testimonios", "estilo": "2026/H1", "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "3749:4217", "texto": "Mamás que volvieron a dormir y a disfrutar su maternidad.", "estilo": "2026/Body L", "color": "color/texto", "rol": "subtitulo" },
+        { "nodeId": "3749:4220", "texto": "Todos", "estilo": "2026/Label S", "color": "color/crema", "rol": "boton" },
+        { "nodeId": "3749:4222", "texto": "Soluciones de Sueño", "estilo": "2026/Label S", "color": "color/verde", "rol": "boton" },
+        { "nodeId": "3749:4224", "texto": "Mundo Angelitozzz", "estilo": "2026/Label S", "color": "color/verde", "rol": "boton" },
+        { "nodeId": "3749:4231", "texto": "Giannina", "estilo": "2026/H4", "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "I3749:4244;3719:4261", "texto": "Mundo Angelitozzz", "estilo": "2026/Label S", "color": "color/blanco", "rol": "etiqueta" },
+        { "nodeId": "3749:4247", "texto": "Bebé de 2.8 años", "estilo": "2026/Label S", "color": "color/verde", "rol": "etiqueta" },
+        { "nodeId": "3749:4248", "texto": "Balli y la comunidad de Mundo Angelitozzz me han enseñado muchísimo! Tanto los talleres, como la interacción en el chat, son herramientas super valiosas para mí. Maternar entre varias que pasan por lo mismo no tiene precio. Empecé con mi hija mayor hace 5 años y sigo aplicando lo que aprendí con mis otros dos hijos <3.", "estilo": "2026/Body", "color": "color/texto", "rol": "parrafo" },
+        { "nodeId": "3749:4253", "texto": "Andrea", "estilo": "2026/H4", "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "I3749:4266;3719:4261", "texto": "Soluciones de Sueño", "estilo": "2026/Label S", "color": "color/blanco", "rol": "etiqueta" },
+        { "nodeId": "3749:4269", "texto": "Bebé de 5 meses", "estilo": "2026/Label S", "color": "color/verde", "rol": "etiqueta" },
+        { "nodeId": "3749:4270", "texto": "Hola Balli!! Quería agradecerte por estas semanas de acompañamiento: pasamos de mini siestas de 30 min a siestas de hora y media, y de levantarme 5 veces en la noche a que duerma de corrido!! Me has dado mucha tranquilidad y por fin puedo entender a mi gordito.", "estilo": "2026/Body", "color": "color/texto", "rol": "parrafo" },
+        { "nodeId": "3749:4275", "texto": "Javiera", "estilo": "2026/H4", "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "I3749:4288;3719:4261", "texto": "Soluciones de Sueño", "estilo": "2026/Label S", "color": "color/blanco", "rol": "etiqueta" },
+        { "nodeId": "3749:4291", "texto": "Bebé de 2 años", "estilo": "2026/Label S", "color": "color/verde", "rol": "etiqueta" },
+        { "nodeId": "3749:4292", "texto": "Balli, quiero darte las gracias por toda tu ayuda en el entrenamiento del sueño de mis hijos, primero con Borja y ahora con León de 6 meses. Con tu enfoque compasivo diseñaste un plan personalizado que nos ayudó a establecer rutinas adecuadas. ¡Estamos eternamente agradecidos!", "estilo": "2026/Body", "color": "color/texto", "rol": "parrafo" },
+        { "nodeId": "3749:4297", "texto": "Bernardita", "estilo": "2026/H4", "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "I3749:4310;3719:4261", "texto": "Mundo Angelitozzz", "estilo": "2026/Label S", "color": "color/blanco", "rol": "etiqueta" },
+        { "nodeId": "3749:4313", "texto": "Bebé de 5 meses", "estilo": "2026/Label S", "color": "color/verde", "rol": "etiqueta" },
+        { "nodeId": "3749:4314", "texto": "Hay un antes y un después luego de tu asesoría. No fue fácil, pero la consistencia y la seguridad que nos dabas permitió que Lara, con 7 meses, aprenda a dormir sola y en su propia habitación. Gracias además al grupo que nos da orientación permanente.", "estilo": "2026/Body", "color": "color/texto", "rol": "parrafo" },
+        { "nodeId": "3749:4319", "texto": "Joanna", "estilo": "2026/H4", "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "I3749:4332;3719:4261", "texto": "Soluciones de Sueño", "estilo": "2026/Label S", "color": "color/blanco", "rol": "etiqueta" },
+        { "nodeId": "3749:4335", "texto": "Bebé de 9 meses", "estilo": "2026/Label S", "color": "color/verde", "rol": "etiqueta" },
+        { "nodeId": "3749:4336", "texto": "Sufrí una fuerte depresión postparto. Encontré un post de Bárbara con su historia y me identifiqué completamente. Comenzamos el curso: al principio fue desafiante, pero mantuvimos horarios y rutinas firmes, y TODO CAMBIÓ.", "estilo": "2026/Body", "color": "color/texto", "rol": "parrafo" },
+        { "nodeId": "3749:4339", "texto": "1", "estilo": "2026/Label", "color": "color/crema", "rol": "otro" },
+        { "nodeId": "3749:4341", "texto": "2", "estilo": "2026/Label", "color": "color/verde", "rol": "otro" },
+        { "nodeId": "3749:4343", "texto": "3", "estilo": "2026/Label", "color": "color/verde", "rol": "otro" }
+      ],
+      "sueltos": {
+        "espacios": [
+          { "valor": 2, "usos": 5 },
+          { "valor": 6, "usos": 10 },
+          { "valor": 8, "usos": 9 },
+          { "valor": 10, "usos": 5 },
+          { "valor": 12, "usos": 6 },
+          { "valor": 14, "usos": 10 },
+          { "valor": 16, "usos": 1 },
+          { "valor": 18, "usos": 3 },
+          { "valor": 24, "usos": 2 },
+          { "valor": 32, "usos": 10 },
+          { "valor": 104, "usos": 1 },
+          { "valor": 405, "usos": 1 }
+        ],
+        "colores": [
+          { "valor": "#e9b44c", "usos": 25 }
+        ],
+        "radios": [
+          { "valor": 20, "usos": 5 },
+          { "valor": 24, "usos": 5 },
+          { "valor": 100, "usos": 16 }
+        ]
+      },
+      "imagenes": [
+        { "id": "testimonio-foto-giannina", "nodeId": "3749:4228", "tipo": "jpg", "ancho": 160, "alto": 160, "rol": "contenido", "archivo": "testimonios/assets/testimonio-foto-giannina.jpg" },
+        { "id": "testimonio-foto-andrea", "nodeId": "3749:4250", "tipo": "jpg", "ancho": 160, "alto": 160, "rol": "contenido", "archivo": "testimonios/assets/testimonio-foto-andrea.jpg" },
+        { "id": "testimonio-foto-javiera", "nodeId": "3749:4272", "tipo": "jpg", "ancho": 160, "alto": 160, "rol": "contenido", "archivo": "testimonios/assets/testimonio-foto-javiera.jpg" },
+        { "id": "testimonio-foto-bernardita", "nodeId": "3749:4294", "tipo": "jpg", "ancho": 160, "alto": 160, "rol": "contenido", "archivo": "testimonios/assets/testimonio-foto-bernardita.jpg" },
+        { "id": "testimonio-foto-joanna", "nodeId": "3749:4316", "tipo": "jpg", "ancho": 160, "alto": 160, "rol": "contenido", "archivo": "testimonios/assets/testimonio-foto-joanna.jpg" },
+        { "id": "testimonio-estrella", "nodeId": "3749:4233", "tipo": "svg", "ancho": 18, "alto": 18, "rol": "decorativa", "archivo": "testimonios/assets/testimonio-estrella.svg" }
+      ],
+      "componentes": [
+        { "nombre": "Etiqueta", "variante": "Tarjeta", "props": { "texto": "Mundo Angelitozzz", "icono": "Ninguno" } },
+        { "nombre": "Etiqueta", "variante": "Tarjeta", "props": { "texto": "Soluciones de Sueño", "icono": "Ninguno" } },
+        { "nombre": "Etiqueta", "variante": "Tarjeta", "props": { "texto": "Soluciones de Sueño", "icono": "Ninguno" } },
+        { "nombre": "Etiqueta", "variante": "Tarjeta", "props": { "texto": "Mundo Angelitozzz", "icono": "Ninguno" } },
+        { "nombre": "Etiqueta", "variante": "Tarjeta", "props": { "texto": "Soluciones de Sueño", "icono": "Ninguno" } }
+      ],
+      "senales": [
+        { "tipo": "pestanas", "evidencia": "Fila 'Filtros' (3749:4218) centrada bajo el subtítulo con 3 pastillas: 'Todos' activa (fondo color/verde, texto color/crema) y 'Soluciones de Sueño' y 'Mundo Angelitozzz' inactivas (fondo blanco, borde 1px color/beige, texto color/verde); Label S, padding 8/18, radio 100, gap 12. Son filtros por categoría sobre una sola lista, no pestañas con paneles distintos. La nota de enlaces/ dice que en esta sección los testimonios tienen categorías.", "estado": "propuesto" },
+        { "tipo": "listado", "evidencia": "'Lista' (3749:4226) en columna, gap 24, ancho 1110, con 5 tarjetas 'Testimonio · <nombre>' idénticas (Giannina, Andrea, Javiera, Bernardita, Joanna): fondo blanco, radio 24, padding 32, gap 32; foto 160×160 radio 20 a la izquierda; a la derecha nombre (H4 verde) + 5 estrellas doradas 18×18 (gap 2), fila de dos pastillas (Etiqueta 'Tarjeta' teal con la categoría y pastilla crema con la edad del bebé 'Bebé de …') y el testimonio (Body). Cada tarjeta lleva una sola categoría: 2 'Mundo Angelitozzz' (Giannina, Bernardita) y 3 'Soluciones de Sueño' (Andrea, Javiera, Joanna). No hay agrupación por categoría: la lista las mezcla con el filtro 'Todos' activo. Candidato a tipo de contenido 'testimonio' con taxonomía de categoría (tabla 'Contenido dinámico').", "estado": "propuesto" },
+        { "tipo": "repetidor", "evidencia": "Campos de cada tarjeta: foto, nombre, valoración (5 estrellas llenas en las 5 tarjetas; no se ve si la cantidad varía), categoría y edad del bebé (texto libre: '2.8 años', '5 meses', '2 años', '9 meses').", "estado": "propuesto" },
+        { "tipo": "otro", "evidencia": "Paginación numerada (3749:4337) bajo la lista: círculos 40×40, '1' activo (verde/crema) y '2', '3' inactivos (blanco con borde beige); sin flechas anterior/siguiente. Con 5 tarjetas visibles implica 5 testimonios por página y 3 páginas. No hay slider.", "estado": "propuesto" },
+        { "tipo": "decorativo", "evidencia": "Las 5 estrellas de valoración son el mismo SVG 18×18 relleno #E9B44C (color sin variable; no existe token dorado).", "estado": "propuesto" },
+        { "tipo": "otro", "evidencia": "Marco vacío 10×16 (3749:4225) entre filtros y lista que solo añade separación (16 + gaps 24).", "estado": "propuesto" }
+      ]
+    },
+    {
+      "nombre": "cta-final",
+      "nodeId": "3749:4344",
+      "nombreCapa": "CTA final",
+      "estado": "leida",
+      "leidoEn": "2026-11-05",
+      "tamano": { "ancho": 1920, "alto": 400 },
+      "referencia": "testimonios/cta-final.ref.txt",
+      "captura": "testimonios/cta-final.png",
+      "textos": [
+        { "nodeId": "I3749:4344;3713:17004", "texto": "Tu historia puede ser la próxima.", "estilo": "2026/H2", "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "I3749:4344;3713:17005", "texto": "Encuentra la solución de sueño ideal para tu bebé.", "estilo": "2026/Body L", "color": "color/texto", "rol": "parrafo" },
+        { "nodeId": "I3749:4344;3713:17007;3711:6162", "texto": "Encuentra tu solución", "estilo": "2026/Label", "color": "color/blanco", "rol": "boton" }
+      ],
+      "sueltos": {
+        "espacios": [
+          { "valor": 8, "usos": 1 },
+          { "valor": 10, "usos": 2 },
+          { "valor": 14, "usos": 1 },
+          { "valor": 20, "usos": 1 },
+          { "valor": 24, "usos": 1 },
+          { "valor": 28, "usos": 1 },
+          { "valor": 104, "usos": 1 },
+          { "valor": 405, "usos": 1 }
+        ],
+        "colores": [],
+        "radios": [
+          { "valor": 100, "usos": 1 }
+        ]
+      },
+      "imagenes": [
+        { "id": "boton-flecha", "nodeId": "I3749:4344;3713:17007;3711:6163", "tipo": "svg", "ancho": 18, "alto": 18, "rol": "decorativa", "archivo": "testimonios/assets/boton-flecha.svg" },
+        { "id": "cta-final-destello-derecha", "nodeId": "I3749:4344;3713:17012", "tipo": "svg", "ancho": 68, "alto": 71, "rol": "decorativa", "archivo": "testimonios/assets/cta-final-destello-derecha.svg" },
+        { "id": "cta-final-destello-grande", "nodeId": "I3749:4344;3713:17027", "tipo": "svg", "ancho": 248, "alto": 614, "rol": "decorativa", "archivo": "testimonios/assets/cta-final-destello-grande.svg" },
+        { "id": "cta-final-trazo-1", "nodeId": "I3749:4344;3713:17041", "tipo": "svg", "ancho": 5.36, "alto": 19.29, "rol": "decorativa", "archivo": "testimonios/assets/cta-final-trazo-1.svg" },
+        { "id": "cta-final-trazo-2", "nodeId": "I3749:4344;3713:17042", "tipo": "svg", "ancho": 99.02, "alto": 29.26, "rol": "decorativa", "archivo": "testimonios/assets/cta-final-trazo-2.svg" },
+        { "id": "cta-final-destello-izquierda", "nodeId": "I3749:4344;3713:17045", "tipo": "svg", "ancho": 63.68, "alto": 66.33, "rol": "decorativa", "archivo": "testimonios/assets/cta-final-destello-izquierda.svg" },
+        { "id": "cta-final-trazo-3", "nodeId": "I3749:4344;3713:17046", "tipo": "svg", "ancho": 120.01, "alto": 5.59, "rol": "decorativa", "archivo": "testimonios/assets/cta-final-trazo-3.svg" },
+        { "id": "cta-final-trazo-4", "nodeId": "I3749:4344;3713:17049", "tipo": "svg", "ancho": 99.02, "alto": 29.26, "rol": "decorativa", "archivo": "testimonios/assets/cta-final-trazo-4.svg" }
+      ],
+      "componentes": [
+        { "nombre": "CTA final", "variante": null, "props": { "titulo": "Tu historia puede ser la próxima.", "descripcion": "Encuentra la solución de sueño ideal para tu bebé.", "boton": "Encuentra tu solución" } },
+        { "nombre": "Botón", "variante": "Frambuesa", "props": { "texto": "Encuentra tu solución", "flecha": true } }
+      ],
+      "senales": [
+        { "tipo": "decorativo", "evidencia": "7 vectores blancos con posición absoluta (destellos y trazos) a izquierda y derecha, los mismos de la instancia de Conoce a Bárbara; el destello grande (248×614) sobresale por debajo de la sección (inset bottom -104%) y queda recortado.", "estado": "propuesto" },
+        { "tipo": "otro", "evidencia": "Instancia del componente 'CTA final' (3713:17003), que según su descripción en Figma se usa en Soluciones, Home y Conoce a Bárbara. Aquí sí usa la descripción opcional. Componente compartido para template-parts/components/.", "estado": "propuesto" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,964 @@
+{
+  "formato": 1,
+  "pagina": "home",
+  "fuente": { "fileKey": "FumWuCPT1PPDg5vBTYoufA", "nodeId": "4011:9018", "ancho": 1920, "alto": 6660.544 },
+  "tokens": {
+    "colores": {
+      "color/texto": "#000000",
+      "color/texto-suave": "#6b6b6b",
+      "color/teal": "#9cb0b0",
+      "color/verde": "#234549",
+      "color/verde-suave": "#56706f",
+      "color/blanco": "#ffffff",
+      "color/beige": "#d7d0b5",
+      "color/frambuesa": "#a8566a",
+      "color/crema": "#f8f6f1",
+      "color/blush": "#f1dbd5",
+      "green 80": "#492343",
+      "green 20": "#9ec0c0"
+    },
+    "texto": {
+      "2026/Display": { "familia": "Barlow Condensed", "peso": 600, "tamano": 52, "interlineado": 1, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/H1": { "familia": "Barlow Condensed", "peso": 600, "tamano": 50, "interlineado": 1.1, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/H2": { "familia": "Barlow Condensed", "peso": 500, "tamano": 46, "interlineado": 1.15, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/H3": { "familia": "Barlow Condensed", "peso": 500, "tamano": 32, "interlineado": 1.2, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/H4": { "familia": "Barlow Condensed", "peso": 500, "tamano": 26, "interlineado": 1.25, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/H5": { "familia": "Barlow Condensed", "peso": 500, "tamano": 22, "interlineado": 1.3, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Eyebrow": { "familia": "Barlow Condensed", "peso": 500, "tamano": 18, "interlineado": 1.3, "espaciado": { "valor": 4, "unidad": "%" } },
+      "2026/Body L": { "familia": "Barlow Condensed", "peso": 400, "tamano": 20, "interlineado": 1.5, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Body": { "familia": "Barlow Condensed", "peso": 400, "tamano": 18, "interlineado": 1.5, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Body S": { "familia": "Barlow Condensed", "peso": 400, "tamano": 16, "interlineado": 1.5, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Label": { "familia": "Barlow Condensed", "peso": 500, "tamano": 18, "interlineado": 1.3, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Label S": { "familia": "Barlow Condensed", "peso": 500, "tamano": 15, "interlineado": 1.3, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Caption": { "familia": "Barlow Condensed", "peso": 400, "tamano": 14, "interlineado": 1.4, "espaciado": { "valor": 0, "unidad": "%" } }
+    },
+    "sombras": {
+      "shadow header": "DROP_SHADOW #CAC29B26 (-2, 0) blur 12 spread 0; DROP_SHADOW #CAC29B21 (-10, 10) blur 22 spread 0; DROP_SHADOW #CAC29B14 (-22, 40) blur 30 spread 0; DROP_SHADOW #CAC29B05 (-39, 80) blur 36 spread 0"
+    }
+  },
+  "secciones": [
+    {
+      "nombre": "cintillo-promociones",
+      "nodeId": "4011:9019",
+      "nombreCapa": "Cintillo promociones (administrable)",
+      "estado": "leida",
+      "leidoEn": "2026-11-05",
+      "tamano": { "ancho": 1920, "alto": 56 },
+      "referencia": "home/cintillo-promociones.ref.txt",
+      "captura": "home/cintillo-promociones.png",
+      "textos": [
+        { "nodeId": "I4011:9019;3588:1430", "texto": "¿Tu bebé no duerme bien? Nuestro coach de sueño virtual te ayuda a resolver tus dudas, gratis 💛", "estilo": null, "color": "color/texto", "rol": "parrafo" }
+      ],
+      "sueltos": {
+        "espacios": [ { "valor": 12, "usos": 1 } ],
+        "colores": [],
+        "radios": []
+      },
+      "imagenes": [
+        { "id": "cintillo-flecha", "nodeId": "I4011:9019;3884:29", "tipo": "svg", "ancho": 20, "alto": 20, "rol": "decorativa", "archivo": "home/assets/cintillo-flecha.svg" }
+      ],
+      "componentes": [
+        { "nombre": "Cintillo promociones (administrable)", "variante": null, "props": { "texto": "¿Tu bebé no duerme bien? Nuestro coach de sueño virtual te ayuda a resolver tus dudas, gratis 💛" } }
+      ],
+      "senales": [
+        { "tipo": "modal", "evidencia": "La descripción del componente en Figma dice que todo el cintillo es clickeable y abre el pop-up del coach de sueño virtual (Angelita Basic); tiene cursor-pointer y una flecha.", "estado": "propuesto" }
+      ]
+    },
+    {
+      "nombre": "header",
+      "nodeId": "4011:9020",
+      "nombreCapa": "Header",
+      "estado": "leida",
+      "leidoEn": "2026-11-05",
+      "tamano": { "ancho": 1920, "alto": 95 },
+      "referencia": "home/header.ref.txt",
+      "captura": "home/header.png",
+      "textos": [
+        { "nodeId": "I4011:9020;3704:22279", "texto": "Soluciones de Sueño", "estilo": "2026/Body S", "color": "color/texto", "rol": "lista" },
+        { "nodeId": "I4011:9020;3704:22280", "texto": "Blog", "estilo": "2026/Body S", "color": "color/texto", "rol": "lista" },
+        { "nodeId": "I4011:9020;3704:22281", "texto": "Mundo Angelitozzz", "estilo": "2026/Body S", "color": "color/texto", "rol": "lista" },
+        { "nodeId": "I4011:9020;3704:22282", "texto": "Conoce a Bárbara", "estilo": "2026/Body S", "color": "color/texto", "rol": "lista" },
+        { "nodeId": "I4011:9020;3704:22283", "texto": "Testimonios", "estilo": "2026/Body S", "color": "color/texto", "rol": "lista" },
+        { "nodeId": "I4011:9020;3704:22285", "texto": "Contacto", "estilo": "2026/Body", "color": "color/texto", "rol": "lista" },
+        { "nodeId": "I4011:9020;3764:14", "texto": "Iniciar sesión", "estilo": "2026/Label S", "color": "color/verde", "rol": "boton" },
+        { "nodeId": "I4011:9020;3764:17", "texto": "1", "estilo": null, "color": "color/blanco", "rol": "etiqueta" }
+      ],
+      "sueltos": {
+        "espacios": [
+          { "valor": 278, "usos": 1 }, { "valor": 16, "usos": 1 }, { "valor": 44, "usos": 1 }, { "valor": 38, "usos": 1 },
+          { "valor": 12, "usos": 1 }, { "valor": 8, "usos": 1 }, { "valor": 14, "usos": 1 }, { "valor": 18, "usos": 1 }
+        ],
+        "colores": [],
+        "radios": [ { "valor": 100, "usos": 3 } ]
+      },
+      "imagenes": [
+        { "id": "header-logo", "nodeId": "I4011:9020;3704:22277", "tipo": "png", "ancho": 87, "alto": 63, "rol": "contenido", "archivo": "home/assets/header-logo.png" },
+        { "id": "header-icono-persona", "nodeId": "I4011:9020;3764:11", "tipo": "svg", "ancho": 22, "alto": 22, "rol": "decorativa", "archivo": "home/assets/header-icono-persona.svg" },
+        { "id": "header-icono-carrito", "nodeId": "I4011:9020;3704:22289", "tipo": "svg", "ancho": 22, "alto": 19.587, "rol": "decorativa", "archivo": "home/assets/header-icono-carrito.svg" }
+      ],
+      "componentes": [
+        { "nombre": "Header", "variante": "Sesión=Sin iniciar", "props": {} }
+      ],
+      "senales": [
+        { "tipo": "menu", "evidencia": "Fila de 5 enlaces centrados (Soluciones de Sueño, Blog, Mundo Angelitozzz, Conoce a Bárbara, Testimonios) más 'Contacto' a la derecha; la descripción del componente lista el menú.", "estado": "propuesto" },
+        { "tipo": "otro", "evidencia": "Botón 'Iniciar sesión' con ícono de persona y botón de carrito con contador frambuesa ('1'); el componente tiene variante 'Sesión=Iniciada' (área de alumna, cursos, post-compra): cuenta y carrito dependen de login/WooCommerce.", "estado": "propuesto" }
+      ]
+    },
+    {
+      "nombre": "hero",
+      "nodeId": "4011:9021",
+      "nombreCapa": "Hero inicio",
+      "estado": "leida",
+      "leidoEn": "2026-11-05",
+      "tamano": { "ancho": 1920, "alto": 626 },
+      "referencia": "home/hero.ref.txt",
+      "captura": "home/hero.png",
+      "textos": [
+        { "nodeId": "4011:9026", "texto": "Coach de Sueño Pediátrico · Desde 2016", "estilo": "2026/Eyebrow", "color": "color/verde-suave", "rol": "eyebrow" },
+        { "nodeId": "4011:9027", "texto": "La maternidad tiene muchos sacrificios.\nEl sueño no debería ser uno de ellos.", "estilo": "2026/Display", "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "4011:9028", "texto": "Cursos, asesorías y acompañamiento para que tu bebé aprenda a dormir bien — desde recién nacido hasta los 4 años.", "estilo": "2026/Body L", "color": "color/texto", "rol": "parrafo" },
+        { "nodeId": "4011:9030", "texto": "8.000+ familias acompañadas", "estilo": "2026/Label", "color": "color/verde-suave", "rol": "lista" },
+        { "nodeId": "4011:9032", "texto": "10 años de experiencia", "estilo": "2026/Label", "color": "color/verde-suave", "rol": "lista" },
+        { "nodeId": "4011:9034", "texto": "12+ países", "estilo": "2026/Label", "color": "color/verde-suave", "rol": "lista" },
+        { "nodeId": "I4011:9035;3711:6162", "texto": "Encuentra tu curso ideal", "estilo": "2026/Label", "color": "color/blanco", "rol": "boton" }
+      ],
+      "sueltos": {
+        "espacios": [
+          { "valor": 180, "usos": 1 }, { "valor": 72, "usos": 1 }, { "valor": 10, "usos": 1 }, { "valor": 32, "usos": 1 },
+          { "valor": 22, "usos": 1 }, { "valor": 16, "usos": 1 }
+        ],
+        "colores": [],
+        "radios": []
+      },
+      "imagenes": [
+        { "id": "hero-foto-madre-bebe", "nodeId": "4011:9041", "tipo": "jpg", "ancho": 940, "alto": 626, "rol": "contenido", "archivo": "home/assets/hero-foto-madre-bebe.jpg" },
+        { "id": "hero-adorno-luna-1", "nodeId": "4011:9023", "tipo": "svg", "ancho": 34, "alto": 33.718, "rol": "decorativa", "archivo": "home/assets/hero-adorno-luna-1.svg" },
+        { "id": "hero-hilo-1", "nodeId": "4011:9036", "tipo": "svg", "ancho": 1.2, "alto": 150, "rol": "decorativa", "archivo": "home/assets/hero-hilo-1.svg" },
+        { "id": "hero-adorno-luna-2", "nodeId": "4011:9037", "tipo": "svg", "ancho": 34, "alto": 33.718, "rol": "decorativa", "archivo": "home/assets/hero-adorno-luna-2.svg" },
+        { "id": "hero-hilo-2", "nodeId": "4011:9038", "tipo": "svg", "ancho": 1.2, "alto": 250, "rol": "decorativa", "archivo": "home/assets/hero-hilo-2.svg" },
+        { "id": "hero-adorno-estrella-colgante", "nodeId": "4011:9039", "tipo": "svg", "ancho": 34, "alto": 33.684, "rol": "decorativa", "archivo": "home/assets/hero-adorno-estrella-colgante.svg" },
+        { "id": "hero-hilo-3", "nodeId": "4011:9040", "tipo": "svg", "ancho": 1.2, "alto": 110, "rol": "decorativa", "archivo": "home/assets/hero-hilo-3.svg" },
+        { "id": "hero-estrella-grande", "nodeId": "4011:9042", "tipo": "svg", "ancho": 341.235, "alto": 329.467, "rol": "decorativa", "archivo": "home/assets/hero-estrella-grande.svg" },
+        { "id": "hero-estrella-mediana", "nodeId": "4011:9043", "tipo": "svg", "ancho": 156.447, "alto": 151.052, "rol": "decorativa", "archivo": "home/assets/hero-estrella-mediana.svg" },
+        { "id": "hero-estrella-pequena", "nodeId": "4011:9044", "tipo": "svg", "ancho": 117.353, "alto": 113.306, "rol": "decorativa", "archivo": "home/assets/hero-estrella-pequena.svg" },
+        { "id": "boton-flecha", "nodeId": "I4011:9035;3711:6163", "tipo": "svg", "ancho": 18, "alto": 18, "rol": "decorativa", "archivo": "home/assets/boton-flecha.svg" }
+      ],
+      "componentes": [
+        { "nombre": "Botón", "variante": "Frambuesa", "props": { "texto": "Encuentra tu curso ideal", "flecha": true } }
+      ],
+      "senales": [
+        { "tipo": "decorativo", "evidencia": "Móvil colgante a la izquierda: 3 hilos verticales (150/250/110 px) con 2 lunas y una estrella posicionados en absoluto (capas 'Hilo móvil' / 'Adorno móvil'); 3 estrellas de contorno rotadas (-9.9° y 21.26°) sobre la foto. Candidatos a fusionarse en uno o dos SVG.", "estado": "propuesto" }
+      ]
+    },
+    {
+      "nombre": "como-ayudarte",
+      "nodeId": "4011:9045",
+      "nombreCapa": "Como ayudarte",
+      "estado": "leida",
+      "leidoEn": "2026-11-05",
+      "tamano": { "ancho": 1920, "alto": 973 },
+      "referencia": "home/como-ayudarte.ref.txt",
+      "captura": "home/como-ayudarte.png",
+      "textos": [
+        { "nodeId": "4011:9056", "texto": "¿Cómo puedo ayudarte?", "estilo": "2026/H1", "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "4011:9057", "texto": "Distintas formas de acompañarte, según lo que necesitas hoy.", "estilo": "2026/Body S", "color": "color/texto", "rol": "subtitulo" },
+        { "nodeId": "4011:9063", "texto": "Nuevo", "estilo": "2026/Label S", "color": "color/blanco", "rol": "etiqueta" },
+        { "nodeId": "4011:9064", "texto": "Angelita Pro\n(4 a 24 meses)", "estilo": "2026/Body", "color": "color/texto", "rol": "titulo" },
+        { "nodeId": "4011:9066", "texto": "Tu coach de sueño con IA, disponible 24/7 por WhatsApp.", "estilo": "2026/Body S", "color": "color/texto-suave", "rol": "parrafo" },
+        { "nodeId": "4011:9067", "texto": "Plan integral de sueño, respuestas inmediatas, sin turnos ni horarios.", "estilo": "2026/Body S", "color": "color/texto-suave", "rol": "parrafo" },
+        { "nodeId": "I4011:9068;3711:6162", "texto": "Quiero conocer a Angelita", "estilo": "2026/Label", "color": "color/blanco", "rol": "boton" },
+        { "nodeId": "I4011:9074;3863:542", "texto": "Asesoría con Bárbara", "estilo": "2026/Label S", "color": "color/blanco", "rol": "etiqueta" },
+        { "nodeId": "4011:9075", "texto": "A Dormir Por Fin\n(4 meses a 4 años)", "estilo": "2026/Body", "color": "color/texto", "rol": "titulo" },
+        { "nodeId": "4011:9077", "texto": "Bárbara diseña el plan para tu bebé y te acompaña durante 3 semanas.", "estilo": "2026/Body S", "color": "color/texto-suave", "rol": "parrafo" },
+        { "nodeId": "4011:9078", "texto": "Para quien quiere la mano de Bárbara directamente.", "estilo": "2026/Body S", "color": "color/texto-suave", "rol": "parrafo" },
+        { "nodeId": "I4011:9079;3711:6162", "texto": "Quiero mi asesoría personal", "estilo": "2026/Label", "color": "color/blanco", "rol": "boton" },
+        { "nodeId": "I4011:9084;3863:534", "texto": "Curso Online", "estilo": "2026/Label S", "color": "color/blanco", "rol": "etiqueta" },
+        { "nodeId": "4011:9085", "texto": "Recién Nacidos Go\n(0 a 12 semanas)", "estilo": "2026/Body", "color": "color/texto", "rol": "titulo" },
+        { "nodeId": "4011:9087", "texto": "Entiende el sueño de tu recién nacido desde el día uno.", "estilo": "2026/Body S", "color": "color/texto-suave", "rol": "parrafo" },
+        { "nodeId": "4011:9088", "texto": "Videos cortos, guías prácticas y bases sólidas para toda la etapa.", "estilo": "2026/Body S", "color": "color/texto-suave", "rol": "parrafo" },
+        { "nodeId": "I4011:9089;3711:6162", "texto": "Ver curso", "estilo": "2026/Label", "color": "color/blanco", "rol": "boton" },
+        { "nodeId": "I4011:9094;3863:534", "texto": "Curso Online", "estilo": "2026/Label S", "color": "color/blanco", "rol": "etiqueta" },
+        { "nodeId": "4011:9095", "texto": "Cursos de Horarios Ideales\n(4 meses a 3 años)", "estilo": "2026/Body", "color": "color/texto", "rol": "titulo" },
+        { "nodeId": "4011:9097", "texto": "Aprende a crear el horario perfecto para tu bebé según su edad.", "estilo": "2026/Body S", "color": "color/texto-suave", "rol": "parrafo" },
+        { "nodeId": "4011:9098", "texto": "Disponible para 4–9, 9–15 y 15–36 meses.", "estilo": "2026/Body S", "color": "color/texto-suave", "rol": "parrafo" },
+        { "nodeId": "I4011:9099;3711:6162", "texto": "Ver cursos", "estilo": "2026/Label", "color": "color/blanco", "rol": "boton" }
+      ],
+      "sueltos": {
+        "espacios": [
+          { "valor": 88, "usos": 1 }, { "valor": 54, "usos": 2 }, { "valor": 15, "usos": 1 }, { "valor": 32, "usos": 1 },
+          { "valor": 24, "usos": 5 }, { "valor": 20, "usos": 4 }, { "valor": 16, "usos": 4 }
+        ],
+        "colores": [ { "valor": "#492343", "usos": 2 } ],
+        "radios": [ { "valor": 32, "usos": 1 }, { "valor": 24, "usos": 7 }, { "valor": 100, "usos": 2 } ]
+      },
+      "imagenes": [
+        { "id": "ayudarte-imagen-not-found", "nodeId": "4011:9062", "tipo": "png", "ancho": 346, "alto": 374, "rol": "contenido", "archivo": "home/assets/ayudarte-imagen-not-found.png" },
+        { "id": "ayudarte-asesoria-barbara", "nodeId": "4011:9073", "tipo": "jpg", "ancho": 346, "alto": 374, "rol": "contenido", "archivo": "home/assets/ayudarte-asesoria-barbara.jpg" },
+        { "id": "ayudarte-recien-nacidos-go", "nodeId": "4011:9083", "tipo": "jpg", "ancho": 346, "alto": 374, "rol": "contenido", "archivo": "home/assets/ayudarte-recien-nacidos-go.jpg" },
+        { "id": "ayudarte-horarios-ideales", "nodeId": "4011:9093", "tipo": "png", "ancho": 346, "alto": 374, "rol": "contenido", "archivo": "home/assets/ayudarte-horarios-ideales.png" },
+        { "id": "etiqueta-icono-destellos", "nodeId": "4011:9063", "tipo": "svg", "ancho": 14, "alto": 14, "rol": "decorativa", "archivo": "home/assets/etiqueta-icono-destellos.svg" },
+        { "id": "etiqueta-icono-estrella", "nodeId": "I4011:9074;3863:540", "tipo": "svg", "ancho": 14, "alto": 14, "rol": "decorativa", "archivo": "home/assets/etiqueta-icono-estrella.svg" },
+        { "id": "flecha-slider", "nodeId": "4011:9101", "tipo": "svg", "ancho": 13.5, "alto": 12, "rol": "decorativa", "archivo": "home/assets/flecha-slider.svg" },
+        { "id": "ayudarte-zzz", "nodeId": "4011:9108", "tipo": "svg", "ancho": 15.36, "alto": 15.536, "rol": "decorativa", "archivo": "home/assets/ayudarte-zzz.svg" },
+        { "id": "boton-flecha", "nodeId": "I4011:9068;3711:6163", "tipo": "svg", "ancho": 18, "alto": 18, "rol": "decorativa", "archivo": "home/assets/boton-flecha.svg" }
+      ],
+      "componentes": [
+        { "nombre": "Etiqueta", "variante": "Estilo=Esquina, Icono=Destellos", "props": { "texto": "Nuevo", "icono": "Destellos" } },
+        { "nombre": "Etiqueta", "variante": "Estilo=Esquina, Icono=Estrella", "props": { "texto": "Asesoría con Bárbara", "icono": "Estrella" } },
+        { "nombre": "Etiqueta", "variante": "Estilo=Esquina, Icono=Ninguno", "props": { "texto": "Curso Online", "icono": "Ninguno" } },
+        { "nombre": "Etiqueta", "variante": "Estilo=Esquina, Icono=Ninguno", "props": { "texto": "Curso Online", "icono": "Ninguno" } },
+        { "nombre": "Botón", "variante": "Frambuesa", "props": { "texto": "Quiero conocer a Angelita", "flecha": true } },
+        { "nombre": "Botón", "variante": "Frambuesa", "props": { "texto": "Quiero mi asesoría personal", "flecha": true } },
+        { "nombre": "Botón", "variante": "Frambuesa", "props": { "texto": "Ver curso", "flecha": true } },
+        { "nombre": "Botón", "variante": "Frambuesa", "props": { "texto": "Ver cursos", "flecha": true } }
+      ],
+      "senales": [
+        { "tipo": "repetidor", "evidencia": "4 tarjetas hermanas iguales (imagen 346×374 con etiqueta de esquina, nombre + rango de edad, 2 párrafos, botón frambuesa).", "estado": "propuesto" },
+        { "tipo": "slider", "evidencia": "Dos botones circulares 'Arrow Right' (54 px, borde #492343) a los lados de la fila de tarjetas, uno girado 180°.", "estado": "propuesto" },
+        { "tipo": "decorativo", "evidencia": "Grupo 'zzz' pequeño en absoluto junto al título (4011:9108).", "estado": "propuesto" }
+      ]
+    },
+    {
+      "nombre": "quien-soy",
+      "nodeId": "4011:10706",
+      "nombreCapa": "Quien soy",
+      "estado": "leida",
+      "leidoEn": "2026-11-05",
+      "tamano": { "ancho": 1920, "alto": 663 },
+      "referencia": "home/quien-soy.ref.txt",
+      "captura": "home/quien-soy.png",
+      "textos": [
+        { "nodeId": "4011:10712", "texto": "¡Hola, soy Bárbara!", "estilo": "2026/H1", "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "4011:10713", "texto": "Soy Coach de Sueño Pediátrico certificada, mami de dos y fundadora de Angelitozzz desde 2016.\nEn 2012, cuando nació mi hija mayor, conocí de primera mano la desesperación de no dormir y la culpa de no saber cómo resolverlo.\nEn 10 años he acompañado a más de 8.000 familias en 12 países a lograr algo que muchas creían imposible: que su bebé durmiera de corrido — noches y siestas.\nPara que no te pase lo que me pasó a mí.\nPara que tu bebé, tu familia y tú puedan florecer.", "estilo": "2026/Body S", "color": "color/texto", "rol": "parrafo" },
+        { "nodeId": "I4011:10714;3711:6162", "texto": "Conoce mi historia", "estilo": "2026/Label", "color": "color/blanco", "rol": "boton" }
+      ],
+      "sueltos": {
+        "espacios": [ { "valor": 389, "usos": 1 }, { "valor": 88, "usos": 1 }, { "valor": 10, "usos": 1 }, { "valor": 32, "usos": 1 }, { "valor": 24, "usos": 1 } ],
+        "colores": [],
+        "radios": [ { "valor": 20, "usos": 1 } ]
+      },
+      "imagenes": [
+        { "id": "quien-soy-foto-barbara", "nodeId": "4011:10715", "tipo": "jpg", "ancho": 482, "alto": 487, "rol": "contenido", "archivo": "home/assets/quien-soy-foto-barbara.jpg" },
+        { "id": "quien-soy-corazon", "nodeId": "4011:10707", "tipo": "svg", "ancho": 46, "alto": 46, "rol": "decorativa", "archivo": "home/assets/quien-soy-corazon.svg" },
+        { "id": "boton-flecha", "nodeId": "I4011:10714;3711:6163", "tipo": "svg", "ancho": 18, "alto": 18, "rol": "decorativa", "archivo": "home/assets/boton-flecha.svg" }
+      ],
+      "componentes": [
+        { "nombre": "Botón", "variante": "Frambuesa", "props": { "texto": "Conoce mi historia", "flecha": true } }
+      ],
+      "senales": [
+        { "tipo": "decorativo", "evidencia": "Corazón con degradado ('Corazón cálido (degradado)') posicionado en absoluto junto al título.", "estado": "propuesto" }
+      ]
+    },
+    {
+      "nombre": "seccion-cta",
+      "nodeId": "4011:10704",
+      "nombreCapa": "Seccion CTA",
+      "estado": "leida",
+      "leidoEn": "2026-11-05",
+      "tamano": { "ancho": 1920, "alto": 747 },
+      "referencia": "home/seccion-cta.ref.txt",
+      "captura": "home/seccion-cta.png",
+      "textos": [
+        { "nodeId": "4011:10619", "texto": "El sueño de tu bebé cambia todo el tiempo.\nY cada vez que cambia, aparecen nuevas preguntas.\nMundo Angelitozzz es el lugar donde siempre hay respuestas.", "estilo": "2026/H3", "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "4011:10620", "texto": "Cada semana, una sesión en vivo conmigo para resolver lo que está pasando ahora mismo con el sueño de tu bebé. Más talleres grabados, recursos al instante y una comunidad de mamás que ya pasaron por donde tú estás.", "estilo": "2026/Body", "color": "color/texto", "rol": "parrafo" },
+        { "nodeId": "4011:10621", "texto": "• Sesiones en vivo semanales con Bárbara — resuelves dudas en tiempo real\n• Talleres y recursos para cada etapa, disponibles al instante\n• Chat privado con mamás que entienden lo que estás viviendo", "estilo": "2026/Body", "color": "color/texto", "rol": "lista" },
+        { "nodeId": "4011:10622", "texto": "Desde $14/mes · Cancela cuando quieras", "estilo": "2026/H5", "color": "color/verde", "rol": "etiqueta" },
+        { "nodeId": "I4011:10623;3704:15607", "texto": "Quiero tener siempre una respuesta", "estilo": "2026/Label", "color": "color/crema", "rol": "boton" }
+      ],
+      "sueltos": {
+        "espacios": [ { "valor": 425, "usos": 1 }, { "valor": 88, "usos": 1 }, { "valor": 32, "usos": 2 } ],
+        "colores": [],
+        "radios": []
+      },
+      "imagenes": [
+        { "id": "cta-fondo-lunas", "nodeId": "4011:10704", "tipo": "png", "ancho": 1920, "alto": 747, "rol": "decorativa", "archivo": "home/assets/cta-fondo-lunas.png" },
+        { "id": "cta-logo-mundo-angelitozzz", "nodeId": "4011:10618", "tipo": "png", "ancho": 86, "alto": 86, "rol": "contenido", "archivo": "home/assets/cta-logo-mundo-angelitozzz.png" },
+        { "id": "boton-flecha-crema", "nodeId": "I4011:10623;3704:15608", "tipo": "svg", "ancho": 18, "alto": 18, "rol": "decorativa", "archivo": "home/assets/boton-flecha-crema.svg" }
+      ],
+      "componentes": [
+        { "nombre": "Botón", "variante": "Verde", "props": { "texto": "Quiero tener siempre una respuesta", "flecha": true } }
+      ],
+      "senales": [
+        { "tipo": "decorativo", "evidencia": "Fondo de la sección es una imagen PNG (1989×726) con patrón de lunas sobre teal, aplicada como relleno del frame (object-cover).", "estado": "propuesto" }
+      ]
+    },
+    {
+      "nombre": "beneficios",
+      "nodeId": "4011:9188",
+      "nombreCapa": "Beneficios",
+      "estado": "leida",
+      "leidoEn": "2026-11-05",
+      "tamano": { "ancho": 1920, "alto": 752 },
+      "referencia": "home/beneficios.ref.txt",
+      "captura": "home/beneficios.png",
+      "textos": [
+        { "nodeId": "4011:9226", "texto": "Beneficios del sueño saludable", "estilo": "2026/H3", "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "4011:9227", "texto": "Dormir promueve el sano crecimiento y desarrollo de tu bebé.", "estilo": "2026/Body", "color": "color/texto", "rol": "parrafo" },
+        { "nodeId": "4011:9229", "texto": "Un bebé descansado es más más feliz y menos estresado.", "estilo": "2026/Body", "color": "color/texto", "rol": "parrafo" },
+        { "nodeId": "4011:9231", "texto": "Mejora la salud mental materna y fortalece el vínculo madre-bebé.", "estilo": "2026/Body", "color": "color/texto", "rol": "parrafo" },
+        { "nodeId": "4011:9230", "texto": "Dormir bien fomenta su aprendizaje y desarrollo del lenguaje", "estilo": "2026/Body", "color": "color/texto", "rol": "parrafo" },
+        { "nodeId": "4011:9228", "texto": "Mejora la tolerancia a la frustración.", "estilo": "2026/Body", "color": "color/texto", "rol": "parrafo" }
+      ],
+      "sueltos": {
+        "espacios": [ { "valor": 88, "usos": 1 } ],
+        "colores": [],
+        "radios": []
+      },
+      "imagenes": [
+        { "id": "beneficios-colgante-cubo", "nodeId": "4011:9194", "tipo": "svg", "ancho": 88, "alto": 267, "rol": "decorativa", "archivo": "home/assets/beneficios-colgante-cubo.svg" },
+        { "id": "beneficios-colgante-carita", "nodeId": "4011:9201", "tipo": "svg", "ancho": 82.643, "alto": 411.288, "rol": "decorativa", "archivo": "home/assets/beneficios-colgante-carita.svg" },
+        { "id": "beneficios-colgante-corazon", "nodeId": "4011:9198", "tipo": "svg", "ancho": 81.222, "alto": 558, "rol": "decorativa", "archivo": "home/assets/beneficios-colgante-corazon.svg" },
+        { "id": "beneficios-colgante-luna", "nodeId": "4011:9191", "tipo": "svg", "ancho": 93.033, "alto": 409.766, "rol": "decorativa", "archivo": "home/assets/beneficios-colgante-luna.svg" },
+        { "id": "beneficios-colgante-chupete", "nodeId": "4011:9212", "tipo": "svg", "ancho": 98.64, "alto": 277.934, "rol": "decorativa", "archivo": "home/assets/beneficios-colgante-chupete.svg" },
+        { "id": "beneficios-nube-central", "nodeId": "4011:9221", "tipo": "svg", "ancho": 486, "alto": 291, "rol": "decorativa", "archivo": "home/assets/beneficios-nube-central.svg" }
+      ],
+      "componentes": [],
+      "senales": [
+        { "tipo": "repetidor", "evidencia": "5 beneficios: cada uno es un colgante (hilo + ícono: cubo, carita, corazón, luna, chupete) con un texto Body debajo; título dentro de una nube central.", "estado": "propuesto" },
+        { "tipo": "decorativo", "evidencia": "Composición tipo móvil de cuna: colgantes de distinto largo (267–558 px) y textos colocados por márgenes en una grilla superpuesta (inline-grid con ml/mt), no por flujo.", "estado": "propuesto" }
+      ]
+    },
+    {
+      "nombre": "seccion-instagram",
+      "nodeId": "4011:10557",
+      "nombreCapa": "Seccion instagram",
+      "estado": "leida",
+      "leidoEn": "2026-11-05",
+      "tamano": { "ancho": 1920, "alto": 854 },
+      "referencia": "home/seccion-instagram.ref.txt",
+      "captura": "home/seccion-instagram.png",
+      "textos": [
+        { "nodeId": "4011:10547", "texto": "¡Síguenos en Instagram!", "estilo": "2026/H1", "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "I4011:10552;3711:6162", "texto": "Síguenos", "estilo": "2026/Label", "color": "color/blanco", "rol": "boton" }
+      ],
+      "sueltos": {
+        "espacios": [ { "valor": 388, "usos": 1 }, { "valor": 88, "usos": 1 }, { "valor": 57, "usos": 1 }, { "valor": 49, "usos": 1 } ],
+        "colores": [],
+        "radios": [ { "valor": 20, "usos": 3 } ]
+      },
+      "imagenes": [
+        { "id": "instagram-post-1", "nodeId": "4011:10549", "tipo": "jpg", "ancho": 333, "alto": 466, "rol": "contenido", "archivo": "home/assets/instagram-post-1.jpg" },
+        { "id": "instagram-post-2", "nodeId": "4011:10550", "tipo": "jpg", "ancho": 333, "alto": 466, "rol": "contenido", "archivo": "home/assets/instagram-post-2.jpg" },
+        { "id": "instagram-post-3", "nodeId": "4011:10551", "tipo": "jpg", "ancho": 333, "alto": 466, "rol": "contenido", "archivo": "home/assets/instagram-post-3.jpg" },
+        { "id": "boton-flecha", "nodeId": "I4011:10552;3711:6163", "tipo": "svg", "ancho": 18, "alto": 18, "rol": "decorativa", "archivo": "home/assets/boton-flecha.svg" }
+      ],
+      "componentes": [
+        { "nombre": "Botón", "variante": "Frambuesa", "props": { "texto": "Síguenos", "flecha": true } }
+      ],
+      "senales": [
+        { "tipo": "listado", "evidencia": "3 capturas de reels/stories (720×1520, capas 'WhatsApp Image…') en fila con radio 20: parece un feed de Instagram.", "estado": "propuesto" },
+        { "tipo": "repetidor", "evidencia": "3 imágenes hermanas iguales (333×466) con justify-between.", "estado": "propuesto" }
+      ]
+    },
+    {
+      "nombre": "testimonios",
+      "nodeId": "4011:9243",
+      "nombreCapa": "Testimonios · Tarjetas",
+      "estado": "leida",
+      "leidoEn": "2026-11-05",
+      "tamano": { "ancho": 1920, "alto": 954 },
+      "referencia": "home/testimonios.ref.txt",
+      "captura": "home/testimonios.png",
+      "textos": [
+        { "nodeId": "I4011:9243;3810:29", "texto": "SHHH... Bebés durmiendo felices", "estilo": "2026/H2", "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "I4011:9243;3824:41", "texto": "“Probé de todo y nada funcionaba. Con el plan de Bárbara, en una semana mi bebé dormía en su cuna.”", "estilo": "2026/Body", "color": "color/texto", "rol": "parrafo" },
+        { "nodeId": "I4011:9243;3824:48", "texto": "Carolina, mamá de Tomás", "estilo": "2026/Label", "color": "color/verde", "rol": "etiqueta" },
+        { "nodeId": "I4011:9243;3824:49", "texto": "Bebé de 6 meses", "estilo": "2026/Caption", "color": "color/texto-suave", "rol": "etiqueta" },
+        { "nodeId": "I4011:9243;3810:52", "texto": "“Bárbara, te hago un altar: en 4 días avanzamos lo que jamás pensé lograr, sin dejarlo llorar.”", "estilo": "2026/Body", "color": "color/texto", "rol": "parrafo" },
+        { "nodeId": "I4011:9243;3810:55", "texto": "Daniela, mamá de Mateo", "estilo": "2026/Label", "color": "color/verde", "rol": "etiqueta" },
+        { "nodeId": "I4011:9243;3810:56", "texto": "Bebé de 8 meses", "estilo": "2026/Caption", "color": "color/texto-suave", "rol": "etiqueta" },
+        { "nodeId": "I4011:9243;3810:69", "texto": "“Compré el curso con mi hija de 8 semanas; a los 4 meses dormía de corrido. Hoy tiene 2 años y sigue durmiendo increíble.”", "estilo": "2026/Body", "color": "color/texto", "rol": "parrafo" },
+        { "nodeId": "I4011:9243;3810:72", "texto": "Lucía, mamá de Emilia", "estilo": "2026/Label", "color": "color/verde", "rol": "etiqueta" },
+        { "nodeId": "I4011:9243;3810:73", "texto": "Bebé de 2 años", "estilo": "2026/Caption", "color": "color/texto-suave", "rol": "etiqueta" },
+        { "nodeId": "I4011:9243;3810:86", "texto": "“Mi bebé tiene 12 días y ya la puedo poner en el moisés. Antes solo dormía en brazos.”", "estilo": "2026/Body", "color": "color/texto", "rol": "parrafo" },
+        { "nodeId": "I4011:9243;3810:89", "texto": "Valeria, mamá de Joaquín", "estilo": "2026/Label", "color": "color/verde", "rol": "etiqueta" },
+        { "nodeId": "I4011:9243;3810:90", "texto": "Bebé de 12 días", "estilo": "2026/Caption", "color": "color/texto-suave", "rol": "etiqueta" },
+        { "nodeId": "I4011:9243;3824:65", "texto": "“Pensé que nunca iba a volver a dormir una noche completa. Hoy dormimos todos.”", "estilo": "2026/Body", "color": "color/texto", "rol": "parrafo" },
+        { "nodeId": "I4011:9243;3824:72", "texto": "Andrea, mamá de Lucas", "estilo": "2026/Label", "color": "color/verde", "rol": "etiqueta" },
+        { "nodeId": "I4011:9243;3824:73", "texto": "Bebé de 7 meses", "estilo": "2026/Caption", "color": "color/texto-suave", "rol": "etiqueta" },
+        { "nodeId": "I4011:9243;3810:96;3704:15612", "texto": "Ver más testimonios", "estilo": "2026/Label", "color": "color/verde", "rol": "boton" }
+      ],
+      "sueltos": {
+        "espacios": [
+          { "valor": 104, "usos": 1 }, { "valor": 181, "usos": 1 }, { "valor": 405, "usos": 1 }, { "valor": 56, "usos": 1 },
+          { "valor": 12, "usos": 6 }, { "valor": 24, "usos": 1 }, { "valor": 14, "usos": 5 }, { "valor": 28, "usos": 6 },
+          { "valor": 2, "usos": 5 }, { "valor": 16, "usos": 5 }
+        ],
+        "colores": [ { "valor": "#d7d0b5", "usos": 2 } ],
+        "radios": [ { "valor": 20, "usos": 5 }, { "valor": 100, "usos": 8 } ]
+      },
+      "imagenes": [
+        { "id": "testimonios-flecha-izquierda", "nodeId": "I4011:9243;3810:32", "tipo": "svg", "ancho": 20, "alto": 20, "rol": "decorativa", "archivo": "home/assets/testimonios-flecha-izquierda.svg" },
+        { "id": "testimonios-flecha-derecha", "nodeId": "I4011:9243;3810:36", "tipo": "svg", "ancho": 20, "alto": 20, "rol": "decorativa", "archivo": "home/assets/testimonios-flecha-derecha.svg" },
+        { "id": "testimonios-estrella-rating", "nodeId": "I4011:9243;3810:42", "tipo": "svg", "ancho": 16, "alto": 16, "rol": "decorativa", "archivo": "home/assets/testimonios-estrella-rating.svg" },
+        { "id": "testimonios-avatar-corazon", "nodeId": "I4011:9243;3811:34", "tipo": "svg", "ancho": 18, "alto": 18, "rol": "decorativa", "archivo": "home/assets/testimonios-avatar-corazon.svg" },
+        { "id": "testimonios-comillas", "nodeId": "I4011:9243;3811:29", "tipo": "svg", "ancho": 30, "alto": 30, "rol": "decorativa", "archivo": "home/assets/testimonios-comillas.svg" },
+        { "id": "testimonios-comillas-2", "nodeId": "I4011:9243;3811:36", "tipo": "svg", "ancho": 30, "alto": 30, "rol": "decorativa", "archivo": "home/assets/testimonios-comillas-2.svg" },
+        { "id": "testimonios-puntos", "nodeId": "I4011:9243;3810:91", "tipo": "svg", "ancho": 58, "alto": 10, "rol": "decorativa", "archivo": "home/assets/testimonios-puntos.svg" },
+        { "id": "testimonios-detalle-destello", "nodeId": "I4011:9243;3811:52", "tipo": "svg", "ancho": 15.92, "alto": 15.92, "rol": "decorativa", "archivo": "home/assets/testimonios-detalle-destello.svg" },
+        { "id": "testimonios-detalle-estrella", "nodeId": "I4011:9243;3811:50", "tipo": "svg", "ancho": 44, "alto": 50.471, "rol": "decorativa", "archivo": "home/assets/testimonios-detalle-estrella.svg" },
+        { "id": "testimonios-nube-derecha", "nodeId": "I4011:9243;3810:106", "tipo": "svg", "ancho": 260, "alto": 113.165, "rol": "decorativa", "archivo": "home/assets/testimonios-nube-derecha.svg" },
+        { "id": "testimonios-nube-izquierda", "nodeId": "I4011:9243;3810:103", "tipo": "svg", "ancho": 300, "alto": 180.344, "rol": "decorativa", "archivo": "home/assets/testimonios-nube-izquierda.svg" },
+        { "id": "testimonios-nube-ojo-1", "nodeId": "I4011:9243;3810:104", "tipo": "svg", "ancho": 22, "alto": 3.8, "rol": "decorativa", "archivo": "home/assets/testimonios-nube-ojo-1.svg" },
+        { "id": "testimonios-nube-ojo-2", "nodeId": "I4011:9243;3810:105", "tipo": "svg", "ancho": 22, "alto": 3.8, "rol": "decorativa", "archivo": "home/assets/testimonios-nube-ojo-2.svg" }
+      ],
+      "componentes": [
+        { "nombre": "Testimonios · Tarjetas", "variante": null, "props": {
+          "titulo": "SHHH... Bebés durmiendo felices",
+          "testimonios": [
+            { "texto": "“Probé de todo y nada funcionaba. Con el plan de Bárbara, en una semana mi bebé dormía en su cuna.”", "autora": "Carolina, mamá de Tomás", "detalle": "Bebé de 6 meses", "estrellas": 5 },
+            { "texto": "“Bárbara, te hago un altar: en 4 días avanzamos lo que jamás pensé lograr, sin dejarlo llorar.”", "autora": "Daniela, mamá de Mateo", "detalle": "Bebé de 8 meses", "estrellas": 5 },
+            { "texto": "“Compré el curso con mi hija de 8 semanas; a los 4 meses dormía de corrido. Hoy tiene 2 años y sigue durmiendo increíble.”", "autora": "Lucía, mamá de Emilia", "detalle": "Bebé de 2 años", "estrellas": 5 },
+            { "texto": "“Mi bebé tiene 12 días y ya la puedo poner en el moisés. Antes solo dormía en brazos.”", "autora": "Valeria, mamá de Joaquín", "detalle": "Bebé de 12 días", "estrellas": 5 },
+            { "texto": "“Pensé que nunca iba a volver a dormir una noche completa. Hoy dormimos todos.”", "autora": "Andrea, mamá de Lucas", "detalle": "Bebé de 7 meses", "estrellas": 5 }
+          ],
+          "boton_texto": "Ver más testimonios"
+        } },
+        { "nombre": "Botón", "variante": "Secundario", "props": { "texto": "Ver más testimonios", "flecha": false } }
+      ],
+      "senales": [
+        { "tipo": "slider", "evidencia": "Flechas izquierda/derecha en el encabezado, puntos de paginación (4) bajo las tarjetas y tarjetas 'asomadas' a ambos lados (opacidad 45%, degradado beige).", "estado": "propuesto" },
+        { "tipo": "repetidor", "evidencia": "5 tarjetas iguales (estrellas, cita, autora con avatar y edad del bebé); 3 visibles + 2 asomadas.", "estado": "propuesto" },
+        { "tipo": "decorativo", "evidencia": "Capa 'Detalle ZZZ animado' (15 letras Z rotadas, crema, opacidad 40%) al pie, más nubes y destellos absolutos; el nombre de la capa sugiere animación.", "estado": "propuesto" }
+      ]
+    },
+    {
+      "nombre": "cta-final",
+      "nodeId": "4011:9244",
+      "nombreCapa": "CTA final",
+      "estado": "leida",
+      "leidoEn": "2026-11-05",
+      "tamano": { "ancho": 1920, "alto": 400 },
+      "referencia": "home/cta-final.ref.txt",
+      "captura": "home/cta-final.png",
+      "textos": [
+        { "nodeId": "I4011:9244;3713:17004", "texto": "La maternidad ya tiene suficientes sacrificios. El sueño no tiene que ser uno de ellos.", "estilo": "2026/H2", "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "I4011:9244;3713:17007;3711:6162", "texto": "Encuentra tu solución", "estilo": "2026/Label", "color": "color/blanco", "rol": "boton" }
+      ],
+      "sueltos": {
+        "espacios": [ { "valor": 405, "usos": 1 }, { "valor": 104, "usos": 1 }, { "valor": 20, "usos": 1 } ],
+        "colores": [],
+        "radios": []
+      },
+      "imagenes": [
+        { "id": "boton-flecha", "nodeId": "I4011:9244;3713:17007;3711:6163", "tipo": "svg", "ancho": 18, "alto": 18, "rol": "decorativa", "archivo": "home/assets/boton-flecha.svg" },
+        { "id": "cta-final-destello-derecha", "nodeId": "I4011:9244;3713:17012", "tipo": "svg", "ancho": 68, "alto": 71, "rol": "decorativa", "archivo": "home/assets/cta-final-destello-derecha.svg" },
+        { "id": "cta-final-destello-grande", "nodeId": "I4011:9244;3713:17027", "tipo": "svg", "ancho": 248.004, "alto": 614.112, "rol": "decorativa", "archivo": "home/assets/cta-final-destello-grande.svg" },
+        { "id": "cta-final-destello-1", "nodeId": "I4011:9244;3713:17041", "tipo": "svg", "ancho": 5.363, "alto": 19.285, "rol": "decorativa", "archivo": "home/assets/cta-final-destello-1.svg" },
+        { "id": "cta-final-destello-2", "nodeId": "I4011:9244;3713:17042", "tipo": "svg", "ancho": 99.025, "alto": 29.263, "rol": "decorativa", "archivo": "home/assets/cta-final-destello-2.svg" },
+        { "id": "cta-final-destello-3", "nodeId": "I4011:9244;3713:17045", "tipo": "svg", "ancho": 63.68, "alto": 66.333, "rol": "decorativa", "archivo": "home/assets/cta-final-destello-3.svg" },
+        { "id": "cta-final-destello-4", "nodeId": "I4011:9244;3713:17046", "tipo": "svg", "ancho": 120.006, "alto": 5.587, "rol": "decorativa", "archivo": "home/assets/cta-final-destello-4.svg" },
+        { "id": "cta-final-destello-5", "nodeId": "I4011:9244;3713:17049", "tipo": "svg", "ancho": 99.025, "alto": 29.263, "rol": "decorativa", "archivo": "home/assets/cta-final-destello-5.svg" }
+      ],
+      "componentes": [
+        { "nombre": "CTA final", "variante": null, "props": { "titulo": "La maternidad ya tiene suficientes sacrificios. El sueño no tiene que ser uno de ellos.", "descripcion": null, "boton_texto": "Encuentra tu solución" } },
+        { "nombre": "Botón", "variante": "Frambuesa", "props": { "texto": "Encuentra tu solución", "flecha": true } }
+      ],
+      "senales": [
+        { "tipo": "decorativo", "evidencia": "7 piezas de destellos blancos en absoluto (una grande que se sale por abajo: inset bottom -104%, más rayitos sueltos) a izquierda y derecha; candidatos a fusionarse en uno o dos SVG.", "estado": "propuesto" }
+      ]
+    },
+    {
+      "nombre": "footer",
+      "nodeId": "4011:9245",
+      "nombreCapa": "Footer",
+      "estado": "leida",
+      "leidoEn": "2026-11-05",
+      "tamano": { "ancho": 1920, "alto": 541 },
+      "referencia": "home/footer.ref.txt",
+      "captura": "home/footer.png",
+      "textos": [
+        { "nodeId": "I4011:9245;3704:15728", "texto": "Suscríbete a nuestro blog", "estilo": "2026/H4", "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "I4011:9245;3704:15729", "texto": "Te enviaremos consejos gratuitos para que tu Angelito aprenda a dormir", "estilo": "2026/Body", "color": "color/texto", "rol": "parrafo" },
+        { "nodeId": "I4011:9245;3704:15786", "texto": "Ingresa tu correo electrónico", "estilo": "2026/Body S", "color": null, "rol": "etiqueta" },
+        { "nodeId": "I4011:9245;3704:15787;3033:4897", "texto": "Suscribirme", "estilo": "2026/Label", "color": "color/blanco", "rol": "boton" },
+        { "nodeId": "I4011:9245;3704:15734", "texto": "Soluciones de Sueño", "estilo": "2026/Body S", "color": "color/texto", "rol": "lista" },
+        { "nodeId": "I4011:9245;3704:15735", "texto": "Mundo Angelitozzz", "estilo": "2026/Body S", "color": "color/texto", "rol": "lista" },
+        { "nodeId": "I4011:9245;3704:15736", "texto": "Conoce a Bárbara", "estilo": "2026/Body S", "color": "color/texto", "rol": "lista" },
+        { "nodeId": "I4011:9245;3704:15738", "texto": "Testimonios", "estilo": "2026/Body S", "color": "color/texto", "rol": "lista" },
+        { "nodeId": "I4011:9245;3704:15739", "texto": "Blog", "estilo": "2026/Body S", "color": "color/texto", "rol": "lista" },
+        { "nodeId": "I4011:9245;3704:15740", "texto": "Contacto", "estilo": "2026/Body S", "color": "color/texto", "rol": "lista" },
+        { "nodeId": "I4011:9245;3704:15742", "texto": "Políticas de privacidad", "estilo": "2026/Body S", "color": "color/texto", "rol": "lista" },
+        { "nodeId": "I4011:9245;3704:15743", "texto": "Términos y condiciones", "estilo": "2026/Body S", "color": "color/texto", "rol": "lista" },
+        { "nodeId": "I4011:9245;3704:15745", "texto": "Preguntas frecuentes", "estilo": "2026/Body S", "color": "color/texto", "rol": "lista" },
+        { "nodeId": "I4011:9245;3704:15746", "texto": "Soporte", "estilo": "2026/Body S", "color": "color/texto", "rol": "lista" },
+        { "nodeId": "I4011:9245;3704:15748", "texto": "Síguenos", "estilo": "2026/Display", "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "I4011:9245;3704:15769", "texto": "Angelitozzz ©2026 Todos los derechos reservados", "estilo": "2026/Body S", "color": "color/verde", "rol": "pie" },
+        { "nodeId": "I4011:9245;3704:15771", "texto": "Made with", "estilo": null, "color": "color/texto", "rol": "pie" }
+      ],
+      "sueltos": {
+        "espacios": [
+          { "valor": 52, "usos": 1 }, { "valor": 9, "usos": 1 }, { "valor": 72, "usos": 1 }, { "valor": 24, "usos": 6 },
+          { "valor": 4, "usos": 2 }, { "valor": 8, "usos": 1 }, { "valor": 20, "usos": 1 }, { "valor": 16, "usos": 1 },
+          { "valor": 66, "usos": 1 }, { "valor": 192, "usos": 1 }, { "valor": 62, "usos": 1 }, { "valor": 40, "usos": 1 },
+          { "valor": 11, "usos": 1 }
+        ],
+        "colores": [ { "valor": "#8a8a8a", "usos": 1 } ],
+        "radios": [ { "valor": 28, "usos": 2 } ]
+      },
+      "imagenes": [
+        { "id": "footer-linea-superior", "nodeId": "I4011:9245;3704:15725", "tipo": "svg", "ancho": 1110, "alto": 1, "rol": "decorativa", "archivo": "home/assets/footer-linea-superior.svg" },
+        { "id": "footer-flecha-suscribir", "nodeId": "I4011:9245;3704:15787;3033:4904", "tipo": "svg", "ancho": 12.944, "alto": 7.654, "rol": "decorativa", "archivo": "home/assets/footer-flecha-suscribir.svg" },
+        { "id": "footer-circulo-instagram", "nodeId": "I4011:9245;3704:15751", "tipo": "svg", "ancho": 55.491, "alto": 55.491, "rol": "decorativa", "archivo": "home/assets/footer-circulo-instagram.svg" },
+        { "id": "footer-icono-instagram", "nodeId": "I4011:9245;3704:15755", "tipo": "svg", "ancho": 25.377, "alto": 25.377, "rol": "decorativa", "archivo": "home/assets/footer-icono-instagram.svg" },
+        { "id": "footer-red-tiktok", "nodeId": "I4011:9245;3704:15759", "tipo": "svg", "ancho": 55.491, "alto": 55.491, "rol": "decorativa", "archivo": "home/assets/footer-red-tiktok.svg" },
+        { "id": "footer-red-facebook", "nodeId": "I4011:9245;3704:15762", "tipo": "svg", "ancho": 55.491, "alto": 55.491, "rol": "decorativa", "archivo": "home/assets/footer-red-facebook.svg" },
+        { "id": "footer-linea-inferior", "nodeId": "I4011:9245;3704:15767", "tipo": "svg", "ancho": 1920, "alto": 1, "rol": "decorativa", "archivo": "home/assets/footer-linea-inferior.svg" },
+        { "id": "footer-corazon", "nodeId": "I4011:9245;3704:15772", "tipo": "svg", "ancho": 11, "alto": 10, "rol": "decorativa", "archivo": "home/assets/footer-corazon.svg" },
+        { "id": "footer-logo-nerd", "nodeId": "I4011:9245;3704:15774", "tipo": "svg", "ancho": 50, "alto": 10.776, "rol": "contenido", "archivo": "home/assets/footer-logo-nerd.svg" }
+      ],
+      "componentes": [
+        { "nombre": "Footer", "variante": null, "props": {} }
+      ],
+      "senales": [
+        { "tipo": "formulario", "evidencia": "Campo blanco redondeado con placeholder 'Ingresa tu correo electrónico' y botón verde 'Suscribirme' con flecha, bajo 'Suscríbete a nuestro blog'.", "estado": "propuesto" },
+        { "tipo": "menu", "evidencia": "4 columnas de enlaces (navegación, legales, ayuda): Soluciones de Sueño, Mundo Angelitozzz, Conoce a Bárbara / Testimonios, Blog, Contacto / Políticas de privacidad, Términos y condiciones / Preguntas frecuentes, Soporte.", "estado": "propuesto" },
+        { "tipo": "otro", "evidencia": "Fila 'Síguenos' con 3 íconos circulares de redes (Instagram, TikTok, Facebook) con borde #492343 (green 80).", "estado": "propuesto" }
+      ]
+    },
+    {
+      "nombre": "modal-coach",
+      "nodeId": "3888:6227",
+      "nombreCapa": "Pop-up-del-cintillo",
+      "estado": "leida",
+      "leidoEn": "2026-11-05",
+      "tamano": {
+        "ancho": 600,
+        "alto": 853
+      },
+      "referencia": "home/modal-coach.ref.txt",
+      "captura": "home/modal-coach.png",
+      "textos": [
+        {
+          "nodeId": "3888:6232",
+          "texto": "¡Hola! 💛 Vamos a conectarte con el coach de sueño virtual de Angelitozzz, para que te ayude a resolver cualquier duda sobre el sueño de tu bebé",
+          "estilo": "2026/H4",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "3888:6233",
+          "texto": "Déjame estos datos y en un momento podrás escribirle, gratis.",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "3888:6235",
+          "texto": "¿Cómo te llamas?",
+          "estilo": "2026/Label",
+          "color": "color/verde",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "3888:6237",
+          "texto": "Tu nombre",
+          "estilo": "2026/Body",
+          "color": "color/texto-suave",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "3888:6239",
+          "texto": "Tu WhatsApp",
+          "estilo": "2026/Label",
+          "color": "color/verde",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "3888:6242",
+          "texto": "🇵🇪 +51",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "3888:6246",
+          "texto": "999 999 999",
+          "estilo": "2026/Body",
+          "color": "color/texto-suave",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "3888:6247",
+          "texto": "Lo necesitamos porque tu coach de sueño virtual te va a escribir y ayudarte por aquí 💛",
+          "estilo": "2026/Caption",
+          "color": "color/texto-suave",
+          "rol": "otro"
+        },
+        {
+          "nodeId": "3888:6249",
+          "texto": "Edad de tu bebé",
+          "estilo": "2026/Label",
+          "color": "color/verde",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "3888:6251",
+          "texto": "Selecciona una opción",
+          "estilo": "2026/Body",
+          "color": "color/texto-suave",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "3888:6256",
+          "texto": "0 a 4 meses",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "3888:6258",
+          "texto": "4 a 12 meses",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "3888:6260",
+          "texto": "12 a 24 meses",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "3888:6262",
+          "texto": "2 a 4 años",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "3888:6264",
+          "texto": "Tu email (opcional)",
+          "estilo": "2026/Label",
+          "color": "color/verde",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "3888:6266",
+          "texto": "tucorreo@email.com",
+          "estilo": "2026/Body",
+          "color": "color/texto-suave",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "3888:6267",
+          "texto": "Así también te avisamos sobre contenido y novedades",
+          "estilo": "2026/Caption",
+          "color": "color/texto-suave",
+          "rol": "otro"
+        },
+        {
+          "nodeId": "3888:6270",
+          "texto": "Acepto que Angelitozzz use mis datos para contactarme y enviarme información relacionada · Ver Políticas de privacidad",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "I3888:6271;3711:6162",
+          "texto": "Quiero que me ayuden con el sueño de mi bebé",
+          "estilo": "2026/Label",
+          "color": "color/blanco",
+          "rol": "boton"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 44,
+            "usos": 1
+          },
+          {
+            "valor": 40,
+            "usos": 2
+          },
+          {
+            "valor": 20,
+            "usos": 1
+          },
+          {
+            "valor": 16,
+            "usos": 1
+          },
+          {
+            "valor": 8,
+            "usos": 4
+          },
+          {
+            "valor": 18,
+            "usos": 4
+          },
+          {
+            "valor": 14,
+            "usos": 6
+          },
+          {
+            "valor": 10,
+            "usos": 2
+          },
+          {
+            "valor": 6,
+            "usos": 2
+          },
+          {
+            "valor": 12,
+            "usos": 5
+          },
+          {
+            "valor": 28,
+            "usos": 1
+          },
+          {
+            "valor": 24,
+            "usos": 1
+          }
+        ],
+        "colores": [
+          {
+            "valor": "#a8566a",
+            "usos": 1
+          },
+          {
+            "valor": "#141f21",
+            "usos": 1
+          }
+        ],
+        "radios": [
+          {
+            "valor": 24,
+            "usos": 1
+          },
+          {
+            "valor": 100,
+            "usos": 2
+          },
+          {
+            "valor": 12,
+            "usos": 6
+          },
+          {
+            "valor": 6,
+            "usos": 1
+          }
+        ]
+      },
+      "imagenes": [
+        {
+          "id": "modal-cerrar",
+          "nodeId": "3888:6229",
+          "tipo": "svg",
+          "ancho": 20,
+          "alto": 20,
+          "rol": "decorativa",
+          "archivo": "home/assets/modal-cerrar.svg"
+        },
+        {
+          "id": "modal-chevron-pais",
+          "nodeId": "3888:6243",
+          "tipo": "svg",
+          "ancho": 16,
+          "alto": 16,
+          "rol": "decorativa",
+          "archivo": "home/assets/modal-chevron-pais.svg"
+        },
+        {
+          "id": "modal-chevron-select",
+          "nodeId": "3888:6252",
+          "tipo": "svg",
+          "ancho": 18,
+          "alto": 18,
+          "rol": "decorativa",
+          "archivo": "home/assets/modal-chevron-select.svg"
+        },
+        {
+          "id": "modal-boton-flecha",
+          "nodeId": "I3888:6271;3711:6163",
+          "tipo": "svg",
+          "ancho": 18,
+          "alto": 18,
+          "rol": "decorativa",
+          "archivo": "home/assets/modal-boton-flecha.svg"
+        }
+      ],
+      "componentes": [
+        {
+          "nombre": "Botón",
+          "variante": "Frambuesa",
+          "props": {
+            "texto": "Quiero que me ayuden con el sueño de mi bebé",
+            "flecha": true,
+            "ancho": "completo"
+          }
+        }
+      ],
+      "senales": [
+        {
+          "tipo": "modal",
+          "evidencia": "Tarjeta blanca 600x853 (radio 24, padding 40/44, gap 20, sombra 0 20px 60px rgba(0,0,0,0.2) sin variable) centrada sobre un rectángulo 'Overlay' 1920x1080 (nodo 3888:6226, hermano detrás) de color #141f21 con opacidad 50%. Botón 'Cerrar' circular 40x40 color/crema arriba a la derecha (top 16, a 16px del borde derecho) con una X de 20px color/verde, sin texto visible.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "formulario",
+          "evidencia": "Formulario de 4 campos + consentimiento + envío. Cada campo: label 2026/Label color/verde, gap 8, caja color/crema con borde 1px color/beige, radio 12, padding 14/18, texto 2026/Body. (1) '¿Cómo te llamas?' texto, placeholder 'Tu nombre'. (2) 'Tu WhatsApp' teléfono: selector de código de país (caja 94px, '🇵🇪 +51' en color/texto + chevron 16px) y a su lado (gap 10) input con placeholder '999 999 999'; ayuda 2026/Caption color/texto-suave 'Lo necesitamos porque tu coach de sueño virtual te va a escribir y ayudarte por aquí 💛'. (3) 'Edad de tu bebé' select con placeholder 'Selecciona una opción' y chevron 18px; capa oculta 'Opciones (desplegadas)' con 4 opciones: 0 a 4 meses, 4 a 12 meses, 12 a 24 meses, 2 a 4 años (lista blanca, borde color/beige, radio 12, padding 6, ítems 10/12). (4) 'Tu email (opcional)' email, placeholder 'tucorreo@email.com', ayuda 'Así también te avisamos sobre contenido y novedades'. Ningún campo lleva asterisco ni marca de obligatorio; solo el email dice '(opcional)'. Checkbox de consentimiento 22x22 (blanco, borde 1px color/verde, radio 6, desmarcado) con texto 2026/Body S 'Acepto que Angelitozzz use mis datos para contactarme y enviarme información relacionada · ' y enlace subrayado #a8566a 'Ver Políticas de privacidad'. Botón Frambuesa a todo el ancho 'Quiero que me ayuden con el sueño de mi bebé' con flecha (en Figma es un <a>; debe ser el submit). No hay estados de error, foco ni carga dibujados.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "El pop-up lo abre el cintillo-promociones (nota del usuario) y al enviar pasa al estado 'modal-coach-gracias' (frame 3888:6508), que usa el nombre escrito en '¿Cómo te llamas?'.",
+          "estado": "propuesto"
+        }
+      ]
+    },
+    {
+      "nombre": "modal-coach-gracias",
+      "nodeId": "3888:6508",
+      "nombreCapa": "Pop-up-gracias",
+      "estado": "leida",
+      "leidoEn": "2026-11-05",
+      "tamano": {
+        "ancho": 560,
+        "alto": 425
+      },
+      "referencia": "home/modal-coach-gracias.ref.txt",
+      "captura": "home/modal-coach-gracias.png",
+      "textos": [
+        {
+          "nodeId": "3888:6516",
+          "texto": "¡Listo, María! 💛",
+          "estilo": "2026/H3",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "3888:6517",
+          "texto": "Ya puedes escribirle a tu coach de sueño virtual y empezar a resolver las dudas de sueño de tu bebé, gratis.",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "I3888:6518;3711:6162",
+          "texto": "Hablar ahora",
+          "estilo": "2026/Label",
+          "color": "color/blanco",
+          "rol": "boton"
+        },
+        {
+          "nodeId": "3888:6523",
+          "texto": "Se abre WhatsApp con el mensaje: “Hola, soy María 💛 Quiero ayuda con el sueño de mi bebé.”",
+          "estilo": "2026/Caption",
+          "color": "color/texto-suave",
+          "rol": "pie"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 56,
+            "usos": 1
+          },
+          {
+            "valor": 48,
+            "usos": 1
+          },
+          {
+            "valor": 44,
+            "usos": 1
+          },
+          {
+            "valor": 20,
+            "usos": 1
+          },
+          {
+            "valor": 16,
+            "usos": 1
+          },
+          {
+            "valor": 10,
+            "usos": 1
+          },
+          {
+            "valor": 28,
+            "usos": 1
+          },
+          {
+            "valor": 24,
+            "usos": 1
+          },
+          {
+            "valor": 14,
+            "usos": 1
+          }
+        ],
+        "colores": [
+          {
+            "valor": "#141f21",
+            "usos": 1
+          }
+        ],
+        "radios": [
+          {
+            "valor": 24,
+            "usos": 1
+          },
+          {
+            "valor": 100,
+            "usos": 2
+          }
+        ]
+      },
+      "imagenes": [
+        {
+          "id": "modal-gracias-cerrar",
+          "nodeId": "3888:6510",
+          "tipo": "svg",
+          "ancho": 20,
+          "alto": 20,
+          "rol": "decorativa",
+          "archivo": "home/assets/modal-cerrar.svg"
+        },
+        {
+          "id": "modal-gracias-check",
+          "nodeId": "3888:6513",
+          "tipo": "svg",
+          "ancho": 72,
+          "alto": 72,
+          "rol": "decorativa",
+          "archivo": "home/assets/modal-gracias-check.svg"
+        },
+        {
+          "id": "modal-gracias-boton-flecha",
+          "nodeId": "I3888:6518;3711:6163",
+          "tipo": "svg",
+          "ancho": 18,
+          "alto": 18,
+          "rol": "decorativa",
+          "archivo": "home/assets/modal-boton-flecha.svg"
+        }
+      ],
+      "componentes": [
+        {
+          "nombre": "Botón",
+          "variante": "Frambuesa",
+          "props": {
+            "texto": "Hablar ahora",
+            "flecha": true
+          }
+        }
+      ],
+      "senales": [
+        {
+          "tipo": "modal",
+          "evidencia": "Estado de agradecimiento del mismo pop-up: tarjeta blanca 560x425 (radio 24, padding 56 arriba / 48 abajo / 44 lados, gap 20, contenido centrado, misma sombra 0 20px 60px rgba(0,0,0,0.2)) sobre 'Overlay' 1920x1080 (nodo 3888:6507) #141f21 al 50%. Mismo botón 'Cerrar' 40x40 color/crema con X color/verde. Ícono de check 72x72: círculo color/blush (#F1DBD5) con check #C8725A, ambos dentro del SVG.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "'María' en el título '¡Listo, María! 💛' y en el pie es el nombre que escribió el usuario (capa 'Título (con el nombre)'). El botón 'Hablar ahora' abre WhatsApp con el mensaje prellenado 'Hola, soy <nombre> 💛 Quiero ayuda con el sueño de mi bebé.' (enlace wa.me al número del coach, que el diseño no muestra).",
+          "estado": "propuesto"
+        }
+      ]
+    }
+  ]
+}

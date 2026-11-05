@@ -1,0 +1,65 @@
+const imgFlecha = "assets/boton-flecha-crema.svg";
+const imgSeccionCta = "assets/cta-fondo-lunas.png";
+const imgLogoMundoAngelitozzzFinalCurv1 = "assets/cta-logo-mundo-angelitozzz.png";
+
+type BotonProps = {
+  className?: string;
+  flecha?: boolean;
+  texto?: string;
+  tipo?: "Verde";
+};
+
+function Boton({ className, flecha = true, texto = "Texto del botón", tipo = "Verde" }: BotonProps) {
+  return (
+    <div className={className || "bg-[var(--color\\/verde,#234549)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px]"} data-node-id="3704:15606">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap" data-node-id="3704:15607">
+        {texto}
+      </p>
+      {flecha && (
+        <div className="relative shrink-0 size-[18px]" data-node-id="3704:15608" data-name="Flecha">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function SeccionCta() {
+  return (
+    <div className="content-stretch flex flex-col items-start px-[425px] py-[88px] relative size-full" data-node-id="4011:10704" data-name="Seccion CTA">
+      <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgSeccionCta} />
+      <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="4011:10558">
+        <div className="col-1 content-stretch flex flex-col gap-[32px] h-[571.053px] items-center ml-0 mt-0 relative row-1 w-[1070px]" data-node-id="4011:10616">
+          <div className="content-stretch flex flex-col gap-[32px] items-center relative shrink-0 w-[1070px]" data-node-id="4011:10617">
+            <div className="relative shrink-0 size-[86px]" data-node-id="4011:10618" data-name="Logo mundo angelitozzz final curv  1">
+              <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgLogoMundoAngelitozzzFinalCurv1} />
+            </div>
+            <div className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[0] min-w-full not-italic relative shrink-0 text-[32px] text-[color:var(--color\/verde,#234549)] text-center w-[min-content]" data-node-id="4011:10619">
+              <p className="leading-[1.2] mb-0">El sueño de tu bebé cambia todo el tiempo.</p>
+              <p className="leading-[1.2] mb-0">Y cada vez que cambia, aparecen nuevas preguntas.</p>
+              <p className="leading-[1.2]">Mundo Angelitozzz es el lugar donde siempre hay respuestas.</p>
+            </div>
+          </div>
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] text-center w-[min-content]" data-node-id="4011:10620">
+            Cada semana, una sesión en vivo conmigo para resolver lo que está pasando ahora mismo con el sueño de tu bebé. Más talleres grabados, recursos al instante y una comunidad de mamás que ya pasaron por donde tú estás.
+          </p>
+          <div className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[0] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] text-center w-[1070px]" data-node-id="4011:10621">
+            <p className="leading-[1.5] mb-0">• Sesiones en vivo semanales con Bárbara — resuelves dudas en tiempo real</p>
+            <p className="leading-[1.5] mb-0">• Talleres y recursos para cada etapa, disponibles al instante</p>
+            <p className="leading-[1.5]">• Chat privado con mamás que entienden lo que estás viviendo</p>
+          </div>
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[22px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="4011:10622">
+            Desde $14/mes · Cancela cuando quieras
+          </p>
+          <Boton className="bg-[var(--color\/verde,#234549)] content-stretch cursor-pointer flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" texto="Quiero tener siempre una respuesta" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* Styles in the design: 2026/H3, 2026/Body, 2026/H5, 2026/Label.
+Component descriptions (Figma):
+## Botón (3704:15621)
+Botón 2026 · Frambuesa (CTA principal sobre fondos claros) · Verde (sobre teal) · Claro (sobre verde oscuro) · Secundario (contorno).
+*/

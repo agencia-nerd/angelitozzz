@@ -42,3 +42,14 @@ Stack: WordPress (Local WP) + Vite + Tailwind + pnpm.
 - Toda imagen de un campo ACF pasa por `angelitozzz_image($campo, [...])` (devuelve el `<img>` o `''`) o por `angelitozzz_image_data($campo)` (`url`, `alt`, `width`, `height` o `null`). No uses `$campo['url']` ni `wp_get_attachment_image_url()` directo en las vistas. Usa `'loading' => 'eager'` en la imagen principal de la página. Si el cliente no escribe el alt, pasa `'alt_fallback'` con el título de la sección (o el de su tarjeta); `'alt' => ''` solo para imágenes decorativas.
 - Todo enlace de un campo ACF (Link o URL) pasa por `angelitozzz_link($campo, [...])` (el `<a>` completo) o por `<a<?= angelitozzz_link_attrs($campo, [...]) ?>>` cuando el diseño lleva íconos u otros hijos. No escribas `target="_blank"`, `rel` ni `$campo['url']` a mano: el helper pone `rel`, descarta enlaces vacíos o inseguros y avisa de la pestaña nueva (clase `sr-only`).
 <!-- wp-helper:end -->
+
+<!-- design-import:start -->
+## Specs de diseño (design-import 1.14.0)
+- Los specs viven en `specs/` (`_index.md`, `_shared.md` y un archivo por página). Son documentación del tema: no se suben al servidor.
+- Aplica solo las páginas con estado `aprobado` en `specs/_index.md` y deja el estado en `aplicado` al terminar.
+- Cada página es un grupo de campos ACF (`Grupo ACF` y `Ubicación` en su spec) y cada sección es un campo `group` (`home_hero`). Blog, catálogo y WooCommerce se describen en la tabla "Contenido dinámico" de `_shared.md`: no escribas consultas, filtros ni lógica de Woo hasta ese paso.
+- Lo que se repite en todo el sitio (contacto, redes, textos del pie) está en `specs/opciones.md` y va en una página de opciones de ACF; el logo y el ícono son de Personalizar y los menús son menús de WordPress.
+- Los campos ACF se nombran `<página>_<sección>_<campo>` en snake_case y en español. No pongas límites de caracteres ni de tamaño de imagen: la descripción del campo solo lo recomienda.
+- El texto del diseño queda fijo en la plantilla y su campo está en el spec ("valor actual"): al pasarlo a ACF se reemplaza uno a uno.
+- **El spec se corrige junto con el código.** Si una corrección o un cambio toca algo que el spec describe (campos y su tipo, "valor actual", `Destino` de una sección, componentes de `_shared.md` y sus argumentos, `Comportamiento`, tokens), actualiza el spec en el mismo paso; si es un campo, primero el spec y después se genera el JSON. Un ajuste visual o interno que el spec no describe no lo toca. Al terminar, di qué líneas del spec cambiaron. `check.mjs` de design-import avisa si un componente no coincide con `_shared.md`.
+<!-- design-import:end -->

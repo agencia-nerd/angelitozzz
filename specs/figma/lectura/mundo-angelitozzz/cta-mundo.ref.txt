@@ -1,0 +1,91 @@
+const imgFlecha = "assets/cta-flecha.svg";
+const imgFrame = "assets/cta-check.svg";
+const imgFrame1 = "assets/cta-destello-grande.svg";
+const imgFrame2 = "assets/cta-destello-mediano.svg";
+const imgFrame3 = "assets/cta-destello-pequeno.svg";
+
+type BotonProps = {
+  className?: string;
+  flecha?: boolean;
+  texto?: string;
+  tipo?: "Frambuesa";
+};
+
+function Boton({ className, flecha = true, texto = "Texto del botón", tipo = "Frambuesa" }: BotonProps) {
+  return (
+    <div className={className || "bg-[var(--color\\/frambuesa,#a8566a)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px]"} data-node-id="3711:6161">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="3711:6162">
+        {texto}
+      </p>
+      {flecha && (
+        <div className="relative shrink-0 size-[18px]" data-node-id="3711:6163" data-name="Flecha">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function CtaMundo() {
+  return (
+    <div className="bg-[var(--color\/blush,#f1dbd5)] content-stretch flex flex-col gap-[24px] items-center px-[405px] py-[104px] relative size-full" data-node-id="4017:20487" data-name="CTA Mundo">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:SemiBold'] leading-none not-italic relative shrink-0 text-[52px] text-[color:var(--color\/verde,#234549)] text-center whitespace-nowrap" data-node-id="4017:20488">
+        Todo esto, desde $14 al mes.
+      </p>
+      <div className="content-stretch flex gap-[28px] items-center overflow-clip relative shrink-0" data-node-id="4017:20489" data-name="Beneficios">
+        <div className="content-stretch flex gap-[8px] items-center overflow-clip relative shrink-0" data-node-id="4017:20490" data-name="Frame">
+          <div className="bg-[var(--color\/verde,#234549)] content-stretch flex items-center justify-center overflow-clip relative rounded-[100px] shrink-0 size-[24px]" data-node-id="4017:20491" data-name="Frame">
+            <div className="relative shrink-0 size-[14px]" data-node-id="4017:20492" data-name="Frame">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+            </div>
+          </div>
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="4017:20494">
+            Sesiones grupales en vivo con Bárbara
+          </p>
+        </div>
+        <div className="content-stretch flex gap-[8px] items-center overflow-clip relative shrink-0" data-node-id="4017:20495" data-name="Frame">
+          <div className="bg-[var(--color\/verde,#234549)] content-stretch flex items-center justify-center overflow-clip relative rounded-[100px] shrink-0 size-[24px]" data-node-id="4017:20496" data-name="Frame">
+            <div className="relative shrink-0 size-[14px]" data-node-id="4017:20497" data-name="Frame">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+            </div>
+          </div>
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="4017:20499">
+            Videoteca completa de talleres
+          </p>
+        </div>
+        <div className="content-stretch flex gap-[8px] items-center overflow-clip relative shrink-0" data-node-id="4017:20500" data-name="Frame">
+          <div className="bg-[var(--color\/verde,#234549)] content-stretch flex items-center justify-center overflow-clip relative rounded-[100px] shrink-0 size-[24px]" data-node-id="4017:20501" data-name="Frame">
+            <div className="relative shrink-0 size-[14px]" data-node-id="4017:20502" data-name="Frame">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+            </div>
+          </div>
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="4017:20504">
+            Comunidad privada de mamás
+          </p>
+        </div>
+      </div>
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/verde-suave,#56706f)] whitespace-nowrap" data-node-id="4017:20505">
+        Desde $14/mes · Sin contratos · Cancela cuando quieras
+      </p>
+      <div className="h-[8px] relative shrink-0 w-[10px]" data-node-id="4017:20506" data-name="Frame" />
+      <Boton className="bg-[var(--color\/frambuesa,#a8566a)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" texto="Quiero unirme a Mundo Angelitozzz" />
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto-suave,#6b6b6b)] whitespace-nowrap" data-node-id="4017:20508">
+        Sin compromisos. Cancela cuando quieras, sin penalidad.
+      </p>
+      <div className="absolute h-[262px] left-[146px] overflow-clip top-0 w-[248px]" data-node-id="4017:20509" data-name="Frame">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame1} />
+      </div>
+      <div className="absolute h-[125px] left-[1408px] overflow-clip top-[208px] w-[120px]" data-node-id="4017:20524" data-name="Frame">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+      </div>
+      <div className="absolute h-[71px] left-[1639px] overflow-clip top-[98px] w-[68px]" data-node-id="4017:20539" data-name="Frame">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame3} />
+      </div>
+    </div>
+  );
+}
+
+/* Figma notes (data):
+These styles are contained in the design: 2026/Display, 2026/Body L, 2026/Label, 2026/Body S.
+Component "Botón" (3704:15621): Botón 2026 · Frambuesa (CTA principal sobre fondos claros) · Verde (sobre teal) · Claro (sobre verde oscuro) · Secundario (contorno).
+*/

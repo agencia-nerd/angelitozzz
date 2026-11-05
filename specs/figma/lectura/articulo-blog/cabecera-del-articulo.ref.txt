@@ -1,0 +1,50 @@
+const imgEllipse = "articulo-blog/assets/cabecera-avatar-autora.png";
+const imgImagenPrincipal = "articulo-blog/assets/cabecera-imagen-principal.jpg";
+
+type EtiquetaProps = {
+  className?: string;
+  estilo?: "Tarjeta";
+  icono?: "Ninguno";
+  texto?: string;
+};
+
+function Etiqueta({ className, estilo = "Tarjeta", icono = "Ninguno", texto = "Etiqueta" }: EtiquetaProps) {
+  return (
+    <div className={className || "bg-[var(--color\\/teal,#9cb0b0)] content-stretch flex items-center px-[14px] py-[6px] relative rounded-[100px]"} data-node-id="3719:4260">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="3719:4261">
+        {texto}
+      </p>
+    </div>
+  );
+}
+
+export default function CabeceraDelArticulo() {
+  return (
+    <div className="content-stretch flex flex-col gap-[18px] items-start pb-[48px] pt-[72px] px-[280px] relative size-full" data-node-id="3751:4579" data-name="Cabecera del artículo">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.4] not-italic relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)] whitespace-pre" data-node-id="3751:4580">{`Blog  /  Especiales`}</p>
+      <Etiqueta className="bg-[var(--color\/teal,#9cb0b0)] content-stretch flex items-center px-[14px] py-[6px] relative rounded-[100px] shrink-0" texto="Especiales" />
+      <p className="[word-break:break-word] font-['Barlow_Condensed:SemiBold'] leading-none not-italic relative shrink-0 text-[52px] text-[color:var(--color\/verde,#234549)] w-[1100px]" data-node-id="3751:4583">
+        Aprendizaje del sueño y las lágrimas
+      </p>
+      <div className="content-stretch flex gap-[14px] items-center overflow-clip relative shrink-0" data-node-id="3751:4584" data-name="Autora y fecha">
+        <div className="relative shrink-0 size-[44px]" data-node-id="3751:4585" data-name="Ellipse">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" height="44" src={imgEllipse} width="44" />
+        </div>
+        <div className="[word-break:break-word] content-stretch flex flex-col gap-[2px] items-start not-italic overflow-clip relative shrink-0 whitespace-nowrap" data-node-id="3751:4586" data-name="Frame">
+          <p className="font-['Barlow_Condensed:Medium'] leading-[1.3] relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)]" data-node-id="3751:4587">
+            Por Bárbara Arca
+          </p>
+          <p className="font-['Barlow_Condensed:Regular'] leading-[1.4] relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)]" data-node-id="3751:4588">
+            1 de marzo de 2024 · 5 min de lectura
+          </p>
+        </div>
+      </div>
+      <div className="h-[640px] relative rounded-[24px] shrink-0 w-full" data-node-id="3751:4589" data-name="Imagen principal">
+        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src={imgImagenPrincipal} />
+      </div>
+    </div>
+  );
+}
+
+// Styles in the design: 2026/Caption, 2026/Label S, 2026/Display, 2026/Label.
+// Component description (Figma): Etiqueta 3719:4272 — "Etiquetas 2026 · Tarjeta (pastilla), Hero (pastilla clara) y Esquina (pegada a la esquina superior izquierda de una imagen recortada, solo esquina inferior derecha redondeada)."

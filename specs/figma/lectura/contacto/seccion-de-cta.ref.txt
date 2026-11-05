@@ -1,0 +1,61 @@
+const imgFlecha = "assets/cta-flecha-boton.svg";
+const imgDecoracion = "assets/cta-estrella-contorno-inferior.svg";
+const imgGroup = "assets/cta-destello-dorado-pequeno.svg";
+const imgDecoracion1 = "assets/cta-destello-blanco-superior.svg";
+
+type BotonProps = {
+  className?: string;
+  flecha?: boolean;
+  texto?: string;
+  tipo?: "Frambuesa";
+};
+
+function Boton({ className, flecha = true, texto = "Texto del botón", tipo = "Frambuesa" }: BotonProps) {
+  return (
+    <div className={className || "bg-[var(--color\\/frambuesa,#a8566a)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px]"} data-node-id="3711:6161">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="3711:6162">
+        {texto}
+      </p>
+      {flecha && (
+        <div className="relative shrink-0 size-[18px]" data-node-id="3711:6163" data-name="Flecha">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function SeccionCta() {
+  return (
+    <div className="content-stretch flex flex-col items-center px-[228px] py-[88px] relative size-full" data-node-id="4020:22179" data-name="seccion cta">
+      <div className="bg-[var(--color\/beige,#d7d0b5)] content-stretch flex flex-col gap-[14px] items-center overflow-clip p-[64px] relative rounded-[24px] shrink-0 w-[1110px]" data-node-id="4020:22180" data-name="Escríbenos">
+        <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.15] not-italic relative shrink-0 text-[46px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="4020:22181">
+          Escríbenos
+        </p>
+        <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] text-center whitespace-nowrap" data-node-id="4020:22182">
+          Da el primer paso hacia un mundo de tranquilidad junto a tu bebé.
+        </p>
+        <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.2] not-italic relative shrink-0 text-[32px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="4020:22183">
+          info@angelitozzz.com
+        </p>
+        <div className="h-[8px] relative shrink-0 w-[10px]" data-node-id="4020:22184" data-name="Frame" />
+        <Boton className="bg-[var(--color\/frambuesa,#a8566a)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" texto="Escríbenos por WhatsApp" />
+        <div className="absolute flex inset-[69.19%_91.89%_9.46%_-2.75%] items-center justify-center" data-node-id="4020:22186" style={{ containerType: "size" }}>
+          <div className="flex-none h-[hypot(-0.461723cqw,100cqh)] skew-x-[-0.41deg] w-[99.5383cqw]">
+            <div className="relative size-full" data-name="Decoración">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDecoracion} />
+            </div>
+          </div>
+        </div>
+        <div className="absolute left-[120px] overflow-clip size-[50px] top-[287px]" data-node-id="4020:22187" data-name="Decoración">
+          <div className="absolute inset-[22.4%_23.47%_24.53%_23.46%]" data-node-id="4020:22188" data-name="Group">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup} />
+          </div>
+        </div>
+        <div className="absolute inset-[8.4%_2.7%_72.54%_90.09%]" data-node-id="4020:22190" data-name="Decoración">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDecoracion1} />
+        </div>
+      </div>
+    </div>
+  );
+}

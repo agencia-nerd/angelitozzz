@@ -1,0 +1,374 @@
+const imgGroup = "assets/testimonios-detalle-destello.svg";
+const imgDetalle370415568 = "assets/testimonios-detalle-estrella.svg";
+const imgDecoracion = "assets/testimonios-nube-derecha.svg";
+const imgVector = "assets/testimonios-nube-izquierda.svg";
+const imgVector47 = "assets/testimonios-nube-ojo-1.svg";
+const imgVector48 = "assets/testimonios-nube-ojo-2.svg";
+const imgFrame = "assets/testimonios-flecha-izquierda.svg";
+const imgFrame1 = "assets/testimonios-flecha-derecha.svg";
+const imgFrame2 = "assets/testimonios-estrella-rating.svg";
+const imgFrame3 = "assets/testimonios-avatar-corazon.svg";
+const imgComillas = "assets/testimonios-comillas.svg";
+const imgComillas1 = "assets/testimonios-comillas-2.svg";
+const imgPuntos = "assets/testimonios-puntos.svg";
+
+export default function TestimoniosTarjetas() {
+  return (
+    <div className="bg-[var(--color\/beige,#d7d0b5)] content-stretch flex flex-col gap-[56px] items-center pb-[181px] pt-[104px] px-[405px] relative size-full" data-node-id="4011:9243" data-name="Testimonios · Tarjetas">
+      <div className="absolute bottom-[8px] h-[190px] left-0 opacity-40 right-0" data-node-id="I4011:9243;3818:29" data-name="Detalle ZZZ animado">
+        <div className="absolute flex h-[57.228px] items-center justify-center left-[-16.69px] top-[136px] w-[34.757px]" data-node-id="I4011:9243;3818:30">
+          <div className="flex-none rotate-18">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[normal] not-italic relative text-[45px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap">Z</p>
+          </div>
+        </div>
+        <div className="absolute flex h-[61.313px] items-center justify-center left-[118.04px] top-[126px] w-[36.084px]" data-node-id="I4011:9243;3818:31">
+          <div className="flex-none rotate-17">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[normal] not-italic relative text-[48px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap">Z</p>
+          </div>
+        </div>
+        <div className="absolute flex h-[69.604px] items-center justify-center left-[254.03px] top-[103px] w-[38.284px]" data-node-id="I4011:9243;3818:32">
+          <div className="flex-none rotate-14">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[normal] not-italic relative text-[55px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap">Z</p>
+          </div>
+        </div>
+        <div className="absolute flex h-[79.132px] items-center justify-center left-[393.11px] top-[74px] w-[37.569px]" data-node-id="I4011:9243;3818:33">
+          <div className="flex-none rotate-9">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[normal] not-italic relative text-[63px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap">Z</p>
+          </div>
+        </div>
+        <div className="absolute flex h-[87.813px] items-center justify-center left-[534px] top-[43px] w-[34.928px]" data-node-id="I4011:9243;3818:34">
+          <div className="flex-none rotate-4">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[normal] not-italic relative text-[72px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap">Z</p>
+          </div>
+        </div>
+        <p className="[word-break:break-word] absolute font-['Barlow_Condensed:Medium'] leading-[normal] left-[675px] not-italic text-[79px] text-[color:var(--color\/crema,#f8f6f1)] top-[18px] whitespace-nowrap" data-node-id="I4011:9243;3818:35">
+          Z
+        </p>
+        <div className="absolute flex h-[102.125px] items-center justify-center left-[810px] top-[1.81px] w-[37.504px]" data-node-id="I4011:9243;3818:36">
+          <div className="-rotate-2 flex-none">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[normal] not-italic relative text-[84px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap">Z</p>
+          </div>
+        </div>
+        <div className="absolute flex h-[103.159px] items-center justify-center left-[945px] top-[-1.22px] w-[38.538px]" data-node-id="I4011:9243;3818:37">
+          <div className="-rotate-2 flex-none">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[normal] not-italic relative text-[85px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap">Z</p>
+          </div>
+        </div>
+        <div className="absolute flex h-[101.578px] items-center justify-center left-[1078.24px] top-[11px] w-[35.758px]" data-node-id="I4011:9243;3818:38">
+          <div className="flex-none rotate-1">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[normal] not-italic relative text-[84px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap">Z</p>
+          </div>
+        </div>
+        <div className="absolute flex h-[97.427px] items-center justify-center left-[1206.72px] top-[30px] w-[40.158px]" data-node-id="I4011:9243;3818:39">
+          <div className="flex-none rotate-5">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[normal] not-italic relative text-[79px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap">Z</p>
+          </div>
+        </div>
+        <div className="absolute flex h-[92.857px] items-center justify-center left-[1334.55px] top-[54px] w-[44.999px]" data-node-id="I4011:9243;3818:40">
+          <div className="flex-none rotate-10">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[normal] not-italic relative text-[74px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap">Z</p>
+          </div>
+        </div>
+        <div className="absolute flex h-[87.419px] items-center justify-center left-[1463.52px] top-[73px] w-[48.528px]" data-node-id="I4011:9243;3818:41">
+          <div className="flex-none rotate-15">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[normal] not-italic relative text-[69px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap">Z</p>
+          </div>
+        </div>
+        <div className="absolute flex h-[86.603px] items-center justify-center left-[1596.03px] top-[85px] w-[50.751px]" data-node-id="I4011:9243;3818:42">
+          <div className="flex-none rotate-17">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[normal] not-italic relative text-[68px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap">Z</p>
+          </div>
+        </div>
+        <div className="absolute flex h-[86.639px] items-center justify-center left-[1729.66px] top-[84px] w-[51.969px]" data-node-id="I4011:9243;3818:43">
+          <div className="flex-none rotate-18">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[normal] not-italic relative text-[68px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap">Z</p>
+          </div>
+        </div>
+        <div className="absolute flex h-[92.86px] items-center justify-center left-[1865.74px] top-[70px] w-[53.094px]" data-node-id="I4011:9243;3818:44">
+          <div className="flex-none rotate-16">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[normal] not-italic relative text-[73px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap">Z</p>
+          </div>
+        </div>
+      </div>
+      <div className="absolute left-[1560px] overflow-clip size-[30px] top-[520px]" data-node-id="I4011:9243;3811:51" data-name="Detalle 3704:15599">
+        <div className="absolute inset-[22.4%_23.46%_24.53%_23.47%]" data-node-id="I4011:9243;3811:52" data-name="Group">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup} />
+        </div>
+      </div>
+      <div className="absolute inset-[9.21%_80.52%_85.5%_17.19%]" data-node-id="I4011:9243;3811:50" data-name="Detalle 3704:15568">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDetalle370415568} />
+      </div>
+      <div className="absolute h-[113.165px] left-[87.45%] right-[-0.99%] top-[104px]" data-node-id="I4011:9243;3810:106" data-name="Decoración">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDecoracion} />
+      </div>
+      <div className="absolute h-[180.344px] left-[-0.94%] overflow-clip right-[85.31%] top-[793.66px]" data-node-id="I4011:9243;3810:101" data-name="Decoración">
+        <div className="absolute contents inset-[0_0_0.01%_0]" data-node-id="I4011:9243;3810:102">
+          <div className="absolute inset-[0_0_0.01%_0]" data-node-id="I4011:9243;3810:103" data-name="Vector">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+          </div>
+          <div className="absolute flex inset-[29.84%_66.7%_68.04%_25.95%] items-center justify-center" data-node-id="I4011:9243;3810:104" style={{ containerType: "size" }}>
+            <div className="-rotate-180 -scale-x-100 flex-none h-[100cqh] w-[100cqw]">
+              <div className="relative size-full">
+                <div className="absolute inset-[-58.65%_-10.19%_-58.64%_-10.19%]">
+                  <img alt="" className="block max-w-none size-full" src={imgVector47} />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="absolute flex inset-[29.84%_51.24%_68.04%_41.41%] items-center justify-center" data-node-id="I4011:9243;3810:105" style={{ containerType: "size" }}>
+            <div className="flex-none h-[100cqh] rotate-180 w-[100cqw]">
+              <div className="relative size-full">
+                <div className="absolute inset-[-58.65%_-10.19%_-58.64%_-10.19%]">
+                  <img alt="" className="block max-w-none size-full" src={imgVector48} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="content-stretch flex items-center justify-between overflow-clip relative shrink-0 w-full" data-node-id="I4011:9243;3810:28" data-name="Encabezado">
+        <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.15] not-italic relative shrink-0 text-[46px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="I4011:9243;3810:29">
+          SHHH... Bebés durmiendo felices
+        </p>
+        <div className="content-stretch flex gap-[12px] items-start overflow-clip relative shrink-0" data-node-id="I4011:9243;3810:30" data-name="Frame">
+          <div className="bg-[var(--color\/blanco,white)] border border-[var(--color\/beige,#d7d0b5)] border-solid content-stretch flex items-center justify-center overflow-clip relative rounded-[100px] shrink-0 size-[48px]" data-node-id="I4011:9243;3810:31" data-name="Flecha izquierda">
+            <div className="relative shrink-0 size-[20px]" data-node-id="I4011:9243;3810:32" data-name="Frame">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+            </div>
+          </div>
+          <div className="bg-[var(--color\/blanco,white)] border border-[var(--color\/beige,#d7d0b5)] border-solid content-stretch flex items-center justify-center overflow-clip relative rounded-[100px] shrink-0 size-[48px]" data-node-id="I4011:9243;3810:35" data-name="Flecha derecha">
+            <div className="relative shrink-0 size-[20px]" data-node-id="I4011:9243;3810:36" data-name="Frame">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame1} />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="h-[8px] relative shrink-0 w-[10px]" data-node-id="I4011:9243;3825:29" data-name="Espacio título" />
+      <div className="content-stretch flex gap-[24px] items-start overflow-clip relative shrink-0 w-full" data-node-id="I4011:9243;3810:39" data-name="Tarjetas">
+        <div className="bg-[var(--color\/blanco,white)] content-stretch flex flex-[1_0_0] flex-col gap-[14px] h-[320px] items-start min-w-px overflow-clip p-[28px] relative rounded-[20px]" data-node-id="I4011:9243;3810:40" data-name="Tarjeta testimonio">
+          <div className="content-stretch flex gap-[2px] items-start overflow-clip relative shrink-0" data-node-id="I4011:9243;3810:41" data-name="Estrellas">
+            <div className="relative shrink-0 size-[16px]" data-node-id="I4011:9243;3810:42" data-name="Frame">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+            </div>
+            <div className="relative shrink-0 size-[16px]" data-node-id="I4011:9243;3810:44" data-name="Frame">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+            </div>
+            <div className="relative shrink-0 size-[16px]" data-node-id="I4011:9243;3810:46" data-name="Frame">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+            </div>
+            <div className="relative shrink-0 size-[16px]" data-node-id="I4011:9243;3810:48" data-name="Frame">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+            </div>
+            <div className="relative shrink-0 size-[16px]" data-node-id="I4011:9243;3810:50" data-name="Frame">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+            </div>
+          </div>
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="I4011:9243;3810:52">
+            “Bárbara, te hago un altar: en 4 días avanzamos lo que jamás pensé lograr, sin dejarlo llorar.”
+          </p>
+          <div className="flex-[1_0_0] min-h-px relative w-[10px]" data-node-id="I4011:9243;3810:53" data-name="Empuje" />
+          <div className="border-[var(--color\/beige,#d7d0b5)] border-solid border-t content-stretch flex gap-[12px] items-center overflow-clip pt-[16px] relative shrink-0 w-full" data-node-id="I4011:9243;3811:32" data-name="Autora con avatar">
+            <div className="bg-[var(--color\/blush,#f1dbd5)] content-stretch flex items-center justify-center overflow-clip relative rounded-[100px] shrink-0 size-[40px]" data-node-id="I4011:9243;3811:33" data-name="Avatar">
+              <div className="relative shrink-0 size-[18px]" data-node-id="I4011:9243;3811:34" data-name="Frame">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame3} />
+              </div>
+            </div>
+            <div className="[word-break:break-word] content-stretch flex flex-col gap-[2px] items-start not-italic overflow-clip relative shrink-0 whitespace-nowrap" data-node-id="I4011:9243;3810:54" data-name="Autora">
+              <p className="font-['Barlow_Condensed:Medium'] leading-[1.3] relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)]" data-node-id="I4011:9243;3810:55">
+                Daniela, mamá de Mateo
+              </p>
+              <p className="font-['Barlow_Condensed:Regular'] leading-[1.4] relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)]" data-node-id="I4011:9243;3810:56">
+                Bebé de 8 meses
+              </p>
+            </div>
+          </div>
+          <div className="absolute left-[298px] size-[30px] top-[24px]" data-node-id="I4011:9243;3811:29" data-name="Comillas">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgComillas} />
+          </div>
+        </div>
+        <div className="bg-[var(--color\/blanco,white)] content-stretch flex flex-[1_0_0] flex-col gap-[14px] h-[320px] items-start min-w-px overflow-clip p-[28px] relative rounded-[20px]" data-node-id="I4011:9243;3810:57" data-name="Tarjeta testimonio">
+          <div className="content-stretch flex gap-[2px] items-start overflow-clip relative shrink-0" data-node-id="I4011:9243;3810:58" data-name="Estrellas">
+            <div className="relative shrink-0 size-[16px]" data-node-id="I4011:9243;3810:59" data-name="Frame">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+            </div>
+            <div className="relative shrink-0 size-[16px]" data-node-id="I4011:9243;3810:61" data-name="Frame">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+            </div>
+            <div className="relative shrink-0 size-[16px]" data-node-id="I4011:9243;3810:63" data-name="Frame">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+            </div>
+            <div className="relative shrink-0 size-[16px]" data-node-id="I4011:9243;3810:65" data-name="Frame">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+            </div>
+            <div className="relative shrink-0 size-[16px]" data-node-id="I4011:9243;3810:67" data-name="Frame">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+            </div>
+          </div>
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="I4011:9243;3810:69">
+            “Compré el curso con mi hija de 8 semanas; a los 4 meses dormía de corrido. Hoy tiene 2 años y sigue durmiendo increíble.”
+          </p>
+          <div className="flex-[1_0_0] min-h-px relative w-[10px]" data-node-id="I4011:9243;3810:70" data-name="Empuje" />
+          <div className="border-[var(--color\/beige,#d7d0b5)] border-solid border-t content-stretch flex gap-[12px] items-center overflow-clip pt-[16px] relative shrink-0 w-full" data-node-id="I4011:9243;3811:39" data-name="Autora con avatar">
+            <div className="bg-[var(--color\/blush,#f1dbd5)] content-stretch flex items-center justify-center overflow-clip relative rounded-[100px] shrink-0 size-[40px]" data-node-id="I4011:9243;3811:40" data-name="Avatar">
+              <div className="relative shrink-0 size-[18px]" data-node-id="I4011:9243;3811:41" data-name="Frame">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame3} />
+              </div>
+            </div>
+            <div className="[word-break:break-word] content-stretch flex flex-col gap-[2px] items-start not-italic overflow-clip relative shrink-0 whitespace-nowrap" data-node-id="I4011:9243;3810:71" data-name="Autora">
+              <p className="font-['Barlow_Condensed:Medium'] leading-[1.3] relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)]" data-node-id="I4011:9243;3810:72">
+                Lucía, mamá de Emilia
+              </p>
+              <p className="font-['Barlow_Condensed:Regular'] leading-[1.4] relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)]" data-node-id="I4011:9243;3810:73">
+                Bebé de 2 años
+              </p>
+            </div>
+          </div>
+          <div className="absolute left-[298px] size-[30px] top-[24px]" data-node-id="I4011:9243;3811:36" data-name="Comillas">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgComillas1} />
+          </div>
+        </div>
+        <div className="bg-[var(--color\/blanco,white)] content-stretch flex flex-[1_0_0] flex-col gap-[14px] h-[320px] items-start min-w-px overflow-clip p-[28px] relative rounded-[20px]" data-node-id="I4011:9243;3810:74" data-name="Tarjeta testimonio">
+          <div className="content-stretch flex gap-[2px] items-start overflow-clip relative shrink-0" data-node-id="I4011:9243;3810:75" data-name="Estrellas">
+            <div className="relative shrink-0 size-[16px]" data-node-id="I4011:9243;3810:76" data-name="Frame">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+            </div>
+            <div className="relative shrink-0 size-[16px]" data-node-id="I4011:9243;3810:78" data-name="Frame">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+            </div>
+            <div className="relative shrink-0 size-[16px]" data-node-id="I4011:9243;3810:80" data-name="Frame">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+            </div>
+            <div className="relative shrink-0 size-[16px]" data-node-id="I4011:9243;3810:82" data-name="Frame">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+            </div>
+            <div className="relative shrink-0 size-[16px]" data-node-id="I4011:9243;3810:84" data-name="Frame">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+            </div>
+          </div>
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="I4011:9243;3810:86">
+            “Mi bebé tiene 12 días y ya la puedo poner en el moisés. Antes solo dormía en brazos.”
+          </p>
+          <div className="flex-[1_0_0] min-h-px relative w-[10px]" data-node-id="I4011:9243;3810:87" data-name="Empuje" />
+          <div className="border-[var(--color\/beige,#d7d0b5)] border-solid border-t content-stretch flex gap-[12px] items-center overflow-clip pt-[16px] relative shrink-0 w-full" data-node-id="I4011:9243;3811:46" data-name="Autora con avatar">
+            <div className="bg-[var(--color\/blush,#f1dbd5)] content-stretch flex items-center justify-center overflow-clip relative rounded-[100px] shrink-0 size-[40px]" data-node-id="I4011:9243;3811:47" data-name="Avatar">
+              <div className="relative shrink-0 size-[18px]" data-node-id="I4011:9243;3811:48" data-name="Frame">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame3} />
+              </div>
+            </div>
+            <div className="[word-break:break-word] content-stretch flex flex-col gap-[2px] items-start not-italic overflow-clip relative shrink-0 whitespace-nowrap" data-node-id="I4011:9243;3810:88" data-name="Autora">
+              <p className="font-['Barlow_Condensed:Medium'] leading-[1.3] relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)]" data-node-id="I4011:9243;3810:89">
+                Valeria, mamá de Joaquín
+              </p>
+              <p className="font-['Barlow_Condensed:Regular'] leading-[1.4] relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)]" data-node-id="I4011:9243;3810:90">
+                Bebé de 12 días
+              </p>
+            </div>
+          </div>
+          <div className="absolute left-[298px] size-[30px] top-[24px]" data-node-id="I4011:9243;3811:43" data-name="Comillas">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgComillas1} />
+          </div>
+        </div>
+      </div>
+      <div className="h-[10px] relative shrink-0 w-[58px]" data-node-id="I4011:9243;3810:91" data-name="Puntos">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgPuntos} />
+      </div>
+      <a className="border-[1.5px] border-[var(--color\/verde,#234549)] border-solid content-stretch cursor-pointer flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" data-node-id="I4011:9243;3810:96" data-name="Botón">
+        <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)] text-left whitespace-nowrap" data-node-id="I4011:9243;3810:96;3704:15612">
+          Ver más testimonios
+        </p>
+      </a>
+      <div className="absolute bg-[var(--color\/blanco,white)] content-stretch flex flex-col gap-[14px] h-[320px] items-start left-[27px] opacity-45 overflow-clip p-[28px] rounded-[20px] top-[277px] w-[354px]" data-node-id="I4011:9243;3824:29" data-name="Tarjeta asomada izquierda">
+        <div className="content-stretch flex gap-[2px] items-start overflow-clip relative shrink-0" data-node-id="I4011:9243;3824:30" data-name="Estrellas">
+          <div className="relative shrink-0 size-[16px]" data-node-id="I4011:9243;3824:31" data-name="Frame">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+          </div>
+          <div className="relative shrink-0 size-[16px]" data-node-id="I4011:9243;3824:33" data-name="Frame">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+          </div>
+          <div className="relative shrink-0 size-[16px]" data-node-id="I4011:9243;3824:35" data-name="Frame">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+          </div>
+          <div className="relative shrink-0 size-[16px]" data-node-id="I4011:9243;3824:37" data-name="Frame">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+          </div>
+          <div className="relative shrink-0 size-[16px]" data-node-id="I4011:9243;3824:39" data-name="Frame">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+          </div>
+        </div>
+        <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="I4011:9243;3824:41">
+          “Probé de todo y nada funcionaba. Con el plan de Bárbara, en una semana mi bebé dormía en su cuna.”
+        </p>
+        <div className="flex-[1_0_0] min-h-px relative w-[10px]" data-node-id="I4011:9243;3824:42" data-name="Empuje" />
+        <div className="border-[var(--color\/beige,#d7d0b5)] border-solid border-t content-stretch flex gap-[12px] items-center overflow-clip pt-[16px] relative shrink-0 w-full" data-node-id="I4011:9243;3824:43" data-name="Autora con avatar">
+          <div className="bg-[var(--color\/blush,#f1dbd5)] content-stretch flex items-center justify-center overflow-clip relative rounded-[100px] shrink-0 size-[40px]" data-node-id="I4011:9243;3824:44" data-name="Avatar">
+            <div className="relative shrink-0 size-[18px]" data-node-id="I4011:9243;3824:45" data-name="Frame">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame3} />
+            </div>
+          </div>
+          <div className="[word-break:break-word] content-stretch flex flex-col gap-[2px] items-start not-italic overflow-clip relative shrink-0 whitespace-nowrap" data-node-id="I4011:9243;3824:47" data-name="Autora">
+            <p className="font-['Barlow_Condensed:Medium'] leading-[1.3] relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)]" data-node-id="I4011:9243;3824:48">
+              Carolina, mamá de Tomás
+            </p>
+            <p className="font-['Barlow_Condensed:Regular'] leading-[1.4] relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)]" data-node-id="I4011:9243;3824:49">
+              Bebé de 6 meses
+            </p>
+          </div>
+        </div>
+        <div className="absolute left-[298px] size-[30px] top-[24px]" data-node-id="I4011:9243;3824:50" data-name="Comillas">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgComillas} />
+        </div>
+      </div>
+      <div className="absolute bg-[var(--color\/blanco,white)] content-stretch flex flex-col gap-[14px] h-[320px] items-start left-[1539px] opacity-45 overflow-clip p-[28px] rounded-[20px] top-[277px] w-[354px]" data-node-id="I4011:9243;3824:53" data-name="Tarjeta asomada derecha">
+        <div className="content-stretch flex gap-[2px] items-start overflow-clip relative shrink-0" data-node-id="I4011:9243;3824:54" data-name="Estrellas">
+          <div className="relative shrink-0 size-[16px]" data-node-id="I4011:9243;3824:55" data-name="Frame">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+          </div>
+          <div className="relative shrink-0 size-[16px]" data-node-id="I4011:9243;3824:57" data-name="Frame">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+          </div>
+          <div className="relative shrink-0 size-[16px]" data-node-id="I4011:9243;3824:59" data-name="Frame">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+          </div>
+          <div className="relative shrink-0 size-[16px]" data-node-id="I4011:9243;3824:61" data-name="Frame">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+          </div>
+          <div className="relative shrink-0 size-[16px]" data-node-id="I4011:9243;3824:63" data-name="Frame">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+          </div>
+        </div>
+        <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="I4011:9243;3824:65">
+          “Pensé que nunca iba a volver a dormir una noche completa. Hoy dormimos todos.”
+        </p>
+        <div className="flex-[1_0_0] min-h-px relative w-[10px]" data-node-id="I4011:9243;3824:66" data-name="Empuje" />
+        <div className="border-[var(--color\/beige,#d7d0b5)] border-solid border-t content-stretch flex gap-[12px] items-center overflow-clip pt-[16px] relative shrink-0 w-full" data-node-id="I4011:9243;3824:67" data-name="Autora con avatar">
+          <div className="bg-[var(--color\/blush,#f1dbd5)] content-stretch flex items-center justify-center overflow-clip relative rounded-[100px] shrink-0 size-[40px]" data-node-id="I4011:9243;3824:68" data-name="Avatar">
+            <div className="relative shrink-0 size-[18px]" data-node-id="I4011:9243;3824:69" data-name="Frame">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame3} />
+            </div>
+          </div>
+          <div className="[word-break:break-word] content-stretch flex flex-col gap-[2px] items-start not-italic overflow-clip relative shrink-0 whitespace-nowrap" data-node-id="I4011:9243;3824:71" data-name="Autora">
+            <p className="font-['Barlow_Condensed:Medium'] leading-[1.3] relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)]" data-node-id="I4011:9243;3824:72">
+              Andrea, mamá de Lucas
+            </p>
+            <p className="font-['Barlow_Condensed:Regular'] leading-[1.4] relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)]" data-node-id="I4011:9243;3824:73">
+              Bebé de 7 meses
+            </p>
+          </div>
+        </div>
+        <div className="absolute left-[298px] size-[30px] top-[24px]" data-node-id="I4011:9243;3824:74" data-name="Comillas">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgComillas1} />
+        </div>
+      </div>
+      <div className="absolute bg-gradient-to-r from-[#d7d0b5] h-[340px] left-0 to-[rgba(215,208,181,0)] top-[267px] w-[220px]" data-node-id="I4011:9243;3824:77" data-name="Tarjeta asomada · degradado izq" />
+      <div className="absolute bg-gradient-to-l from-[#d7d0b5] h-[340px] left-[1700px] to-[rgba(215,208,181,0)] top-[267px] w-[220px]" data-node-id="I4011:9243;3824:78" data-name="Tarjeta asomada · degradado der" />
+    </div>
+  );
+}
+
+/* Styles in the design: 2026/H2, 2026/Body, 2026/Label, 2026/Caption.
+Component descriptions (Figma):
+## Testimonios · Tarjetas (3810:27)
+Testimonios 2026 · encabezado con flechas, 3 tarjetas (estrellas, testimonio, nombre y edad), puntos y 'Ver más testimonios'. Textos de cada tarjeta editables.
+## Botón (3704:15621)
+Botón 2026 · Frambuesa (CTA principal sobre fondos claros) · Verde (sobre teal) · Claro (sobre verde oscuro) · Secundario (contorno).
+*/

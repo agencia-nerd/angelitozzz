@@ -1,0 +1,12 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="34" height="33.7183" viewBox="0 0 34 33.7183" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="Adorno m&#195;&#179;vil">
+<use xlink:href="#stroke0_0_17" fill="#9CB0B0" style="fill:#9CB0B0;fill:color(display-p3 0.6118 0.6902 0.6902);fill-opacity:1;"/>
+<mask id="stroke1_0_17" fill="white">
+<use xlink:href="#stroke0_0_17"/>
+</mask>
+<path d="M25.0864 0C26.7273 2.71981 27.6708 5.90071 27.6708 9.30078C27.6708 19.3193 19.481 27.4412 9.37859 27.4412C5.9505 27.4412 2.74256 26.5056 0 24.8782C3.19434 30.1733 9.03349 33.7183 15.7078 33.7183C25.8101 33.7183 34 25.5964 34 15.5779C34 8.95896 30.4253 3.16826 25.0864 0Z" stroke-width="2.30691" stroke="#9CB0B0" style="stroke:#9CB0B0;stroke:color(display-p3 0.6118 0.6902 0.6902);stroke-opacity:1;" mask="url(#stroke1_0_17)"/>
+</g>
+<defs>
+<path id="stroke0_0_17" d="M25.0864 0C26.7273 2.71981 27.6708 5.90071 27.6708 9.30078C27.6708 19.3193 19.481 27.4412 9.37859 27.4412C5.9505 27.4412 2.74256 26.5056 0 24.8782C3.19434 30.1733 9.03349 33.7183 15.7078 33.7183C25.8101 33.7183 34 25.5964 34 15.5779C34 8.95896 30.4253 3.16826 25.0864 0Z"/>
+</defs>
+</svg>

@@ -1,0 +1,40 @@
+export default function PromocinarMarca() {
+  return (
+    <div className="bg-white content-stretch flex items-start justify-center py-[88px] relative size-full" data-node-id="4017:20254" data-name="Promocinar marca">
+      <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="4017:20255" data-name="¿Te suena alguna de estas? / Para quién es (de Horarios)">
+        <div className="bg-[var(--color\/crema,#f8f6f1)] col-1 h-[470px] ml-0 mt-0 relative rounded-[30px] row-1 w-[1191px]" data-node-id="4017:20256" />
+        <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-0 mt-0 place-items-start relative row-1" data-node-id="4017:20259" />
+        <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Medium'] leading-[1.2] ml-[72px] mt-[56px] not-italic relative row-1 text-[32px] text-[color:var(--color\/verde,#234549)] w-[470px]" data-node-id="4017:20274">
+          ¿Te suena alguna de estas?
+        </p>
+        <div className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] ml-[72px] mt-[117px] not-italic relative row-1 text-[18px] text-[color:var(--color\/texto,black)] w-[470px]" data-node-id="4017:20275">
+          <p className="leading-[1.5] mb-0">• Tu bebé dormía bien y de repente todo cambió — y no sabes cómo volver.</p>
+          <p className="leading-[1.5] mb-0">• Necesitas una guía confiable sobre el sueño de tu bebé pero no sabes por dónde empezar.</p>
+          <p className="leading-[1.5] mb-0">• Cada vez que buscas en Google encuentras información contradictoria o demasiado general.</p>
+          <p className="leading-[1.5] mb-0">• Tienes preguntas pero no estás lista todavía para una asesoría completa.</p>
+          <p className="leading-[1.5]">• Sientes que vives adivinando en vez de realmente entendiendo a tu bebé.</p>
+        </div>
+        <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Italic'] italic leading-[1.4] ml-[72px] mt-[326px] relative row-1 text-[16px] text-[color:var(--color\/terracota,#c4704a)] w-[470px]" data-node-id="4017:20276">
+          El sueño infantil cambia constantemente. No es que lo estés haciendo mal — es que nadie te está guiando en tiempo real.
+        </p>
+        <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Medium'] leading-[1.2] ml-[651.5px] mt-[56px] not-italic relative row-1 text-[32px] text-[color:var(--color\/verde,#234549)] w-[470px]" data-node-id="4017:20277">
+          Mundo Angelitozzz es para ti si...
+        </p>
+        <div className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] ml-[651.5px] mt-[117px] not-italic relative row-1 text-[18px] text-[color:var(--color\/texto,black)] w-[470px]" data-node-id="4017:20278">
+          <p className="leading-[1.5] mb-0">• Eres mamá primeriza y el sueño de tu bebé te tiene confundida — necesitas apoyarte en alguien que realmente sepa.</p>
+          <p className="leading-[1.5] mb-0">• Siempre estás dudando sobre cómo ayudar a tu bebé a dormir mejor — y el cansancio ya pesa.</p>
+          <p className="leading-[1.5] mb-0">• Quieres apoyo experto continuo sin pagar una asesoría completa cada vez que algo cambia.</p>
+          <p className="leading-[1.5] mb-0">• Buscas información confiable y directa — sin más Google, sin más contradicciones.</p>
+          <p className="leading-[1.5] mb-0">• Necesitas un espacio seguro donde preguntar sin miedo a ser juzgada.</p>
+          <p className="leading-[1.5]">• Tu bebé ya duerme bien pero quieres estar preparada para los cambios — sin retrocesos ni sorpresas.</p>
+        </div>
+        <div className="bg-[var(--color\/beige,#d7d0b5)] col-1 h-[358px] ml-[596px] mt-[56px] relative row-1 w-px" data-node-id="4017:20279" data-name="Divider" />
+      </div>
+    </div>
+  );
+}
+
+/* Figma notes (data):
+These styles are contained in the design: 2026/H3, 2026/Body, 2026/Note.
+No assets returned for this section.
+*/

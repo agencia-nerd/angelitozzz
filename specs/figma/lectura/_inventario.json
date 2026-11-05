@@ -1,0 +1,7051 @@
+{
+  "ok": true,
+  "source": "figma",
+  "summary": {
+    "pages": 9,
+    "sections": 40,
+    "sectionsPending": 0,
+    "images": 223,
+    "repeatedGroups": 5,
+    "interactions": 15,
+    "dynamicCandidates": 9,
+    "findings": 3
+  },
+  "pages": [
+    {
+      "file": "specs/figma/enlaces/articulo-blog.md",
+      "title": "articulo-blog",
+      "fuente": {
+        "fileKey": "FumWuCPT1PPDg5vBTYoufA",
+        "nodeId": "3751:4552"
+      },
+      "notes": [],
+      "sections": [
+        {
+          "name": "cabecera-del-articulo",
+          "nodeId": "3751:4579",
+          "nombreCapa": "Cabecera del artículo",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 980
+          },
+          "components": [
+            "Etiqueta"
+          ],
+          "images": 2,
+          "texts": 5,
+          "signals": [
+            "otro",
+            "otro"
+          ],
+          "notes": [
+            "La imagen que aparece de quien lo publico (Por Bárbara...) se usara lo que es del avatar del propio wordpress.",
+            "sobre los minutos de lecturas que sea automatico, y no un campo a parte.",
+            "Que la imagen grande venga de la imagen destacada."
+          ],
+          "mobile": null
+        },
+        {
+          "name": "cuerpo-del-articulo",
+          "nodeId": "3751:4590",
+          "nombreCapa": "Cuerpo del artículo",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 1436
+          },
+          "components": [],
+          "images": 2,
+          "texts": 12,
+          "signals": [
+            "otro",
+            "otro",
+            "otro"
+          ],
+          "notes": [
+            "Usar la entrada de la interna por defecto de wordpres donde se puede ingresar texto imagen, y etc de cosas para el articulo.",
+            "ya que wordpress tiene estilos ya definidos por defecto, sobre escribe eso y usa los estilos que se tiene."
+          ],
+          "mobile": null
+        },
+        {
+          "name": "escrito-por",
+          "nodeId": "4038:22779",
+          "nombreCapa": "escrito por",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 259
+          },
+          "components": [
+            "Botón"
+          ],
+          "images": 3,
+          "texts": 5,
+          "signals": [
+            "otro"
+          ],
+          "notes": [
+            "Usar la misma imagen que usar el avatar de wordpress.",
+            "Sobre la descripcion usar Información biográfica que viene por defecto en wordpress.",
+            "Conce a barbara que lleve a la pagina conoce a barbara",
+            "ver soluciones de sueño que lleve a shop (como se menciono aun quedara pendiente de implementar)"
+          ],
+          "mobile": null
+        },
+        {
+          "name": "te-puede-interesar",
+          "nodeId": "3751:4628",
+          "nombreCapa": "También te puede interesar",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 695
+          },
+          "components": [
+            "Tarjeta de blog",
+            "Etiqueta"
+          ],
+          "images": 4,
+          "texts": 15,
+          "signals": [
+            "repetidor",
+            "listado"
+          ],
+          "notes": [
+            "Que muestre los 3 articulos mas recientes de la categoria relacionada",
+            "Si no hay mas articulos relacionados a la categoria, mostrar los articulos en general."
+          ],
+          "mobile": null
+        },
+        {
+          "name": "cta-final",
+          "nodeId": "3751:4670",
+          "nombreCapa": "CTA final",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 400
+          },
+          "components": [
+            "CTA final",
+            "Botón"
+          ],
+          "images": 8,
+          "texts": 3,
+          "signals": [
+            "decorativo",
+            "otro"
+          ],
+          "notes": [],
+          "mobile": null
+        }
+      ]
+    },
+    {
+      "file": "specs/figma/enlaces/blog.md",
+      "title": "blog",
+      "fuente": {
+        "fileKey": "FumWuCPT1PPDg5vBTYoufA",
+        "nodeId": "3747:5206"
+      },
+      "notes": [
+        "cada seccion es una categoria nueva.",
+        "cada seccion tiene la opcion de ver todos.",
+        "Al precionar ver todos debe de filtrar automaticamente solo los post de esa categoria.",
+        "usar las entradas que viene por defecto de wordpress e implementarlo con las skills recomendadas."
+      ],
+      "sections": [
+        {
+          "name": "hero-blog",
+          "nodeId": "3751:4324",
+          "nombreCapa": "Hero blog",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 471
+          },
+          "components": [],
+          "images": 4,
+          "texts": 12,
+          "signals": [
+            "formulario",
+            "pestanas",
+            "decorativo"
+          ],
+          "notes": [
+            "usar las skills recomendadas para este formato."
+          ],
+          "mobile": null
+        },
+        {
+          "name": "categoria-especiales",
+          "nodeId": "3751:4348",
+          "nombreCapa": "Categoría · Especiales",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 647
+          },
+          "components": [
+            "Tarjeta de blog"
+          ],
+          "images": 5,
+          "texts": 18,
+          "signals": [
+            "listado",
+            "repetidor",
+            "otro"
+          ],
+          "notes": [],
+          "mobile": null
+        },
+        {
+          "name": "categoria-bebes-0-4-meses",
+          "nodeId": "3751:4399",
+          "nombreCapa": "Categoría · Bebés 0 – 4 meses",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 599
+          },
+          "components": [
+            "Tarjeta de blog"
+          ],
+          "images": 5,
+          "texts": 18,
+          "signals": [
+            "listado",
+            "repetidor",
+            "otro"
+          ],
+          "notes": [],
+          "mobile": null
+        },
+        {
+          "name": "categoria-bebes-4-24-meses",
+          "nodeId": "3751:4450",
+          "nombreCapa": "Categoría · Bebés 4 – 24 meses",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 599
+          },
+          "components": [
+            "Tarjeta de blog"
+          ],
+          "images": 5,
+          "texts": 18,
+          "signals": [
+            "listado",
+            "repetidor",
+            "otro"
+          ],
+          "notes": [],
+          "mobile": null
+        },
+        {
+          "name": "categoria-bebes-24-meses-4-anos",
+          "nodeId": "3751:4501",
+          "nombreCapa": "Categoría · Bebés 24 meses – 4 años",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 663
+          },
+          "components": [
+            "Tarjeta de blog"
+          ],
+          "images": 5,
+          "texts": 18,
+          "signals": [
+            "listado",
+            "repetidor",
+            "otro"
+          ],
+          "notes": [],
+          "mobile": null
+        }
+      ]
+    },
+    {
+      "file": "specs/figma/enlaces/conoce-a-barbara.md",
+      "title": "conoce-a-barbara",
+      "fuente": {
+        "fileKey": "FumWuCPT1PPDg5vBTYoufA",
+        "nodeId": "4017:20868"
+      },
+      "notes": [],
+      "sections": [
+        {
+          "name": "hero",
+          "nodeId": "4017:21076",
+          "nombreCapa": "hero",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 863
+          },
+          "components": [],
+          "images": 2,
+          "texts": 4,
+          "signals": [
+            "decorativo"
+          ],
+          "notes": [],
+          "mobile": null
+        },
+        {
+          "name": "reflexion",
+          "nodeId": "4017:21055",
+          "nombreCapa": "Reflexion",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 1198
+          },
+          "components": [
+            "Botón"
+          ],
+          "images": 3,
+          "texts": 7,
+          "signals": [
+            "otro",
+            "decorativo"
+          ],
+          "notes": [
+            "el boton Conoce mis soluciones de sueño deberia de redirigir al shop que aun esta pendiente."
+          ],
+          "mobile": null
+        },
+        {
+          "name": "seccion-blog",
+          "nodeId": "4017:21124",
+          "nombreCapa": "Blog",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 845
+          },
+          "components": [
+            "Tarjeta de blog",
+            "Etiqueta",
+            "Botón"
+          ],
+          "images": 5,
+          "texts": 17,
+          "signals": [
+            "listado",
+            "repetidor",
+            "otro"
+          ],
+          "notes": [
+            "que tenga un campo relationalshilp creo que es, que se puede seleccionar y ordenar los articulos que el admi guste, si no pone niguno que salga los 3 ultimos articulos del blog."
+          ],
+          "mobile": null
+        },
+        {
+          "name": "cta-final",
+          "nodeId": "4017:21176",
+          "nombreCapa": "CTA final",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 400
+          },
+          "components": [
+            "CTA final",
+            "Botón"
+          ],
+          "images": 8,
+          "texts": 2,
+          "signals": [
+            "decorativo",
+            "otro"
+          ],
+          "notes": [],
+          "mobile": null
+        }
+      ]
+    },
+    {
+      "file": "specs/figma/enlaces/contacto.md",
+      "title": "contacto",
+      "fuente": {
+        "fileKey": "FumWuCPT1PPDg5vBTYoufA",
+        "nodeId": "4020:21781"
+      },
+      "notes": [],
+      "sections": [
+        {
+          "name": "seccion-de-contacto",
+          "nodeId": "4020:22112",
+          "nombreCapa": "seccion de contacto",
+          "estado": "leida",
+          "size": {
+            "ancho": 1919,
+            "alto": 811
+          },
+          "components": [
+            "Botón"
+          ],
+          "images": 5,
+          "texts": 9,
+          "signals": [
+            "formulario",
+            "otro",
+            "otro",
+            "decorativo"
+          ],
+          "notes": [
+            "usar la skill wp form, y los correos que lleguen al mailpit, luego se usara el plugin Fluent SMPT."
+          ],
+          "mobile": null
+        },
+        {
+          "name": "seccion-de-cta",
+          "nodeId": "4020:22179",
+          "nombreCapa": "seccion cta",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 540
+          },
+          "components": [
+            "Botón"
+          ],
+          "images": 4,
+          "texts": 4,
+          "signals": [
+            "otro",
+            "otro",
+            "decorativo",
+            "otro"
+          ],
+          "notes": [
+            "el correo que sea un enlace que lleve al correo (mailto:)",
+            "usar el campo de whatsapp que se usa en configuracion del sitio"
+          ],
+          "mobile": null
+        }
+      ]
+    },
+    {
+      "file": "specs/figma/enlaces/home.md",
+      "title": "home",
+      "fuente": {
+        "fileKey": "FumWuCPT1PPDg5vBTYoufA",
+        "nodeId": "4011:9018"
+      },
+      "notes": [
+        "La pagina tiene una imagen de fondo (quedara fija donde se usa), pero no en todas / otras paginas se repiten.",
+        "El cintillo-promociones, header, footer va en todas las paginas obligatoriamente.",
+        "la seccion de testimonios no todos comparten los mismos testimonios, pero cada pagina que tiene testimonios es independiente, incluyendo la pagina de testimonios, pero si usar lo que se pide para las secciones testimonios (swiper, no automatico, redifreccionar a su pagina)",
+        "varias paginas compartes la estructura o similar a de cta-final, como se menciona en la nota de esa seccion, eso aun quedara pendiente para las demas cta-final de otras paginas."
+      ],
+      "sections": [
+        {
+          "name": "cintillo-promociones",
+          "nodeId": "4011:9019",
+          "nombreCapa": "Cintillo promociones (administrable)",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 56
+          },
+          "components": [
+            "Cintillo promociones (administrable)"
+          ],
+          "images": 1,
+          "texts": 1,
+          "signals": [
+            "modal"
+          ],
+          "notes": [
+            "Cuando se pase a ACF, en el apartado de configuracion del sitio vaya un campo para ese sintillo."
+          ],
+          "mobile": null
+        },
+        {
+          "name": "header",
+          "nodeId": "4011:9020",
+          "nombreCapa": "Header",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 95
+          },
+          "components": [
+            "Header"
+          ],
+          "images": 3,
+          "texts": 8,
+          "signals": [
+            "menu",
+            "otro"
+          ],
+          "notes": [],
+          "mobile": null
+        },
+        {
+          "name": "hero",
+          "nodeId": "4011:9021",
+          "nombreCapa": "Hero inicio",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 626
+          },
+          "components": [
+            "Botón"
+          ],
+          "images": 11,
+          "texts": 7,
+          "signals": [
+            "decorativo"
+          ],
+          "notes": [
+            "Encuentra tu curso ideal llevara a la pagina de cursos que aun esta en solo diseño."
+          ],
+          "mobile": null
+        },
+        {
+          "name": "como-ayudarte",
+          "nodeId": "4011:9045",
+          "nombreCapa": "Como ayudarte",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 973
+          },
+          "components": [
+            "Etiqueta",
+            "Botón"
+          ],
+          "images": 9,
+          "texts": 22,
+          "signals": [
+            "repetidor",
+            "slider",
+            "decorativo"
+          ],
+          "notes": [
+            "Este apartado sera por el momento solo diseño, ya que aun no se implementara lo que es los cursos de una plataforma externa.",
+            "Se esta pondiendo un curso sin alguna imagen, para que cuando no tenga imagen sea la imagen por defecto not found."
+          ],
+          "mobile": null
+        },
+        {
+          "name": "quien-soy",
+          "nodeId": "4011:10706",
+          "nombreCapa": "Quien soy",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 663
+          },
+          "components": [
+            "Botón"
+          ],
+          "images": 3,
+          "texts": 3,
+          "signals": [
+            "decorativo"
+          ],
+          "notes": [
+            "EL boton llevara a la pagina conoce a barbara"
+          ],
+          "mobile": null
+        },
+        {
+          "name": "seccion-cta",
+          "nodeId": "4011:10704",
+          "nombreCapa": "Seccion CTA",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 747
+          },
+          "components": [
+            "Botón"
+          ],
+          "images": 3,
+          "texts": 5,
+          "signals": [
+            "decorativo"
+          ],
+          "notes": [
+            "Quiero tener siempre una respuesta, llevara a la pagina de mundo-angelitozzz"
+          ],
+          "mobile": null
+        },
+        {
+          "name": "beneficios",
+          "nodeId": "4011:9188",
+          "nombreCapa": "Beneficios",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 752
+          },
+          "components": [],
+          "images": 6,
+          "texts": 6,
+          "signals": [
+            "repetidor",
+            "decorativo"
+          ],
+          "notes": [],
+          "mobile": null
+        },
+        {
+          "name": "seccion-instagram",
+          "nodeId": "4011:10557",
+          "nombreCapa": "Seccion instagram",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 854
+          },
+          "components": [
+            "Botón"
+          ],
+          "images": 4,
+          "texts": 2,
+          "signals": [
+            "listado",
+            "repetidor"
+          ],
+          "notes": [
+            "Este apartado es referencias, o sea tambien solo diseño ya que se buscara la forma de conectarlo con su IG, quizas con algun plugin."
+          ],
+          "mobile": null
+        },
+        {
+          "name": "testimonios",
+          "nodeId": "4011:9243",
+          "nombreCapa": "Testimonios · Tarjetas",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 954
+          },
+          "components": [
+            "Testimonios · Tarjetas",
+            "Botón"
+          ],
+          "images": 13,
+          "texts": 17,
+          "signals": [
+            "slider",
+            "repetidor",
+            "decorativo"
+          ],
+          "notes": [
+            "usa swiper para este slider, que no sea automatico.",
+            "testimonios independientes.",
+            "ver mas testimonios llevara a la pagina de testimonios."
+          ],
+          "mobile": null
+        },
+        {
+          "name": "cta-final",
+          "nodeId": "4011:9244",
+          "nombreCapa": "CTA final",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 400
+          },
+          "components": [
+            "CTA final",
+            "Botón"
+          ],
+          "images": 8,
+          "texts": 2,
+          "signals": [
+            "decorativo"
+          ],
+          "notes": [
+            "Eso llevara a la pagina shop/tienda/cursos (aun falta definir el nombre de la pagina), pero aun estara pendiente."
+          ],
+          "mobile": null
+        },
+        {
+          "name": "footer",
+          "nodeId": "4011:9245",
+          "nombreCapa": "Footer",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 541
+          },
+          "components": [
+            "Footer"
+          ],
+          "images": 9,
+          "texts": 17,
+          "signals": [
+            "formulario",
+            "menu",
+            "otro"
+          ],
+          "notes": [
+            "Usar la skill wp-form para ese formulario de correo del newsletter.",
+            "Las redes sociales que vaya en configuracion del sitio"
+          ],
+          "mobile": null
+        },
+        {
+          "name": "modal-coach",
+          "nodeId": "3888:6227",
+          "nombreCapa": "Pop-up-del-cintillo",
+          "estado": "leida",
+          "size": {
+            "ancho": 600,
+            "alto": 853
+          },
+          "components": [
+            "Botón"
+          ],
+          "images": 4,
+          "texts": 19,
+          "signals": [
+            "modal",
+            "formulario",
+            "otro"
+          ],
+          "notes": [
+            "lo abre el cintillo-promociones al hacer clic (pop-up del coach de sueño virtual).",
+            "El nombre es de acuerdo a lo que ponga el usuario. y por lo que se, eso se necesitaria llega al correo, pero como se va a necesitar el nombre del los inscritos crea un apartado de el admin para leer los nombres y se te facilite.",
+            "Ademas, para el texto de ese apartado del modal, el campo este en confuracion del sitio, es para que sea administralo el texto."
+          ],
+          "mobile": null
+        },
+        {
+          "name": "modal-coach-gracias",
+          "nodeId": "3888:6508",
+          "nombreCapa": "Pop-up-gracias",
+          "estado": "leida",
+          "size": {
+            "ancho": 560,
+            "alto": 425
+          },
+          "components": [
+            "Botón"
+          ],
+          "images": 3,
+          "texts": 4,
+          "signals": [
+            "modal",
+            "otro"
+          ],
+          "notes": [
+            "la gracias del modal."
+          ],
+          "mobile": null
+        }
+      ]
+    },
+    {
+      "file": "specs/figma/enlaces/mundo-angelitozzz.md",
+      "title": "mundo-angelitozzz",
+      "fuente": {
+        "fileKey": "FumWuCPT1PPDg5vBTYoufA",
+        "nodeId": "4017:20167"
+      },
+      "notes": [],
+      "sections": [
+        {
+          "name": "hero",
+          "nodeId": "4017:20213",
+          "nombreCapa": "Mundo Angelitozzz",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 808
+          },
+          "components": [
+            "Botón"
+          ],
+          "images": 10,
+          "texts": 5,
+          "signals": [
+            "decorativo",
+            "otro",
+            "otro"
+          ],
+          "notes": [
+            "El boton/link Quiero unirme llevara a un enlace externo, ese proceso/pago no se realizara en esta pagina",
+            "El boton/link Escríbeme por WhatsApp, ese numero sumalo un campo en configuracion del sitio"
+          ],
+          "mobile": null
+        },
+        {
+          "name": "promocinar-marca",
+          "nodeId": "4017:20254",
+          "nombreCapa": "Promocinar marca",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 646
+          },
+          "components": [],
+          "images": 0,
+          "texts": 5,
+          "signals": [
+            "repetidor",
+            "otro"
+          ],
+          "notes": [],
+          "mobile": null
+        },
+        {
+          "name": "que-incluye-mundo",
+          "nodeId": "4017:20281",
+          "nombreCapa": "Qué incluye Mundo",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 1004
+          },
+          "components": [
+            "Botón"
+          ],
+          "images": 7,
+          "texts": 13,
+          "signals": [
+            "repetidor",
+            "decorativo",
+            "otro"
+          ],
+          "notes": [
+            "el boton Unirme a la comunidad deberia llevar de igual manera que el hero a un enlace externo."
+          ],
+          "mobile": null
+        },
+        {
+          "name": "testimonios",
+          "nodeId": "4017:20317",
+          "nombreCapa": "Testimonios · Tarjetas",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 954
+          },
+          "components": [
+            "Testimonios · Tarjetas",
+            "Botón"
+          ],
+          "images": 13,
+          "texts": 17,
+          "signals": [
+            "slider",
+            "repetidor",
+            "decorativo",
+            "otro",
+            "otro"
+          ],
+          "notes": [
+            "testimonios independientes.",
+            "usar lo que se pide."
+          ],
+          "mobile": null
+        },
+        {
+          "name": "cta-mundo",
+          "nodeId": "4017:20487",
+          "nombreCapa": "CTA Mundo",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 516
+          },
+          "components": [
+            "Botón"
+          ],
+          "images": 5,
+          "texts": 7,
+          "signals": [
+            "repetidor",
+            "decorativo"
+          ],
+          "notes": [
+            "el boton enlace Quiero unirme a Mundo Angelitozzz deberia de ir igualmente al enlace externo."
+          ],
+          "mobile": null
+        }
+      ]
+    },
+    {
+      "file": "specs/figma/enlaces/preguntas-frecuentes.md",
+      "title": "preguntas-frecuentes",
+      "fuente": {
+        "fileKey": "FumWuCPT1PPDg5vBTYoufA",
+        "nodeId": "4020:22495"
+      },
+      "notes": [],
+      "sections": [
+        {
+          "name": "seccion-preguntas-frecuentes",
+          "nodeId": "4020:22537",
+          "nombreCapa": "Preguntas de la pagina",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 1102
+          },
+          "components": [],
+          "images": 3,
+          "texts": 9,
+          "signals": [
+            "acordeon",
+            "repetidor",
+            "otro",
+            "decorativo"
+          ],
+          "notes": [
+            "las preguntas frecuentes de esta pagina son independientes de lo que se tiene en las demas paginas",
+            "cuando tenga mas de 10 preguntas, que aparezca lo que es el boton de ver mas."
+          ],
+          "mobile": null
+        },
+        {
+          "name": "cta-final",
+          "nodeId": "4020:22578",
+          "nombreCapa": "CTA final",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 400
+          },
+          "components": [
+            "CTA final",
+            "Botón"
+          ],
+          "images": 8,
+          "texts": 3,
+          "signals": [
+            "decorativo",
+            "otro",
+            "otro"
+          ],
+          "notes": [
+            "es ese apartado especifico, pide que se redireccione al whatsapp, o sea usar el campo de configuracion del sitio correspondiente."
+          ],
+          "mobile": null
+        }
+      ]
+    },
+    {
+      "file": "specs/figma/enlaces/soluciones-de-sueno.md",
+      "title": "soluciones-de-sueno",
+      "fuente": {
+        "fileKey": "FumWuCPT1PPDg5vBTYoufA",
+        "nodeId": "4011:11090"
+      },
+      "notes": [
+        "Aun no se realizaran las internas de cada producto. eso quedara pendiente"
+      ],
+      "sections": [
+        {
+          "name": "shop",
+          "nodeId": "4011:11093",
+          "nombreCapa": "seccion shop",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 1979
+          },
+          "components": [
+            "Etiqueta",
+            "Botón"
+          ],
+          "images": 8,
+          "texts": 22,
+          "signals": [
+            "repetidor",
+            "listado",
+            "decorativo",
+            "otro",
+            "otro"
+          ],
+          "notes": [
+            "Esta pagina sera donde se muestren todos los cursos, por el momento sera diseño, luego se pasara con woocomerce.",
+            "No llevara filtros, ni nada.",
+            "Cuando sobre pase 12 cursos que muestre un boton de ver mas.",
+            "cada boton es un enlace a la interna de cada curso."
+          ],
+          "mobile": null
+        },
+        {
+          "name": "cta-final",
+          "nodeId": "4011:11140",
+          "nombreCapa": "CTA final",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 400
+          },
+          "components": [
+            "CTA final",
+            "Botón"
+          ],
+          "images": 8,
+          "texts": 3,
+          "signals": [
+            "decorativo",
+            "otro",
+            "otro"
+          ],
+          "notes": [
+            "es ese apartado especifico, pide que se redireccione al whatsapp, o sea usar el campo de configuracion del sitio correspondiente."
+          ],
+          "mobile": null
+        }
+      ]
+    },
+    {
+      "file": "specs/figma/enlaces/testimonios.md",
+      "title": "testimonios",
+      "fuente": {
+        "fileKey": "FumWuCPT1PPDg5vBTYoufA",
+        "nodeId": "3747:4319"
+      },
+      "notes": [
+        "incluye las skills necesarias."
+      ],
+      "sections": [
+        {
+          "name": "seccion-testimonios",
+          "nodeId": "3749:4214",
+          "nombreCapa": "Testimonios",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 1779
+          },
+          "components": [
+            "Etiqueta"
+          ],
+          "images": 6,
+          "texts": 29,
+          "signals": [
+            "pestanas",
+            "listado",
+            "repetidor",
+            "otro",
+            "decorativo",
+            "otro"
+          ],
+          "notes": [
+            "cada testimonio es independiente y diferente de las otras secciones de testimonios, en este apartado se definira testimonios con categorias."
+          ],
+          "mobile": null
+        },
+        {
+          "name": "cta-final",
+          "nodeId": "3749:4344",
+          "nombreCapa": "CTA final",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 400
+          },
+          "components": [
+            "CTA final",
+            "Botón"
+          ],
+          "images": 8,
+          "texts": 3,
+          "signals": [
+            "decorativo",
+            "otro"
+          ],
+          "notes": [],
+          "mobile": null
+        }
+      ]
+    }
+  ],
+  "assets": {
+    "images": [
+      {
+        "page": "articulo-blog",
+        "section": "cabecera-del-articulo",
+        "id": "cabecera-avatar-autora",
+        "nodeId": "3751:4585",
+        "tipo": "png",
+        "ancho": 44,
+        "alto": 44,
+        "rol": "contenido",
+        "archivo": "articulo-blog/assets/cabecera-avatar-autora.png"
+      },
+      {
+        "page": "articulo-blog",
+        "section": "cabecera-del-articulo",
+        "id": "cabecera-imagen-principal",
+        "nodeId": "3751:4589",
+        "tipo": "jpg",
+        "ancho": 1360,
+        "alto": 640,
+        "rol": "contenido",
+        "archivo": "articulo-blog/assets/cabecera-imagen-principal.jpg"
+      },
+      {
+        "page": "articulo-blog",
+        "section": "cuerpo-del-articulo",
+        "id": "cuerpo-foto-bebe-gorro",
+        "nodeId": "3751:4599",
+        "tipo": "png",
+        "ancho": 1040,
+        "alto": 400,
+        "rol": "contenido",
+        "archivo": "articulo-blog/assets/cuerpo-foto-bebe-gorro.png"
+      },
+      {
+        "page": "articulo-blog",
+        "section": "cuerpo-del-articulo",
+        "id": "cuerpo-icono-bombilla",
+        "nodeId": "3751:4604",
+        "tipo": "svg",
+        "ancho": 32,
+        "alto": 32,
+        "rol": "decorativa",
+        "archivo": "articulo-blog/assets/cuerpo-icono-bombilla.svg"
+      },
+      {
+        "page": "articulo-blog",
+        "section": "escrito-por",
+        "id": "escrito-avatar-autora",
+        "nodeId": "4038:22759",
+        "tipo": "png",
+        "ancho": 120,
+        "alto": 120,
+        "rol": "contenido",
+        "archivo": "articulo-blog/assets/escrito-avatar-autora.png"
+      },
+      {
+        "page": "articulo-blog",
+        "section": "escrito-por",
+        "id": "escrito-flecha-blanca",
+        "nodeId": "3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "articulo-blog/assets/escrito-flecha-blanca.svg"
+      },
+      {
+        "page": "articulo-blog",
+        "section": "escrito-por",
+        "id": "escrito-flecha-verde",
+        "nodeId": "3704:15613",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "articulo-blog/assets/escrito-flecha-verde.svg"
+      },
+      {
+        "page": "articulo-blog",
+        "section": "te-puede-interesar",
+        "id": "interesar-foto-tarjeta-1",
+        "nodeId": "I3751:4631;3727:4236",
+        "tipo": "png",
+        "ancho": 350,
+        "alto": 210,
+        "rol": "contenido",
+        "archivo": "articulo-blog/assets/interesar-foto-tarjeta-1.png"
+      },
+      {
+        "page": "articulo-blog",
+        "section": "te-puede-interesar",
+        "id": "interesar-foto-tarjeta-2",
+        "nodeId": "I3751:4644;3727:4236",
+        "tipo": "jpg",
+        "ancho": 350,
+        "alto": 210,
+        "rol": "contenido",
+        "archivo": "articulo-blog/assets/interesar-foto-tarjeta-2.jpg"
+      },
+      {
+        "page": "articulo-blog",
+        "section": "te-puede-interesar",
+        "id": "interesar-foto-tarjeta-3",
+        "nodeId": "I3751:4657;3727:4236",
+        "tipo": "png",
+        "ancho": 350,
+        "alto": 210,
+        "rol": "contenido",
+        "archivo": "articulo-blog/assets/interesar-foto-tarjeta-3.png"
+      },
+      {
+        "page": "articulo-blog",
+        "section": "te-puede-interesar",
+        "id": "interesar-flecha-frambuesa",
+        "nodeId": "I3751:4631;3727:4245",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "articulo-blog/assets/interesar-flecha-frambuesa.svg"
+      },
+      {
+        "page": "articulo-blog",
+        "section": "cta-final",
+        "id": "cta-flecha-blanca",
+        "nodeId": "I3751:4670;3713:17007;3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "articulo-blog/assets/cta-flecha-blanca.svg"
+      },
+      {
+        "page": "articulo-blog",
+        "section": "cta-final",
+        "id": "cta-destello-derecha",
+        "nodeId": "I3751:4670;3713:17012",
+        "tipo": "svg",
+        "ancho": 68,
+        "alto": 71,
+        "rol": "decorativa",
+        "archivo": "articulo-blog/assets/cta-destello-derecha.svg"
+      },
+      {
+        "page": "articulo-blog",
+        "section": "cta-final",
+        "id": "cta-destello-grande-inferior",
+        "nodeId": "I3751:4670;3713:17027",
+        "tipo": "svg",
+        "ancho": 248,
+        "alto": 614,
+        "rol": "decorativa",
+        "archivo": "articulo-blog/assets/cta-destello-grande-inferior.svg"
+      },
+      {
+        "page": "articulo-blog",
+        "section": "cta-final",
+        "id": "cta-rayo-inferior",
+        "nodeId": "I3751:4670;3713:17041",
+        "tipo": "svg",
+        "ancho": 5.36,
+        "alto": 19.29,
+        "rol": "decorativa",
+        "archivo": "articulo-blog/assets/cta-rayo-inferior.svg"
+      },
+      {
+        "page": "articulo-blog",
+        "section": "cta-final",
+        "id": "cta-rayos-inferiores",
+        "nodeId": "I3751:4670;3713:17042",
+        "tipo": "svg",
+        "ancho": 99.02,
+        "alto": 29.26,
+        "rol": "decorativa",
+        "archivo": "articulo-blog/assets/cta-rayos-inferiores.svg"
+      },
+      {
+        "page": "articulo-blog",
+        "section": "cta-final",
+        "id": "cta-estrella-superior",
+        "nodeId": "I3751:4670;3713:17045",
+        "tipo": "svg",
+        "ancho": 63.68,
+        "alto": 66.33,
+        "rol": "decorativa",
+        "archivo": "articulo-blog/assets/cta-estrella-superior.svg"
+      },
+      {
+        "page": "articulo-blog",
+        "section": "cta-final",
+        "id": "cta-rayos-horizontales-superiores",
+        "nodeId": "I3751:4670;3713:17046",
+        "tipo": "svg",
+        "ancho": 120.01,
+        "alto": 5.59,
+        "rol": "decorativa",
+        "archivo": "articulo-blog/assets/cta-rayos-horizontales-superiores.svg"
+      },
+      {
+        "page": "articulo-blog",
+        "section": "cta-final",
+        "id": "cta-rayos-superiores",
+        "nodeId": "I3751:4670;3713:17049",
+        "tipo": "svg",
+        "ancho": 99.02,
+        "alto": 29.26,
+        "rol": "decorativa",
+        "archivo": "articulo-blog/assets/cta-rayos-superiores.svg"
+      },
+      {
+        "page": "blog",
+        "section": "hero-blog",
+        "id": "hero-buscador-icono",
+        "nodeId": "3807:5287",
+        "tipo": "svg",
+        "ancho": 20,
+        "alto": 20,
+        "rol": "decorativa",
+        "archivo": "blog/assets/hero-buscador-icono.svg"
+      },
+      {
+        "page": "blog",
+        "section": "hero-blog",
+        "id": "hero-estrella-grande",
+        "nodeId": "3751:4343",
+        "tipo": "svg",
+        "ancho": 60,
+        "alto": 61,
+        "rol": "decorativa",
+        "archivo": "blog/assets/hero-estrella-grande.svg"
+      },
+      {
+        "page": "blog",
+        "section": "hero-blog",
+        "id": "hero-estrella-pequena",
+        "nodeId": "3751:4344",
+        "tipo": "svg",
+        "ancho": 36,
+        "alto": 36,
+        "rol": "decorativa",
+        "archivo": "blog/assets/hero-estrella-pequena.svg"
+      },
+      {
+        "page": "blog",
+        "section": "hero-blog",
+        "id": "hero-destello",
+        "nodeId": "3751:4346",
+        "tipo": "svg",
+        "ancho": 21,
+        "alto": 21,
+        "rol": "decorativa",
+        "archivo": "blog/assets/hero-destello.svg"
+      },
+      {
+        "page": "blog",
+        "section": "categoria-especiales",
+        "id": "especiales-tarjeta-1-foto",
+        "nodeId": "I3751:4360;3727:4236",
+        "tipo": "jpg",
+        "ancho": 350,
+        "alto": 210,
+        "rol": "contenido",
+        "archivo": "blog/assets/especiales-tarjeta-1-foto.jpg"
+      },
+      {
+        "page": "blog",
+        "section": "categoria-especiales",
+        "id": "especiales-tarjeta-2-foto",
+        "nodeId": "I3751:4373;3727:4236",
+        "tipo": "png",
+        "ancho": 350,
+        "alto": 210,
+        "rol": "contenido",
+        "archivo": "blog/assets/especiales-tarjeta-2-foto.png"
+      },
+      {
+        "page": "blog",
+        "section": "categoria-especiales",
+        "id": "especiales-tarjeta-3-foto",
+        "nodeId": "I3751:4386;3727:4236",
+        "tipo": "png",
+        "ancho": 350,
+        "alto": 210,
+        "rol": "contenido",
+        "archivo": "blog/assets/especiales-tarjeta-3-foto.png"
+      },
+      {
+        "page": "blog",
+        "section": "categoria-especiales",
+        "id": "flecha-ver-todos",
+        "nodeId": "3751:4356",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "blog/assets/flecha-ver-todos.svg"
+      },
+      {
+        "page": "blog",
+        "section": "categoria-especiales",
+        "id": "flecha-leer",
+        "nodeId": "I3751:4360;3727:4245",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "blog/assets/flecha-leer.svg"
+      },
+      {
+        "page": "blog",
+        "section": "categoria-bebes-0-4-meses",
+        "id": "bebes-0-4-tarjeta-1-foto",
+        "nodeId": "I3751:4411;3727:4236",
+        "tipo": "png",
+        "ancho": 350,
+        "alto": 210,
+        "rol": "contenido",
+        "archivo": "blog/assets/bebes-0-4-tarjeta-1-foto.png"
+      },
+      {
+        "page": "blog",
+        "section": "categoria-bebes-0-4-meses",
+        "id": "bebes-0-4-tarjeta-2-foto",
+        "nodeId": "I3751:4424;3727:4236",
+        "tipo": "jpg",
+        "ancho": 350,
+        "alto": 210,
+        "rol": "contenido",
+        "archivo": "blog/assets/bebes-0-4-tarjeta-2-foto.jpg"
+      },
+      {
+        "page": "blog",
+        "section": "categoria-bebes-0-4-meses",
+        "id": "bebes-0-4-tarjeta-3-foto",
+        "nodeId": "I3751:4437;3727:4236",
+        "tipo": "png",
+        "ancho": 350,
+        "alto": 210,
+        "rol": "contenido",
+        "archivo": "blog/assets/bebes-0-4-tarjeta-3-foto.png"
+      },
+      {
+        "page": "blog",
+        "section": "categoria-bebes-0-4-meses",
+        "id": "flecha-ver-todos",
+        "nodeId": "3751:4407",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "blog/assets/flecha-ver-todos.svg"
+      },
+      {
+        "page": "blog",
+        "section": "categoria-bebes-0-4-meses",
+        "id": "flecha-leer",
+        "nodeId": "I3751:4411;3727:4245",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "blog/assets/flecha-leer.svg"
+      },
+      {
+        "page": "blog",
+        "section": "categoria-bebes-4-24-meses",
+        "id": "bebes-4-24-tarjeta-1-foto",
+        "nodeId": "I3751:4462;3727:4236",
+        "tipo": "jpg",
+        "ancho": 350,
+        "alto": 210,
+        "rol": "contenido",
+        "archivo": "blog/assets/bebes-4-24-tarjeta-1-foto.jpg"
+      },
+      {
+        "page": "blog",
+        "section": "categoria-bebes-4-24-meses",
+        "id": "bebes-4-24-tarjeta-2-foto",
+        "nodeId": "I3751:4475;3727:4236",
+        "tipo": "png",
+        "ancho": 350,
+        "alto": 210,
+        "rol": "contenido",
+        "archivo": "blog/assets/bebes-4-24-tarjeta-2-foto.png"
+      },
+      {
+        "page": "blog",
+        "section": "categoria-bebes-4-24-meses",
+        "id": "bebes-4-24-tarjeta-3-foto",
+        "nodeId": "I3751:4488;3727:4236",
+        "tipo": "png",
+        "ancho": 350,
+        "alto": 210,
+        "rol": "contenido",
+        "archivo": "blog/assets/bebes-4-24-tarjeta-3-foto.png"
+      },
+      {
+        "page": "blog",
+        "section": "categoria-bebes-4-24-meses",
+        "id": "flecha-ver-todos",
+        "nodeId": "3751:4458",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "blog/assets/flecha-ver-todos.svg"
+      },
+      {
+        "page": "blog",
+        "section": "categoria-bebes-4-24-meses",
+        "id": "flecha-leer",
+        "nodeId": "I3751:4462;3727:4245",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "blog/assets/flecha-leer.svg"
+      },
+      {
+        "page": "blog",
+        "section": "categoria-bebes-24-meses-4-anos",
+        "id": "bebes-24m-4a-tarjeta-1-foto",
+        "nodeId": "I3751:4513;3727:4236",
+        "tipo": "png",
+        "ancho": 350,
+        "alto": 210,
+        "rol": "contenido",
+        "archivo": "blog/assets/bebes-24m-4a-tarjeta-1-foto.png"
+      },
+      {
+        "page": "blog",
+        "section": "categoria-bebes-24-meses-4-anos",
+        "id": "bebes-24m-4a-tarjeta-2-foto",
+        "nodeId": "I3751:4526;3727:4236",
+        "tipo": "jpg",
+        "ancho": 350,
+        "alto": 210,
+        "rol": "contenido",
+        "archivo": "blog/assets/bebes-24m-4a-tarjeta-2-foto.jpg"
+      },
+      {
+        "page": "blog",
+        "section": "categoria-bebes-24-meses-4-anos",
+        "id": "bebes-24m-4a-tarjeta-3-foto",
+        "nodeId": "I3751:4539;3727:4236",
+        "tipo": "jpg",
+        "ancho": 350,
+        "alto": 210,
+        "rol": "contenido",
+        "archivo": "blog/assets/bebes-24m-4a-tarjeta-3-foto.jpg"
+      },
+      {
+        "page": "blog",
+        "section": "categoria-bebes-24-meses-4-anos",
+        "id": "flecha-ver-todos",
+        "nodeId": "3751:4509",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "blog/assets/flecha-ver-todos.svg"
+      },
+      {
+        "page": "blog",
+        "section": "categoria-bebes-24-meses-4-anos",
+        "id": "flecha-leer",
+        "nodeId": "I3751:4513;3727:4245",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "blog/assets/flecha-leer.svg"
+      },
+      {
+        "page": "conoce-a-barbara",
+        "section": "hero",
+        "id": "hero-foto-barbara",
+        "nodeId": "4017:21054",
+        "tipo": "jpg",
+        "ancho": 460,
+        "alto": 560,
+        "rol": "contenido",
+        "archivo": "conoce-a-barbara/assets/hero-foto-barbara.jpg"
+      },
+      {
+        "page": "conoce-a-barbara",
+        "section": "hero",
+        "id": "hero-corazon",
+        "nodeId": "4017:21049",
+        "tipo": "svg",
+        "ancho": 46,
+        "alto": 42.205,
+        "rol": "decorativa",
+        "archivo": "conoce-a-barbara/assets/hero-corazon.svg"
+      },
+      {
+        "page": "conoce-a-barbara",
+        "section": "reflexion",
+        "id": "reflexion-foto-barbara",
+        "nodeId": "4017:21058",
+        "tipo": "jpg",
+        "ancho": 440,
+        "alto": 520,
+        "rol": "contenido",
+        "archivo": "conoce-a-barbara/assets/reflexion-foto-barbara.jpg"
+      },
+      {
+        "page": "conoce-a-barbara",
+        "section": "reflexion",
+        "id": "reflexion-firma-corazon",
+        "nodeId": "4017:21066",
+        "tipo": "svg",
+        "ancho": 22,
+        "alto": 22,
+        "rol": "decorativa",
+        "archivo": "conoce-a-barbara/assets/reflexion-firma-corazon.svg"
+      },
+      {
+        "page": "conoce-a-barbara",
+        "section": "reflexion",
+        "id": "boton-flecha",
+        "nodeId": "3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "conoce-a-barbara/assets/boton-flecha.svg"
+      },
+      {
+        "page": "conoce-a-barbara",
+        "section": "seccion-blog",
+        "id": "blog-tarjeta-1-imagen",
+        "nodeId": "I4017:21127;3727:4236",
+        "tipo": "jpg",
+        "ancho": 350,
+        "alto": 210,
+        "rol": "contenido",
+        "archivo": "conoce-a-barbara/assets/blog-tarjeta-1-imagen.jpg"
+      },
+      {
+        "page": "conoce-a-barbara",
+        "section": "seccion-blog",
+        "id": "blog-tarjeta-2-imagen",
+        "nodeId": "I4017:21128;3727:4236",
+        "tipo": "jpg",
+        "ancho": 350,
+        "alto": 210,
+        "rol": "contenido",
+        "archivo": "conoce-a-barbara/assets/blog-tarjeta-2-imagen.jpg"
+      },
+      {
+        "page": "conoce-a-barbara",
+        "section": "seccion-blog",
+        "id": "blog-tarjeta-3-imagen",
+        "nodeId": "I4017:21129;3727:4236",
+        "tipo": "jpg",
+        "ancho": 350,
+        "alto": 210,
+        "rol": "contenido",
+        "archivo": "conoce-a-barbara/assets/blog-tarjeta-3-imagen.jpg"
+      },
+      {
+        "page": "conoce-a-barbara",
+        "section": "seccion-blog",
+        "id": "tarjeta-blog-flecha",
+        "nodeId": "I4017:21128;3727:4245",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "conoce-a-barbara/assets/tarjeta-blog-flecha.svg"
+      },
+      {
+        "page": "conoce-a-barbara",
+        "section": "seccion-blog",
+        "id": "boton-flecha",
+        "nodeId": "3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "conoce-a-barbara/assets/boton-flecha.svg"
+      },
+      {
+        "page": "conoce-a-barbara",
+        "section": "cta-final",
+        "id": "boton-flecha",
+        "nodeId": "I4017:21176;3713:17007;3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "conoce-a-barbara/assets/boton-flecha.svg"
+      },
+      {
+        "page": "conoce-a-barbara",
+        "section": "cta-final",
+        "id": "cta-final-destello-derecha",
+        "nodeId": "I4017:21176;3713:17012",
+        "tipo": "svg",
+        "ancho": 68,
+        "alto": 71,
+        "rol": "decorativa",
+        "archivo": "conoce-a-barbara/assets/cta-final-destello-derecha.svg"
+      },
+      {
+        "page": "conoce-a-barbara",
+        "section": "cta-final",
+        "id": "cta-final-destello-grande",
+        "nodeId": "I4017:21176;3713:17027",
+        "tipo": "svg",
+        "ancho": 248,
+        "alto": 614,
+        "rol": "decorativa",
+        "archivo": "conoce-a-barbara/assets/cta-final-destello-grande.svg"
+      },
+      {
+        "page": "conoce-a-barbara",
+        "section": "cta-final",
+        "id": "cta-final-trazo-1",
+        "nodeId": "I4017:21176;3713:17041",
+        "tipo": "svg",
+        "ancho": 5.36,
+        "alto": 19.29,
+        "rol": "decorativa",
+        "archivo": "conoce-a-barbara/assets/cta-final-trazo-1.svg"
+      },
+      {
+        "page": "conoce-a-barbara",
+        "section": "cta-final",
+        "id": "cta-final-trazo-2",
+        "nodeId": "I4017:21176;3713:17042",
+        "tipo": "svg",
+        "ancho": 99.02,
+        "alto": 29.26,
+        "rol": "decorativa",
+        "archivo": "conoce-a-barbara/assets/cta-final-trazo-2.svg"
+      },
+      {
+        "page": "conoce-a-barbara",
+        "section": "cta-final",
+        "id": "cta-final-destello-izquierda",
+        "nodeId": "I4017:21176;3713:17045",
+        "tipo": "svg",
+        "ancho": 63.68,
+        "alto": 66.33,
+        "rol": "decorativa",
+        "archivo": "conoce-a-barbara/assets/cta-final-destello-izquierda.svg"
+      },
+      {
+        "page": "conoce-a-barbara",
+        "section": "cta-final",
+        "id": "cta-final-trazo-3",
+        "nodeId": "I4017:21176;3713:17046",
+        "tipo": "svg",
+        "ancho": 120.01,
+        "alto": 5.59,
+        "rol": "decorativa",
+        "archivo": "conoce-a-barbara/assets/cta-final-trazo-3.svg"
+      },
+      {
+        "page": "conoce-a-barbara",
+        "section": "cta-final",
+        "id": "cta-final-trazo-4",
+        "nodeId": "I4017:21176;3713:17049",
+        "tipo": "svg",
+        "ancho": 99.02,
+        "alto": 29.26,
+        "rol": "decorativa",
+        "archivo": "conoce-a-barbara/assets/cta-final-trazo-4.svg"
+      },
+      {
+        "page": "contacto",
+        "section": "seccion-de-contacto",
+        "id": "contacto-flecha-boton",
+        "nodeId": "I4020:22166;3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "contacto/assets/contacto-flecha-boton.svg"
+      },
+      {
+        "page": "contacto",
+        "section": "seccion-de-contacto",
+        "id": "contacto-linea-campo-ancho",
+        "nodeId": "4020:22149",
+        "tipo": "svg",
+        "ancho": 588.5,
+        "alto": 1,
+        "rol": "decorativa",
+        "archivo": "contacto/assets/contacto-linea-campo-ancho.svg"
+      },
+      {
+        "page": "contacto",
+        "section": "seccion-de-contacto",
+        "id": "contacto-linea-campo-email",
+        "nodeId": "4020:22153",
+        "tipo": "svg",
+        "ancho": 283,
+        "alto": 1,
+        "rol": "decorativa",
+        "archivo": "contacto/assets/contacto-linea-campo-email.svg"
+      },
+      {
+        "page": "contacto",
+        "section": "seccion-de-contacto",
+        "id": "contacto-linea-campo-celular",
+        "nodeId": "4020:22156",
+        "tipo": "svg",
+        "ancho": 283,
+        "alto": 1,
+        "rol": "decorativa",
+        "archivo": "contacto/assets/contacto-linea-campo-celular.svg"
+      },
+      {
+        "page": "contacto",
+        "section": "seccion-de-contacto",
+        "id": "contacto-icono-desplegable",
+        "nodeId": "4020:22163",
+        "tipo": "svg",
+        "ancho": 20,
+        "alto": 20,
+        "rol": "decorativa",
+        "archivo": "contacto/assets/contacto-icono-desplegable.svg"
+      },
+      {
+        "page": "contacto",
+        "section": "seccion-de-cta",
+        "id": "cta-flecha-boton",
+        "nodeId": "I4020:22185;3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "contacto/assets/cta-flecha-boton.svg"
+      },
+      {
+        "page": "contacto",
+        "section": "seccion-de-cta",
+        "id": "cta-estrella-contorno-inferior",
+        "nodeId": "4020:22186",
+        "tipo": "svg",
+        "ancho": 121,
+        "alto": 78,
+        "rol": "decorativa",
+        "archivo": "contacto/assets/cta-estrella-contorno-inferior.svg"
+      },
+      {
+        "page": "contacto",
+        "section": "seccion-de-cta",
+        "id": "cta-destello-dorado-pequeno",
+        "nodeId": "4020:22188",
+        "tipo": "svg",
+        "ancho": 27,
+        "alto": 27,
+        "rol": "decorativa",
+        "archivo": "contacto/assets/cta-destello-dorado-pequeno.svg"
+      },
+      {
+        "page": "contacto",
+        "section": "seccion-de-cta",
+        "id": "cta-destello-blanco-superior",
+        "nodeId": "4020:22190",
+        "tipo": "svg",
+        "ancho": 80,
+        "alto": 69,
+        "rol": "decorativa",
+        "archivo": "contacto/assets/cta-destello-blanco-superior.svg"
+      },
+      {
+        "page": "home",
+        "section": "cintillo-promociones",
+        "id": "cintillo-flecha",
+        "nodeId": "I4011:9019;3884:29",
+        "tipo": "svg",
+        "ancho": 20,
+        "alto": 20,
+        "rol": "decorativa",
+        "archivo": "home/assets/cintillo-flecha.svg"
+      },
+      {
+        "page": "home",
+        "section": "header",
+        "id": "header-logo",
+        "nodeId": "I4011:9020;3704:22277",
+        "tipo": "png",
+        "ancho": 87,
+        "alto": 63,
+        "rol": "contenido",
+        "archivo": "home/assets/header-logo.png"
+      },
+      {
+        "page": "home",
+        "section": "header",
+        "id": "header-icono-persona",
+        "nodeId": "I4011:9020;3764:11",
+        "tipo": "svg",
+        "ancho": 22,
+        "alto": 22,
+        "rol": "decorativa",
+        "archivo": "home/assets/header-icono-persona.svg"
+      },
+      {
+        "page": "home",
+        "section": "header",
+        "id": "header-icono-carrito",
+        "nodeId": "I4011:9020;3704:22289",
+        "tipo": "svg",
+        "ancho": 22,
+        "alto": 19.587,
+        "rol": "decorativa",
+        "archivo": "home/assets/header-icono-carrito.svg"
+      },
+      {
+        "page": "home",
+        "section": "hero",
+        "id": "hero-foto-madre-bebe",
+        "nodeId": "4011:9041",
+        "tipo": "jpg",
+        "ancho": 940,
+        "alto": 626,
+        "rol": "contenido",
+        "archivo": "home/assets/hero-foto-madre-bebe.jpg"
+      },
+      {
+        "page": "home",
+        "section": "hero",
+        "id": "hero-adorno-luna-1",
+        "nodeId": "4011:9023",
+        "tipo": "svg",
+        "ancho": 34,
+        "alto": 33.718,
+        "rol": "decorativa",
+        "archivo": "home/assets/hero-adorno-luna-1.svg"
+      },
+      {
+        "page": "home",
+        "section": "hero",
+        "id": "hero-hilo-1",
+        "nodeId": "4011:9036",
+        "tipo": "svg",
+        "ancho": 1.2,
+        "alto": 150,
+        "rol": "decorativa",
+        "archivo": "home/assets/hero-hilo-1.svg"
+      },
+      {
+        "page": "home",
+        "section": "hero",
+        "id": "hero-adorno-luna-2",
+        "nodeId": "4011:9037",
+        "tipo": "svg",
+        "ancho": 34,
+        "alto": 33.718,
+        "rol": "decorativa",
+        "archivo": "home/assets/hero-adorno-luna-2.svg"
+      },
+      {
+        "page": "home",
+        "section": "hero",
+        "id": "hero-hilo-2",
+        "nodeId": "4011:9038",
+        "tipo": "svg",
+        "ancho": 1.2,
+        "alto": 250,
+        "rol": "decorativa",
+        "archivo": "home/assets/hero-hilo-2.svg"
+      },
+      {
+        "page": "home",
+        "section": "hero",
+        "id": "hero-adorno-estrella-colgante",
+        "nodeId": "4011:9039",
+        "tipo": "svg",
+        "ancho": 34,
+        "alto": 33.684,
+        "rol": "decorativa",
+        "archivo": "home/assets/hero-adorno-estrella-colgante.svg"
+      },
+      {
+        "page": "home",
+        "section": "hero",
+        "id": "hero-hilo-3",
+        "nodeId": "4011:9040",
+        "tipo": "svg",
+        "ancho": 1.2,
+        "alto": 110,
+        "rol": "decorativa",
+        "archivo": "home/assets/hero-hilo-3.svg"
+      },
+      {
+        "page": "home",
+        "section": "hero",
+        "id": "hero-estrella-grande",
+        "nodeId": "4011:9042",
+        "tipo": "svg",
+        "ancho": 341.235,
+        "alto": 329.467,
+        "rol": "decorativa",
+        "archivo": "home/assets/hero-estrella-grande.svg"
+      },
+      {
+        "page": "home",
+        "section": "hero",
+        "id": "hero-estrella-mediana",
+        "nodeId": "4011:9043",
+        "tipo": "svg",
+        "ancho": 156.447,
+        "alto": 151.052,
+        "rol": "decorativa",
+        "archivo": "home/assets/hero-estrella-mediana.svg"
+      },
+      {
+        "page": "home",
+        "section": "hero",
+        "id": "hero-estrella-pequena",
+        "nodeId": "4011:9044",
+        "tipo": "svg",
+        "ancho": 117.353,
+        "alto": 113.306,
+        "rol": "decorativa",
+        "archivo": "home/assets/hero-estrella-pequena.svg"
+      },
+      {
+        "page": "home",
+        "section": "hero",
+        "id": "boton-flecha",
+        "nodeId": "I4011:9035;3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "home/assets/boton-flecha.svg"
+      },
+      {
+        "page": "home",
+        "section": "como-ayudarte",
+        "id": "ayudarte-imagen-not-found",
+        "nodeId": "4011:9062",
+        "tipo": "png",
+        "ancho": 346,
+        "alto": 374,
+        "rol": "contenido",
+        "archivo": "home/assets/ayudarte-imagen-not-found.png"
+      },
+      {
+        "page": "home",
+        "section": "como-ayudarte",
+        "id": "ayudarte-asesoria-barbara",
+        "nodeId": "4011:9073",
+        "tipo": "jpg",
+        "ancho": 346,
+        "alto": 374,
+        "rol": "contenido",
+        "archivo": "home/assets/ayudarte-asesoria-barbara.jpg"
+      },
+      {
+        "page": "home",
+        "section": "como-ayudarte",
+        "id": "ayudarte-recien-nacidos-go",
+        "nodeId": "4011:9083",
+        "tipo": "jpg",
+        "ancho": 346,
+        "alto": 374,
+        "rol": "contenido",
+        "archivo": "home/assets/ayudarte-recien-nacidos-go.jpg"
+      },
+      {
+        "page": "home",
+        "section": "como-ayudarte",
+        "id": "ayudarte-horarios-ideales",
+        "nodeId": "4011:9093",
+        "tipo": "png",
+        "ancho": 346,
+        "alto": 374,
+        "rol": "contenido",
+        "archivo": "home/assets/ayudarte-horarios-ideales.png"
+      },
+      {
+        "page": "home",
+        "section": "como-ayudarte",
+        "id": "etiqueta-icono-destellos",
+        "nodeId": "4011:9063",
+        "tipo": "svg",
+        "ancho": 14,
+        "alto": 14,
+        "rol": "decorativa",
+        "archivo": "home/assets/etiqueta-icono-destellos.svg"
+      },
+      {
+        "page": "home",
+        "section": "como-ayudarte",
+        "id": "etiqueta-icono-estrella",
+        "nodeId": "I4011:9074;3863:540",
+        "tipo": "svg",
+        "ancho": 14,
+        "alto": 14,
+        "rol": "decorativa",
+        "archivo": "home/assets/etiqueta-icono-estrella.svg"
+      },
+      {
+        "page": "home",
+        "section": "como-ayudarte",
+        "id": "flecha-slider",
+        "nodeId": "4011:9101",
+        "tipo": "svg",
+        "ancho": 13.5,
+        "alto": 12,
+        "rol": "decorativa",
+        "archivo": "home/assets/flecha-slider.svg"
+      },
+      {
+        "page": "home",
+        "section": "como-ayudarte",
+        "id": "ayudarte-zzz",
+        "nodeId": "4011:9108",
+        "tipo": "svg",
+        "ancho": 15.36,
+        "alto": 15.536,
+        "rol": "decorativa",
+        "archivo": "home/assets/ayudarte-zzz.svg"
+      },
+      {
+        "page": "home",
+        "section": "como-ayudarte",
+        "id": "boton-flecha",
+        "nodeId": "I4011:9068;3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "home/assets/boton-flecha.svg"
+      },
+      {
+        "page": "home",
+        "section": "quien-soy",
+        "id": "quien-soy-foto-barbara",
+        "nodeId": "4011:10715",
+        "tipo": "jpg",
+        "ancho": 482,
+        "alto": 487,
+        "rol": "contenido",
+        "archivo": "home/assets/quien-soy-foto-barbara.jpg"
+      },
+      {
+        "page": "home",
+        "section": "quien-soy",
+        "id": "quien-soy-corazon",
+        "nodeId": "4011:10707",
+        "tipo": "svg",
+        "ancho": 46,
+        "alto": 46,
+        "rol": "decorativa",
+        "archivo": "home/assets/quien-soy-corazon.svg"
+      },
+      {
+        "page": "home",
+        "section": "quien-soy",
+        "id": "boton-flecha",
+        "nodeId": "I4011:10714;3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "home/assets/boton-flecha.svg"
+      },
+      {
+        "page": "home",
+        "section": "seccion-cta",
+        "id": "cta-fondo-lunas",
+        "nodeId": "4011:10704",
+        "tipo": "png",
+        "ancho": 1920,
+        "alto": 747,
+        "rol": "decorativa",
+        "archivo": "home/assets/cta-fondo-lunas.png"
+      },
+      {
+        "page": "home",
+        "section": "seccion-cta",
+        "id": "cta-logo-mundo-angelitozzz",
+        "nodeId": "4011:10618",
+        "tipo": "png",
+        "ancho": 86,
+        "alto": 86,
+        "rol": "contenido",
+        "archivo": "home/assets/cta-logo-mundo-angelitozzz.png"
+      },
+      {
+        "page": "home",
+        "section": "seccion-cta",
+        "id": "boton-flecha-crema",
+        "nodeId": "I4011:10623;3704:15608",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "home/assets/boton-flecha-crema.svg"
+      },
+      {
+        "page": "home",
+        "section": "beneficios",
+        "id": "beneficios-colgante-cubo",
+        "nodeId": "4011:9194",
+        "tipo": "svg",
+        "ancho": 88,
+        "alto": 267,
+        "rol": "decorativa",
+        "archivo": "home/assets/beneficios-colgante-cubo.svg"
+      },
+      {
+        "page": "home",
+        "section": "beneficios",
+        "id": "beneficios-colgante-carita",
+        "nodeId": "4011:9201",
+        "tipo": "svg",
+        "ancho": 82.643,
+        "alto": 411.288,
+        "rol": "decorativa",
+        "archivo": "home/assets/beneficios-colgante-carita.svg"
+      },
+      {
+        "page": "home",
+        "section": "beneficios",
+        "id": "beneficios-colgante-corazon",
+        "nodeId": "4011:9198",
+        "tipo": "svg",
+        "ancho": 81.222,
+        "alto": 558,
+        "rol": "decorativa",
+        "archivo": "home/assets/beneficios-colgante-corazon.svg"
+      },
+      {
+        "page": "home",
+        "section": "beneficios",
+        "id": "beneficios-colgante-luna",
+        "nodeId": "4011:9191",
+        "tipo": "svg",
+        "ancho": 93.033,
+        "alto": 409.766,
+        "rol": "decorativa",
+        "archivo": "home/assets/beneficios-colgante-luna.svg"
+      },
+      {
+        "page": "home",
+        "section": "beneficios",
+        "id": "beneficios-colgante-chupete",
+        "nodeId": "4011:9212",
+        "tipo": "svg",
+        "ancho": 98.64,
+        "alto": 277.934,
+        "rol": "decorativa",
+        "archivo": "home/assets/beneficios-colgante-chupete.svg"
+      },
+      {
+        "page": "home",
+        "section": "beneficios",
+        "id": "beneficios-nube-central",
+        "nodeId": "4011:9221",
+        "tipo": "svg",
+        "ancho": 486,
+        "alto": 291,
+        "rol": "decorativa",
+        "archivo": "home/assets/beneficios-nube-central.svg"
+      },
+      {
+        "page": "home",
+        "section": "seccion-instagram",
+        "id": "instagram-post-1",
+        "nodeId": "4011:10549",
+        "tipo": "jpg",
+        "ancho": 333,
+        "alto": 466,
+        "rol": "contenido",
+        "archivo": "home/assets/instagram-post-1.jpg"
+      },
+      {
+        "page": "home",
+        "section": "seccion-instagram",
+        "id": "instagram-post-2",
+        "nodeId": "4011:10550",
+        "tipo": "jpg",
+        "ancho": 333,
+        "alto": 466,
+        "rol": "contenido",
+        "archivo": "home/assets/instagram-post-2.jpg"
+      },
+      {
+        "page": "home",
+        "section": "seccion-instagram",
+        "id": "instagram-post-3",
+        "nodeId": "4011:10551",
+        "tipo": "jpg",
+        "ancho": 333,
+        "alto": 466,
+        "rol": "contenido",
+        "archivo": "home/assets/instagram-post-3.jpg"
+      },
+      {
+        "page": "home",
+        "section": "seccion-instagram",
+        "id": "boton-flecha",
+        "nodeId": "I4011:10552;3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "home/assets/boton-flecha.svg"
+      },
+      {
+        "page": "home",
+        "section": "testimonios",
+        "id": "testimonios-flecha-izquierda",
+        "nodeId": "I4011:9243;3810:32",
+        "tipo": "svg",
+        "ancho": 20,
+        "alto": 20,
+        "rol": "decorativa",
+        "archivo": "home/assets/testimonios-flecha-izquierda.svg"
+      },
+      {
+        "page": "home",
+        "section": "testimonios",
+        "id": "testimonios-flecha-derecha",
+        "nodeId": "I4011:9243;3810:36",
+        "tipo": "svg",
+        "ancho": 20,
+        "alto": 20,
+        "rol": "decorativa",
+        "archivo": "home/assets/testimonios-flecha-derecha.svg"
+      },
+      {
+        "page": "home",
+        "section": "testimonios",
+        "id": "testimonios-estrella-rating",
+        "nodeId": "I4011:9243;3810:42",
+        "tipo": "svg",
+        "ancho": 16,
+        "alto": 16,
+        "rol": "decorativa",
+        "archivo": "home/assets/testimonios-estrella-rating.svg"
+      },
+      {
+        "page": "home",
+        "section": "testimonios",
+        "id": "testimonios-avatar-corazon",
+        "nodeId": "I4011:9243;3811:34",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "home/assets/testimonios-avatar-corazon.svg"
+      },
+      {
+        "page": "home",
+        "section": "testimonios",
+        "id": "testimonios-comillas",
+        "nodeId": "I4011:9243;3811:29",
+        "tipo": "svg",
+        "ancho": 30,
+        "alto": 30,
+        "rol": "decorativa",
+        "archivo": "home/assets/testimonios-comillas.svg"
+      },
+      {
+        "page": "home",
+        "section": "testimonios",
+        "id": "testimonios-comillas-2",
+        "nodeId": "I4011:9243;3811:36",
+        "tipo": "svg",
+        "ancho": 30,
+        "alto": 30,
+        "rol": "decorativa",
+        "archivo": "home/assets/testimonios-comillas-2.svg"
+      },
+      {
+        "page": "home",
+        "section": "testimonios",
+        "id": "testimonios-puntos",
+        "nodeId": "I4011:9243;3810:91",
+        "tipo": "svg",
+        "ancho": 58,
+        "alto": 10,
+        "rol": "decorativa",
+        "archivo": "home/assets/testimonios-puntos.svg"
+      },
+      {
+        "page": "home",
+        "section": "testimonios",
+        "id": "testimonios-detalle-destello",
+        "nodeId": "I4011:9243;3811:52",
+        "tipo": "svg",
+        "ancho": 15.92,
+        "alto": 15.92,
+        "rol": "decorativa",
+        "archivo": "home/assets/testimonios-detalle-destello.svg"
+      },
+      {
+        "page": "home",
+        "section": "testimonios",
+        "id": "testimonios-detalle-estrella",
+        "nodeId": "I4011:9243;3811:50",
+        "tipo": "svg",
+        "ancho": 44,
+        "alto": 50.471,
+        "rol": "decorativa",
+        "archivo": "home/assets/testimonios-detalle-estrella.svg"
+      },
+      {
+        "page": "home",
+        "section": "testimonios",
+        "id": "testimonios-nube-derecha",
+        "nodeId": "I4011:9243;3810:106",
+        "tipo": "svg",
+        "ancho": 260,
+        "alto": 113.165,
+        "rol": "decorativa",
+        "archivo": "home/assets/testimonios-nube-derecha.svg"
+      },
+      {
+        "page": "home",
+        "section": "testimonios",
+        "id": "testimonios-nube-izquierda",
+        "nodeId": "I4011:9243;3810:103",
+        "tipo": "svg",
+        "ancho": 300,
+        "alto": 180.344,
+        "rol": "decorativa",
+        "archivo": "home/assets/testimonios-nube-izquierda.svg"
+      },
+      {
+        "page": "home",
+        "section": "testimonios",
+        "id": "testimonios-nube-ojo-1",
+        "nodeId": "I4011:9243;3810:104",
+        "tipo": "svg",
+        "ancho": 22,
+        "alto": 3.8,
+        "rol": "decorativa",
+        "archivo": "home/assets/testimonios-nube-ojo-1.svg"
+      },
+      {
+        "page": "home",
+        "section": "testimonios",
+        "id": "testimonios-nube-ojo-2",
+        "nodeId": "I4011:9243;3810:105",
+        "tipo": "svg",
+        "ancho": 22,
+        "alto": 3.8,
+        "rol": "decorativa",
+        "archivo": "home/assets/testimonios-nube-ojo-2.svg"
+      },
+      {
+        "page": "home",
+        "section": "cta-final",
+        "id": "boton-flecha",
+        "nodeId": "I4011:9244;3713:17007;3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "home/assets/boton-flecha.svg"
+      },
+      {
+        "page": "home",
+        "section": "cta-final",
+        "id": "cta-final-destello-derecha",
+        "nodeId": "I4011:9244;3713:17012",
+        "tipo": "svg",
+        "ancho": 68,
+        "alto": 71,
+        "rol": "decorativa",
+        "archivo": "home/assets/cta-final-destello-derecha.svg"
+      },
+      {
+        "page": "home",
+        "section": "cta-final",
+        "id": "cta-final-destello-grande",
+        "nodeId": "I4011:9244;3713:17027",
+        "tipo": "svg",
+        "ancho": 248.004,
+        "alto": 614.112,
+        "rol": "decorativa",
+        "archivo": "home/assets/cta-final-destello-grande.svg"
+      },
+      {
+        "page": "home",
+        "section": "cta-final",
+        "id": "cta-final-destello-1",
+        "nodeId": "I4011:9244;3713:17041",
+        "tipo": "svg",
+        "ancho": 5.363,
+        "alto": 19.285,
+        "rol": "decorativa",
+        "archivo": "home/assets/cta-final-destello-1.svg"
+      },
+      {
+        "page": "home",
+        "section": "cta-final",
+        "id": "cta-final-destello-2",
+        "nodeId": "I4011:9244;3713:17042",
+        "tipo": "svg",
+        "ancho": 99.025,
+        "alto": 29.263,
+        "rol": "decorativa",
+        "archivo": "home/assets/cta-final-destello-2.svg"
+      },
+      {
+        "page": "home",
+        "section": "cta-final",
+        "id": "cta-final-destello-3",
+        "nodeId": "I4011:9244;3713:17045",
+        "tipo": "svg",
+        "ancho": 63.68,
+        "alto": 66.333,
+        "rol": "decorativa",
+        "archivo": "home/assets/cta-final-destello-3.svg"
+      },
+      {
+        "page": "home",
+        "section": "cta-final",
+        "id": "cta-final-destello-4",
+        "nodeId": "I4011:9244;3713:17046",
+        "tipo": "svg",
+        "ancho": 120.006,
+        "alto": 5.587,
+        "rol": "decorativa",
+        "archivo": "home/assets/cta-final-destello-4.svg"
+      },
+      {
+        "page": "home",
+        "section": "cta-final",
+        "id": "cta-final-destello-5",
+        "nodeId": "I4011:9244;3713:17049",
+        "tipo": "svg",
+        "ancho": 99.025,
+        "alto": 29.263,
+        "rol": "decorativa",
+        "archivo": "home/assets/cta-final-destello-5.svg"
+      },
+      {
+        "page": "home",
+        "section": "footer",
+        "id": "footer-linea-superior",
+        "nodeId": "I4011:9245;3704:15725",
+        "tipo": "svg",
+        "ancho": 1110,
+        "alto": 1,
+        "rol": "decorativa",
+        "archivo": "home/assets/footer-linea-superior.svg"
+      },
+      {
+        "page": "home",
+        "section": "footer",
+        "id": "footer-flecha-suscribir",
+        "nodeId": "I4011:9245;3704:15787;3033:4904",
+        "tipo": "svg",
+        "ancho": 12.944,
+        "alto": 7.654,
+        "rol": "decorativa",
+        "archivo": "home/assets/footer-flecha-suscribir.svg"
+      },
+      {
+        "page": "home",
+        "section": "footer",
+        "id": "footer-circulo-instagram",
+        "nodeId": "I4011:9245;3704:15751",
+        "tipo": "svg",
+        "ancho": 55.491,
+        "alto": 55.491,
+        "rol": "decorativa",
+        "archivo": "home/assets/footer-circulo-instagram.svg"
+      },
+      {
+        "page": "home",
+        "section": "footer",
+        "id": "footer-icono-instagram",
+        "nodeId": "I4011:9245;3704:15755",
+        "tipo": "svg",
+        "ancho": 25.377,
+        "alto": 25.377,
+        "rol": "decorativa",
+        "archivo": "home/assets/footer-icono-instagram.svg"
+      },
+      {
+        "page": "home",
+        "section": "footer",
+        "id": "footer-red-tiktok",
+        "nodeId": "I4011:9245;3704:15759",
+        "tipo": "svg",
+        "ancho": 55.491,
+        "alto": 55.491,
+        "rol": "decorativa",
+        "archivo": "home/assets/footer-red-tiktok.svg"
+      },
+      {
+        "page": "home",
+        "section": "footer",
+        "id": "footer-red-facebook",
+        "nodeId": "I4011:9245;3704:15762",
+        "tipo": "svg",
+        "ancho": 55.491,
+        "alto": 55.491,
+        "rol": "decorativa",
+        "archivo": "home/assets/footer-red-facebook.svg"
+      },
+      {
+        "page": "home",
+        "section": "footer",
+        "id": "footer-linea-inferior",
+        "nodeId": "I4011:9245;3704:15767",
+        "tipo": "svg",
+        "ancho": 1920,
+        "alto": 1,
+        "rol": "decorativa",
+        "archivo": "home/assets/footer-linea-inferior.svg"
+      },
+      {
+        "page": "home",
+        "section": "footer",
+        "id": "footer-corazon",
+        "nodeId": "I4011:9245;3704:15772",
+        "tipo": "svg",
+        "ancho": 11,
+        "alto": 10,
+        "rol": "decorativa",
+        "archivo": "home/assets/footer-corazon.svg"
+      },
+      {
+        "page": "home",
+        "section": "footer",
+        "id": "footer-logo-nerd",
+        "nodeId": "I4011:9245;3704:15774",
+        "tipo": "svg",
+        "ancho": 50,
+        "alto": 10.776,
+        "rol": "contenido",
+        "archivo": "home/assets/footer-logo-nerd.svg"
+      },
+      {
+        "page": "home",
+        "section": "modal-coach",
+        "id": "modal-cerrar",
+        "nodeId": "3888:6229",
+        "tipo": "svg",
+        "ancho": 20,
+        "alto": 20,
+        "rol": "decorativa",
+        "archivo": "home/assets/modal-cerrar.svg"
+      },
+      {
+        "page": "home",
+        "section": "modal-coach",
+        "id": "modal-chevron-pais",
+        "nodeId": "3888:6243",
+        "tipo": "svg",
+        "ancho": 16,
+        "alto": 16,
+        "rol": "decorativa",
+        "archivo": "home/assets/modal-chevron-pais.svg"
+      },
+      {
+        "page": "home",
+        "section": "modal-coach",
+        "id": "modal-chevron-select",
+        "nodeId": "3888:6252",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "home/assets/modal-chevron-select.svg"
+      },
+      {
+        "page": "home",
+        "section": "modal-coach",
+        "id": "modal-boton-flecha",
+        "nodeId": "I3888:6271;3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "home/assets/modal-boton-flecha.svg"
+      },
+      {
+        "page": "home",
+        "section": "modal-coach-gracias",
+        "id": "modal-gracias-cerrar",
+        "nodeId": "3888:6510",
+        "tipo": "svg",
+        "ancho": 20,
+        "alto": 20,
+        "rol": "decorativa",
+        "archivo": "home/assets/modal-cerrar.svg"
+      },
+      {
+        "page": "home",
+        "section": "modal-coach-gracias",
+        "id": "modal-gracias-check",
+        "nodeId": "3888:6513",
+        "tipo": "svg",
+        "ancho": 72,
+        "alto": 72,
+        "rol": "decorativa",
+        "archivo": "home/assets/modal-gracias-check.svg"
+      },
+      {
+        "page": "home",
+        "section": "modal-coach-gracias",
+        "id": "modal-gracias-boton-flecha",
+        "nodeId": "I3888:6518;3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "home/assets/modal-boton-flecha.svg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "hero",
+        "id": "hero-foto-madre",
+        "nodeId": "4017:20240",
+        "tipo": "jpg",
+        "ancho": 477,
+        "alto": 390,
+        "rol": "contenido",
+        "archivo": "mundo-angelitozzz/assets/hero-foto-madre.jpg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "hero",
+        "id": "hero-logo-mundo",
+        "nodeId": "4017:20219",
+        "tipo": "png",
+        "ancho": 75,
+        "alto": 75,
+        "rol": "contenido",
+        "archivo": "mundo-angelitozzz/assets/hero-logo-mundo.png"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "hero",
+        "id": "hero-icono-regalo",
+        "nodeId": "4017:20228",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "mundo-angelitozzz/assets/hero-icono-regalo.svg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "hero",
+        "id": "boton-flecha-blanca",
+        "nodeId": "I4017:20225;3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "mundo-angelitozzz/assets/boton-flecha-blanca.svg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "hero",
+        "id": "hero-nube-derecha",
+        "nodeId": "4017:20249",
+        "tipo": "svg",
+        "ancho": 328,
+        "alto": 196,
+        "rol": "decorativa",
+        "archivo": "mundo-angelitozzz/assets/hero-nube-derecha.svg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "hero",
+        "id": "hero-nube-derecha-ojo-1",
+        "nodeId": "4017:20250",
+        "tipo": "svg",
+        "ancho": 21.456,
+        "alto": 3.712,
+        "rol": "decorativa",
+        "archivo": "mundo-angelitozzz/assets/hero-nube-derecha-ojo-1.svg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "hero",
+        "id": "hero-nube-derecha-ojo-2",
+        "nodeId": "4017:20251",
+        "tipo": "svg",
+        "ancho": 21.456,
+        "alto": 3.712,
+        "rol": "decorativa",
+        "archivo": "mundo-angelitozzz/assets/hero-nube-derecha-ojo-2.svg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "hero",
+        "id": "hero-nube-izquierda",
+        "nodeId": "4017:20243",
+        "tipo": "svg",
+        "ancho": 524,
+        "alto": 315,
+        "rol": "decorativa",
+        "archivo": "mundo-angelitozzz/assets/hero-nube-izquierda.svg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "hero",
+        "id": "hero-nube-izquierda-ojo-1",
+        "nodeId": "4017:20244",
+        "tipo": "svg",
+        "ancho": 38.5,
+        "alto": 6.688,
+        "rol": "decorativa",
+        "archivo": "mundo-angelitozzz/assets/hero-nube-izquierda-ojo-1.svg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "hero",
+        "id": "hero-nube-izquierda-ojo-2",
+        "nodeId": "4017:20245",
+        "tipo": "svg",
+        "ancho": 38.5,
+        "alto": 6.688,
+        "rol": "decorativa",
+        "archivo": "mundo-angelitozzz/assets/hero-nube-izquierda-ojo-2.svg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "que-incluye-mundo",
+        "id": "que-incluye-sesiones-en-vivo",
+        "nodeId": "4017:20291",
+        "tipo": "jpg",
+        "ancho": 348.667,
+        "alto": 220,
+        "rol": "contenido",
+        "archivo": "mundo-angelitozzz/assets/que-incluye-sesiones-en-vivo.jpg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "que-incluye-mundo",
+        "id": "que-incluye-talleres",
+        "nodeId": "4017:20298",
+        "tipo": "jpg",
+        "ancho": 348.667,
+        "alto": 220,
+        "rol": "contenido",
+        "archivo": "mundo-angelitozzz/assets/que-incluye-talleres.jpg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "que-incluye-mundo",
+        "id": "que-incluye-comunidad",
+        "nodeId": "4017:20305",
+        "tipo": "jpg",
+        "ancho": 348.667,
+        "alto": 220,
+        "rol": "contenido",
+        "archivo": "mundo-angelitozzz/assets/que-incluye-comunidad.jpg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "que-incluye-mundo",
+        "id": "que-incluye-nube",
+        "nodeId": "4017:20282",
+        "tipo": "svg",
+        "ancho": 300,
+        "alto": 130.576,
+        "rol": "decorativa",
+        "archivo": "mundo-angelitozzz/assets/que-incluye-nube.svg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "que-incluye-mundo",
+        "id": "que-incluye-destello-derecha",
+        "nodeId": "4017:20283",
+        "tipo": "svg",
+        "ancho": 46,
+        "alto": 46.687,
+        "rol": "decorativa",
+        "archivo": "mundo-angelitozzz/assets/que-incluye-destello-derecha.svg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "que-incluye-mundo",
+        "id": "que-incluye-destello-izquierda",
+        "nodeId": "4017:20284",
+        "tipo": "svg",
+        "ancho": 60,
+        "alto": 62.981,
+        "rol": "decorativa",
+        "archivo": "mundo-angelitozzz/assets/que-incluye-destello-izquierda.svg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "que-incluye-mundo",
+        "id": "boton-flecha-crema",
+        "nodeId": "I4017:20312;3704:15608",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "mundo-angelitozzz/assets/boton-flecha-crema.svg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "testimonios",
+        "id": "testimonios-estrella",
+        "nodeId": "I4017:20317;3810:42",
+        "tipo": "svg",
+        "ancho": 16,
+        "alto": 16,
+        "rol": "decorativa",
+        "archivo": "mundo-angelitozzz/assets/testimonios-estrella.svg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "testimonios",
+        "id": "testimonios-avatar-corazon",
+        "nodeId": "I4017:20317;3811:34",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "mundo-angelitozzz/assets/testimonios-avatar-corazon.svg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "testimonios",
+        "id": "testimonios-comillas",
+        "nodeId": "I4017:20317;3811:29",
+        "tipo": "svg",
+        "ancho": 30,
+        "alto": 30,
+        "rol": "decorativa",
+        "archivo": "mundo-angelitozzz/assets/testimonios-comillas.svg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "testimonios",
+        "id": "testimonios-comillas-2",
+        "nodeId": "I4017:20317;3811:36",
+        "tipo": "svg",
+        "ancho": 30,
+        "alto": 30,
+        "rol": "decorativa",
+        "archivo": "mundo-angelitozzz/assets/testimonios-comillas-2.svg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "testimonios",
+        "id": "testimonios-flecha-izquierda",
+        "nodeId": "I4017:20317;3810:32",
+        "tipo": "svg",
+        "ancho": 20,
+        "alto": 20,
+        "rol": "decorativa",
+        "archivo": "mundo-angelitozzz/assets/testimonios-flecha-izquierda.svg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "testimonios",
+        "id": "testimonios-flecha-derecha",
+        "nodeId": "I4017:20317;3810:36",
+        "tipo": "svg",
+        "ancho": 20,
+        "alto": 20,
+        "rol": "decorativa",
+        "archivo": "mundo-angelitozzz/assets/testimonios-flecha-derecha.svg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "testimonios",
+        "id": "testimonios-puntos",
+        "nodeId": "I4017:20317;3810:91",
+        "tipo": "svg",
+        "ancho": 58,
+        "alto": 10,
+        "rol": "decorativa",
+        "archivo": "mundo-angelitozzz/assets/testimonios-puntos.svg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "testimonios",
+        "id": "testimonios-destello",
+        "nodeId": "I4017:20317;3811:50",
+        "tipo": "svg",
+        "ancho": 44,
+        "alto": 50.5,
+        "rol": "decorativa",
+        "archivo": "mundo-angelitozzz/assets/testimonios-destello.svg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "testimonios",
+        "id": "testimonios-destello-pequeno",
+        "nodeId": "I4017:20317;3811:52",
+        "tipo": "svg",
+        "ancho": 15.92,
+        "alto": 15.92,
+        "rol": "decorativa",
+        "archivo": "mundo-angelitozzz/assets/testimonios-destello-pequeno.svg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "testimonios",
+        "id": "testimonios-nube-derecha",
+        "nodeId": "I4017:20317;3810:106",
+        "tipo": "svg",
+        "ancho": 260,
+        "alto": 113.165,
+        "rol": "decorativa",
+        "archivo": "mundo-angelitozzz/assets/testimonios-nube-derecha.svg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "testimonios",
+        "id": "testimonios-nube-izquierda",
+        "nodeId": "I4017:20317;3810:103",
+        "tipo": "svg",
+        "ancho": 300,
+        "alto": 180.344,
+        "rol": "decorativa",
+        "archivo": "mundo-angelitozzz/assets/testimonios-nube-izquierda.svg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "testimonios",
+        "id": "testimonios-nube-izquierda-ojo-1",
+        "nodeId": "I4017:20317;3810:104",
+        "tipo": "svg",
+        "ancho": 22.05,
+        "alto": 3.82,
+        "rol": "decorativa",
+        "archivo": "mundo-angelitozzz/assets/testimonios-nube-izquierda-ojo-1.svg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "testimonios",
+        "id": "testimonios-nube-izquierda-ojo-2",
+        "nodeId": "I4017:20317;3810:105",
+        "tipo": "svg",
+        "ancho": 22.05,
+        "alto": 3.82,
+        "rol": "decorativa",
+        "archivo": "mundo-angelitozzz/assets/testimonios-nube-izquierda-ojo-2.svg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "cta-mundo",
+        "id": "cta-check",
+        "nodeId": "4017:20492",
+        "tipo": "svg",
+        "ancho": 14,
+        "alto": 14,
+        "rol": "decorativa",
+        "archivo": "mundo-angelitozzz/assets/cta-check.svg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "cta-mundo",
+        "id": "cta-flecha",
+        "nodeId": "I4017:20507;3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "mundo-angelitozzz/assets/cta-flecha.svg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "cta-mundo",
+        "id": "cta-destello-grande",
+        "nodeId": "4017:20509",
+        "tipo": "svg",
+        "ancho": 248,
+        "alto": 262,
+        "rol": "decorativa",
+        "archivo": "mundo-angelitozzz/assets/cta-destello-grande.svg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "cta-mundo",
+        "id": "cta-destello-mediano",
+        "nodeId": "4017:20524",
+        "tipo": "svg",
+        "ancho": 120,
+        "alto": 125,
+        "rol": "decorativa",
+        "archivo": "mundo-angelitozzz/assets/cta-destello-mediano.svg"
+      },
+      {
+        "page": "mundo-angelitozzz",
+        "section": "cta-mundo",
+        "id": "cta-destello-pequeno",
+        "nodeId": "4017:20539",
+        "tipo": "svg",
+        "ancho": 68,
+        "alto": 71,
+        "rol": "decorativa",
+        "archivo": "mundo-angelitozzz/assets/cta-destello-pequeno.svg"
+      },
+      {
+        "page": "preguntas-frecuentes",
+        "section": "seccion-preguntas-frecuentes",
+        "id": "preguntas-check",
+        "nodeId": "4020:22542",
+        "tipo": "svg",
+        "ancho": 13.751,
+        "alto": 12.916,
+        "rol": "decorativa",
+        "archivo": "preguntas-frecuentes/assets/preguntas-check.svg"
+      },
+      {
+        "page": "preguntas-frecuentes",
+        "section": "seccion-preguntas-frecuentes",
+        "id": "preguntas-separador",
+        "nodeId": "4020:22545",
+        "tipo": "svg",
+        "ancho": 748.5,
+        "alto": 1,
+        "rol": "decorativa",
+        "archivo": "preguntas-frecuentes/assets/preguntas-separador.svg"
+      },
+      {
+        "page": "preguntas-frecuentes",
+        "section": "seccion-preguntas-frecuentes",
+        "id": "preguntas-ver-mas-flecha",
+        "nodeId": "4020:22568",
+        "tipo": "svg",
+        "ancho": 10,
+        "alto": 10,
+        "rol": "decorativa",
+        "archivo": "preguntas-frecuentes/assets/preguntas-ver-mas-flecha.svg"
+      },
+      {
+        "page": "preguntas-frecuentes",
+        "section": "cta-final",
+        "id": "boton-flecha",
+        "nodeId": "I4020:22578;3713:17007;3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "preguntas-frecuentes/assets/boton-flecha.svg"
+      },
+      {
+        "page": "preguntas-frecuentes",
+        "section": "cta-final",
+        "id": "cta-final-destello-derecha",
+        "nodeId": "I4020:22578;3713:17012",
+        "tipo": "svg",
+        "ancho": 68,
+        "alto": 71,
+        "rol": "decorativa",
+        "archivo": "preguntas-frecuentes/assets/cta-final-destello-derecha.svg"
+      },
+      {
+        "page": "preguntas-frecuentes",
+        "section": "cta-final",
+        "id": "cta-final-destello-grande",
+        "nodeId": "I4020:22578;3713:17027",
+        "tipo": "svg",
+        "ancho": 248,
+        "alto": 614,
+        "rol": "decorativa",
+        "archivo": "preguntas-frecuentes/assets/cta-final-destello-grande.svg"
+      },
+      {
+        "page": "preguntas-frecuentes",
+        "section": "cta-final",
+        "id": "cta-final-trazo-1",
+        "nodeId": "I4020:22578;3713:17041",
+        "tipo": "svg",
+        "ancho": 5.36,
+        "alto": 19.29,
+        "rol": "decorativa",
+        "archivo": "preguntas-frecuentes/assets/cta-final-trazo-1.svg"
+      },
+      {
+        "page": "preguntas-frecuentes",
+        "section": "cta-final",
+        "id": "cta-final-trazo-2",
+        "nodeId": "I4020:22578;3713:17042",
+        "tipo": "svg",
+        "ancho": 99.03,
+        "alto": 29.26,
+        "rol": "decorativa",
+        "archivo": "preguntas-frecuentes/assets/cta-final-trazo-2.svg"
+      },
+      {
+        "page": "preguntas-frecuentes",
+        "section": "cta-final",
+        "id": "cta-final-destello-izquierda",
+        "nodeId": "I4020:22578;3713:17045",
+        "tipo": "svg",
+        "ancho": 63.68,
+        "alto": 66.33,
+        "rol": "decorativa",
+        "archivo": "preguntas-frecuentes/assets/cta-final-destello-izquierda.svg"
+      },
+      {
+        "page": "preguntas-frecuentes",
+        "section": "cta-final",
+        "id": "cta-final-trazo-3",
+        "nodeId": "I4020:22578;3713:17046",
+        "tipo": "svg",
+        "ancho": 120.01,
+        "alto": 5.59,
+        "rol": "decorativa",
+        "archivo": "preguntas-frecuentes/assets/cta-final-trazo-3.svg"
+      },
+      {
+        "page": "preguntas-frecuentes",
+        "section": "cta-final",
+        "id": "cta-final-trazo-4",
+        "nodeId": "I4020:22578;3713:17049",
+        "tipo": "svg",
+        "ancho": 99.03,
+        "alto": 29.26,
+        "rol": "decorativa",
+        "archivo": "preguntas-frecuentes/assets/cta-final-trazo-4.svg"
+      },
+      {
+        "page": "soluciones-de-sueno",
+        "section": "shop",
+        "id": "shop-angelita-pro-placeholder",
+        "nodeId": "4011:11103",
+        "tipo": "png",
+        "ancho": 346,
+        "alto": 374,
+        "rol": "contenido",
+        "archivo": "soluciones-de-sueno/assets/shop-angelita-pro-placeholder.png"
+      },
+      {
+        "page": "soluciones-de-sueno",
+        "section": "shop",
+        "id": "shop-a-dormir-por-fin",
+        "nodeId": "4011:11113",
+        "tipo": "jpg",
+        "ancho": 346,
+        "alto": 374,
+        "rol": "contenido",
+        "archivo": "soluciones-de-sueno/assets/shop-a-dormir-por-fin.jpg"
+      },
+      {
+        "page": "soluciones-de-sueno",
+        "section": "shop",
+        "id": "shop-recien-nacidos-go",
+        "nodeId": "4011:11123",
+        "tipo": "jpg",
+        "ancho": 346,
+        "alto": 374,
+        "rol": "contenido",
+        "archivo": "soluciones-de-sueno/assets/shop-recien-nacidos-go.jpg"
+      },
+      {
+        "page": "soluciones-de-sueno",
+        "section": "shop",
+        "id": "shop-horarios-ideales",
+        "nodeId": "4011:11133",
+        "tipo": "jpg",
+        "ancho": 346,
+        "alto": 374,
+        "rol": "contenido",
+        "archivo": "soluciones-de-sueno/assets/shop-horarios-ideales.jpg"
+      },
+      {
+        "page": "soluciones-de-sueno",
+        "section": "shop",
+        "id": "shop-icono-nuevo",
+        "nodeId": "I4011:11104;3863:536",
+        "tipo": "svg",
+        "ancho": 14,
+        "alto": 14,
+        "rol": "decorativa",
+        "archivo": "soluciones-de-sueno/assets/shop-icono-nuevo.svg"
+      },
+      {
+        "page": "soluciones-de-sueno",
+        "section": "shop",
+        "id": "shop-icono-estrella",
+        "nodeId": "I4011:11114;3863:540",
+        "tipo": "svg",
+        "ancho": 14,
+        "alto": 14,
+        "rol": "decorativa",
+        "archivo": "soluciones-de-sueno/assets/shop-icono-estrella.svg"
+      },
+      {
+        "page": "soluciones-de-sueno",
+        "section": "shop",
+        "id": "shop-flecha-boton",
+        "nodeId": "I4011:11109;3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "soluciones-de-sueno/assets/boton-flecha.svg"
+      },
+      {
+        "page": "soluciones-de-sueno",
+        "section": "shop",
+        "id": "pagina-fondo-nubes",
+        "nodeId": "4011:11090",
+        "tipo": "png",
+        "ancho": 1920,
+        "alto": 3070,
+        "rol": "decorativa",
+        "archivo": "soluciones-de-sueno/assets/pagina-fondo-nubes.png"
+      },
+      {
+        "page": "soluciones-de-sueno",
+        "section": "cta-final",
+        "id": "cta-final-flecha-boton",
+        "nodeId": "I4011:11140;3713:17007;3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "soluciones-de-sueno/assets/boton-flecha.svg"
+      },
+      {
+        "page": "soluciones-de-sueno",
+        "section": "cta-final",
+        "id": "cta-final-destello-derecha",
+        "nodeId": "I4011:11140;3713:17012",
+        "tipo": "svg",
+        "ancho": 68,
+        "alto": 71,
+        "rol": "decorativa",
+        "archivo": "soluciones-de-sueno/assets/cta-final-destello-derecha.svg"
+      },
+      {
+        "page": "soluciones-de-sueno",
+        "section": "cta-final",
+        "id": "cta-final-destello-grande",
+        "nodeId": "I4011:11140;3713:17027",
+        "tipo": "svg",
+        "ancho": 248,
+        "alto": 614,
+        "rol": "decorativa",
+        "archivo": "soluciones-de-sueno/assets/cta-final-destello-grande.svg"
+      },
+      {
+        "page": "soluciones-de-sueno",
+        "section": "cta-final",
+        "id": "cta-final-trazo-1",
+        "nodeId": "I4011:11140;3713:17041",
+        "tipo": "svg",
+        "ancho": 5.36,
+        "alto": 19.28,
+        "rol": "decorativa",
+        "archivo": "soluciones-de-sueno/assets/cta-final-trazo-1.svg"
+      },
+      {
+        "page": "soluciones-de-sueno",
+        "section": "cta-final",
+        "id": "cta-final-trazo-2",
+        "nodeId": "I4011:11140;3713:17042",
+        "tipo": "svg",
+        "ancho": 99.03,
+        "alto": 29.26,
+        "rol": "decorativa",
+        "archivo": "soluciones-de-sueno/assets/cta-final-trazo-2.svg"
+      },
+      {
+        "page": "soluciones-de-sueno",
+        "section": "cta-final",
+        "id": "cta-final-destello-izquierda",
+        "nodeId": "I4011:11140;3713:17045",
+        "tipo": "svg",
+        "ancho": 63.68,
+        "alto": 66.33,
+        "rol": "decorativa",
+        "archivo": "soluciones-de-sueno/assets/cta-final-destello-izquierda.svg"
+      },
+      {
+        "page": "soluciones-de-sueno",
+        "section": "cta-final",
+        "id": "cta-final-trazo-3",
+        "nodeId": "I4011:11140;3713:17046",
+        "tipo": "svg",
+        "ancho": 120.01,
+        "alto": 5.59,
+        "rol": "decorativa",
+        "archivo": "soluciones-de-sueno/assets/cta-final-trazo-3.svg"
+      },
+      {
+        "page": "soluciones-de-sueno",
+        "section": "cta-final",
+        "id": "cta-final-trazo-4",
+        "nodeId": "I4011:11140;3713:17049",
+        "tipo": "svg",
+        "ancho": 99.03,
+        "alto": 29.26,
+        "rol": "decorativa",
+        "archivo": "soluciones-de-sueno/assets/cta-final-trazo-4.svg"
+      },
+      {
+        "page": "testimonios",
+        "section": "seccion-testimonios",
+        "id": "testimonio-foto-giannina",
+        "nodeId": "3749:4228",
+        "tipo": "jpg",
+        "ancho": 160,
+        "alto": 160,
+        "rol": "contenido",
+        "archivo": "testimonios/assets/testimonio-foto-giannina.jpg"
+      },
+      {
+        "page": "testimonios",
+        "section": "seccion-testimonios",
+        "id": "testimonio-foto-andrea",
+        "nodeId": "3749:4250",
+        "tipo": "jpg",
+        "ancho": 160,
+        "alto": 160,
+        "rol": "contenido",
+        "archivo": "testimonios/assets/testimonio-foto-andrea.jpg"
+      },
+      {
+        "page": "testimonios",
+        "section": "seccion-testimonios",
+        "id": "testimonio-foto-javiera",
+        "nodeId": "3749:4272",
+        "tipo": "jpg",
+        "ancho": 160,
+        "alto": 160,
+        "rol": "contenido",
+        "archivo": "testimonios/assets/testimonio-foto-javiera.jpg"
+      },
+      {
+        "page": "testimonios",
+        "section": "seccion-testimonios",
+        "id": "testimonio-foto-bernardita",
+        "nodeId": "3749:4294",
+        "tipo": "jpg",
+        "ancho": 160,
+        "alto": 160,
+        "rol": "contenido",
+        "archivo": "testimonios/assets/testimonio-foto-bernardita.jpg"
+      },
+      {
+        "page": "testimonios",
+        "section": "seccion-testimonios",
+        "id": "testimonio-foto-joanna",
+        "nodeId": "3749:4316",
+        "tipo": "jpg",
+        "ancho": 160,
+        "alto": 160,
+        "rol": "contenido",
+        "archivo": "testimonios/assets/testimonio-foto-joanna.jpg"
+      },
+      {
+        "page": "testimonios",
+        "section": "seccion-testimonios",
+        "id": "testimonio-estrella",
+        "nodeId": "3749:4233",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "testimonios/assets/testimonio-estrella.svg"
+      },
+      {
+        "page": "testimonios",
+        "section": "cta-final",
+        "id": "boton-flecha",
+        "nodeId": "I3749:4344;3713:17007;3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "testimonios/assets/boton-flecha.svg"
+      },
+      {
+        "page": "testimonios",
+        "section": "cta-final",
+        "id": "cta-final-destello-derecha",
+        "nodeId": "I3749:4344;3713:17012",
+        "tipo": "svg",
+        "ancho": 68,
+        "alto": 71,
+        "rol": "decorativa",
+        "archivo": "testimonios/assets/cta-final-destello-derecha.svg"
+      },
+      {
+        "page": "testimonios",
+        "section": "cta-final",
+        "id": "cta-final-destello-grande",
+        "nodeId": "I3749:4344;3713:17027",
+        "tipo": "svg",
+        "ancho": 248,
+        "alto": 614,
+        "rol": "decorativa",
+        "archivo": "testimonios/assets/cta-final-destello-grande.svg"
+      },
+      {
+        "page": "testimonios",
+        "section": "cta-final",
+        "id": "cta-final-trazo-1",
+        "nodeId": "I3749:4344;3713:17041",
+        "tipo": "svg",
+        "ancho": 5.36,
+        "alto": 19.29,
+        "rol": "decorativa",
+        "archivo": "testimonios/assets/cta-final-trazo-1.svg"
+      },
+      {
+        "page": "testimonios",
+        "section": "cta-final",
+        "id": "cta-final-trazo-2",
+        "nodeId": "I3749:4344;3713:17042",
+        "tipo": "svg",
+        "ancho": 99.02,
+        "alto": 29.26,
+        "rol": "decorativa",
+        "archivo": "testimonios/assets/cta-final-trazo-2.svg"
+      },
+      {
+        "page": "testimonios",
+        "section": "cta-final",
+        "id": "cta-final-destello-izquierda",
+        "nodeId": "I3749:4344;3713:17045",
+        "tipo": "svg",
+        "ancho": 63.68,
+        "alto": 66.33,
+        "rol": "decorativa",
+        "archivo": "testimonios/assets/cta-final-destello-izquierda.svg"
+      },
+      {
+        "page": "testimonios",
+        "section": "cta-final",
+        "id": "cta-final-trazo-3",
+        "nodeId": "I3749:4344;3713:17046",
+        "tipo": "svg",
+        "ancho": 120.01,
+        "alto": 5.59,
+        "rol": "decorativa",
+        "archivo": "testimonios/assets/cta-final-trazo-3.svg"
+      },
+      {
+        "page": "testimonios",
+        "section": "cta-final",
+        "id": "cta-final-trazo-4",
+        "nodeId": "I3749:4344;3713:17049",
+        "tipo": "svg",
+        "ancho": 99.02,
+        "alto": 29.26,
+        "rol": "decorativa",
+        "archivo": "testimonios/assets/cta-final-trazo-4.svg"
+      }
+    ],
+    "fonts": [
+      {
+        "familia": "Barlow Condensed",
+        "pesos": [
+          400,
+          500,
+          600
+        ]
+      }
+    ]
+  },
+  "tokens": {
+    "colors": [
+      {
+        "name": "color/texto",
+        "value": "#000000",
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "color/teal",
+        "value": "#9cb0b0",
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "color/verde",
+        "value": "#234549",
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "color/blanco",
+        "value": "#ffffff",
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "color/beige",
+        "value": "#d7d0b5",
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "color/frambuesa",
+        "value": "#a8566a",
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "color/crema",
+        "value": "#f8f6f1",
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "color/texto-suave",
+        "value": "#6b6b6b",
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "home",
+          "mundo-angelitozzz"
+        ]
+      },
+      {
+        "name": "color/blush",
+        "value": "#f1dbd5",
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "green 80",
+        "value": "#492343",
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "color/verde-suave",
+        "value": "#56706f",
+        "paginas": [
+          "blog",
+          "conoce-a-barbara",
+          "home",
+          "mundo-angelitozzz",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "green 20",
+        "value": "#9ec0c0",
+        "paginas": [
+          "home"
+        ]
+      },
+      {
+        "name": "color/terracota",
+        "value": "#c4704a",
+        "paginas": [
+          "mundo-angelitozzz"
+        ]
+      },
+      {
+        "name": "Beige",
+        "value": "#D7D0B5",
+        "paginas": [
+          "preguntas-frecuentes"
+        ]
+      },
+      {
+        "name": null,
+        "value": "#e9b44c",
+        "suelto": true,
+        "usos": 25,
+        "paginas": [
+          "testimonios"
+        ],
+        "cercano": null
+      },
+      {
+        "name": null,
+        "value": "#000000",
+        "suelto": true,
+        "usos": 4,
+        "paginas": [
+          "contacto",
+          "mundo-angelitozzz"
+        ],
+        "cercano": {
+          "name": "color/texto",
+          "value": "#000000",
+          "distancia": 0
+        }
+      },
+      {
+        "name": null,
+        "value": "#d7d0b5",
+        "suelto": true,
+        "usos": 4,
+        "paginas": [
+          "home",
+          "mundo-angelitozzz"
+        ],
+        "cercano": {
+          "name": "color/beige",
+          "value": "#d7d0b5",
+          "distancia": 0
+        }
+      },
+      {
+        "name": null,
+        "value": "#141f21",
+        "suelto": true,
+        "usos": 2,
+        "paginas": [
+          "home"
+        ],
+        "cercano": null
+      },
+      {
+        "name": null,
+        "value": "#492343",
+        "suelto": true,
+        "usos": 2,
+        "paginas": [
+          "home"
+        ],
+        "cercano": {
+          "name": "green 80",
+          "value": "#492343",
+          "distancia": 0
+        }
+      },
+      {
+        "name": null,
+        "value": "#d7d0b500",
+        "suelto": true,
+        "usos": 2,
+        "paginas": [
+          "mundo-angelitozzz"
+        ],
+        "cercano": {
+          "name": "color/beige",
+          "value": "#d7d0b5",
+          "distancia": 0
+        }
+      },
+      {
+        "name": null,
+        "value": "#234549",
+        "suelto": true,
+        "usos": 1,
+        "paginas": [
+          "mundo-angelitozzz"
+        ],
+        "cercano": {
+          "name": "color/verde",
+          "value": "#234549",
+          "distancia": 0
+        }
+      },
+      {
+        "name": null,
+        "value": "#8a8a8a",
+        "suelto": true,
+        "usos": 1,
+        "paginas": [
+          "home"
+        ],
+        "cercano": null
+      },
+      {
+        "name": null,
+        "value": "#a8566a",
+        "suelto": true,
+        "usos": 1,
+        "paginas": [
+          "home"
+        ],
+        "cercano": {
+          "name": "color/frambuesa",
+          "value": "#a8566a",
+          "distancia": 0
+        }
+      },
+      {
+        "name": null,
+        "value": "#ffffff",
+        "suelto": true,
+        "usos": 1,
+        "paginas": [
+          "mundo-angelitozzz"
+        ],
+        "cercano": {
+          "name": "color/blanco",
+          "value": "#ffffff",
+          "distancia": 0
+        }
+      }
+    ],
+    "fonts": [
+      {
+        "familia": "Barlow Condensed",
+        "pesos": [
+          400,
+          500,
+          600
+        ]
+      }
+    ],
+    "fontSizes": [
+      {
+        "valor": 14,
+        "estilos": [
+          "2026/Caption"
+        ]
+      },
+      {
+        "valor": 15,
+        "estilos": [
+          "2026/Label S"
+        ]
+      },
+      {
+        "valor": 16,
+        "estilos": [
+          "2026/Body S",
+          "2026/Note"
+        ]
+      },
+      {
+        "valor": 18,
+        "estilos": [
+          "2026/Body",
+          "2026/Label",
+          "2026/Eyebrow"
+        ]
+      },
+      {
+        "valor": 20,
+        "estilos": [
+          "2026/Body L"
+        ]
+      },
+      {
+        "valor": 22,
+        "estilos": [
+          "2026/H5"
+        ]
+      },
+      {
+        "valor": 24,
+        "estilos": [
+          "2026/Body XL"
+        ]
+      },
+      {
+        "valor": 26,
+        "estilos": [
+          "2026/H4"
+        ]
+      },
+      {
+        "valor": 32,
+        "estilos": [
+          "2026/H3"
+        ]
+      },
+      {
+        "valor": 46,
+        "estilos": [
+          "2026/H2"
+        ]
+      },
+      {
+        "valor": 50,
+        "estilos": [
+          "2026/H1"
+        ]
+      },
+      {
+        "valor": 52,
+        "estilos": [
+          "2026/Display"
+        ]
+      }
+    ],
+    "spacing": [
+      {
+        "valor": 8,
+        "usos": 63,
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "valor": 10,
+        "usos": 56,
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "valor": 24,
+        "usos": 51,
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "valor": 14,
+        "usos": 46,
+        "paginas": [
+          "articulo-blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "valor": 16,
+        "usos": 43,
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "valor": 18,
+        "usos": 40,
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "home",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "valor": 12,
+        "usos": 38,
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "home",
+          "mundo-angelitozzz",
+          "testimonios"
+        ]
+      },
+      {
+        "valor": 6,
+        "usos": 37,
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "home",
+          "mundo-angelitozzz",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "valor": 28,
+        "usos": 36,
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "valor": 2,
+        "usos": 21,
+        "paginas": [
+          "articulo-blog",
+          "home",
+          "mundo-angelitozzz",
+          "testimonios"
+        ]
+      },
+      {
+        "valor": 20,
+        "usos": 21,
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "valor": 7,
+        "usos": 19,
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "soluciones-de-sueno"
+        ]
+      },
+      {
+        "valor": 32,
+        "usos": 19,
+        "paginas": [
+          "articulo-blog",
+          "home",
+          "mundo-angelitozzz",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "valor": 405,
+        "usos": 19,
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "valor": 104,
+        "usos": 13,
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "valor": 88,
+        "usos": 12,
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno"
+        ]
+      },
+      {
+        "valor": 40,
+        "usos": 10,
+        "paginas": [
+          "blog",
+          "conoce-a-barbara",
+          "home"
+        ]
+      },
+      {
+        "valor": 56,
+        "usos": 9,
+        "paginas": [
+          "conoce-a-barbara",
+          "home",
+          "mundo-angelitozzz"
+        ]
+      },
+      {
+        "valor": 54,
+        "usos": 8,
+        "paginas": [
+          "home",
+          "preguntas-frecuentes"
+        ]
+      },
+      {
+        "valor": 314,
+        "usos": 8,
+        "paginas": [
+          "soluciones-de-sueno"
+        ]
+      },
+      {
+        "valor": 4,
+        "usos": 7,
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "home"
+        ]
+      },
+      {
+        "valor": 72,
+        "usos": 7,
+        "paginas": [
+          "articulo-blog",
+          "home",
+          "mundo-angelitozzz",
+          "soluciones-de-sueno"
+        ]
+      },
+      {
+        "valor": 30,
+        "usos": 6,
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara"
+        ]
+      },
+      {
+        "valor": 9,
+        "usos": 5,
+        "paginas": [
+          "contacto",
+          "home"
+        ]
+      },
+      {
+        "valor": 346,
+        "usos": 4,
+        "paginas": [
+          "soluciones-de-sueno"
+        ]
+      },
+      {
+        "valor": 374,
+        "usos": 4,
+        "paginas": [
+          "soluciones-de-sueno"
+        ]
+      },
+      {
+        "valor": 756,
+        "usos": 4,
+        "paginas": [
+          "soluciones-de-sueno"
+        ]
+      },
+      {
+        "valor": 44,
+        "usos": 3,
+        "paginas": [
+          "home"
+        ]
+      },
+      {
+        "valor": 80,
+        "usos": 3,
+        "paginas": [
+          "conoce-a-barbara",
+          "soluciones-de-sueno"
+        ]
+      },
+      {
+        "valor": 15,
+        "usos": 2,
+        "paginas": [
+          "contacto",
+          "home"
+        ]
+      },
+      {
+        "valor": 22,
+        "usos": 2,
+        "paginas": [
+          "blog",
+          "home"
+        ]
+      },
+      {
+        "valor": 48,
+        "usos": 2,
+        "paginas": [
+          "articulo-blog",
+          "home"
+        ]
+      },
+      {
+        "valor": 181,
+        "usos": 2,
+        "paginas": [
+          "home",
+          "mundo-angelitozzz"
+        ]
+      },
+      {
+        "valor": 11,
+        "usos": 1,
+        "paginas": [
+          "home"
+        ]
+      },
+      {
+        "valor": 17,
+        "usos": 1,
+        "paginas": [
+          "mundo-angelitozzz"
+        ]
+      },
+      {
+        "valor": 34,
+        "usos": 1,
+        "paginas": [
+          "contacto"
+        ]
+      },
+      {
+        "valor": 38,
+        "usos": 1,
+        "paginas": [
+          "home"
+        ]
+      },
+      {
+        "valor": 46,
+        "usos": 1,
+        "paginas": [
+          "contacto"
+        ]
+      },
+      {
+        "valor": 49,
+        "usos": 1,
+        "paginas": [
+          "home"
+        ]
+      },
+      {
+        "valor": 52,
+        "usos": 1,
+        "paginas": [
+          "home"
+        ]
+      },
+      {
+        "valor": 57,
+        "usos": 1,
+        "paginas": [
+          "home"
+        ]
+      },
+      {
+        "valor": 58,
+        "usos": 1,
+        "paginas": [
+          "mundo-angelitozzz"
+        ]
+      },
+      {
+        "valor": 62,
+        "usos": 1,
+        "paginas": [
+          "home"
+        ]
+      },
+      {
+        "valor": 64,
+        "usos": 1,
+        "paginas": [
+          "contacto"
+        ]
+      },
+      {
+        "valor": 65,
+        "usos": 1,
+        "paginas": [
+          "preguntas-frecuentes"
+        ]
+      },
+      {
+        "valor": 66,
+        "usos": 1,
+        "paginas": [
+          "home"
+        ]
+      },
+      {
+        "valor": 69,
+        "usos": 1,
+        "paginas": [
+          "contacto"
+        ]
+      },
+      {
+        "valor": 76,
+        "usos": 1,
+        "paginas": [
+          "contacto"
+        ]
+      },
+      {
+        "valor": 96,
+        "usos": 1,
+        "paginas": [
+          "blog"
+        ]
+      },
+      {
+        "valor": 129,
+        "usos": 1,
+        "paginas": [
+          "mundo-angelitozzz"
+        ]
+      },
+      {
+        "valor": 180,
+        "usos": 1,
+        "paginas": [
+          "home"
+        ]
+      },
+      {
+        "valor": 192,
+        "usos": 1,
+        "paginas": [
+          "home"
+        ]
+      },
+      {
+        "valor": 228,
+        "usos": 1,
+        "paginas": [
+          "contacto"
+        ]
+      },
+      {
+        "valor": 278,
+        "usos": 1,
+        "paginas": [
+          "home"
+        ]
+      },
+      {
+        "valor": 280,
+        "usos": 1,
+        "paginas": [
+          "articulo-blog"
+        ]
+      },
+      {
+        "valor": 388,
+        "usos": 1,
+        "paginas": [
+          "home"
+        ]
+      },
+      {
+        "valor": 389,
+        "usos": 1,
+        "paginas": [
+          "home"
+        ]
+      },
+      {
+        "valor": 425,
+        "usos": 1,
+        "paginas": [
+          "home"
+        ]
+      },
+      {
+        "valor": 440,
+        "usos": 1,
+        "paginas": [
+          "articulo-blog"
+        ]
+      },
+      {
+        "valor": 451,
+        "usos": 1,
+        "paginas": [
+          "soluciones-de-sueno"
+        ]
+      },
+      {
+        "valor": 457,
+        "usos": 1,
+        "paginas": [
+          "preguntas-frecuentes"
+        ]
+      },
+      {
+        "valor": 664,
+        "usos": 1,
+        "paginas": [
+          "contacto"
+        ]
+      },
+      {
+        "valor": 1103,
+        "usos": 1,
+        "paginas": [
+          "soluciones-de-sueno"
+        ]
+      }
+    ],
+    "radii": [
+      {
+        "valor": 100,
+        "usos": 75,
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "valor": 20,
+        "usos": 41,
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "home",
+          "mundo-angelitozzz",
+          "testimonios"
+        ]
+      },
+      {
+        "valor": 24,
+        "usos": 24,
+        "paginas": [
+          "articulo-blog",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "valor": 16,
+        "usos": 22,
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "soluciones-de-sueno"
+        ]
+      },
+      {
+        "valor": 12,
+        "usos": 6,
+        "paginas": [
+          "home"
+        ]
+      },
+      {
+        "valor": 32,
+        "usos": 3,
+        "paginas": [
+          "conoce-a-barbara",
+          "home"
+        ]
+      },
+      {
+        "valor": 28,
+        "usos": 2,
+        "paginas": [
+          "home"
+        ]
+      },
+      {
+        "valor": 6,
+        "usos": 1,
+        "paginas": [
+          "home"
+        ]
+      },
+      {
+        "valor": 30,
+        "usos": 1,
+        "paginas": [
+          "mundo-angelitozzz"
+        ]
+      }
+    ],
+    "shadows": [
+      {
+        "name": "shadow header",
+        "value": "Effect(type: DROP_SHADOW, color: #CAC29B26, offset: (-2, 0), radius: 12, spread: 0); Effect(type: DROP_SHADOW, color: #CAC29B21, offset: (-10, 10), radius: 22, spread: 0); Effect(type: DROP_SHADOW, color: #CAC29B14, offset: (-22, 40), radius: 30, spread: 0); Effect(type: DROP_SHADOW, color: #CAC29B05, offset: (-39, 80), radius: 36, spread: 0)",
+        "paginas": [
+          "articulo-blog",
+          "conoce-a-barbara",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "blog",
+          "contacto",
+          "home",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      }
+    ],
+    "variables": [
+      {
+        "name": "color/texto",
+        "tipo": "color",
+        "valor": "#000000",
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "color/teal",
+        "tipo": "color",
+        "valor": "#9cb0b0",
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "color/verde",
+        "tipo": "color",
+        "valor": "#234549",
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "color/blanco",
+        "tipo": "color",
+        "valor": "#ffffff",
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "color/beige",
+        "tipo": "color",
+        "valor": "#d7d0b5",
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "color/frambuesa",
+        "tipo": "color",
+        "valor": "#a8566a",
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "color/crema",
+        "tipo": "color",
+        "valor": "#f8f6f1",
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "color/texto-suave",
+        "tipo": "color",
+        "valor": "#6b6b6b",
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "home",
+          "mundo-angelitozzz"
+        ]
+      },
+      {
+        "name": "color/blush",
+        "tipo": "color",
+        "valor": "#f1dbd5",
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "green 80",
+        "tipo": "color",
+        "valor": "#492343",
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "color/verde-suave",
+        "tipo": "color",
+        "valor": "#56706f",
+        "paginas": [
+          "blog",
+          "conoce-a-barbara",
+          "home",
+          "mundo-angelitozzz",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "green 20",
+        "tipo": "color",
+        "valor": "#9ec0c0",
+        "paginas": [
+          "home"
+        ]
+      },
+      {
+        "name": "color/terracota",
+        "tipo": "color",
+        "valor": "#c4704a",
+        "paginas": [
+          "mundo-angelitozzz"
+        ]
+      },
+      {
+        "name": "Beige",
+        "tipo": "color",
+        "valor": "#D7D0B5",
+        "paginas": [
+          "preguntas-frecuentes"
+        ]
+      },
+      {
+        "name": "2026/Display",
+        "tipo": "texto",
+        "valor": {
+          "familia": "Barlow Condensed",
+          "peso": 600,
+          "tamano": 52,
+          "interlineado": 1,
+          "espaciado": {
+            "valor": 0,
+            "unidad": "%"
+          }
+        },
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "soluciones-de-sueno"
+        ]
+      },
+      {
+        "name": "2026/H2",
+        "tipo": "texto",
+        "valor": {
+          "familia": "Barlow Condensed",
+          "peso": 500,
+          "tamano": 46,
+          "interlineado": 1.15,
+          "espaciado": {
+            "valor": 0,
+            "unidad": "%"
+          }
+        },
+        "paginas": [
+          "articulo-blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "2026/H3",
+        "tipo": "texto",
+        "valor": {
+          "familia": "Barlow Condensed",
+          "peso": 500,
+          "tamano": 32,
+          "interlineado": 1.2,
+          "espaciado": {
+            "valor": 0,
+            "unidad": "%"
+          }
+        },
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "soluciones-de-sueno"
+        ]
+      },
+      {
+        "name": "2026/H4",
+        "tipo": "texto",
+        "valor": {
+          "familia": "Barlow Condensed",
+          "peso": 500,
+          "tamano": 26,
+          "interlineado": 1.25,
+          "espaciado": {
+            "valor": 0,
+            "unidad": "%"
+          }
+        },
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "2026/Body XL",
+        "tipo": "texto",
+        "valor": {
+          "familia": "Barlow Condensed",
+          "peso": 400,
+          "tamano": 24,
+          "interlineado": 1.5,
+          "espaciado": {
+            "valor": 0,
+            "unidad": "%"
+          }
+        },
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "preguntas-frecuentes"
+        ]
+      },
+      {
+        "name": "2026/Body L",
+        "tipo": "texto",
+        "valor": {
+          "familia": "Barlow Condensed",
+          "peso": 400,
+          "tamano": 20,
+          "interlineado": 1.5,
+          "espaciado": {
+            "valor": 0,
+            "unidad": "%"
+          }
+        },
+        "paginas": [
+          "articulo-blog",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "2026/Body",
+        "tipo": "texto",
+        "valor": {
+          "familia": "Barlow Condensed",
+          "peso": 400,
+          "tamano": 18,
+          "interlineado": 1.5,
+          "espaciado": {
+            "valor": 0,
+            "unidad": "%"
+          }
+        },
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "2026/Body S",
+        "tipo": "texto",
+        "valor": {
+          "familia": "Barlow Condensed",
+          "peso": 400,
+          "tamano": 16,
+          "interlineado": 1.5,
+          "espaciado": {
+            "valor": 0,
+            "unidad": "%"
+          }
+        },
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "2026/Label",
+        "tipo": "texto",
+        "valor": {
+          "familia": "Barlow Condensed",
+          "peso": 500,
+          "tamano": 18,
+          "interlineado": 1.3,
+          "espaciado": {
+            "valor": 0,
+            "unidad": "%"
+          }
+        },
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "2026/Label S",
+        "tipo": "texto",
+        "valor": {
+          "familia": "Barlow Condensed",
+          "peso": 500,
+          "tamano": 15,
+          "interlineado": 1.3,
+          "espaciado": {
+            "valor": 0,
+            "unidad": "%"
+          }
+        },
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "2026/Caption",
+        "tipo": "texto",
+        "valor": {
+          "familia": "Barlow Condensed",
+          "peso": 400,
+          "tamano": 14,
+          "interlineado": 1.4,
+          "espaciado": {
+            "valor": 0,
+            "unidad": "%"
+          }
+        },
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "home",
+          "mundo-angelitozzz"
+        ]
+      },
+      {
+        "name": "2026/H1",
+        "tipo": "texto",
+        "valor": {
+          "familia": "Barlow Condensed",
+          "peso": 600,
+          "tamano": 50,
+          "interlineado": 1.1,
+          "espaciado": {
+            "valor": 0,
+            "unidad": "%"
+          }
+        },
+        "paginas": [
+          "blog",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "2026/Eyebrow",
+        "tipo": "texto",
+        "valor": {
+          "familia": "Barlow Condensed",
+          "peso": 500,
+          "tamano": 18,
+          "interlineado": 1.3,
+          "espaciado": {
+            "valor": 4,
+            "unidad": "%"
+          }
+        },
+        "paginas": [
+          "blog",
+          "conoce-a-barbara",
+          "home",
+          "mundo-angelitozzz",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "2026/H5",
+        "tipo": "texto",
+        "valor": {
+          "familia": "Barlow Condensed",
+          "peso": 500,
+          "tamano": 22,
+          "interlineado": 1.3,
+          "espaciado": {
+            "valor": 0,
+            "unidad": "%"
+          }
+        },
+        "paginas": [
+          "conoce-a-barbara",
+          "home"
+        ]
+      },
+      {
+        "name": "2026/Note",
+        "tipo": "texto",
+        "valor": {
+          "familia": "Barlow Condensed",
+          "peso": 400,
+          "tamano": 16,
+          "interlineado": 1.4,
+          "espaciado": {
+            "valor": 0,
+            "unidad": "%"
+          }
+        },
+        "paginas": [
+          "mundo-angelitozzz"
+        ]
+      },
+      {
+        "name": "shadow header",
+        "tipo": "sombra",
+        "valor": "Effect(type: DROP_SHADOW, color: #CAC29B26, offset: (-2, 0), radius: 12, spread: 0); Effect(type: DROP_SHADOW, color: #CAC29B21, offset: (-10, 10), radius: 22, spread: 0); Effect(type: DROP_SHADOW, color: #CAC29B14, offset: (-22, 40), radius: 30, spread: 0); Effect(type: DROP_SHADOW, color: #CAC29B05, offset: (-39, 80), radius: 36, spread: 0)",
+        "paginas": [
+          "articulo-blog",
+          "conoce-a-barbara",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "blog",
+          "contacto",
+          "home",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      }
+    ],
+    "textStyles": [
+      {
+        "name": "2026/Display",
+        "familia": "Barlow Condensed",
+        "peso": 600,
+        "tamano": 52,
+        "interlineado": 1,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        },
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "soluciones-de-sueno"
+        ]
+      },
+      {
+        "name": "2026/H2",
+        "familia": "Barlow Condensed",
+        "peso": 500,
+        "tamano": 46,
+        "interlineado": 1.15,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        },
+        "paginas": [
+          "articulo-blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "2026/H3",
+        "familia": "Barlow Condensed",
+        "peso": 500,
+        "tamano": 32,
+        "interlineado": 1.2,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        },
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "soluciones-de-sueno"
+        ]
+      },
+      {
+        "name": "2026/H4",
+        "familia": "Barlow Condensed",
+        "peso": 500,
+        "tamano": 26,
+        "interlineado": 1.25,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        },
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "2026/Body XL",
+        "familia": "Barlow Condensed",
+        "peso": 400,
+        "tamano": 24,
+        "interlineado": 1.5,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        },
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "preguntas-frecuentes"
+        ]
+      },
+      {
+        "name": "2026/Body L",
+        "familia": "Barlow Condensed",
+        "peso": 400,
+        "tamano": 20,
+        "interlineado": 1.5,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        },
+        "paginas": [
+          "articulo-blog",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "2026/Body",
+        "familia": "Barlow Condensed",
+        "peso": 400,
+        "tamano": 18,
+        "interlineado": 1.5,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        },
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "2026/Body S",
+        "familia": "Barlow Condensed",
+        "peso": 400,
+        "tamano": 16,
+        "interlineado": 1.5,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        },
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "2026/Label",
+        "familia": "Barlow Condensed",
+        "peso": 500,
+        "tamano": 18,
+        "interlineado": 1.3,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        },
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "2026/Label S",
+        "familia": "Barlow Condensed",
+        "peso": 500,
+        "tamano": 15,
+        "interlineado": 1.3,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        },
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "2026/Caption",
+        "familia": "Barlow Condensed",
+        "peso": 400,
+        "tamano": 14,
+        "interlineado": 1.4,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        },
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "home",
+          "mundo-angelitozzz"
+        ]
+      },
+      {
+        "name": "2026/H1",
+        "familia": "Barlow Condensed",
+        "peso": 600,
+        "tamano": 50,
+        "interlineado": 1.1,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        },
+        "paginas": [
+          "blog",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "2026/Eyebrow",
+        "familia": "Barlow Condensed",
+        "peso": 500,
+        "tamano": 18,
+        "interlineado": 1.3,
+        "espaciado": {
+          "valor": 4,
+          "unidad": "%"
+        },
+        "paginas": [
+          "blog",
+          "conoce-a-barbara",
+          "home",
+          "mundo-angelitozzz",
+          "testimonios"
+        ]
+      },
+      {
+        "name": "2026/H5",
+        "familia": "Barlow Condensed",
+        "peso": 500,
+        "tamano": 22,
+        "interlineado": 1.3,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        },
+        "paginas": [
+          "conoce-a-barbara",
+          "home"
+        ]
+      },
+      {
+        "name": "2026/Note",
+        "familia": "Barlow Condensed",
+        "peso": 400,
+        "tamano": 16,
+        "interlineado": 1.4,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        },
+        "paginas": [
+          "mundo-angelitozzz"
+        ]
+      }
+    ]
+  },
+  "repeated": [
+    {
+      "id": "componente:Botón",
+      "tag": "componente",
+      "nombre": "Botón",
+      "count": 31,
+      "kind": "cross-page",
+      "files": [
+        "articulo-blog",
+        "conoce-a-barbara",
+        "contacto",
+        "home",
+        "mundo-angelitozzz",
+        "preguntas-frecuentes",
+        "soluciones-de-sueno",
+        "testimonios"
+      ],
+      "variantes": [
+        "Secundario",
+        "Frambuesa",
+        "Verde"
+      ],
+      "locations": [
+        {
+          "page": "articulo-blog",
+          "section": "escrito-por"
+        },
+        {
+          "page": "articulo-blog",
+          "section": "escrito-por"
+        },
+        {
+          "page": "articulo-blog",
+          "section": "cta-final"
+        },
+        {
+          "page": "conoce-a-barbara",
+          "section": "reflexion"
+        },
+        {
+          "page": "conoce-a-barbara",
+          "section": "seccion-blog"
+        },
+        {
+          "page": "conoce-a-barbara",
+          "section": "cta-final"
+        },
+        {
+          "page": "contacto",
+          "section": "seccion-de-contacto"
+        },
+        {
+          "page": "contacto",
+          "section": "seccion-de-cta"
+        },
+        {
+          "page": "home",
+          "section": "hero"
+        },
+        {
+          "page": "home",
+          "section": "como-ayudarte"
+        },
+        {
+          "page": "home",
+          "section": "como-ayudarte"
+        },
+        {
+          "page": "home",
+          "section": "como-ayudarte"
+        },
+        {
+          "page": "home",
+          "section": "como-ayudarte"
+        },
+        {
+          "page": "home",
+          "section": "quien-soy"
+        },
+        {
+          "page": "home",
+          "section": "seccion-cta"
+        },
+        {
+          "page": "home",
+          "section": "seccion-instagram"
+        },
+        {
+          "page": "home",
+          "section": "testimonios"
+        },
+        {
+          "page": "home",
+          "section": "cta-final"
+        },
+        {
+          "page": "home",
+          "section": "modal-coach"
+        },
+        {
+          "page": "home",
+          "section": "modal-coach-gracias"
+        },
+        {
+          "page": "mundo-angelitozzz",
+          "section": "hero"
+        },
+        {
+          "page": "mundo-angelitozzz",
+          "section": "que-incluye-mundo"
+        },
+        {
+          "page": "mundo-angelitozzz",
+          "section": "testimonios"
+        },
+        {
+          "page": "mundo-angelitozzz",
+          "section": "cta-mundo"
+        },
+        {
+          "page": "preguntas-frecuentes",
+          "section": "cta-final"
+        },
+        {
+          "page": "soluciones-de-sueno",
+          "section": "shop"
+        },
+        {
+          "page": "soluciones-de-sueno",
+          "section": "shop"
+        },
+        {
+          "page": "soluciones-de-sueno",
+          "section": "shop"
+        },
+        {
+          "page": "soluciones-de-sueno",
+          "section": "shop"
+        },
+        {
+          "page": "soluciones-de-sueno",
+          "section": "cta-final"
+        },
+        {
+          "page": "testimonios",
+          "section": "cta-final"
+        }
+      ],
+      "sample": "{\"flecha\":false,\"texto\":\"Conoce a Bárbara\"}"
+    },
+    {
+      "id": "componente:CTA final",
+      "tag": "componente",
+      "nombre": "CTA final",
+      "count": 6,
+      "kind": "cross-page",
+      "files": [
+        "articulo-blog",
+        "conoce-a-barbara",
+        "home",
+        "preguntas-frecuentes",
+        "soluciones-de-sueno",
+        "testimonios"
+      ],
+      "variantes": [],
+      "locations": [
+        {
+          "page": "articulo-blog",
+          "section": "cta-final"
+        },
+        {
+          "page": "conoce-a-barbara",
+          "section": "cta-final"
+        },
+        {
+          "page": "home",
+          "section": "cta-final"
+        },
+        {
+          "page": "preguntas-frecuentes",
+          "section": "cta-final"
+        },
+        {
+          "page": "soluciones-de-sueno",
+          "section": "cta-final"
+        },
+        {
+          "page": "testimonios",
+          "section": "cta-final"
+        }
+      ],
+      "sample": "{\"boton_texto\":\"Encuentra tu solución\",\"descripcion\":\"Encuentra la solución de sueño ideal según su edad.\",\"titulo\":\"¿Quieres un plan para tu bebé?\"}"
+    },
+    {
+      "id": "componente:Etiqueta",
+      "tag": "componente",
+      "nombre": "Etiqueta",
+      "count": 16,
+      "kind": "cross-page",
+      "files": [
+        "articulo-blog",
+        "conoce-a-barbara",
+        "home",
+        "soluciones-de-sueno",
+        "testimonios"
+      ],
+      "variantes": [
+        "Tarjeta",
+        "Esquina",
+        "Estilo=Esquina, Icono=Destellos",
+        "Estilo=Esquina, Icono=Estrella",
+        "Estilo=Esquina, Icono=Ninguno"
+      ],
+      "locations": [
+        {
+          "page": "articulo-blog",
+          "section": "cabecera-del-articulo"
+        },
+        {
+          "page": "articulo-blog",
+          "section": "te-puede-interesar"
+        },
+        {
+          "page": "conoce-a-barbara",
+          "section": "seccion-blog"
+        },
+        {
+          "page": "home",
+          "section": "como-ayudarte"
+        },
+        {
+          "page": "home",
+          "section": "como-ayudarte"
+        },
+        {
+          "page": "home",
+          "section": "como-ayudarte"
+        },
+        {
+          "page": "home",
+          "section": "como-ayudarte"
+        },
+        {
+          "page": "soluciones-de-sueno",
+          "section": "shop"
+        },
+        {
+          "page": "soluciones-de-sueno",
+          "section": "shop"
+        },
+        {
+          "page": "soluciones-de-sueno",
+          "section": "shop"
+        },
+        {
+          "page": "soluciones-de-sueno",
+          "section": "shop"
+        },
+        {
+          "page": "testimonios",
+          "section": "seccion-testimonios"
+        },
+        {
+          "page": "testimonios",
+          "section": "seccion-testimonios"
+        },
+        {
+          "page": "testimonios",
+          "section": "seccion-testimonios"
+        },
+        {
+          "page": "testimonios",
+          "section": "seccion-testimonios"
+        },
+        {
+          "page": "testimonios",
+          "section": "seccion-testimonios"
+        }
+      ],
+      "sample": "{\"icono\":\"Ninguno\",\"texto\":\"Especiales\"}"
+    },
+    {
+      "id": "componente:Tarjeta de blog",
+      "tag": "componente",
+      "nombre": "Tarjeta de blog",
+      "count": 18,
+      "kind": "cross-page",
+      "files": [
+        "articulo-blog",
+        "blog",
+        "conoce-a-barbara"
+      ],
+      "variantes": [],
+      "locations": [
+        {
+          "page": "articulo-blog",
+          "section": "te-puede-interesar"
+        },
+        {
+          "page": "articulo-blog",
+          "section": "te-puede-interesar"
+        },
+        {
+          "page": "articulo-blog",
+          "section": "te-puede-interesar"
+        },
+        {
+          "page": "blog",
+          "section": "categoria-especiales"
+        },
+        {
+          "page": "blog",
+          "section": "categoria-especiales"
+        },
+        {
+          "page": "blog",
+          "section": "categoria-especiales"
+        },
+        {
+          "page": "blog",
+          "section": "categoria-bebes-0-4-meses"
+        },
+        {
+          "page": "blog",
+          "section": "categoria-bebes-0-4-meses"
+        },
+        {
+          "page": "blog",
+          "section": "categoria-bebes-0-4-meses"
+        },
+        {
+          "page": "blog",
+          "section": "categoria-bebes-4-24-meses"
+        },
+        {
+          "page": "blog",
+          "section": "categoria-bebes-4-24-meses"
+        },
+        {
+          "page": "blog",
+          "section": "categoria-bebes-4-24-meses"
+        },
+        {
+          "page": "blog",
+          "section": "categoria-bebes-24-meses-4-anos"
+        },
+        {
+          "page": "blog",
+          "section": "categoria-bebes-24-meses-4-anos"
+        },
+        {
+          "page": "blog",
+          "section": "categoria-bebes-24-meses-4-anos"
+        },
+        {
+          "page": "conoce-a-barbara",
+          "section": "seccion-blog"
+        },
+        {
+          "page": "conoce-a-barbara",
+          "section": "seccion-blog"
+        },
+        {
+          "page": "conoce-a-barbara",
+          "section": "seccion-blog"
+        }
+      ],
+      "sample": "{\"enlace_texto\":\"Leer artículo\",\"etiqueta\":\"Especiales\",\"imagen\":\"interesar-foto-tarjeta-1\",\"meta\":\"Publicado el 12 de febrero de 2024 · 4 min de lectura\",\"resumen\":\"Qué esperar cuando tu bebé protesta y cómo acompañarlo con calma, sin culpa.\",\"titulo\":\"5 señales de que tu bebé está en transición de siestas\"}"
+    },
+    {
+      "id": "componente:Testimonios · Tarjetas",
+      "tag": "componente",
+      "nombre": "Testimonios · Tarjetas",
+      "count": 2,
+      "kind": "cross-page",
+      "files": [
+        "home",
+        "mundo-angelitozzz"
+      ],
+      "variantes": [],
+      "locations": [
+        {
+          "page": "home",
+          "section": "testimonios"
+        },
+        {
+          "page": "mundo-angelitozzz",
+          "section": "testimonios"
+        }
+      ],
+      "sample": "{\"boton_texto\":\"Ver más testimonios\",\"testimonios\":[{\"autora\":\"Carolina, mamá de Tomás\",\"detalle\":\"Bebé de 6 meses\",\"estrellas\":5,\"texto\":\"“Probé de todo y nada funcionaba. Con el plan de Bárbara, en una semana mi bebé dormía en su cuna.”\"},{\"autora\":\"Daniela, mamá de Mateo\",\"detalle\":\"Bebé de 8 meses\",\"estrellas\":5,\"texto\":\"“Bárbara, te hago un altar: en 4 días avanzamos lo que jamás pensé lograr, sin dejarlo llorar.”\"},{\"autora\":\"Lucía, mamá de Emilia\",\"detalle\":\"Bebé de 2 años\",\"estrellas\":5,\"texto\":\"“Compré el curso con mi hija de 8 semanas; a los 4 meses dormía de corrido. Hoy tiene 2 años y sigue durmiendo increíble.”\"},{\"autora\":\"Valeria, mamá de Joaquín\",\"detalle\":\"Bebé de 12 días\",\"estrellas\":5,\"texto\":\"“Mi bebé tiene 12 días y ya la puedo poner en el moisés. Antes solo dormía en brazos.”\"},{\"autora\":\"Andrea, mamá de Lucas\",\"detalle\":\"Bebé de 7 meses\",\"estrellas\":5,\"texto\":\"“Pensé que nunca iba a volver a dormir una noche completa. Hoy dormimos todos.”\"}],\"titulo\":\"SHHH... Bebés durmiendo felices\"}"
+    }
+  ],
+  "interactions": [
+    {
+      "type": "formulario",
+      "file": "blog",
+      "section": "hero-blog",
+      "suggestedSkill": "wp-form",
+      "hint": "Buscador (3807:5286): campo con icono de lupa, placeholder \"Busca un tema: siestas, regresión, horarios…\" y botón \"Buscar\" frambuesa; parece la búsqueda de entradas del blog.",
+      "estado": "propuesto"
+    },
+    {
+      "type": "pestanas",
+      "file": "blog",
+      "section": "hero-blog",
+      "suggestedSkill": null,
+      "hint": "Fila \"Categorías\" (3751:4328): 7 pastillas hermanas, \"Todos\" activa (fondo verde, texto crema) y el resto blancas; filtro por categoría de entradas.",
+      "estado": "propuesto"
+    },
+    {
+      "type": "formulario",
+      "file": "contacto",
+      "section": "seccion-de-contacto",
+      "suggestedSkill": "wp-form",
+      "hint": "Campos con etiqueta y línea inferior (Nombres y Apellidos, Email, Celular con prefijo de país '+51 ▾', '¿Sobre qué quieres escribirnos?' con flecha de desplegable, Mensaje con área alta de 69px), casilla 14×14 'He leído y acepto las políticas de privacidad' y botón 'Enviar mensaje'. La nota de enlaces/ pide la skill wp-form y envío a Mailpit (luego Fluent SMTP).",
+      "estado": "propuesto"
+    },
+    {
+      "type": "modal",
+      "file": "home",
+      "section": "cintillo-promociones",
+      "suggestedSkill": "wp-modal",
+      "hint": "La descripción del componente en Figma dice que todo el cintillo es clickeable y abre el pop-up del coach de sueño virtual (Angelita Basic); tiene cursor-pointer y una flecha.",
+      "estado": "propuesto"
+    },
+    {
+      "type": "menu",
+      "file": "home",
+      "section": "header",
+      "suggestedSkill": null,
+      "hint": "Fila de 5 enlaces centrados (Soluciones de Sueño, Blog, Mundo Angelitozzz, Conoce a Bárbara, Testimonios) más 'Contacto' a la derecha; la descripción del componente lista el menú.",
+      "estado": "propuesto"
+    },
+    {
+      "type": "slider",
+      "file": "home",
+      "section": "como-ayudarte",
+      "suggestedSkill": null,
+      "hint": "Dos botones circulares 'Arrow Right' (54 px, borde #492343) a los lados de la fila de tarjetas, uno girado 180°.",
+      "estado": "propuesto"
+    },
+    {
+      "type": "slider",
+      "file": "home",
+      "section": "testimonios",
+      "suggestedSkill": null,
+      "hint": "Flechas izquierda/derecha en el encabezado, puntos de paginación (4) bajo las tarjetas y tarjetas 'asomadas' a ambos lados (opacidad 45%, degradado beige).",
+      "estado": "propuesto"
+    },
+    {
+      "type": "formulario",
+      "file": "home",
+      "section": "footer",
+      "suggestedSkill": "wp-form",
+      "hint": "Campo blanco redondeado con placeholder 'Ingresa tu correo electrónico' y botón verde 'Suscribirme' con flecha, bajo 'Suscríbete a nuestro blog'.",
+      "estado": "propuesto"
+    },
+    {
+      "type": "menu",
+      "file": "home",
+      "section": "footer",
+      "suggestedSkill": null,
+      "hint": "4 columnas de enlaces (navegación, legales, ayuda): Soluciones de Sueño, Mundo Angelitozzz, Conoce a Bárbara / Testimonios, Blog, Contacto / Políticas de privacidad, Términos y condiciones / Preguntas frecuentes, Soporte.",
+      "estado": "propuesto"
+    },
+    {
+      "type": "modal",
+      "file": "home",
+      "section": "modal-coach",
+      "suggestedSkill": "wp-modal",
+      "hint": "Tarjeta blanca 600x853 (radio 24, padding 40/44, gap 20, sombra 0 20px 60px rgba(0,0,0,0.2) sin variable) centrada sobre un rectángulo 'Overlay' 1920x1080 (nodo 3888:6226, hermano detrás) de color #141f21 con opacidad 50%. Botón 'Cerrar' circular 40x40 color/crema arriba a la derecha (top 16, a 16px del borde derecho) con una X de 20px color/verde, sin texto visible.",
+      "estado": "propuesto"
+    },
+    {
+      "type": "formulario",
+      "file": "home",
+      "section": "modal-coach",
+      "suggestedSkill": "wp-form",
+      "hint": "Formulario de 4 campos + consentimiento + envío. Cada campo: label 2026/Label color/verde, gap 8, caja color/crema con borde 1px color/beige, radio 12, padding 14/18, texto 2026/Body. (1) '¿Cómo te llamas?' texto, placeholder 'Tu nombre'. (2) 'Tu WhatsApp' teléfono: selector de código de país (caja 94px, '🇵🇪 +51' en color/texto + chevron 16px) y a su lado (gap 10) input con placeholder '999 999 999'; ayuda 2026/Caption color/texto-suave 'Lo necesitamos porque tu coach de sueño virtual te va a escribir y ayudarte por aquí 💛'. (3) 'Edad de tu bebé' select con placeholder 'Selecciona una opción' y chevron 18px; capa oculta 'Opciones (desplegadas)' con 4 opciones: 0 a 4 meses, 4 a 12 meses, 12 a 24 meses, 2 a 4 años (lista blanca, borde color/beige, radio 12, padding 6, ítems 10/12). (4) 'Tu email (opcional)' email, placeholder 'tucorreo@email.com', ayuda 'Así también te avisamos sobre contenido y novedades'. Ningún campo lleva asterisco ni marca de obligatorio; solo el email dice '(opcional)'. Checkbox de consentimiento 22x22 (blanco, borde 1px color/verde, radio 6, desmarcado) con texto 2026/Body S 'Acepto que Angelitozzz use mis datos para contactarme y enviarme información relacionada · ' y enlace subrayado #a8566a 'Ver Políticas de privacidad'. Botón Frambuesa a todo el ancho 'Quiero que me ayuden con el sueño de mi bebé' con flecha (en Figma es un <a>; debe ser el submit). No hay estados de error, foco ni carga dibujados.",
+      "estado": "propuesto"
+    },
+    {
+      "type": "modal",
+      "file": "home",
+      "section": "modal-coach-gracias",
+      "suggestedSkill": "wp-modal",
+      "hint": "Estado de agradecimiento del mismo pop-up: tarjeta blanca 560x425 (radio 24, padding 56 arriba / 48 abajo / 44 lados, gap 20, contenido centrado, misma sombra 0 20px 60px rgba(0,0,0,0.2)) sobre 'Overlay' 1920x1080 (nodo 3888:6507) #141f21 al 50%. Mismo botón 'Cerrar' 40x40 color/crema con X color/verde. Ícono de check 72x72: círculo color/blush (#F1DBD5) con check #C8725A, ambos dentro del SVG.",
+      "estado": "propuesto"
+    },
+    {
+      "type": "slider",
+      "file": "mundo-angelitozzz",
+      "section": "testimonios",
+      "suggestedSkill": null,
+      "hint": "Encabezado con flechas izquierda/derecha (círculos blancos 48px), 3 tarjetas visibles + 2 'Tarjeta asomada' a los lados (opacidad 45%) tapadas por degradados beige de 220px, y 4 puntos de paginación (58×10) debajo.",
+      "estado": "propuesto"
+    },
+    {
+      "type": "acordeon",
+      "file": "preguntas-frecuentes",
+      "section": "seccion-preguntas-frecuentes",
+      "suggestedSkill": "wp-accordion",
+      "hint": "6 filas hermanas idénticas (check negro + pregunta Body L 20px + línea separadora beige); solo la primera muestra su respuesta (gap 54px entre pregunta, respuesta y línea), las otras 5 están cerradas. No hay ícono +/chevron de abrir/cerrar: el indicador es un check. Candidato a skill wp-accordion.",
+      "estado": "propuesto"
+    },
+    {
+      "type": "pestanas",
+      "file": "testimonios",
+      "section": "seccion-testimonios",
+      "suggestedSkill": null,
+      "hint": "Fila 'Filtros' (3749:4218) centrada bajo el subtítulo con 3 pastillas: 'Todos' activa (fondo color/verde, texto color/crema) y 'Soluciones de Sueño' y 'Mundo Angelitozzz' inactivas (fondo blanco, borde 1px color/beige, texto color/verde); Label S, padding 8/18, radio 100, gap 12. Son filtros por categoría sobre una sola lista, no pestañas con paneles distintos. La nota de enlaces/ dice que en esta sección los testimonios tienen categorías.",
+      "estado": "propuesto"
+    }
+  ],
+  "dynamicCandidates": [
+    {
+      "page": "articulo-blog",
+      "section": "te-puede-interesar",
+      "reasons": [
+        "Encabezado 'También te puede interesar' con enlace 'Ver todo →' a la derecha: lista de entradas del blog relacionadas (no slider: no hay flechas ni puntos)."
+      ],
+      "estado": "propuesto"
+    },
+    {
+      "page": "blog",
+      "section": "categoria-especiales",
+      "reasons": [
+        "\"Tarjetas\" (3751:4359): 3 instancias hermanas de \"Tarjeta de blog\" en fila (gap 30) con imagen, etiqueta, fecha, título, resumen y \"Leer artículo\"; son entradas del blog de la categoría \"Especiales\". La nota de página dice que cada sección es una categoría."
+      ],
+      "estado": "propuesto"
+    },
+    {
+      "page": "blog",
+      "section": "categoria-bebes-0-4-meses",
+      "reasons": [
+        "\"Tarjetas\" (3751:4410): 3 instancias hermanas de \"Tarjeta de blog\" en fila (gap 30) con imagen, etiqueta, fecha, título, resumen y \"Leer artículo\"; son entradas del blog de la categoría \"Bebés 0 – 4 meses\". La nota de página dice que cada sección es una categoría."
+      ],
+      "estado": "propuesto"
+    },
+    {
+      "page": "blog",
+      "section": "categoria-bebes-4-24-meses",
+      "reasons": [
+        "\"Tarjetas\" (3751:4461): 3 instancias hermanas de \"Tarjeta de blog\" en fila (gap 30) con imagen, etiqueta, fecha, título, resumen y \"Leer artículo\"; son entradas del blog de la categoría \"Bebés 4 – 24 meses\". La nota de página dice que cada sección es una categoría."
+      ],
+      "estado": "propuesto"
+    },
+    {
+      "page": "blog",
+      "section": "categoria-bebes-24-meses-4-anos",
+      "reasons": [
+        "\"Tarjetas\" (3751:4512): 3 instancias hermanas de \"Tarjeta de blog\" en fila (gap 30) con imagen, etiqueta, fecha, título, resumen y \"Leer artículo\"; son entradas del blog de la categoría \"Bebés 24 meses – 4 años\". La nota de página dice que cada sección es una categoría."
+      ],
+      "estado": "propuesto"
+    },
+    {
+      "page": "conoce-a-barbara",
+      "section": "seccion-blog",
+      "reasons": [
+        "Tres instancias de 'Tarjeta de blog' (imagen con etiqueta de categoría, fecha y tiempo de lectura, título, resumen, 'Leer artículo') con contenido de entradas: son entradas del blog. La nota de enlaces/ pide un campo de relación para elegir y ordenar artículos y, si va vacío, los 3 últimos del blog."
+      ],
+      "estado": "propuesto"
+    },
+    {
+      "page": "home",
+      "section": "seccion-instagram",
+      "reasons": [
+        "3 capturas de reels/stories (720×1520, capas 'WhatsApp Image…') en fila con radio 20: parece un feed de Instagram."
+      ],
+      "estado": "propuesto"
+    },
+    {
+      "page": "soluciones-de-sueno",
+      "section": "shop",
+      "reasons": [
+        "Las notas de enlaces/ piden mostrar todos los cursos (luego desde WooCommerce), sin filtros, y un botón 'ver más' cuando haya más de 12. El diseño no dibuja ese botón 'ver más' ni paginación: solo 4 tarjetas."
+      ],
+      "estado": "propuesto"
+    },
+    {
+      "page": "testimonios",
+      "section": "seccion-testimonios",
+      "reasons": [
+        "'Lista' (3749:4226) en columna, gap 24, ancho 1110, con 5 tarjetas 'Testimonio · <nombre>' idénticas (Giannina, Andrea, Javiera, Bernardita, Joanna): fondo blanco, radio 24, padding 32, gap 32; foto 160×160 radio 20 a la izquierda; a la derecha nombre (H4 verde) + 5 estrellas doradas 18×18 (gap 2), fila de dos pastillas (Etiqueta 'Tarjeta' teal con la categoría y pastilla crema con la edad del bebé 'Bebé de …') y el testimonio (Body). Cada tarjeta lleva una sola categoría: 2 'Mundo Angelitozzz' (Giannina, Bernardita) y 3 'Soluciones de Sueño' (Andrea, Javiera, Joanna). No hay agrupación por categoría: la lista las mezcla con el filtro 'Todos' activo. Candidato a tipo de contenido 'testimonio' con taxonomía de categoría (tabla 'Contenido dinámico')."
+      ],
+      "estado": "propuesto"
+    }
+  ],
+  "siteWide": {
+    "chrome": [],
+    "repeated": [
+      {
+        "id": "componente:Botón",
+        "tag": "componente",
+        "nombre": "Botón",
+        "count": 31,
+        "kind": "cross-page",
+        "files": [
+          "articulo-blog",
+          "conoce-a-barbara",
+          "contacto",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ],
+        "variantes": [
+          "Secundario",
+          "Frambuesa",
+          "Verde"
+        ],
+        "locations": [
+          {
+            "page": "articulo-blog",
+            "section": "escrito-por"
+          },
+          {
+            "page": "articulo-blog",
+            "section": "escrito-por"
+          },
+          {
+            "page": "articulo-blog",
+            "section": "cta-final"
+          },
+          {
+            "page": "conoce-a-barbara",
+            "section": "reflexion"
+          },
+          {
+            "page": "conoce-a-barbara",
+            "section": "seccion-blog"
+          },
+          {
+            "page": "conoce-a-barbara",
+            "section": "cta-final"
+          },
+          {
+            "page": "contacto",
+            "section": "seccion-de-contacto"
+          },
+          {
+            "page": "contacto",
+            "section": "seccion-de-cta"
+          },
+          {
+            "page": "home",
+            "section": "hero"
+          },
+          {
+            "page": "home",
+            "section": "como-ayudarte"
+          },
+          {
+            "page": "home",
+            "section": "como-ayudarte"
+          },
+          {
+            "page": "home",
+            "section": "como-ayudarte"
+          },
+          {
+            "page": "home",
+            "section": "como-ayudarte"
+          },
+          {
+            "page": "home",
+            "section": "quien-soy"
+          },
+          {
+            "page": "home",
+            "section": "seccion-cta"
+          },
+          {
+            "page": "home",
+            "section": "seccion-instagram"
+          },
+          {
+            "page": "home",
+            "section": "testimonios"
+          },
+          {
+            "page": "home",
+            "section": "cta-final"
+          },
+          {
+            "page": "home",
+            "section": "modal-coach"
+          },
+          {
+            "page": "home",
+            "section": "modal-coach-gracias"
+          },
+          {
+            "page": "mundo-angelitozzz",
+            "section": "hero"
+          },
+          {
+            "page": "mundo-angelitozzz",
+            "section": "que-incluye-mundo"
+          },
+          {
+            "page": "mundo-angelitozzz",
+            "section": "testimonios"
+          },
+          {
+            "page": "mundo-angelitozzz",
+            "section": "cta-mundo"
+          },
+          {
+            "page": "preguntas-frecuentes",
+            "section": "cta-final"
+          },
+          {
+            "page": "soluciones-de-sueno",
+            "section": "shop"
+          },
+          {
+            "page": "soluciones-de-sueno",
+            "section": "shop"
+          },
+          {
+            "page": "soluciones-de-sueno",
+            "section": "shop"
+          },
+          {
+            "page": "soluciones-de-sueno",
+            "section": "shop"
+          },
+          {
+            "page": "soluciones-de-sueno",
+            "section": "cta-final"
+          },
+          {
+            "page": "testimonios",
+            "section": "cta-final"
+          }
+        ],
+        "sample": "{\"flecha\":false,\"texto\":\"Conoce a Bárbara\"}"
+      },
+      {
+        "id": "componente:CTA final",
+        "tag": "componente",
+        "nombre": "CTA final",
+        "count": 6,
+        "kind": "cross-page",
+        "files": [
+          "articulo-blog",
+          "conoce-a-barbara",
+          "home",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ],
+        "variantes": [],
+        "locations": [
+          {
+            "page": "articulo-blog",
+            "section": "cta-final"
+          },
+          {
+            "page": "conoce-a-barbara",
+            "section": "cta-final"
+          },
+          {
+            "page": "home",
+            "section": "cta-final"
+          },
+          {
+            "page": "preguntas-frecuentes",
+            "section": "cta-final"
+          },
+          {
+            "page": "soluciones-de-sueno",
+            "section": "cta-final"
+          },
+          {
+            "page": "testimonios",
+            "section": "cta-final"
+          }
+        ],
+        "sample": "{\"boton_texto\":\"Encuentra tu solución\",\"descripcion\":\"Encuentra la solución de sueño ideal según su edad.\",\"titulo\":\"¿Quieres un plan para tu bebé?\"}"
+      },
+      {
+        "id": "componente:Etiqueta",
+        "tag": "componente",
+        "nombre": "Etiqueta",
+        "count": 16,
+        "kind": "cross-page",
+        "files": [
+          "articulo-blog",
+          "conoce-a-barbara",
+          "home",
+          "soluciones-de-sueno",
+          "testimonios"
+        ],
+        "variantes": [
+          "Tarjeta",
+          "Esquina",
+          "Estilo=Esquina, Icono=Destellos",
+          "Estilo=Esquina, Icono=Estrella",
+          "Estilo=Esquina, Icono=Ninguno"
+        ],
+        "locations": [
+          {
+            "page": "articulo-blog",
+            "section": "cabecera-del-articulo"
+          },
+          {
+            "page": "articulo-blog",
+            "section": "te-puede-interesar"
+          },
+          {
+            "page": "conoce-a-barbara",
+            "section": "seccion-blog"
+          },
+          {
+            "page": "home",
+            "section": "como-ayudarte"
+          },
+          {
+            "page": "home",
+            "section": "como-ayudarte"
+          },
+          {
+            "page": "home",
+            "section": "como-ayudarte"
+          },
+          {
+            "page": "home",
+            "section": "como-ayudarte"
+          },
+          {
+            "page": "soluciones-de-sueno",
+            "section": "shop"
+          },
+          {
+            "page": "soluciones-de-sueno",
+            "section": "shop"
+          },
+          {
+            "page": "soluciones-de-sueno",
+            "section": "shop"
+          },
+          {
+            "page": "soluciones-de-sueno",
+            "section": "shop"
+          },
+          {
+            "page": "testimonios",
+            "section": "seccion-testimonios"
+          },
+          {
+            "page": "testimonios",
+            "section": "seccion-testimonios"
+          },
+          {
+            "page": "testimonios",
+            "section": "seccion-testimonios"
+          },
+          {
+            "page": "testimonios",
+            "section": "seccion-testimonios"
+          },
+          {
+            "page": "testimonios",
+            "section": "seccion-testimonios"
+          }
+        ],
+        "sample": "{\"icono\":\"Ninguno\",\"texto\":\"Especiales\"}"
+      },
+      {
+        "id": "componente:Tarjeta de blog",
+        "tag": "componente",
+        "nombre": "Tarjeta de blog",
+        "count": 18,
+        "kind": "cross-page",
+        "files": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara"
+        ],
+        "variantes": [],
+        "locations": [
+          {
+            "page": "articulo-blog",
+            "section": "te-puede-interesar"
+          },
+          {
+            "page": "articulo-blog",
+            "section": "te-puede-interesar"
+          },
+          {
+            "page": "articulo-blog",
+            "section": "te-puede-interesar"
+          },
+          {
+            "page": "blog",
+            "section": "categoria-especiales"
+          },
+          {
+            "page": "blog",
+            "section": "categoria-especiales"
+          },
+          {
+            "page": "blog",
+            "section": "categoria-especiales"
+          },
+          {
+            "page": "blog",
+            "section": "categoria-bebes-0-4-meses"
+          },
+          {
+            "page": "blog",
+            "section": "categoria-bebes-0-4-meses"
+          },
+          {
+            "page": "blog",
+            "section": "categoria-bebes-0-4-meses"
+          },
+          {
+            "page": "blog",
+            "section": "categoria-bebes-4-24-meses"
+          },
+          {
+            "page": "blog",
+            "section": "categoria-bebes-4-24-meses"
+          },
+          {
+            "page": "blog",
+            "section": "categoria-bebes-4-24-meses"
+          },
+          {
+            "page": "blog",
+            "section": "categoria-bebes-24-meses-4-anos"
+          },
+          {
+            "page": "blog",
+            "section": "categoria-bebes-24-meses-4-anos"
+          },
+          {
+            "page": "blog",
+            "section": "categoria-bebes-24-meses-4-anos"
+          },
+          {
+            "page": "conoce-a-barbara",
+            "section": "seccion-blog"
+          },
+          {
+            "page": "conoce-a-barbara",
+            "section": "seccion-blog"
+          },
+          {
+            "page": "conoce-a-barbara",
+            "section": "seccion-blog"
+          }
+        ],
+        "sample": "{\"enlace_texto\":\"Leer artículo\",\"etiqueta\":\"Especiales\",\"imagen\":\"interesar-foto-tarjeta-1\",\"meta\":\"Publicado el 12 de febrero de 2024 · 4 min de lectura\",\"resumen\":\"Qué esperar cuando tu bebé protesta y cómo acompañarlo con calma, sin culpa.\",\"titulo\":\"5 señales de que tu bebé está en transición de siestas\"}"
+      },
+      {
+        "id": "componente:Testimonios · Tarjetas",
+        "tag": "componente",
+        "nombre": "Testimonios · Tarjetas",
+        "count": 2,
+        "kind": "cross-page",
+        "files": [
+          "home",
+          "mundo-angelitozzz"
+        ],
+        "variantes": [],
+        "locations": [
+          {
+            "page": "home",
+            "section": "testimonios"
+          },
+          {
+            "page": "mundo-angelitozzz",
+            "section": "testimonios"
+          }
+        ],
+        "sample": "{\"boton_texto\":\"Ver más testimonios\",\"testimonios\":[{\"autora\":\"Carolina, mamá de Tomás\",\"detalle\":\"Bebé de 6 meses\",\"estrellas\":5,\"texto\":\"“Probé de todo y nada funcionaba. Con el plan de Bárbara, en una semana mi bebé dormía en su cuna.”\"},{\"autora\":\"Daniela, mamá de Mateo\",\"detalle\":\"Bebé de 8 meses\",\"estrellas\":5,\"texto\":\"“Bárbara, te hago un altar: en 4 días avanzamos lo que jamás pensé lograr, sin dejarlo llorar.”\"},{\"autora\":\"Lucía, mamá de Emilia\",\"detalle\":\"Bebé de 2 años\",\"estrellas\":5,\"texto\":\"“Compré el curso con mi hija de 8 semanas; a los 4 meses dormía de corrido. Hoy tiene 2 años y sigue durmiendo increíble.”\"},{\"autora\":\"Valeria, mamá de Joaquín\",\"detalle\":\"Bebé de 12 días\",\"estrellas\":5,\"texto\":\"“Mi bebé tiene 12 días y ya la puedo poner en el moisés. Antes solo dormía en brazos.”\"},{\"autora\":\"Andrea, mamá de Lucas\",\"detalle\":\"Bebé de 7 meses\",\"estrellas\":5,\"texto\":\"“Pensé que nunca iba a volver a dormir una noche completa. Hoy dormimos todos.”\"}],\"titulo\":\"SHHH... Bebés durmiendo felices\"}"
+      }
+    ]
+  },
+  "findings": [
+    {
+      "id": "figma-token-conflict",
+      "severity": "warning",
+      "note": "Un mismo token tiene valores distintos en páginas distintas (se usó el de la primera página).",
+      "count": 1,
+      "locations": [
+        {
+          "token": "shadow header",
+          "valores": [
+            {
+              "valor": "Effect(type: DROP_SHADOW, color: #CAC29B26, offset: (-2, 0), radius: 12, spread: 0); Effect(type: DROP_SHADOW, color: #CAC29B21, offset: (-10, 10), radius: 22, spread: 0); Effect(type: DROP_SHADOW, color: #CAC29B14, offset: (-22, 40), radius: 30, spread: 0); Effect(type: DROP_SHADOW, color: #CAC29B05, offset: (-39, 80), radius: 36, spread: 0)",
+              "paginas": [
+                "articulo-blog",
+                "conoce-a-barbara",
+                "mundo-angelitozzz",
+                "preguntas-frecuentes"
+              ]
+            },
+            {
+              "valor": "DROP_SHADOW #CAC29B26 (-2, 0) blur 12 spread 0; DROP_SHADOW #CAC29B21 (-10, 10) blur 22 spread 0; DROP_SHADOW #CAC29B14 (-22, 40) blur 30 spread 0; DROP_SHADOW #CAC29B05 (-39, 80) blur 36 spread 0",
+              "paginas": [
+                "blog",
+                "contacto",
+                "home",
+                "soluciones-de-sueno",
+                "testimonios"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "figma-color-parecido",
+      "severity": "info",
+      "note": "Colores casi iguales: conviene unirlos en un token o decidir que son distintos (se pregunta en _shared.md).",
+      "count": 12,
+      "locations": [
+        {
+          "a": "color/teal #9cb0b0",
+          "b": "green 20 #9ec0c0",
+          "distancia": 22.7
+        },
+        {
+          "a": "color/blanco #ffffff",
+          "b": "color/crema #f8f6f1",
+          "distancia": 18.1
+        },
+        {
+          "a": "color/beige #d7d0b5",
+          "b": "Beige #D7D0B5",
+          "distancia": 0
+        },
+        {
+          "a": "color/texto-suave #6b6b6b",
+          "b": "color/verde-suave #56706f",
+          "distancia": 22
+        },
+        {
+          "a": "suelto #000000 (4 usos)",
+          "b": "color/texto #000000",
+          "distancia": 0
+        },
+        {
+          "a": "suelto #d7d0b5 (4 usos)",
+          "b": "color/beige #d7d0b5",
+          "distancia": 0
+        },
+        {
+          "a": "suelto #492343 (2 usos)",
+          "b": "green 80 #492343",
+          "distancia": 0
+        },
+        {
+          "a": "suelto #d7d0b500 (2 usos)",
+          "b": "color/beige #d7d0b5",
+          "distancia": 0
+        },
+        {
+          "a": "suelto #234549 (1 usos)",
+          "b": "color/verde #234549",
+          "distancia": 0
+        },
+        {
+          "a": "suelto #a8566a (1 usos)",
+          "b": "color/frambuesa #a8566a",
+          "distancia": 0
+        },
+        {
+          "a": "suelto #ffffff (1 usos)",
+          "b": "color/blanco #ffffff",
+          "distancia": 0
+        },
+        {
+          "a": "suelto #d7d0b5",
+          "b": "suelto #d7d0b500",
+          "distancia": 0
+        }
+      ]
+    },
+    {
+      "id": "figma-senal-propuesta",
+      "severity": "info",
+      "note": "Señales deducidas del diseño (repetidor, slider, formulario...): se confirman con el usuario en los specs.",
+      "count": 104,
+      "locations": [
+        {
+          "page": "articulo-blog",
+          "section": "cabecera-del-articulo",
+          "tipo": "otro"
+        },
+        {
+          "page": "articulo-blog",
+          "section": "cabecera-del-articulo",
+          "tipo": "otro"
+        },
+        {
+          "page": "articulo-blog",
+          "section": "cuerpo-del-articulo",
+          "tipo": "otro"
+        },
+        {
+          "page": "articulo-blog",
+          "section": "cuerpo-del-articulo",
+          "tipo": "otro"
+        },
+        {
+          "page": "articulo-blog",
+          "section": "cuerpo-del-articulo",
+          "tipo": "otro"
+        },
+        {
+          "page": "articulo-blog",
+          "section": "escrito-por",
+          "tipo": "otro"
+        },
+        {
+          "page": "articulo-blog",
+          "section": "te-puede-interesar",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "articulo-blog",
+          "section": "te-puede-interesar",
+          "tipo": "listado"
+        },
+        {
+          "page": "articulo-blog",
+          "section": "cta-final",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "articulo-blog",
+          "section": "cta-final",
+          "tipo": "otro"
+        },
+        {
+          "page": "blog",
+          "section": "hero-blog",
+          "tipo": "formulario"
+        },
+        {
+          "page": "blog",
+          "section": "hero-blog",
+          "tipo": "pestanas"
+        },
+        {
+          "page": "blog",
+          "section": "hero-blog",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "blog",
+          "section": "categoria-especiales",
+          "tipo": "listado"
+        },
+        {
+          "page": "blog",
+          "section": "categoria-especiales",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "blog",
+          "section": "categoria-especiales",
+          "tipo": "otro"
+        },
+        {
+          "page": "blog",
+          "section": "categoria-bebes-0-4-meses",
+          "tipo": "listado"
+        },
+        {
+          "page": "blog",
+          "section": "categoria-bebes-0-4-meses",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "blog",
+          "section": "categoria-bebes-0-4-meses",
+          "tipo": "otro"
+        },
+        {
+          "page": "blog",
+          "section": "categoria-bebes-4-24-meses",
+          "tipo": "listado"
+        },
+        {
+          "page": "blog",
+          "section": "categoria-bebes-4-24-meses",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "blog",
+          "section": "categoria-bebes-4-24-meses",
+          "tipo": "otro"
+        },
+        {
+          "page": "blog",
+          "section": "categoria-bebes-24-meses-4-anos",
+          "tipo": "listado"
+        },
+        {
+          "page": "blog",
+          "section": "categoria-bebes-24-meses-4-anos",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "blog",
+          "section": "categoria-bebes-24-meses-4-anos",
+          "tipo": "otro"
+        },
+        {
+          "page": "conoce-a-barbara",
+          "section": "hero",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "conoce-a-barbara",
+          "section": "reflexion",
+          "tipo": "otro"
+        },
+        {
+          "page": "conoce-a-barbara",
+          "section": "reflexion",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "conoce-a-barbara",
+          "section": "seccion-blog",
+          "tipo": "listado"
+        },
+        {
+          "page": "conoce-a-barbara",
+          "section": "seccion-blog",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "conoce-a-barbara",
+          "section": "seccion-blog",
+          "tipo": "otro"
+        },
+        {
+          "page": "conoce-a-barbara",
+          "section": "cta-final",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "conoce-a-barbara",
+          "section": "cta-final",
+          "tipo": "otro"
+        },
+        {
+          "page": "contacto",
+          "section": "seccion-de-contacto",
+          "tipo": "formulario"
+        },
+        {
+          "page": "contacto",
+          "section": "seccion-de-contacto",
+          "tipo": "otro"
+        },
+        {
+          "page": "contacto",
+          "section": "seccion-de-contacto",
+          "tipo": "otro"
+        },
+        {
+          "page": "contacto",
+          "section": "seccion-de-contacto",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "contacto",
+          "section": "seccion-de-cta",
+          "tipo": "otro"
+        },
+        {
+          "page": "contacto",
+          "section": "seccion-de-cta",
+          "tipo": "otro"
+        },
+        {
+          "page": "contacto",
+          "section": "seccion-de-cta",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "contacto",
+          "section": "seccion-de-cta",
+          "tipo": "otro"
+        },
+        {
+          "page": "home",
+          "section": "cintillo-promociones",
+          "tipo": "modal"
+        },
+        {
+          "page": "home",
+          "section": "header",
+          "tipo": "menu"
+        },
+        {
+          "page": "home",
+          "section": "header",
+          "tipo": "otro"
+        },
+        {
+          "page": "home",
+          "section": "hero",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "home",
+          "section": "como-ayudarte",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "home",
+          "section": "como-ayudarte",
+          "tipo": "slider"
+        },
+        {
+          "page": "home",
+          "section": "como-ayudarte",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "home",
+          "section": "quien-soy",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "home",
+          "section": "seccion-cta",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "home",
+          "section": "beneficios",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "home",
+          "section": "beneficios",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "home",
+          "section": "seccion-instagram",
+          "tipo": "listado"
+        },
+        {
+          "page": "home",
+          "section": "seccion-instagram",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "home",
+          "section": "testimonios",
+          "tipo": "slider"
+        },
+        {
+          "page": "home",
+          "section": "testimonios",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "home",
+          "section": "testimonios",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "home",
+          "section": "cta-final",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "home",
+          "section": "footer",
+          "tipo": "formulario"
+        },
+        {
+          "page": "home",
+          "section": "footer",
+          "tipo": "menu"
+        },
+        {
+          "page": "home",
+          "section": "footer",
+          "tipo": "otro"
+        },
+        {
+          "page": "home",
+          "section": "modal-coach",
+          "tipo": "modal"
+        },
+        {
+          "page": "home",
+          "section": "modal-coach",
+          "tipo": "formulario"
+        },
+        {
+          "page": "home",
+          "section": "modal-coach",
+          "tipo": "otro"
+        },
+        {
+          "page": "home",
+          "section": "modal-coach-gracias",
+          "tipo": "modal"
+        },
+        {
+          "page": "home",
+          "section": "modal-coach-gracias",
+          "tipo": "otro"
+        },
+        {
+          "page": "mundo-angelitozzz",
+          "section": "hero",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "mundo-angelitozzz",
+          "section": "hero",
+          "tipo": "otro"
+        },
+        {
+          "page": "mundo-angelitozzz",
+          "section": "hero",
+          "tipo": "otro"
+        },
+        {
+          "page": "mundo-angelitozzz",
+          "section": "promocinar-marca",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "mundo-angelitozzz",
+          "section": "promocinar-marca",
+          "tipo": "otro"
+        },
+        {
+          "page": "mundo-angelitozzz",
+          "section": "que-incluye-mundo",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "mundo-angelitozzz",
+          "section": "que-incluye-mundo",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "mundo-angelitozzz",
+          "section": "que-incluye-mundo",
+          "tipo": "otro"
+        },
+        {
+          "page": "mundo-angelitozzz",
+          "section": "testimonios",
+          "tipo": "slider"
+        },
+        {
+          "page": "mundo-angelitozzz",
+          "section": "testimonios",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "mundo-angelitozzz",
+          "section": "testimonios",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "mundo-angelitozzz",
+          "section": "testimonios",
+          "tipo": "otro"
+        },
+        {
+          "page": "mundo-angelitozzz",
+          "section": "testimonios",
+          "tipo": "otro"
+        },
+        {
+          "page": "mundo-angelitozzz",
+          "section": "cta-mundo",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "mundo-angelitozzz",
+          "section": "cta-mundo",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "preguntas-frecuentes",
+          "section": "seccion-preguntas-frecuentes",
+          "tipo": "acordeon"
+        },
+        {
+          "page": "preguntas-frecuentes",
+          "section": "seccion-preguntas-frecuentes",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "preguntas-frecuentes",
+          "section": "seccion-preguntas-frecuentes",
+          "tipo": "otro"
+        },
+        {
+          "page": "preguntas-frecuentes",
+          "section": "seccion-preguntas-frecuentes",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "preguntas-frecuentes",
+          "section": "cta-final",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "preguntas-frecuentes",
+          "section": "cta-final",
+          "tipo": "otro"
+        },
+        {
+          "page": "preguntas-frecuentes",
+          "section": "cta-final",
+          "tipo": "otro"
+        },
+        {
+          "page": "soluciones-de-sueno",
+          "section": "shop",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "soluciones-de-sueno",
+          "section": "shop",
+          "tipo": "listado"
+        },
+        {
+          "page": "soluciones-de-sueno",
+          "section": "shop",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "soluciones-de-sueno",
+          "section": "shop",
+          "tipo": "otro"
+        },
+        {
+          "page": "soluciones-de-sueno",
+          "section": "shop",
+          "tipo": "otro"
+        },
+        {
+          "page": "soluciones-de-sueno",
+          "section": "cta-final",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "soluciones-de-sueno",
+          "section": "cta-final",
+          "tipo": "otro"
+        },
+        {
+          "page": "soluciones-de-sueno",
+          "section": "cta-final",
+          "tipo": "otro"
+        },
+        {
+          "page": "testimonios",
+          "section": "seccion-testimonios",
+          "tipo": "pestanas"
+        },
+        {
+          "page": "testimonios",
+          "section": "seccion-testimonios",
+          "tipo": "listado"
+        },
+        {
+          "page": "testimonios",
+          "section": "seccion-testimonios",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "testimonios",
+          "section": "seccion-testimonios",
+          "tipo": "otro"
+        },
+        {
+          "page": "testimonios",
+          "section": "seccion-testimonios",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "testimonios",
+          "section": "seccion-testimonios",
+          "tipo": "otro"
+        },
+        {
+          "page": "testimonios",
+          "section": "cta-final",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "testimonios",
+          "section": "cta-final",
+          "tipo": "otro"
+        }
+      ]
+    }
+  ],
+  "skipped": []
+}

@@ -1,0 +1,122 @@
+const imgVector = "assets/preguntas-check.svg";
+const imgVector14 = "assets/preguntas-separador.svg";
+const imgIcon = "assets/preguntas-ver-mas-flecha.svg";
+
+export default function PreguntasDeLaPagina() {
+  return (
+    <div className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex flex-col gap-[65px] items-center px-[457px] py-[88px] relative size-full" data-node-id="4020:22537" data-name="Preguntas de la pagina">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:SemiBold'] leading-[1.1] not-italic relative shrink-0 text-[50px] text-[color:var(--color\/verde,#234549)] text-center whitespace-nowrap" data-node-id="4020:22538">
+        ¡Respondemos a tus preguntas!
+      </p>
+      <div className="content-stretch flex flex-col gap-[16px] items-center py-[20px] relative shrink-0 w-[774px]" data-node-id="4020:22539" data-name="preguntas">
+        <div className="content-stretch flex flex-col gap-[54px] items-end justify-center relative shrink-0 w-full" data-node-id="4020:22540">
+          <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="4020:22541">
+            <div className="h-[12.916px] relative shrink-0 w-[13.751px]" data-node-id="4020:22542" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4020:22543">
+              ¿Cuál de las soluciones es para mí?
+            </p>
+          </div>
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[760px]" data-node-id="4020:22544">
+            Depende de la edad de tu bebé y del acompañamiento que buscas. Recién Nacidos Go es para 0 a 12 semanas; los Cursos de Horarios, de 4 meses a 3 años; Angelita Pro te acompaña por WhatsApp de 4 a 24 meses, y A Dormir Por Fin es la asesoría personalizada con Bárbara. Si tienes dudas, escríbenos por WhatsApp.
+          </p>
+          <div className="h-0 relative shrink-0 w-[748.5px]" data-node-id="4020:22545">
+            <div className="absolute inset-[-0.5px_0]">
+              <img alt="" className="block max-w-none size-full" src={imgVector14} />
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex flex-col gap-[54px] items-end justify-center relative shrink-0 w-full" data-node-id="4020:22546">
+          <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="4020:22547">
+            <div className="h-[12.916px] relative shrink-0 w-[13.751px]" data-node-id="4020:22548" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4020:22549">
+              ¿Por cuánto tiempo tengo acceso a los cursos?
+            </p>
+          </div>
+          <div className="h-0 relative shrink-0 w-[748.5px]" data-node-id="4020:22550">
+            <div className="absolute inset-[-0.5px_0]">
+              <img alt="" className="block max-w-none size-full" src={imgVector14} />
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex flex-col gap-[54px] items-end justify-center relative shrink-0 w-full" data-node-id="4020:22551">
+          <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="4020:22552">
+            <div className="h-[12.916px] relative shrink-0 w-[13.751px]" data-node-id="4020:22553" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4020:22554">
+              ¿Puedo regalar un curso?
+            </p>
+          </div>
+          <div className="h-0 relative shrink-0 w-[748.5px]" data-node-id="4020:22555">
+            <div className="absolute inset-[-0.5px_0]">
+              <img alt="" className="block max-w-none size-full" src={imgVector14} />
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex flex-col gap-[54px] items-end justify-center relative shrink-0 w-full" data-node-id="4020:22556">
+          <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="4020:22557">
+            <div className="h-[12.916px] relative shrink-0 w-[13.751px]" data-node-id="4020:22558" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4020:22559">
+              ¿Este curso logrará que mi bebé duerma de corrido?
+            </p>
+          </div>
+          <div className="h-0 relative shrink-0 w-[748.5px]" data-node-id="4020:22560">
+            <div className="absolute inset-[-0.5px_0]">
+              <img alt="" className="block max-w-none size-full" src={imgVector14} />
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex flex-col gap-[54px] items-end justify-center relative shrink-0 w-full" data-node-id="4020:22572">
+          <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="4020:22573">
+            <div className="h-[12.916px] relative shrink-0 w-[13.751px]" data-node-id="4020:22574" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4020:22575">
+              ¿Cómo funciona Mundo Angelitozzz?
+            </p>
+          </div>
+          <div className="h-0 relative shrink-0 w-[748.5px]" data-node-id="4020:22576">
+            <div className="absolute inset-[-0.5px_0]">
+              <img alt="" className="block max-w-none size-full" src={imgVector14} />
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex flex-col gap-[54px] items-end justify-center relative shrink-0 w-full" data-node-id="4020:22561">
+          <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="4020:22562">
+            <div className="h-[12.916px] relative shrink-0 w-[13.751px]" data-node-id="4020:22563" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4020:22564">
+              ¿Los métodos implican dejar llorar al bebé?
+            </p>
+          </div>
+          <div className="h-0 relative shrink-0 w-[748.5px]" data-node-id="4020:22565">
+            <div className="absolute inset-[-0.5px_0]">
+              <img alt="" className="block max-w-none size-full" src={imgVector14} />
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex gap-[10px] h-[40px] items-center justify-center relative shrink-0 w-[112px]" data-node-id="4020:22566" data-name="Ver mas">
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[24px] text-[color:var(--color\/verde,#234549)] w-[66px]" data-node-id="4020:22567">
+            Ver más
+          </p>
+          <div className="flex items-center justify-center relative shrink-0" data-node-id="4020:22568">
+            <div className="flex-none rotate-180">
+              <div className="relative size-[10px]" data-name="Icon">
+                <div className="absolute inset-[-1.88%_-1.29%_-1.25%_-0.72%]">
+                  <img alt="" className="block max-w-none size-full" src={imgIcon} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
