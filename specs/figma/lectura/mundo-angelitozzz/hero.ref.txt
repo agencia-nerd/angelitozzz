@@ -1,0 +1,132 @@
+const imgFlecha = "assets/boton-flecha-blanca.svg";
+const imgLogoMundoAngelitozzzFinalCurv1 = "assets/hero-logo-mundo.png";
+const imgLifestyleWomanGoingThroughMotherhood1 = "assets/hero-foto-madre.jpg";
+const imgVector = "assets/hero-nube-derecha.svg";
+const imgVector47 = "assets/hero-nube-derecha-ojo-1.svg";
+const imgVector48 = "assets/hero-nube-derecha-ojo-2.svg";
+const imgVector1 = "assets/hero-nube-izquierda.svg";
+const imgVector49 = "assets/hero-nube-izquierda-ojo-1.svg";
+const imgVector50 = "assets/hero-nube-izquierda-ojo-2.svg";
+const imgIconoRegalo = "assets/hero-icono-regalo.svg";
+
+type BotonProps = {
+  className?: string;
+  flecha?: boolean;
+  texto?: string;
+  tipo?: "Frambuesa";
+};
+
+function Boton({ className, flecha = true, texto = "Texto del botón", tipo = "Frambuesa" }: BotonProps) {
+  return (
+    <div className={className || "bg-[var(--color\\/frambuesa,#a8566a)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px]"} data-node-id="3711:6161">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="3711:6162">
+        {texto}
+      </p>
+      {flecha && (
+        <div className="relative shrink-0 size-[18px]" data-node-id="3711:6163" data-name="Flecha">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function MundoAngelitozzz() {
+  return (
+    <div className="bg-[var(--color\/crema,#f8f6f1)] relative size-full" data-node-id="4017:20213" data-name="Mundo Angelitozzz">
+      <div className="absolute h-[196px] left-[74.43%] overflow-clip right-[8.49%] top-[125px]" data-node-id="4017:20246" data-name="Frame">
+        <div className="absolute contents inset-[0_0_0.01%_0]" data-node-id="4017:20247">
+          <div className="absolute contents inset-[0_0_0.01%_0]" data-node-id="4017:20248">
+            <div className="absolute inset-[0_0_0.01%_0]" data-node-id="4017:20249" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+            </div>
+            <div className="absolute flex inset-[19.32%_67.55%_78.79%_25.91%] items-center justify-center" data-node-id="4017:20250" style={{ containerType: "size" }}>
+              <div className="-rotate-180 -scale-x-100 flex-none h-[100cqh] w-[100cqw]">
+                <div className="relative size-full">
+                  <div className="absolute inset-[-78.99%_-13.66%_-78.98%_-13.67%]">
+                    <img alt="" className="block max-w-none size-full" src={imgVector47} />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="absolute flex inset-[19.32%_54.48%_78.79%_38.98%] items-center justify-center" data-node-id="4017:20251" style={{ containerType: "size" }}>
+              <div className="flex-none h-[100cqh] rotate-180 w-[100cqw]">
+                <div className="relative size-full">
+                  <div className="absolute inset-[-78.99%_-13.66%_-78.98%_-13.67%]">
+                    <img alt="" className="block max-w-none size-full" src={imgVector48} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="absolute h-[315px] left-[-4.27%] overflow-clip right-[76.98%] top-[459px]" data-node-id="4017:20241" data-name="Frame">
+        <div className="absolute contents inset-[0_0_0.01%_0]" data-node-id="4017:20242">
+          <div className="absolute inset-[0_0_0.01%_0]" data-node-id="4017:20243" data-name="Vector">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector1} />
+          </div>
+          <div className="absolute flex inset-[29.84%_66.7%_68.04%_25.95%] items-center justify-center" data-node-id="4017:20244" style={{ containerType: "size" }}>
+            <div className="-rotate-180 -scale-x-100 flex-none h-[100cqh] w-[100cqw]">
+              <div className="relative size-full">
+                <div className="absolute inset-[-58.65%_-10.19%_-58.64%_-10.19%]">
+                  <img alt="" className="block max-w-none size-full" src={imgVector49} />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="absolute flex inset-[29.84%_51.24%_68.04%_41.41%] items-center justify-center" data-node-id="4017:20245" style={{ containerType: "size" }}>
+            <div className="flex-none h-[100cqh] rotate-180 w-[100cqw]">
+              <div className="relative size-full">
+                <div className="absolute inset-[-58.65%_-10.19%_-58.64%_-10.19%]">
+                  <img alt="" className="block max-w-none size-full" src={imgVector50} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="-translate-x-1/2 -translate-y-1/2 absolute content-stretch flex gap-[129px] items-center justify-center left-[calc(50%+0.5px)] top-[calc(50%-0.5px)]" data-node-id="4017:20214">
+        <div className="content-stretch flex flex-col gap-[58px] items-start relative shrink-0 w-[507px]" data-node-id="4017:20215">
+          <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full" data-node-id="4017:20216">
+            <div className="content-stretch flex flex-col gap-[17px] items-start relative shrink-0 w-full" data-node-id="4017:20217">
+              <div className="content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-[453px]" data-node-id="4017:20218">
+                <div className="relative shrink-0 size-[75px]" data-node-id="4017:20219" data-name="Logo mundo angelitozzz final curv  1">
+                  <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgLogoMundoAngelitozzzFinalCurv1} />
+                </div>
+                <div className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[0] not-italic relative shrink-0 text-[46px] text-[color:var(--color\/verde,#234549)] w-[600px]" data-node-id="4017:20220">
+                  <p className="leading-[1.15] mb-0">El sueño de tu bebé no para de cambiar.</p>
+                  <p className="leading-[1.15]">Cada etapa trae nuevas preguntas. Aquí siempre hay respuestas.</p>
+                </div>
+              </div>
+              <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="4017:20221">
+                Mundo Angelitozzz es la comunidad donde resuelves tus dudas de sueño con Bárbara cada semana — para que dejes de adivinar con cada cambio.
+              </p>
+            </div>
+            <Boton className="bg-[var(--color\/frambuesa,#a8566a)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" texto="Quiero unirme" />
+          </div>
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="4017:20226">
+            Desde $14/mes · Cancela cuando quieras
+          </p>
+          <div className="content-stretch flex gap-[8px] items-start overflow-clip relative shrink-0" data-node-id="4017:20227" data-name="Regalo por WhatsApp">
+            <div className="relative shrink-0 size-[18px]" data-node-id="4017:20228" data-name="Ícono regalo">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIconoRegalo} />
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[0] not-italic relative shrink-0 text-[0px] text-black whitespace-nowrap" data-node-id="4017:20233">
+              <span className="leading-[1.5] text-[16px]">{`¿Quieres regalar Mundo Angelitozzz? `}</span>
+              <span className="[text-underline-position:from-font] decoration-from-font decoration-solid font-['Barlow_Condensed:Medium'] leading-[1.3] text-[#234549] text-[15px] underline">Escríbeme por WhatsApp.</span>
+            </p>
+          </div>
+        </div>
+        <div className="h-[390px] relative rounded-[20px] shrink-0 w-[477px]" data-node-id="4017:20240" data-name="lifestyle-woman-going-through-motherhood 1">
+          <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[20px] size-full" src={imgLifestyleWomanGoingThroughMotherhood1} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* Figma notes (data):
+These styles are contained in the design: 2026/H2, 2026/Body S, 2026/Label.
+Component "Botón" (3704:15621): Botón 2026 · Frambuesa (CTA principal sobre fondos claros) · Verde (sobre teal) · Claro (sobre verde oscuro) · Secundario (contorno).
+*/

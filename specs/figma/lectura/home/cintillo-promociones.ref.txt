@@ -1,0 +1,29 @@
+const imgFlecha = "assets/cintillo-flecha.svg";
+
+type CintilloPromocionesAdministrableProps = {
+  className?: string;
+  texto?: string;
+};
+
+function CintilloPromocionesAdministrable({ className, texto = "¿Tu bebé no duerme bien? Nuestro coach de sueño virtual te ayuda a resolver tus dudas, gratis 💛" }: CintilloPromocionesAdministrableProps) {
+  return (
+    <div className={className || "bg-[var(--color\\/teal,#9cb0b0)] content-stretch flex gap-[12px] h-[56px] items-center justify-center relative w-[1920px]"} data-node-id="3588:1429" data-name="Cintillo promociones (administrable)">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="3588:1430">
+        {texto}
+      </p>
+      <div className="relative shrink-0 size-[20px]" data-node-id="3884:29" data-name="Flecha">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha} />
+      </div>
+    </div>
+  );
+}
+
+export default function CintilloPromocionesAdministrable1() {
+  return <CintilloPromocionesAdministrable className="bg-[var(--color\/teal,#9cb0b0)] content-stretch cursor-pointer flex gap-[12px] items-center justify-center relative size-full" />;
+}
+
+/* Component descriptions (Figma):
+## Cintillo promociones (administrable)
+Node ID: 3588:1429
+Cintillo 2026 · todo el cintillo es clickeable y abre el pop-up del coach de sueño virtual (Angelita Basic). Texto administrable.
+*/

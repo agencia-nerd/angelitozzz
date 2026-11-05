@@ -1,0 +1,118 @@
+const imgImagen = "articulo-blog/assets/interesar-foto-tarjeta-1.png";
+const imgImagen1 = "articulo-blog/assets/interesar-foto-tarjeta-2.jpg";
+const imgImagen2 = "articulo-blog/assets/interesar-foto-tarjeta-3.png";
+const imgFlecha = "articulo-blog/assets/interesar-flecha-frambuesa.svg";
+
+type EtiquetaProps = {
+  className?: string;
+  estilo?: "Esquina";
+  icono?: "Ninguno";
+  texto?: string;
+};
+
+function Etiqueta({ className, estilo = "Esquina", icono = "Ninguno", texto = "Etiqueta" }: EtiquetaProps) {
+  return (
+    <div className={className || "bg-[var(--color\\/teal,#9cb0b0)] content-stretch flex items-center pl-[18px] pr-[16px] py-[7px] relative rounded-br-[16px]"} data-node-id="3863:533">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="3863:534">
+        {texto}
+      </p>
+    </div>
+  );
+}
+
+export default function TambienTePuedeInteresar() {
+  return (
+    <div className="bg-[var(--color\/blanco,white)] content-stretch flex flex-col gap-[28px] items-start px-[405px] py-[88px] relative size-full" data-node-id="3751:4628" data-name="También te puede interesar">
+      <div className="[word-break:break-word] content-stretch flex items-center justify-between relative shrink-0 text-[color:var(--color\/verde,#234549)] w-full whitespace-nowrap" data-node-id="4038:22783">
+        <p className="font-['Barlow_Condensed:Medium'] leading-[1.2] not-italic relative shrink-0 text-[32px]" data-node-id="3751:4629">
+          También te puede interesar
+        </p>
+        <p className="font-['Barlow_Condensed:Regular'] font-normal leading-[1.5] relative shrink-0 text-[16px]" data-node-id="4038:22781" style={{ fontVariationSettings: '"CTGR" 0, "wdth" 100' }}>
+          Ver todo →
+        </p>
+      </div>
+      <div className="content-stretch flex gap-[30px] items-start overflow-clip relative shrink-0 w-full" data-node-id="3751:4630" data-name="Frame">
+        <div className="bg-[var(--color\/blanco,white)] border border-[var(--color\/beige,#d7d0b5)] border-solid content-stretch flex flex-[1_0_0] flex-col items-start min-w-px overflow-clip relative rounded-[20px] self-stretch" data-node-id="3751:4631" data-name="Tarjeta de blog">
+          <div className="h-[210px] overflow-clip relative shrink-0 w-full" data-node-id="I3751:4631;3727:4236" data-name="Imagen">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImagen} />
+            <Etiqueta className="absolute bg-[var(--color\/teal,#9cb0b0)] content-stretch flex items-center left-0 pl-[18px] pr-[16px] py-[7px] rounded-br-[16px] top-0" texto="Especiales" />
+          </div>
+          <div className="content-stretch flex flex-col gap-[10px] items-start overflow-clip p-[24px] relative shrink-0 w-full" data-node-id="I3751:4631;3727:4239" data-name="Contenido">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.4] min-w-full not-italic relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)] w-[min-content]" data-node-id="I3751:4631;3727:4240">
+              Publicado el 12 de febrero de 2024 · 4 min de lectura
+            </p>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.25] min-w-full not-italic relative shrink-0 text-[26px] text-[color:var(--color\/verde,#234549)] w-[min-content]" data-node-id="I3751:4631;3727:4241">
+              5 señales de que tu bebé está en transición de siestas
+            </p>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="I3751:4631;3727:4242">
+              Qué esperar cuando tu bebé protesta y cómo acompañarlo con calma, sin culpa.
+            </p>
+            <div className="content-stretch flex gap-[8px] items-center overflow-clip pt-[6px] relative shrink-0" data-node-id="I3751:4631;3727:4243" data-name="Leer más">
+              <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/frambuesa,#a8566a)] whitespace-nowrap" data-node-id="I3751:4631;3727:4244">
+                Leer artículo
+              </p>
+              <div className="relative shrink-0 size-[18px]" data-node-id="I3751:4631;3727:4245" data-name="Flecha">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha} />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="bg-[var(--color\/blanco,white)] border border-[var(--color\/beige,#d7d0b5)] border-solid content-stretch flex flex-[1_0_0] flex-col items-start min-w-px overflow-clip relative rounded-[20px] self-stretch" data-node-id="3751:4644" data-name="Tarjeta de blog">
+          <div className="h-[210px] overflow-clip relative shrink-0 w-full" data-node-id="I3751:4644;3727:4236" data-name="Imagen">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImagen1} />
+            <Etiqueta className="absolute bg-[var(--color\/teal,#9cb0b0)] content-stretch flex items-center left-0 pl-[18px] pr-[16px] py-[7px] rounded-br-[16px] top-0" texto="Especiales" />
+          </div>
+          <div className="content-stretch flex flex-col gap-[10px] items-start overflow-clip p-[24px] relative shrink-0 w-full" data-node-id="I3751:4644;3727:4239" data-name="Contenido">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.4] min-w-full not-italic relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)] w-[min-content]" data-node-id="I3751:4644;3727:4240">
+              Publicado el 28 de enero de 2024 · 6 min de lectura
+            </p>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.25] min-w-full not-italic relative shrink-0 text-[26px] text-[color:var(--color\/verde,#234549)] w-[min-content]" data-node-id="I3751:4644;3727:4241">
+              Cómo crear el ambiente ideal para dormir
+            </p>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="I3751:4644;3727:4242">
+              Qué esperar cuando tu bebé protesta y cómo acompañarlo con calma, sin culpa.
+            </p>
+            <div className="content-stretch flex gap-[8px] items-center overflow-clip pt-[6px] relative shrink-0" data-node-id="I3751:4644;3727:4243" data-name="Leer más">
+              <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/frambuesa,#a8566a)] whitespace-nowrap" data-node-id="I3751:4644;3727:4244">
+                Leer artículo
+              </p>
+              <div className="relative shrink-0 size-[18px]" data-node-id="I3751:4644;3727:4245" data-name="Flecha">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha} />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="bg-[var(--color\/blanco,white)] border border-[var(--color\/beige,#d7d0b5)] border-solid content-stretch flex flex-[1_0_0] flex-col items-start min-w-px overflow-clip relative rounded-[20px] self-stretch" data-node-id="3751:4657" data-name="Tarjeta de blog">
+          <div className="h-[210px] overflow-clip relative shrink-0 w-full" data-node-id="I3751:4657;3727:4236" data-name="Imagen">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImagen2} />
+            <Etiqueta className="absolute bg-[var(--color\/teal,#9cb0b0)] content-stretch flex items-center left-0 pl-[18px] pr-[16px] py-[7px] rounded-br-[16px] top-0" texto="Especiales" />
+          </div>
+          <div className="content-stretch flex flex-col gap-[10px] items-start overflow-clip p-[24px] relative shrink-0 w-full" data-node-id="I3751:4657;3727:4239" data-name="Contenido">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.4] min-w-full not-italic relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)] w-[min-content]" data-node-id="I3751:4657;3727:4240">
+              Publicado el 1 de marzo de 2024 · 5 min de lectura
+            </p>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.25] min-w-full not-italic relative shrink-0 text-[26px] text-[color:var(--color\/verde,#234549)] w-[min-content]" data-node-id="I3751:4657;3727:4241">
+              Rutinas de noche que sí funcionan
+            </p>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="I3751:4657;3727:4242">
+              Qué esperar cuando tu bebé protesta y cómo acompañarlo con calma, sin culpa.
+            </p>
+            <div className="content-stretch flex gap-[8px] items-center overflow-clip pt-[6px] relative shrink-0" data-node-id="I3751:4657;3727:4243" data-name="Leer más">
+              <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/frambuesa,#a8566a)] whitespace-nowrap" data-node-id="I3751:4657;3727:4244">
+                Leer artículo
+              </p>
+              <div className="relative shrink-0 size-[18px]" data-node-id="I3751:4657;3727:4245" data-name="Flecha">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Styles in the design: 2026/H3, 2026/Body S, 2026/Label S, 2026/Caption, 2026/H4, 2026/Label.
+// Component descriptions (Figma):
+// Tarjeta de blog 3727:4235 — "Tarjeta de blog 2026 · imagen con etiqueta, fecha y lectura, título, resumen y 'Leer artículo'."
+// Etiqueta 3719:4272 — "Etiquetas 2026 · Tarjeta (pastilla), Hero (pastilla clara) y Esquina (pegada a la esquina superior izquierda de una imagen recortada, solo esquina inferior derecha redondeada)."

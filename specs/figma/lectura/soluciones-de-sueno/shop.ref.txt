@@ -1,0 +1,176 @@
+const imgFlecha = "assets/boton-flecha.svg";
+const imgImagonNotFound = "assets/shop-angelita-pro-placeholder.png";
+const imgRectangle205 = "assets/shop-a-dormir-por-fin.jpg";
+const imgRectangle206 = "assets/shop-recien-nacidos-go.jpg";
+const imgRectangle207 = "assets/shop-horarios-ideales.jpg";
+const imgIcono = "assets/shop-icono-nuevo.svg";
+const imgIcono1 = "assets/shop-icono-estrella.svg";
+// Fondo de la página (relleno de imagen del frame 4011:11090, no está dentro de esta sección): "assets/pagina-fondo-nubes.png"
+
+type BotonProps = {
+  className?: string;
+  flecha?: boolean;
+  texto?: string;
+  tipo?: "Frambuesa";
+};
+
+function Boton({ className, flecha = true, texto = "Texto del botón", tipo = "Frambuesa" }: BotonProps) {
+  return (
+    <div className={className || "bg-[var(--color\\/frambuesa,#a8566a)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px]"} data-node-id="3711:6161">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="3711:6162">
+        {texto}
+      </p>
+      {flecha && (
+        <div className="relative shrink-0 size-[18px]" data-node-id="3711:6163" data-name="Flecha">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function SeccionShop() {
+  return (
+    <div className="content-stretch flex flex-col items-center p-[88px] relative size-full" data-node-id="4011:11093" data-name="seccion shop">
+      <div className="content-stretch flex flex-col gap-[72px] items-center relative shrink-0 w-[1103px]" data-node-id="4011:11094" data-name="shop">
+        <div className="[word-break:break-word] content-stretch flex flex-col gap-[24px] items-center not-italic relative shrink-0 text-center w-[451px]" data-node-id="4011:11095">
+          <p className="font-['Barlow_Condensed:SemiBold'] leading-[1.1] relative shrink-0 text-[50px] text-[color:var(--color\/verde,#234549)] w-full" data-node-id="4011:11096">
+            Soluciones de sueño
+          </p>
+          <p className="font-['Barlow_Condensed:Regular'] leading-[1.5] relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] w-full" data-node-id="4011:11097">
+            Encuentra la solución perfecta para ti — según la edad de tu bebé y lo que necesitas hoy.
+          </p>
+        </div>
+        <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="4011:11098">
+          <div className="content-start flex flex-wrap gap-[80px_32px] items-start relative shrink-0 w-full" data-node-id="4011:11099">
+            <div className="content-stretch flex flex-col gap-[16px] h-[756px] items-center relative shrink-0 w-[346px]" data-node-id="4011:11100" data-name="card">
+              <div className="content-stretch flex flex-col gap-[20px] items-center relative shrink-0 w-full" data-node-id="4011:11101">
+                <div className="h-[374px] overflow-clip relative rounded-[24px] shrink-0 w-[346px]" data-node-id="4011:11102" data-name="Imagen con etiqueta">
+                  <div className="absolute inset-0 rounded-[24px]" data-node-id="4011:11103" data-name="Imagon not found">
+                    <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src={imgImagonNotFound} />
+                  </div>
+                  <div className="absolute bg-[var(--color\/teal,#9cb0b0)] content-stretch flex gap-[6px] items-center left-0 pl-[18px] pr-[16px] py-[7px] rounded-br-[16px] top-0" data-node-id="4011:11104" data-name="Etiqueta">
+                    <div className="relative shrink-0 size-[14px]" data-node-id="I4011:11104;3863:536" data-name="Ícono">
+                      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIcono} />
+                    </div>
+                    <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="I4011:11104;3863:538">
+                      Nuevo · Desde $97
+                    </p>
+                  </div>
+                </div>
+                <div className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[0] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] text-center whitespace-nowrap" data-node-id="4011:11105">
+                  <p className="leading-[1.5] mb-0">Angelita Pro</p>
+                  <p className="leading-[1.5]">(4 a 24 meses)</p>
+                </div>
+              </div>
+              <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] text-center w-[314px]" data-node-id="4011:11106">
+                Tu coach de sueño con inteligencia artificial, entrenada con el método Angelitozzz. Disponible 24/7 por WhatsApp — sin turnos, sin horarios, sin esperas.
+              </p>
+              <div className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[0] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[314px]" data-node-id="4011:11107">
+                <p className="leading-[1.5] mb-0">• Plan integral de sueño — noches y siestas</p>
+                <p className="leading-[1.5] mb-0">• Respuestas inmediatas a tus dudas en tiempo real</p>
+                <p className="leading-[1.5] mb-0">• Seguimiento paso a paso las 24 horas</p>
+                <p className="leading-[1.5] mb-0">• Acceso desde cualquier lugar por WhatsApp</p>
+                <p className="leading-[1.5]">• Empieza esta noche</p>
+              </div>
+              <div className="flex-[1_0_0] min-h-px relative w-[10px]" data-node-id="4011:11108" data-name="Empuje" />
+              <Boton className="bg-[var(--color\/frambuesa,#a8566a)] content-stretch cursor-pointer flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" texto="Quiero conocer a Angelita" />
+            </div>
+            <div className="content-stretch flex flex-col gap-[16px] h-[756px] items-center relative shrink-0 w-[346px]" data-node-id="4011:11110" data-name="card">
+              <div className="content-stretch flex flex-col gap-[20px] items-center relative shrink-0 w-full" data-node-id="4011:11111">
+                <div className="h-[374px] overflow-clip relative rounded-[24px] shrink-0 w-[346px]" data-node-id="4011:11112" data-name="Imagen con etiqueta">
+                  <div className="absolute inset-0 rounded-[24px]" data-node-id="4011:11113">
+                    <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src={imgRectangle205} />
+                  </div>
+                  <div className="absolute bg-[var(--color\/teal,#9cb0b0)] content-stretch flex gap-[6px] items-center left-0 pl-[18px] pr-[16px] py-[7px] rounded-br-[16px] top-0" data-node-id="4011:11114" data-name="Etiqueta">
+                    <div className="relative shrink-0 size-[14px]" data-node-id="I4011:11114;3863:540" data-name="Ícono">
+                      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIcono1} />
+                    </div>
+                    <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="I4011:11114;3863:542">
+                      Asesoría con Bárbara · $399
+                    </p>
+                  </div>
+                </div>
+                <div className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[0] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] text-center whitespace-nowrap" data-node-id="4011:11115">
+                  <p className="leading-[1.5] mb-0">A Dormir Por Fin</p>
+                  <p className="leading-[1.5]">(4 meses a 4 años)</p>
+                </div>
+              </div>
+              <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] text-center w-[314px]" data-node-id="4011:11116">
+                Bárbara diseña el plan específico para tu bebé y te acompaña de cerca durante 3 semanas.
+              </p>
+              <div className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[0] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[314px]" data-node-id="4011:11117">
+                <p className="leading-[1.5] mb-0">• Plan personalizado para noches y/o siestas</p>
+                <p className="leading-[1.5] mb-0">• WhatsApp ilimitado con Bárbara durante 3 semanas</p>
+                <p className="leading-[1.5] mb-0">• Ajustes diarios según la respuesta de tu bebé</p>
+                <p className="leading-[1.5]">• Acceso premium directo con Bárbara</p>
+              </div>
+              <div className="flex-[1_0_0] min-h-px relative w-[10px]" data-node-id="4011:11118" data-name="Empuje" />
+              <Boton className="bg-[var(--color\/frambuesa,#a8566a)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" texto="Quiero mi asesoría personal" />
+            </div>
+            <div className="content-stretch flex flex-col gap-[16px] h-[756px] items-center relative shrink-0 w-[346px]" data-node-id="4011:11120" data-name="card">
+              <div className="content-stretch flex flex-col gap-[20px] items-center relative shrink-0 w-full" data-node-id="4011:11121">
+                <div className="h-[374px] overflow-clip relative rounded-[24px] shrink-0 w-[346px]" data-node-id="4011:11122" data-name="Imagen con etiqueta">
+                  <div className="absolute inset-0 rounded-[24px]" data-node-id="4011:11123">
+                    <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[24px]">
+                      <img alt="" className="absolute h-[121.12%] left-[-65.3%] max-w-none top-[-21.12%] w-[196.36%]" src={imgRectangle206} />
+                    </div>
+                  </div>
+                  <div className="absolute bg-[var(--color\/teal,#9cb0b0)] content-stretch flex items-center left-0 pl-[18px] pr-[16px] py-[7px] rounded-br-[16px] top-0" data-node-id="4011:11124" data-name="Etiqueta">
+                    <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="I4011:11124;3863:534">
+                      Curso Online · $97
+                    </p>
+                  </div>
+                </div>
+                <div className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[0] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] text-center whitespace-nowrap" data-node-id="4011:11125">
+                  <p className="leading-[1.5] mb-0">Recién Nacidos Go</p>
+                  <p className="leading-[1.5]">(0 a 12 semanas)</p>
+                </div>
+              </div>
+              <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] text-center w-[314px]" data-node-id="4011:11126">
+                Todo lo que necesitas saber para que tu recién nacido duerma mejor — técnicas suaves, rutinas claras y 100% compatible con la lactancia.
+              </p>
+              <div className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[0] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[314px]" data-node-id="4011:11127">
+                <p className="leading-[1.5] mb-0">• 11 videos cortos y prácticos</p>
+                <p className="leading-[1.5] mb-0">• PDF con teoría, rutinas y horarios</p>
+                <p className="leading-[1.5] mb-0">• Acceso por 6 meses</p>
+                <p className="leading-[1.5]">• Bonus: 4 sesiones de coaching grupal en vivo con Bárbara</p>
+              </div>
+              <div className="flex-[1_0_0] min-h-px relative w-[10px]" data-node-id="4011:11128" data-name="Empuje" />
+              <Boton className="bg-[var(--color\/frambuesa,#a8566a)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" texto="Ver curso" />
+            </div>
+            <div className="content-stretch flex flex-col gap-[16px] h-[756px] items-center relative shrink-0 w-[346px]" data-node-id="4011:11130" data-name="card">
+              <div className="content-stretch flex flex-col gap-[20px] items-center relative shrink-0 w-full" data-node-id="4011:11131">
+                <div className="h-[374px] overflow-clip relative rounded-[24px] shrink-0 w-[346px]" data-node-id="4011:11132" data-name="Imagen con etiqueta">
+                  <div className="absolute inset-0 rounded-[24px]" data-node-id="4011:11133">
+                    <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src={imgRectangle207} />
+                  </div>
+                  <div className="absolute bg-[var(--color\/teal,#9cb0b0)] content-stretch flex items-center left-0 pl-[18px] pr-[16px] py-[7px] rounded-br-[16px] top-0" data-node-id="4011:11134" data-name="Etiqueta">
+                    <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="I4011:11134;3863:534">
+                      Curso Online · Desde $37
+                    </p>
+                  </div>
+                </div>
+                <div className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[0] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] text-center whitespace-nowrap" data-node-id="4011:11135">
+                  <p className="leading-[1.5] mb-0">Cursos de Horarios Ideales</p>
+                  <p className="leading-[1.5]">(4 meses a 3 años)</p>
+                </div>
+              </div>
+              <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] text-center w-[314px]" data-node-id="4011:11136">
+                Aprende a crear el horario ideal de sueño para tu bebé según su edad. Olvida las tablas genéricas y deja de adivinar.
+              </p>
+              <div className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[0] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[314px]" data-node-id="4011:11137">
+                <p className="leading-[1.5] mb-0">• Videos explicativos por etapa</p>
+                <p className="leading-[1.5] mb-0">• Guías de horarios descargables</p>
+                <p className="leading-[1.5] mb-0">• Ejemplos prácticos para días difíciles</p>
+                <p className="leading-[1.5]">• Disponible para 4–9, 9–15 y 15–36 meses</p>
+              </div>
+              <div className="flex-[1_0_0] min-h-px relative w-[10px]" data-node-id="4011:11138" data-name="Empuje" />
+              <Boton className="bg-[var(--color\/frambuesa,#a8566a)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" texto="Ver cursos por edad" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

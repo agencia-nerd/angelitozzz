@@ -1,0 +1,317 @@
+{
+  "formato": 1,
+  "pagina": "mundo-angelitozzz",
+  "fuente": { "fileKey": "FumWuCPT1PPDg5vBTYoufA", "nodeId": "4017:20167", "ancho": 1920, "alto": 4619 },
+  "tokens": {
+    "colores": {
+      "color/texto": "#000000",
+      "color/teal": "#9cb0b0",
+      "color/verde": "#234549",
+      "color/blanco": "#ffffff",
+      "color/beige": "#d7d0b5",
+      "color/frambuesa": "#a8566a",
+      "color/crema": "#f8f6f1",
+      "color/terracota": "#c4704a",
+      "color/blush": "#f1dbd5",
+      "color/texto-suave": "#6b6b6b",
+      "color/verde-suave": "#56706f",
+      "green 80": "#492343"
+    },
+    "texto": {
+      "2026/Display": { "familia": "Barlow Condensed", "peso": 600, "tamano": 52, "interlineado": 1, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/H1": { "familia": "Barlow Condensed", "peso": 600, "tamano": 50, "interlineado": 1.1, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/H2": { "familia": "Barlow Condensed", "peso": 500, "tamano": 46, "interlineado": 1.15, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/H3": { "familia": "Barlow Condensed", "peso": 500, "tamano": 32, "interlineado": 1.2, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/H4": { "familia": "Barlow Condensed", "peso": 500, "tamano": 26, "interlineado": 1.25, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Eyebrow": { "familia": "Barlow Condensed", "peso": 500, "tamano": 18, "interlineado": 1.3, "espaciado": { "valor": 4, "unidad": "%" } },
+      "2026/Body L": { "familia": "Barlow Condensed", "peso": 400, "tamano": 20, "interlineado": 1.5, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Body": { "familia": "Barlow Condensed", "peso": 400, "tamano": 18, "interlineado": 1.5, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Body S": { "familia": "Barlow Condensed", "peso": 400, "tamano": 16, "interlineado": 1.5, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Label": { "familia": "Barlow Condensed", "peso": 500, "tamano": 18, "interlineado": 1.3, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Label S": { "familia": "Barlow Condensed", "peso": 500, "tamano": 15, "interlineado": 1.3, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Note": { "familia": "Barlow Condensed", "peso": 400, "tamano": 16, "interlineado": 1.4, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Caption": { "familia": "Barlow Condensed", "peso": 400, "tamano": 14, "interlineado": 1.4, "espaciado": { "valor": 0, "unidad": "%" } }
+    },
+    "sombras": {
+      "shadow header": "Effect(type: DROP_SHADOW, color: #CAC29B26, offset: (-2, 0), radius: 12, spread: 0); Effect(type: DROP_SHADOW, color: #CAC29B21, offset: (-10, 10), radius: 22, spread: 0); Effect(type: DROP_SHADOW, color: #CAC29B14, offset: (-22, 40), radius: 30, spread: 0); Effect(type: DROP_SHADOW, color: #CAC29B05, offset: (-39, 80), radius: 36, spread: 0)"
+    }
+  },
+  "secciones": [
+    {
+      "nombre": "hero",
+      "nodeId": "4017:20213",
+      "nombreCapa": "Mundo Angelitozzz",
+      "estado": "leida",
+      "leidoEn": "2026-11-05",
+      "tamano": { "ancho": 1920, "alto": 808 },
+      "referencia": "mundo-angelitozzz/hero.ref.txt",
+      "captura": "mundo-angelitozzz/hero.png",
+      "textos": [
+        { "nodeId": "4017:20220", "texto": "El sueño de tu bebé no para de cambiar.\nCada etapa trae nuevas preguntas. Aquí siempre hay respuestas.", "estilo": "2026/H2", "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "4017:20221", "texto": "Mundo Angelitozzz es la comunidad donde resuelves tus dudas de sueño con Bárbara cada semana — para que dejes de adivinar con cada cambio.", "estilo": "2026/Body S", "color": "color/texto", "rol": "parrafo" },
+        { "nodeId": "I4017:20225;3711:6162", "texto": "Quiero unirme", "estilo": "2026/Label", "color": "color/blanco", "rol": "boton" },
+        { "nodeId": "4017:20226", "texto": "Desde $14/mes · Cancela cuando quieras", "estilo": "2026/Body S", "color": "color/texto", "rol": "etiqueta" },
+        { "nodeId": "4017:20233", "texto": "¿Quieres regalar Mundo Angelitozzz? Escríbeme por WhatsApp.", "estilo": null, "color": null, "rol": "otro" }
+      ],
+      "sueltos": {
+        "espacios": [
+          { "valor": 129, "usos": 1 },
+          { "valor": 58, "usos": 1 },
+          { "valor": 24, "usos": 1 },
+          { "valor": 17, "usos": 1 },
+          { "valor": 10, "usos": 1 },
+          { "valor": 8, "usos": 1 }
+        ],
+        "colores": [
+          { "valor": "#000000", "usos": 1 },
+          { "valor": "#234549", "usos": 1 }
+        ],
+        "radios": [ { "valor": 20, "usos": 1 } ]
+      },
+      "imagenes": [
+        { "id": "hero-foto-madre", "nodeId": "4017:20240", "tipo": "jpg", "ancho": 477, "alto": 390, "rol": "contenido", "archivo": "mundo-angelitozzz/assets/hero-foto-madre.jpg" },
+        { "id": "hero-logo-mundo", "nodeId": "4017:20219", "tipo": "png", "ancho": 75, "alto": 75, "rol": "contenido", "archivo": "mundo-angelitozzz/assets/hero-logo-mundo.png" },
+        { "id": "hero-icono-regalo", "nodeId": "4017:20228", "tipo": "svg", "ancho": 18, "alto": 18, "rol": "decorativa", "archivo": "mundo-angelitozzz/assets/hero-icono-regalo.svg" },
+        { "id": "boton-flecha-blanca", "nodeId": "I4017:20225;3711:6163", "tipo": "svg", "ancho": 18, "alto": 18, "rol": "decorativa", "archivo": "mundo-angelitozzz/assets/boton-flecha-blanca.svg" },
+        { "id": "hero-nube-derecha", "nodeId": "4017:20249", "tipo": "svg", "ancho": 328, "alto": 196, "rol": "decorativa", "archivo": "mundo-angelitozzz/assets/hero-nube-derecha.svg" },
+        { "id": "hero-nube-derecha-ojo-1", "nodeId": "4017:20250", "tipo": "svg", "ancho": 21.456, "alto": 3.712, "rol": "decorativa", "archivo": "mundo-angelitozzz/assets/hero-nube-derecha-ojo-1.svg" },
+        { "id": "hero-nube-derecha-ojo-2", "nodeId": "4017:20251", "tipo": "svg", "ancho": 21.456, "alto": 3.712, "rol": "decorativa", "archivo": "mundo-angelitozzz/assets/hero-nube-derecha-ojo-2.svg" },
+        { "id": "hero-nube-izquierda", "nodeId": "4017:20243", "tipo": "svg", "ancho": 524, "alto": 315, "rol": "decorativa", "archivo": "mundo-angelitozzz/assets/hero-nube-izquierda.svg" },
+        { "id": "hero-nube-izquierda-ojo-1", "nodeId": "4017:20244", "tipo": "svg", "ancho": 38.5, "alto": 6.688, "rol": "decorativa", "archivo": "mundo-angelitozzz/assets/hero-nube-izquierda-ojo-1.svg" },
+        { "id": "hero-nube-izquierda-ojo-2", "nodeId": "4017:20245", "tipo": "svg", "ancho": 38.5, "alto": 6.688, "rol": "decorativa", "archivo": "mundo-angelitozzz/assets/hero-nube-izquierda-ojo-2.svg" }
+      ],
+      "componentes": [
+        { "nombre": "Botón", "variante": "Frambuesa", "props": { "texto": "Quiero unirme", "flecha": true } }
+      ],
+      "senales": [
+        { "tipo": "decorativo", "evidencia": "Dos nubes con ojos cerrados (nube + 2 trazos de ojos cada una), en posición absoluta: una arriba a la derecha (328×196) y otra abajo a la izquierda que se sale del borde (524×315, left -4.27%).", "estado": "propuesto" },
+        { "tipo": "otro", "evidencia": "Línea 'Regalo por WhatsApp': ícono de regalo + texto con un enlace subrayado 'Escríbeme por WhatsApp.' (Label S 15px, #234549 suelto) dentro del mismo párrafo (Body S 16px, negro suelto). El enlace es un link a WhatsApp.", "estado": "propuesto" },
+        { "tipo": "otro", "evidencia": "Botón 'Quiero unirme' (Botón Frambuesa) sin destino visible en el diseño: es un CTA de suscripción.", "estado": "propuesto" }
+      ]
+    },
+    {
+      "nombre": "promocinar-marca",
+      "nodeId": "4017:20254",
+      "nombreCapa": "Promocinar marca",
+      "estado": "leida",
+      "leidoEn": "2026-11-05",
+      "tamano": { "ancho": 1920, "alto": 646 },
+      "referencia": "mundo-angelitozzz/promocinar-marca.ref.txt",
+      "captura": "mundo-angelitozzz/promocinar-marca.png",
+      "textos": [
+        { "nodeId": "4017:20274", "texto": "¿Te suena alguna de estas?", "estilo": "2026/H3", "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "4017:20275", "texto": "• Tu bebé dormía bien y de repente todo cambió — y no sabes cómo volver.\n• Necesitas una guía confiable sobre el sueño de tu bebé pero no sabes por dónde empezar.\n• Cada vez que buscas en Google encuentras información contradictoria o demasiado general.\n• Tienes preguntas pero no estás lista todavía para una asesoría completa.\n• Sientes que vives adivinando en vez de realmente entendiendo a tu bebé.", "estilo": "2026/Body", "color": "color/texto", "rol": "lista" },
+        { "nodeId": "4017:20276", "texto": "El sueño infantil cambia constantemente. No es que lo estés haciendo mal — es que nadie te está guiando en tiempo real.", "estilo": "2026/Note", "color": "color/terracota", "rol": "parrafo" },
+        { "nodeId": "4017:20277", "texto": "Mundo Angelitozzz es para ti si...", "estilo": "2026/H3", "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "4017:20278", "texto": "• Eres mamá primeriza y el sueño de tu bebé te tiene confundida — necesitas apoyarte en alguien que realmente sepa.\n• Siempre estás dudando sobre cómo ayudar a tu bebé a dormir mejor — y el cansancio ya pesa.\n• Quieres apoyo experto continuo sin pagar una asesoría completa cada vez que algo cambia.\n• Buscas información confiable y directa — sin más Google, sin más contradicciones.\n• Necesitas un espacio seguro donde preguntar sin miedo a ser juzgada.\n• Tu bebé ya duerme bien pero quieres estar preparada para los cambios — sin retrocesos ni sorpresas.", "estilo": "2026/Body", "color": "color/texto", "rol": "lista" }
+      ],
+      "sueltos": {
+        "espacios": [
+          { "valor": 88, "usos": 1 },
+          { "valor": 72, "usos": 2 },
+          { "valor": 56, "usos": 3 }
+        ],
+        "colores": [ { "valor": "#ffffff", "usos": 1 } ],
+        "radios": [ { "valor": 30, "usos": 1 } ]
+      },
+      "imagenes": [],
+      "componentes": [],
+      "senales": [
+        { "tipo": "repetidor", "evidencia": "Dos columnas (izquierda 5 viñetas, derecha 6 viñetas) separadas por un divisor beige vertical de 1px; las viñetas '• ' están escritas a mano dentro de un solo texto por columna.", "estado": "propuesto" },
+        { "tipo": "otro", "evidencia": "La tarjeta crema (1191×470, radio 30) está maquetada como grid con márgenes absolutos (ml/mt) en vez de auto-layout; la capa se llama '... / Para quién es (de Horarios)' y tiene 2 textos ocultos heredados de otra página (bonos del taller de horarios).", "estado": "propuesto" }
+      ]
+    },
+    {
+      "nombre": "que-incluye-mundo",
+      "nodeId": "4017:20281",
+      "nombreCapa": "Qué incluye Mundo",
+      "estado": "leida",
+      "leidoEn": "2026-11-05",
+      "tamano": { "ancho": 1920, "alto": 1004 },
+      "referencia": "mundo-angelitozzz/que-incluye-mundo.ref.txt",
+      "captura": "mundo-angelitozzz/que-incluye-mundo.png",
+      "textos": [
+        { "nodeId": "4017:20285", "texto": "Qué incluye tu suscripción", "estilo": "2026/Eyebrow", "color": "color/verde", "rol": "eyebrow" },
+        { "nodeId": "4017:20286", "texto": "Todo lo que necesitas para nunca quedarte sin respuesta.", "estilo": "2026/H1", "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "4017:20287", "texto": "Respuestas en vivo, contenido para cada etapa y una comunidad que te acompaña.", "estilo": "2026/Body L", "color": "color/verde", "rol": "subtitulo" },
+        { "nodeId": "4017:20293", "texto": "Sesiones en vivo con Bárbara", "estilo": "2026/H4", "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "4017:20294", "texto": "Cada semana resuelves tus dudas en vivo.", "estilo": "2026/Body", "color": "color/texto", "rol": "parrafo" },
+        { "nodeId": "4017:20296", "texto": "Miércoles · 10am Perú/Colombia", "estilo": "2026/Label S", "color": "color/verde", "rol": "etiqueta" },
+        { "nodeId": "4017:20300", "texto": "Talleres y recursos grabados", "estilo": "2026/H4", "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "4017:20301", "texto": "Regresiones, siestas, horarios, viajes y más.", "estilo": "2026/Body", "color": "color/texto", "rol": "parrafo" },
+        { "nodeId": "4017:20303", "texto": "Disponibles al instante", "estilo": "2026/Label S", "color": "color/verde", "rol": "etiqueta" },
+        { "nodeId": "4017:20307", "texto": "Comunidad privada de mamás", "estilo": "2026/H4", "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "4017:20308", "texto": "Mamás que viven lo mismo que tú, para compartir, apoyarse y acompañarse.", "estilo": "2026/Body", "color": "color/texto", "rol": "parrafo" },
+        { "nodeId": "4017:20310", "texto": "Chat privado 24/7", "estilo": "2026/Label S", "color": "color/verde", "rol": "etiqueta" },
+        { "nodeId": "I4017:20312;3704:15607", "texto": "Unirme a la comunidad", "estilo": "2026/Label", "color": "color/crema", "rol": "boton" }
+      ],
+      "sueltos": {
+        "espacios": [
+          { "valor": 405, "usos": 1 },
+          { "valor": 104, "usos": 1 },
+          { "valor": 32, "usos": 1 },
+          { "valor": 28, "usos": 3 },
+          { "valor": 24, "usos": 2 },
+          { "valor": 20, "usos": 1 },
+          { "valor": 14, "usos": 3 },
+          { "valor": 10, "usos": 3 },
+          { "valor": 6, "usos": 3 }
+        ],
+        "colores": [],
+        "radios": [
+          { "valor": 24, "usos": 3 },
+          { "valor": 100, "usos": 3 }
+        ]
+      },
+      "imagenes": [
+        { "id": "que-incluye-sesiones-en-vivo", "nodeId": "4017:20291", "tipo": "jpg", "ancho": 348.667, "alto": 220, "rol": "contenido", "archivo": "mundo-angelitozzz/assets/que-incluye-sesiones-en-vivo.jpg" },
+        { "id": "que-incluye-talleres", "nodeId": "4017:20298", "tipo": "jpg", "ancho": 348.667, "alto": 220, "rol": "contenido", "archivo": "mundo-angelitozzz/assets/que-incluye-talleres.jpg" },
+        { "id": "que-incluye-comunidad", "nodeId": "4017:20305", "tipo": "jpg", "ancho": 348.667, "alto": 220, "rol": "contenido", "archivo": "mundo-angelitozzz/assets/que-incluye-comunidad.jpg" },
+        { "id": "que-incluye-nube", "nodeId": "4017:20282", "tipo": "svg", "ancho": 300, "alto": 130.576, "rol": "decorativa", "archivo": "mundo-angelitozzz/assets/que-incluye-nube.svg" },
+        { "id": "que-incluye-destello-derecha", "nodeId": "4017:20283", "tipo": "svg", "ancho": 46, "alto": 46.687, "rol": "decorativa", "archivo": "mundo-angelitozzz/assets/que-incluye-destello-derecha.svg" },
+        { "id": "que-incluye-destello-izquierda", "nodeId": "4017:20284", "tipo": "svg", "ancho": 60, "alto": 62.981, "rol": "decorativa", "archivo": "mundo-angelitozzz/assets/que-incluye-destello-izquierda.svg" },
+        { "id": "boton-flecha-crema", "nodeId": "I4017:20312;3704:15608", "tipo": "svg", "ancho": 18, "alto": 18, "rol": "decorativa", "archivo": "mundo-angelitozzz/assets/boton-flecha-crema.svg" }
+      ],
+      "componentes": [
+        { "nombre": "Botón", "variante": "Verde", "props": { "texto": "Unirme a la comunidad", "flecha": true } }
+      ],
+      "senales": [
+        { "tipo": "repetidor", "evidencia": "3 tarjetas 'Beneficio' idénticas (imagen 220px de alto, título H4, párrafo y una pastilla crema con texto Label S), en fila con gap 32.", "estado": "propuesto" },
+        { "tipo": "decorativo", "evidencia": "Dos destellos crema (60×63 arriba a la izquierda, 46×47 arriba a la derecha) y una nube (300×131) abajo a la derecha que se sale del borde derecho (right -3.13%) y del borde inferior de la sección (top 883 + 131 > 1004).", "estado": "propuesto" },
+        { "tipo": "otro", "evidencia": "La primera imagen (sesiones en vivo) no es object-cover: está recortada a mano (alto 237.7%, top -8.91%) para encuadrar a Bárbara; las otras dos usan object-cover.", "estado": "propuesto" }
+      ]
+    },
+    {
+      "nombre": "testimonios",
+      "nodeId": "4017:20317",
+      "nombreCapa": "Testimonios · Tarjetas",
+      "estado": "leida",
+      "leidoEn": "2026-11-05",
+      "tamano": { "ancho": 1920, "alto": 954 },
+      "referencia": "mundo-angelitozzz/testimonios.ref.txt",
+      "captura": "mundo-angelitozzz/testimonios.png",
+      "textos": [
+        { "nodeId": "I4017:20317;3810:29", "texto": "Lo que dicen las mamás que ya son parte de Mundo Angelitozzz.", "estilo": "2026/H2", "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "I4017:20317;3810:52", "texto": "“Bárbara, te quiero agradecer por tu guía durante todo este proceso. ¡Noah está durmiendo mejor que nunca y yo no lo puedo creer!”", "estilo": "2026/Body", "color": "color/texto", "rol": "parrafo" },
+        { "nodeId": "I4017:20317;3810:55", "texto": "Raisa", "estilo": "2026/Label", "color": "color/verde", "rol": "etiqueta" },
+        { "nodeId": "I4017:20317;3810:56", "texto": "Bebé de 5 meses", "estilo": "2026/Caption", "color": "color/texto-suave", "rol": "pie" },
+        { "nodeId": "I4017:20317;3810:69", "texto": "“¡Amelia es una niña feliz! Lograste lo imposible: ahora le cuento un cuento, le digo buenas noches y se duerme tranquila.”", "estilo": "2026/Body", "color": "color/texto", "rol": "parrafo" },
+        { "nodeId": "I4017:20317;3810:72", "texto": "Cami", "estilo": "2026/Label", "color": "color/verde", "rol": "etiqueta" },
+        { "nodeId": "I4017:20317;3810:73", "texto": "Niña de 2 años", "estilo": "2026/Caption", "color": "color/texto-suave", "rol": "pie" },
+        { "nodeId": "I4017:20317;3810:86", "texto": "“Balli, miles de gracias por la ayuda y la paciencia. Ni te imaginas cuán agradecida estoy: Martín ya duerme de corrido.”", "estilo": "2026/Body", "color": "color/texto", "rol": "parrafo" },
+        { "nodeId": "I4017:20317;3810:89", "texto": "Bernardita y Martín", "estilo": "2026/Label", "color": "color/verde", "rol": "etiqueta" },
+        { "nodeId": "I4017:20317;3810:90", "texto": "Bebé de 5 meses", "estilo": "2026/Caption", "color": "color/texto-suave", "rol": "pie" },
+        { "nodeId": "I4017:20317;3824:41", "texto": "“Probé de todo y nada funcionaba. Con el plan de Bárbara, en una semana mi bebé dormía en su cuna.”", "estilo": "2026/Body", "color": "color/texto", "rol": "parrafo" },
+        { "nodeId": "I4017:20317;3824:48", "texto": "Carolina, mamá de Tomás", "estilo": "2026/Label", "color": "color/verde", "rol": "etiqueta" },
+        { "nodeId": "I4017:20317;3824:49", "texto": "Bebé de 6 meses", "estilo": "2026/Caption", "color": "color/texto-suave", "rol": "pie" },
+        { "nodeId": "I4017:20317;3824:65", "texto": "“Pensé que nunca iba a volver a dormir una noche completa. Hoy dormimos todos.”", "estilo": "2026/Body", "color": "color/texto", "rol": "parrafo" },
+        { "nodeId": "I4017:20317;3824:72", "texto": "Andrea, mamá de Lucas", "estilo": "2026/Label", "color": "color/verde", "rol": "etiqueta" },
+        { "nodeId": "I4017:20317;3824:73", "texto": "Bebé de 7 meses", "estilo": "2026/Caption", "color": "color/texto-suave", "rol": "pie" },
+        { "nodeId": "I4017:20317;3810:96;3704:15612", "texto": "Ver más testimonios", "estilo": "2026/Label", "color": "color/verde", "rol": "boton" }
+      ],
+      "sueltos": {
+        "espacios": [
+          { "valor": 405, "usos": 1 },
+          { "valor": 104, "usos": 1 },
+          { "valor": 181, "usos": 1 },
+          { "valor": 56, "usos": 1 },
+          { "valor": 28, "usos": 5 },
+          { "valor": 24, "usos": 1 },
+          { "valor": 16, "usos": 5 },
+          { "valor": 14, "usos": 5 },
+          { "valor": 12, "usos": 6 },
+          { "valor": 8, "usos": 1 },
+          { "valor": 2, "usos": 10 }
+        ],
+        "colores": [
+          { "valor": "#d7d0b5", "usos": 2 },
+          { "valor": "#d7d0b500", "usos": 2 }
+        ],
+        "radios": [
+          { "valor": 20, "usos": 5 },
+          { "valor": 100, "usos": 8 }
+        ]
+      },
+      "imagenes": [
+        { "id": "testimonios-estrella", "nodeId": "I4017:20317;3810:42", "tipo": "svg", "ancho": 16, "alto": 16, "rol": "decorativa", "archivo": "mundo-angelitozzz/assets/testimonios-estrella.svg" },
+        { "id": "testimonios-avatar-corazon", "nodeId": "I4017:20317;3811:34", "tipo": "svg", "ancho": 18, "alto": 18, "rol": "decorativa", "archivo": "mundo-angelitozzz/assets/testimonios-avatar-corazon.svg" },
+        { "id": "testimonios-comillas", "nodeId": "I4017:20317;3811:29", "tipo": "svg", "ancho": 30, "alto": 30, "rol": "decorativa", "archivo": "mundo-angelitozzz/assets/testimonios-comillas.svg" },
+        { "id": "testimonios-comillas-2", "nodeId": "I4017:20317;3811:36", "tipo": "svg", "ancho": 30, "alto": 30, "rol": "decorativa", "archivo": "mundo-angelitozzz/assets/testimonios-comillas-2.svg" },
+        { "id": "testimonios-flecha-izquierda", "nodeId": "I4017:20317;3810:32", "tipo": "svg", "ancho": 20, "alto": 20, "rol": "decorativa", "archivo": "mundo-angelitozzz/assets/testimonios-flecha-izquierda.svg" },
+        { "id": "testimonios-flecha-derecha", "nodeId": "I4017:20317;3810:36", "tipo": "svg", "ancho": 20, "alto": 20, "rol": "decorativa", "archivo": "mundo-angelitozzz/assets/testimonios-flecha-derecha.svg" },
+        { "id": "testimonios-puntos", "nodeId": "I4017:20317;3810:91", "tipo": "svg", "ancho": 58, "alto": 10, "rol": "decorativa", "archivo": "mundo-angelitozzz/assets/testimonios-puntos.svg" },
+        { "id": "testimonios-destello", "nodeId": "I4017:20317;3811:50", "tipo": "svg", "ancho": 44, "alto": 50.5, "rol": "decorativa", "archivo": "mundo-angelitozzz/assets/testimonios-destello.svg" },
+        { "id": "testimonios-destello-pequeno", "nodeId": "I4017:20317;3811:52", "tipo": "svg", "ancho": 15.92, "alto": 15.92, "rol": "decorativa", "archivo": "mundo-angelitozzz/assets/testimonios-destello-pequeno.svg" },
+        { "id": "testimonios-nube-derecha", "nodeId": "I4017:20317;3810:106", "tipo": "svg", "ancho": 260, "alto": 113.165, "rol": "decorativa", "archivo": "mundo-angelitozzz/assets/testimonios-nube-derecha.svg" },
+        { "id": "testimonios-nube-izquierda", "nodeId": "I4017:20317;3810:103", "tipo": "svg", "ancho": 300, "alto": 180.344, "rol": "decorativa", "archivo": "mundo-angelitozzz/assets/testimonios-nube-izquierda.svg" },
+        { "id": "testimonios-nube-izquierda-ojo-1", "nodeId": "I4017:20317;3810:104", "tipo": "svg", "ancho": 22.05, "alto": 3.82, "rol": "decorativa", "archivo": "mundo-angelitozzz/assets/testimonios-nube-izquierda-ojo-1.svg" },
+        { "id": "testimonios-nube-izquierda-ojo-2", "nodeId": "I4017:20317;3810:105", "tipo": "svg", "ancho": 22.05, "alto": 3.82, "rol": "decorativa", "archivo": "mundo-angelitozzz/assets/testimonios-nube-izquierda-ojo-2.svg" }
+      ],
+      "componentes": [
+        { "nombre": "Testimonios · Tarjetas", "variante": null, "props": {
+          "titulo": "Lo que dicen las mamás que ya son parte de Mundo Angelitozzz.",
+          "testimonios": [
+            { "texto": "“Bárbara, te quiero agradecer por tu guía durante todo este proceso. ¡Noah está durmiendo mejor que nunca y yo no lo puedo creer!”", "nombre": "Raisa", "detalle": "Bebé de 5 meses", "estrellas": 5 },
+            { "texto": "“¡Amelia es una niña feliz! Lograste lo imposible: ahora le cuento un cuento, le digo buenas noches y se duerme tranquila.”", "nombre": "Cami", "detalle": "Niña de 2 años", "estrellas": 5 },
+            { "texto": "“Balli, miles de gracias por la ayuda y la paciencia. Ni te imaginas cuán agradecida estoy: Martín ya duerme de corrido.”", "nombre": "Bernardita y Martín", "detalle": "Bebé de 5 meses", "estrellas": 5 },
+            { "texto": "“Probé de todo y nada funcionaba. Con el plan de Bárbara, en una semana mi bebé dormía en su cuna.”", "nombre": "Carolina, mamá de Tomás", "detalle": "Bebé de 6 meses", "estrellas": 5 },
+            { "texto": "“Pensé que nunca iba a volver a dormir una noche completa. Hoy dormimos todos.”", "nombre": "Andrea, mamá de Lucas", "detalle": "Bebé de 7 meses", "estrellas": 5 }
+          ],
+          "boton_texto": "Ver más testimonios"
+        } },
+        { "nombre": "Botón", "variante": "Secundario", "props": { "texto": "Ver más testimonios", "flecha": false } }
+      ],
+      "senales": [
+        { "tipo": "slider", "evidencia": "Encabezado con flechas izquierda/derecha (círculos blancos 48px), 3 tarjetas visibles + 2 'Tarjeta asomada' a los lados (opacidad 45%) tapadas por degradados beige de 220px, y 4 puntos de paginación (58×10) debajo.", "estado": "propuesto" },
+        { "tipo": "repetidor", "evidencia": "5 tarjetas de testimonio idénticas (5 estrellas, cita, divisor, avatar blush con corazón, nombre y edad del bebé, comillas en la esquina superior derecha).", "estado": "propuesto" },
+        { "tipo": "decorativo", "evidencia": "Fila 'Detalle ZZZ' de 15 letras 'Z' en texto real (Barlow Condensed Medium 45–85px, crema, rotadas, opacidad 40%) a lo ancho del pie de la sección; dos nubes (derecha arriba 260×113, izquierda abajo 300×180 con ojos), un destello crema grande junto al título y un destello amarillo pequeño (#D8B11E) junto a la tarjeta asomada derecha.", "estado": "propuesto" },
+        { "tipo": "otro", "evidencia": "La sección es una instancia del componente 'Testimonios · Tarjetas' (3810:27), descrito en Figma como bloque reutilizable con textos de tarjeta editables: probable componente compartido con otras páginas.", "estado": "propuesto" },
+        { "tipo": "otro", "evidencia": "El botón 'Ver más testimonios' es un <a> de contorno verde (Botón Secundario, sin flecha) sin destino visible.", "estado": "propuesto" }
+      ]
+    },
+    {
+      "nombre": "cta-mundo",
+      "nodeId": "4017:20487",
+      "nombreCapa": "CTA Mundo",
+      "estado": "leida",
+      "leidoEn": "2026-11-05",
+      "tamano": { "ancho": 1920, "alto": 516 },
+      "referencia": "mundo-angelitozzz/cta-mundo.ref.txt",
+      "captura": "mundo-angelitozzz/cta-mundo.png",
+      "textos": [
+        { "nodeId": "4017:20488", "texto": "Todo esto, desde $14 al mes.", "estilo": "2026/Display", "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "4017:20494", "texto": "Sesiones grupales en vivo con Bárbara", "estilo": "2026/Body L", "color": "color/verde", "rol": "lista" },
+        { "nodeId": "4017:20499", "texto": "Videoteca completa de talleres", "estilo": "2026/Body L", "color": "color/verde", "rol": "lista" },
+        { "nodeId": "4017:20504", "texto": "Comunidad privada de mamás", "estilo": "2026/Body L", "color": "color/verde", "rol": "lista" },
+        { "nodeId": "4017:20505", "texto": "Desde $14/mes · Sin contratos · Cancela cuando quieras", "estilo": "2026/Label", "color": "color/verde-suave", "rol": "etiqueta" },
+        { "nodeId": "I4017:20507;3711:6162", "texto": "Quiero unirme a Mundo Angelitozzz", "estilo": "2026/Label", "color": "color/blanco", "rol": "boton" },
+        { "nodeId": "4017:20508", "texto": "Sin compromisos. Cancela cuando quieras, sin penalidad.", "estilo": "2026/Body S", "color": "color/texto-suave", "rol": "pie" }
+      ],
+      "sueltos": {
+        "espacios": [
+          { "valor": 405, "usos": 1 },
+          { "valor": 104, "usos": 1 },
+          { "valor": 28, "usos": 1 },
+          { "valor": 24, "usos": 1 },
+          { "valor": 8, "usos": 4 }
+        ],
+        "colores": [],
+        "radios": [ { "valor": 100, "usos": 3 } ]
+      },
+      "imagenes": [
+        { "id": "cta-check", "nodeId": "4017:20492", "tipo": "svg", "ancho": 14, "alto": 14, "rol": "decorativa", "archivo": "mundo-angelitozzz/assets/cta-check.svg" },
+        { "id": "cta-flecha", "nodeId": "I4017:20507;3711:6163", "tipo": "svg", "ancho": 18, "alto": 18, "rol": "decorativa", "archivo": "mundo-angelitozzz/assets/cta-flecha.svg" },
+        { "id": "cta-destello-grande", "nodeId": "4017:20509", "tipo": "svg", "ancho": 248, "alto": 262, "rol": "decorativa", "archivo": "mundo-angelitozzz/assets/cta-destello-grande.svg" },
+        { "id": "cta-destello-mediano", "nodeId": "4017:20524", "tipo": "svg", "ancho": 120, "alto": 125, "rol": "decorativa", "archivo": "mundo-angelitozzz/assets/cta-destello-mediano.svg" },
+        { "id": "cta-destello-pequeno", "nodeId": "4017:20539", "tipo": "svg", "ancho": 68, "alto": 71, "rol": "decorativa", "archivo": "mundo-angelitozzz/assets/cta-destello-pequeno.svg" }
+      ],
+      "componentes": [
+        { "nombre": "Botón", "variante": "Frambuesa", "props": { "texto": "Quiero unirme a Mundo Angelitozzz", "flecha": true } }
+      ],
+      "senales": [
+        { "tipo": "repetidor", "evidencia": "3 ítems iguales en fila: círculo verde 24px con check blanco + texto Body L verde.", "estado": "propuesto" },
+        { "tipo": "decorativo", "evidencia": "3 destellos blancos con rayos en posición absoluta (248×262 a la izquierda pegado arriba, 120×125 y 68×71 a la derecha).", "estado": "propuesto" }
+      ]
+    }
+  ]
+}

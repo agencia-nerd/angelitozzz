@@ -1,0 +1,65 @@
+const imgGroup438 = "assets/beneficios-colgante-luna.svg";
+const imgGroup435 = "assets/beneficios-colgante-cubo.svg";
+const imgGroup437 = "assets/beneficios-colgante-corazon.svg";
+const imgGroup495 = "assets/beneficios-colgante-carita.svg";
+const imgGroup439 = "assets/beneficios-colgante-chupete.svg";
+const imgGroup440 = "assets/beneficios-nube-central.svg";
+
+export default function Beneficios() {
+  return (
+    <div className="content-stretch flex flex-col items-center pb-[88px] relative size-full" data-node-id="4011:9188" data-name="Beneficios">
+      <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="4011:9189">
+        <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-[85.38px] mt-0 place-items-start relative row-1" data-node-id="4011:9190">
+          <div className="col-1 h-[409.766px] ml-[933.67px] mt-[1.01px] relative row-1 w-[93.033px]" data-node-id="4011:9191">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup438} />
+          </div>
+          <div className="col-1 h-[267px] ml-0 mt-[1.01px] relative row-1 w-[88px]" data-node-id="4011:9194">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup435} />
+          </div>
+          <div className="col-1 h-[558px] ml-[623.89px] mt-[1.01px] relative row-1 w-[81.222px]" data-node-id="4011:9198">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup437} />
+          </div>
+          <div className="col-1 h-[411.288px] ml-[296.18px] mt-0 relative row-1 w-[82.643px]" data-node-id="4011:9201">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup495} />
+          </div>
+          <div className="col-1 h-[277.934px] ml-[1223px] mt-[1.01px] relative row-1 w-[98.64px]" data-node-id="4011:9212">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup439} />
+          </div>
+        </div>
+        <div className="col-1 h-[291px] ml-[521.38px] mt-[69px] relative row-1 w-[486px]" data-node-id="4011:9221">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup440} />
+        </div>
+        <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Medium'] leading-[1.2] ml-[579.38px] mt-[198px] not-italic relative row-1 text-[32px] text-[color:var(--color\/verde,#234549)] text-center w-[371px]" data-node-id="4011:9226">
+          Beneficios del sueño saludable
+        </p>
+        <div className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] h-[69px] ml-0 mt-[318px] not-italic relative row-1 text-[18px] text-[color:var(--color\/texto,black)] text-center w-[258px] whitespace-pre-wrap" data-node-id="4011:9227">
+          <p className="leading-[1.5] mb-0">Dormir promueve el sano crecimiento y desarrollo de tu bebé.</p>
+          <p className="leading-[1.5] mb-0">​</p>
+          <p className="leading-[1.5] mb-0">​</p>
+          <p className="leading-[1.5] mb-0">​</p>
+          <p className="leading-[1.5] mb-0">​</p>
+          <p className="leading-[1.5]">​</p>
+        </div>
+        <div className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] h-[43px] ml-[1256.95px] mt-[320px] not-italic relative row-1 text-[18px] text-[color:var(--color\/texto,black)] text-center w-[198px] whitespace-pre-wrap" data-node-id="4011:9228">
+          <p className="leading-[1.5] mb-0">Mejora la tolerancia a la frustración.</p>
+          <p className="leading-[1.5] mb-0">​</p>
+          <p className="leading-[1.5] mb-0">​</p>
+          <p className="leading-[1.5] mb-0">​</p>
+          <p className="leading-[1.5] mb-0">​</p>
+          <p className="leading-[1.5]">​</p>
+        </div>
+        <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] h-[69px] leading-[1.5] ml-[289.88px] mt-[457px] not-italic relative row-1 text-[18px] text-[color:var(--color\/texto,black)] text-center w-[266px]" data-node-id="4011:9229">
+          Un bebé descansado es más más feliz y menos estresado.
+        </p>
+        <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] h-[69px] leading-[1.5] ml-[916.88px] mt-[457px] not-italic relative row-1 text-[18px] text-[color:var(--color\/texto,black)] text-center w-[259px]" data-node-id="4011:9230">
+          Dormir bien fomenta su aprendizaje y desarrollo del lenguaje
+        </p>
+        <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] h-[59px] leading-[1.5] ml-[609.88px] mt-[605px] not-italic relative row-1 text-[18px] text-[color:var(--color\/texto,black)] text-center w-[280px]" data-node-id="4011:9231">
+          Mejora la salud mental materna y fortalece el vínculo madre-bebé.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+/* Styles in the design: green 20 (#9EC0C0), green 80 (#492343), 2026/H3, 2026/Body. */

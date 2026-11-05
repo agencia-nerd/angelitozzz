@@ -1,0 +1,69 @@
+const imgFlecha = "articulo-blog/assets/escrito-flecha-blanca.svg";
+const imgFlecha1 = "articulo-blog/assets/escrito-flecha-verde.svg";
+const imgEllipse = "articulo-blog/assets/escrito-avatar-autora.png";
+
+type BotonProps = {
+  className?: string;
+  flecha?: boolean;
+  texto?: string;
+  tipo?: "Secundario" | "Frambuesa";
+};
+
+function Boton({ className, flecha = true, texto = "Texto del botón", tipo = "Frambuesa" }: BotonProps) {
+  const isFrambuesa = tipo === "Frambuesa";
+  const isSecundario = tipo === "Secundario";
+  return (
+    <div className={className || `content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] ${isSecundario ? String.raw`border-[1.5px] border-[var(--color\/verde,#234549)] border-solid` : String.raw`bg-[var(--color\/frambuesa,#a8566a)]`}`} id={isSecundario ? "node-3704_15611" : "node-3711_6161"}>
+      {isFrambuesa && (
+        <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="3711:6162">
+          {texto}
+        </p>
+      )}
+      {isFrambuesa && flecha && (
+        <div className="relative shrink-0 size-[18px]" data-node-id="3711:6163" data-name="Flecha">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha} />
+        </div>
+      )}
+      {isSecundario && (
+        <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3704:15612">
+          {texto}
+        </p>
+      )}
+      {isSecundario && flecha && (
+        <div className="relative shrink-0 size-[18px]" data-node-id="3704:15613" data-name="Flecha">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha1} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function EscritoPor() {
+  return (
+    <div className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex items-start justify-center py-[20px] relative size-full" data-node-id="4038:22779" data-name="escrito por">
+      <div className="bg-[var(--color\/blanco,white)] content-stretch flex gap-[28px] h-[219px] items-center overflow-clip p-[32px] relative rounded-[24px] shrink-0 w-[1040px]" data-node-id="4038:22758" data-name="Escrito por Bárbara">
+        <div className="relative shrink-0 size-[120px]" data-node-id="4038:22759" data-name="Ellipse">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" height="120" src={imgEllipse} width="120" />
+        </div>
+        <div className="content-stretch flex flex-[1_0_0] flex-col gap-[8px] items-start min-w-px overflow-clip relative" data-node-id="4038:22760" data-name="Frame">
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.4] not-italic relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)] whitespace-nowrap" data-node-id="4038:22761">
+            Escrito por
+          </p>
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.25] not-italic relative shrink-0 text-[26px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="4038:22762">
+            Bárbara Arca
+          </p>
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="4038:22763">
+            Coach de Sueño Pediátrico certificada y mamá de dos. Desde 2016 ha acompañado a más de 8.000 familias en 12 países.
+          </p>
+          <div className="content-stretch flex gap-[12px] items-center overflow-clip relative shrink-0" data-node-id="4038:22764" data-name="Frame">
+            <Boton className="border-[1.5px] border-[var(--color\/verde,#234549)] border-solid content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" flecha={false} texto="Conoce a Bárbara" tipo="Secundario" />
+            <Boton className="bg-[var(--color\/frambuesa,#a8566a)] content-stretch cursor-pointer flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" texto="Ver soluciones de sueño" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Styles in the design: 2026/Caption, 2026/H4, 2026/Body S, 2026/Label.
+// Component description (Figma): Botón 3704:15621 — "Botón 2026 · Frambuesa (CTA principal sobre fondos claros) · Verde (sobre teal) · Claro (sobre verde oscuro) · Secundario (contorno)."

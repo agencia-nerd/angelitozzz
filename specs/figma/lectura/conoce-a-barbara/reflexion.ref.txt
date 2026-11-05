@@ -1,0 +1,77 @@
+const imgFlecha = "assets/boton-flecha.svg";
+const imgFotoBarbara2 = "assets/reflexion-foto-barbara.jpg";
+const imgFrame = "assets/reflexion-firma-corazon.svg";
+
+type BotonProps = {
+  className?: string;
+  flecha?: boolean;
+  texto?: string;
+  tipo?: "Frambuesa";
+};
+
+function Boton({ className, flecha = true, texto = "Texto del botón", tipo = "Frambuesa" }: BotonProps) {
+  return (
+    <div className={className || "bg-[var(--color\\/frambuesa,#a8566a)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px]"} data-node-id="3711:6161">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="3711:6162">
+        {texto}
+      </p>
+      {flecha && (
+        <div className="relative shrink-0 size-[18px]" data-node-id="3711:6163" data-name="Flecha">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function Reflexion() {
+  return (
+    <div className="content-stretch flex flex-col items-start px-[405px] py-[56px] relative size-full" data-node-id="4017:21055" data-name="Reflexion">
+      <div className="content-stretch flex flex-col gap-[56px] items-start relative shrink-0 w-full" data-node-id="4017:21075">
+        <p className="[word-break:break-word] font-['Barlow_Condensed:Medium_Italic'] italic leading-[1.15] relative shrink-0 text-[40px] text-[color:var(--color\/verde,#234549)] text-center w-[900px]" data-node-id="4017:21056">
+          “Dormía mal. Mi bebé dormía peor. Y sin descanso no podía pensar, ni decidir, ni vivir... y mucho menos amar mi maternidad como merecía hacerlo.”
+        </p>
+        <div className="content-stretch flex gap-[80px] items-center overflow-clip relative shrink-0 w-full" data-node-id="4017:21057" data-name="Parte 2">
+          <div className="h-[520px] relative rounded-[32px] shrink-0 w-[440px]" data-node-id="4017:21058" data-name="Foto Bárbara 2">
+            <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[32px]">
+              <img alt="" className="absolute h-full left-[-49.97%] max-w-none top-0 w-[177.32%]" src={imgFotoBarbara2} />
+            </div>
+          </div>
+          <div className="content-stretch flex flex-[1_0_0] flex-col items-start min-w-px overflow-clip relative" data-node-id="4017:21059" data-name="Frame">
+            <div className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[0] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] w-full" data-node-id="4017:21060">
+              <p className="leading-[1.5] mb-[18px]">Pero algo cambió cuando entendí que necesitaba ayuda. Que mi bienestar también importa. Que para cuidar de mi bebé, primero tenía que cuidarme a mí.</p>
+              <p className="leading-[1.5] mb-[18px]">Fue entonces cuando empecé a investigar, a formarme, a estudiar el sueño infantil — no solo como técnica, sino como una herramienta para sanar y empoderar. Y encontré mi vocación.</p>
+              <p className="leading-[1.5] mb-[18px]">Desde 2016 he acompañado a más de 8.000 familias en 12 países. Porque cuando un bebé duerme bien, la madre renace. Y esa transformación es lo que me mueve.</p>
+              <p className="leading-[1.5]">Hoy soy Coach de Sueño Pediátrico — pero más que eso: soy una mujer comprometida con ayudarte a soltar la culpa, tomar decisiones conscientes y vivir tu maternidad desde el goce, la salud y la conexión real. Mi enfoque es personalizado, respetuoso, basado en ciencia y lleno de humanidad.</p>
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex flex-col gap-[14px] items-center overflow-clip relative shrink-0 w-full" data-node-id="4017:21061" data-name="Misión y firma">
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.25] not-italic relative shrink-0 text-[26px] text-[color:var(--color\/verde,#234549)] text-center w-[820px]" data-node-id="4017:21062">
+            Mi misión no es solo enseñarte a mejorar el sueño de tu bebé. Mi misión es devolverte el poder sobre tu maternidad.
+          </p>
+          <div className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[0] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] text-center w-[820px]" data-node-id="4017:21063">
+            <p className="leading-[1.5] mb-[8px]">Tu derecho a descansar. Tu derecho a disfrutar. Tu derecho a ser tú, entera.</p>
+            <p className="leading-[1.5]">Aquí empieza tu transformación. Y yo estoy aquí para caminarla contigo.</p>
+          </div>
+          <div className="content-stretch flex gap-[8px] items-center overflow-clip relative shrink-0" data-node-id="4017:21064" data-name="Firma">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[22px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="4017:21065">
+              Con cariño infinito, Balli
+            </p>
+            <div className="relative shrink-0 size-[22px]" data-node-id="4017:21066" data-name="Frame">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+            </div>
+          </div>
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto-suave,#6b6b6b)] whitespace-nowrap" data-node-id="4017:21068">
+            Tu Coach de Sueño Pediátrico
+          </p>
+          <div className="h-[8px] relative shrink-0 w-[10px]" data-node-id="4017:21069" data-name="Frame" />
+          <Boton className="bg-[var(--color\/frambuesa,#a8566a)] content-stretch cursor-pointer flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" texto="Conoce mis soluciones de sueño" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Styles contained in the design: 2026/H4, 2026/H5, 2026/Body S, 2026/Label.
+// Component description (Botón, 3704:15621): Botón 2026 · Frambuesa (CTA principal sobre fondos claros) · Verde (sobre teal) · Claro (sobre verde oscuro) · Secundario (contorno).

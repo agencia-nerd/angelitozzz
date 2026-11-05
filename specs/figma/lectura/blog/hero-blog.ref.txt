@@ -1,0 +1,82 @@
+// Assets descargados en specs/figma/lectura/blog/assets/ (links temporales reemplazados).
+const imgFrame = `assets/hero-buscador-icono.svg`;
+const imgDecoracion = `assets/hero-estrella-grande.svg`;
+const imgDecoracion1 = `assets/hero-estrella-pequena.svg`;
+const imgGroup = `assets/hero-destello.svg`;
+
+export default function HeroBlog() {
+  return (
+    <div className="bg-[var(--color\/blush,#f1dbd5)] content-stretch flex flex-col gap-[16px] items-center px-[405px] py-[96px] relative size-full" data-node-id="3751:4324" data-name="Hero blog">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/verde-suave,#56706f)] tracking-[0.72px] whitespace-nowrap" data-node-id="3751:4325">
+        Recursos gratuitos
+      </p>
+      <p className="[word-break:break-word] font-['Barlow_Condensed:SemiBold'] leading-none not-italic relative shrink-0 text-[52px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3751:4326">
+        Blog
+      </p>
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[24px] text-[color:var(--color\/verde,#234549)] text-center whitespace-nowrap" data-node-id="3751:4327">
+        Consejos de Bárbara para que tu bebé duerma mejor, en cada etapa.
+      </p>
+      <div className="bg-[var(--color\/blanco,white)] border border-[var(--color\/beige,#d7d0b5)] border-solid content-stretch flex gap-[12px] items-center overflow-clip pl-[22px] pr-[8px] py-[8px] relative rounded-[100px] shadow-[0px_6px_20px_0px_rgba(36,69,74,0.08)] shrink-0 w-[620px]" data-node-id="3807:5286" data-name="Buscador">
+        <div className="relative shrink-0 size-[20px]" data-node-id="3807:5287" data-name="Frame">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+        </div>
+        <p className="[word-break:break-word] flex-[1_0_0] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-px not-italic relative text-[18px] text-[color:var(--color\/texto-suave,#6b6b6b)]" data-node-id="3807:5290">
+          Busca un tema: siestas, regresión, horarios…
+        </p>
+        <div className="bg-[var(--color\/frambuesa,#a8566a)] content-stretch flex items-start overflow-clip px-[20px] py-[10px] relative rounded-[100px] shrink-0" data-node-id="3807:5291" data-name="Frame">
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="3807:5292">
+            Buscar
+          </p>
+        </div>
+      </div>
+      <div className="content-stretch flex gap-[10px] items-start overflow-clip pt-[12px] relative shrink-0" data-node-id="3751:4328" data-name="Categorías">
+        <div className="bg-[var(--color\/verde,#234549)] content-stretch flex items-start overflow-clip px-[18px] py-[8px] relative rounded-[100px] shrink-0" data-node-id="3751:4329" data-name="Frame">
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap" data-node-id="3751:4330">
+            Todos
+          </p>
+        </div>
+        <div className="bg-[var(--color\/blanco,white)] content-stretch flex items-start overflow-clip px-[18px] py-[8px] relative rounded-[100px] shrink-0" data-node-id="3751:4331" data-name="Frame">
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3751:4332">
+            Bases del sueño
+          </p>
+        </div>
+        <div className="bg-[var(--color\/blanco,white)] content-stretch flex items-start overflow-clip px-[18px] py-[8px] relative rounded-[100px] shrink-0" data-node-id="3751:4333" data-name="Frame">
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3751:4334">
+            Bebés 0 – 4 meses
+          </p>
+        </div>
+        <div className="bg-[var(--color\/blanco,white)] content-stretch flex items-start overflow-clip px-[18px] py-[8px] relative rounded-[100px] shrink-0" data-node-id="3751:4335" data-name="Frame">
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3751:4336">
+            Bebés 4 – 24 meses
+          </p>
+        </div>
+        <div className="bg-[var(--color\/blanco,white)] content-stretch flex items-start overflow-clip px-[18px] py-[8px] relative rounded-[100px] shrink-0" data-node-id="3751:4337" data-name="Frame">
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3751:4338">
+            Bebés 24 meses – 4 años
+          </p>
+        </div>
+        <div className="bg-[var(--color\/blanco,white)] content-stretch flex items-start overflow-clip px-[18px] py-[8px] relative rounded-[100px] shrink-0" data-node-id="3751:4339" data-name="Frame">
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3751:4340">
+            Siestas
+          </p>
+        </div>
+        <div className="bg-[var(--color\/blanco,white)] content-stretch flex items-start overflow-clip px-[18px] py-[8px] relative rounded-[100px] shrink-0" data-node-id="3751:4341" data-name="Frame">
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3751:4342">
+            Especiales
+          </p>
+        </div>
+      </div>
+      <div className="absolute inset-[17.59%_83.33%_69.4%_13.54%]" data-node-id="3751:4343" data-name="Decoración">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDecoracion} />
+      </div>
+      <div className="absolute inset-[22.61%_15.83%_69.79%_82.29%]" data-node-id="3751:4344" data-name="Decoración">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDecoracion1} />
+      </div>
+      <div className="absolute left-[1620px] overflow-clip size-[40px] top-[330px]" data-node-id="3751:4345" data-name="Decoración">
+        <div className="absolute inset-[22.4%_23.47%_24.53%_23.46%]" data-node-id="3751:4346" data-name="Group">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup} />
+        </div>
+      </div>
+    </div>
+  );
+}

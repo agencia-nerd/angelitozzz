@@ -1,0 +1,274 @@
+const imgRectangle = "assets/testimonio-foto-giannina.jpg";
+const imgRectangle1 = "assets/testimonio-foto-andrea.jpg";
+const imgRectangle2 = "assets/testimonio-foto-javiera.jpg";
+const imgRectangle3 = "assets/testimonio-foto-bernardita.jpg";
+const imgRectangle4 = "assets/testimonio-foto-joanna.jpg";
+const imgFrame = "assets/testimonio-estrella.svg";
+
+type EtiquetaProps = {
+  className?: string;
+  estilo?: "Tarjeta";
+  icono?: "Ninguno";
+  texto?: string;
+};
+
+function Etiqueta({ className, estilo = "Tarjeta", icono = "Ninguno", texto = "Etiqueta" }: EtiquetaProps) {
+  return (
+    <div className={className || "bg-[var(--color\\/teal,#9cb0b0)] content-stretch flex items-center px-[14px] py-[6px] relative rounded-[100px]"} data-node-id="3719:4260">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="3719:4261">
+        {texto}
+      </p>
+    </div>
+  );
+}
+
+export default function Testimonios() {
+  return (
+    <div className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex flex-col gap-[24px] items-center px-[405px] py-[104px] relative size-full" data-node-id="3749:4214" data-name="Testimonios">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/verde-suave,#56706f)] tracking-[0.72px] whitespace-nowrap" data-node-id="3749:4215">
+        Historias reales
+      </p>
+      <p className="[word-break:break-word] font-['Barlow_Condensed:SemiBold'] leading-[1.1] not-italic relative shrink-0 text-[50px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3749:4216">
+        Testimonios
+      </p>
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="3749:4217">
+        Mamás que volvieron a dormir y a disfrutar su maternidad.
+      </p>
+      <div className="content-stretch flex gap-[12px] items-start overflow-clip relative shrink-0" data-node-id="3749:4218" data-name="Filtros">
+        <div className="bg-[var(--color\/verde,#234549)] content-stretch flex items-start overflow-clip px-[18px] py-[8px] relative rounded-[100px] shrink-0" data-node-id="3749:4219" data-name="Frame">
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap" data-node-id="3749:4220">
+            Todos
+          </p>
+        </div>
+        <div className="bg-[var(--color\/blanco,white)] border border-[var(--color\/beige,#d7d0b5)] border-solid content-stretch flex items-start overflow-clip px-[18px] py-[8px] relative rounded-[100px] shrink-0" data-node-id="3749:4221" data-name="Frame">
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3749:4222">
+            Soluciones de Sueño
+          </p>
+        </div>
+        <div className="bg-[var(--color\/blanco,white)] border border-[var(--color\/beige,#d7d0b5)] border-solid content-stretch flex items-start overflow-clip px-[18px] py-[8px] relative rounded-[100px] shrink-0" data-node-id="3749:4223" data-name="Frame">
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3749:4224">
+            Mundo Angelitozzz
+          </p>
+        </div>
+      </div>
+      <div className="h-[16px] relative shrink-0 w-[10px]" data-node-id="3749:4225" data-name="Frame" />
+      <div className="content-stretch flex flex-col gap-[24px] items-start overflow-clip relative shrink-0 w-full" data-node-id="3749:4226" data-name="Lista">
+        <div className="bg-[var(--color\/blanco,white)] content-stretch flex gap-[32px] items-start overflow-clip p-[32px] relative rounded-[24px] shrink-0 w-full" data-node-id="3749:4227" data-name="Testimonio · Giannina">
+          <div className="relative rounded-[20px] shrink-0 size-[160px]" data-node-id="3749:4228" data-name="Rectangle">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[20px] size-full" src={imgRectangle} />
+          </div>
+          <div className="content-stretch flex flex-[1_0_0] flex-col gap-[10px] items-start min-w-px overflow-clip relative" data-node-id="3749:4229" data-name="Frame">
+            <div className="content-stretch flex gap-[12px] items-center overflow-clip relative shrink-0" data-node-id="3749:4230" data-name="Frame">
+              <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.25] not-italic relative shrink-0 text-[26px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3749:4231">
+                Giannina
+              </p>
+              <div className="content-stretch flex gap-[2px] items-start overflow-clip relative shrink-0" data-node-id="3749:4232" data-name="Frame">
+                <div className="relative shrink-0 size-[18px]" data-node-id="3749:4233" data-name="Frame">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                </div>
+                <div className="relative shrink-0 size-[18px]" data-node-id="3749:4235" data-name="Frame">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                </div>
+                <div className="relative shrink-0 size-[18px]" data-node-id="3749:4237" data-name="Frame">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                </div>
+                <div className="relative shrink-0 size-[18px]" data-node-id="3749:4239" data-name="Frame">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                </div>
+                <div className="relative shrink-0 size-[18px]" data-node-id="3749:4241" data-name="Frame">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                </div>
+              </div>
+            </div>
+            <div className="content-stretch flex gap-[8px] items-start overflow-clip relative shrink-0" data-node-id="3749:4243" data-name="Frame">
+              <Etiqueta className="bg-[var(--color\/teal,#9cb0b0)] content-stretch flex items-center px-[14px] py-[6px] relative rounded-[100px] shrink-0" texto="Mundo Angelitozzz" />
+              <div className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex items-start overflow-clip px-[14px] py-[6px] relative rounded-[100px] shrink-0" data-node-id="3749:4246" data-name="Frame">
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3749:4247">
+                  Bebé de 2.8 años
+                </p>
+              </div>
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="3749:4248">{`Balli y la comunidad de Mundo Angelitozzz me han enseñado muchísimo! Tanto los talleres, como la interacción en el chat, son herramientas super valiosas para mí. Maternar entre varias que pasan por lo mismo no tiene precio. Empecé con mi hija mayor hace 5 años y sigo aplicando lo que aprendí con mis otros dos hijos <3.`}</p>
+          </div>
+        </div>
+        <div className="bg-[var(--color\/blanco,white)] content-stretch flex gap-[32px] items-start overflow-clip p-[32px] relative rounded-[24px] shrink-0 w-full" data-node-id="3749:4249" data-name="Testimonio · Andrea">
+          <div className="relative rounded-[20px] shrink-0 size-[160px]" data-node-id="3749:4250" data-name="Rectangle">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[20px] size-full" src={imgRectangle1} />
+          </div>
+          <div className="content-stretch flex flex-[1_0_0] flex-col gap-[10px] items-start min-w-px overflow-clip relative" data-node-id="3749:4251" data-name="Frame">
+            <div className="content-stretch flex gap-[12px] items-center overflow-clip relative shrink-0" data-node-id="3749:4252" data-name="Frame">
+              <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.25] not-italic relative shrink-0 text-[26px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3749:4253">
+                Andrea
+              </p>
+              <div className="content-stretch flex gap-[2px] items-start overflow-clip relative shrink-0" data-node-id="3749:4254" data-name="Frame">
+                <div className="relative shrink-0 size-[18px]" data-node-id="3749:4255" data-name="Frame">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                </div>
+                <div className="relative shrink-0 size-[18px]" data-node-id="3749:4257" data-name="Frame">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                </div>
+                <div className="relative shrink-0 size-[18px]" data-node-id="3749:4259" data-name="Frame">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                </div>
+                <div className="relative shrink-0 size-[18px]" data-node-id="3749:4261" data-name="Frame">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                </div>
+                <div className="relative shrink-0 size-[18px]" data-node-id="3749:4263" data-name="Frame">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                </div>
+              </div>
+            </div>
+            <div className="content-stretch flex gap-[8px] items-start overflow-clip relative shrink-0" data-node-id="3749:4265" data-name="Frame">
+              <Etiqueta className="bg-[var(--color\/teal,#9cb0b0)] content-stretch flex items-center px-[14px] py-[6px] relative rounded-[100px] shrink-0" texto="Soluciones de Sueño" />
+              <div className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex items-start overflow-clip px-[14px] py-[6px] relative rounded-[100px] shrink-0" data-node-id="3749:4268" data-name="Frame">
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3749:4269">
+                  Bebé de 5 meses
+                </p>
+              </div>
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="3749:4270">
+              Hola Balli!! Quería agradecerte por estas semanas de acompañamiento: pasamos de mini siestas de 30 min a siestas de hora y media, y de levantarme 5 veces en la noche a que duerma de corrido!! Me has dado mucha tranquilidad y por fin puedo entender a mi gordito.
+            </p>
+          </div>
+        </div>
+        <div className="bg-[var(--color\/blanco,white)] content-stretch flex gap-[32px] items-start overflow-clip p-[32px] relative rounded-[24px] shrink-0 w-full" data-node-id="3749:4271" data-name="Testimonio · Javiera">
+          <div className="relative rounded-[20px] shrink-0 size-[160px]" data-node-id="3749:4272" data-name="Rectangle">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[20px] size-full" src={imgRectangle2} />
+          </div>
+          <div className="content-stretch flex flex-[1_0_0] flex-col gap-[10px] items-start min-w-px overflow-clip relative" data-node-id="3749:4273" data-name="Frame">
+            <div className="content-stretch flex gap-[12px] items-center overflow-clip relative shrink-0" data-node-id="3749:4274" data-name="Frame">
+              <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.25] not-italic relative shrink-0 text-[26px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3749:4275">
+                Javiera
+              </p>
+              <div className="content-stretch flex gap-[2px] items-start overflow-clip relative shrink-0" data-node-id="3749:4276" data-name="Frame">
+                <div className="relative shrink-0 size-[18px]" data-node-id="3749:4277" data-name="Frame">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                </div>
+                <div className="relative shrink-0 size-[18px]" data-node-id="3749:4279" data-name="Frame">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                </div>
+                <div className="relative shrink-0 size-[18px]" data-node-id="3749:4281" data-name="Frame">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                </div>
+                <div className="relative shrink-0 size-[18px]" data-node-id="3749:4283" data-name="Frame">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                </div>
+                <div className="relative shrink-0 size-[18px]" data-node-id="3749:4285" data-name="Frame">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                </div>
+              </div>
+            </div>
+            <div className="content-stretch flex gap-[8px] items-start overflow-clip relative shrink-0" data-node-id="3749:4287" data-name="Frame">
+              <Etiqueta className="bg-[var(--color\/teal,#9cb0b0)] content-stretch flex items-center px-[14px] py-[6px] relative rounded-[100px] shrink-0" texto="Soluciones de Sueño" />
+              <div className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex items-start overflow-clip px-[14px] py-[6px] relative rounded-[100px] shrink-0" data-node-id="3749:4290" data-name="Frame">
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3749:4291">
+                  Bebé de 2 años
+                </p>
+              </div>
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="3749:4292">
+              Balli, quiero darte las gracias por toda tu ayuda en el entrenamiento del sueño de mis hijos, primero con Borja y ahora con León de 6 meses. Con tu enfoque compasivo diseñaste un plan personalizado que nos ayudó a establecer rutinas adecuadas. ¡Estamos eternamente agradecidos!
+            </p>
+          </div>
+        </div>
+        <div className="bg-[var(--color\/blanco,white)] content-stretch flex gap-[32px] items-start overflow-clip p-[32px] relative rounded-[24px] shrink-0 w-full" data-node-id="3749:4293" data-name="Testimonio · Bernardita">
+          <div className="relative rounded-[20px] shrink-0 size-[160px]" data-node-id="3749:4294" data-name="Rectangle">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[20px] size-full" src={imgRectangle3} />
+          </div>
+          <div className="content-stretch flex flex-[1_0_0] flex-col gap-[10px] items-start min-w-px overflow-clip relative" data-node-id="3749:4295" data-name="Frame">
+            <div className="content-stretch flex gap-[12px] items-center overflow-clip relative shrink-0" data-node-id="3749:4296" data-name="Frame">
+              <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.25] not-italic relative shrink-0 text-[26px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3749:4297">
+                Bernardita
+              </p>
+              <div className="content-stretch flex gap-[2px] items-start overflow-clip relative shrink-0" data-node-id="3749:4298" data-name="Frame">
+                <div className="relative shrink-0 size-[18px]" data-node-id="3749:4299" data-name="Frame">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                </div>
+                <div className="relative shrink-0 size-[18px]" data-node-id="3749:4301" data-name="Frame">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                </div>
+                <div className="relative shrink-0 size-[18px]" data-node-id="3749:4303" data-name="Frame">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                </div>
+                <div className="relative shrink-0 size-[18px]" data-node-id="3749:4305" data-name="Frame">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                </div>
+                <div className="relative shrink-0 size-[18px]" data-node-id="3749:4307" data-name="Frame">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                </div>
+              </div>
+            </div>
+            <div className="content-stretch flex gap-[8px] items-start overflow-clip relative shrink-0" data-node-id="3749:4309" data-name="Frame">
+              <Etiqueta className="bg-[var(--color\/teal,#9cb0b0)] content-stretch flex items-center px-[14px] py-[6px] relative rounded-[100px] shrink-0" texto="Mundo Angelitozzz" />
+              <div className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex items-start overflow-clip px-[14px] py-[6px] relative rounded-[100px] shrink-0" data-node-id="3749:4312" data-name="Frame">
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3749:4313">
+                  Bebé de 5 meses
+                </p>
+              </div>
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="3749:4314">
+              Hay un antes y un después luego de tu asesoría. No fue fácil, pero la consistencia y la seguridad que nos dabas permitió que Lara, con 7 meses, aprenda a dormir sola y en su propia habitación. Gracias además al grupo que nos da orientación permanente.
+            </p>
+          </div>
+        </div>
+        <div className="bg-[var(--color\/blanco,white)] content-stretch flex gap-[32px] items-start overflow-clip p-[32px] relative rounded-[24px] shrink-0 w-full" data-node-id="3749:4315" data-name="Testimonio · Joanna">
+          <div className="relative rounded-[20px] shrink-0 size-[160px]" data-node-id="3749:4316" data-name="Rectangle">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[20px] size-full" src={imgRectangle4} />
+          </div>
+          <div className="content-stretch flex flex-[1_0_0] flex-col gap-[10px] items-start min-w-px overflow-clip relative" data-node-id="3749:4317" data-name="Frame">
+            <div className="content-stretch flex gap-[12px] items-center overflow-clip relative shrink-0" data-node-id="3749:4318" data-name="Frame">
+              <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.25] not-italic relative shrink-0 text-[26px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3749:4319">
+                Joanna
+              </p>
+              <div className="content-stretch flex gap-[2px] items-start overflow-clip relative shrink-0" data-node-id="3749:4320" data-name="Frame">
+                <div className="relative shrink-0 size-[18px]" data-node-id="3749:4321" data-name="Frame">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                </div>
+                <div className="relative shrink-0 size-[18px]" data-node-id="3749:4323" data-name="Frame">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                </div>
+                <div className="relative shrink-0 size-[18px]" data-node-id="3749:4325" data-name="Frame">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                </div>
+                <div className="relative shrink-0 size-[18px]" data-node-id="3749:4327" data-name="Frame">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                </div>
+                <div className="relative shrink-0 size-[18px]" data-node-id="3749:4329" data-name="Frame">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                </div>
+              </div>
+            </div>
+            <div className="content-stretch flex gap-[8px] items-start overflow-clip relative shrink-0" data-node-id="3749:4331" data-name="Frame">
+              <Etiqueta className="bg-[var(--color\/teal,#9cb0b0)] content-stretch flex items-center px-[14px] py-[6px] relative rounded-[100px] shrink-0" texto="Soluciones de Sueño" />
+              <div className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex items-start overflow-clip px-[14px] py-[6px] relative rounded-[100px] shrink-0" data-node-id="3749:4334" data-name="Frame">
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3749:4335">
+                  Bebé de 9 meses
+                </p>
+              </div>
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="3749:4336">
+              Sufrí una fuerte depresión postparto. Encontré un post de Bárbara con su historia y me identifiqué completamente. Comenzamos el curso: al principio fue desafiante, pero mantuvimos horarios y rutinas firmes, y TODO CAMBIÓ.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="content-stretch flex gap-[8px] items-start overflow-clip relative shrink-0" data-node-id="3749:4337" data-name="Paginación">
+        <div className="bg-[var(--color\/verde,#234549)] content-stretch flex items-center justify-center overflow-clip relative rounded-[100px] shrink-0 size-[40px]" data-node-id="3749:4338" data-name="Frame">
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap" data-node-id="3749:4339">
+            1
+          </p>
+        </div>
+        <div className="bg-[var(--color\/blanco,white)] border border-[var(--color\/beige,#d7d0b5)] border-solid content-stretch flex items-center justify-center overflow-clip relative rounded-[100px] shrink-0 size-[40px]" data-node-id="3749:4340" data-name="Frame">
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3749:4341">
+            2
+          </p>
+        </div>
+        <div className="bg-[var(--color\/blanco,white)] border border-[var(--color\/beige,#d7d0b5)] border-solid content-stretch flex items-center justify-center overflow-clip relative rounded-[100px] shrink-0 size-[40px]" data-node-id="3749:4342" data-name="Frame">
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3749:4343">
+            3
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}

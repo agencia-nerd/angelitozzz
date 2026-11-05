@@ -1,0 +1,115 @@
+const imgFlecha = "assets/contacto-flecha-boton.svg";
+const imgVector28 = "assets/contacto-linea-campo-ancho.svg";
+const imgVector29 = "assets/contacto-linea-campo-email.svg";
+const imgVector32 = "assets/contacto-linea-campo-celular.svg";
+const imgEpArrowUp = "assets/contacto-icono-desplegable.svg";
+
+type BotonProps = {
+  className?: string;
+  flecha?: boolean;
+  texto?: string;
+  tipo?: "Frambuesa";
+};
+
+function Boton({ className, flecha = true, texto = "Texto del botón", tipo = "Frambuesa" }: BotonProps) {
+  return (
+    <div className={className || "bg-[var(--color\\/frambuesa,#a8566a)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px]"} data-node-id="3711:6161">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="3711:6162">
+        {texto}
+      </p>
+      {flecha && (
+        <div className="relative shrink-0 size-[18px]" data-node-id="3711:6163" data-name="Flecha">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function SeccionDeContacto() {
+  return (
+    <div className="content-stretch flex items-center px-[664px] py-[88px] relative size-full" data-node-id="4020:22112" data-name="seccion de contacto">
+      <div className="content-stretch flex flex-col gap-[76px] items-center relative shrink-0 w-[591px]" data-node-id="4020:22178">
+        <div className="[word-break:break-word] content-stretch flex flex-col gap-[46px] items-center not-italic relative shrink-0 text-center w-[392px]" data-node-id="4020:22177">
+          <p className="font-['Barlow_Condensed:SemiBold'] leading-none relative shrink-0 text-[52px] text-[color:var(--color\/verde,#234549)] w-full" data-node-id="4020:22175">
+            Contacto
+          </p>
+          <p className="font-['Barlow_Condensed:Regular'] leading-[1.5] relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-full" data-node-id="4020:22176">
+            ¡Introduce tu información aquí y pronto me pondré en contacto contigo!
+          </p>
+        </div>
+        <div className="content-stretch flex flex-col gap-[34px] items-center relative shrink-0 w-full" data-node-id="4020:22174">
+          <div className="content-stretch flex flex-col gap-[9px] items-start relative shrink-0 w-full" data-node-id="4020:22147">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="4020:22148">
+              Nombres y Apellidos:
+            </p>
+            <div className="h-0 relative shrink-0 w-[588.5px]" data-node-id="4020:22149">
+              <div className="absolute inset-[-0.5px_0]">
+                <img alt="" className="block max-w-none size-full" src={imgVector28} />
+              </div>
+            </div>
+          </div>
+          <div className="content-stretch flex items-center justify-between relative shrink-0 w-full" data-node-id="4020:22150">
+            <div className="content-stretch flex flex-col gap-[9px] items-start relative shrink-0 w-[283px]" data-node-id="4020:22151">
+              <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="4020:22152">
+                Email:
+              </p>
+              <div className="h-0 relative shrink-0 w-[283px]" data-node-id="4020:22153">
+                <div className="absolute inset-[-0.5px_0]">
+                  <img alt="" className="block max-w-none size-full" src={imgVector29} />
+                </div>
+              </div>
+            </div>
+            <div className="content-stretch flex flex-col gap-[9px] items-start relative shrink-0 w-[283px]" data-node-id="4020:22154">
+              <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] font-normal leading-[1.5] min-w-full relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="4020:22155" style={{ fontVariationSettings: '"CTGR" 0, "wdth" 100' }}>
+                Celular (con código de país): +51 ▾
+              </p>
+              <div className="h-0 relative shrink-0 w-[283px]" data-node-id="4020:22156">
+                <div className="absolute inset-[-0.5px_0]">
+                  <img alt="" className="block max-w-none size-full" src={imgVector32} />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="content-stretch flex flex-col gap-[9px] items-start relative shrink-0 w-full" data-node-id="4020:22160">
+            <div className="content-stretch flex items-center justify-between relative shrink-0 w-full" data-node-id="4020:22161">
+              <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[283px]" data-node-id="4020:22162">
+                ¿Sobre qué quieres escribirnos?
+              </p>
+              <div className="flex items-center justify-center relative shrink-0" data-node-id="4020:22163">
+                <div className="flex-none rotate-180">
+                  <div className="relative size-[20px]" data-name="ep:arrow-up">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEpArrowUp} />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="h-0 relative shrink-0 w-[588.5px]" data-node-id="4020:22165">
+              <div className="absolute inset-[-0.5px_0]">
+                <img alt="" className="block max-w-none size-full" src={imgVector28} />
+              </div>
+            </div>
+          </div>
+          <div className="content-stretch flex flex-col gap-[69px] items-start relative shrink-0 w-full" data-node-id="4020:22157">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="4020:22158">
+              Mensaje:
+            </p>
+            <div className="h-0 relative shrink-0 w-[588.5px]" data-node-id="4020:22159">
+              <div className="absolute inset-[-0.5px_0]">
+                <img alt="" className="block max-w-none size-full" src={imgVector28} />
+              </div>
+            </div>
+          </div>
+          <div className="content-stretch flex gap-[15px] items-center relative shrink-0 w-full" data-node-id="4020:22167">
+            <div className="border border-black border-solid relative shrink-0 size-[14px]" data-node-id="4020:22168" />
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[0] not-italic relative shrink-0 text-[0px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4020:22169">
+              <span className="leading-[1.5] text-[16px] text-black">{`He leído y acepto las `}</span>
+              <span className="leading-[1.5] text-[16px] text-black">políticas de privacidad</span>
+            </p>
+          </div>
+          <Boton className="bg-[var(--color\/frambuesa,#a8566a)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" texto="Enviar mensaje" />
+        </div>
+      </div>
+    </div>
+  );
+}

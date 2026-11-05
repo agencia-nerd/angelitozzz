@@ -1,0 +1,120 @@
+const imgFlecha = "assets/boton-flecha-crema.svg";
+const imgImagen = "assets/que-incluye-sesiones-en-vivo.jpg";
+const imgImagen1 = "assets/que-incluye-talleres.jpg";
+const imgImagen2 = "assets/que-incluye-comunidad.jpg";
+const imgDecoracion = "assets/que-incluye-nube.svg";
+const imgDecoracion1 = "assets/que-incluye-destello-derecha.svg";
+const imgDecoracion2 = "assets/que-incluye-destello-izquierda.svg";
+
+type BotonProps = {
+  className?: string;
+  flecha?: boolean;
+  texto?: string;
+  tipo?: "Verde";
+};
+
+function Boton({ className, flecha = true, texto = "Texto del botón", tipo = "Verde" }: BotonProps) {
+  return (
+    <div className={className || "bg-[var(--color\\/verde,#234549)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px]"} data-node-id="3704:15606">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap" data-node-id="3704:15607">
+        {texto}
+      </p>
+      {flecha && (
+        <div className="relative shrink-0 size-[18px]" data-node-id="3704:15608" data-name="Flecha">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function QueIncluyeMundo() {
+  return (
+    <div className="bg-[var(--color\/teal,#9cb0b0)] content-stretch flex flex-col gap-[20px] items-center px-[405px] py-[104px] relative size-full" data-node-id="4017:20281" data-name="Qué incluye Mundo">
+      <div className="absolute h-[130.576px] left-[87.5%] right-[-3.13%] top-[883.42px]" data-node-id="4017:20282" data-name="Decoración">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDecoracion} />
+      </div>
+      <div className="absolute inset-[13.19%_13.75%_82.16%_83.85%]" data-node-id="4017:20283" data-name="Decoración">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDecoracion1} />
+      </div>
+      <div className="absolute inset-[9.89%_83.85%_83.84%_13.02%]" data-node-id="4017:20284" data-name="Decoración">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDecoracion2} />
+      </div>
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)] tracking-[0.72px] whitespace-nowrap" data-node-id="4017:20285">
+        Qué incluye tu suscripción
+      </p>
+      <p className="[word-break:break-word] font-['Barlow_Condensed:SemiBold'] leading-[1.1] not-italic relative shrink-0 text-[50px] text-[color:var(--color\/verde,#234549)] text-center w-[900px]" data-node-id="4017:20286">
+        Todo lo que necesitas para nunca quedarte sin respuesta.
+      </p>
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/verde,#234549)] text-center w-[760px]" data-node-id="4017:20287">
+        Respuestas en vivo, contenido para cada etapa y una comunidad que te acompaña.
+      </p>
+      <div className="h-[24px] relative shrink-0 w-[10px]" data-node-id="4017:20288" data-name="Frame" />
+      <div className="content-stretch flex gap-[32px] items-start overflow-clip relative shrink-0 w-full" data-node-id="4017:20289" data-name="Beneficios">
+        <div className="bg-[var(--color\/blanco,white)] content-stretch flex flex-[1_0_0] flex-col h-[414px] items-start min-w-px overflow-clip relative rounded-[24px]" data-node-id="4017:20290" data-name="Beneficio">
+          <div className="h-[220px] relative shrink-0 w-full" data-node-id="4017:20291" data-name="Imagen">
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <img alt="" className="absolute h-[237.7%] left-0 max-w-none top-[-8.91%] w-full" src={imgImagen} />
+            </div>
+          </div>
+          <div className="content-stretch flex flex-[1_0_0] flex-col gap-[10px] items-start min-h-px overflow-clip p-[28px] relative w-full" data-node-id="4017:20292" data-name="Frame">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.25] min-w-full not-italic relative shrink-0 text-[26px] text-[color:var(--color\/verde,#234549)] w-[min-content]" data-node-id="4017:20293">
+              Sesiones en vivo con Bárbara
+            </p>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="4017:20294">
+              Cada semana resuelves tus dudas en vivo.
+            </p>
+            <div className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex items-start overflow-clip px-[14px] py-[6px] relative rounded-[100px] shrink-0" data-node-id="4017:20295" data-name="Frame">
+              <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="4017:20296">
+                Miércoles · 10am Perú/Colombia
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="bg-[var(--color\/blanco,white)] content-stretch flex flex-[1_0_0] flex-col h-[414px] items-start min-w-px overflow-clip relative rounded-[24px]" data-node-id="4017:20297" data-name="Beneficio">
+          <div className="h-[220px] relative shrink-0 w-full" data-node-id="4017:20298" data-name="Imagen">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImagen1} />
+          </div>
+          <div className="content-stretch flex flex-[1_0_0] flex-col gap-[10px] items-start min-h-px overflow-clip p-[28px] relative w-full" data-node-id="4017:20299" data-name="Frame">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.25] min-w-full not-italic relative shrink-0 text-[26px] text-[color:var(--color\/verde,#234549)] w-[min-content]" data-node-id="4017:20300">
+              Talleres y recursos grabados
+            </p>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="4017:20301">
+              Regresiones, siestas, horarios, viajes y más.
+            </p>
+            <div className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex items-start overflow-clip px-[14px] py-[6px] relative rounded-[100px] shrink-0" data-node-id="4017:20302" data-name="Frame">
+              <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="4017:20303">
+                Disponibles al instante
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="bg-[var(--color\/blanco,white)] content-stretch flex flex-[1_0_0] flex-col h-[414px] items-start min-w-px overflow-clip relative rounded-[24px]" data-node-id="4017:20304" data-name="Beneficio">
+          <div className="h-[220px] relative shrink-0 w-full" data-node-id="4017:20305" data-name="Imagen">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImagen2} />
+          </div>
+          <div className="content-stretch flex flex-[1_0_0] flex-col gap-[10px] items-start min-h-px overflow-clip p-[28px] relative w-full" data-node-id="4017:20306" data-name="Frame">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.25] min-w-full not-italic relative shrink-0 text-[26px] text-[color:var(--color\/verde,#234549)] w-[min-content]" data-node-id="4017:20307">
+              Comunidad privada de mamás
+            </p>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="4017:20308">
+              Mamás que viven lo mismo que tú, para compartir, apoyarse y acompañarse.
+            </p>
+            <div className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex items-start overflow-clip px-[14px] py-[6px] relative rounded-[100px] shrink-0" data-node-id="4017:20309" data-name="Frame">
+              <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="4017:20310">
+                Chat privado 24/7
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="h-[24px] relative shrink-0 w-[10px]" data-node-id="4017:20311" data-name="Frame" />
+      <Boton className="bg-[var(--color\/verde,#234549)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" texto="Unirme a la comunidad" />
+    </div>
+  );
+}
+
+/* Figma notes (data):
+These styles are contained in the design: 2026/Eyebrow, 2026/H1, 2026/Body L, 2026/H4, 2026/Body, 2026/Label S, 2026/Label.
+Component "Botón" (3704:15621): Botón 2026 · Frambuesa (CTA principal sobre fondos claros) · Verde (sobre teal) · Claro (sobre verde oscuro) · Secundario (contorno).
+*/
