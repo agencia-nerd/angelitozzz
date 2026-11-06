@@ -3,7 +3,7 @@ defined('ABSPATH') || exit;
 
 /*
  * Helpers de imágenes (skill wp-helper).
- * Versión del motor: 1.3.0
+ * Versión del motor: 1.3.1
  *
  * Genérico: no se edita por proyecto. Acepta lo que entregue un campo de imagen de ACF (array, ID,
  * URL), un adjunto (WP_Post) o un valor vacío, y nunca rompe la vista:

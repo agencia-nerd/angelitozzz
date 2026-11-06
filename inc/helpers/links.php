@@ -3,7 +3,7 @@ defined('ABSPATH') || exit;
 
 /*
  * Helpers de enlaces (skill wp-helper).
- * Versión del motor: 1.3.0
+ * Versión del motor: 1.3.1
  *
  * Genérico: no se edita por proyecto. Acepta lo que entregue un campo Link de ACF
  * (['url', 'title', 'target']), una URL en texto o un valor vacío, y nunca imprime un enlace roto:
