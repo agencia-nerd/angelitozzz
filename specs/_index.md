@@ -9,7 +9,7 @@ Antes de las páginas, revisa y aprueba [\_shared.md](_shared.md): tokens, compo
 | Página               | Spec                                               | Plantilla                                 | Estado    |
 | -------------------- | -------------------------------------------------- | ----------------------------------------- | --------- |
 | Inicio               | [home.md](home.md)                                 | `front-page.php`                          | aplicado  |
-| Conoce a Bárbara     | [conoce-a-barbara.md](conoce-a-barbara.md)         | `pages/template-conoce-a-barbara.php`     | pendiente |
+| Conoce a Bárbara     | [conoce-a-barbara.md](conoce-a-barbara.md)         | `pages/template-conoce-a-barbara.php`     | aplicado  |
 | Contacto             | [contacto.md](contacto.md)                         | `pages/template-contacto.php`             | pendiente |
 | Mundo Angelitozzz    | [mundo-angelitozzz.md](mundo-angelitozzz.md)       | `pages/template-mundo-angelitozzz.php`    | pendiente |
 | Preguntas frecuentes | [preguntas-frecuentes.md](preguntas-frecuentes.md) | `pages/template-preguntas-frecuentes.php` | pendiente |
