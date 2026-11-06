@@ -7,6 +7,8 @@
 
 defined('ABSPATH') || exit;
 
+$cintillo = get_field('opciones_cintillo_promociones', 'option') ?: [];
+
 // Enlaces del diseño, solo mientras las ubicaciones no tengan un menú asignado (Apariencia > Menús).
 $menu_principal = [
     ['texto' => 'Soluciones de Sueño', 'url' => '/soluciones-de-sueno/'],
@@ -46,7 +48,7 @@ $cuenta_html = '<a' . ($attrs_cuenta !== '' ? $attrs_cuenta : ' class="' . esc_a
     <a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-blanco focus:px-5 focus:py-3 focus:text-label focus:text-marca" href="#main-content"><?= esc_html__('Saltar al contenido', 'angelitozzz') ?></a>
 
     <?php get_template_part('template-parts/components/cintillo-promociones', null, [
-        'texto' => '¿Tu bebé no duerme bien? Nuestro coach de sueño virtual te ayuda a resolver tus dudas, gratis 💛',
+        'texto' => (string) ($cintillo['texto'] ?? ''),
         'modal' => 'modal-coach',
     ]); ?>
 

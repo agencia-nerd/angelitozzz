@@ -18,7 +18,7 @@
     - Las tres notas anteriores son de las páginas (fondo de nubes, testimonios, cta-final): se aplican en sus specs, no en esta.
     - Se leen con `get_field('opciones_…', 'option')`; ninguna página repite el header ni el footer.
     - El logo principal viene de Personalizar > Identidad del sitio; los menús son las ubicaciones de "Menús" en `_shared.md`.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 ## Sección: cintillo-promociones
 
@@ -30,12 +30,13 @@
 - **Indicaciones del diseño:**
     - Cuando se pase a ACF, en el apartado de configuracion del sitio vaya un campo para ese sintillo.
 - **Estado:** aplicado
+- **ACF:** conectado
 
 **Campos ACF**
 
 | Campo                                 | Tipo | Descripción                                                                                                                              | Valor actual                                                                                     | Requerido |
 | ------------------------------------- | ---- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | --------- |
-| `opciones_cintillo_promociones_texto` | text | Texto del cintillo que aparece arriba de todas las páginas. Al hacer clic abre el modal del coach de sueño. Recomendado: ~140 caracteres | ¿Tu bebé no duerme bien? Nuestro coach de sueño virtual te ayuda a resolver tus dudas, gratis 💛 | no        |
+| `opciones_cintillo_promociones_texto` | text | Texto del cintillo que aparece arriba de todas las páginas. Al hacer clic abre el modal del coach de sueño. | ¿Tu bebé no duerme bien? Nuestro coach de sueño virtual te ayuda a resolver tus dudas, gratis 💛 | no        |
 
 **Criterios de aceptación**
 
@@ -49,23 +50,22 @@
 - **Destino:** `template-parts/modals/modal-coach.php`, `template-parts/forms/coach.php`
 - **Grupo:** `opciones_modal_coach`
 - **Skill:** wp-modal, wp-form
-- **Comportamiento:** wp-modal: `<dialog>` de 600 px de ancho, tarjeta blanca de radio 24 con sombra `0 20px 60px rgba(0,0,0,0.2)` y fondo `#141f21` al 50 % (valores sueltos); botón de cerrar circular de 40 px arriba a la derecha con texto accesible "Cerrar"; se abre desde el cintillo; cierra con Esc y con clic en el fondo; en móvil ocupa el ancho con 16 px de margen y hace scroll interno. wp-form, formulario "coach": campos `nombre` (texto, requerido), `whatsapp` (teléfono, requerido) con un selector de país que se puede cambiar: es el campo `whatsapp_pais` (select requerido, bandera y código, por defecto 🇵🇪 +51), que se guarda y se envía junto al número, `edad_bebe` (select, requerido: 0 a 4 meses, 4 a 12 meses, 12 a 24 meses, 2 a 4 años), `email` (email, opcional) y la casilla de aceptación (requerida) con el enlace a la página de Políticas de privacidad. Envía un correo (hoy a Mailpit, luego por Fluent SMTP) **y guarda cada inscripción en el admin** para leer los nombres de los inscritos. Al enviar con éxito, el mismo modal pasa a la pantalla `modal-coach-gracias` con el nombre escrito. El enlace "Ver Políticas de privacidad" usa `#a8566a` en el diseño, que es el token `--color-acento`; sale de `get_privacy_policy_url()` y, mientras no haya página fijada en Ajustes → Privacidad, el texto va sin enlace. Como pide wp-form, arriba del formulario va "Los campos con _ son obligatorios." y cada campo obligatorio lleva `_`. Correo a info@angelitozzz.com; sin JavaScript, el `<noscript>`ofrece ese mismo correo. Texto de éxito (solo para lectores de pantalla, antes de la pantalla de gracias): "¡Listo! Ya puedes escribirle a tu coach de sueño virtual." (en`inc/forms/coach.php`). Animación `scale`; los valores del modal quedan como base del proyecto (`--modal-\*`en`src/css/input.css`).
+- **Comportamiento:** wp-modal: `<dialog>` de 600 px de ancho, tarjeta blanca de radio 24 con sombra `0 20px 60px rgba(0,0,0,0.2)` y fondo `#141f21` al 50 % (valores sueltos); botón de cerrar circular de 40 px arriba a la derecha con texto accesible "Cerrar"; se abre desde el cintillo; cierra con Esc y con clic en el fondo; en móvil ocupa el ancho con 16 px de margen y hace scroll interno. wp-form, formulario "coach": campos `nombre` (texto, requerido), `whatsapp` (teléfono, requerido) con un selector de país que se puede cambiar: es el campo `whatsapp_pais` (select requerido, bandera y código, por defecto 🇵🇪 +51), que se guarda y se envía junto al número, `edad_bebe` (select, requerido: 0 a 4 meses, 4 a 12 meses, 12 a 24 meses, 2 a 4 años), `email` (email, opcional) y la casilla de aceptación (requerida) con el enlace a la página de Políticas de privacidad. Envía un correo (hoy a Mailpit, luego por Fluent SMTP) **y guarda cada inscripción en el admin** para leer los nombres de los inscritos. Al enviar con éxito, el mismo modal pasa a la pantalla `modal-coach-gracias` con el nombre escrito. El enlace "Ver Políticas de privacidad" usa `#a8566a` en el diseño, que es el token `--color-acento`; sale de `get_privacy_policy_url()` y, mientras no haya página fijada en Ajustes → Privacidad, el texto va sin enlace. Como pide wp-form, arriba del formulario va "Los campos con _ son obligatorios." y cada campo obligatorio lleva `_`. Correo a info@angelitozzz.com; sin JavaScript, el `<noscript>`ofrece ese mismo correo. Texto de éxito (solo para lectores de pantalla, antes de la pantalla de gracias): "¡Listo! Ya puedes escribirle a tu coach de sueño virtual." (en`inc/forms/coach.php`). Animación `scale`; los valores del modal quedan como base del proyecto (`--modal-\*`en`src/css/input.css`). Textos fijos en la plantilla (no son campos): la ayuda del email "Así también te avisamos sobre contenido y novedades" y el texto de aceptación "Acepto que Angelitozzz use mis datos para contactarme y enviarme información relacionada ·".
 - **Indicaciones del diseño:**
     - lo abre el cintillo-promociones al hacer clic (pop-up del coach de sueño virtual).
     - El nombre es de acuerdo a lo que ponga el usuario. y por lo que se, eso se necesitaria llega al correo, pero como se va a necesitar el nombre del los inscritos crea un apartado de el admin para leer los nombres y se te facilite.
     - Ademas, para el texto de ese apartado del modal, el campo este en confuracion del sitio, es para que sea administralo el texto.
 - **Estado:** aplicado
+- **ACF:** conectado
 
 **Campos ACF**
 
 | Campo                                 | Tipo     | Descripción                                                                                                 | Valor actual                                                                                                                                     | Requerido |
 | ------------------------------------- | -------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
-| `opciones_modal_coach_titulo`         | textarea | Título del modal del coach de sueño. Recomendado: ~200 caracteres                                           | ¡Hola! 💛 Vamos a conectarte con el coach de sueño virtual de Angelitozzz, para que te ayude a resolver cualquier duda sobre el sueño de tu bebé | sí        |
-| `opciones_modal_coach_texto`          | textarea | Texto bajo el título, antes del formulario. Recomendado: ~90 caracteres                                     | Déjame estos datos y en un momento podrás escribirle, gratis.                                                                                    | no        |
-| `opciones_modal_coach_ayuda_whatsapp` | text     | Texto de ayuda bajo el campo de WhatsApp. Recomendado: ~120 caracteres                                      | Lo necesitamos porque tu coach de sueño virtual te va a escribir y ayudarte por aquí 💛                                                          | no        |
-| `opciones_modal_coach_ayuda_email`    | text     | Texto de ayuda bajo el campo de email. Recomendado: ~80 caracteres                                          | Así también te avisamos sobre contenido y novedades                                                                                              | no        |
-| `opciones_modal_coach_aceptacion`     | text     | Texto de la casilla de aceptación, antes del enlace a Políticas de privacidad. Recomendado: ~130 caracteres | Acepto que Angelitozzz use mis datos para contactarme y enviarme información relacionada ·                                                       | sí        |
-| `opciones_modal_coach_boton`          | text     | Texto del botón que envía el formulario. Recomendado: ~60 caracteres                                        | Quiero que me ayuden con el sueño de mi bebé                                                                                                     | sí        |
+| `opciones_modal_coach_titulo`         | textarea | Título del modal del coach de sueño.                                           | ¡Hola! 💛 Vamos a conectarte con el coach de sueño virtual de Angelitozzz, para que te ayude a resolver cualquier duda sobre el sueño de tu bebé | sí        |
+| `opciones_modal_coach_texto`          | textarea | Texto bajo el título, antes del formulario.                                     | Déjame estos datos y en un momento podrás escribirle, gratis.                                                                                    | no        |
+| `opciones_modal_coach_ayuda_whatsapp` | text     | Texto de ayuda bajo el campo de WhatsApp.                                      | Lo necesitamos porque tu coach de sueño virtual te va a escribir y ayudarte por aquí 💛                                                          | no        |
+| `opciones_modal_coach_boton`          | text     | Texto del botón que envía el formulario.                                        | Quiero que me ayuden con el sueño de mi bebé                                                                                                     | sí        |
 
 **Criterios de aceptación**
 
@@ -80,26 +80,25 @@
 - **Destino:** `template-parts/modals/modal-coach.php`
 - **Grupo:** `opciones_modal_coach_gracias`
 - **Skill:** wp-modal
-- **Comportamiento:** estado de éxito del mismo modal (wp-modal): reemplaza el formulario dentro del mismo `<dialog>` (560 px de ancho, mismo fondo y botón de cerrar). `{nombre}` se reemplaza por el nombre que escribió la persona. "Hablar ahora" abre `https://wa.me/<número>?text=<mensaje>` en una pestaña nueva, con el número de `opciones_contacto_whatsapp_coach` y el mensaje de `opciones_modal_coach_gracias_mensaje` con `{nombre}` reemplazado. El ícono de check (72 px) es un SVG decorativo. Mientras `opciones_contacto_whatsapp_coach` esté vacío, "Hablar ahora" se ve desactivado (sin enlace). JS en `src/js/modules/modal-coach.js`.
+- **Comportamiento:** estado de éxito del mismo modal (wp-modal): reemplaza el formulario dentro del mismo `<dialog>` (560 px de ancho, mismo fondo y botón de cerrar). `{nombre}` se reemplaza por el nombre que escribió la persona. "Hablar ahora" abre `https://wa.me/<número>?text=<mensaje>` en una pestaña nueva, con el número de `opciones_contacto_whatsapp_coach` y el mensaje de `opciones_modal_coach_gracias_mensaje` con `{nombre}` reemplazado. El ícono de check (72 px) es un SVG decorativo. Mientras `opciones_contacto_whatsapp_coach` esté vacío, "Hablar ahora" se ve desactivado (sin enlace). JS en `src/js/modules/modal-coach.js`. Textos fijos en la plantilla (no son campos): el botón "Hablar ahora" y la nota "Se abre WhatsApp con el mensaje:".
 - **Indicaciones del diseño:**
     - la gracias del modal.
-- **Estado:** aprobado
+- **Estado:** aplicado
+- **ACF:** conectado
 
 **Campos ACF**
 
 | Campo                                  | Tipo     | Descripción                                                                                                               | Valor actual                                                                                                 | Requerido |
 | -------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | --------- |
-| `opciones_modal_coach_gracias_titulo`  | text     | Título de la pantalla de gracias. `{nombre}` se reemplaza por el nombre de la persona. Recomendado: ~40 caracteres        | ¡Listo, {nombre}! 💛                                                                                         | sí        |
-| `opciones_modal_coach_gracias_texto`   | textarea | Texto de la pantalla de gracias. Recomendado: ~160 caracteres                                                             | Ya puedes escribirle a tu coach de sueño virtual y empezar a resolver las dudas de sueño de tu bebé, gratis. | no        |
-| `opciones_modal_coach_gracias_boton`   | text     | Texto del botón que abre WhatsApp. Recomendado: ~20 caracteres                                                            | Hablar ahora                                                                                                 | sí        |
-| `opciones_modal_coach_gracias_mensaje` | text     | Mensaje que se escribe solo en WhatsApp. `{nombre}` se reemplaza por el nombre de la persona. Recomendado: ~80 caracteres | Hola, soy {nombre} 💛 Quiero ayuda con el sueño de mi bebé.                                                  | sí        |
-| `opciones_modal_coach_gracias_nota`    | text     | Nota bajo el botón que explica qué pasa al hacer clic. Recomendado: ~40 caracteres                                        | Se abre WhatsApp con el mensaje:                                                                             | no        |
+| `opciones_modal_coach_gracias_titulo`  | text     | Título de la pantalla de gracias. `{nombre}` se reemplaza por el nombre de la persona.        | ¡Listo, {nombre}! 💛                                                                                         | sí        |
+| `opciones_modal_coach_gracias_texto`   | textarea | Texto de la pantalla de gracias.                                                             | Ya puedes escribirle a tu coach de sueño virtual y empezar a resolver las dudas de sueño de tu bebé, gratis. | no        |
+| `opciones_modal_coach_gracias_mensaje` | text     | Mensaje que se escribe solo en WhatsApp. `{nombre}` se reemplaza por el nombre de la persona. | Hola, soy {nombre} 💛 Quiero ayuda con el sueño de mi bebé.                                                  | sí        |
 
 **Criterios de aceptación**
 
 - [x] Cumple los criterios comunes de `_shared.md`
 - [x] El título y el mensaje de WhatsApp muestran el nombre escrito en el formulario
-- [ ] "Hablar ahora" abre WhatsApp con el número del coach y el mensaje
+- [x] "Hablar ahora" abre WhatsApp con el número del coach y el mensaje
 
 ## Sección: header
 
@@ -127,7 +126,7 @@
 - **Destino:** `template-parts/components/cta-final.php`, `template-parts/pages/contacto/seccion-de-cta.php`, `template-parts/pages/mundo-angelitozzz/hero.php`
 - **Grupo:** `opciones_contacto`
 - **Skill:** wp-helper
-- **Comportamiento:** no se muestra por sí sola: las secciones que piden WhatsApp o correo leen estos campos. El WhatsApp se guarda solo con dígitos y código de país, y los botones arman `https://wa.me/<número>?text=<mensaje>` con el helper de enlaces. El correo se imprime como `mailto:`. Se aplica junto con las páginas que la usan (Contacto, Mundo Angelitozzz y los CTA finales con WhatsApp); hoy ningún archivo del tema la lee.
+- **Comportamiento:** no se muestra por sí sola: las secciones que piden WhatsApp leen estos campos. El WhatsApp se guarda solo con dígitos y código de país, y los botones arman `https://wa.me/<número>?text=<mensaje>` con el helper de enlaces. Se aplica junto con las páginas que la usan (Contacto, Mundo Angelitozzz y los CTA finales con WhatsApp); hoy ningún archivo del tema la lee.
 - **Estado:** pendiente
 
 **Campos ACF**
@@ -135,14 +134,13 @@
 | Campo                                | Tipo  | Descripción                                                                                                                      | Valor actual         | Requerido |
 | ------------------------------------ | ----- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------- | --------- |
 | `opciones_contacto_whatsapp`         | text  | Número de WhatsApp de Angelitozzz, con código de país y sin espacios (51999999999). Lo usan los botones "Escríbeme por WhatsApp" | —                    | sí        |
-| `opciones_contacto_whatsapp_mensaje` | text  | Mensaje que se escribe solo al abrir WhatsApp desde los botones del sitio. Recomendado: ~80 caracteres                           | —                    | no        |
+| `opciones_contacto_whatsapp_mensaje` | text  | Mensaje que se escribe solo al abrir WhatsApp desde los botones del sitio.                           | —                    | no        |
 | `opciones_contacto_whatsapp_coach`   | text  | Número de WhatsApp del coach de sueño virtual, con código de país y sin espacios. Lo usa el botón "Hablar ahora" del modal       | —                    | sí        |
-| `opciones_contacto_email`            | email | Correo de contacto que se muestra en la página Contacto y abre el correo al hacer clic                                           | info@angelitozzz.com | sí        |
 
 **Criterios de aceptación**
 
 - [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Ningún número de WhatsApp ni correo queda escrito en una plantilla de página
+- [ ] Ningún número de WhatsApp queda escrito en una plantilla de página
 
 ## Sección: redes
 
@@ -150,22 +148,22 @@
 - **Destino:** `footer.php`
 - **Grupo:** `opciones_redes`
 - **Skill:** wp-helper
-- **Comportamiento:** íconos circulares de 3 redes (Instagram, TikTok, Facebook) con borde `--color-contorno`. Cada enlace abre en una pestaña nueva con el helper de enlaces y lleva el nombre de la red como texto accesible. El ícono sale de la red elegida (SVG del tema), no se sube. Una red sin enlace no se muestra; hasta el paso ACF, por decisión del usuario, las 3 redes del diseño se ven sin enlace (aún no hay URLs).
-- **Estado:** aprobado
+- **Comportamiento:** íconos circulares de 3 redes (Instagram, TikTok, Facebook) con borde `--color-contorno`. Cada enlace abre en una pestaña nueva con el helper de enlaces y lleva el nombre de la red como texto accesible. El ícono sale de la red elegida (SVG del tema), no se sube. Una red sin enlace no se muestra, y si ninguna tiene enlace tampoco se muestra la fila (ni el título "Síguenos"). Las 3 redes del diseño quedan cargadas en el admin sin URL: aparecen cuando el cliente escribe su enlace. El título "Síguenos" es fijo en la plantilla (no es campo).
+- **Estado:** aplicado
+- **ACF:** conectado
 
 **Campos ACF**
 
 | Campo                         | Tipo     | Descripción                                                                  | Valor actual | Requerido |
 | ----------------------------- | -------- | ---------------------------------------------------------------------------- | ------------ | --------- |
-| `opciones_redes_titulo`       | text     | Título junto a los íconos de redes en el footer. Recomendado: ~15 caracteres | Síguenos     | no        |
 | `opciones_redes_items`        | repeater | Redes sociales del footer, en el orden en que se muestran. El diseño tiene 3 | —            | no        |
-| `opciones_redes_items.red`    | select   | Red social: Instagram, TikTok, Facebook, YouTube. Define el ícono            | Instagram    | sí        |
+| `opciones_redes_items.red`    | select   | Red social; define el ícono. Opciones: Instagram, TikTok, Facebook, YouTube            | Instagram    | sí        |
 | `opciones_redes_items.enlace` | url      | Dirección del perfil en esa red                                              | —            | sí        |
 
 **Criterios de aceptación**
 
 - [x] Cumple los criterios comunes de `_shared.md`
-- [ ] Cada ícono tiene nombre accesible y avisa que abre en pestaña nueva
+- [x] Cada ícono tiene nombre accesible y avisa que abre en pestaña nueva
 
 ## Sección: footer
 
@@ -173,22 +171,21 @@
 - **Destino:** `footer.php`, `template-parts/forms/newsletter.php`
 - **Grupo:** `opciones_footer`
 - **Skill:** wp-form
-- **Comportamiento:** bloque del newsletter (título, texto y formulario de un campo email con botón verde "Suscribirme"), 4 columnas de enlaces (ubicaciones `pie-navegacion` en dos columnas, `pie-legal` y `pie-ayuda`), la fila de redes (sección `redes`), el copyright y el crédito fijo "Made with ♥ NERD" con el logo SVG de NERD enlazado a la agencia. Formulario "newsletter" con wp-form: campo `email` (requerido), sin casilla en el diseño; envía un correo (Mailpit, luego Fluent SMTP) y también guarda cada suscripción en el admin. El placeholder usa `#8a8a8a` (valor suelto). Correo a info@angelitozzz.com; sin JavaScript, el `<noscript>` ofrece ese mismo correo. Texto de éxito: "¡Gracias! Ya estás suscrita a nuestro blog." (en `inc/forms/newsletter.php`). El crédito enlaza a https://nerd.pe en una pestaña nueva. Móvil: newsletter arriba a todo el ancho, columnas de enlaces en 2 × 2, redes y copyright centrados.
+- **Comportamiento:** bloque del newsletter (título, texto y formulario de un campo email con botón verde "Suscribirme"), 4 columnas de enlaces (ubicaciones `pie-navegacion` en dos columnas, `pie-legal` y `pie-ayuda`), la fila de redes (sección `redes`), el copyright y el crédito fijo "Made with ♥ NERD" con el logo SVG de NERD enlazado a la agencia. Formulario "newsletter" con wp-form: campo `email` (requerido), sin casilla en el diseño; envía un correo (Mailpit, luego Fluent SMTP) y también guarda cada suscripción en el admin. El placeholder usa `#8a8a8a` (valor suelto). Correo a info@angelitozzz.com; sin JavaScript, el `<noscript>` ofrece ese mismo correo. Texto de éxito: "¡Gracias! Ya estás suscrita a nuestro blog." (en `inc/forms/newsletter.php`). El crédito enlaza a https://nerd.pe en una pestaña nueva. Móvil: newsletter arriba a todo el ancho, columnas de enlaces en 2 × 2, redes y copyright centrados. Textos fijos en la plantilla (no son campos): el título "Suscríbete a nuestro blog" y el copyright "Angelitozzz ©<año> Todos los derechos reservados", con el año actual automático (`date_i18n('Y')`).
 - **Indicaciones del diseño:**
     - Usar la skill wp-form para ese formulario de correo del newsletter.
     - Las redes sociales que vaya en configuracion del sitio
-- **Estado:** aprobado
+- **Estado:** aplicado
+- **ACF:** conectado
 
 **Campos ACF**
 
 | Campo                               | Tipo     | Descripción                                                                | Valor actual                                                           | Requerido |
 | ----------------------------------- | -------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------- | --------- |
-| `opciones_footer_newsletter_titulo` | text     | Título del bloque de suscripción del footer. Recomendado: ~40 caracteres   | Suscríbete a nuestro blog                                              | sí        |
-| `opciones_footer_newsletter_texto`  | textarea | Texto bajo el título de suscripción. Recomendado: ~110 caracteres          | Te enviaremos consejos gratuitos para que tu Angelito aprenda a dormir | no        |
-| `opciones_footer_copyright`         | text     | Texto de derechos al pie de todas las páginas. Recomendado: ~70 caracteres | Angelitozzz ©2026 Todos los derechos reservados                        | sí        |
+| `opciones_footer_newsletter_texto`  | textarea | Texto bajo el título de suscripción.          | Te enviaremos consejos gratuitos para que tu Angelito aprenda a dormir | no        |
 
 **Criterios de aceptación**
 
 - [x] Cumple los criterios comunes de `_shared.md`
-- [ ] Los enlaces del footer salen de las 3 ubicaciones de menú, no están escritos en la plantilla
+- [x] Los enlaces del footer salen de las 3 ubicaciones de menú, no están escritos en la plantilla
 - [x] Cada suscripción queda guardada y se lee en el admin

@@ -2,8 +2,8 @@
 
 /**
  * Formulario "coach" del modal del cintillo (definición: inc/forms/coach.php).
- * Lo imprime template-parts/modals/modal-coach.php. Textos fijos hasta el paso ACF
- * (opciones_modal_coach_* en specs/opciones.md).
+ * Lo imprime template-parts/modals/modal-coach.php. Textos de Ajustes del sitio
+ * (grupo opciones_modal_coach en specs/opciones.md).
  */
 
 defined('ABSPATH') || exit;
@@ -12,10 +12,11 @@ $form_id        = 'coach';
 $privacy_url    = get_privacy_policy_url();
 $fallback_email = 'info@angelitozzz.com';
 
-$ayuda_whatsapp = 'Lo necesitamos porque tu coach de sueño virtual te va a escribir y ayudarte por aquí 💛';
-$ayuda_email    = 'Así también te avisamos sobre contenido y novedades';
-$aceptacion     = 'Acepto que Angelitozzz use mis datos para contactarme y enviarme información relacionada ·';
-$boton          = 'Quiero que me ayuden con el sueño de mi bebé';
+$coach          = get_field('opciones_modal_coach', 'option') ?: [];
+$ayuda_whatsapp = (string) ($coach['ayuda_whatsapp'] ?? '');
+$ayuda_email    = __('Así también te avisamos sobre contenido y novedades', 'angelitozzz');
+$aceptacion     = __('Acepto que Angelitozzz use mis datos para contactarme y enviarme información relacionada ·', 'angelitozzz');
+$boton          = (string) ($coach['boton'] ?? '');
 
 $campo_class = 'min-h-11 w-full rounded-[12px] border border-neutro bg-fondo text-body focus:outline-2 focus:outline-marca aria-invalid:border-acento';
 $input_class = $campo_class . ' px-[18px] py-[14px] placeholder:text-tinta-suave';

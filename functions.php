@@ -11,3 +11,4 @@ require_once get_theme_file_path('/inc/helpers/links.php');
 require_once get_theme_file_path('/inc/helpers/text.php');
 require_once get_theme_file_path('/inc/forms.php');
 require_once get_theme_file_path('/inc/modals.php');
+require_once get_theme_file_path('/inc/acf/runner.php');

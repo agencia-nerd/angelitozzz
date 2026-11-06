@@ -50,7 +50,7 @@ Stack: WordPress (Local WP) + Vite + Tailwind + pnpm.
 - Aplica solo las páginas con estado `aprobado` en `specs/_index.md` y deja el estado en `aplicado` al terminar.
 - Cada página es un grupo de campos ACF (`Grupo ACF` y `Ubicación` en su spec) y cada sección es un campo `group` (`home_hero`). Blog, catálogo y WooCommerce se describen en la tabla "Contenido dinámico" de `_shared.md`: no escribas consultas, filtros ni lógica de Woo hasta ese paso.
 - Lo que se repite en todo el sitio (contacto, redes, textos del pie) está en `specs/opciones.md` y va en una página de opciones de ACF; el logo y el ícono son de Personalizar y los menús son menús de WordPress.
-- Los campos ACF se nombran `<página>_<sección>_<campo>` en snake_case y en español. No pongas límites de caracteres ni de tamaño de imagen: la descripción del campo solo lo recomienda.
+- Los campos ACF se nombran `<página>_<sección>_<campo>` en snake_case y en español. No pongas límites ni recomendaciones de caracteres o de tamaño de imagen: la descripción del campo no lleva "Recomendado: …".
 - El texto del diseño queda fijo en la plantilla y su campo está en el spec ("valor actual"): al pasarlo a ACF se reemplaza uno a uno.
 - **El spec se corrige junto con el código.** Si una corrección o un cambio toca algo que el spec describe (campos y su tipo, "valor actual", `Destino` de una sección, componentes de `_shared.md` y sus argumentos, `Comportamiento`, tokens), actualiza el spec en el mismo paso; si es un campo, primero el spec y después se genera el JSON. Un ajuste visual o interno que el spec no describe no lo toca. Al terminar, di qué líneas del spec cambiaron. `check.mjs` de design-import avisa si un componente no coincide con `_shared.md`.
 <!-- design-import:end -->
@@ -72,3 +72,13 @@ Stack: WordPress (Local WP) + Vite + Tailwind + pnpm.
 - No edites el motor (`inc/modals.php`, `src/js/modules/modal.js`, `src/css/modal.css`): se actualiza desde la skill wp-modal.
 - No abras un modal al cargar la página salvo que el proyecto lo pida (opción `auto`). Un form dentro de un modal usa wp-form o el que el proyecto haya elegido.
 <!-- wp-modal:end -->
+
+<!-- wp-acf:start -->
+## ACF administrable (wp-acf 1.7.1)
+- Los campos, tipos de contenido, taxonomías y páginas de opciones viven en `acf-json/` y los genera `wp-acf` desde los specs (`generate.mjs`); no los edites a mano. Si algo se cambia desde el admin de ACF, el JSON queda distinto y se avisa como conflicto al regenerar.
+- `inc/acf/runner.php` es el motor: no lo edites (se actualiza desde la skill). Sincroniza el JSON con la base, crea las páginas, carga el contenido inicial, los menús y el logo, al activar el tema y desde Herramientas > Cargar contenido inicial. Nunca pisa lo que ya se cargó.
+- Los datos del proyecto son `inc/acf/paginas.php` (lo genera la skill), `inc/acf/sitio.php` (menús y logo) y `inc/acf/seed/<página>.php` (el texto, las imágenes y los enlaces que salieron de cada plantilla).
+- Una plantilla conectada lee su grupo con `get_field('<página>_<sección>')` y los helpers de `wp-helper`; no deja el texto fijo ni textos de respaldo en el código. Un textarea es un solo campo aunque tenga varias líneas (el cliente pasa de línea con Enter) y se imprime con el helper de texto de `wp-helper`, que muestra los saltos y los colores; nunca un campo por línea. Las opciones del sitio se leen con `get_field('opciones_<área>', 'option')`.
+- El puntero del mouse, la precarga y las animaciones no son campos: se quedan como JS.
+- La lógica de los listados (consultas, filtros, buscador, paginación) es de `wp-query`, y WooCommerce de otra skill.
+<!-- wp-acf:end -->

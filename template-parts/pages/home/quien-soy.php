@@ -6,10 +6,12 @@
 
 defined('ABSPATH') || exit;
 
-$titulo = '¡Hola, soy Bárbara!';
-$texto  = "Soy Coach de Sueño Pediátrico certificada, mami de dos y fundadora de Angelitozzz desde 2016.\nEn 2012, cuando nació mi hija mayor, conocí de primera mano la desesperación de no dormir y la culpa de no saber cómo resolverlo.\nEn 10 años he acompañado a más de 8.000 familias en 12 países a lograr algo que muchas creían imposible: que su bebé durmiera de corrido — noches y siestas.\nPara que no te pase lo que me pasó a mí.\nPara que tu bebé, tu familia y tú puedan florecer.";
-$boton  = ['url' => home_url('/conoce-a-barbara/'), 'title' => 'Conoce mi historia', 'target' => ''];
-$imagen = get_theme_file_uri('assets/img/home/quien-soy-foto-barbara.webp');
+$quien_soy = get_field('home_quien_soy') ?: [];
+
+$titulo = (string) ($quien_soy['titulo'] ?? '');
+$texto  = (string) ($quien_soy['texto'] ?? '');
+$boton  = $quien_soy['boton'] ?? null;
+$imagen = $quien_soy['imagen'] ?? null;
 ?>
 <section class="bg-neutro px-4 py-22 max-md:py-14" aria-labelledby="home-quien-soy-titulo">
     <div class="mx-auto flex max-w-[1143px] flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">

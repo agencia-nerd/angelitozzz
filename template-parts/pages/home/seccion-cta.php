@@ -7,23 +7,24 @@
 
 defined('ABSPATH') || exit;
 
-$logo   = get_theme_file_uri('assets/img/home/cta-logo-mundo-angelitozzz.webp');
-$titulo = "El sueño de tu bebé cambia todo el tiempo.\nY cada vez que cambia, aparecen nuevas preguntas.\nMundo Angelitozzz es el lugar donde siempre hay respuestas.";
-$texto  = 'Cada semana, una sesión en vivo conmigo para resolver lo que está pasando ahora mismo con el sueño de tu bebé. Más talleres grabados, recursos al instante y una comunidad de mamás que ya pasaron por donde tú estás.';
-$puntos = [
-    'Sesiones en vivo semanales con Bárbara — resuelves dudas en tiempo real',
-    'Talleres y recursos para cada etapa, disponibles al instante',
-    'Chat privado con mamás que entienden lo que estás viviendo',
-];
-$precio = 'Desde $14/mes · Cancela cuando quieras';
-$boton  = ['url' => home_url('/mundo-angelitozzz/'), 'title' => 'Quiero tener siempre una respuesta', 'target' => ''];
+$cta = get_field('home_seccion_cta') ?: [];
+
+$logo   = $cta['logo'] ?? null;
+$titulo = (string) ($cta['titulo'] ?? '');
+$texto  = (string) ($cta['texto'] ?? '');
+$puntos = array_filter(array_map(
+    fn($fila) => trim((string) ($fila['texto'] ?? '')),
+    (array) ($cta['puntos'] ?? [])
+), 'strlen');
+$precio = (string) ($cta['precio'] ?? '');
+$boton  = $cta['boton'] ?? null;
 ?>
 <section class="fondo-lunas px-4 py-22 max-md:py-14" aria-labelledby="home-seccion-cta-titulo">
     <div class="mx-auto flex max-w-[1070px] flex-col items-center gap-8 text-center">
         <div class="flex flex-col items-center gap-8">
             <?= angelitozzz_image($logo, [
                 'class' => 'size-[86px] rounded-full object-cover',
-                'alt_fallback' => 'Mundo Angelitozzz',
+                'alt_fallback' => trim(preg_replace('/\s+/', ' ', $titulo)),
             ]) ?>
             <h2 id="home-seccion-cta-titulo" class="text-h3 text-marca max-md:text-h4"><?= angelitozzz_highlight($titulo) ?></h2>
         </div>

@@ -15,7 +15,7 @@
     - título SEO "Contacto | Angelitozzz"
     - sin meta descripción en el diseño
     - fondo de la página `--color-fondo` (las dos secciones no tienen fondo propio)
-    - el correo y el WhatsApp de la tarjeta de abajo salen de Ajustes del sitio (`opciones_contacto_email`, `opciones_contacto_whatsapp`), no de campos de esta página
+    - el WhatsApp de la tarjeta de abajo sale de Ajustes del sitio (`opciones_contacto_whatsapp`), no de un campo de esta página; el correo sí es campo de esta página (`contacto_seccion_de_cta_email`)
     - sin frame móvil en Figma: el móvil sigue lo propuesto en el `Comportamiento` de cada sección
 - **Estado:** pendiente
 
@@ -34,8 +34,8 @@
 
 | Campo                                    | Tipo     | Descripción                                                                          | Valor actual                                                           | Requerido |
 | ---------------------------------------- | -------- | ------------------------------------------------------------------------------------ | ---------------------------------------------------------------------- | --------- |
-| `contacto_seccion_de_contacto_titulo`    | text     | Título principal de la página (h1), sobre el formulario. Recomendado: ~15 caracteres | Contacto                                                               | sí        |
-| `contacto_seccion_de_contacto_subtitulo` | textarea | Frase bajo el título que invita a llenar el formulario. Recomendado: ~110 caracteres | ¡Introduce tu información aquí y pronto me pondré en contacto contigo! | no        |
+| `contacto_seccion_de_contacto_titulo`    | text     | Título principal de la página (h1), sobre el formulario. | Contacto                                                               | sí        |
+| `contacto_seccion_de_contacto_subtitulo` | textarea | Frase bajo el título que invita a llenar el formulario. | ¡Introduce tu información aquí y pronto me pondré en contacto contigo! | no        |
 
 **Criterios de aceptación**
 
@@ -52,7 +52,7 @@
 - **Destino:** `template-parts/pages/contacto/seccion-de-cta.php`
 - **Grupo:** `contacto_seccion_de_cta`
 - **Skill:** wp-helper
-- **Comportamiento:** sección con `py-22` y una tarjeta centrada de `--container-sitio` de ancho: fondo `--color-neutro`, `--radius-tarjeta`, `p-16`, `gap-3.5`, contenido centrado, `overflow-hidden` y `relative`. Dentro: título `h2` (`--text-h2`, `--color-marca`), párrafo (`--text-body-l`, `--color-tinta`, centrado), el correo como enlace `mailto:` (`--text-h3`, `--color-marca`, subrayado al pasar el mouse) y, 8 px más abajo (`mt-2`, el marco vacío de 10 × 8 del diseño), el componente `boton` variante `frambuesa` con flecha y `texto` "Escríbenos por WhatsApp". El correo sale de `opciones_contacto_email` (Ajustes del sitio, no es campo de esta página): `href` `mailto:` armado con `esc_url()` y el texto con `esc_html()`, los dos pasados por `antispambot()`; si el campo está vacío, la línea no se imprime. El botón arma `https://wa.me/<número>?text=<mensaje>` con `opciones_contacto_whatsapp` y `opciones_contacto_whatsapp_mensaje` (Ajustes del sitio, mensaje codificado con `rawurlencode`) y se abre en una pestaña nueva por el helper de enlaces (pone `rel` y el aviso `sr-only`); si no hay número, el botón no se imprime. Si el párrafo está vacío no se imprime. Decoración (SVG fijos del tema, `alt=""`, `aria-hidden`, posición absoluta, sin tapar el texto): estrella de contorno teal (`cta-estrella-contorno-inferior.svg`, 121 × 78) abajo a la izquierda, asomando unos 30 px fuera del borde izquierdo y cortada por la tarjeta; destello dorado (`cta-destello-dorado-pequeno.svg`, 27 × 27 dentro de una caja de 50) abajo a la izquierda, a 120 px del borde izquierdo; destello blanco (`cta-destello-blanco-superior.svg`, 80 × 69) arriba a la derecha, a unos 30 px de los bordes. Valores sueltos: el dorado `#D8B11E` y el teal con opacidad 0.9 están dentro de los SVG (no van en el CSS). Móvil (propuesto): `px-4 py-16`; la tarjeta ocupa todo el ancho con `px-6 py-12`; título en `--text-h3`, el párrafo salta de línea (sin `whitespace-nowrap`) y el correo en `--text-h4` con `break-words` para que no se salga; el botón se centra con su ancho natural; la estrella y el destello blanco se reducen a la mitad y el destello dorado se oculta bajo `md`.
+- **Comportamiento:** sección con `py-22` y una tarjeta centrada de `--container-sitio` de ancho: fondo `--color-neutro`, `--radius-tarjeta`, `p-16`, `gap-3.5`, contenido centrado, `overflow-hidden` y `relative`. Dentro: título `h2` (`--text-h2`, `--color-marca`), párrafo (`--text-body-l`, `--color-tinta`, centrado), el correo como enlace `mailto:` (`--text-h3`, `--color-marca`, subrayado al pasar el mouse) y, 8 px más abajo (`mt-2`, el marco vacío de 10 × 8 del diseño), el componente `boton` variante `frambuesa` con flecha y `texto` "Escríbenos por WhatsApp". El correo sale de `contacto_seccion_de_cta_email`: `href` `mailto:` armado con `esc_url()` y el texto con `esc_html()`, los dos pasados por `antispambot()`; si el campo está vacío, la línea no se imprime. El botón arma `https://wa.me/<número>?text=<mensaje>` con `opciones_contacto_whatsapp` y `opciones_contacto_whatsapp_mensaje` (Ajustes del sitio, mensaje codificado con `rawurlencode`) y se abre en una pestaña nueva por el helper de enlaces (pone `rel` y el aviso `sr-only`); si no hay número, el botón no se imprime. Si el párrafo está vacío no se imprime. Decoración (SVG fijos del tema, `alt=""`, `aria-hidden`, posición absoluta, sin tapar el texto): estrella de contorno teal (`cta-estrella-contorno-inferior.svg`, 121 × 78) abajo a la izquierda, asomando unos 30 px fuera del borde izquierdo y cortada por la tarjeta; destello dorado (`cta-destello-dorado-pequeno.svg`, 27 × 27 dentro de una caja de 50) abajo a la izquierda, a 120 px del borde izquierdo; destello blanco (`cta-destello-blanco-superior.svg`, 80 × 69) arriba a la derecha, a unos 30 px de los bordes. Valores sueltos: el dorado `#D8B11E` y el teal con opacidad 0.9 están dentro de los SVG (no van en el CSS). Móvil (propuesto): `px-4 py-16`; la tarjeta ocupa todo el ancho con `px-6 py-12`; título en `--text-h3`, el párrafo salta de línea (sin `whitespace-nowrap`) y el correo en `--text-h4` con `break-words` para que no se salga; el botón se centra con su ancho natural; la estrella y el destello blanco se reducen a la mitad y el destello dorado se oculta bajo `md`.
 - **Indicaciones del diseño:**
     - el correo que sea un enlace que lleve al correo (mailto:)
     - usar el campo de whatsapp que se usa en configuracion del sitio
@@ -62,12 +62,13 @@
 
 | Campo                            | Tipo     | Descripción                                                                                  | Valor actual                                                      | Requerido |
 | -------------------------------- | -------- | -------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | --------- |
-| `contacto_seccion_de_cta_titulo` | text     | Título de la tarjeta de contacto directo, al final de la página. Recomendado: ~15 caracteres | Escríbenos                                                        | sí        |
-| `contacto_seccion_de_cta_texto`  | textarea | Frase bajo el título, antes del correo y del botón de WhatsApp. Recomendado: ~100 caracteres | Da el primer paso hacia un mundo de tranquilidad junto a tu bebé. | no        |
+| `contacto_seccion_de_cta_titulo` | text     | Título de la tarjeta de contacto directo, al final de la página. | Escríbenos                                                        | sí        |
+| `contacto_seccion_de_cta_texto`  | textarea | Frase bajo el título, antes del correo y del botón de WhatsApp. | Da el primer paso hacia un mundo de tranquilidad junto a tu bebé. | no        |
+| `contacto_seccion_de_cta_email`  | email    | Correo de contacto que se muestra en la tarjeta y abre el correo al hacer clic               | info@angelitozzz.com                                              | sí        |
 
 **Criterios de aceptación**
 
 - [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] El correo es un enlace `mailto:` que sale de `opciones_contacto_email`; no hay correo escrito en la plantilla
+- [ ] El correo es un enlace `mailto:` que sale de `contacto_seccion_de_cta_email`; no hay correo escrito en la plantilla
 - [ ] El botón abre WhatsApp en una pestaña nueva con el número de `opciones_contacto_whatsapp` y el mensaje de `opciones_contacto_whatsapp_mensaje`
 - [ ] Sin número de WhatsApp el botón no se imprime; sin correo, la línea del correo no se imprime

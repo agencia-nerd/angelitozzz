@@ -4,21 +4,26 @@
  * Modal del coach de sueño virtual (specs/opciones.md: modal-coach y modal-coach-gracias).
  * Lo abre el cintillo (template-parts/components/cintillo-promociones.php). Dentro va el
  * formulario wp-form "coach"; al enviarlo, src/js/modules/modal-coach.js cambia el mismo
- * <dialog> a la pantalla de gracias con el nombre escrito. Textos fijos hasta el paso ACF.
+ * <dialog> a la pantalla de gracias con el nombre escrito. Textos de Ajustes del sitio
+ * (grupos opciones_modal_coach y opciones_modal_coach_gracias).
  */
 
 defined('ABSPATH') || exit;
 
-$titulo = '¡Hola! 💛 Vamos a conectarte con el coach de sueño virtual de Angelitozzz, para que te ayude a resolver cualquier duda sobre el sueño de tu bebé';
-$texto  = 'Déjame estos datos y en un momento podrás escribirle, gratis.';
+$coach    = get_field('opciones_modal_coach', 'option') ?: [];
+$gracias  = get_field('opciones_modal_coach_gracias', 'option') ?: [];
+$contacto = get_field('opciones_contacto', 'option') ?: [];
 
-$gracias_titulo  = '¡Listo, {nombre}! 💛';
-$gracias_texto   = 'Ya puedes escribirle a tu coach de sueño virtual y empezar a resolver las dudas de sueño de tu bebé, gratis.';
-$gracias_boton   = 'Hablar ahora';
-$gracias_mensaje = 'Hola, soy {nombre} 💛 Quiero ayuda con el sueño de mi bebé.';
-$gracias_nota    = 'Se abre WhatsApp con el mensaje:';
-// opciones_contacto_whatsapp_coach: aún no hay número (pendiente). Sin número, "Hablar ahora" queda desactivado.
-$whatsapp_coach = '';
+$titulo = (string) ($coach['titulo'] ?? '');
+$texto  = (string) ($coach['texto'] ?? '');
+
+$gracias_titulo  = (string) ($gracias['titulo'] ?? '');
+$gracias_texto   = (string) ($gracias['texto'] ?? '');
+$gracias_boton   = __('Hablar ahora', 'angelitozzz');
+$gracias_mensaje = (string) ($gracias['mensaje'] ?? '');
+$gracias_nota    = __('Se abre WhatsApp con el mensaje:', 'angelitozzz');
+// Sin número del coach, el botón de WhatsApp queda desactivado.
+$whatsapp_coach = (string) ($contacto['whatsapp_coach'] ?? '');
 
 angelitozzz_modal_start('modal-coach', [
     'title'        => $titulo,
