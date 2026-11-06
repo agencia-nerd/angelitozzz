@@ -83,13 +83,13 @@ En este sitio:
 
 ### Menús
 
-| Ubicación          | Dónde se muestra                        | Enlaces del diseño                                                                    |
-| ------------------ | --------------------------------------- | ------------------------------------------------------------------------------------- |
-| `principal`        | Header, centrado                        | Soluciones de Sueño, Blog, Mundo Angelitozzz, Conoce a Bárbara, Testimonios           |
+| Ubicación          | Dónde se muestra                                                  | Enlaces del diseño                                                                    |
+| ------------------ | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `principal`        | Header, centrado                                                  | Soluciones de Sueño, Blog, Mundo Angelitozzz, Conoce a Bárbara, Testimonios           |
 | `cabecera-derecha` | Header, a la derecha, junto a "Iniciar sesión" (texto más grande) | Contacto                                                                              |
-| `pie-navegacion`   | Footer, columnas 1 y 2                  | Soluciones de Sueño, Mundo Angelitozzz, Conoce a Bárbara, Testimonios, Blog, Contacto |
-| `pie-legal`        | Footer, columna 3                       | Políticas de privacidad, Términos y condiciones                                       |
-| `pie-ayuda`        | Footer, columna 4                       | Preguntas frecuentes, Soporte                                                         |
+| `pie-navegacion`   | Footer, columnas 1 y 2                                            | Soluciones de Sueño, Mundo Angelitozzz, Conoce a Bárbara, Testimonios, Blog, Contacto |
+| `pie-legal`        | Footer, columna 3                                                 | Políticas de privacidad, Términos y condiciones                                       |
+| `pie-ayuda`        | Footer, columna 4                                                 | Preguntas frecuentes, Soporte                                                         |
 
 ## Tokens
 
