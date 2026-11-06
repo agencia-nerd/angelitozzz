@@ -9,14 +9,13 @@
 
 defined('ABSPATH') || exit;
 
-$titulo = 'Beneficios del sueño saludable';
-$items  = [
-    'Dormir promueve el sano crecimiento y desarrollo de tu bebé.',
-    'Un bebé descansado es más feliz y menos estresado.',
-    'Mejora la salud mental materna y fortalece el vínculo madre-bebé.',
-    'Dormir bien fomenta su aprendizaje y desarrollo del lenguaje',
-    'Mejora la tolerancia a la frustración.',
-];
+$beneficios = get_field('home_beneficios') ?: [];
+
+$titulo = (string) ($beneficios['titulo'] ?? '');
+$items  = array_values(array_filter(array_map(
+    fn($fila) => trim((string) ($fila['texto'] ?? '')),
+    (array) ($beneficios['items'] ?? [])
+), 'strlen'));
 
 // Colgante de cada posición: archivo, medidas del SVG y ancho del texto en el diseño.
 $colgantes = [

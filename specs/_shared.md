@@ -76,7 +76,7 @@ Lo que se repite en todas las páginas (cabecera, menú, pie). Aquí solo se dec
 En este sitio:
 
 - **Personalizar:** el logo del header (`header-logo.png`) es el logo principal (`custom-logo`).
-- **Ajustes del sitio** (`specs/opciones.md`): el cintillo de promociones y el modal que abre (con su formulario y la pantalla de gracias), el WhatsApp y el correo de contacto, las redes sociales, los textos del newsletter del pie y el copyright.
+- **Ajustes del sitio** (`specs/opciones.md`): el cintillo de promociones y el modal que abre (con su formulario y la pantalla de gracias), los números de WhatsApp, las redes sociales y el texto del newsletter del pie.
 - **Fijo en `footer.php`:** el crédito "Made with ♥ NERD" (firma de la agencia, no lo edita el cliente).
 - **Obligatorio en todas las páginas** (nota de Inicio): cintillo, header y footer. Viven en `header.php` y `footer.php`, nunca dentro de una plantilla de página.
 - **Fondo de nubes:** lo usan Inicio y Soluciones de sueño (`pagina-fondo-nubes.webp`), no todas las páginas. Se queda quieta al hacer scroll (`background-attachment: fixed`; en móvil, donde iOS no lo respeta, una capa `position: fixed` detrás del contenido). Es de cada página y se documenta en su spec.

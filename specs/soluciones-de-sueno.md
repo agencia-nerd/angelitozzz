@@ -52,8 +52,8 @@ Sin filtros: nota del usuario en la sección shop ("No llevara filtros, ni nada.
 
 | Campo                             | Tipo     | Descripción                                                                                                  | Valor actual                                                                              | Requerido |
 | --------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------- | --------- |
-| `soluciones_de_sueno_shop_titulo` | text     | Título principal de la página de cursos. Se muestra centrado sobre las tarjetas. Recomendado: ~30 caracteres | Soluciones de sueño                                                                       | sí        |
-| `soluciones_de_sueno_shop_bajada` | textarea | Texto bajo el título. Recomendado: ~140 caracteres                                                           | Encuentra la solución perfecta para ti — según la edad de tu bebé y lo que necesitas hoy. | no        |
+| `soluciones_de_sueno_shop_titulo` | text     | Título principal de la página de cursos. Se muestra centrado sobre las tarjetas. | Soluciones de sueño                                                                       | sí        |
+| `soluciones_de_sueno_shop_bajada` | textarea | Texto bajo el título.                                                           | Encuentra la solución perfecta para ti — según la edad de tu bebé y lo que necesitas hoy. | no        |
 
 Tarjetas del diseño (productos de Woo, no campos; textos completos en `shop.ref.txt`): Angelita Pro (sin imagen, edad "(4 a 24 meses)", etiqueta "Nuevo · Desde $97" con destellos, botón "Quiero conocer a Angelita"), A Dormir Por Fin ("(4 meses a 4 años)", "Asesoría con Bárbara · $399" con estrella, "Quiero mi asesoría personal"), Recién Nacidos Go ("(0 a 12 semanas)", "Curso Online · $97" sin ícono, "Ver curso"), Cursos de Horarios Ideales ("(4 meses a 3 años)", "Curso Online · Desde $37" sin ícono, "Ver cursos por edad").
 
@@ -83,9 +83,9 @@ Tarjetas del diseño (productos de Woo, no campos; textos completos en `shop.ref
 
 | Campo                                       | Tipo     | Descripción                                                                                                           | Valor actual                                                           | Requerido |
 | ------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | --------- |
-| `soluciones_de_sueno_cta_final_titulo`      | text     | Título del bloque de cierre de la página. Recomendado: ~45 caracteres                                                 | ¿No sabes por dónde empezar?                                           | sí        |
-| `soluciones_de_sueno_cta_final_descripcion` | textarea | Texto opcional bajo el título. Si se deja vacío no se muestra. Recomendado: ~110 caracteres                           | Cuéntame la edad de tu bebé y te ayudo a encontrar la opción correcta. | no        |
-| `soluciones_de_sueno_cta_final_boton_texto` | text     | Texto del botón que abre WhatsApp. El número y el mensaje se editan en Ajustes del sitio. Recomendado: ~35 caracteres | Escríbeme por WhatsApp                                                 | sí        |
+| `soluciones_de_sueno_cta_final_titulo`      | text     | Título del bloque de cierre de la página.                                                 | ¿No sabes por dónde empezar?                                           | sí        |
+| `soluciones_de_sueno_cta_final_descripcion` | textarea | Texto opcional bajo el título. Si se deja vacío no se muestra.                           | Cuéntame la edad de tu bebé y te ayudo a encontrar la opción correcta. | no        |
+| `soluciones_de_sueno_cta_final_boton_texto` | text     | Texto del botón que abre WhatsApp. El número y el mensaje se editan en Ajustes del sitio. | Escríbeme por WhatsApp                                                 | sí        |
 
 **Criterios de aceptación**
 

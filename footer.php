@@ -2,21 +2,24 @@
 
 /**
  * Pie del sitio (specs/opciones.md: footer, redes) y el modal del coach que abre el cintillo.
- * Textos y enlaces fijos hasta el paso ACF (columna "valor actual" del spec).
+ * Textos y redes salen de Ajustes del sitio (grupos opciones_footer y opciones_redes).
  */
 
 defined('ABSPATH') || exit;
 
-$newsletter_titulo = 'Suscríbete a nuestro blog';
-$newsletter_texto  = 'Te enviaremos consejos gratuitos para que tu Angelito aprenda a dormir';
-$copyright         = 'Angelitozzz ©2026 Todos los derechos reservados';
-$redes_titulo      = 'Síguenos';
-// Las URLs de las redes aún no están: se muestran con '#' (sin enlace) hasta el paso ACF.
-$redes = [
-    ['red' => 'instagram', 'enlace' => '#'],
-    ['red' => 'tiktok', 'enlace' => '#'],
-    ['red' => 'facebook', 'enlace' => '#'],
-];
+$footer = get_field('opciones_footer', 'option') ?: [];
+$redes_grupo = get_field('opciones_redes', 'option') ?: [];
+
+$newsletter_titulo = __('Suscríbete a nuestro blog', 'angelitozzz');
+$newsletter_texto  = (string) ($footer['newsletter_texto'] ?? '');
+// El año es automático.
+$copyright         = sprintf(__('Angelitozzz ©%s Todos los derechos reservados', 'angelitozzz'), date_i18n('Y'));
+$redes_titulo      = __('Síguenos', 'angelitozzz');
+// Una red sin enlace no se muestra (spec opciones.md, sección redes).
+$redes = array_values(array_filter(
+    (array) ($redes_grupo['items'] ?? []),
+    fn($red) => is_array($red) && trim((string) ($red['enlace'] ?? '')) !== ''
+));
 $nerd = ['url' => 'https://nerd.pe', 'title' => 'NERD', 'target' => '_blank'];
 
 // Enlaces del diseño, solo mientras las ubicaciones no tengan un menú asignado.
@@ -76,6 +79,7 @@ $aviso     = esc_html__('se abre en una pestaña nueva', 'angelitozzz');
                     ?>
                 </nav>
 
+                <?php if ($redes) : ?>
                 <div class="flex items-center gap-[62px] max-md:flex-col max-md:gap-6">
                     <?php if ($redes_titulo !== '') : ?>
                         <p class="text-display text-marca max-md:text-h2"><?= esc_html($redes_titulo) ?></p>
@@ -104,6 +108,7 @@ $aviso     = esc_html__('se abre en una pestaña nueva', 'angelitozzz');
                         <?php endforeach; ?>
                     </ul>
                 </div>
+                <?php endif; ?>
             </div>
         </div>
 

@@ -50,12 +50,12 @@ La indicación se aplica así: las tarjetas son elementos del tipo de contenido 
 
 **Campos ACF**
 
-| Campo                                        | Tipo     | Descripción                                                                                                | Valor actual                                              | Requerido |
-| -------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | --------- |
-| `testimonios_seccion_testimonios_antetitulo` | text     | Texto chico sobre el título de la página. Recomendado: ~25 caracteres                                      | Historias reales                                          | no        |
-| `testimonios_seccion_testimonios_titulo`     | text     | Título principal de la página (h1). Recomendado: ~20 caracteres                                            | Testimonios                                               | sí        |
-| `testimonios_seccion_testimonios_bajada`     | textarea | Frase bajo el título. También se propone como meta descripción. Recomendado: ~90 caracteres                | Mamás que volvieron a dormir y a disfrutar su maternidad. | no        |
-| `testimonios_seccion_testimonios_todos`      | text     | Texto de la primera pastilla del filtro, la que muestra todos los testimonios. Recomendado: ~10 caracteres | Todos                                                     | sí        |
+| Campo                                        | Tipo     | Descripción                                                                    | Valor actual                                              | Requerido |
+| -------------------------------------------- | -------- | ------------------------------------------------------------------------------ | --------------------------------------------------------- | --------- |
+| `testimonios_seccion_testimonios_antetitulo` | text     | Texto chico sobre el título de la página.                                      | Historias reales                                          | no        |
+| `testimonios_seccion_testimonios_titulo`     | text     | Título principal de la página (h1).                                            | Testimonios                                               | sí        |
+| `testimonios_seccion_testimonios_bajada`     | textarea | Frase bajo el título. También se propone como meta descripción.                | Mamás que volvieron a dormir y a disfrutar su maternidad. | no        |
+| `testimonios_seccion_testimonios_todos`      | text     | Texto de la primera pastilla del filtro, la que muestra todos los testimonios. | Todos                                                     | sí        |
 
 **Criterios de aceptación**
 
@@ -80,11 +80,11 @@ La indicación se aplica así: las tarjetas son elementos del tipo de contenido 
 
 **Campos ACF**
 
-| Campo                               | Tipo     | Descripción                                                                                | Valor actual                                       | Requerido |
-| ----------------------------------- | -------- | ------------------------------------------------------------------------------------------ | -------------------------------------------------- | --------- |
-| `testimonios_cta_final_titulo`      | textarea | Título del bloque de cierre de la página. Recomendado: ~50 caracteres                      | Tu historia puede ser la próxima.                  | sí        |
-| `testimonios_cta_final_descripcion` | textarea | Texto opcional bajo el título. Si se deja vacío no se muestra. Recomendado: ~80 caracteres | Encuentra la solución de sueño ideal para tu bebé. | no        |
-| `testimonios_cta_final_boton`       | link     | Botón del bloque de cierre: texto y destino (la tienda de cursos, pendiente)               | Encuentra tu solución                              | sí        |
+| Campo                               | Tipo     | Descripción                                                                  | Valor actual                                       | Requerido |
+| ----------------------------------- | -------- | ---------------------------------------------------------------------------- | -------------------------------------------------- | --------- |
+| `testimonios_cta_final_titulo`      | textarea | Título del bloque de cierre de la página.                                    | Tu historia puede ser la próxima.                  | sí        |
+| `testimonios_cta_final_descripcion` | textarea | Texto opcional bajo el título. Si se deja vacío no se muestra.               | Encuentra la solución de sueño ideal para tu bebé. | no        |
+| `testimonios_cta_final_boton`       | link     | Botón del bloque de cierre: texto y destino (la tienda de cursos, pendiente) | Encuentra tu solución                              | sí        |
 
 **Criterios de aceptación**
 

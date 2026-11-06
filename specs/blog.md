@@ -55,12 +55,12 @@ La indicación se aplica así: el buscador y las pastillas son filtros de listad
 
 | Campo                            | Tipo     | Descripción                                                                                                            | Valor actual                                                      | Requerido |
 | -------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | --------- |
-| `blog_hero_antetitulo`           | text     | Texto chico sobre el título del blog. Recomendado: ~30 caracteres                                                      | Recursos gratuitos                                                | no        |
-| `blog_hero_titulo`               | text     | Título principal de la página (h1). Recomendado: ~10 caracteres                                                        | Blog                                                              | sí        |
-| `blog_hero_bajada`               | textarea | Frase bajo el título. También se usa en el archivo de una categoría sin descripción. Recomendado: ~100 caracteres      | Consejos de Bárbara para que tu bebé duerma mejor, en cada etapa. | no        |
-| `blog_hero_buscador_placeholder` | text     | Texto de ayuda dentro del buscador, antes de escribir. Recomendado: ~70 caracteres                                     | Busca un tema: siestas, regresión, horarios…                      | sí        |
-| `blog_hero_buscador_boton`       | text     | Texto del botón del buscador. Recomendado: ~10 caracteres                                                              | Buscar                                                            | sí        |
-| `blog_hero_todos`                | text     | Texto de la primera pastilla, la que muestra todos los artículos (lleva a la página Blog). Recomendado: ~10 caracteres | Todos                                                             | sí        |
+| `blog_hero_antetitulo`           | text     | Texto chico sobre el título del blog.                                                      | Recursos gratuitos                                                | no        |
+| `blog_hero_titulo`               | text     | Título principal de la página (h1).                                                        | Blog                                                              | sí        |
+| `blog_hero_bajada`               | textarea | Frase bajo el título. También se usa en el archivo de una categoría sin descripción.      | Consejos de Bárbara para que tu bebé duerma mejor, en cada etapa. | no        |
+| `blog_hero_buscador_placeholder` | text     | Texto de ayuda dentro del buscador, antes de escribir.                                     | Busca un tema: siestas, regresión, horarios…                      | sí        |
+| `blog_hero_buscador_boton`       | text     | Texto del botón del buscador.                                                              | Buscar                                                            | sí        |
+| `blog_hero_todos`                | text     | Texto de la primera pastilla, la que muestra todos los artículos (lleva a la página Blog). | Todos                                                             | sí        |
 
 **Criterios de aceptación**
 

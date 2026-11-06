@@ -2,18 +2,21 @@
 
 /**
  * Inicio · hero (specs/home.md, grupo home_hero).
- * Textos, imagen y enlace fijos hasta el paso ACF: cada uno está en la columna "valor actual" del spec.
  */
 
 defined('ABSPATH') || exit;
 
-$eyebrow      = 'Coach de Sueño Pediátrico · Desde 2016';
-$titulo       = "La maternidad tiene muchos sacrificios.\nEl sueño no debería ser uno de ellos.";
-$bajada       = 'Cursos, asesorías y acompañamiento para que tu bebé aprenda a dormir bien — desde recién nacido hasta los 4 años.';
-$credenciales = ['8.000+ familias acompañadas', '10 años de experiencia', '12+ países'];
-// Lleva a la página de cursos, que aún no existe (pendiente).
-$boton  = ['url' => '#', 'title' => 'Encuentra tu curso ideal', 'target' => ''];
-$imagen = get_theme_file_uri('assets/img/home/hero-foto-madre-bebe.webp');
+$hero = get_field('home_hero') ?: [];
+
+$eyebrow      = (string) ($hero['eyebrow'] ?? '');
+$titulo       = (string) ($hero['titulo'] ?? '');
+$bajada       = (string) ($hero['bajada'] ?? '');
+$credenciales = array_filter(array_map(
+    fn($fila) => trim((string) ($fila['texto'] ?? '')),
+    (array) ($hero['credenciales'] ?? [])
+), 'strlen');
+$boton  = $hero['boton'] ?? null;
+$imagen = $hero['imagen'] ?? null;
 ?>
 <section class="relative overflow-hidden bg-neutro lg:flex lg:items-center" aria-labelledby="home-hero-titulo">
     <img class="pointer-events-none absolute left-0 top-0 w-[120px] lg:w-[240px]" src="<?= esc_url(get_theme_file_uri('assets/img/home/hero-colgante.svg')) ?>" alt="" aria-hidden="true" width="240" height="280">
@@ -49,7 +52,7 @@ $imagen = get_theme_file_uri('assets/img/home/hero-foto-madre-bebe.webp');
     <div class="relative aspect-[3/2] w-full shrink-0 lg:w-[49%]">
         <?= angelitozzz_image($imagen, [
             'class'         => 'size-full object-cover',
-            'alt_fallback'  => str_replace("\n", ' ', $titulo),
+            'alt_fallback'  => trim(preg_replace('/\s+/', ' ', $titulo)),
             'loading'       => 'eager',
             'fetchpriority' => 'high',
         ]) ?>

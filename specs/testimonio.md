@@ -33,7 +33,7 @@
 | Campo                        | Tipo         | Descripción                                                                                                                     | Valor actual      | Requerido |
 | ---------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------- | ----------------- | --------- |
 | `testimonio_ficha_estrellas` | button_group | Valoración del testimonio, de 1 a 5 estrellas (opciones: 1, 2, 3, 4, 5; por defecto 5). Se muestra junto al nombre              | 5                 | sí        |
-| `testimonio_ficha_edad`      | text         | Edad del bebé tal como se lee en la tarjeta, en la pastilla junto a la categoría. Recomendado: ~25 caracteres                   | Bebé de 2.8 años  | no        |
+| `testimonio_ficha_edad`      | text         | Edad del bebé tal como se lee en la tarjeta, en la pastilla junto a la categoría.                   | Bebé de 2.8 años  | no        |
 | `testimonio_ficha_categoria` | taxonomy     | Categoría del testimonio (Soluciones de Sueño o Mundo Angelitozzz). Se muestra como etiqueta en la tarjeta y sirve para filtrar | Mundo Angelitozzz | sí        |
 
 **Criterios de aceptación**

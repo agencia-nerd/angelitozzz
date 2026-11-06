@@ -6,9 +6,10 @@
 
 defined('ABSPATH') || exit;
 
+$cta_final = get_field('home_cta_final') ?: [];
+
 get_template_part('template-parts/components/cta-final', null, [
-    'titulo'      => 'La maternidad ya tiene suficientes sacrificios. El sueño no tiene que ser uno de ellos.',
+    'titulo'      => (string) ($cta_final['titulo'] ?? ''),
     'descripcion' => '',
-    // Lleva a la página shop/tienda/cursos, que aún no tiene nombre ni existe (pendiente).
-    'boton'       => ['url' => '#', 'title' => 'Encuentra tu solución', 'target' => ''],
+    'boton'       => $cta_final['boton'] ?? null,
 ]);

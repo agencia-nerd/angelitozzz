@@ -2,55 +2,28 @@
 
 /**
  * Inicio · ¿Cómo puedo ayudarte? (specs/home.md, grupo home_como_ayudarte).
- * Por ahora solo diseño: las 4 tarjetas son fijas (los cursos de la plataforma externa se conectan después).
+ * Cada tarjeta es una fila del repetidor `items` (componente producto-card).
  * Carrusel: src/js/modules/carrusel-tarjetas.js (Swiper, no automático).
  */
 
 defined('ABSPATH') || exit;
 
-$titulo = '¿Cómo puedo ayudarte?';
-$bajada = 'Distintas formas de acompañarte, según lo que necesitas hoy.';
-$img    = static fn(string $archivo): string => get_theme_file_uri('assets/img/home/' . $archivo);
+$ayudarte = get_field('home_como_ayudarte') ?: [];
 
-// Todos los botones quedan con '#' hasta conectar los cursos (pendiente).
-$items = [
-    [
-        'imagen'         => '', // Sin imagen a propósito: el componente usa la imagen por defecto.
-        'etiqueta'       => 'Nuevo',
-        'etiqueta_icono' => 'destellos',
-        'titulo'         => 'Angelita Pro',
-        'edad'           => '(4 a 24 meses)',
-        'descripcion'    => "Tu coach de sueño con IA, disponible 24/7 por WhatsApp.\n\nPlan integral de sueño, respuestas inmediatas, sin turnos ni horarios.",
-        'boton'          => ['url' => '#', 'title' => 'Quiero conocer a Angelita', 'target' => ''],
-    ],
-    [
-        'imagen'         => $img('ayudarte-asesoria-barbara.webp'),
-        'etiqueta'       => 'Asesoría con Bárbara',
-        'etiqueta_icono' => 'estrella',
-        'titulo'         => 'A Dormir Por Fin',
-        'edad'           => '(4 meses a 4 años)',
-        'descripcion'    => "Bárbara diseña el plan para tu bebé y te acompaña durante 3 semanas.\n\nPara quien quiere la mano de Bárbara directamente.",
-        'boton'          => ['url' => '#', 'title' => 'Quiero mi asesoría personal', 'target' => ''],
-    ],
-    [
-        'imagen'         => $img('ayudarte-recien-nacidos-go.webp'),
-        'etiqueta'       => 'Curso Online',
-        'etiqueta_icono' => 'ninguno',
-        'titulo'         => 'Recién Nacidos Go',
-        'edad'           => '(0 a 12 semanas)',
-        'descripcion'    => "Entiende el sueño de tu recién nacido desde el día uno.\n\nVideos cortos, guías prácticas y bases sólidas para toda la etapa.",
-        'boton'          => ['url' => '#', 'title' => 'Ver curso', 'target' => ''],
-    ],
-    [
-        'imagen'         => $img('ayudarte-horarios-ideales.webp'),
-        'etiqueta'       => 'Curso Online',
-        'etiqueta_icono' => 'ninguno',
-        'titulo'         => 'Cursos de Horarios Ideales',
-        'edad'           => '(4 meses a 3 años)',
-        'descripcion'    => "Aprende a crear el horario perfecto para tu bebé según su edad.\n\nDisponible para 4–9, 9–15 y 15–36 meses.",
-        'boton'          => ['url' => '#', 'title' => 'Ver cursos', 'target' => ''],
-    ],
-];
+$titulo = (string) ($ayudarte['titulo'] ?? '');
+$bajada = (string) ($ayudarte['bajada'] ?? '');
+$items  = [];
+foreach ((array) ($ayudarte['items'] ?? []) as $fila) {
+    $items[] = [
+        'imagen'         => $fila['imagen'] ?? '', // Vacía: el componente usa la imagen por defecto.
+        'etiqueta'       => (string) ($fila['etiqueta'] ?? ''),
+        'etiqueta_icono' => (string) ($fila['etiqueta_icono'] ?? 'ninguno'),
+        'titulo'         => (string) ($fila['titulo'] ?? ''),
+        'edad'           => (string) ($fila['edad'] ?? ''),
+        'descripcion'    => (string) ($fila['descripcion'] ?? ''),
+        'boton'          => $fila['boton'] ?? null,
+    ];
+}
 
 $flecha_clases = 'absolute top-[160px] z-10 hidden size-[54px] items-center justify-center rounded-full border-2 border-contorno bg-fondo text-contorno focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca md:flex';
 ?>
