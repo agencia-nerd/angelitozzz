@@ -36,10 +36,11 @@ Stack: WordPress (Local WP) + Vite + Tailwind + pnpm.
 - No subas al servidor `hot`, `node_modules/`, `src/` ni archivos de config (`package.json`, `pnpm-*`, `vite.config.ts`, `CLAUDE.md`).
 
 <!-- wp-helper:start -->
-## Helpers (wp-helper 1.3.0)
+## Helpers (wp-helper 1.3.1)
 - Los helpers viven en `inc/helpers/` y se cargan con `require_once` desde `functions.php`. No edites los archivos del motor: se actualizan desde la skill wp-helper.
 - Un helper propio de este proyecto va en `inc/helpers/<nombre>.php` con el prefijo `angelitozzz_`, y también se carga desde `functions.php`.
 - Toda imagen de un campo ACF pasa por `angelitozzz_image($campo, [...])` (devuelve el `<img>` o `''`) o por `angelitozzz_image_data($campo)` (`url`, `alt`, `width`, `height` o `null`). No uses `$campo['url']` ni `wp_get_attachment_image_url()` directo en las vistas. Usa `'loading' => 'eager'` en la imagen principal de la página. Si el cliente no escribe el alt, pasa `'alt_fallback'` con el título de la sección (o el de su tarjeta); `'alt' => ''` solo para imágenes decorativas.
+- Un texto con partes de otro color, y todo campo textarea, se imprime con `angelitozzz_highlight($texto)`; ya sale escapado y respeta los saltos de línea. Los marcadores y sus clases están en `inc/helpers/text-styles.php`: para sumar un estilo corre `install.mjs --add-style` de la skill wp-helper, no lo edites a mano.
 - Todo enlace de un campo ACF (Link o URL) pasa por `angelitozzz_link($campo, [...])` (el `<a>` completo) o por `<a<?= angelitozzz_link_attrs($campo, [...]) ?>>` cuando el diseño lleva íconos u otros hijos. No escribas `target="_blank"`, `rel` ni `$campo['url']` a mano: el helper pone `rel`, descarta enlaces vacíos o inseguros y avisa de la pestaña nueva (clase `sr-only`).
 <!-- wp-helper:end -->
 
@@ -53,3 +54,21 @@ Stack: WordPress (Local WP) + Vite + Tailwind + pnpm.
 - El texto del diseño queda fijo en la plantilla y su campo está en el spec ("valor actual"): al pasarlo a ACF se reemplaza uno a uno.
 - **El spec se corrige junto con el código.** Si una corrección o un cambio toca algo que el spec describe (campos y su tipo, "valor actual", `Destino` de una sección, componentes de `_shared.md` y sus argumentos, `Comportamiento`, tokens), actualiza el spec en el mismo paso; si es un campo, primero el spec y después se genera el JSON. Un ajuste visual o interno que el spec no describe no lo toca. Al terminar, di qué líneas del spec cambiaron. `check.mjs` de design-import avisa si un componente no coincide con `_shared.md`.
 <!-- design-import:end -->
+
+<!-- wp-form:start -->
+## Formularios (wp-form 1.5.0)
+- Cada form son dos archivos: la definición `inc/forms/<id>.php` y la vista `template-parts/forms/<id>.php`. Muéstralo con `get_template_part('template-parts/forms/<id>')`.
+- No edites el motor (`inc/forms.php`, `inc/forms-entries.php`, `src/js/modules/form.js`): se actualiza desde la skill wp-form.
+- Define los campos, las reglas y los mensajes solo en la definición.
+- No escribas a mano `name`, `id`, `required`, `maxlength` ni `aria-*` en los campos: los imprimen los helpers `angelitozzz_*`.
+- Instala Zod con `pnpm add zod@latest`.
+<!-- wp-form:end -->
+
+<!-- wp-modal:start -->
+## Modales (wp-modal 1.0.3)
+- Cada modal es una vista en `template-parts/modals/<id>.php` que se muestra con `get_template_part('template-parts/modals/<id>')`. Ábrelo con `angelitozzz_modal_start($id, [...])` y ciérralo con `angelitozzz_modal_end()`; el contenido entre las dos llamadas es libre.
+- El diseño sale de Figma: `width` exacto, `mobile` según el frame móvil y las clases por parte (`class`, `header_class`, `title_class`, `close_class`, `body_class`). Lo que se repite en varios modales va una vez como variable `--modal-*` en el CSS del proyecto.
+- Pon siempre `title` (es el nombre accesible; `title_hidden => true` si no debe verse). Abre con `<button>` o `<a href>` que lleve `<?php angelitozzz_modal_trigger_attrs($id); ?>`. Nunca agregues `open` al `<dialog>`.
+- No edites el motor (`inc/modals.php`, `src/js/modules/modal.js`, `src/css/modal.css`): se actualiza desde la skill wp-modal.
+- No abras un modal al cargar la página salvo que el proyecto lo pida (opción `auto`). Un form dentro de un modal usa wp-form o el que el proyecto haya elegido.
+<!-- wp-modal:end -->
