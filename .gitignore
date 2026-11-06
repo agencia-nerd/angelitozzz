@@ -10,3 +10,6 @@ pnpm-debug.log*
 .vscode/*
 !.vscode/extensions.json
 .idea
+
+# Originales de img-webp (respaldo local, no se versiona)
+src/img-originales/

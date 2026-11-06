@@ -79,7 +79,7 @@ En este sitio:
 - **Ajustes del sitio** (`specs/opciones.md`): el cintillo de promociones y el modal que abre (con su formulario y la pantalla de gracias), el WhatsApp y el correo de contacto, las redes sociales, los textos del newsletter del pie y el copyright.
 - **Fijo en `footer.php`:** el crédito "Made with ♥ NERD" (firma de la agencia, no lo edita el cliente).
 - **Obligatorio en todas las páginas** (nota de Inicio): cintillo, header y footer. Viven en `header.php` y `footer.php`, nunca dentro de una plantilla de página.
-- **Fondo de nubes:** lo usan Inicio y Soluciones de sueño (`pagina-fondo-nubes.png`), no todas las páginas. Se queda quieta al hacer scroll (`background-attachment: fixed`; en móvil, donde iOS no lo respeta, una capa `position: fixed` detrás del contenido). Es de cada página y se documenta en su spec.
+- **Fondo de nubes:** lo usan Inicio y Soluciones de sueño (`pagina-fondo-nubes.webp`), no todas las páginas. Se queda quieta al hacer scroll (`background-attachment: fixed`; en móvil, donde iOS no lo respeta, una capa `position: fixed` detrás del contenido). Es de cada página y se documenta en su spec.
 
 ### Menús
 
@@ -177,7 +177,7 @@ Cada componente vive en `template-parts/components/<nombre>.php` y recibe sus da
 
 - **Origen:** tarjetas de soluciones-de-sueno/shop y home/como-ayudarte (imagen 346 × 374, etiqueta de esquina, nombre y edad, descripción, viñetas, botón)
 - **Destino:** `template-parts/components/producto-card.php`
-- **Argumentos:** `imagen` (array imagen/ID o vacío: sin imagen usa la imagen por defecto "not found"), `etiqueta` (string, opcional), `etiqueta_icono` (`ninguno` | `destellos` | `estrella`), `titulo` (string, requerido), `edad` (string, opcional), `descripcion` (string, requerido), `beneficios` (array de strings, opcional), `boton` (array link, requerido)
+- **Argumentos:** `imagen` (array imagen/ID o vacío: sin imagen usa la imagen por defecto "not found", `assets/img/ayudarte-imagen-not-found.webp`), `etiqueta` (string, opcional), `etiqueta_icono` (`ninguno` | `destellos` | `estrella`), `titulo` (string, requerido), `edad` (string, opcional), `descripcion` (string, requerido), `beneficios` (array de strings, opcional), `boton` (array link, requerido), `loading` (`lazy` | `eager`, por defecto `lazy`: `eager` para las tarjetas de la primera pantalla)
 - **Se usa en:** home/como-ayudarte, soluciones-de-sueno/shop (`woocommerce/content-product.php` la llama)
 
 ### testimonios-slider
@@ -200,6 +200,13 @@ Cada componente vive en `template-parts/components/<nombre>.php` y recibe sus da
 - **Destino:** `template-parts/components/cta-final.php`
 - **Argumentos:** `titulo` (string, requerido), `descripcion` (string, opcional: se oculta si viene vacía), `boton` (array link, requerido)
 - **Se usa en:** home, conoce-a-barbara, articulo-blog, preguntas-frecuentes, soluciones-de-sueno, testimonios
+
+### cintillo-promociones
+
+- **Origen:** home/cintillo-promociones (nodo 4011:9019), en todas las páginas
+- **Destino:** `template-parts/components/cintillo-promociones.php`
+- **Argumentos:** `texto` (string; vacío = no se muestra), `modal` (string, id del modal que abre; por defecto `modal-coach`)
+- **Se usa en:** `header.php`
 
 ## Criterios comunes
 

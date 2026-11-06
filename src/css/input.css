@@ -1,1 +1,227 @@
 @import "tailwindcss";
+/* Swiper en la capa base: las utilidades de Tailwind le ganan. */
+@import "swiper/css" layer(base);
+@import "./modal.css";
+
+/* specs/ guarda el código de referencia de Figma (con clases de Tailwind): no se escanea. */
+@source not "../../specs";
+
+/* Barlow Condensed, autoalojada (src/fonts/, copiada de @fontsource/barlow-condensed). */
+@font-face {
+    font-family: "Barlow Condensed";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../fonts/barlow-condensed-latin-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Barlow Condensed";
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url("../fonts/barlow-condensed-latin-500-normal.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Barlow Condensed";
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url("../fonts/barlow-condensed-latin-600-normal.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Barlow Condensed";
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../fonts/barlow-condensed-latin-400-italic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Barlow Condensed";
+    font-style: italic;
+    font-weight: 500;
+    font-display: swap;
+    src: url("../fonts/barlow-condensed-latin-500-italic.woff2") format("woff2");
+}
+
+/* Tokens de specs/_shared.md */
+@theme {
+    --color-tinta: #000000;
+    --color-tinta-suave: #6b6b6b;
+    --color-marca: #234549;
+    --color-marca-suave: #56706f;
+    --color-acento: #a8566a;
+    --color-etiqueta: #9cb0b0;
+    --color-contorno: #492343;
+    --color-fondo: #f8f6f1;
+    --color-fondo-rosa: #f1dbd5;
+    --color-neutro: #d7d0b5;
+    --color-blanco: #ffffff;
+    --color-estrella: #e9b44c;
+
+    --font-sans: "Barlow Condensed", sans-serif;
+
+    --text-display: 52px;
+    --text-display--line-height: 1;
+    --text-display--font-weight: 600;
+    --text-h1: 50px;
+    --text-h1--line-height: 1.1;
+    --text-h1--font-weight: 600;
+    --text-h2: 46px;
+    --text-h2--line-height: 1.15;
+    --text-h2--font-weight: 500;
+    --text-h3: 32px;
+    --text-h3--line-height: 1.2;
+    --text-h3--font-weight: 500;
+    --text-h4: 26px;
+    --text-h4--line-height: 1.25;
+    --text-h4--font-weight: 500;
+    --text-h5: 22px;
+    --text-h5--line-height: 1.3;
+    --text-h5--font-weight: 500;
+    --text-body-xl: 24px;
+    --text-body-xl--line-height: 1.5;
+    --text-body-xl--font-weight: 400;
+    --text-body-l: 20px;
+    --text-body-l--line-height: 1.5;
+    --text-body-l--font-weight: 400;
+    --text-body: 18px;
+    --text-body--line-height: 1.5;
+    --text-body--font-weight: 400;
+    --text-body-s: 16px;
+    --text-body-s--line-height: 1.5;
+    --text-body-s--font-weight: 400;
+    --text-label: 18px;
+    --text-label--line-height: 1.3;
+    --text-label--font-weight: 500;
+    --text-label-s: 15px;
+    --text-label-s--line-height: 1.3;
+    --text-label-s--font-weight: 500;
+    --text-caption: 14px;
+    --text-caption--line-height: 1.4;
+    --text-caption--font-weight: 400;
+    --text-eyebrow: 18px;
+    --text-eyebrow--line-height: 1.3;
+    --text-eyebrow--font-weight: 500;
+    --text-eyebrow--letter-spacing: 0.04em;
+    --text-nota: 16px;
+    --text-nota--line-height: 1.4;
+    --text-nota--font-weight: 400;
+
+    --radius-tarjeta: 24px;
+    --radius-media: 20px;
+    --radius-etiqueta: 16px;
+
+    --shadow-header: -2px 0 12px #cac29b26, -10px 10px 22px #cac29b21, -22px 40px 30px #cac29b14, -39px 80px 36px #cac29b05;
+
+    --container-sitio: 1110px;
+}
+
+@layer base {
+    body {
+        @apply bg-fondo font-sans text-body text-tinta antialiased;
+    }
+}
+
+@layer components {
+    /*
+     * Fondo de nubes fijo (Inicio y Soluciones de sueño): clase en <main>.
+     * Escritorio: background-attachment fixed. Táctil/móvil (iOS no lo respeta): una capa fija
+     * detrás del contenido, recortada a <main> con clip-path para no pasar sobre header ni footer.
+     */
+    .fondo-nubes {
+        background-color: var(--color-fondo);
+        background-image: url("../img/pagina-fondo-nubes.webp");
+        background-repeat: no-repeat;
+        background-position: top center;
+        background-size: 100% auto;
+        background-attachment: fixed;
+    }
+
+    @media (max-width: 1023px), (hover: none) {
+        .fondo-nubes {
+            position: relative;
+            isolation: isolate;
+            clip-path: inset(0);
+            background-image: none;
+        }
+
+        .fondo-nubes::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background-image: url("../img/pagina-fondo-nubes.webp");
+            background-repeat: no-repeat;
+            background-position: top center;
+            background-size: 100% auto;
+            pointer-events: none;
+        }
+    }
+
+    /* Fondo de lunas de home/seccion-cta (decorativo, no editable). */
+    .fondo-lunas {
+        background-image: url("../img/cta-fondo-lunas.webp");
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* Lista con punto "•" dibujado por CSS (no forma parte del texto). */
+    .lista-puntos > li::before {
+        content: "•";
+        margin-inline-end: 0.3em;
+    }
+
+    /* Fila con un "•" entre ítems (credenciales del hero); en móvil van en líneas sin puntos. */
+    @media (min-width: 1024px) {
+        .fila-puntos > li + li::before {
+            content: "•";
+            margin-inline-end: 16px;
+        }
+    }
+
+    /* Testimonios: las tarjetas fuera de la vista asoman con opacidad reducida. */
+    .swiper-alto-auto .swiper-slide {
+        height: auto;
+    }
+
+    .testimonios-slider .swiper-slide:not(.swiper-slide-visible) {
+        opacity: 0.45;
+    }
+
+    /* Puntos de paginación de los sliders (Swiper). */
+    .slider-puntos {
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+    }
+
+    .slider-puntos .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+        border-radius: 9999px;
+        background-color: var(--color-blanco);
+        cursor: pointer;
+    }
+
+    .slider-puntos .swiper-pagination-bullet-active {
+        background-color: var(--color-marca);
+    }
+
+    .slider-puntos .swiper-pagination-bullet:focus-visible {
+        outline: 2px solid var(--color-marca);
+        outline-offset: 2px;
+    }
+}
+
+/* Base de los modales del proyecto (wp-modal), tomada del modal del coach en Figma. */
+:root {
+    --modal-backdrop: rgb(20 31 33 / 0.5);
+    --modal-bg: var(--color-blanco);
+    --modal-color: var(--color-tinta);
+    --modal-padding: 44px;
+    --modal-close-size: 40px;
+}
