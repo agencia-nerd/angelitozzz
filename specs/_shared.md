@@ -163,7 +163,7 @@ Cada componente vive en `template-parts/components/<nombre>.php` y recibe sus da
 
 - **Origen:** componente Figma "Tarjeta de blog" (18 usos: blog, articulo-blog, conoce-a-barbara)
 - **Destino:** `template-parts/components/post-card.php`
-- **Argumentos:** `imagen` (array imagen/ID, requerido), `categoria` (string, requerido), `fecha` (string, requerido), `lectura` (string, "5 min de lectura", requerido), `titulo` (string, requerido), `resumen` (string, requerido), `url` (string, requerido)
+- **Argumentos:** `imagen` (array imagen/ID, requerido), `categoria` (string, requerido), `fecha` (string, "1 de marzo de 2024", requerido; la tarjeta antepone "Publicado el"), `lectura` (string, "5 min de lectura", requerido), `titulo` (string, requerido), `resumen` (string, requerido), `url` (string, requerido)
 - **Se usa en:** blog (las 4 secciones de categoría), articulo-blog/te-puede-interesar, conoce-a-barbara/seccion-blog, `category.php`
 
 ### hero-blog

@@ -15,9 +15,9 @@
     - título SEO "Conoce a Bárbara | Angelitozzz"
     - sin meta descripción en el diseño
     - fondo de la página `--color-fondo` (el hero y la reflexión no tienen fondo propio: es el del frame de la página)
-    - las decoraciones sueltas del hero y de la reflexión (estrellas, destello, luna, corazón) son capas del frame de la página (4017:20868), no de las secciones: no se descargaron y quedan por traer en la etapa C (ver el `Comportamiento` de cada sección)
+    - las decoraciones sueltas del hero y de la reflexión (estrellas, destello, luna, corazón) vienen de la imagen de fondo del frame de la página (4017:20868, un PNG opaco con el crema): se recortaron una por una con el crema pasado a transparente y quedan como WebP fijos del tema en `assets/img/conoce-a-barbara/` (ver el `Comportamiento` de cada sección)
     - sin frame móvil en Figma: el móvil sigue lo propuesto en el `Comportamiento` de cada sección
-- **Estado:** pendiente
+- **Estado:** aplicado
 
 ## Sección: hero
 
@@ -25,8 +25,8 @@
 - **Destino:** `template-parts/pages/conoce-a-barbara/hero.php`
 - **Grupo:** `conoce_a_barbara_hero`
 - **Skill:** wp-helper
-- **Comportamiento:** contenedor `--container-sitio` con `py-14`. Encabezado centrado: antetítulo (`--text-eyebrow`, `--color-marca-suave`), título `h1` (`--text-display`, `--color-marca`) con el corazón naranja (`hero-corazon.svg`, 46 × 42, decorativo, fijo del tema) a su derecha, y bajada (`--text-body-xl`, `--color-marca`). Debajo, a 191 px del borde superior del bloque, dos columnas con `gap-20` centradas en vertical: texto a la izquierda (flexible) y foto a la derecha (460 × 560, `aspect-[23/28]`, `object-cover`, radio 32 px como valor suelto), que es la imagen principal de la página (`'loading' => 'eager'`, `'alt_fallback'` con el título). Los párrafos son Regular 20 / 1.5 sin estilo de Figma, `--color-tinta`, separados por 18 px (`mb-4.5`); su valor es igual al token `--text-body-l` y lo usan. El texto del campo se separa en párrafos por línea en blanco (`wpautop`). **Decoraciones por traer del frame de la página (4017:20868)**, no están en el código de la sección: estrella rosa arriba a la izquierda (≈ x 330–395, y 0–60 de la sección, asomando sobre el borde superior), destello amarillo chico sobre la bajada (≈ x 995–1015, y 170–190, entre "propósito" y el guion), luna teal a la derecha de la foto (≈ x 1575–1620, y 595–640) y un trazo rosa cortado en el borde superior derecho (≈ x 1530–1545, y 0–10); van como SVG con `alt=""` y `aria-hidden`, en posición absoluta respecto a la sección. Móvil (propuesto): `px-4 py-10`, encabezado centrado con el título en `--text-h3` y el corazón a 32 px, bajada en `--text-body-l`; las columnas pasan a una sola: texto arriba y foto debajo a todo el ancho (máximo 460 px, centrada, misma proporción); las decoraciones se reducen y la luna se oculta.
-- **Estado:** pendiente
+- **Comportamiento:** contenedor `--container-sitio` con `py-14`. Encabezado centrado: antetítulo (`--text-eyebrow`, `--color-marca-suave`), título `h1` (`--text-display`, `--color-marca`) con el corazón naranja (`hero-corazon.svg`, 46 × 42, decorativo, fijo del tema) a su derecha, y bajada (`--text-body-xl`, `--color-marca`). Debajo, a 191 px del borde superior del bloque, dos columnas con `gap-20` centradas en vertical: texto a la izquierda (flexible) y foto a la derecha (460 × 560, `aspect-[23/28]`, `object-cover`, radio 32 px como valor suelto), que es la imagen principal de la página (`'loading' => 'eager'`, `'alt_fallback'` con el título). Los párrafos son Regular 20 / 1.5 sin estilo de Figma, `--color-tinta`, separados por 18 px (`mb-4.5`); su valor es igual al token `--text-body-l` y lo usan. El texto del campo se separa en párrafos por línea en blanco (`wpautop`). **Decoraciones** (recortadas del frame de la página 4017:20868, WebP con fondo transparente, `alt=""` y `aria-hidden`, en posición absoluta respecto al centro de la sección, cortadas por su borde superior como en Figma): estrella rosa arriba a la izquierda (`hero-estrella-rosa.webp`, 65 × 103), estrella rosa chica arriba a la derecha (`hero-estrella-rosa-chica.webp`, 38 × 55; en la lectura parecía un trazo), destello amarillo sobre la bajada (`hero-destello-amarillo.webp`, 24 × 27) y luna teal a la derecha de la foto (`hero-luna.webp`, 49 × 48). Móvil (propuesto): `px-4 py-10`, encabezado centrado con el título en `--text-h3` y el corazón a 32 px, bajada en `--text-body-l`; las columnas pasan a una sola: texto arriba y foto debajo a todo el ancho (máximo 460 px, centrada, misma proporción); las estrellas se reducen y se pegan a los bordes; la luna se oculta bajo `xl` y el destello bajo `md`.
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -40,11 +40,11 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] El título es el único `h1` de la página
-- [ ] La foto carga con `loading="eager"` y mantiene la proporción 23:28 en escritorio y móvil
-- [ ] Las cuatro decoraciones del frame de la página están descargadas y ubicadas como en la captura, sin tapar el texto
-- [ ] Los párrafos del texto salen separados como en el diseño (18 px entre ellos)
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] El título es el único `h1` de la página
+- [x] La foto carga con `loading="eager"` y mantiene la proporción 23:28 en escritorio y móvil
+- [x] Las cuatro decoraciones del frame de la página están descargadas y ubicadas como en la captura, sin tapar el texto
+- [x] Los párrafos del texto salen separados como en el diseño (18 px entre ellos)
 
 ## Sección: reflexion
 
@@ -52,10 +52,10 @@
 - **Destino:** `template-parts/pages/conoce-a-barbara/reflexion.php`
 - **Grupo:** `conoce_a_barbara_reflexion`
 - **Skill:** wp-helper
-- **Comportamiento:** contenedor `--container-sitio` con `py-14` y `gap-14` entre bloques. Arriba la cita como `h2` de la sección, centrada, ancho máximo 900 px, `--color-marca`, Medium Italic 40 / 1.15 (valor suelto: `text-[40px] leading-[1.15] font-medium italic`, no hay token). En el diseño la caja de 900 px queda alineada a la izquierda del contenedor; se centra (`mx-auto`) para alinearla con el bloque de misión. Debajo, dos columnas con `gap-20` centradas en vertical: foto a la izquierda (440 × 520, `aspect-[11/13]`, `object-cover`, radio 32 px suelto, `loading="lazy"`, `'alt_fallback'` con la cita) y texto a la derecha (párrafos Regular 20 / 1.5 sin estilo de Figma = `--text-body-l`, `--color-tinta`, separados por 18 px). Al final, bloque centrado de 820 px con `gap-3.5`: misión (`--text-h4`, `--color-marca`), cierre (Regular 20 / 1.5 = `--text-body-l`, líneas separadas 8 px), firma (`--text-h5`, `--color-marca`) con el corazón frambuesa (`reflexion-firma-corazon.svg`, 22 px, decorativo, fijo del tema), cargo (`--text-body-s`, `--color-tinta-suave`) y, 8 px más abajo, el botón compartido `boton` variante `frambuesa` con flecha. El botón lleva a la tienda (Soluciones de sueño), que aún está pendiente: queda con `#` y se anota como pendiente. **Decoraciones por traer del frame de la página (4017:20868)**, no están en el código de la sección: estrella teal de cuatro puntas a la izquierda de la cita (≈ x 298–326, y 97–127 de la sección) y corazón teal entre la foto y el texto (≈ x 885–920, y 565–598); van como SVG con `alt=""` y `aria-hidden`, en posición absoluta respecto a la sección. Móvil (propuesto): `px-4 py-10`; la cita baja a 28 px (valor suelto) con ancho completo; las columnas pasan a una sola, con la foto arriba (máximo 440 px, centrada, misma proporción) y el texto debajo; el bloque de misión a todo el ancho con la misión en `--text-h5`; el botón mantiene su ancho y se centra; la estrella se reduce y el corazón teal se oculta.
+- **Comportamiento:** contenedor `--container-sitio` con `py-14` y `gap-14` entre bloques. Arriba la cita como `h2` de la sección, centrada, ancho máximo 900 px, `--color-marca`, Medium Italic 40 / 1.15 (valor suelto: `text-[40px] leading-[1.15] font-medium italic`, no hay token). En el diseño la caja de 900 px queda alineada a la izquierda del contenedor; se centra (`mx-auto`) para alinearla con el bloque de misión. Debajo, dos columnas con `gap-20` centradas en vertical: foto a la izquierda (440 × 520, `aspect-[11/13]`, `object-cover`, radio 32 px suelto, `loading="lazy"`, `'alt_fallback'` con la cita) y texto a la derecha (párrafos Regular 20 / 1.5 sin estilo de Figma = `--text-body-l`, `--color-tinta`, separados por 18 px). Al final, bloque centrado de 820 px con `gap-3.5`: misión (`--text-h4`, `--color-marca`), cierre (Regular 20 / 1.5 = `--text-body-l`, líneas separadas 8 px), firma (`--text-h5`, `--color-marca`) con el corazón frambuesa (`reflexion-firma-corazon.svg`, 22 px, decorativo, fijo del tema), cargo (`--text-body-s`, `--color-tinta-suave`) y, 8 px más abajo, el botón compartido `boton` variante `frambuesa` con flecha. El botón lleva a la tienda (Soluciones de sueño), que aún está pendiente: queda con `#` y se anota como pendiente. **Decoraciones** (recortadas del frame de la página 4017:20868, WebP con fondo transparente, `alt=""` y `aria-hidden`, en posición absoluta respecto al centro de la sección): estrella teal de cuatro puntas a la izquierda de la cita (`reflexion-estrella.webp`, 33 × 33) y corazón teal entre la foto y el texto (`reflexion-corazon.webp`, 40 × 36). La foto usa `object-[65%_center]` para repetir el encuadre de Figma. Las líneas del cierre se separan 8 px con `[&_br]` (el texto lleva un salto de línea). Móvil (propuesto): `px-4 py-10`; la cita baja a 28 px (valor suelto) con ancho completo; las columnas pasan a una sola, con la foto arriba (máximo 440 px, centrada, misma proporción) y el texto debajo; el bloque de misión a todo el ancho con la misión en `--text-h5`; el botón mantiene su ancho y se centra; la estrella se reduce y el corazón teal se oculta.
 - **Indicaciones del diseño:**
     - el boton Conoce mis soluciones de sueño deberia de redirigir al shop que aun esta pendiente.
-- **Estado:** pendiente
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -72,11 +72,11 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] La cita es el `h2` de la sección y la misión no salta niveles de encabezado
-- [ ] El botón usa el componente `boton` (variante `frambuesa`) y apunta a `#`, anotado como pendiente hasta que exista la tienda
-- [ ] La foto mantiene la proporción 11:13 sin deformarse en escritorio y móvil
-- [ ] Las dos decoraciones del frame de la página están descargadas y ubicadas como en la captura, sin tapar el texto
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] La cita es el `h2` de la sección y la misión no salta niveles de encabezado
+- [x] El botón usa el componente `boton` (variante `frambuesa`) y apunta a `#`, anotado como pendiente hasta que exista la tienda
+- [x] La foto mantiene la proporción 11:13 sin deformarse en escritorio y móvil
+- [x] Las dos decoraciones del frame de la página están descargadas y ubicadas como en la captura, sin tapar el texto
 
 ## Sección: seccion-blog
 
@@ -84,10 +84,10 @@
 - **Destino:** `template-parts/pages/conoce-a-barbara/seccion-blog.php`
 - **Grupo:** `conoce_a_barbara_seccion_blog`
 - **Skill:** wp-helper
-- **Comportamiento:** fondo `--color-fondo`, contenedor `--container-sitio`, `py-26` y `gap-10`. Título `h2` alineado a la izquierda (`--text-h2`, `--color-marca`). Fila de 3 tarjetas con `gap-7.5` (30 px), cada una con el componente compartido `post-card` (título de tarjeta como `h3`, radio `--radius-media`, borde `--color-neutro`, etiqueta de esquina `etiqueta` estilo `esquina`). Debajo, centrado, el botón compartido `boton` variante `frambuesa` con flecha "Ver más artículos", que lleva a la página del blog (la página de entradas de Ajustes → Lectura, `home.php`). Contenido: el admin elige y ordena los artículos en el campo de relación `conoce_a_barbara_seccion_blog_articulos` (entradas del blog, tipo `post`); si no elige ninguno, la sección muestra los 3 últimos artículos del blog. En esta etapa no se escribe la consulta: las 3 tarjetas son ejemplos fijos del diseño pasados a `post-card` por `$args` (imágenes `blog-tarjeta-1/2/3-imagen.jpg`, categoría "Especiales", fechas "Publicado el 1 de marzo de 2024" / "12 de febrero de 2024" / "28 de enero de 2024", lectura 5 / 4 / 6 min, títulos "Aprendizaje del sueño y las lágrimas", "5 señales de que tu bebé está en transición de siestas", "Cómo crear el ambiente ideal para dormir", el mismo resumen y `url` `#`); la lectura de la relación y la alternativa de los 3 últimos se conectan en el paso de ACF/consultas. Si el título está vacío, se oculta. Móvil (propuesto): `px-4 py-16`, título en `--text-h3`, tarjetas en una columna (dos desde `md`, tres desde `lg`) y botón centrado.
+- **Comportamiento:** fondo `--color-fondo`, contenedor `--container-sitio`, `py-26` y `gap-10`. Título `h2` alineado a la izquierda (`--text-h2`, `--color-marca`). Fila de 3 tarjetas con `gap-7.5` (30 px), cada una con el componente compartido `post-card` (título de tarjeta como `h3`, radio `--radius-media`, borde `--color-neutro`, etiqueta de esquina `etiqueta` estilo `esquina`). Debajo, centrado, el botón compartido `boton` variante `frambuesa` con flecha "Ver más artículos", que lleva a la página del blog (la página de entradas de Ajustes → Lectura, `home.php`); mientras no haya página de entradas, el botón sale desactivado. Contenido: el admin elige y ordena los artículos en el campo de relación `conoce_a_barbara_seccion_blog_articulos` (entradas del blog, tipo `post`); si no elige ninguno, la sección muestra los 3 últimos artículos del blog. En esta etapa no se escribe la consulta: las 3 tarjetas son ejemplos fijos del diseño pasados a `post-card` por `$args` (imágenes `assets/img/blog/blog-tarjeta-1/2/3-imagen.webp`, categoría "Especiales", fechas "1 de marzo de 2024" / "12 de febrero de 2024" / "28 de enero de 2024", con "Publicado el" puesto por la tarjeta, lectura 5 / 4 / 6 min, títulos "Aprendizaje del sueño y las lágrimas", "5 señales de que tu bebé está en transición de siestas", "Cómo crear el ambiente ideal para dormir", el mismo resumen y `url` `#`); la lectura de la relación y la alternativa de los 3 últimos se conectan en el paso de ACF/consultas. Si el título está vacío, se oculta. Móvil (propuesto): `px-4 py-16`, título en `--text-h3`, tarjetas en una columna (dos desde `md`, tres desde `lg`) y botón centrado.
 - **Indicaciones del diseño:**
     - que tenga un campo relationalshilp creo que es, que se puede seleccionar y ordenar los articulos que el admi guste, si no pone niguno que salga los 3 ultimos articulos del blog.
-- **Estado:** pendiente
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -99,11 +99,11 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Las 3 tarjetas usan el componente `post-card` con `$args`, sin markup propio de tarjeta
-- [ ] No hay `WP_Query` ni lectura de la relación en esta etapa: las tarjetas son los ejemplos fijos del diseño
-- [ ] "Ver más artículos" usa el componente `boton` y lleva a la página del blog
-- [ ] En móvil las tarjetas pasan a una columna sin scroll horizontal
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Las 3 tarjetas usan el componente `post-card` con `$args`, sin markup propio de tarjeta
+- [x] No hay `WP_Query` ni lectura de la relación en esta etapa: las tarjetas son los ejemplos fijos del diseño
+- [x] "Ver más artículos" usa el componente `boton` y lleva a la página del blog
+- [x] En móvil las tarjetas pasan a una columna sin scroll horizontal
 
 ## Sección: cta-final
 
@@ -112,7 +112,7 @@
 - **Grupo:** `conoce_a_barbara_cta_final`
 - **Skill:** wp-helper
 - **Comportamiento:** usa el componente compartido `cta-final` (`_shared.md`), llamado desde la plantilla con `get_template_part('template-parts/components/cta-final', null, $args)` y los argumentos `titulo`, `descripcion` (vacía en esta página: el componente no la muestra) y `boton`. Fondo `--color-fondo-rosa`, título `h2` centrado (`--text-h2`, `--color-marca`), botón `boton` variante `frambuesa` con flecha, y los destellos y trazos blancos decorativos del componente (`cta-final-*.svg`, el destello grande sobresale por debajo de la sección). El botón "Encuentra tu solución" aún no tiene destino: queda con `#` y se anota como pendiente. Móvil: el del componente compartido (título en `--text-h3`, `px-4`, decoraciones reducidas u ocultas).
-- **Estado:** pendiente
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -124,7 +124,7 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] La sección es una llamada al componente `cta-final` con `$args`, sin markup propio en la plantilla
-- [ ] Sin descripción no queda un párrafo vacío
-- [ ] El botón apunta a `#`, anotado como pendiente
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] La sección es una llamada al componente `cta-final` con `$args`, sin markup propio en la plantilla
+- [x] Sin descripción no queda un párrafo vacío
+- [x] El botón apunta a `#`, anotado como pendiente
