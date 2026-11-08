@@ -12,7 +12,7 @@ Antes de las páginas, revisa y aprueba [\_shared.md](_shared.md): tokens, compo
 | Conoce a Bárbara     | [conoce-a-barbara.md](conoce-a-barbara.md)         | `pages/template-conoce-a-barbara.php`     | aplicado  |
 | Contacto             | [contacto.md](contacto.md)                         | `pages/template-contacto.php`             | pendiente |
 | Mundo Angelitozzz    | [mundo-angelitozzz.md](mundo-angelitozzz.md)       | `pages/template-mundo-angelitozzz.php`    | aplicado  |
-| Preguntas frecuentes | [preguntas-frecuentes.md](preguntas-frecuentes.md) | `pages/template-preguntas-frecuentes.php` | pendiente |
+| Preguntas frecuentes | [preguntas-frecuentes.md](preguntas-frecuentes.md) | `pages/template-preguntas-frecuentes.php` | aplicado  |
 | Blog                 | [blog.md](blog.md)                                 | `home.php`                                | pendiente |
 | Artículo del blog    | [articulo-blog.md](articulo-blog.md)               | `single.php`                              | pendiente |
 | Soluciones de sueño  | [soluciones-de-sueno.md](soluciones-de-sueno.md)   | `woocommerce/archive-product.php`         | pendiente |
