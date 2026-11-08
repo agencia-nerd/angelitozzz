@@ -6,6 +6,7 @@ require_once get_theme_file_path('/inc/enqueue.php');
 require_once get_theme_file_path('/inc/cleanup.php');
 require_once get_theme_file_path('/inc/comillas.php');
 require_once get_theme_file_path('/inc/crear-inicio.php');
+require_once get_theme_file_path('/inc/enlaces-permanentes.php');
 require_once get_theme_file_path('/inc/menus.php');
 require_once get_theme_file_path('/inc/helpers/images.php');
 require_once get_theme_file_path('/inc/helpers/links.php');
