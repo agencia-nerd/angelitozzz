@@ -14,3 +14,7 @@ if (document.querySelector('dialog[data-modal]')) {
     import('./modules/modal.js').then(({ initModals }) => initModals()).catch(console.error);
     import('./modules/modal-coach.js').then(({ initModalCoach }) => initModalCoach()).catch(console.error);
 }
+
+if (document.querySelector('[data-query="resultados"]')) {
+    import('./modules/query.js').then(({ initQuery }) => initQuery()).catch(console.error);
+}

@@ -215,6 +215,46 @@
         outline: 2px solid var(--color-marca);
         outline-offset: 2px;
     }
+
+    /* Paginación de listados (wp-query: paginate_links): círculos de 40 px, página actual en --color-marca. */
+    .paginacion {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .paginacion .page-numbers {
+        display: flex;
+        width: 40px;
+        height: 40px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--color-neutro);
+        border-radius: 9999px;
+        background-color: var(--color-blanco);
+        color: var(--color-marca);
+        font-size: var(--text-label);
+        line-height: var(--text-label--line-height);
+        font-weight: var(--text-label--font-weight);
+    }
+
+    .paginacion .page-numbers.current {
+        border-color: var(--color-marca);
+        background-color: var(--color-marca);
+        color: var(--color-fondo);
+    }
+
+    .paginacion .page-numbers.dots {
+        border-color: transparent;
+        background-color: transparent;
+    }
+
+    .paginacion a.page-numbers:focus-visible {
+        outline: 2px solid var(--color-marca);
+        outline-offset: 2px;
+    }
 }
 
 /* Base de los modales del proyecto (wp-modal), tomada del modal del coach en Figma. */
