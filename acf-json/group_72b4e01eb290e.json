@@ -1,0 +1,94 @@
+{
+    "key": "group_72b4e01eb290e",
+    "title": "Testimonio",
+    "fields": [
+        {
+            "key": "field_89a88d64df543",
+            "label": "Ficha",
+            "name": "testimonio_ficha",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_8f29cb8a81bbf",
+                    "label": "Estrellas",
+                    "name": "estrellas",
+                    "aria-label": "",
+                    "type": "button_group",
+                    "instructions": "Valoración del testimonio, de 1 a 5 estrellas (opciones: 1, 2, 3, 4, 5; por defecto 5). Se muestra junto al nombre",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "1": "1",
+                        "2": "2",
+                        "3": "3",
+                        "4": "4",
+                        "5_por_defecto_5_se_muestra_junto_al_nombre": "5; por defecto 5). Se muestra junto al nombre"
+                    },
+                    "default_value": "",
+                    "return_format": "value",
+                    "allow_in_bindings": 0,
+                    "allow_null": 0,
+                    "layout": "horizontal"
+                },
+                {
+                    "key": "field_589f82117cac7",
+                    "label": "Edad",
+                    "name": "edad",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Edad del bebé tal como se lee en la tarjeta, en la pastilla junto a la categoría.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "testimonio"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1794115815
+}

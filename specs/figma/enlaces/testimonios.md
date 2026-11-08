@@ -11,3 +11,4 @@
 ## Notas
 
 - incluye las skills necesarias.
+- Esta pagina no deberia de tener internas.

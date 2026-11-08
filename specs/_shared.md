@@ -191,7 +191,7 @@ Cada componente vive en `template-parts/components/<nombre>.php` y recibe sus da
 
 - **Origen:** tarjetas de testimonios/seccion-testimonios (foto 160 × 160, nombre, estrellas, categoría, edad del bebé, texto)
 - **Destino:** `template-parts/components/testimonio-card.php`
-- **Argumentos:** `foto` (array imagen/ID, requerido), `nombre` (string, requerido), `estrellas` (int 1–5, por defecto 5), `categoria` (string, requerido), `edad` (string, opcional), `texto` (string, requerido)
+- **Argumentos:** `post_id` (int, opcional: el testimonio; de él salen los demás datos y lo que se pase aparte tiene prioridad), `foto` (array imagen/ID), `nombre` (string, requerido), `estrellas` (int 1–5, por defecto 5), `categoria` (string), `edad` (string, opcional), `texto` (string, requerido)
 - **Se usa en:** `archive-testimonio.php` (página Testimonios)
 
 ### cta-final
