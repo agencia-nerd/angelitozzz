@@ -27,6 +27,7 @@
 - **Skill:** wp-helper
 - **Comportamiento:** contenedor `--container-sitio` con `py-14`. Encabezado centrado: antetítulo (`--text-eyebrow`, `--color-marca-suave`), título `h1` (`--text-display`, `--color-marca`) con el corazón naranja (`hero-corazon.svg`, 46 × 42, decorativo, fijo del tema) a su derecha, y bajada (`--text-body-xl`, `--color-marca`). Debajo, a 191 px del borde superior del bloque, dos columnas con `gap-20` centradas en vertical: texto a la izquierda (flexible) y foto a la derecha (460 × 560, `aspect-[23/28]`, `object-cover`, radio 32 px como valor suelto), que es la imagen principal de la página (`'loading' => 'eager'`, `'alt_fallback'` con el título). Los párrafos son Regular 20 / 1.5 sin estilo de Figma, `--color-tinta`, separados por 18 px (`mb-4.5`); su valor es igual al token `--text-body-l` y lo usan. El texto del campo se separa en párrafos por línea en blanco (`wpautop`). **Decoraciones** (recortadas del frame de la página 4017:20868, WebP con fondo transparente, `alt=""` y `aria-hidden`, en posición absoluta respecto al centro de la sección, cortadas por su borde superior como en Figma): estrella rosa arriba a la izquierda (`hero-estrella-rosa.webp`, 65 × 103), estrella rosa chica arriba a la derecha (`hero-estrella-rosa-chica.webp`, 38 × 55; en la lectura parecía un trazo), destello amarillo sobre la bajada (`hero-destello-amarillo.webp`, 24 × 27) y luna teal a la derecha de la foto (`hero-luna.webp`, 49 × 48). Móvil (propuesto): `px-4 py-10`, encabezado centrado con el título en `--text-h3` y el corazón a 32 px, bajada en `--text-body-l`; las columnas pasan a una sola: texto arriba y foto debajo a todo el ancho (máximo 460 px, centrada, misma proporción); las estrellas se reducen y se pegan a los bordes; la luna se oculta bajo `xl` y el destello bajo `md`.
 - **Estado:** aplicado
+- **ACF:** conectado
 
 **Campos ACF**
 
@@ -56,6 +57,7 @@
 - **Indicaciones del diseño:**
     - el boton Conoce mis soluciones de sueño deberia de redirigir al shop que aun esta pendiente.
 - **Estado:** aplicado
+- **ACF:** conectado
 
 **Campos ACF**
 
@@ -84,24 +86,25 @@
 - **Destino:** `template-parts/pages/conoce-a-barbara/seccion-blog.php`
 - **Grupo:** `conoce_a_barbara_seccion_blog`
 - **Skill:** wp-helper
-- **Comportamiento:** fondo `--color-fondo`, contenedor `--container-sitio`, `py-26` y `gap-10`. Título `h2` alineado a la izquierda (`--text-h2`, `--color-marca`). Fila de 3 tarjetas con `gap-7.5` (30 px), cada una con el componente compartido `post-card` (título de tarjeta como `h3`, radio `--radius-media`, borde `--color-neutro`, etiqueta de esquina `etiqueta` estilo `esquina`). Debajo, centrado, el botón compartido `boton` variante `frambuesa` con flecha "Ver más artículos", que lleva a la página del blog (la página de entradas de Ajustes → Lectura, `home.php`); mientras no haya página de entradas, el botón sale desactivado. Contenido: el admin elige y ordena los artículos en el campo de relación `conoce_a_barbara_seccion_blog_articulos` (entradas del blog, tipo `post`); si no elige ninguno, la sección muestra los 3 últimos artículos del blog. En esta etapa no se escribe la consulta: las 3 tarjetas son ejemplos fijos del diseño pasados a `post-card` por `$args` (imágenes `assets/img/blog/blog-tarjeta-1/2/3-imagen.webp`, categoría "Especiales", fechas "1 de marzo de 2024" / "12 de febrero de 2024" / "28 de enero de 2024", con "Publicado el" puesto por la tarjeta, lectura 5 / 4 / 6 min, títulos "Aprendizaje del sueño y las lágrimas", "5 señales de que tu bebé está en transición de siestas", "Cómo crear el ambiente ideal para dormir", el mismo resumen y `url` `#`); la lectura de la relación y la alternativa de los 3 últimos se conectan en el paso de ACF/consultas. Si el título está vacío, se oculta. Móvil (propuesto): `px-4 py-16`, título en `--text-h3`, tarjetas en una columna (dos desde `md`, tres desde `lg`) y botón centrado.
+- **Comportamiento:** fondo `--color-fondo`, contenedor `--container-sitio`, `py-26` y `gap-10`. Título `h2` alineado a la izquierda (`--text-h2`, `--color-marca`). Fila de 3 tarjetas con `gap-7.5` (30 px), cada una con el componente compartido `post-card` (título de tarjeta como `h3`, radio `--radius-media`, borde `--color-neutro`, etiqueta de esquina `etiqueta` estilo `esquina`). Debajo, centrado, el botón compartido `boton` variante `frambuesa` con flecha "Ver más artículos", que lleva a la página del blog (la página de entradas de Ajustes → Lectura, `home.php`); mientras no haya página de entradas, el botón sale desactivado. Contenido: el admin elige y ordena los artículos en el campo de relación `conoce_a_barbara_seccion_blog_articulos` (entradas del blog, tipo `post`); si no elige ninguno, la sección muestra los 3 últimos artículos del blog. En esta etapa no se escribe la consulta: las 3 tarjetas son ejemplos fijos del diseño pasados a `post-card` por `$args` (imágenes `assets/img/blog/blog-tarjeta-1/2/3-imagen.webp`, categoría "Especiales", fechas "1 de marzo de 2024" / "12 de febrero de 2024" / "28 de enero de 2024", con "Publicado el" puesto por la tarjeta, lectura 5 / 4 / 6 min, títulos "Aprendizaje del sueño y las lágrimas", "5 señales de que tu bebé está en transición de siestas", "Cómo crear el ambiente ideal para dormir", el mismo resumen y `url` `#`); la sección lee la relación y, mientras no exista el blog, el respaldo cuando no hay selección son esas 3 tarjetas de ejemplo (excepción a "sin texto de respaldo" porque no hay blog); wp-query las reemplaza por los 3 últimos reales. Si el título está vacío, se oculta. Móvil (propuesto): `px-4 py-16`, título en `--text-h3`, tarjetas en una columna (dos desde `md`, tres desde `lg`) y botón centrado.
 - **Indicaciones del diseño:**
     - que tenga un campo relationalshilp creo que es, que se puede seleccionar y ordenar los articulos que el admi guste, si no pone niguno que salga los 3 ultimos articulos del blog.
 - **Estado:** aplicado
+- **ACF:** conectado
 
 **Campos ACF**
 
 | Campo                                     | Tipo         | Descripción                                                                                                                                                                | Valor actual                      | Requerido |
 | ----------------------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- | --------- |
 | `conoce_a_barbara_seccion_blog_titulo`    | text         | Título de la sección de artículos.                                                                                                             | Últimos artículos de nuestro blog | no        |
-| `conoce_a_barbara_seccion_blog_articulos` | relationship | Artículos del blog que se muestran, en el orden elegido (arrástralos para ordenarlos). Si no eliges ninguno, se muestran los 3 últimos artículos. Recomendado: 3 artículos | —                                 | no        |
+| `conoce_a_barbara_seccion_blog_articulos` | relationship | Artículos del blog que se muestran, en el orden elegido (arrástralos para ordenarlos). Si no eliges ninguno, se muestran los 3 últimos artículos. Contenido: post. | —                                 | no        |
 | `conoce_a_barbara_seccion_blog_boton`     | link         | Botón bajo las tarjetas: texto y destino (la página del blog)                                                                                                              | Ver más artículos                 | no        |
 
 **Criterios de aceptación**
 
 - [x] Cumple los criterios comunes de `_shared.md`
 - [x] Las 3 tarjetas usan el componente `post-card` con `$args`, sin markup propio de tarjeta
-- [x] No hay `WP_Query` ni lectura de la relación en esta etapa: las tarjetas son los ejemplos fijos del diseño
+- [x] Lee la relación; sin selección muestra las 3 tarjetas de ejemplo del diseño (sin `WP_Query`) hasta que wp-query ponga los 3 últimos del blog
 - [x] "Ver más artículos" usa el componente `boton` y lleva a la página del blog
 - [x] En móvil las tarjetas pasan a una columna sin scroll horizontal
 
@@ -113,6 +116,7 @@
 - **Skill:** wp-helper
 - **Comportamiento:** usa el componente compartido `cta-final` (`_shared.md`), llamado desde la plantilla con `get_template_part('template-parts/components/cta-final', null, $args)` y los argumentos `titulo`, `descripcion` (vacía en esta página: el componente no la muestra) y `boton`. Fondo `--color-fondo-rosa`, título `h2` centrado (`--text-h2`, `--color-marca`), botón `boton` variante `frambuesa` con flecha, y los destellos y trazos blancos decorativos del componente (`cta-final-*.svg`, el destello grande sobresale por debajo de la sección). El botón "Encuentra tu solución" aún no tiene destino: queda con `#` y se anota como pendiente. Móvil: el del componente compartido (título en `--text-h3`, `px-4`, decoraciones reducidas u ocultas).
 - **Estado:** aplicado
+- **ACF:** conectado
 
 **Campos ACF**
 

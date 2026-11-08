@@ -2,20 +2,20 @@
 
 /**
  * Conoce a Bárbara · reflexión (specs/conoce-a-barbara.md, grupo conoce_a_barbara_reflexion).
- * Textos, imagen y enlace fijos hasta el paso ACF: cada uno está en la columna "valor actual" del spec.
+ * Lee su grupo ACF; el contenido inicial está en inc/acf/seed/conoce-a-barbara.php.
  */
 
 defined('ABSPATH') || exit;
 
-$cita   = '“Dormía mal. Mi bebé dormía peor. Y sin descanso no podía pensar, ni decidir, ni vivir... y mucho menos amar mi maternidad como merecía hacerlo.”';
-$imagen = get_theme_file_uri('assets/img/conoce-a-barbara/reflexion-foto-barbara.webp');
-$texto  = "Pero algo cambió cuando entendí que necesitaba ayuda. Que mi bienestar también importa. Que para cuidar de mi bebé, primero tenía que cuidarme a mí.\n\nFue entonces cuando empecé a investigar, a formarme, a estudiar el sueño infantil — no solo como técnica, sino como una herramienta para sanar y empoderar. Y encontré mi vocación.\n\nDesde 2016 he acompañado a más de 8.000 familias en 12 países. Porque cuando un bebé duerme bien, la madre renace. Y esa transformación es lo que me mueve.\n\nHoy soy Coach de Sueño Pediátrico — pero más que eso: soy una mujer comprometida con ayudarte a soltar la culpa, tomar decisiones conscientes y vivir tu maternidad desde el goce, la salud y la conexión real. Mi enfoque es personalizado, respetuoso, basado en ciencia y lleno de humanidad.";
-$mision = 'Mi misión no es solo enseñarte a mejorar el sueño de tu bebé. Mi misión es devolverte el poder sobre tu maternidad.';
-$cierre = "Tu derecho a descansar. Tu derecho a disfrutar. Tu derecho a ser tú, entera.\nAquí empieza tu transformación. Y yo estoy aquí para caminarla contigo.";
-$firma  = 'Con cariño infinito, Balli';
-$cargo  = 'Tu Coach de Sueño Pediátrico';
-// Lleva a la tienda (Soluciones de sueño), que aún no existe (pendiente).
-$boton = ['url' => '#', 'title' => 'Conoce mis soluciones de sueño', 'target' => ''];
+$reflexion = get_field('conoce_a_barbara_reflexion') ?: [];
+$cita      = (string) ($reflexion['cita'] ?? '');
+$imagen    = $reflexion['imagen'] ?? null;
+$texto     = (string) ($reflexion['texto'] ?? '');
+$mision    = (string) ($reflexion['mision'] ?? '');
+$cierre    = (string) ($reflexion['cierre'] ?? '');
+$firma     = (string) ($reflexion['firma'] ?? '');
+$cargo     = (string) ($reflexion['cargo'] ?? '');
+$boton     = $reflexion['boton'] ?? null;
 
 $deco = static fn(string $archivo): string => esc_url(get_theme_file_uri('assets/img/conoce-a-barbara/' . $archivo));
 ?>

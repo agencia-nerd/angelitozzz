@@ -2,17 +2,18 @@
 
 /**
  * Conoce a Bárbara · hero (specs/conoce-a-barbara.md, grupo conoce_a_barbara_hero).
- * Textos e imagen fijos hasta el paso ACF: cada uno está en la columna "valor actual" del spec.
+ * Lee su grupo ACF; el contenido inicial está en inc/acf/seed/conoce-a-barbara.php.
  * Las decoraciones (estrellas, destello, luna) son assets fijos del tema, recortados del frame de la página.
  */
 
 defined('ABSPATH') || exit;
 
-$antetitulo = 'Conoce a Bárbara';
-$titulo     = 'Hola, soy Bárbara.';
-$bajada     = 'Del agotamiento al propósito — mi historia.';
-$texto      = "Hola, soy Bárbara — fundadora de Angelitozzz y mamá de dos angelitos que transformaron mi vida de la manera más intensa... y dolorosa.\n\nCuando nació mi hija Emma, la maternidad me golpeó con una fuerza que no esperaba. A pesar de estar informada y “lista”, terminé envuelta en noches infinitas, llanto constante, dolor físico y una angustia que no podía nombrar. Me enfrenté a una Depresión Post Parto que me hizo sentir aislada, agotada, perdida. Me sentía una extraña en mi propia historia.\n\nY lo más duro: sentía culpa por no estar disfrutando la experiencia que se suponía debía ser la más hermosa de mi vida.";
-$imagen     = get_theme_file_uri('assets/img/conoce-a-barbara/hero-foto-barbara.webp');
+$hero       = get_field('conoce_a_barbara_hero') ?: [];
+$antetitulo = (string) ($hero['antetitulo'] ?? '');
+$titulo     = (string) ($hero['titulo'] ?? '');
+$bajada     = (string) ($hero['bajada'] ?? '');
+$texto      = (string) ($hero['texto'] ?? '');
+$imagen     = $hero['imagen'] ?? null;
 
 $deco = static fn(string $archivo): string => esc_url(get_theme_file_uri('assets/img/conoce-a-barbara/' . $archivo));
 ?>

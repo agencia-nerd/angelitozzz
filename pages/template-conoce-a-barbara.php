@@ -9,6 +9,8 @@
 defined('ABSPATH') || exit;
 
 get_header();
+
+$cta_final = get_field('conoce_a_barbara_cta_final') ?: [];
 ?>
 
 <main id="main-content" class="bg-fondo">
@@ -17,12 +19,11 @@ get_header();
     get_template_part('template-parts/pages/conoce-a-barbara/reflexion');
     get_template_part('template-parts/pages/conoce-a-barbara/seccion-blog');
 
-    // Cierre: componente compartido cta-final. Sin descripción en esta página.
+    // Cierre: componente compartido cta-final.
     get_template_part('template-parts/components/cta-final', null, [
-        'titulo'      => 'La maternidad ya tiene suficientes sacrificios. El sueño no tiene que ser uno de ellos.',
-        'descripcion' => '',
-        // Lleva a la tienda (Soluciones de sueño), que aún no existe (pendiente).
-        'boton'       => ['url' => '#', 'title' => 'Encuentra tu solución', 'target' => ''],
+        'titulo'      => (string) ($cta_final['titulo'] ?? ''),
+        'descripcion' => (string) ($cta_final['descripcion'] ?? ''),
+        'boton'       => $cta_final['boton'] ?? null,
     ]);
     ?>
 </main>
