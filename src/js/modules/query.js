@@ -1,6 +1,6 @@
 /*
  * Listados sin recargar (skill wp-query).
- * Versión del motor: 1.2.0
+ * Versión del motor: 1.2.1
  *
  * Es genérico: sirve para todos los listados del tema. Sin este módulo el listado funciona igual (el formulario de
  * filtros es un <form method="get"> normal y la paginación son enlaces). Con él:
