@@ -10,7 +10,7 @@ Antes de las páginas, revisa y aprueba [\_shared.md](_shared.md): tokens, compo
 | -------------------- | -------------------------------------------------- | ----------------------------------------- | --------- |
 | Inicio               | [home.md](home.md)                                 | `front-page.php`                          | aplicado  |
 | Conoce a Bárbara     | [conoce-a-barbara.md](conoce-a-barbara.md)         | `pages/template-conoce-a-barbara.php`     | aplicado  |
-| Contacto             | [contacto.md](contacto.md)                         | `pages/template-contacto.php`             | pendiente |
+| Contacto             | [contacto.md](contacto.md)                         | `pages/template-contacto.php`             | aplicado  |
 | Mundo Angelitozzz    | [mundo-angelitozzz.md](mundo-angelitozzz.md)       | `pages/template-mundo-angelitozzz.php`    | aplicado  |
 | Preguntas frecuentes | [preguntas-frecuentes.md](preguntas-frecuentes.md) | `pages/template-preguntas-frecuentes.php` | aplicado  |
 | Blog                 | [blog.md](blog.md)                                 | `home.php`                                | pendiente |

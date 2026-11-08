@@ -23,6 +23,11 @@ return [
             'mensaje' => 'Hola, soy {nombre} 💛 Quiero ayuda con el sueño de mi bebé.',
         ],
         // Las 3 redes del diseño, sin URL todavía: una red sin enlace no se muestra.
+        'opciones_contacto' => [
+            'destinatarios_contacto'   => [['email' => 'info@angelitozzz.com']],
+            'destinatarios_coach'      => [['email' => 'info@angelitozzz.com']],
+            'destinatarios_newsletter' => [['email' => 'info@angelitozzz.com']],
+        ],
         'opciones_redes' => [
             'items'  => [
                 ['red' => 'instagram', 'enlace' => ''],

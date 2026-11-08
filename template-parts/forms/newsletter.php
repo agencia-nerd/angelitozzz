@@ -8,7 +8,7 @@
 defined('ABSPATH') || exit;
 
 $form_id        = 'newsletter';
-$fallback_email = 'info@angelitozzz.com';
+$fallback_email = angelitozzz_form_recipients('newsletter')[0] ?? '';
 ?>
 <form class="relative w-full lg:w-[374px]" <?php angelitozzz_form_attrs($form_id); ?>>
     <noscript>

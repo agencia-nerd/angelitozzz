@@ -10,7 +10,7 @@ defined('ABSPATH') || exit;
 
 $form_id        = 'coach';
 $privacy_url    = get_privacy_policy_url();
-$fallback_email = 'info@angelitozzz.com';
+$fallback_email = angelitozzz_form_recipients('coach')[0] ?? '';
 
 $coach          = get_field('opciones_modal_coach', 'option') ?: [];
 $ayuda_whatsapp = (string) ($coach['ayuda_whatsapp'] ?? '');
