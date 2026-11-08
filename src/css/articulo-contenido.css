@@ -1,0 +1,174 @@
+/*
+ * Contenido del artículo del blog (specs/articulo-blog.md, cuerpo-del-articulo): lo que la autora escribe en el
+ * editor, con el aspecto del diseño en lugar de los estilos por defecto de WordPress.
+ * Todo cuelga de la clase del contenedor (.articulo-contenido, en cuerpo-del-articulo.php) y va sobre el HTML
+ * normal (p, h2, ul, blockquote, figure): no depende del editor ni de clases que ponga el editor.
+ * Sin @layer a propósito: así gana a los estilos de los bloques de WordPress, que tampoco usan capas.
+ */
+
+:where(.articulo-contenido) {
+    @apply text-body-l text-tinta;
+
+    /* Ritmo vertical: 24 px entre bloques y 16 px entre párrafos seguidos. */
+    & > * {
+        margin-block: 0;
+    }
+
+    & > * + * {
+        margin-top: 24px;
+    }
+
+    & > p + p {
+        margin-top: 16px;
+    }
+
+    & p {
+        @apply text-body-l text-tinta;
+    }
+
+    & h2 {
+        @apply text-h3 text-marca;
+    }
+
+    & h3 {
+        @apply text-h4 text-marca;
+    }
+
+    & a {
+        @apply text-acento underline underline-offset-2;
+    }
+
+    /* Entradilla: el primer párrafo del artículo. */
+    & > p:first-child {
+        @apply text-body-xl text-marca;
+    }
+
+    /* Listas: viñeta "•" y 10 px entre ítems; las numeradas con números y el mismo ritmo. */
+    & ul,
+    & ol {
+        @apply text-body-l text-tinta;
+        padding-left: 0;
+    }
+
+    & ul {
+        list-style: none;
+    }
+
+    & ul > li {
+        position: relative;
+        padding-left: 1.25em;
+    }
+
+    & ul > li::before {
+        content: "•";
+        position: absolute;
+        left: 0.15em;
+    }
+
+    & ol {
+        list-style: decimal;
+        padding-left: 1.4em;
+    }
+
+    & li + li {
+        margin-top: 10px;
+    }
+
+    /* Imagen: todo el ancho de la columna, alto automático (respeta la proporción que sube la autora). */
+    & figure {
+        margin-inline: 0;
+    }
+
+    & figure img,
+    & > p > img,
+    & img.size-full,
+    & img.size-large {
+        display: block;
+        width: 100%;
+        height: auto;
+        @apply rounded-media;
+    }
+
+    & figcaption,
+    & .wp-caption-text {
+        margin: 24px 0 0;
+        @apply text-center text-caption text-tinta-suave;
+    }
+
+    /* El editor clásico escribe el ancho de la foto con pie en línea: nunca más ancho que la columna. */
+    & .wp-caption {
+        max-width: 100%;
+    }
+
+    /* Cita (cualquier blockquote): la "Cita destacada" del diseño. */
+    & blockquote {
+        margin-inline: 0;
+        padding: 28px 32px;
+        border-left: 6px solid var(--color-acento);
+        @apply rounded-media bg-fondo-rosa;
+    }
+
+    & blockquote p {
+        /* Valor suelto del diseño: Barlow Condensed Medium Italic 26/1.25 (no hay token de cita). */
+        margin: 0;
+        font-size: 26px;
+        line-height: 1.25;
+        font-weight: 500;
+        font-style: italic;
+        @apply text-marca;
+    }
+
+    /* Firma: el cite del editor de bloques o, en el clásico, el último párrafo cuando la cita tiene más de uno
+       (con o sin un cite adentro: el guion y el espacio se ponen una sola vez, en el párrafo). */
+    & blockquote > cite,
+    & blockquote .wp-block-quote__citation,
+    & blockquote > p:last-child:not(:first-child) {
+        display: block;
+        margin-top: 8px;
+        font-size: 15px;
+        line-height: 1.3;
+        font-weight: 500;
+        font-style: normal;
+        @apply text-tinta-suave;
+    }
+
+    & blockquote > p cite {
+        font-style: normal;
+    }
+
+    & blockquote > cite::before,
+    & blockquote .wp-block-quote__citation::before,
+    & blockquote > p:last-child:not(:first-child)::before {
+        content: "— ";
+    }
+
+    /* Móvil (propuesto en el spec). */
+    @media (width < 48rem) {
+        & p,
+        & ul,
+        & ol {
+            font-size: 18px;
+        }
+
+        & > p:first-child {
+            font-size: 20px;
+        }
+
+        & h2 {
+            font-size: 26px;
+        }
+
+        & blockquote {
+            padding: 20px;
+        }
+
+        & blockquote p {
+            font-size: 22px;
+        }
+
+        & blockquote > p:last-child:not(:first-child) {
+            font-size: 15px;
+        }
+
+    }
+}

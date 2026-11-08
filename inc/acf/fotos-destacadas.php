@@ -8,10 +8,11 @@ defined('ABSPATH') || exit;
  * Si el cliente cambia o quita la foto, no se vuelve a pisar.
  */
 
-// Seed de cada contenido => opción que marca que ya se cargaron todas sus fotos.
+// Seed de cada contenido => opción con la firma de los elementos cuyas fotos ya se cargaron. Si el seed suma
+// elementos, la firma cambia y se vuelve a revisar (cada elemento tiene su propia marca: nada se duplica).
 const ANGELITOZZZ_FOTOS_DESTACADAS = [
     'testimonio.php' => 'angelitozzz_testimonios_fotos_cargadas',
-    'post.php'       => 'angelitozzz_entradas_fotos_cargadas',
+    'entrada.php'    => 'angelitozzz_entradas_fotos_cargadas',
 ];
 
 function angelitozzz_fotos_destacadas_cargar(): void
@@ -21,13 +22,13 @@ function angelitozzz_fotos_destacadas_cargar(): void
     }
 
     foreach (ANGELITOZZZ_FOTOS_DESTACADAS as $seed_archivo => $opcion) {
-        if (get_option($opcion)) {
-            continue;
-        }
-
         $archivo = get_theme_file_path('inc/acf/seed/' . $seed_archivo);
         $seed    = is_readable($archivo) ? require $archivo : [];
         $items   = is_array($seed) ? (array) ($seed['items'] ?? []) : [];
+        $firma   = md5(implode(',', array_map(static fn($item) => (string) ($item['id'] ?? ''), $items)));
+        if (get_option($opcion) === $firma) {
+            continue;
+        }
         $tipo    = (string) ($seed['post_type'] ?? 'post');
         $pendiente = false;
 
@@ -73,7 +74,7 @@ function angelitozzz_fotos_destacadas_cargar(): void
         }
 
         if (!$pendiente && $items) {
-            update_option($opcion, 1, false);
+            update_option($opcion, $firma, false);
         }
     }
 }

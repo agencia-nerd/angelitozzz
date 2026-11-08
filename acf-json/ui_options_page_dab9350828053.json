@@ -1,0 +1,26 @@
+{
+    "key": "ui_options_page_dab9350828053",
+    "title": "Artículo del blog",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Artículo del blog",
+    "menu_slug": "articulo-del-blog",
+    "parent_slug": "ajustes-del-sitio",
+    "advanced_configuration": false,
+    "icon_url": "",
+    "menu_title": "Artículo del blog",
+    "position": "",
+    "redirect": false,
+    "description": "",
+    "menu_icon": {
+        "type": "dashicons",
+        "value": "dashicons-admin-generic"
+    },
+    "update_button": "Guardar cambios",
+    "updated_message": "Cambios guardados",
+    "capability": "edit_posts",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": false,
+    "modified": 1794177493
+}
