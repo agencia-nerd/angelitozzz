@@ -45,7 +45,7 @@ Stack: WordPress (Local WP) + Vite + Tailwind + pnpm.
 <!-- wp-helper:end -->
 
 <!-- design-import:start -->
-## Specs de diseño (design-import 1.15.0)
+## Specs de diseño (design-import 1.16.0)
 - Los specs viven en `specs/` (`_index.md`, `_shared.md` y un archivo por página). Son documentación del tema: no se suben al servidor.
 - Aplica solo las páginas con estado `aprobado` en `specs/_index.md` y deja el estado en `aplicado` al terminar.
 - Cada página es un grupo de campos ACF (`Grupo ACF` y `Ubicación` en su spec) y cada sección es un campo `group` (`home_hero`). Blog, catálogo y WooCommerce se describen en la tabla "Contenido dinámico" de `_shared.md`: no escribas consultas, filtros ni lógica de Woo hasta ese paso.
@@ -74,7 +74,7 @@ Stack: WordPress (Local WP) + Vite + Tailwind + pnpm.
 <!-- wp-modal:end -->
 
 <!-- wp-acf:start -->
-## ACF administrable (wp-acf 1.9.0)
+## ACF administrable (wp-acf 1.12.1)
 - Los campos, tipos de contenido, taxonomías y páginas de opciones viven en `acf-json/` y los genera `wp-acf` desde los specs (`generate.mjs`); no los edites a mano. Si algo se cambia desde el admin de ACF, el JSON queda distinto y se avisa como conflicto al regenerar.
 - `inc/acf/runner.php` es el motor: no lo edites (se actualiza desde la skill). Sincroniza el JSON con la base, crea las páginas, carga el contenido inicial, los menús y el logo, al activar el tema y desde Herramientas > Cargar contenido inicial. Nunca pisa lo que ya se cargó.
 - Los datos del proyecto son `inc/acf/paginas.php` (lo genera la skill), `inc/acf/sitio.php` (menús y logo) y `inc/acf/seed/<página>.php` (el texto, las imágenes y los enlaces que salieron de cada plantilla).

@@ -6,6 +6,7 @@ defined('ABSPATH') || exit;
  * no se edita a mano.
  */
 return [
+    'blog' => ['titulo' => 'Blog', 'slug' => 'blog', 'frente' => false, 'plantilla' => '', 'padre' => '', 'entradas' => true],
     'conoce-a-barbara' => ['titulo' => 'Conoce a Bárbara', 'slug' => 'conoce-a-barbara', 'frente' => false, 'plantilla' => 'pages/template-conoce-a-barbara.php', 'padre' => ''],
     'contacto' => ['titulo' => 'Contacto', 'slug' => 'contacto', 'frente' => false, 'plantilla' => 'pages/template-contacto.php', 'padre' => ''],
     'home' => ['titulo' => 'Inicio', 'slug' => 'inicio', 'frente' => true, 'plantilla' => '', 'padre' => ''],

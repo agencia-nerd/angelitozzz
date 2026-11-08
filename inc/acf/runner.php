@@ -3,7 +3,7 @@ defined('ABSPATH') || exit;
 
 /*
  * Sincronización de ACF y carga inicial de contenido (skill wp-acf).
- * Versión del motor: 1.9.0
+ * Versión del motor: 1.12.1
  *
  * Genérico: no se edita por proyecto. Los datos del proyecto viven en:
  *   inc/acf/paginas.php   páginas de WordPress (lo genera wp-acf desde los specs)
@@ -91,40 +91,88 @@ function angelitozzz_acf_attachment(string $relative): int
     return (int) $id;
 }
 
-// Reemplaza los marcadores de una carga: ['_file' => 'assets/img/x.webp', 'alt' => '...'] por el ID del adjunto y
-// ['_page' => 'tarifario'] por la ruta relativa de esa página ('/tarifario/'), sin dominio: así la base de datos no
-// depende de si el sitio está en local o en producción. ['_item' => 'producto-1'] (un relationship) es el ID del
-// elemento de ejemplo con ese id; si aún no existe, se quita de la lista.
+// Resuelve un marcador de una carga a su valor. Devuelve null si lo que nombra no existe (el llamador lo quita).
+//   ['_file' => 'assets/img/x.webp', 'alt' => '...']  ID del adjunto (image, file, gallery)
+//   ['_page' => 'tarifario']                          ruta relativa de esa página ('/tarifario/'), sin dominio: así la
+//                                                     base de datos no depende de si el sitio está en local o en producción
+//   ['_item' => 'producto-1']                         ID del elemento de ejemplo con ese id (relationship, post_object, page_link)
+//   ['_post' => 'contacto', 'type' => 'page']         ID de una página o entrada por su slug (type: 'page' por defecto)
+//   ['_term' => 'especiales', 'taxonomy' => 'category', 'nombre' => 'Especiales']
+//                                                     ID del término (taxonomy); si no existe lo crea (nombre opcional)
+//   ['_user' => 'admin']                              ID del usuario por su login o su correo
+function angelitozzz_acf_marker(string $marker, array $value, array $pages)
+{
+    switch ($marker) {
+        case '_file':
+            $id = angelitozzz_acf_attachment((string) $value['_file']);
+            if ($id && !empty($value['alt']) && get_post_meta($id, '_wp_attachment_image_alt', true) === '') {
+                update_post_meta($id, '_wp_attachment_image_alt', (string) $value['alt']);
+            }
+            return $id ?: '';
+
+        case '_page':
+            $slug = (string) $value['_page'];
+            $link = isset($pages[$slug]) ? get_permalink($pages[$slug]) : '';
+            return wp_make_link_relative($link ?: home_url('/' . trim($slug, '/') . '/'));
+
+        case '_item':
+            $found = get_posts([
+                'post_type'      => 'any',
+                'post_status'    => 'any',
+                'posts_per_page' => 1,
+                'fields'         => 'ids',
+                'meta_key'       => '_angelitozzz_seed_id',
+                'meta_value'     => (string) $value['_item'],
+            ]);
+            return $found ? (int) $found[0] : null;
+
+        case '_post':
+            $slug = (string) $value['_post'];
+            $type = (string) ($value['type'] ?? 'page');
+            if ($type === 'page' && !empty($pages[$slug])) {
+                return (int) $pages[$slug];
+            }
+            $post = get_page_by_path($slug, OBJECT, $type);
+            return $post ? (int) $post->ID : null;
+
+        case '_term':
+            $taxonomy = (string) ($value['taxonomy'] ?? '');
+            if ($taxonomy === '' || !taxonomy_exists($taxonomy)) {
+                return null;
+            }
+            $slug = sanitize_title((string) $value['_term']);
+            $term = get_term_by('slug', $slug, $taxonomy);
+            if ($term) {
+                return (int) $term->term_id;
+            }
+            $name = (string) ($value['nombre'] ?? ucfirst(str_replace('-', ' ', $slug)));
+            $made = wp_insert_term($name, $taxonomy, ['slug' => $slug]);
+            if (is_wp_error($made)) {
+                $existing = $made->get_error_data('term_exists');
+                return $existing ? (int) $existing : null;
+            }
+            return (int) $made['term_id'];
+
+        case '_user':
+            $user = get_user_by('login', (string) $value['_user']) ?: get_user_by('email', (string) $value['_user']);
+            return $user ? (int) $user->ID : null;
+    }
+
+    return null;
+}
+
+// Recorre una carga a cualquier profundidad (campo suelto, repeater, group, layouts de un flexible_content) y
+// reemplaza cada marcador. Un marcador que no se resuelve se quita de su lista o de sus claves.
 function angelitozzz_acf_resolve($value, array $pages)
 {
     if (!is_array($value)) {
         return $value;
     }
 
-    if (isset($value['_file'])) {
-        $id = angelitozzz_acf_attachment((string) $value['_file']);
-        if ($id && !empty($value['alt']) && get_post_meta($id, '_wp_attachment_image_alt', true) === '') {
-            update_post_meta($id, '_wp_attachment_image_alt', (string) $value['alt']);
+    foreach (['_file', '_page', '_item', '_post', '_term', '_user'] as $marker) {
+        if (isset($value[$marker])) {
+            return angelitozzz_acf_marker($marker, $value, $pages);
         }
-        return $id ?: '';
-    }
-
-    if (isset($value['_page'])) {
-        $slug = (string) $value['_page'];
-        $link = isset($pages[$slug]) ? get_permalink($pages[$slug]) : '';
-        return wp_make_link_relative($link ?: home_url('/' . trim($slug, '/') . '/'));
-    }
-
-    if (isset($value['_item'])) {
-        $found = get_posts([
-            'post_type'      => 'any',
-            'post_status'    => 'any',
-            'posts_per_page' => 1,
-            'fields'         => 'ids',
-            'meta_key'       => '_angelitozzz_seed_id',
-            'meta_value'     => (string) $value['_item'],
-        ]);
-        return $found ? (int) $found[0] : null;
     }
 
     $resolved = [];
@@ -199,6 +247,11 @@ function angelitozzz_acf_pages(): array
         $front_id = get_option('show_on_front') === 'page' ? (int) get_option('page_on_front') : 0;
         $front_ok = $front_id && get_post_status($front_id) === 'publish';
 
+        // La página de entradas (Ajustes > Lectura > "Tu página de entradas"): la lista de posts del blog (home.php).
+        $posts    = !$front && !empty($page['entradas']);
+        $posts_id = $posts ? (int) get_option('page_for_posts') : 0;
+        $posts_ok = $posts_id && get_post_status($posts_id) === 'publish';
+
         $parent_key = $front ? '' : (string) ($page['padre'] ?? '');
         $parent_id  = $parent_key === '' ? 0 : (int) ($ids[$parent_key] ?? 0);
         if ($parent_key !== '' && !$parent_id) {
@@ -210,6 +263,8 @@ function angelitozzz_acf_pages(): array
         $state = 'existente';
         if ($front && $front_ok) {
             $id = $front_id;
+        } elseif ($posts && $posts_ok) {
+            $id = $posts_id;
         } else {
             $existing = get_page_by_path($parent_id ? get_page_uri($parent_id) . '/' . $slug : $slug);
             if ($existing && $existing->post_status !== 'trash') {
@@ -245,6 +300,8 @@ function angelitozzz_acf_pages(): array
         if ($front && !$front_ok) {
             update_option('page_on_front', $id);
             update_option('show_on_front', 'page');
+        } elseif ($posts && !$posts_ok) {
+            update_option('page_for_posts', $id);
         } elseif (!$front && !empty($page['plantilla'])) {
             $current = (string) get_post_meta($id, '_wp_page_template', true);
             if ($current === '' || $current === 'default') {

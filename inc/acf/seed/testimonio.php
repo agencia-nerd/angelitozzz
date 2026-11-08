@@ -4,7 +4,7 @@ defined('ABSPATH') || exit;
 /*
  * Testimonios de ejemplo del diseño (specs/testimonio.md y specs/testimonios.md).
  * Nombre = título, testimonio = contenido, categoría = término de categoria_testimonio (el campo la carga del término).
- * 'imagen' es la imagen destacada: el motor no la lee; la pone inc/acf/testimonios-fotos.php (una sola vez por testimonio).
+ * 'imagen' es la imagen destacada: el motor no la lee; la pone inc/acf/fotos-destacadas.php (una sola vez por testimonio).
  * Los carga inc/acf/runner.php una sola vez por item.
  */
 return [

@@ -343,7 +343,8 @@
                             "allow_in_bindings": 0,
                             "placeholder": "",
                             "prepend": "",
-                            "append": ""
+                            "append": "",
+                            "parent_repeater": "field_896d71d09ef3d"
                         }
                     ]
                 },
@@ -387,7 +388,8 @@
                             "allow_in_bindings": 0,
                             "placeholder": "",
                             "prepend": "",
-                            "append": ""
+                            "append": "",
+                            "parent_repeater": "field_55ba04a098f74"
                         }
                     ]
                 },
@@ -431,7 +433,8 @@
                             "allow_in_bindings": 0,
                             "placeholder": "",
                             "prepend": "",
-                            "append": ""
+                            "append": "",
+                            "parent_repeater": "field_cb972c223ae49"
                         }
                     ]
                 }
@@ -502,7 +505,10 @@
                             "allow_null": 0,
                             "ui": 0,
                             "ajax": 0,
-                            "placeholder": ""
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0,
+                            "parent_repeater": "field_86c562d81a9e1"
                         },
                         {
                             "key": "field_63df400996e5f",
@@ -520,7 +526,8 @@
                             },
                             "default_value": "",
                             "allow_in_bindings": 0,
-                            "placeholder": ""
+                            "placeholder": "",
+                            "parent_repeater": "field_86c562d81a9e1"
                         }
                     ]
                 }
@@ -587,5 +594,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1794162895
+    "modified": 1794168122
 }
