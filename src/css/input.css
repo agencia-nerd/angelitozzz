@@ -3,6 +3,7 @@
 @import "swiper/css" layer(base);
 @import "./modal.css";
 @import "./accordion.css";
+@import "./articulo-contenido.css";
 
 /* specs/ guarda el código de referencia de Figma (con clases de Tailwind): no se escanea. */
 @source not "../../specs";
@@ -120,6 +121,7 @@
 
     --container-sitio: 1110px;
 }
+
 
 @layer base {
     body {
