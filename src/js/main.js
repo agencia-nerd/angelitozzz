@@ -23,6 +23,10 @@ if (document.querySelector('[data-accordion]')) {
     import('./modules/accordion.js').then(({ initAccordions }) => initAccordions()).catch(console.error);
 }
 
+if (document.querySelector('[data-pastillas]')) {
+    import('./modules/pastillas.js').then(({ initPastillas }) => initPastillas()).catch(console.error);
+}
+
 if (document.querySelector('[data-ver-mas]')) {
     import('./modules/ver-mas.js').then(({ initVerMas }) => initVerMas()).catch(console.error);
 }

@@ -170,8 +170,15 @@ Cada componente vive en `template-parts/components/<nombre>.php` y recibe sus da
 
 - **Origen:** blog/hero-blog (nodo 3751:4324): antetítulo, título, bajada, buscador y pastillas de categoría
 - **Destino:** `template-parts/components/hero-blog.php`
-- **Argumentos:** `antetitulo` (string), `titulo` (string, requerido), `bajada` (string), `placeholder` (string), `boton` (string), `todos` (string, texto de la pastilla "Todos"), `activa` (string, slug de la categoría activa o vacío)
+- **Argumentos:** `antetitulo` (string), `titulo` (string, requerido), `bajada` (string), `activa` (string, slug de la categoría activa o vacío). El placeholder, "Buscar" y "Todos" son textos fijos del componente.
 - **Se usa en:** `home.php` (Blog), `category.php` (Ver todos)
+
+### blog-listado
+
+- **Origen:** grilla de `post-card` del blog (las tarjetas de las secciones de categoría, en 3 columnas): archivo de categoría y resultados de búsqueda
+- **Destino:** `template-parts/components/blog-listado.php`
+- **Argumentos:** `titulo` (string, opcional: título h2 solo para lectores de pantalla)
+- **Se usa en:** `category.php` (Ver todos), `home.php` (resultados de búsqueda)
 
 ### producto-card
 
