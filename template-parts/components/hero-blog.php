@@ -92,12 +92,12 @@ $pastilla_normal = $pastilla . ' bg-blanco text-marca hover:bg-neutro';
             <nav class="w-full pt-3" aria-label="<?= esc_attr__('Categorías del blog', 'angelitozzz') ?>">
                 <ul class="relative -mx-4 flex gap-2.5 overflow-x-auto px-4 pb-1 md:mx-0 md:flex-wrap md:justify-center md:overflow-visible md:px-0 md:pb-0" data-pastillas>
                     <li class="shrink-0">
-                        <a class="<?= esc_attr($activa === '' ? $pastilla_activa : $pastilla_normal) ?>" href="<?= esc_url($blog_url) ?>" data-query-ignorar<?php if ($activa === '') : ?> aria-current="page"<?php endif; ?>><?= esc_html($todos) ?></a>
+                        <a class="<?= esc_attr($activa === '' ? $pastilla_activa : $pastilla_normal) ?>" href="<?= esc_url($blog_url) ?>"<?php if ($activa === '') : ?> aria-current="page"<?php endif; ?>><?= esc_html($todos) ?></a>
                     </li>
                     <?php foreach ($categorias as $categoria) : ?>
                         <?php $es_activa = $categoria['slug'] === $activa; ?>
                         <li class="shrink-0">
-                            <a class="<?= esc_attr($es_activa ? $pastilla_activa : $pastilla_normal) ?>" href="<?= esc_url($categoria['url']) ?>" data-query-ignorar<?php if ($es_activa) : ?> aria-current="page"<?php endif; ?>><?= esc_html($categoria['nombre']) ?></a>
+                            <a class="<?= esc_attr($es_activa ? $pastilla_activa : $pastilla_normal) ?>" href="<?= esc_url($categoria['url']) ?>"<?php if ($es_activa) : ?> aria-current="page"<?php endif; ?>><?= esc_html($categoria['nombre']) ?></a>
                         </li>
                     <?php endforeach; ?>
                 </ul>
