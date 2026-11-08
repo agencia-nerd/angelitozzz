@@ -8,4 +8,5 @@ defined('ABSPATH') || exit;
 return [
     'conoce-a-barbara' => ['titulo' => 'Conoce a Bárbara', 'slug' => 'conoce-a-barbara', 'frente' => false, 'plantilla' => 'pages/template-conoce-a-barbara.php', 'padre' => ''],
     'home' => ['titulo' => 'Inicio', 'slug' => 'inicio', 'frente' => true, 'plantilla' => '', 'padre' => ''],
+    'mundo-angelitozzz' => ['titulo' => 'Mundo Angelitozzz', 'slug' => 'mundo-angelitozzz', 'frente' => false, 'plantilla' => 'pages/template-mundo-angelitozzz.php', 'padre' => ''],
 ];

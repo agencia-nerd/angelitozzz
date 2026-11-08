@@ -20,7 +20,7 @@
     - cada sección tiene su propio fondo (crema, blanco, teal, beige, rosa): la página no usa el fondo de nubes de Inicio
     - testimonios: la página tiene su propio repetidor, independiente de Inicio y de la página Testimonios (nota de página de Inicio: "cada pagina que tiene testimonios es independiente")
     - sin frame móvil en Figma: el móvil sigue lo propuesto en el `Comportamiento` de cada sección
-- **Estado:** pendiente
+- **Estado:** aplicado
 
 ## Sección: hero
 
@@ -32,7 +32,8 @@
 - **Indicaciones del diseño:**
     - El boton/link Quiero unirme llevara a un enlace externo, ese proceso/pago no se realizara en esta pagina
     - El boton/link Escríbeme por WhatsApp, ese numero sumalo un campo en configuracion del sitio
-- **Estado:** pendiente
+- **Estado:** aplicado
+- **ACF:** conectado
 
 **Campos ACF**
 
@@ -50,13 +51,13 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] El título es el único `h1` de la página y respeta su salto de línea
-- [ ] La foto carga con `loading="eager"` y mantiene la proporción 477:390 en escritorio y móvil
-- [ ] "Quiero unirme" usa el componente `boton` (variante `frambuesa`), lee la URL de `mundo_angelitozzz_hero_enlace_suscripcion` y abre en pestaña nueva con `rel` seguro y aviso `sr-only` (por ahora con la URL genérica `https://example.com/`, pendiente de la real)
-- [ ] "Escríbeme por WhatsApp." arma `https://wa.me/…` con `opciones_contacto_whatsapp` y el mensaje de Ajustes del sitio; no hay ningún número escrito en la plantilla
-- [ ] El precio oculto del diseño ("$ 14 / x mes") no aparece en la página
-- [ ] Las dos nubes son decorativas y no tapan el texto en ninguna pantalla
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] El título es el único `h1` de la página y respeta su salto de línea
+- [x] La foto carga con `loading="eager"` y mantiene la proporción 477:390 en escritorio y móvil
+- [x] "Quiero unirme" usa el componente `boton` (variante `frambuesa`), lee la URL de `mundo_angelitozzz_hero_enlace_suscripcion` y abre en pestaña nueva con `rel` seguro y aviso `sr-only` (por ahora con la URL genérica `https://example.com/`, pendiente de la real)
+- [x] "Escríbeme por WhatsApp." arma `https://wa.me/…` con `opciones_contacto_whatsapp` y el mensaje de Ajustes del sitio; no hay ningún número escrito en la plantilla
+- [x] El precio oculto del diseño ("$ 14 / x mes") no aparece en la página
+- [x] Las dos nubes son decorativas y no tapan el texto en ninguna pantalla
 
 ## Sección: promocinar-marca
 
@@ -65,7 +66,8 @@
 - **Grupo:** `mundo_angelitozzz_promocinar_marca`
 - **Skill:** ninguna
 - **Comportamiento:** el nombre de la sección es el del usuario en Figma; su contenido es la comparación "¿Te suena alguna de estas? / Para quién es". Fondo `--color-blanco`, `py-22`. Tarjeta centrada `--color-fondo` de 1191 px de ancho máximo (`max-w-[1191px]`, valor suelto: más ancha que `--container-sitio`), radio 30 px (`rounded-[30px]`, valor suelto) y padding `pt-14 pb-14 px-18`. Dentro, dos columnas iguales de 470 px separadas por un divisor vertical de 1 px `--color-neutro` (borde izquierdo de la segunda columna, no un elemento aparte), con el divisor alineado arriba con los títulos. Cada columna: título `h2` (estilo `--text-h3`, `--color-marca`), a `gap-6` la lista de viñetas (`--text-body`, `--color-tinta`) como `<ul>` con un `<li>` por fila del repetidor y la viñeta "•" por CSS (`list-disc` o `marker`), nunca escrita en el texto. Bajo la lista izquierda, a `gap-6`, la nota en itálica (`--text-nota`, color `#c4704a` `color/terracota` como valor suelto `text-[#c4704a]`: se usa una sola vez en el sitio). La lista izquierda tiene 5 ítems y la derecha 6; el alto de la tarjeta lo da el contenido (sin los 470 px fijos del diseño). **Viñetas como repetidor y no textarea:** cada lista es un `repeater` con un subcampo `texto`, porque así el cliente agrega, quita y reordena ítems sin escribir "•" a mano ni depender de saltos de línea, y cada columna puede tener un número distinto de ítems. No se maquetan los 2 textos ocultos que quedaron de otra página (bonos del taller de horarios) ni el grupo vacío de la capa (4017:20259). Si la nota viene vacía se oculta. Móvil (propuesto): `px-4 py-12`; la tarjeta ocupa el ancho con `p-6` y radio `--radius-tarjeta`; las columnas pasan a una sola, una debajo de la otra, y el divisor pasa a horizontal (borde superior de la segunda columna con `pt-6 mt-6`); títulos en `--text-h4`.
-- **Estado:** pendiente
+- **Estado:** aplicado
+- **ACF:** conectado
 
 **Campos ACF**
 
@@ -81,12 +83,12 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Las dos listas son `<ul>` con un `<li>` por ítem y la viñeta sale del CSS, no del texto
-- [ ] La columna izquierda muestra 5 ítems y la derecha 6, separadas por el divisor de 1 px
-- [ ] La nota usa `#c4704a` como único valor suelto de color, listado en este `Comportamiento`
-- [ ] No aparecen los textos ocultos de bonos ni elementos vacíos del diseño
-- [ ] En móvil las columnas se apilan y el divisor pasa a horizontal, sin scroll horizontal
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Las dos listas son `<ul>` con un `<li>` por ítem y la viñeta sale del CSS, no del texto
+- [x] La columna izquierda muestra 5 ítems y la derecha 6, separadas por el divisor de 1 px
+- [x] La nota usa `#c4704a` como único valor suelto de color, listado en este `Comportamiento`
+- [x] No aparecen los textos ocultos de bonos ni elementos vacíos del diseño
+- [x] En móvil las columnas se apilan y el divisor pasa a horizontal, sin scroll horizontal
 
 ## Sección: que-incluye-mundo
 
@@ -97,7 +99,8 @@
 - **Comportamiento:** fondo `--color-etiqueta`, contenedor `--container-sitio`, `py-26`, encabezado centrado con `gap-5`: antetítulo (`--text-eyebrow`, `--color-marca`), título `h2` (estilo `--text-h1`, `--color-marca`, ancho máximo 900 px) y bajada (`--text-body-l`, `--color-marca`, ancho máximo 760 px). A `mt-11` (20 + 24 px del diseño) una fila de 3 tarjetas iguales con `gap-8`: fondo `--color-blanco`, `--radius-tarjeta`, `overflow-hidden`; imagen arriba a todo el ancho con `aspect-[349/220]`, `object-cover`, `loading="lazy"` y `'alt_fallback'` con el título de la tarjeta; debajo, `p-7` y `gap-2.5`: título `h3` (`--text-h4`, `--color-marca`), texto (`--text-body`, `--color-tinta`) y una pastilla `--color-fondo` `rounded-full` `px-3.5 py-1.5` con su etiqueta (`--text-label-s`, `--color-marca`). Las tarjetas no tienen el alto fijo de 414 px del diseño: se igualan con la fila (`items-stretch`). La primera imagen del diseño está recortada a mano para encuadrar a Bárbara; en el tema todas usan `object-cover` (con `object-top` si hace falta) y el cliente sube la imagen ya encuadrada. A `mt-11` el botón compartido `boton` variante `verde` con flecha y el texto de `mundo_angelitozzz_que_incluye_mundo_boton`, que lleva a la misma URL externa del hero (`mundo_angelitozzz_hero_enlace_suscripcion`, con `'blank' => true`); mientras no exista usa la URL genérica `https://example.com/`, anotada como pendiente. **Decoraciones** (`alt=""`, `aria-hidden`, posición absoluta, fijas del tema): destello blanco arriba a la izquierda (`que-incluye-destello-izquierda.svg`, 60 × 63), destello crema arriba a la derecha (`que-incluye-destello-derecha.svg`, 46 × 47) y nube abajo a la derecha que se sale del borde derecho e inferior de la sección (`que-incluye-nube.svg`, 300 × 131, `right` −3.13 %); la sección no recorta la nube (`overflow-visible`) para que asome sobre la siguiente como en la captura. Móvil (propuesto): `px-4 py-16`; título en `--text-h3`, bajada en `--text-body`; tarjetas en una columna (tres desde `lg`, una debajo de otra antes) con el mismo `gap-8`; destellos reducidos a la mitad y la nube a 160 px.
 - **Indicaciones del diseño:**
     - el boton Unirme a la comunidad deberia llevar de igual manera que el hero a un enlace externo.
-- **Estado:** pendiente
+- **Estado:** aplicado
+- **ACF:** conectado
 
 **Campos ACF**
 
@@ -115,12 +118,12 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Las 3 tarjetas salen de un solo bloque de markup repetido (bucle sobre el repetidor), con el título como `h3`
-- [ ] Las imágenes mantienen la proporción 349:220 con `object-cover` y cargan con `lazy`
-- [ ] "Unirme a la comunidad" usa el componente `boton` (variante `verde`) y lleva a la misma URL que "Quiero unirme" del hero, en pestaña nueva
-- [ ] Una tarjeta sin etiqueta no deja una pastilla vacía
-- [ ] En móvil las tarjetas pasan a una columna sin scroll horizontal y la nube no tapa contenido
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Las 3 tarjetas salen de un solo bloque de markup repetido (bucle sobre el repetidor), con el título como `h3`
+- [x] Las imágenes mantienen la proporción 349:220 con `object-cover` y cargan con `lazy`
+- [x] "Unirme a la comunidad" usa el componente `boton` (variante `verde`) y lleva a la misma URL que "Quiero unirme" del hero, en pestaña nueva
+- [x] Una tarjeta sin etiqueta no deja una pastilla vacía
+- [x] En móvil las tarjetas pasan a una columna sin scroll horizontal y la nube no tapa contenido
 
 ## Sección: testimonios
 
@@ -132,7 +135,8 @@
 - **Indicaciones del diseño:**
     - testimonios independientes.
     - usar lo que se pide.
-- **Estado:** pendiente
+- **Estado:** aplicado
+- **ACF:** conectado
 
 **Campos ACF**
 
@@ -148,12 +152,12 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] La sección es una llamada al componente `testimonios-slider` con `$args`, sin markup propio en la plantilla
-- [ ] El slider usa Swiper, no avanza solo y se mueve con las flechas y con teclado
-- [ ] Los testimonios salen del repetidor de esta página, distintos de los de Inicio
-- [ ] "Ver más testimonios" lleva a `/testimonios/`
-- [ ] En móvil se ve una tarjeta con la siguiente asomando, sin scroll horizontal de la página
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] La sección es una llamada al componente `testimonios-slider` con `$args`, sin markup propio en la plantilla
+- [x] El slider usa Swiper, no avanza solo y se mueve con las flechas y con teclado
+- [x] Los testimonios salen del repetidor de esta página, distintos de los de Inicio
+- [x] "Ver más testimonios" lleva a `/testimonios/`
+- [x] En móvil se ve una tarjeta con la siguiente asomando, sin scroll horizontal de la página
 
 ## Sección: cta-mundo
 
@@ -164,7 +168,8 @@
 - **Comportamiento:** no es el componente `cta-final`: tiene lista de beneficios, precio y nota, y solo existe en esta página. Fondo `--color-fondo-rosa`, contenedor `--container-sitio`, `py-26`, todo centrado con `gap-6`. Título `h2` (estilo `--text-display`, `--color-marca`). Fila de 3 beneficios con `gap-7` como `<ul>`: cada `<li>` con un círculo `--color-marca` de 24 px y el check blanco (`cta-check.svg`, 14 px, decorativo, fijo del tema) a `gap-2` del texto (`--text-body-l`, `--color-marca`). Precio (`--text-label`, `--color-marca-suave`). A 8 px más (`mt-2`) el botón compartido `boton` variante `frambuesa` con flecha y el texto de `mundo_angelitozzz_cta_mundo_boton`, que lleva a la misma URL externa del hero (`mundo_angelitozzz_hero_enlace_suscripcion`, con `'blank' => true`); mientras no exista usa la URL genérica `https://example.com/`, anotada como pendiente. Debajo la nota (`--text-body-s`, `--color-tinta-suave`). Si el precio o la nota vienen vacíos se ocultan. **Decoraciones** (`alt=""`, `aria-hidden`, posición absoluta, fijas del tema): destello blanco grande con rayos pegado arriba a la izquierda (`cta-destello-grande.svg`, 248 × 262, a 146 px del borde izquierdo), destello mediano a la derecha (`cta-destello-mediano.svg`, 120 × 125, x 1408, y 208) y pequeño arriba a la derecha (`cta-destello-pequeno.svg`, 68 × 71, x 1639, y 98); se posicionan respecto al centro de la sección para no separarse del contenido en pantallas más angostas que 1920. Móvil (propuesto): `px-4 py-16`; título en `--text-h3`; los 3 beneficios en columna alineados a la izquierda dentro de un bloque centrado, con `gap-3`; botón a todo el ancho si no entra su texto; el destello grande se reduce a 120 px y el mediano se oculta.
 - **Indicaciones del diseño:**
     - el boton enlace Quiero unirme a Mundo Angelitozzz deberia de ir igualmente al enlace externo.
-- **Estado:** pendiente
+- **Estado:** aplicado
+- **ACF:** conectado
 
 **Campos ACF**
 
@@ -179,8 +184,8 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Los beneficios son un `<ul>` con un `<li>` por fila del repetidor y el check es decorativo
-- [ ] "Quiero unirme a Mundo Angelitozzz" usa el componente `boton` (variante `frambuesa`) y lleva a la misma URL que los otros dos botones de suscripción, en pestaña nueva
-- [ ] Sin precio o sin nota no quedan párrafos vacíos
-- [ ] Los destellos no tapan el título ni el botón en ningún ancho
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Los beneficios son un `<ul>` con un `<li>` por fila del repetidor y el check es decorativo
+- [x] "Quiero unirme a Mundo Angelitozzz" usa el componente `boton` (variante `frambuesa`) y lleva a la misma URL que los otros dos botones de suscripción, en pestaña nueva
+- [x] Sin precio o sin nota no quedan párrafos vacíos
+- [x] Los destellos no tapan el título ni el botón en ningún ancho
