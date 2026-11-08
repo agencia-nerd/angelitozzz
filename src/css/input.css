@@ -2,6 +2,7 @@
 /* Swiper en la capa base: las utilidades de Tailwind le ganan. */
 @import "swiper/css" layer(base);
 @import "./modal.css";
+@import "./accordion.css";
 
 /* specs/ guarda el código de referencia de Figma (con clases de Tailwind): no se escanea. */
 @source not "../../specs";
@@ -167,6 +168,17 @@
         background-image: url("../img/cta-fondo-lunas.webp");
         background-size: cover;
         background-position: center;
+    }
+
+    /* Preguntas frecuentes: el check del diseño es el indicador (no cambia al abrir); decorativo, sin marcado. */
+    .faq-check::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: calc(0.5lh - 6.5px);
+        width: 14px;
+        height: 13px;
+        background: url("../img/preguntas-check.svg") no-repeat center / contain;
     }
 
     /* Lista con punto "•" dibujado por CSS (no forma parte del texto). */

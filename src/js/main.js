@@ -18,3 +18,11 @@ if (document.querySelector('dialog[data-modal]')) {
 if (document.querySelector('[data-query="resultados"]')) {
     import('./modules/query.js').then(({ initQuery }) => initQuery()).catch(console.error);
 }
+
+if (document.querySelector('[data-accordion]')) {
+    import('./modules/accordion.js').then(({ initAccordions }) => initAccordions()).catch(console.error);
+}
+
+if (document.querySelector('[data-ver-mas]')) {
+    import('./modules/ver-mas.js').then(({ initVerMas }) => initVerMas()).catch(console.error);
+}

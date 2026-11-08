@@ -45,12 +45,12 @@ Stack: WordPress (Local WP) + Vite + Tailwind + pnpm.
 <!-- wp-helper:end -->
 
 <!-- design-import:start -->
-## Specs de diseño (design-import 1.14.0)
+## Specs de diseño (design-import 1.15.0)
 - Los specs viven en `specs/` (`_index.md`, `_shared.md` y un archivo por página). Son documentación del tema: no se suben al servidor.
 - Aplica solo las páginas con estado `aprobado` en `specs/_index.md` y deja el estado en `aplicado` al terminar.
 - Cada página es un grupo de campos ACF (`Grupo ACF` y `Ubicación` en su spec) y cada sección es un campo `group` (`home_hero`). Blog, catálogo y WooCommerce se describen en la tabla "Contenido dinámico" de `_shared.md`: no escribas consultas, filtros ni lógica de Woo hasta ese paso.
 - Lo que se repite en todo el sitio (contacto, redes, textos del pie) está en `specs/opciones.md` y va en una página de opciones de ACF; el logo y el ícono son de Personalizar y los menús son menús de WordPress.
-- Los campos ACF se nombran `<página>_<sección>_<campo>` en snake_case y en español. No pongas límites ni recomendaciones de caracteres o de tamaño de imagen: la descripción del campo no lleva "Recomendado: …".
+- Los campos ACF se nombran `<página>_<sección>_<campo>` en snake_case y en español. No pongas límites de caracteres ni de tamaño de imagen: la descripción del campo solo lo recomienda.
 - El texto del diseño queda fijo en la plantilla y su campo está en el spec ("valor actual"): al pasarlo a ACF se reemplaza uno a uno.
 - **El spec se corrige junto con el código.** Si una corrección o un cambio toca algo que el spec describe (campos y su tipo, "valor actual", `Destino` de una sección, componentes de `_shared.md` y sus argumentos, `Comportamiento`, tokens), actualiza el spec en el mismo paso; si es un campo, primero el spec y después se genera el JSON. Un ajuste visual o interno que el spec no describe no lo toca. Al terminar, di qué líneas del spec cambiaron. `check.mjs` de design-import avisa si un componente no coincide con `_shared.md`.
 <!-- design-import:end -->
@@ -74,7 +74,7 @@ Stack: WordPress (Local WP) + Vite + Tailwind + pnpm.
 <!-- wp-modal:end -->
 
 <!-- wp-acf:start -->
-## ACF administrable (wp-acf 1.8.0)
+## ACF administrable (wp-acf 1.9.0)
 - Los campos, tipos de contenido, taxonomías y páginas de opciones viven en `acf-json/` y los genera `wp-acf` desde los specs (`generate.mjs`); no los edites a mano. Si algo se cambia desde el admin de ACF, el JSON queda distinto y se avisa como conflicto al regenerar.
 - `inc/acf/runner.php` es el motor: no lo edites (se actualiza desde la skill). Sincroniza el JSON con la base, crea las páginas, carga el contenido inicial, los menús y el logo, al activar el tema y desde Herramientas > Cargar contenido inicial. Nunca pisa lo que ya se cargó.
 - Los datos del proyecto son `inc/acf/paginas.php` (lo genera la skill), `inc/acf/sitio.php` (menús y logo) y `inc/acf/seed/<página>.php` (el texto, las imágenes y los enlaces que salieron de cada plantilla).
@@ -94,3 +94,11 @@ Stack: WordPress (Local WP) + Vite + Tailwind + pnpm.
 - En una tienda de WooCommerce (definición con `woo`) el motor se engancha a la consulta que WooCommerce ya armó (precio contra su tabla de búsqueda y orden con sus funciones) y los conteos solo ven lo visible del catálogo; la plantilla de la tienda conserva los `do_action()` de WooCommerce.
 - Las páginas filtradas salen con `noindex` y su canonical apunta al listado sin filtros.
 <!-- wp-query:end -->
+
+<!-- wp-accordion:start -->
+## Acordeones (wp-accordion 1.0.0)
+- Cada acordeón es una vista en `template-parts/accordions/<id>.php` que se muestra con `get_template_part('template-parts/accordions/<id>')`. Ábrelo con `angelitozzz_accordion_start($id, [...])`, un `angelitozzz_accordion_item_start($titulo)` / `_item_end()` por ítem y `angelitozzz_accordion_end()`; el contenido de cada ítem es libre. Con una lista (p. ej. un repeater de ACF) usa `angelitozzz_accordion($id, $items)`.
+- El diseño sale de Figma: clases por parte (`class`, `item_class`, `summary_class`, `title_class`, `icon_class`, `panel_class`), `icon` e `icon_position`. Lo que se repite en varios acordeones va una vez como variable `--accordion-*` en el CSS del proyecto.
+- Es un `<details>` nativo: no pongas enlaces ni botones dentro del título, no ocultes el panel con `display: none` ni armes uno con `div` y `aria-expanded`. Para enlazar un ítem, dale `id` y usa `<a href="#id">`.
+- No edites el motor (`inc/accordions.php`, `src/js/modules/accordion.js`, `src/css/accordion.css`): se actualiza desde la skill wp-accordion.
+<!-- wp-accordion:end -->
