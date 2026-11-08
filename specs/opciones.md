@@ -126,8 +126,9 @@
 - **Destino:** `template-parts/components/cta-final.php`, `template-parts/pages/contacto/seccion-de-cta.php`, `template-parts/pages/mundo-angelitozzz/hero.php`
 - **Grupo:** `opciones_contacto`
 - **Skill:** wp-helper
-- **Comportamiento:** no se muestra por sí sola: las secciones que piden WhatsApp leen estos campos. El WhatsApp se guarda solo con dígitos y código de país, y los botones arman `https://wa.me/<número>?text=<mensaje>` con el helper de enlaces. Se aplica junto con las páginas que la usan (Contacto, Mundo Angelitozzz y los CTA finales con WhatsApp); hoy ningún archivo del tema la lee.
-- **Estado:** pendiente
+- **Comportamiento:** no se muestra por sí sola: las secciones que piden WhatsApp o el correo leen estos campos. **Los destinatarios de cada formulario (Contacto, coach y newsletter) son un campo propio con uno o más correos; ningún correo queda escrito en el código. Si el campo está vacío, el formulario envía al correo del administrador de WordPress (Ajustes → Generales). El correo que se muestra en la tarjeta de la página Contacto es otro: `contacto_seccion_de_cta_email`.** El WhatsApp se guarda solo con dígitos y código de país, y los botones arman `https://wa.me/<número>?text=<mensaje>` con el helper de enlaces. Se aplica junto con las páginas que la usan (Contacto, Mundo Angelitozzz y los CTA finales con WhatsApp).
+- **Estado:** aplicado
+- **ACF:** conectado
 
 **Campos ACF**
 
@@ -136,11 +137,17 @@
 | `opciones_contacto_whatsapp`         | text  | Número de WhatsApp de Angelitozzz, con código de país y sin espacios (51999999999). Lo usan los botones "Escríbeme por WhatsApp" | —                    | sí        |
 | `opciones_contacto_whatsapp_mensaje` | text  | Mensaje que se escribe solo al abrir WhatsApp desde los botones del sitio.                           | —                    | no        |
 | `opciones_contacto_whatsapp_coach`   | text  | Número de WhatsApp del coach de sueño virtual, con código de país y sin espacios. Lo usa el botón "Hablar ahora" del modal       | —                    | sí        |
+| `opciones_contacto_destinatarios_contacto` | repeater | Correos que reciben los mensajes del formulario de la página Contacto. Se pueden agregar varios correos. Si no hay ninguno, el correo llega al administrador de WordPress. | — | no |
+| `opciones_contacto_destinatarios_contacto.email` | email | Correo que recibe los mensajes. | info@angelitozzz.com | sí |
+| `opciones_contacto_destinatarios_coach` | repeater | Correos que reciben las inscripciones del formulario del coach de sueño virtual (modal). Se pueden agregar varios correos. Si no hay ninguno, el correo llega al administrador de WordPress. | — | no |
+| `opciones_contacto_destinatarios_coach.email` | email | Correo que recibe los mensajes. | info@angelitozzz.com | sí |
+| `opciones_contacto_destinatarios_newsletter` | repeater | Correos que reciben las suscripciones del newsletter del pie. Se pueden agregar varios correos. Si no hay ninguno, el correo llega al administrador de WordPress. | — | no |
+| `opciones_contacto_destinatarios_newsletter.email` | email | Correo que recibe los mensajes. | info@angelitozzz.com | sí |
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Ningún número de WhatsApp queda escrito en una plantilla de página
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Ningún número de WhatsApp queda escrito en una plantilla de página
 
 ## Sección: redes
 

@@ -302,6 +302,138 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": ""
+                },
+                {
+                    "key": "field_896d71d09ef3d",
+                    "label": "Destinatarios contacto",
+                    "name": "destinatarios_contacto",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Correos que reciben los mensajes del formulario de la página Contacto. Se pueden agregar varios correos. Si no hay ninguno, el correo llega al administrador de WordPress.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Añadir fila",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_91c12c08778d1",
+                            "label": "Email",
+                            "name": "email",
+                            "aria-label": "",
+                            "type": "email",
+                            "instructions": "Correo que recibe los mensajes.",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        }
+                    ]
+                },
+                {
+                    "key": "field_55ba04a098f74",
+                    "label": "Destinatarios coach",
+                    "name": "destinatarios_coach",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Correos que reciben las inscripciones del formulario del coach de sueño virtual (modal). Se pueden agregar varios correos. Si no hay ninguno, el correo llega al administrador de WordPress.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Añadir fila",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_e4e096c7997d3",
+                            "label": "Email",
+                            "name": "email",
+                            "aria-label": "",
+                            "type": "email",
+                            "instructions": "Correo que recibe los mensajes.",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        }
+                    ]
+                },
+                {
+                    "key": "field_cb972c223ae49",
+                    "label": "Destinatarios newsletter",
+                    "name": "destinatarios_newsletter",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Correos que reciben las suscripciones del newsletter del pie. Se pueden agregar varios correos. Si no hay ninguno, el correo llega al administrador de WordPress.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Añadir fila",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_1c328b70c1047",
+                            "label": "Email",
+                            "name": "email",
+                            "aria-label": "",
+                            "type": "email",
+                            "instructions": "Correo que recibe los mensajes.",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        }
+                    ]
                 }
             ]
         },
@@ -455,5 +587,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1793994037
+    "modified": 1794162895
 }

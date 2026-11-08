@@ -17,18 +17,19 @@
     - fondo de la página `--color-fondo` (las dos secciones no tienen fondo propio)
     - el WhatsApp de la tarjeta de abajo sale de Ajustes del sitio (`opciones_contacto_whatsapp`), no de un campo de esta página; el correo sí es campo de esta página (`contacto_seccion_de_cta_email`)
     - sin frame móvil en Figma: el móvil sigue lo propuesto en el `Comportamiento` de cada sección
-- **Estado:** pendiente
+- **Estado:** aplicado
 
 ## Sección: seccion-de-contacto
 
 - **Origen:** `specs/figma/lectura/contacto/seccion-de-contacto.ref.txt` (nodo 4020:22112)
-- **Destino:** `template-parts/pages/contacto/seccion-de-contacto.php`, `template-parts/forms/contacto.php` (lo escribe wp-form)
+- **Destino:** `template-parts/pages/contacto/seccion-de-contacto.php`, `template-parts/forms/contacto.php`
 - **Grupo:** `contacto_seccion_de_contacto`
 - **Skill:** wp-form
-- **Comportamiento:** la sección solo imprime el encabezado e incluye el formulario; el formulario no tiene maquetado propio: lo escribe wp-form con el aspecto del diseño. Encabezado centrado (columna de 392 px, `gap-11.5`): título `h1` (`--text-display`, `--color-marca`) y subtítulo (`--text-body-s`, `--color-tinta`; si está vacío no se imprime). Sección con `py-22` y una columna centrada de 591 px; entre el encabezado y el formulario `gap-19` (76 px). **Formulario "contacto" (wp-form)**, campos en este orden con 34 px entre filas (`gap-8.5`): `nombre` (texto, requerido, etiqueta "Nombres y Apellidos:"); en una fila de dos columnas de 283 px (`justify-between`), `email` (email, requerido, etiqueta "Email:") y `celular` (teléfono, requerido, etiqueta "Celular (con código de país):") con un selector de país que el visitante puede cambiar (bandera y código, por defecto 🇵🇪 +51, se guarda el número completo con su código; el mismo selector que el campo de WhatsApp de `modal-coach`); `curso` (select, requerido, etiqueta "Seleccione curso" en lugar del "¿Sobre qué quieres escribirnos?" del diseño, con la flecha de desplegable a la derecha, `contacto-icono-desplegable.svg` de 20 px, decorativa): **las opciones son los cursos publicados** (productos de WooCommerce, ver `soluciones-de-sueno.md`) y un curso nuevo aparece solo en la lista, sin tocar el formulario; mientras Woo no esté conectado se maquetan con los 4 cursos del diseño (Angelita Pro, A Dormir Por Fin, Recién Nacidos Go, Horarios Ideales) y una primera opción vacía "Seleccione curso"; `mensaje` (área de texto, requerido, etiqueta "Mensaje:", alto mínimo 69 px sobre la línea); casilla `privacidad` (requerida) "He leído y acepto las políticas de privacidad" donde "políticas de privacidad" enlaza a la página de privacidad de WordPress (`get_privacy_policy_url()`, Ajustes → Privacidad; si no hay, `#` pendiente) y se abre en la misma pestaña; botón `<button type="submit">` "Enviar mensaje" con el estilo del botón `frambuesa` de `_shared.md` (mismas clases y flecha que el componente `boton`, que solo dibuja enlaces). Cada campo es una línea inferior de 1 px `--color-tinta` (`border-b`, sin caja ni fondo; las líneas SVG del diseño no se usan), con su `<label>` visible en `--text-body-s` `--color-tinta` a 9 px de la línea (`gap-2.25`); el texto que escribe el visitante usa el mismo estilo. La casilla es de 14 × 14 px con borde de 1 px `--color-tinta` y la marca en `--color-tinta`, con 15 px hasta su texto (`gap-3.75`). El enlace de privacidad va en `--color-tinta` como el resto del texto, subrayado para que se distinga (en el diseño no tiene color propio). Al enviar: un correo a `opciones_contacto_email` (Ajustes del sitio; si está vacío, al correo del administrador) con `Reply-To` del visitante, que hoy llega a Mailpit y luego sale por Fluent SMTP (el tema solo usa `wp_mail`); **y cada envío se guarda en el admin** (nombre, email, celular, curso, mensaje, fecha). Mensajes de éxito y de error en una región `aria-live` bajo el botón (el diseño no los muestra: texto propuesto "¡Gracias! Te responderemos pronto."). Valores sueltos: columna `max-w-[591px]`, encabezado `max-w-[392px]`, alto del mensaje `min-h-[69px]`. Móvil (propuesto): `px-4 py-16`, la columna ocupa todo el ancho; título en `--text-h1`, `gap-12` entre encabezado y formulario; email y celular pasan a una columna (dos desde `md`); las etiquetas siguen arriba de la línea y la casilla de privacidad salta de línea si no cabe; el botón se centra con su ancho natural.
+- **Comportamiento:** la sección solo imprime el encabezado e incluye el formulario; el formulario no tiene maquetado propio: lo escribe wp-form con el aspecto del diseño. Encabezado centrado (columna de 392 px, `gap-11.5`): título `h1` (`--text-display`, `--color-marca`) y subtítulo (`--text-body-s`, `--color-tinta`; si está vacío no se imprime). Sección con `py-22` y una columna centrada de 591 px; entre el encabezado y el formulario `gap-19` (76 px). **Formulario "contacto" (wp-form)**, campos en este orden con 34 px entre filas (`gap-8.5`): `nombre` (texto, requerido, etiqueta "Nombres y Apellidos:"); en una fila de dos columnas de 283 px (`justify-between`), `email` (email, requerido, etiqueta "Email:") y `celular` (teléfono, requerido, etiqueta "Celular (con código de país):") con un selector de país que el visitante puede cambiar (bandera y código, por defecto 🇵🇪 +51, se guarda el número completo con su código; el mismo selector que el campo de WhatsApp de `modal-coach`); `curso` (select, requerido, etiqueta "Seleccione curso" en lugar del "¿Sobre qué quieres escribirnos?" del diseño, con la flecha de desplegable a la derecha, `contacto-icono-desplegable.svg` de 20 px, decorativa): **las opciones son los cursos publicados** (productos de WooCommerce, ver `soluciones-de-sueno.md`) y un curso nuevo aparece solo en la lista, sin tocar el formulario; mientras Woo no esté conectado se maquetan con los 4 cursos del diseño (Angelita Pro, A Dormir Por Fin, Recién Nacidos Go, Horarios Ideales) y una primera opción vacía "Seleccione curso"; `mensaje` (área de texto, requerido, etiqueta "Mensaje:", alto mínimo 69 px sobre la línea); casilla `privacidad` (requerida) "He leído y acepto las políticas de privacidad" donde "políticas de privacidad" enlaza a la página de privacidad de WordPress (`get_privacy_policy_url()`, Ajustes → Privacidad; si no hay, `#` pendiente) y se abre en la misma pestaña; botón `<button type="submit">` "Enviar mensaje" con el estilo del botón `frambuesa` de `_shared.md` (mismas clases y flecha que el componente `boton`, que solo dibuja enlaces). Cada campo es una línea inferior de 1 px `--color-tinta` (`border-b`, sin caja ni fondo; las líneas SVG del diseño no se usan), con su `<label>` visible en `--text-body-s` `--color-tinta` a 9 px de la línea (`gap-2.25`); el texto que escribe el visitante usa el mismo estilo. La casilla es de 14 × 14 px con borde de 1 px `--color-tinta` y la marca en `--color-tinta`, con 15 px hasta su texto (`gap-3.75`). El enlace de privacidad va en `--color-tinta` como el resto del texto, subrayado para que se distinga (en el diseño no tiene color propio). Al enviar: un correo a los destinatarios de `opciones_contacto_destinatarios_contacto` (Ajustes del sitio, uno o varios; si no hay ninguno, al correo del administrador), con `angelitozzz_form_recipients('contacto')` con `Reply-To` del visitante, que hoy llega a Mailpit y luego sale por Fluent SMTP (el tema solo usa `wp_mail`); **y cada envío se guarda en el admin** (nombre, email, celular, curso, mensaje, fecha). Mensajes de éxito y de error en una región `aria-live` bajo el botón (el diseño no los muestra: texto propuesto "¡Gracias! Te responderemos pronto."). Valores sueltos: columna `max-w-[591px]`, encabezado `max-w-[392px]`, alto del mensaje `min-h-[69px]`. Móvil (propuesto): `px-4 py-16`, la columna ocupa todo el ancho; título en `--text-h1`, `gap-12` entre encabezado y formulario; email y celular pasan a una columna (dos desde `md`); las etiquetas siguen arriba de la línea y la casilla de privacidad salta de línea si no cabe; el botón se centra con su ancho natural.
 - **Indicaciones del diseño:**
     - usar la skill wp form, y los correos que lleguen al mailpit, luego se usara el plugin Fluent SMPT.
-- **Estado:** pendiente
+- **Estado:** aplicado
+- **ACF:** conectado
 
 **Campos ACF**
 
@@ -39,12 +40,12 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] El título es el único `h1` de la página
-- [ ] El selector de país del celular se puede cambiar, empieza en 🇵🇪 +51 y el número se guarda con su código
-- [ ] Cada envío llega a Mailpit y queda guardado en el admin (nombre, email, celular, curso, mensaje, fecha)
-- [ ] El enlace "políticas de privacidad" lleva a la página de privacidad de WordPress
-- [ ] Las líneas de los campos y la casilla usan `--color-tinta`, sin el `#000000` suelto del diseño
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] El título es el único `h1` de la página
+- [x] El selector de país del celular se puede cambiar, empieza en 🇵🇪 +51 y el número se guarda con su código
+- [x] Cada envío llega a Mailpit y queda guardado en el admin (nombre, email, celular, curso, mensaje, fecha)
+- [x] El enlace "políticas de privacidad" lleva a la página de privacidad de WordPress
+- [x] Las líneas de los campos y la casilla usan `--color-tinta`, sin el `#000000` suelto del diseño
 
 ## Sección: seccion-de-cta
 
@@ -56,7 +57,8 @@
 - **Indicaciones del diseño:**
     - el correo que sea un enlace que lleve al correo (mailto:)
     - usar el campo de whatsapp que se usa en configuracion del sitio
-- **Estado:** pendiente
+- **Estado:** aplicado
+- **ACF:** conectado
 
 **Campos ACF**
 
@@ -68,7 +70,7 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] El correo es un enlace `mailto:` que sale de `contacto_seccion_de_cta_email`; no hay correo escrito en la plantilla
-- [ ] El botón abre WhatsApp en una pestaña nueva con el número de `opciones_contacto_whatsapp` y el mensaje de `opciones_contacto_whatsapp_mensaje`
-- [ ] Sin número de WhatsApp el botón no se imprime; sin correo, la línea del correo no se imprime
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] El correo es un enlace `mailto:` que sale de `contacto_seccion_de_cta_email`; no hay correo escrito en la plantilla
+- [x] El botón abre WhatsApp en una pestaña nueva con el número de `opciones_contacto_whatsapp` y el mensaje de `opciones_contacto_whatsapp_mensaje`
+- [x] Sin número de WhatsApp el botón no se imprime; sin correo, la línea del correo no se imprime

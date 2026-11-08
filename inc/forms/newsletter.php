@@ -9,7 +9,7 @@ add_filter('angelitozzz_forms', function ($forms) {
     $forms['newsletter'] = [
         'title'    => 'Newsletter',
         'subject'  => 'Nueva suscripción al blog desde la web',
-        'to'       => ['info@angelitozzz.com'],
+        'to'       => angelitozzz_form_recipients('newsletter'),
         'reply_to' => 'email',
         'store'    => 'all',
         'redirect' => '',
