@@ -12,7 +12,7 @@ $seccion    = get_field('testimonios_seccion_testimonios', 'option') ?: [];
 $antetitulo = (string) ($seccion['antetitulo'] ?? '');
 $titulo     = (string) ($seccion['titulo'] ?? '');
 $bajada     = (string) ($seccion['bajada'] ?? '');
-$todos      = (string) ($seccion['todos'] ?? '');
+$todos      = __('Todos', 'angelitozzz');
 
 $categoria = angelitozzz_query_filter('categoria');
 $opciones  = (array) ($categoria['opciones'] ?? []);
