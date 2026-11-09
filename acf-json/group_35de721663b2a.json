@@ -24,7 +24,7 @@
                     "name": "logo",
                     "aria-label": "",
                     "type": "image",
-                    "instructions": "Logo de Mundo Angelitozzz sobre el título. Se muestra en un círculo chico.",
+                    "instructions": "Logo de Mundo Angelitozzz sobre el título. Se muestra en un círculo chico. Recomendado: hasta 2000 px en el lado más largo, cuadrada.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -194,7 +194,7 @@
                     "name": "imagen",
                     "aria-label": "",
                     "type": "image",
-                    "instructions": "Foto principal de la página, a la derecha del texto. Se recorta para llenar el marco.",
+                    "instructions": "Foto principal de la página, a la derecha del texto. Se recorta para llenar el marco. Recomendado: hasta 2000 px en el lado más largo, horizontal.",
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -494,7 +494,7 @@
                             "name": "imagen",
                             "aria-label": "",
                             "type": "image",
-                            "instructions": "Imagen de la parte superior de la tarjeta. Se recorta para llenar el marco.",
+                            "instructions": "Imagen de la parte superior de la tarjeta. Se recorta para llenar el marco. Recomendado: hasta 2000 px en el lado más largo, horizontal.",
                             "required": 1,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -937,5 +937,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1794114644
+    "modified": 1794253092
 }

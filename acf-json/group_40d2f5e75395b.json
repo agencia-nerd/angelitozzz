@@ -108,7 +108,7 @@
                     "name": "imagen",
                     "aria-label": "",
                     "type": "image",
-                    "instructions": "Foto de Bárbara a la derecha del texto. Se recorta para llenar el marco vertical.",
+                    "instructions": "Foto de Bárbara a la derecha del texto. Se recorta para llenar el marco vertical. Recomendado: hasta 2000 px en el lado más largo, vertical.",
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -173,7 +173,7 @@
                     "name": "imagen",
                     "aria-label": "",
                     "type": "image",
-                    "instructions": "Foto de Bárbara a la izquierda del texto. Se recorta para llenar el marco vertical.",
+                    "instructions": "Foto de Bárbara a la izquierda del texto. Se recorta para llenar el marco vertical. Recomendado: hasta 2000 px en el lado más largo, vertical.",
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -507,5 +507,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1794110809
+    "modified": 1794253092
 }
