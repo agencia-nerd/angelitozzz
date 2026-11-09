@@ -14,7 +14,6 @@ return [
             'antetitulo' => 'Historias reales',
             'titulo'     => 'Testimonios',
             'bajada'     => 'Mamás que volvieron a dormir y a disfrutar su maternidad.',
-            'todos'      => 'Todos',
         ],
         'testimonios_cta_final' => [
             'titulo'      => "Tu historia puede ser la próxima.",

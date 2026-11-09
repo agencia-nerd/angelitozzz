@@ -80,27 +80,6 @@
                     "placeholder": "",
                     "rows": 4,
                     "new_lines": ""
-                },
-                {
-                    "key": "field_f26c197a00bfa",
-                    "label": "Todos",
-                    "name": "todos",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Texto de la primera pastilla del filtro, la que muestra todos los testimonios.",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "allow_in_bindings": 0,
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
                 }
             ]
         },
@@ -203,5 +182,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1794117001
+    "modified": 1794182742
 }
