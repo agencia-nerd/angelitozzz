@@ -149,7 +149,7 @@
                     "name": "imagen",
                     "aria-label": "",
                     "type": "image",
-                    "instructions": "Foto del hero, a la derecha. Se recorta para llenar el bloque.",
+                    "instructions": "Foto del hero, a la derecha. Se recorta para llenar el bloque. Recomendado: hasta 2000 px en el lado más largo, horizontal.",
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -257,7 +257,7 @@
                             "name": "imagen",
                             "aria-label": "",
                             "type": "image",
-                            "instructions": "Imagen de la tarjeta. Si se deja vacía se muestra la imagen por defecto.",
+                            "instructions": "Imagen de la tarjeta. Si se deja vacía se muestra la imagen por defecto. Recomendado: hasta 2000 px en el lado más largo, vertical.",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -491,7 +491,7 @@
                     "name": "imagen",
                     "aria-label": "",
                     "type": "image",
-                    "instructions": "Foto de Bárbara, a la derecha del texto. Se recorta para llenar el bloque.",
+                    "instructions": "Foto de Bárbara, a la derecha del texto. Se recorta para llenar el bloque. Recomendado: hasta 2000 px en el lado más largo, cuadrada.",
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -535,7 +535,7 @@
                     "name": "logo",
                     "aria-label": "",
                     "type": "image",
-                    "instructions": "Logo de Mundo Angelitozzz sobre el título. Se muestra en un círculo.",
+                    "instructions": "Logo de Mundo Angelitozzz sobre el título. Se muestra en un círculo. Recomendado: hasta 2000 px en el lado más largo, cuadrada.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -809,7 +809,7 @@
                     "name": "imagenes",
                     "aria-label": "",
                     "type": "gallery",
-                    "instructions": "Imágenes de publicaciones de Instagram, en fila. El diseño tiene 3.",
+                    "instructions": "Imágenes de publicaciones de Instagram, en fila. El diseño tiene 3. Recomendado: hasta 2000 px en el lado más largo, vertical.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1094,5 +1094,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1793994037
+    "modified": 1794253092
 }
