@@ -7,7 +7,7 @@ Avance del plan de cursos (Tutor LMS + WooCommerce + ACF). Una rama y un PR por 
 | Tema | Decisión |
 | --- | --- |
 | Cursos y lecciones | Tutor LMS (gratis ahora, Pro más adelante) |
-| Cobro | WooCommerce como motor de Tutor; pasarela Niubiz (plugin de terceros), en USD y que guarde tarjetas |
+| Cobro | WooCommerce como motor de Tutor; pasarela Niubiz con su plugin oficial para WooCommerce, en USD; la renovación de Angelita Pro depende de que Niubiz habilite cobros recurrentes |
 | Landing de venta | Tipo de contenido `solucion` con secciones ACF flexibles, unida a 1 o más cursos de Tutor |
 | URL del listado | `/soluciones-de-sueno/` (y cada solución en `/soluciones-de-sueno/<slug>/`) |
 | Angelita Pro | Suscripción cada 4 meses con 7 días de prueba (WooCommerce Subscriptions + Tutor Pro) |
@@ -31,15 +31,17 @@ Avance del plan de cursos (Tutor LMS + WooCommerce + ACF). Una rama y un PR por 
 - [x] URLs de Tutor en español: `/cursos/<curso>/` y `/lecciones/<lección>/` (las de `/courses/` redirigen)
 - [ ] Ocultar `/tienda/` de Woo y redirigirla a `/soluciones-de-sueno/` → se hace en la F4, cuando exista `archive-solucion.php` (hoy `/tienda/` sirve de vista previa del listado)
 - [x] Pasarela elegida por la clienta: **Niubiz**
-- [ ] Plugin de Niubiz para Woo: Niubiz no tiene plugin oficial; los que existen son de terceros y de pago. Elegir uno que cumpla:
+- [ ] Mensaje a la clienta enviado: afiliación de Niubiz en USD, credenciales de prueba y consulta por cobros recurrentes
+- [ ] Credenciales de comercio de Niubiz: código de comercio, usuario y contraseña de **prueba (Sandbox)** y de producción
+- [ ] Respuesta de Niubiz: ¿la cuenta puede tener cobros automáticos con tarjeta guardada en USD ("Pago programado" / tokenización)? → define cómo se renueva Angelita Pro
+- [ ] Plugin **oficial** de Niubiz para WooCommerce (descarga del portal de desarrolladores: `desarrolladores.niubiz.com.pe/docs/plugins`, con su manual de integración) instalado y probado en Sandbox con nuestra versión de WooCommerce:
     - [ ] Cobra en USD
-    - [ ] Tiene modo de prueba (sandbox de Niubiz)
-    - [ ] Guarda tarjetas (tokenización) compatible con WooCommerce Subscriptions, para renovar Angelita Pro
-    - [ ] Funciona con checkout clásico
-    - [ ] Compatible con HPOS
-- [ ] Credenciales de comercio de Niubiz (prueba y producción) de la clienta
+    - [ ] Pago de prueba aprobado y rechazado en Sandbox
+    - [ ] Funciona con el checkout clásico
+    - [ ] Compatible con HPOS (sin aviso de incompatibilidad en WooCommerce → Ajustes → Avanzado → Funciones)
+- [ ] Renovación de Angelita Pro (según la respuesta de Niubiz): plugin oficial si soporta WooCommerce Subscriptions; si no, un plugin de terceros de recurrencia para Niubiz probado en Sandbox, o renovación manual (se le envía el enlace de pago cada 4 meses)
 - [x] Cursos de prueba en Tutor, cada uno con su producto de Woo (Simple + Virtual + For Tutor, oculto del catálogo) y la marca `_angelitozzz_prueba`: Angelita Pro, A Dormir Por Fin, Recién Nacidos Go y los 3 de Horarios Ideales
-- [ ] Confirmar precios: la tarjeta del listado dice A Dormir Por Fin "$399" y su landing "$67 (antes $97)"; los cursos de prueba usan $97 con rebaja a $67
+- [x] Precio de A Dormir Por Fin confirmado: **$399** (vale el del listado; el "$67 antes $97" de la landing es del diseño y se corrige en su spec en la F1). Producto de prueba actualizado
 - [x] `specs/_shared.md`: "Contenido dinámico" con `solucion` (cpt), `curso` (Tutor) y `producto` (Woo, solo cobro)
 - [x] `specs/_shared.md`: tabla WooCommerce (carrito, checkout y mini-carrito clásicos; cuenta en Tutor)
 - [x] Crear `specs/plan/sobrescrituras.md`
