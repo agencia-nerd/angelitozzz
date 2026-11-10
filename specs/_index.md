@@ -16,7 +16,7 @@ Antes de las páginas, revisa y aprueba [\_shared.md](_shared.md): tokens, compo
 | Blog                 | [blog.md](blog.md)                                 | `home.php`                                | aplicado |
 | Artículo del blog    | [articulo-blog.md](articulo-blog.md)               | `single.php`                              | aplicado |
 | Entrada del blog     | [entrada.md](entrada.md)                           | ninguna                                   | aplicado |
-| Soluciones de sueño  | [soluciones-de-sueno.md](soluciones-de-sueno.md)   | `woocommerce/archive-product.php`         | aprobado |
+| Soluciones de sueño  | [soluciones-de-sueno.md](soluciones-de-sueno.md)   | `woocommerce/archive-product.php`         | aplicado |
 | Testimonios          | [testimonios.md](testimonios.md)                   | `archive-testimonio.php`                  | aplicado |
 | Testimonio           | [testimonio.md](testimonio.md)                     | ninguna                                   | aplicado |
 | Ajustes del sitio    | [opciones.md](opciones.md)                         | `header.php`                              | aplicado |
