@@ -7,7 +7,7 @@ Avance del plan de cursos (Tutor LMS + WooCommerce + ACF). Una rama y un PR por 
 | Tema | Decisión |
 | --- | --- |
 | Cursos y lecciones | Tutor LMS (gratis ahora, Pro más adelante) |
-| Cobro | WooCommerce como motor de Tutor; pasarela Izipay o Niubiz, en USD y que guarde tarjetas |
+| Cobro | WooCommerce como motor de Tutor; pasarela Niubiz (plugin de terceros), en USD y que guarde tarjetas |
 | Landing de venta | Tipo de contenido `solucion` con secciones ACF flexibles, unida a 1 o más cursos de Tutor |
 | URL del listado | `/soluciones-de-sueno/` (y cada solución en `/soluciones-de-sueno/<slug>/`) |
 | Angelita Pro | Suscripción cada 4 meses con 7 días de prueba (WooCommerce Subscriptions + Tutor Pro) |
@@ -20,24 +20,30 @@ Avance del plan de cursos (Tutor LMS + WooCommerce + ACF). Una rama y un PR por 
 ## Reglas de mantenimiento
 
 - Nunca editar archivos de plugins. Orden de preferencia: hooks y filtros → CSS → sobrescribir una plantilla.
-- Cada plantilla sobrescrita (`woocommerce/`, `tutor/`) conserva todos sus `do_action()` y se anota en `specs/sobrescrituras.md`.
+- Cada plantilla sobrescrita (`woocommerce/`, `tutor/`) conserva todos sus `do_action()` y se anota en `specs/plan/sobrescrituras.md`.
 - La lógica propia va en `inc/tutor/`, `inc/woocommerce/` e `inc/regalos/`, con el prefijo `angelitozzz_`. Con Woo, solo `WC_Order` y `WC_Product` (compatibles con HPOS).
-- Antes de actualizar Woo o Tutor en producción: actualizar en el Local, revisar Woo → Estado → plantillas y `specs/sobrescrituras.md`, y repetir las compras de prueba.
+- Antes de actualizar Woo o Tutor en producción: actualizar en el Local, revisar Woo → Estado → plantillas y `specs/plan/sobrescrituras.md`, y repetir las compras de prueba.
 
 ## F0 · Preparación
 
-- [ ] Instalar Tutor LMS (gratis) en el Local
-- [ ] Tutor → Ajustes → Monetización: WooCommerce
-- [ ] Ocultar `/tienda/` de Woo y redirigirla a `/soluciones-de-sueno/`
-- [ ] Elegir la pasarela (Izipay o Niubiz) y revisar su plugin de Woo:
+- [x] Instalar Tutor LMS (gratis) en el Local (4.2.1)
+- [x] Tutor → Ajustes → Monetización: WooCommerce
+- [x] URLs de Tutor en español: `/cursos/<curso>/` y `/lecciones/<lección>/` (las de `/courses/` redirigen)
+- [ ] Ocultar `/tienda/` de Woo y redirigirla a `/soluciones-de-sueno/` → se hace en la F4, cuando exista `archive-solucion.php` (hoy `/tienda/` sirve de vista previa del listado)
+- [x] Pasarela elegida por la clienta: **Niubiz**
+- [ ] Plugin de Niubiz para Woo: Niubiz no tiene plugin oficial; los que existen son de terceros y de pago. Elegir uno que cumpla:
     - [ ] Cobra en USD
-    - [ ] Tiene modo de prueba
-    - [ ] Guarda tarjetas (tokenización) compatible con WooCommerce Subscriptions
-    - [ ] Funciona con checkout clásico y/o en bloques
-- [ ] Crear los cursos de prueba en Tutor, cada uno con su producto de Woo (Simple + Virtual + For Tutor)
-- [ ] `specs/_shared.md`: "Contenido dinámico" con `solucion` (cpt), `curso` (Tutor) y `producto` (Woo, solo cobro)
-- [ ] `specs/_shared.md`: tabla WooCommerce (carrito clásico, checkout clásico, mini-carrito en drawer, cuenta en Tutor)
-- [ ] Crear `specs/sobrescrituras.md`
+    - [ ] Tiene modo de prueba (sandbox de Niubiz)
+    - [ ] Guarda tarjetas (tokenización) compatible con WooCommerce Subscriptions, para renovar Angelita Pro
+    - [ ] Funciona con checkout clásico
+    - [ ] Compatible con HPOS
+- [ ] Credenciales de comercio de Niubiz (prueba y producción) de la clienta
+- [x] Cursos de prueba en Tutor, cada uno con su producto de Woo (Simple + Virtual + For Tutor, oculto del catálogo) y la marca `_angelitozzz_prueba`: Angelita Pro, A Dormir Por Fin, Recién Nacidos Go y los 3 de Horarios Ideales
+- [ ] Confirmar precios: la tarjeta del listado dice A Dormir Por Fin "$399" y su landing "$67 (antes $97)"; los cursos de prueba usan $97 con rebaja a $67
+- [x] `specs/_shared.md`: "Contenido dinámico" con `solucion` (cpt), `curso` (Tutor) y `producto` (Woo, solo cobro)
+- [x] `specs/_shared.md`: tabla WooCommerce (carrito, checkout y mini-carrito clásicos; cuenta en Tutor)
+- [x] Crear `specs/plan/sobrescrituras.md`
+- [x] Comprobado en el código de Tutor: al reembolsar o cancelar un pedido, Tutor quita la inscripción solo (no hace falta código propio)
 
 ## F1 · Specs desde Figma
 
@@ -99,7 +105,7 @@ Avance del plan de cursos (Tutor LMS + WooCommerce + ACF). Una rama y un PR por 
 - [ ] `inc/tutor/`: banner de Mundo solo en la primera lección de cada curso (no en Angelita Pro)
 - [ ] `inc/tutor/`: mensaje inicial de Angelita Pro sobre el video
 - [ ] `inc/tutor/`: cita "PD" (formato "Cita" del editor + CSS)
-- [ ] `inc/tutor/`: pedido reembolsado → se quita la inscripción (comprobar si Tutor lo hace solo)
+- [x] Pedido reembolsado → se quita la inscripción: lo hace Tutor solo (`enrolled_courses_status_change`); se prueba en la verificación
 - [ ] `inc/woocommerce/`: "Agregar al carrito" sin recargar y abre el drawer
 - [ ] `inc/woocommerce/`: el selector de etapas agrega varios cursos
 - [ ] `inc/woocommerce/`: descuento por cantidad leído de ACF
@@ -109,7 +115,7 @@ Avance del plan de cursos (Tutor LMS + WooCommerce + ACF). Una rama y un PR por 
 - [ ] `inc/regalos/`: canje con sesión o creando la cuenta, inscripción con la API de Tutor, cupón marcado como usado
 - [ ] `inc/textos-plugins.php`: "Exercise files" → "Materiales" y demás textos de los plugins
 - [ ] Relacionados automáticos: 3 soluciones distintas de la actual
-- [ ] `specs/sobrescrituras.md` al día
+- [ ] `specs/plan/sobrescrituras.md` al día
 
 ## F5 · Pagos y Pro
 
@@ -138,4 +144,4 @@ Avance del plan de cursos (Tutor LMS + WooCommerce + ACF). Una rama y un PR por 
 - [ ] Inscripción, progreso y materiales en la lección
 - [ ] Banner de Mundo solo en la primera lección
 - [ ] Correo de pedido con el bloque de Mundo y sin él (regalo)
-- [ ] Prueba de actualización: Woo y Tutor actualizados en el Local, plantillas al día en Woo → Estado y en `specs/sobrescrituras.md`
+- [ ] Prueba de actualización: Woo y Tutor actualizados en el Local, plantillas al día en Woo → Estado y en `specs/plan/sobrescrituras.md`

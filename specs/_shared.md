@@ -17,12 +17,14 @@ Qué es cada página del diseño. Lo responde el usuario una sola vez; `analyze.
 | Preguntas frecuentes (`figma:preguntas-frecuentes`) | estática    | ninguno    |
 | Blog (`figma:blog`)                                 | blog        | post       |
 | Artículo del blog (`figma:articulo-blog`)           | blog        | post       |
-| Soluciones de sueño (`figma:soluciones-de-sueno`)   | woocommerce | producto   |
+| Soluciones de sueño (`figma:soluciones-de-sueno`)   | catálogo    | solucion   |
 | Testimonios (`figma:testimonios`)                   | catálogo    | testimonio |
 
 `Qué es`: `estática`, `blog`, `catálogo` (tipo de contenido propio), `woocommerce` u `otro`. `Contenido`: `ninguno` o la fila de abajo que lo describe.
 
 Fuera de esta etapa (el usuario las agrega después): la ficha de cada curso (interna de producto), la página de cursos a la que lleva el hero de Inicio y las demás páginas aún sin diseño.
+
+**Cursos (2026-11-10, plan en `specs/plan/checklist-cursos.md`):** los cursos se dan con Tutor LMS y se cobran con WooCommerce (Tutor → Monetización: WooCommerce). La página Soluciones de sueño deja de ser la tienda de Woo: lista el tipo de contenido `solucion` (la landing de venta de cada curso), que se une a uno o más cursos de Tutor. Las landings, la lección, el carrito, el checkout, el regalo y la cuenta tienen diseño (`specs/figma/enlaces/`) y entran a esta tabla en la F1.
 
 ## Contenido dinámico
 
@@ -31,7 +33,9 @@ Una fila por tipo de contenido que se repite o se filtra (entradas, productos, p
 | Contenido  | Origen | Taxonomías                                                                                                            | Campos por elemento                                                                                                                                                                                      | Filtros                                      | Plantillas                                                                                                                                                              | Acción                                                           |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
 | post       | post   | `category` jerárquica: Especiales, Bebés 0–4 meses, Bebés 4–24 meses, Bebés 24 meses–4 años, Bases del sueño, Siestas | Nativos de WordPress: título, extracto, contenido (editor), fecha, autor (avatar e Información biográfica del usuario), imagen destacada. Tiempo de lectura calculado del contenido, sin campo           | categoría (pastillas del hero), búsqueda `q` | `home.php` (listado: una sección por categoría elegida por el admin), `category.php` ("Ver todos" de cada categoría, reutiliza hero y tarjeta), `single.php` (artículo) | "Leer artículo": enlace al artículo                              |
-| producto   | woo    | `product_cat` (el diseño no la muestra)                                                                               | Nativos de Woo: nombre, imagen, descripción corta, enlace. Etiqueta de esquina (Nuevo / Más vendido), rango de edad y lista de beneficios de la tarjeta: se documentan cuando se haga la ficha del curso | ninguno                                      | `woocommerce/archive-product.php` (página Soluciones de sueño), `woocommerce/content-product.php` (tarjeta). Ficha del curso: pendiente, fuera de esta etapa            | Botón de la tarjeta: enlace a la ficha de cada curso (pendiente) |
+| solucion   | cpt    | ninguna                                                                                                               | Tipo de contenido nuevo: la landing de venta de un curso. Nombre (título), foto de la tarjeta (imagen destacada), etiqueta de esquina, ícono, edad, beneficios, cursos de Tutor que vende (1 o más), tipo de compra (directa, selector de etapas, suscripción), precios por cantidad y secciones (contenido flexible). El precio no es campo: sale del producto de Woo de su curso | ninguno                                      | `archive-solucion.php` (página Soluciones de sueño, `/soluciones-de-sueno/`), `single-solucion.php` (landing, `/soluciones-de-sueno/<slug>/`)                            | Botón de la tarjeta: enlace a la landing de la solución          |
+| curso      | cpt    | `course-category` de Tutor (edad)                                                                                     | Tipo de contenido de Tutor LMS (`courses`, ya existe): temario, lecciones con video de Vimeo, materiales, progreso, inscripción y duración del acceso. Se edita en el constructor de Tutor, no con ACF  | ninguno                                      | Las de Tutor, sobrescritas en `tutor/` solo donde el diseño lo pide (lección, cuenta, login). URL `/cursos/<slug>/`: sin comprar redirige a su solución             | Comprar: lo hace la landing de la solución                       |
+| producto   | woo    | ninguna                                                                                                               | Solo para cobrar: un producto Simple + Virtual + "For Tutor" por curso, unido al curso en Tutor. Nativos de Woo: precio, precio rebajado (precio de lanzamiento), cupones. Oculto del catálogo         | ninguno                                      | No tiene listado ni ficha: `/tienda/` redirige a `/soluciones-de-sueno/`                                                                                                 | Agregar al carrito de Woo (desde la landing)                     |
 | testimonio | cpt    | `categoria_testimonio` no jerárquica: Soluciones de Sueño, Mundo Angelitozzz                                          | Tipo de contenido nuevo. Nombre (título), foto (imagen destacada), testimonio (contenido), estrellas (1–5), edad del bebé (texto: "Bebé de 5 meses")                                                     | categoría (pastillas)                        | `archive-testimonio.php` (página Testimonios, `/testimonios/`)                                                                                                          | ninguna                                                          |
 
 - `Contenido`: nombre en singular, snake_case, sin tildes (`producto`, `proyecto`, `post`).
@@ -50,15 +54,15 @@ Solo si algún contenido tiene `Origen: woo`; si no, se deja vacía o se borra. 
 
 | Pieza        | Modo      |
 | ------------ | --------- |
-| carrito      | no aplica |
-| checkout     | no aplica |
-| mini-carrito | no aplica |
+| carrito      | clásico   |
+| checkout     | clásico   |
+| mini-carrito | clásico   |
 | cuenta       | no aplica |
 
 - **Variaciones:** no
 - **Filtros de tienda:** no
 
-El usuario respondió "aún no se define": las cuatro piezas quedan en `no aplica` hasta decidirlo. El carrito (con contador) y "Iniciar sesión" del header son solo enlaces por ahora.
+Decidido en la F0 (2026-11-10): carrito, checkout y mini-carrito clásicos, porque el diseño es propio y los plugins de pasarela peruanos (Niubiz) no siempre soportan el checkout en bloques. El mini-carrito es un drawer que se abre al agregar un curso. La cuenta no es la de Woo: la lleva el panel de Tutor LMS (escritorio, mi perfil, cursos inscritos e historial de pedidos), y "Mi cuenta" de Woo redirige ahí. Las etapas de Horarios Ideales no son variaciones: son 3 cursos con su propio producto.
 
 - `Pieza`: las que WooCommerce puede dibujar como plantilla PHP o como bloque: `carrito`, `checkout`, `mini-carrito` y `cuenta`. Tienda, tarjeta de producto y ficha son siempre plantillas PHP y no se preguntan.
 - `Modo`: `clásico` (plantilla PHP de `woocommerce/`: el HTML sale del diseño), `bloques` (bloque de WooCommerce: no hay plantilla, el diseño se aproxima con CSS) o `no aplica` (el diseño no tiene esa pieza).
