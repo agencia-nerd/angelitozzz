@@ -28,7 +28,7 @@ $hero = get_field('mundo_angelitozzz_hero') ?: [];
         <h2 id="mundo-angelitozzz-cta-titulo" class="text-h3 text-marca lg:text-display"><?= angelitozzz_highlight($titulo) ?></h2>
         <ul class="flex flex-col gap-3 text-left lg:flex-row lg:gap-7">
             <?php foreach ($beneficios as $fila) : ?>
-                <li class="flex items-center gap-2 text-body text-marca lg:text-body-l">
+                <li class="flex items-center gap-2 text-cuerpo text-marca lg:text-cuerpo-l">
                     <span class="flex size-6 shrink-0 items-center justify-center rounded-full bg-marca" aria-hidden="true">
                         <img class="size-[14px]" src="<?= $img('cta-check.svg') ?>" alt="" width="14" height="14">
                     </span>
@@ -37,7 +37,7 @@ $hero = get_field('mundo_angelitozzz_hero') ?: [];
             <?php endforeach; ?>
         </ul>
         <?php if ($precio !== '') : ?>
-            <p class="text-label text-marca-suave"><?= esc_html($precio) ?></p>
+            <p class="text-rotulo text-marca-suave"><?= esc_html($precio) ?></p>
         <?php endif; ?>
         <div class="mt-2">
             <?php get_template_part('template-parts/components/boton', null, [
@@ -47,7 +47,7 @@ $hero = get_field('mundo_angelitozzz_hero') ?: [];
             ]); ?>
         </div>
         <?php if ($nota !== '') : ?>
-            <p class="text-body-s text-tinta-suave"><?= esc_html($nota) ?></p>
+            <p class="text-cuerpo-s text-tinta-suave"><?= esc_html($nota) ?></p>
         <?php endif; ?>
     </div>
 </section>

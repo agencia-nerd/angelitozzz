@@ -23,7 +23,7 @@ $tienda    = function_exists('wc_get_page_permalink') ? (string) wc_get_page_per
             <p class="text-caption text-tinta-suave"><?= esc_html__('Escrito por', 'angelitozzz') ?></p>
             <h2 class="text-h4 text-marca"><?= esc_html($nombre) ?></h2>
             <?php if ($biografia !== '') : ?>
-                <p class="text-body-s"><?= esc_html($biografia) ?></p>
+                <p class="text-cuerpo-s"><?= esc_html($biografia) ?></p>
             <?php endif; ?>
 
             <div class="flex flex-wrap items-center gap-3 pt-2 max-md:w-full max-md:flex-col max-md:items-stretch">

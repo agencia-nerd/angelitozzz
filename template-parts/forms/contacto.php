@@ -11,7 +11,7 @@ $form_id        = 'contacto';
 $privacy_url    = get_privacy_policy_url();
 $fallback_email = angelitozzz_form_recipients('contacto')[0] ?? '';
 
-$label_class = 'text-body-s text-tinta';
+$label_class = 'text-cuerpo-s text-tinta';
 $linea_class = 'min-h-11 w-full rounded-none border-0 border-b border-tinta bg-transparent px-0 text-base text-tinta placeholder:text-tinta-suave focus:outline-none focus-visible:border-b-2 focus-visible:border-marca aria-invalid:border-acento';
 $error_class = 'text-caption text-acento empty:hidden';
 ?>
@@ -78,7 +78,7 @@ $error_class = 'text-caption text-acento empty:hidden';
     <div class="flex w-full flex-col gap-2">
         <div class="flex items-center gap-3.75">
             <input class="size-[14px] shrink-0 accent-tinta" <?php angelitozzz_field_attrs($form_id, 'privacidad'); ?>>
-            <label class="text-body-s text-tinta" for="<?php echo esc_attr(angelitozzz_field_id($form_id, 'privacidad')); ?>">
+            <label class="text-cuerpo-s text-tinta" for="<?php echo esc_attr(angelitozzz_field_id($form_id, 'privacidad')); ?>">
                 He leído y acepto las
                 <a class="underline" href="<?php echo esc_url($privacy_url ?: '#'); ?>">políticas de privacidad</a>
                 <span aria-hidden="true">*</span>
@@ -89,7 +89,7 @@ $error_class = 'text-caption text-acento empty:hidden';
 
     <?php angelitozzz_form_honeypot(); ?>
 
-    <button type="submit" class="inline-flex min-h-11 items-center gap-[10px] rounded-full bg-acento py-[14px] pl-[28px] pr-[24px] text-label text-blanco focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca data-loading:opacity-70" data-loading-label="Enviando...">
+    <button type="submit" class="inline-flex min-h-11 items-center gap-[10px] rounded-full bg-acento py-[14px] pl-[28px] pr-[24px] text-rotulo text-blanco focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca data-loading:opacity-70" data-loading-label="Enviando...">
         <span data-submit-label>Enviar mensaje</span>
         <svg class="size-[18px] shrink-0" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.75 9h10.5M9 3.75 14.25 9 9 14.25" /></svg>
     </button>

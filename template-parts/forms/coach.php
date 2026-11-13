@@ -18,9 +18,9 @@ $ayuda_email    = __('Así también te avisamos sobre contenido y novedades', 'a
 $aceptacion     = __('Acepto que Angelitozzz use mis datos para contactarme y enviarme información relacionada ·', 'angelitozzz');
 $boton          = (string) ($coach['boton'] ?? '');
 
-$campo_class = 'min-h-11 w-full rounded-[12px] border border-neutro bg-fondo text-body focus:outline-2 focus:outline-marca aria-invalid:border-acento';
+$campo_class = 'min-h-11 w-full rounded-[12px] border border-neutro bg-fondo text-cuerpo focus:outline-2 focus:outline-marca aria-invalid:border-acento';
 $input_class = $campo_class . ' px-[18px] py-[14px] placeholder:text-tinta-suave';
-$label_class = 'text-label text-marca';
+$label_class = 'text-rotulo text-marca';
 $error_class = 'text-caption text-acento empty:hidden';
 $ayuda_class = 'text-caption text-tinta-suave';
 ?>
@@ -82,7 +82,7 @@ $ayuda_class = 'text-caption text-tinta-suave';
     <div class="flex flex-col gap-2">
         <div class="flex items-start gap-3">
             <input class="mt-[2px] size-[22px] shrink-0 accent-marca" <?php angelitozzz_field_attrs($form_id, 'consent'); ?>>
-            <label class="text-body-s" for="<?php echo esc_attr(angelitozzz_field_id($form_id, 'consent')); ?>">
+            <label class="text-cuerpo-s" for="<?php echo esc_attr(angelitozzz_field_id($form_id, 'consent')); ?>">
                 <?php echo esc_html($aceptacion); ?>
                 <?php if ($privacy_url) : ?>
                     <a class="text-acento underline" href="<?php echo esc_url($privacy_url); ?>" target="_blank" rel="noopener">Ver Políticas de privacidad<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
@@ -97,7 +97,7 @@ $ayuda_class = 'text-caption text-tinta-suave';
 
     <?php angelitozzz_form_honeypot(); ?>
 
-    <button type="submit" class="flex min-h-11 w-full items-center justify-center gap-[10px] rounded-full bg-acento py-[14px] pl-7 pr-6 text-label text-blanco focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca data-loading:opacity-70" data-loading-label="Enviando...">
+    <button type="submit" class="flex min-h-11 w-full items-center justify-center gap-[10px] rounded-full bg-acento py-[14px] pl-7 pr-6 text-rotulo text-blanco focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca data-loading:opacity-70" data-loading-label="Enviando...">
         <span data-submit-label><?php echo esc_html($boton); ?></span>
         <svg class="size-[18px] shrink-0" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.75 9h10.5M9 3.75 14.25 9 9 14.25" /></svg>
     </button>

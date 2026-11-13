@@ -84,24 +84,24 @@
     --text-h5: 22px;
     --text-h5--line-height: 1.3;
     --text-h5--font-weight: 500;
-    --text-body-xl: 24px;
-    --text-body-xl--line-height: 1.5;
-    --text-body-xl--font-weight: 400;
-    --text-body-l: 20px;
-    --text-body-l--line-height: 1.5;
-    --text-body-l--font-weight: 400;
-    --text-body: 18px;
-    --text-body--line-height: 1.5;
-    --text-body--font-weight: 400;
-    --text-body-s: 16px;
-    --text-body-s--line-height: 1.5;
-    --text-body-s--font-weight: 400;
-    --text-label: 18px;
-    --text-label--line-height: 1.3;
-    --text-label--font-weight: 500;
-    --text-label-s: 15px;
-    --text-label-s--line-height: 1.3;
-    --text-label-s--font-weight: 500;
+    --text-cuerpo-xl: 24px;
+    --text-cuerpo-xl--line-height: 1.5;
+    --text-cuerpo-xl--font-weight: 400;
+    --text-cuerpo-l: 20px;
+    --text-cuerpo-l--line-height: 1.5;
+    --text-cuerpo-l--font-weight: 400;
+    --text-cuerpo: 18px;
+    --text-cuerpo--line-height: 1.5;
+    --text-cuerpo--font-weight: 400;
+    --text-cuerpo-s: 16px;
+    --text-cuerpo-s--line-height: 1.5;
+    --text-cuerpo-s--font-weight: 400;
+    --text-rotulo: 18px;
+    --text-rotulo--line-height: 1.3;
+    --text-rotulo--font-weight: 500;
+    --text-rotulo-s: 15px;
+    --text-rotulo-s--line-height: 1.3;
+    --text-rotulo-s--font-weight: 500;
     --text-caption: 14px;
     --text-caption--line-height: 1.4;
     --text-caption--font-weight: 400;
@@ -125,7 +125,7 @@
 
 @layer base {
     body {
-        @apply bg-fondo font-sans text-body text-tinta antialiased;
+        @apply bg-fondo font-sans text-cuerpo text-tinta antialiased;
     }
 }
 
@@ -249,9 +249,9 @@
         border-radius: 9999px;
         background-color: var(--color-blanco);
         color: var(--color-marca);
-        font-size: var(--text-label);
-        line-height: var(--text-label--line-height);
-        font-weight: var(--text-label--font-weight);
+        font-size: var(--text-rotulo);
+        line-height: var(--text-rotulo--line-height);
+        font-weight: var(--text-rotulo--font-weight);
     }
 
     .paginacion .page-numbers.current {

@@ -33,12 +33,12 @@ $conteo    = sprintf(_n('%d artículo', '%d artículos', $total, 'angelitozzz'),
             <div class="flex flex-wrap items-center gap-3">
                 <h2 id="<?= esc_attr($titulo_id) ?>" class="text-h3 text-marca"><?= esc_html($nombre) ?></h2>
                 <?php if ($total > 0) : ?>
-                    <span class="rounded-full bg-neutro px-3 py-1 text-label-s text-marca"><?= esc_html($conteo) ?></span>
+                    <span class="rounded-full bg-neutro px-3 py-1 text-rotulo-s text-marca"><?= esc_html($conteo) ?></span>
                 <?php endif; ?>
             </div>
 
             <?php if ($url !== '') : ?>
-                <a class="group flex items-center gap-2 text-label text-acento focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca" href="<?= esc_url($url) ?>">
+                <a class="group flex items-center gap-2 text-rotulo text-acento focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca" href="<?= esc_url($url) ?>">
                     <?= esc_html__('Ver todos', 'angelitozzz') ?>
                     <span class="sr-only"><?= esc_html(sprintf(__('los artículos de %s', 'angelitozzz'), $nombre)) ?></span>
                     <img class="size-[18px] shrink-0 transition-transform group-hover:translate-x-1" src="<?= esc_url(get_theme_file_uri('assets/img/blog/flecha-ver-todos.svg')) ?>" alt="" aria-hidden="true" width="18" height="18">

@@ -84,13 +84,13 @@ $letras_z = [
                                 <?php endfor; ?>
                             </div>
                             <svg class="absolute right-[26px] top-6 size-[30px] text-fondo-rosa" viewBox="0 0 30 30" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20 3.75a2.5 2.5 0 0 0-2.5 2.5v7.5a2.5 2.5 0 0 0 2.5 2.5c.69 0 1.25.56 1.25 1.25v1.25a2.5 2.5 0 0 1-2.5 2.5c-.69 0-1.25.56-1.25 1.25V25c0 .69.56 1.25 1.25 1.25a7.5 7.5 0 0 0 7.5-7.5V6.25a2.5 2.5 0 0 0-2.5-2.5zm-13.75 0a2.5 2.5 0 0 0-2.5 2.5v7.5a2.5 2.5 0 0 0 2.5 2.5c.69 0 1.25.56 1.25 1.25v1.25A2.5 2.5 0 0 1 5 21.25c-.69 0-1.25.56-1.25 1.25V25c0 .69.56 1.25 1.25 1.25a7.5 7.5 0 0 0 7.5-7.5V6.25a2.5 2.5 0 0 0-2.5-2.5z" /></svg>
-                            <blockquote class="text-body"><?= angelitozzz_highlight($testimonio['texto']) ?></blockquote>
+                            <blockquote class="text-cuerpo"><?= angelitozzz_highlight($testimonio['texto']) ?></blockquote>
                             <figcaption class="mt-auto flex items-center gap-3 border-t border-neutro pt-4">
                                 <span class="flex size-10 shrink-0 items-center justify-center rounded-full bg-fondo-rosa text-acento" aria-hidden="true">
                                     <svg class="size-[18px]" viewBox="0 0 18 18" fill="currentColor" focusable="false"><path d="M14.25 10.5c1.12-1.1 2.25-2.41 2.25-4.13a4.13 4.13 0 0 0-4.13-4.12c-1.32 0-2.25.38-3.37 1.5-1.13-1.12-2.06-1.5-3.38-1.5A4.13 4.13 0 0 0 1.5 6.38c0 1.72 1.13 3.03 2.25 4.12L9 15.75z" /></svg>
                                 </span>
                                 <span class="flex flex-col gap-[2px]">
-                                    <span class="text-label text-marca"><?= esc_html($autora) ?></span>
+                                    <span class="text-rotulo text-marca"><?= esc_html($autora) ?></span>
                                     <?php if ($detalle !== '') : ?>
                                         <span class="text-caption text-tinta-suave"><?= esc_html($detalle) ?></span>
                                     <?php endif; ?>

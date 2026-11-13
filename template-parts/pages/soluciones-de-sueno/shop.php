@@ -84,7 +84,7 @@ $tarjetas = [
 <section class="px-4 py-22 max-md:py-14" aria-labelledby="soluciones-de-sueno-shop-titulo">
     <div class="mx-auto flex max-w-[451px] flex-col gap-6 text-center max-md:max-w-none">
         <h1 id="soluciones-de-sueno-shop-titulo" class="text-h1 text-marca max-md:text-h3">Soluciones de sueño</h1>
-        <p class="text-body-l text-tinta">Encuentra la solución perfecta para ti — según la edad de tu bebé y lo que necesitas hoy.</p>
+        <p class="text-cuerpo-l text-tinta">Encuentra la solución perfecta para ti — según la edad de tu bebé y lo que necesitas hoy.</p>
     </div>
 
     <div class="mx-auto mt-18 max-w-[1103px]">

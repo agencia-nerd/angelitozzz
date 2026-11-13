@@ -56,9 +56,9 @@ $meta   = array_filter([$fecha !== '' ? sprintf(__('Publicado el %s', 'angelitoz
         <?php endif; ?>
         <h3 class="text-h4 text-marca"><?= esc_html($titulo) ?></h3>
         <?php if ($resumen !== '') : ?>
-            <p class="text-body-s"><?= esc_html($resumen) ?></p>
+            <p class="text-cuerpo-s"><?= esc_html($resumen) ?></p>
         <?php endif; ?>
-        <span class="mt-auto flex items-center gap-2 pt-1.5 text-label text-acento" aria-hidden="true">
+        <span class="mt-auto flex items-center gap-2 pt-1.5 text-rotulo text-acento" aria-hidden="true">
             <?= esc_html__('Leer artículo', 'angelitozzz') ?>
             <svg class="size-[18px] shrink-0 transition-transform group-hover:translate-x-1" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M3.75 9h10.5M9 3.75 14.25 9 9 14.25" /></svg>
         </span>

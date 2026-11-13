@@ -33,7 +33,7 @@ $deco = static fn(string $archivo): string => esc_url(get_theme_file_uri('assets
                     'alt_fallback' => $cita,
                 ]) ?>
             </div>
-            <div class="flex-1 text-body-l [&>p:not(:last-child)]:mb-4.5">
+            <div class="flex-1 text-cuerpo-l [&>p:not(:last-child)]:mb-4.5">
                 <?= wpautop(angelitozzz_highlight($texto), false) ?>
             </div>
         </div>
@@ -41,7 +41,7 @@ $deco = static fn(string $archivo): string => esc_url(get_theme_file_uri('assets
         <div class="mx-auto flex max-w-[820px] flex-col items-center gap-3.5 text-center">
             <p class="text-h4 text-marca max-md:text-h5"><?= angelitozzz_highlight($mision) ?></p>
             <?php if ($cierre !== '') : ?>
-                <p class="text-body-l [&_br]:mt-2 [&_br]:block [&_br]:content-['']"><?= angelitozzz_highlight($cierre) ?></p>
+                <p class="text-cuerpo-l [&_br]:mt-2 [&_br]:block [&_br]:content-['']"><?= angelitozzz_highlight($cierre) ?></p>
             <?php endif; ?>
             <?php if ($firma !== '') : ?>
                 <p class="flex items-center gap-2 text-h5 text-marca">
@@ -50,7 +50,7 @@ $deco = static fn(string $archivo): string => esc_url(get_theme_file_uri('assets
                 </p>
             <?php endif; ?>
             <?php if ($cargo !== '') : ?>
-                <p class="text-body-s text-tinta-suave"><?= esc_html($cargo) ?></p>
+                <p class="text-cuerpo-s text-tinta-suave"><?= esc_html($cargo) ?></p>
             <?php endif; ?>
             <div class="mt-2">
                 <?php get_template_part('template-parts/components/boton', null, [

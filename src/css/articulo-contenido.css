@@ -7,7 +7,7 @@
  */
 
 :where(.articulo-contenido) {
-    @apply text-body-l text-tinta;
+    @apply text-cuerpo-l text-tinta;
 
     /* Ritmo vertical: 24 px entre bloques y 16 px entre párrafos seguidos. */
     & > * {
@@ -23,7 +23,7 @@
     }
 
     & p {
-        @apply text-body-l text-tinta;
+        @apply text-cuerpo-l text-tinta;
     }
 
     & h2 {
@@ -40,13 +40,13 @@
 
     /* Entradilla: el primer párrafo del artículo. */
     & > p:first-child {
-        @apply text-body-xl text-marca;
+        @apply text-cuerpo-xl text-marca;
     }
 
     /* Listas: viñeta "•" y 10 px entre ítems; las numeradas con números y el mismo ritmo. */
     & ul,
     & ol {
-        @apply text-body-l text-tinta;
+        @apply text-cuerpo-l text-tinta;
         padding-left: 0;
     }
 

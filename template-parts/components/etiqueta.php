@@ -31,7 +31,7 @@ $iconos = [
 ];
 $archivo = $iconos[$icono] ?? '';
 ?>
-<span class="<?= esc_attr('inline-flex items-center gap-[6px] text-label-s whitespace-nowrap ' . ($estilos[$estilo] ?? $estilos['tarjeta'])) ?>">
+<span class="<?= esc_attr('inline-flex items-center gap-[6px] text-rotulo-s whitespace-nowrap ' . ($estilos[$estilo] ?? $estilos['tarjeta'])) ?>">
     <?php if ($archivo !== '') : ?>
         <img class="size-[14px] shrink-0" src="<?= esc_url(get_theme_file_uri('assets/img/' . $archivo)) ?>" alt="" aria-hidden="true" width="14" height="14">
     <?php endif; ?>

@@ -40,7 +40,7 @@ $whatsapp_url = $whatsapp !== ''
                         ]) ?>
                         <h1 id="mundo-angelitozzz-hero-titulo" class="max-w-[600px] text-h2 text-marca max-md:text-h3"><?= angelitozzz_highlight($titulo) ?></h1>
                     </div>
-                    <p class="text-body-s text-tinta"><?= angelitozzz_highlight($texto) ?></p>
+                    <p class="text-cuerpo-s text-tinta"><?= angelitozzz_highlight($texto) ?></p>
                 </div>
                 <div class="flex flex-col items-start gap-3">
                     <?php get_template_part('template-parts/components/boton', null, [
@@ -49,17 +49,17 @@ $whatsapp_url = $whatsapp !== ''
                         'variante' => 'frambuesa',
                     ]); ?>
                     <?php if ($precio !== '') : ?>
-                        <p class="text-body-s text-tinta"><?= esc_html($precio) ?></p>
+                        <p class="text-cuerpo-s text-tinta"><?= esc_html($precio) ?></p>
                     <?php endif; ?>
                 </div>
             </div>
             <?php if ($regalo_texto !== '') : ?>
-                <p class="flex flex-wrap items-center gap-2 text-body-s text-tinta">
+                <p class="flex flex-wrap items-center gap-2 text-cuerpo-s text-tinta">
                     <img class="size-[18px]" src="<?= $img('hero-icono-regalo.svg') ?>" alt="" aria-hidden="true" width="18" height="18">
                     <span><?= esc_html($regalo_texto) ?></span>
                     <?php if ($whatsapp_url !== '' && $regalo_enlace !== '') : ?>
                         <?= angelitozzz_link(['url' => $whatsapp_url, 'title' => $regalo_enlace, 'target' => '_blank'], [
-                            'class' => 'text-label-s text-marca underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca',
+                            'class' => 'text-rotulo-s text-marca underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca',
                         ]) ?>
                     <?php endif; ?>
                 </p>

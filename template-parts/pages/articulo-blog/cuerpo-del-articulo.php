@@ -25,9 +25,9 @@ $etiqueta = sprintf(__('Consejo de %s', 'angelitozzz'), $nombre);
                 <img class="size-8 shrink-0" src="<?= esc_url(get_theme_file_uri('assets/img/articulo-blog/consejo-icono-bombilla.svg')) ?>" alt="" aria-hidden="true" width="32" height="32">
                 <div class="flex min-w-0 flex-1 flex-col gap-1">
                     <?php if ($etiqueta !== '') : ?>
-                        <p class="text-label text-marca"><?= esc_html($etiqueta) ?></p>
+                        <p class="text-rotulo text-marca"><?= esc_html($etiqueta) ?></p>
                     <?php endif; ?>
-                    <p class="text-body text-tinta"><?= angelitozzz_highlight($consejo) ?></p>
+                    <p class="text-cuerpo text-tinta"><?= angelitozzz_highlight($consejo) ?></p>
                 </div>
             </aside>
         <?php endif; ?>

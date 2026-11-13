@@ -41,7 +41,7 @@ $id_titulo = wp_unique_id('contacto-cta-');
 
         <h2 id="<?= esc_attr($id_titulo) ?>" class="relative text-h2 text-marca max-md:text-h3"><?= angelitozzz_highlight($titulo) ?></h2>
         <?php if ($texto !== '') : ?>
-            <p class="relative text-body-l"><?= angelitozzz_highlight($texto) ?></p>
+            <p class="relative text-cuerpo-l"><?= angelitozzz_highlight($texto) ?></p>
         <?php endif; ?>
         <?php if ($email !== '') : ?>
             <a class="relative break-words text-h3 text-marca hover:underline focus-visible:underline max-md:text-h4" href="<?= esc_url('mailto:' . antispambot($email)) ?>"><?= esc_html(antispambot($email)) ?></a>

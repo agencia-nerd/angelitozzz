@@ -25,7 +25,7 @@ $cuenta           = ['url' => '#', 'title' => 'Iniciar sesión', 'target' => '']
 $carrito          = ['url' => '#', 'title' => 'Carrito', 'target' => ''];
 $carrito_cantidad = 1;
 
-$clase_cuenta  = 'flex h-[46px] items-center gap-2 rounded-full border border-neutro bg-blanco pl-[14px] pr-[18px] text-label-s text-marca focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca';
+$clase_cuenta  = 'flex h-[46px] items-center gap-2 rounded-full border border-neutro bg-blanco pl-[14px] pr-[18px] text-rotulo-s text-marca focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca';
 $clase_carrito = 'relative flex size-[46px] items-center justify-center rounded-full border border-neutro bg-blanco text-marca focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca';
 $attrs_cuenta  = angelitozzz_link_attrs($cuenta, ['class' => $clase_cuenta]);
 $attrs_carrito = angelitozzz_link_attrs($carrito, ['class' => $clase_carrito]);
@@ -45,7 +45,7 @@ $cuenta_html = '<a' . ($attrs_cuenta !== '' ? $attrs_cuenta : ' class="' . esc_a
 
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
-    <a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-blanco focus:px-5 focus:py-3 focus:text-label focus:text-marca" href="#main-content"><?= esc_html__('Saltar al contenido', 'angelitozzz') ?></a>
+    <a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-blanco focus:px-5 focus:py-3 focus:text-rotulo focus:text-marca" href="#main-content"><?= esc_html__('Saltar al contenido', 'angelitozzz') ?></a>
 
     <?php get_template_part('template-parts/components/cintillo-promociones', null, [
         'texto' => (string) ($cintillo['texto'] ?? ''),
@@ -64,7 +64,7 @@ $cuenta_html = '<a' . ($attrs_cuenta !== '' ? $attrs_cuenta : ' class="' . esc_a
 
             <nav class="max-lg:hidden" aria-label="<?= esc_attr__('Principal', 'angelitozzz') ?>">
                 <?php angelitozzz_menu('principal', $menu_principal, [
-                    'clase'        => 'flex items-center gap-6 text-body-s xl:gap-11 [&_a:hover]:text-marca [&_a]:whitespace-nowrap [&_[aria-current]]:text-marca',
+                    'clase'        => 'flex items-center gap-6 text-cuerpo-s xl:gap-11 [&_a:hover]:text-marca [&_a]:whitespace-nowrap [&_[aria-current]]:text-marca',
                     'clase_enlace' => '',
                 ]); ?>
             </nav>
@@ -72,7 +72,7 @@ $cuenta_html = '<a' . ($attrs_cuenta !== '' ? $attrs_cuenta : ' class="' . esc_a
             <div class="flex items-center gap-[38px] max-lg:gap-3">
                 <nav class="max-lg:hidden" aria-label="<?= esc_attr__('Contacto', 'angelitozzz') ?>">
                     <?php angelitozzz_menu('cabecera-derecha', $menu_derecha, [
-                        'clase'        => 'flex items-center gap-6 text-body [&_a:hover]:text-marca [&_[aria-current]]:text-marca',
+                        'clase'        => 'flex items-center gap-6 text-cuerpo [&_a:hover]:text-marca [&_[aria-current]]:text-marca',
                         'clase_enlace' => '',
                     ]); ?>
                 </nav>
@@ -98,11 +98,11 @@ $cuenta_html = '<a' . ($attrs_cuenta !== '' ? $attrs_cuenta : ' class="' . esc_a
         <div id="menu-movil" class="border-t border-neutro bg-fondo px-4 pb-8 pt-4 lg:hidden" hidden data-menu-panel>
             <nav aria-label="<?= esc_attr__('Principal', 'angelitozzz') ?>">
                 <?php angelitozzz_menu('principal', $menu_principal, [
-                    'clase'        => 'flex flex-col text-body [&_a]:block [&_a]:py-3 [&_span]:block [&_span]:py-3 [&_[aria-current]]:text-marca',
+                    'clase'        => 'flex flex-col text-cuerpo [&_a]:block [&_a]:py-3 [&_span]:block [&_span]:py-3 [&_[aria-current]]:text-marca',
                     'clase_enlace' => '',
                 ]); ?>
                 <?php angelitozzz_menu('cabecera-derecha', $menu_derecha, [
-                    'clase'        => 'flex flex-col border-t border-neutro text-body [&_a]:block [&_a]:py-3 [&_[aria-current]]:text-marca',
+                    'clase'        => 'flex flex-col border-t border-neutro text-cuerpo [&_a]:block [&_a]:py-3 [&_[aria-current]]:text-marca',
                     'clase_enlace' => '',
                 ]); ?>
             </nav>

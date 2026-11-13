@@ -32,7 +32,7 @@ $flecha_clases = 'absolute top-[160px] z-10 hidden size-[54px] items-center just
         <img class="pointer-events-none absolute -top-5 right-[59px] w-[15px] max-md:right-4" src="<?= esc_url(get_theme_file_uri('assets/img/home/ayudarte-zzz.svg')) ?>" alt="" aria-hidden="true" width="15" height="16">
         <h2 id="home-como-ayudarte-titulo" class="text-h1 text-marca max-md:text-h3"><?= angelitozzz_highlight($titulo) ?></h2>
         <?php if ($bajada !== '') : ?>
-            <p class="text-body-s"><?= esc_html($bajada) ?></p>
+            <p class="text-cuerpo-s"><?= esc_html($bajada) ?></p>
         <?php endif; ?>
     </div>
 

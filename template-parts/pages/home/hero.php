@@ -28,12 +28,12 @@ $imagen = $hero['imagen'] ?? null;
             <?php endif; ?>
             <h1 id="home-hero-titulo" class="text-display text-marca max-lg:text-h2"><?= angelitozzz_highlight($titulo) ?></h1>
             <?php if ($bajada !== '') : ?>
-                <p class="max-w-[520px] text-body-l"><?= angelitozzz_highlight($bajada) ?></p>
+                <p class="max-w-[520px] text-cuerpo-l"><?= angelitozzz_highlight($bajada) ?></p>
             <?php endif; ?>
         </div>
 
         <?php if ($credenciales) : ?>
-            <ul class="fila-puntos flex flex-col gap-1 text-label text-marca-suave lg:flex-row lg:flex-wrap lg:gap-4">
+            <ul class="fila-puntos flex flex-col gap-1 text-rotulo text-marca-suave lg:flex-row lg:flex-wrap lg:gap-4">
                 <?php foreach ($credenciales as $credencial) : ?>
                     <li class="lg:whitespace-nowrap"><?= esc_html($credencial) ?></li>
                 <?php endforeach; ?>

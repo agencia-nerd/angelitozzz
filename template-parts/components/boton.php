@@ -36,7 +36,7 @@ $variantes = [
     'secundario' => 'border-[1.5px] border-marca text-marca',
 ];
 $clases = trim(implode(' ', [
-    'inline-flex items-center gap-[10px] rounded-full py-[14px] pl-[28px] pr-[24px] text-label whitespace-nowrap',
+    'inline-flex items-center gap-[10px] rounded-full py-[14px] pl-[28px] pr-[24px] text-rotulo whitespace-nowrap',
     'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca',
     $variantes[$variante] ?? $variantes['frambuesa'],
     $clase,

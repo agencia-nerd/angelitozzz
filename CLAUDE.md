@@ -32,8 +32,8 @@ Stack: WordPress (Local WP) + Vite + Tailwind + pnpm.
 
 ## Deploy
 - No commitees `dist/` (está en `.gitignore`).
-- Para publicar, detén el dev server, corre `pnpm build` y sube `dist/` más los PHP modificados.
-- No subas al servidor `hot`, `node_modules/`, `src/` ni archivos de config (`package.json`, `pnpm-*`, `vite.config.ts`, `CLAUDE.md`).
+- Para publicar, detén el dev server, corre `pnpm build` y sube el tema completo (con `dist/`). No hagas listas de archivos sueltos para subir.
+- No subas al servidor `hot`, `node_modules/`, `src/`, `specs/` ni archivos de config (`package.json`, `pnpm-*`, `vite.config.ts`, `CLAUDE.md`).
 
 <!-- wp-helper:start -->
 ## Helpers (wp-helper 1.3.1)
