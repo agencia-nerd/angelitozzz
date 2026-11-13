@@ -1,0 +1,339 @@
+// Figma get_design_context · node 4164:25446 "Alumna · Escritorio" (seccion-entera) · file FumWuCPT1PPDg5vBTYoufA · leído 2026-11-13
+// La respuesta no vino truncada: incluye completos el drawer lateral (4164:25448) y "cursos activos" (4164:25480).
+// Las URLs temporales de assets se reemplazaron por las rutas relativas de los archivos descargados.
+
+const imgFlecha = "assets/boton-flecha.svg";
+const imgFlecha1 = "assets/boton-flecha-claro.svg";
+const imgImagen = "assets/tarjeta-horarios-9-15.jpg";
+const imgImagen1 = "assets/tarjeta-recien-nacidos-go.jpg";
+const imgImagen2 = "assets/tarjeta-angelita-pro.jpg";
+const imgImagen3 = "assets/tarjeta-horarios-4-9.jpg";
+const imgImagen4 = "assets/tarjeta-horarios-15-36.jpg";
+const imgMaterialSymbolsLock = "assets/menu-icono-escritorio.svg";
+const imgIcono = "assets/menu-icono-mi-perfil.svg";
+const imgMdiBooks = "assets/menu-icono-cursos.svg";
+const imgIconoHistorial = "assets/menu-icono-historial.svg";
+const imgMdiAccountCog = "assets/pestana-icono-inscritos.svg";
+const imgVector = "assets/pestana-icono-activos.svg";
+const imgVector1 = "assets/pestana-icono-completados.svg";
+const imgFrame = "assets/tarjeta-icono-lecciones.svg";
+
+type BotonProps = {
+  className?: string;
+  flecha?: boolean;
+  texto?: string;
+  tipo?: "Claro" | "Frambuesa";
+};
+
+function Boton({ className, flecha = true, texto = "Texto del botón", tipo = "Frambuesa" }: BotonProps) {
+  const isClaro = tipo === "Claro";
+  const isFrambuesa = tipo === "Frambuesa";
+  return (
+    <div className={className || `content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] ${isClaro ? String.raw`bg-[var(--color\/crema,#f8f6f1)]` : String.raw`bg-[var(--color\/frambuesa,#a8566a)]`}`} id={isClaro ? "node-3704_15616" : "node-3711_6161"}>
+      {isFrambuesa && (
+        <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="3711:6162">
+          {texto}
+        </p>
+      )}
+      {isFrambuesa && flecha && (
+        <div className="relative shrink-0 size-[18px]" data-node-id="3711:6163" data-name="Flecha">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha} />
+        </div>
+      )}
+      {isClaro && (
+        <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3704:15617">
+          {texto}
+        </p>
+      )}
+      {isClaro && flecha && (
+        <div className="relative shrink-0 size-[18px]" data-node-id="3704:15618" data-name="Flecha">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha1} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function AlumnaEscritorio() {
+  return (
+    <div className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex flex-col items-center px-[135px] py-[120px] relative size-full" data-node-id="4164:25446" data-name="Alumna · Escritorio">
+      <div className="content-stretch flex gap-[60px] items-start relative shrink-0 w-[1649px]" data-node-id="4164:25447">
+
+        {/* ===================== DRAWER LATERAL (4164:25448) ===================== */}
+        <div className="border-black border-r border-solid content-stretch flex flex-col h-[1140px] items-start justify-between pr-[55px] relative shrink-0 w-[377px]" data-node-id="4164:25448">
+          <div className="content-stretch flex flex-col gap-[45px] items-start relative shrink-0 w-[321px]" data-node-id="4164:25449">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] h-[21px] leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] w-full" data-node-id="4164:25450">
+              Hola,
+            </p>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:SemiBold'] h-[60px] leading-[1.1] not-italic relative shrink-0 text-[50px] text-[color:var(--color\/verde,#234549)] w-full" data-node-id="4164:25451">
+              Ana Lucía
+            </p>
+            <div className="content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-full" data-node-id="4164:25452">
+              <div className="bg-[var(--color\/crema,#f8f6f1)] h-[50px] relative rounded-[15px] shrink-0 w-full" data-node-id="4164:26437">
+                <p className="[word-break:break-word] absolute font-['Barlow_Condensed:Regular'] leading-[1.5] left-[70px] not-italic text-[20px] text-[color:var(--color\/texto,black)] top-[7.5px] whitespace-nowrap" data-node-id="4164:26438">
+                  Escritorio
+                </p>
+                <div className="absolute bg-[var(--color\/teal,#9cb0b0)] left-[19px] overflow-clip rounded-[45px] size-[36px] top-[6px]" data-node-id="4164:26439" data-name="ICONO">
+                  <div className="absolute left-[6px] size-[24px] top-[6px]" data-node-id="4164:26440" data-name="material-symbols:lock">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMaterialSymbolsLock} />
+                  </div>
+                </div>
+              </div>
+              <div className="bg-[var(--color\/crema,#f8f6f1)] h-[50px] relative rounded-[15px] shrink-0 w-full" data-node-id="4164:25458">
+                <div className="absolute left-[19px] size-[36px] top-[7px]" data-node-id="4164:25459" data-name="ICONO">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIcono} />
+                </div>
+                <p className="[word-break:break-word] absolute font-['Barlow_Condensed:Regular'] h-[27px] leading-[1.5] left-[70px] not-italic text-[20px] text-[color:var(--color\/texto,black)] top-[12px] w-[67px]" data-node-id="4164:25461">{`Mi perfil `}</p>
+              </div>
+              <div className="bg-[var(--color\/verde,#234549)] h-[49px] relative rounded-[15px] shrink-0 w-full" data-node-id="4164:26431">
+                <div className="absolute bg-[var(--color\/blanco,white)] left-[19px] overflow-clip rounded-[45px] size-[36px] top-[6px]" data-node-id="4164:26432" data-name="ICONO">
+                  <div className="absolute left-[6px] size-[24px] top-[6px]" data-node-id="4164:26433" data-name="mdi:books">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMdiBooks} />
+                  </div>
+                </div>
+                <p className="[word-break:break-word] absolute font-['Barlow_Condensed:Medium'] leading-[1.3] left-[70px] not-italic text-[22px] text-[color:var(--color\/blanco,white)] top-[8.5px] whitespace-nowrap" data-node-id="4164:26435">
+                  Cursos inscritos
+                </p>
+              </div>
+              <div className="bg-[var(--color\/crema,#f8f6f1)] h-[49px] relative rounded-[15px] shrink-0 w-full" data-node-id="4164:25472">
+                <div className="absolute bg-[var(--color\/teal,#9cb0b0)] left-[19px] overflow-clip rounded-[45px] size-[36px] top-[6px]" data-node-id="4164:25473" data-name="ICONO">
+                  <div className="absolute left-[8px] size-[20px] top-[8px]" data-node-id="4164:25474" data-name="Ícono historial">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIconoHistorial} />
+                  </div>
+                </div>
+                <p className="[word-break:break-word] absolute font-['Barlow_Condensed:Regular'] leading-[1.5] left-[70px] not-italic text-[20px] text-[color:var(--color\/texto,black)] top-[7.5px] whitespace-nowrap" data-node-id="4164:25478">
+                  Historial de pedidos
+                </p>
+              </div>
+            </div>
+          </div>
+          <Boton className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" texto="Cerrar sesión" tipo="Claro" />
+        </div>
+
+        {/* ===================== CURSOS ACTIVOS (4164:25480) ===================== */}
+        <div className="content-stretch flex flex-col gap-[50px] items-start relative shrink-0 w-[1212px]" data-node-id="4164:25480">
+          <div className="content-stretch flex gap-[10px] items-center relative shrink-0" data-node-id="4164:25675">
+            <div className="bg-[var(--color\/blanco,white)] content-stretch flex flex-col gap-[8px] h-[94px] items-center justify-center pb-[10px] pt-[11px] px-[10px] relative rounded-[15px] shrink-0 w-[173px]" data-node-id="4164:25676">
+              <div className="relative shrink-0 size-[35px]" data-node-id="4164:25677" data-name="mdi:account-cog">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMdiAccountCog} />
+              </div>
+              <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/verde,#234549)] text-center whitespace-nowrap" data-node-id="4164:25679">
+                Cursos inscritos
+              </p>
+            </div>
+            <div className="bg-[#fafeff] border-2 border-[#492343] border-solid content-stretch flex flex-col gap-[8px] h-[94px] items-center justify-center pb-[10px] pt-[11px] px-[10px] relative rounded-[15px] shrink-0 w-[173px]" data-node-id="4164:25680">
+              <div className="overflow-clip relative shrink-0 size-[35px]" data-node-id="4164:25681" data-name="mdi:account-cog">
+                <div className="absolute aspect-[24/24] left-0 overflow-clip right-0 top-0" data-node-id="4164:25682" data-name="mdi:account-lock">
+                  <div className="absolute inset-[17.14%_22.86%_17.14%_20%]" data-node-id="4164:25683" data-name="Vector">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+                  </div>
+                </div>
+              </div>
+              <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] text-center whitespace-nowrap" data-node-id="4164:25684">
+                Cursos activos
+              </p>
+            </div>
+            <div className="bg-[var(--color\/blanco,white)] content-stretch flex flex-col gap-[8px] h-[94px] items-center justify-center pb-[10px] pt-[11px] px-[10px] relative rounded-[15px] shrink-0 w-[173px]" data-node-id="4164:25685">
+              <div className="overflow-clip relative shrink-0 size-[35px]" data-node-id="4164:25686" data-name="mdi:account-cog">
+                <div className="absolute aspect-[24/24] left-0 overflow-clip right-0 top-0" data-node-id="4164:25687" data-name="mdi:account-lock">
+                  <div className="absolute inset-[22.86%_17.14%_20%_14.29%]" data-node-id="4164:25688" data-name="Vector">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector1} />
+                  </div>
+                </div>
+              </div>
+              <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] text-center whitespace-nowrap" data-node-id="4164:25689">
+                Completados
+              </p>
+            </div>
+          </div>
+          <div className="content-start flex flex-wrap gap-[20px] h-[940px] items-start relative shrink-0 w-[1105px]" data-node-id="4164:25569">
+            <div className="bg-[var(--color\/blanco,white)] border border-[var(--color\/beige,#d7d0b5)] border-solid content-stretch flex flex-col h-[467px] items-start overflow-clip relative rounded-[20px] shrink-0 w-[355px]" data-node-id="4164:25570" data-name="Tarjeta de curso · Cursos de Horarios · 9 a 15 meses">
+              <div className="h-[190px] relative shrink-0 w-full" data-node-id="4164:25571" data-name="Imagen">
+                <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImagen} />
+              </div>
+              <div className="content-stretch flex flex-[1_0_0] flex-col gap-[10px] items-start min-h-px overflow-clip p-[20px] relative w-full" data-node-id="4164:25572" data-name="Contenido">
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] min-w-full not-italic relative shrink-0 text-[22px] text-[color:var(--color\/verde,#234549)] w-[min-content]" data-node-id="4164:25573">
+                  Cursos de Horarios · 9 a 15 meses
+                </p>
+                <div className="content-stretch flex gap-[6px] items-center overflow-clip relative shrink-0" data-node-id="4164:25574" data-name="Frame">
+                  <div className="relative shrink-0 size-[16px]" data-node-id="4164:25575" data-name="Frame">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                  </div>
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.4] not-italic relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)] whitespace-nowrap" data-node-id="4164:25577">
+                    10 de 12 lecciones
+                  </p>
+                </div>
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="4164:25578">
+                  Ventanas de vigilia, siestas y rutinas para esta etapa.
+                </p>
+                <div className="content-stretch flex flex-col gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="4164:25579" data-name="Progreso">
+                  <div className="[word-break:break-word] content-stretch flex items-center justify-between not-italic overflow-clip relative shrink-0 w-full whitespace-nowrap" data-node-id="4164:25580" data-name="Frame">
+                    <p className="font-['Barlow_Condensed:Regular'] leading-[1.4] relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)]" data-node-id="4164:25581">
+                      Progreso
+                    </p>
+                    <p className="font-['Barlow_Condensed:Medium'] leading-[1.3] relative shrink-0 text-[15px] text-[color:var(--color\/verde,#234549)]" data-node-id="4164:25582">
+                      80%
+                    </p>
+                  </div>
+                  <div className="bg-[var(--color\/crema,#f8f6f1)] border border-[var(--color\/beige,#d7d0b5)] border-solid h-[8px] overflow-clip relative rounded-[100px] shrink-0 w-full" data-node-id="4164:25583" data-name="Barra">
+                    <div className="absolute bg-[var(--color\/frambuesa,#a8566a)] h-[8px] left-[-1px] rounded-[100px] top-[-1px] w-[252px]" data-node-id="4164:25584" data-name="Avance" />
+                  </div>
+                </div>
+                <div className="flex-[1_0_0] min-h-px relative w-[10px]" data-node-id="4164:25585" data-name="Empuje" />
+                <Boton className="bg-[var(--color\/frambuesa,#a8566a)] content-stretch cursor-pointer flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" texto="Continuar curso" />
+              </div>
+            </div>
+            <div className="bg-[var(--color\/blanco,white)] border border-[var(--color\/beige,#d7d0b5)] border-solid content-stretch flex flex-col h-[467px] items-start overflow-clip relative rounded-[20px] shrink-0 w-[355px]" data-node-id="4164:25587" data-name="Tarjeta de curso · Recién Nacidos Go">
+              <div className="h-[190px] relative shrink-0 w-full" data-node-id="4164:25588" data-name="Imagen">
+                <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImagen1} />
+              </div>
+              <div className="content-stretch flex flex-[1_0_0] flex-col gap-[10px] items-start min-h-px overflow-clip p-[20px] relative w-full" data-node-id="4164:25589" data-name="Contenido">
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] min-w-full not-italic relative shrink-0 text-[22px] text-[color:var(--color\/verde,#234549)] w-[min-content]" data-node-id="4164:25590">
+                  Recién Nacidos Go
+                </p>
+                <div className="content-stretch flex gap-[6px] items-center overflow-clip relative shrink-0" data-node-id="4164:25591" data-name="Frame">
+                  <div className="relative shrink-0 size-[16px]" data-node-id="4164:25592" data-name="Frame">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                  </div>
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.4] not-italic relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)] whitespace-nowrap" data-node-id="4164:25594">
+                    1 de 11 lecciones
+                  </p>
+                </div>
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="4164:25595">
+                  Todo lo que necesitas para que tu recién nacido duerma mejor.
+                </p>
+                <div className="content-stretch flex flex-col gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="4164:25596" data-name="Progreso">
+                  <div className="[word-break:break-word] content-stretch flex items-center justify-between not-italic overflow-clip relative shrink-0 w-full whitespace-nowrap" data-node-id="4164:25597" data-name="Frame">
+                    <p className="font-['Barlow_Condensed:Regular'] leading-[1.4] relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)]" data-node-id="4164:25598">
+                      Progreso
+                    </p>
+                    <p className="font-['Barlow_Condensed:Medium'] leading-[1.3] relative shrink-0 text-[15px] text-[color:var(--color\/verde,#234549)]" data-node-id="4164:25599">
+                      10%
+                    </p>
+                  </div>
+                  <div className="bg-[var(--color\/crema,#f8f6f1)] border border-[var(--color\/beige,#d7d0b5)] border-solid h-[8px] overflow-clip relative rounded-[100px] shrink-0 w-full" data-node-id="4164:25600" data-name="Barra">
+                    <div className="absolute bg-[var(--color\/frambuesa,#a8566a)] h-[8px] left-[-1px] rounded-[100px] top-[-1px] w-[32px]" data-node-id="4164:25601" data-name="Avance" />
+                  </div>
+                </div>
+                <div className="flex-[1_0_0] min-h-px relative w-[10px]" data-node-id="4164:25602" data-name="Empuje" />
+                <Boton className="bg-[var(--color\/frambuesa,#a8566a)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" texto="Continuar curso" />
+              </div>
+            </div>
+            <div className="bg-[var(--color\/blanco,white)] border border-[var(--color\/beige,#d7d0b5)] border-solid content-stretch flex flex-col h-[467px] items-start overflow-clip relative rounded-[20px] shrink-0 w-[355px]" data-node-id="4164:25604" data-name="Tarjeta de curso · Angelita Pro">
+              <div className="h-[190px] relative shrink-0 w-full" data-node-id="4164:25605" data-name="Imagen">
+                <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImagen2} />
+              </div>
+              <div className="content-stretch flex flex-[1_0_0] flex-col gap-[10px] items-start min-h-px overflow-clip p-[20px] relative w-full" data-node-id="4164:25606" data-name="Contenido">
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] min-w-full not-italic relative shrink-0 text-[22px] text-[color:var(--color\/verde,#234549)] w-[min-content]" data-node-id="4164:25607">
+                  Angelita Pro
+                </p>
+                <div className="content-stretch flex gap-[6px] items-center overflow-clip relative shrink-0" data-node-id="4164:25608" data-name="Frame">
+                  <div className="relative shrink-0 size-[16px]" data-node-id="4164:25609" data-name="Frame">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                  </div>
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.4] not-italic relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)] whitespace-nowrap" data-node-id="4164:25611">
+                    13 de 14 lecciones
+                  </p>
+                </div>
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="4164:25612">
+                  Tu plan de sueño con el acompañamiento de Angelita por WhatsApp.
+                </p>
+                <div className="content-stretch flex flex-col gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="4164:25613" data-name="Progreso">
+                  <div className="[word-break:break-word] content-stretch flex items-center justify-between not-italic overflow-clip relative shrink-0 w-full whitespace-nowrap" data-node-id="4164:25614" data-name="Frame">
+                    <p className="font-['Barlow_Condensed:Regular'] leading-[1.4] relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)]" data-node-id="4164:25615">
+                      Progreso
+                    </p>
+                    <p className="font-['Barlow_Condensed:Medium'] leading-[1.3] relative shrink-0 text-[15px] text-[color:var(--color\/verde,#234549)]" data-node-id="4164:25616">
+                      90%
+                    </p>
+                  </div>
+                  <div className="bg-[var(--color\/crema,#f8f6f1)] border border-[var(--color\/beige,#d7d0b5)] border-solid h-[8px] overflow-clip relative rounded-[100px] shrink-0 w-full" data-node-id="4164:25617" data-name="Barra">
+                    <div className="absolute bg-[var(--color\/frambuesa,#a8566a)] h-[8px] left-[-1px] rounded-[100px] top-[-1px] w-[284px]" data-node-id="4164:25618" data-name="Avance" />
+                  </div>
+                </div>
+                <div className="flex-[1_0_0] min-h-px relative w-[10px]" data-node-id="4164:25619" data-name="Empuje" />
+                <Boton className="bg-[var(--color\/frambuesa,#a8566a)] content-stretch cursor-pointer flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" texto="Continuar curso" />
+              </div>
+            </div>
+            <div className="bg-[var(--color\/blanco,white)] border border-[var(--color\/beige,#d7d0b5)] border-solid content-stretch flex flex-col h-[467px] items-start overflow-clip relative rounded-[20px] shrink-0 w-[355px]" data-node-id="4164:25621" data-name="Tarjeta de curso · Cursos de Horarios · 4 a 9 meses">
+              <div className="h-[190px] relative shrink-0 w-full" data-node-id="4164:25622" data-name="Imagen">
+                <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImagen3} />
+              </div>
+              <div className="content-stretch flex flex-[1_0_0] flex-col gap-[10px] items-start min-h-px overflow-clip p-[20px] relative w-full" data-node-id="4164:25623" data-name="Contenido">
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] min-w-full not-italic relative shrink-0 text-[22px] text-[color:var(--color\/verde,#234549)] w-[min-content]" data-node-id="4164:25624">
+                  Cursos de Horarios · 4 a 9 meses
+                </p>
+                <div className="content-stretch flex gap-[6px] items-center overflow-clip relative shrink-0" data-node-id="4164:25625" data-name="Frame">
+                  <div className="relative shrink-0 size-[16px]" data-node-id="4164:25626" data-name="Frame">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                  </div>
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.4] not-italic relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)] whitespace-nowrap" data-node-id="4164:25628">
+                    7 de 14 lecciones
+                  </p>
+                </div>
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="4164:25629">
+                  El horario ideal de sueño para tu bebé, según su edad.
+                </p>
+                <div className="content-stretch flex flex-col gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="4164:25630" data-name="Progreso">
+                  <div className="[word-break:break-word] content-stretch flex items-center justify-between not-italic overflow-clip relative shrink-0 w-full whitespace-nowrap" data-node-id="4164:25631" data-name="Frame">
+                    <p className="font-['Barlow_Condensed:Regular'] leading-[1.4] relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)]" data-node-id="4164:25632">
+                      Progreso
+                    </p>
+                    <p className="font-['Barlow_Condensed:Medium'] leading-[1.3] relative shrink-0 text-[15px] text-[color:var(--color\/verde,#234549)]" data-node-id="4164:25633">
+                      50%
+                    </p>
+                  </div>
+                  <div className="bg-[var(--color\/crema,#f8f6f1)] border border-[var(--color\/beige,#d7d0b5)] border-solid h-[8px] overflow-clip relative rounded-[100px] shrink-0 w-full" data-node-id="4164:25634" data-name="Barra">
+                    <div className="absolute bg-[var(--color\/frambuesa,#a8566a)] h-[8px] left-[-1px] rounded-[100px] top-[-1px] w-[158px]" data-node-id="4164:25635" data-name="Avance" />
+                  </div>
+                </div>
+                <div className="flex-[1_0_0] min-h-px relative w-[10px]" data-node-id="4164:25636" data-name="Empuje" />
+                <Boton className="bg-[var(--color\/frambuesa,#a8566a)] content-stretch cursor-pointer flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" texto="Continuar curso" />
+              </div>
+            </div>
+            <div className="bg-[var(--color\/blanco,white)] border border-[var(--color\/beige,#d7d0b5)] border-solid content-stretch flex flex-col h-[467px] items-start overflow-clip relative rounded-[20px] shrink-0 w-[355px]" data-node-id="4164:25638" data-name="Tarjeta de curso · Cursos de Horarios · 15 a 36 meses">
+              <div className="h-[190px] relative shrink-0 w-full" data-node-id="4164:25639" data-name="Imagen">
+                <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImagen4} />
+              </div>
+              <div className="content-stretch flex flex-[1_0_0] flex-col gap-[10px] items-start min-h-px overflow-clip p-[20px] relative w-full" data-node-id="4164:25640" data-name="Contenido">
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] min-w-full not-italic relative shrink-0 text-[22px] text-[color:var(--color\/verde,#234549)] w-[min-content]" data-node-id="4164:25641">
+                  Cursos de Horarios · 15 a 36 meses
+                </p>
+                <div className="content-stretch flex gap-[6px] items-center overflow-clip relative shrink-0" data-node-id="4164:25642" data-name="Frame">
+                  <div className="relative shrink-0 size-[16px]" data-node-id="4164:25643" data-name="Frame">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                  </div>
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.4] not-italic relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)] whitespace-nowrap" data-node-id="4164:25645">
+                    3 de 13 lecciones
+                  </p>
+                </div>
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="4164:25646">
+                  Rutinas y horarios para la etapa de 15 meses a 3 años.
+                </p>
+                <div className="content-stretch flex flex-col gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="4164:25647" data-name="Progreso">
+                  <div className="[word-break:break-word] content-stretch flex items-center justify-between not-italic overflow-clip relative shrink-0 w-full whitespace-nowrap" data-node-id="4164:25648" data-name="Frame">
+                    <p className="font-['Barlow_Condensed:Regular'] leading-[1.4] relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)]" data-node-id="4164:25649">
+                      Progreso
+                    </p>
+                    <p className="font-['Barlow_Condensed:Medium'] leading-[1.3] relative shrink-0 text-[15px] text-[color:var(--color\/verde,#234549)]" data-node-id="4164:25650">
+                      20%
+                    </p>
+                  </div>
+                  <div className="bg-[var(--color\/crema,#f8f6f1)] border border-[var(--color\/beige,#d7d0b5)] border-solid h-[8px] overflow-clip relative rounded-[100px] shrink-0 w-full" data-node-id="4164:25651" data-name="Barra">
+                    <div className="absolute bg-[var(--color\/frambuesa,#a8566a)] h-[8px] left-[-1px] rounded-[100px] top-[-1px] w-[63px]" data-node-id="4164:25652" data-name="Avance" />
+                  </div>
+                </div>
+                <div className="flex-[1_0_0] min-h-px relative w-[10px]" data-node-id="4164:25653" data-name="Empuje" />
+                <Boton className="bg-[var(--color\/frambuesa,#a8566a)] content-stretch cursor-pointer flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" texto="Continuar curso" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// --- Notas de la respuesta de Figma ---
+// Estilos usados: 2026/Body L, 2026/H1, 2026/H5, 2026/Label, L-green #FAFEFF, green 80 #492343, 2026/Caption, 2026/Body S, 2026/Label S.
+// Componente "Botón" (3704:15621): Botón 2026 · Frambuesa (CTA principal sobre fondos claros) · Verde (sobre teal) · Claro (sobre verde oscuro) · Secundario (contorno).

@@ -5,7 +5,7 @@
 - **Plantilla:** `header.php`
 - **Tipo:** global
 - **Contenido:** ninguno
-- **Secciones (en orden):** cintillo-promociones, modal-coach, modal-coach-gracias, header, contacto, redes, footer
+- **Secciones (en orden):** cintillo-promociones, modal-coach, modal-coach-gracias, header, contacto, redes, footer, mes-gratis-mundo
 - **Skills usadas:** wp-modal (modal-coach), wp-form (modal-coach, footer), wp-helper
 - **Grupo ACF:** Ajustes del sitio
 - **Ubicación:** página de opciones: Ajustes del sitio
@@ -18,7 +18,7 @@
     - Las tres notas anteriores son de las páginas (fondo de nubes, testimonios, cta-final): se aplican en sus specs, no en esta.
     - Se leen con `get_field('opciones_…', 'option')`; ninguna página repite el header ni el footer.
     - El logo principal viene de Personalizar > Identidad del sitio; los menús son las ubicaciones de "Menús" en `_shared.md`.
-- **Estado:** aplicado
+- **Estado:** aprobado
 
 ## Sección: cintillo-promociones
 
@@ -196,3 +196,28 @@
 - [x] Cumple los criterios comunes de `_shared.md`
 - [x] Los enlaces del footer salen de las 3 ubicaciones de menú, no están escritos en la plantilla
 - [x] Cada suscripción queda guardada y se lee en el admin
+
+## Sección: mes-gratis-mundo
+
+- **Origen:** `specs/figma/lectura/leccion/seccion-entera.ref.txt` (componente "Banner Mundo" 3586:1518) y las notas de página de `specs/figma/enlaces/leccion.md`
+- **Destino:** `template-parts/components/banner-mundo.php` (lo usan la primera lección, la confirmación de compra y el correo de pedido)
+- **Grupo:** `opciones_mes_gratis_mundo`
+- **Skill:** wp-helper
+- **Comportamiento:** el enlace y los textos del mes gratis en Mundo Angelitozzz, en un solo lugar para los tres usos ("Mismo enlace en los tres lugares … editable desde el panel", nota de `leccion.md`). El banner de la lección y el bloque de la confirmación y del correo leen este grupo; sin enlace no se muestran. Agregada el 2026-11-13 con `leccion.md`: se conecta con wp-acf en la F5.
+- **Estado:** aprobado
+
+**Campos ACF**
+
+| Campo | Tipo | Descripción | Valor actual | Requerido |
+| --- | --- | --- | --- | --- |
+| `opciones_mes_gratis_mundo_enlace` | url | Enlace de la prueba gratuita de Mundo Angelitozzz (nas.io). Se usa en la primera lección, la confirmación de compra y el correo de pedido. Si está vacío, no se muestra el bloque | — | no |
+| `opciones_mes_gratis_mundo_titulo` | text | Título del banner en la primera lección del curso | Tu mes gratis en Mundo Angelitozzz | sí |
+| `opciones_mes_gratis_mundo_texto` | textarea | Texto del banner | Incluido con tu curso: sesiones grupales en vivo con Bárbara todos los miércoles a las 10:00am (Perú/Colombia) y la videoteca de talleres. | sí |
+| `opciones_mes_gratis_mundo_pie` | text | Línea en cursiva bajo el texto | Si ya lo activaste, puedes ignorar este mensaje. | no |
+| `opciones_mes_gratis_mundo_boton` | text | Texto del botón del banner | Activar mi mes gratis | sí |
+
+**Criterios de aceptación**
+
+- [ ] Cumple los criterios comunes de `_shared.md`
+- [ ] Cambiar el enlace aquí cambia el de la lección, la confirmación y el correo
+- [ ] Sin enlace, el bloque no aparece en ningún lugar

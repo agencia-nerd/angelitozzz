@@ -1,0 +1,12 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="44" height="43.6355" viewBox="0 0 44 43.6355" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="Decoraci&#195;&#179;n acceso">
+<use xlink:href="#stroke0_0_14" fill="#9CB0B0" style="fill:#9CB0B0;fill:color(display-p3 0.6118 0.6902 0.6902);fill-opacity:1;"/>
+<mask id="stroke1_0_14" fill="white">
+<use xlink:href="#stroke0_0_14"/>
+</mask>
+<path d="M32.4647 0C34.5883 3.51975 35.8093 7.63621 35.8093 12.0363C35.8093 25.0015 25.2107 35.5122 12.137 35.5122C7.70065 35.5122 3.54919 34.3013 0 32.1954C4.13385 39.0478 11.6904 43.6355 20.3277 43.6355C33.4014 43.6355 44 33.1248 44 20.1596C44 11.594 39.3739 4.1001 32.4647 0Z" stroke-width="2.98541" stroke="#9EC0C0" style="stroke:#9EC0C0;stroke:color(display-p3 0.6189 0.7544 0.7544);stroke-opacity:1;" mask="url(#stroke1_0_14)"/>
+</g>
+<defs>
+<path id="stroke0_0_14" d="M32.4647 0C34.5883 3.51975 35.8093 7.63621 35.8093 12.0363C35.8093 25.0015 25.2107 35.5122 12.137 35.5122C7.70065 35.5122 3.54919 34.3013 0 32.1954C4.13385 39.0478 11.6904 43.6355 20.3277 43.6355C33.4014 43.6355 44 33.1248 44 20.1596C44 11.594 39.3739 4.1001 32.4647 0Z"/>
+</defs>
+</svg>

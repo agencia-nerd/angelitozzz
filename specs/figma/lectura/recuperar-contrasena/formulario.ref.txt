@@ -1,0 +1,114 @@
+// get_design_context de 4156:24277 (capa "Acceso · Iniciar sesión"), leído completo (no truncado).
+// Incluye la tarjeta de la nota (4156:24625 "Tarjeta"), por eso no se leyó aparte.
+// URLs temporales de Figma reemplazadas por los archivos descargados en assets/.
+const imgFlecha = "assets/boton-flecha.svg";
+const imgLogoMundoAngelitozzz = "assets/formulario-logo.png";
+const imgVector = "assets/formulario-nube.svg";
+const imgVector47 = "assets/formulario-nube-ojo-izq.svg";
+const imgVector48 = "assets/formulario-nube-ojo-der.svg";
+const imgDecoracionAcceso = "assets/formulario-destello-rosa.svg";
+const imgDecoracionAcceso1 = "assets/formulario-destello-superior.svg";
+const imgDecoracionAcceso2 = "assets/formulario-luna.svg";
+const imgIconoMail = "assets/formulario-icono-mail.svg";
+
+type BotonProps = {
+  className?: string;
+  flecha?: boolean;
+  texto?: string;
+  tipo?: "Frambuesa";
+};
+
+function Boton({ className, flecha = true, texto = "Texto del botón", tipo = "Frambuesa" }: BotonProps) {
+  return (
+    <div className={className || "bg-[var(--color\\/frambuesa,#a8566a)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px]"} data-node-id="3711:6161">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="3711:6162">
+        {texto}
+      </p>
+      {flecha && (
+        <div className="relative shrink-0 size-[18px]" data-node-id="3711:6163" data-name="Flecha">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function AccesoIniciarSesion() {
+  return (
+    <div className="bg-[var(--color\/crema,#f8f6f1)] relative size-full" data-node-id="4156:24277" data-name="Acceso · Iniciar sesión">
+      <div className="absolute h-[156.298px] left-[19.9%] overflow-clip right-[66.56%] top-[772px]" data-node-id="4156:24278" data-name="Decoración acceso">
+        <div className="absolute contents inset-[0_0_0.01%_0]" data-node-id="4156:24279">
+          <div className="absolute inset-[0_0_0.01%_0]" data-node-id="4156:24280" data-name="Vector">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+          </div>
+          <div className="absolute flex inset-[29.84%_66.7%_68.04%_25.95%] items-center justify-center" data-node-id="4156:24281" style={{ containerType: "size" }}>
+            <div className="-rotate-180 -scale-x-100 flex-none h-[100cqh] w-[100cqw]">
+              <div className="relative size-full">
+                <div className="absolute inset-[-58.65%_-10.19%_-58.64%_-10.19%]">
+                  <img alt="" className="block max-w-none size-full" src={imgVector47} />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="absolute flex inset-[29.84%_51.24%_68.04%_41.41%] items-center justify-center" data-node-id="4156:24282" style={{ containerType: "size" }}>
+            <div className="flex-none h-[100cqh] rotate-180 w-[100cqw]">
+              <div className="relative size-full">
+                <div className="absolute inset-[-58.65%_-10.19%_-58.64%_-10.19%]">
+                  <img alt="" className="block max-w-none size-full" src={imgVector48} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="absolute inset-[67.76%_67.45%_30.35%_30.78%]" data-node-id="4156:24283" data-name="Decoración acceso">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDecoracionAcceso} />
+      </div>
+      <div className="absolute flex inset-[10.87%_66.38%_85.71%_30.36%] items-center justify-center" data-node-id="4156:24284" style={{ containerType: "size" }}>
+        <div className="flex-none h-[hypot(12.271cqw,100cqh)] skew-x-[11.44deg] w-[87.729cqw]">
+          <div className="relative size-full" data-name="Decoración acceso">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDecoracionAcceso1} />
+          </div>
+        </div>
+      </div>
+      <div className="absolute flex h-[43.633px] items-center justify-center left-[1322.99px] top-[220.24px] w-[44.476px]" data-node-id="4156:24298">
+        <div className="-scale-y-100 flex-none skew-x-[-0.62deg]">
+          <div className="h-[43.635px] relative w-[44px]" data-name="Decoración acceso">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDecoracionAcceso2} />
+          </div>
+        </div>
+      </div>
+      <div className="-translate-x-1/2 -translate-y-1/2 absolute bg-[var(--color\/blanco,white)] content-stretch flex flex-col gap-[32px] items-center left-1/2 overflow-clip p-[56px] rounded-[28px] shadow-[0px_12px_40px_0px_rgba(36,69,74,0.08)] top-[calc(50%-0.5px)] w-[560px]" data-node-id="4156:24625" data-name="Tarjeta">
+        <div className="relative shrink-0 size-[132px]" data-node-id="4156:24626" data-name="Logo Mundo Angelitozzz">
+          <img alt="" className="absolute inset-0 max-w-none object-contain pointer-events-none size-full" src={imgLogoMundoAngelitozzz} />
+        </div>
+        <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.15] min-w-full not-italic relative shrink-0 text-[46px] text-[color:var(--color\/verde,#234549)] text-center w-[min-content]" data-node-id="4156:24627">
+          Recupera tu contraseña
+        </p>
+        <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] text-center w-[min-content]" data-node-id="4156:24628">
+          Escribe tu correo y te enviaremos un enlace para crear una nueva.
+        </p>
+        <div className="content-stretch flex flex-col gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="4156:24629" data-name="Frame">
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="4156:24630">
+            Correo electrónico
+          </p>
+          <div className="bg-[var(--color\/crema,#f8f6f1)] border border-[#d7d0b5] border-solid content-stretch flex gap-[10px] items-center overflow-clip px-[16px] py-[14px] relative rounded-[12px] shrink-0 w-full" data-node-id="4156:24631" data-name="Frame">
+            <div className="relative shrink-0 size-[18px]" data-node-id="4156:24632" data-name="Ícono mail">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIconoMail} />
+            </div>
+            <p className="[word-break:break-word] flex-[1_0_0] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-px not-italic relative text-[18px] text-[color:var(--color\/texto-suave,#6b6b6b)]" data-node-id="4156:24635">
+              tucorreo@ejemplo.com
+            </p>
+          </div>
+        </div>
+        <Boton className="bg-[var(--color\/frambuesa,#a8566a)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" texto="Enviar enlace" />
+        <p className="[text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Barlow_Condensed:Medium'] leading-[1.3] min-w-full not-italic relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)] text-center underline w-[min-content]" data-node-id="4156:24637">
+          Volver a iniciar sesión
+        </p>
+      </div>
+    </div>
+  );
+}
+
+// Estilos que Figma listó en el diseño: green 20 #9EC0C0, 2026/H2, 2026/Body L, 2026/Label, 2026/Body.
+// Descripción del componente Botón (3704:15621): "Botón 2026 · Frambuesa (CTA principal sobre fondos claros) · Verde (sobre teal) · Claro (sobre verde oscuro) · Secundario (contorno)."

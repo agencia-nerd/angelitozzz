@@ -1,0 +1,102 @@
+{
+  "formato": 1,
+  "pagina": "carrito",
+  "fuente": {
+    "fileKey": "FumWuCPT1PPDg5vBTYoufA",
+    "nodeId": "4153:10384",
+    "ancho": 1920,
+    "alto": 1387
+  },
+  "tokens": {
+    "colores": {
+      "color/texto": "#000000",
+      "color/teal": "#9cb0b0",
+      "color/verde": "#234549",
+      "color/blanco": "#ffffff",
+      "color/beige": "#d7d0b5",
+      "color/frambuesa": "#a8566a",
+      "color/crema": "#f8f6f1",
+      "green 80": "#492343"
+    },
+    "texto": {
+      "2026/Body S": { "familia": "Barlow Condensed", "peso": 400, "tamano": 16, "interlineado": 1.5, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Body": { "familia": "Barlow Condensed", "peso": 400, "tamano": 18, "interlineado": 1.5, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Body XL": { "familia": "Barlow Condensed", "peso": 400, "tamano": 24, "interlineado": 1.5, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Label S": { "familia": "Barlow Condensed", "peso": 500, "tamano": 15, "interlineado": 1.3, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Label": { "familia": "Barlow Condensed", "peso": 500, "tamano": 18, "interlineado": 1.3, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/H1": { "familia": "Barlow Condensed", "peso": 600, "tamano": 50, "interlineado": 1.1, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/H4": { "familia": "Barlow Condensed", "peso": 500, "tamano": 26, "interlineado": 1.25, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Display": { "familia": "Barlow Condensed", "peso": 600, "tamano": 52, "interlineado": 1, "espaciado": { "valor": 0, "unidad": "%" } }
+    },
+    "sombras": {
+      "shadow header": "DROP_SHADOW #CAC29B26 (-2, 0) blur 12 spread 0; DROP_SHADOW #CAC29B21 (-10, 10) blur 22 spread 0; DROP_SHADOW #CAC29B14 (-22, 40) blur 30 spread 0; DROP_SHADOW #CAC29B05 (-39, 80) blur 36 spread 0"
+    }
+  },
+  "secciones": [
+    {
+      "nombre": "carrito-de-compras",
+      "nodeId": "4151:10148",
+      "nombreCapa": "Compra · Carrito",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": { "ancho": 1920, "alto": 696 },
+      "referencia": "carrito/carrito-de-compras.ref.txt",
+      "captura": "carrito/carrito-de-compras.png",
+      "textos": [
+        { "nodeId": "4151:10181", "texto": "Carrito de compras", "estilo": "2026/H1", "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "4151:10152", "texto": "Curso · acceso por 4 meses", "estilo": "2026/Body S", "color": "color/verde", "rol": "eyebrow" },
+        { "nodeId": "4151:10153", "texto": "Recién Nacidos Go (0 a 12 semanas)", "estilo": "2026/Body S", "color": "color/texto", "rol": "subtitulo" },
+        { "nodeId": "4151:10155", "texto": "$97", "estilo": "2026/Body S", "color": "color/texto", "rol": "etiqueta" },
+        { "nodeId": "4151:10150", "texto": "$97", "estilo": "2026/Body S", "color": "color/texto", "rol": "etiqueta" },
+        { "nodeId": "4151:10158", "texto": "Resumen de compra", "estilo": "2026/Body XL", "color": "color/texto", "rol": "subtitulo" },
+        { "nodeId": "4151:10169", "texto": "Curso", "estilo": "2026/Body S", "color": "color/texto", "rol": "eyebrow" },
+        { "nodeId": "4151:10168", "texto": "Recién Nacidos Go", "estilo": "2026/Body S", "color": "color/texto", "rol": "etiqueta" },
+        { "nodeId": "4151:10171", "texto": "$97", "estilo": "2026/Body S", "color": "color/texto", "rol": "etiqueta" },
+        { "nodeId": "4151:10172", "texto": "Subtotal:", "estilo": "2026/Body S", "color": "color/texto", "rol": "etiqueta" },
+        { "nodeId": "4151:10173", "texto": "$97", "estilo": "2026/Body S", "color": "color/texto", "rol": "etiqueta" },
+        { "nodeId": "4151:10164", "texto": "Descuento:", "estilo": "2026/Body S", "color": "color/texto", "rol": "etiqueta" },
+        { "nodeId": "4151:10165", "texto": "- $0", "estilo": "2026/Body S", "color": "color/texto", "rol": "etiqueta" },
+        { "nodeId": "4151:10166", "texto": "Total:", "estilo": "2026/Body S", "color": "color/texto", "rol": "etiqueta" },
+        { "nodeId": "4151:10167", "texto": "$97", "estilo": "2026/Body S", "color": "color/texto", "rol": "etiqueta" },
+        { "nodeId": "3711:6162", "texto": "Ir a Pagar", "estilo": "2026/Label", "color": "color/blanco", "rol": "boton" }
+      ],
+      "sueltos": {
+        "espacios": [
+          { "valor": 10, "usos": 1 },
+          { "valor": 14, "usos": 1 },
+          { "valor": 24, "usos": 1 },
+          { "valor": 28, "usos": 2 },
+          { "valor": 36, "usos": 1 },
+          { "valor": 120, "usos": 1 },
+          { "valor": 145, "usos": 1 },
+          { "valor": 411, "usos": 1 }
+        ],
+        "colores": [
+          { "valor": "#bcb28a", "usos": 6 }
+        ],
+        "radios": [
+          { "valor": 12, "usos": 2 },
+          { "valor": 100, "usos": 1 }
+        ]
+      },
+      "imagenes": [
+        { "id": "carrito-producto", "nodeId": "4151:10154", "tipo": "png", "ancho": 68, "alto": 68, "rol": "contenido", "archivo": "carrito/assets/carrito-producto.png" },
+        { "id": "carrito-icono-regalo", "nodeId": "4151:10151", "tipo": "svg", "ancho": 18, "alto": 19, "rol": "decorativa", "archivo": "carrito/assets/carrito-icono-regalo.svg" },
+        { "id": "carrito-divisor", "nodeId": "4151:10156", "tipo": "svg", "ancho": 607, "alto": 1, "rol": "decorativa", "archivo": "carrito/assets/carrito-divisor.svg" },
+        { "id": "resumen-icono-regalo", "nodeId": "4151:10170", "tipo": "svg", "ancho": 14, "alto": 15, "rol": "decorativa", "archivo": "carrito/assets/resumen-icono-regalo.svg" },
+        { "id": "resumen-divisor-titulo", "nodeId": "4151:10162", "tipo": "svg", "ancho": 345, "alto": 1, "rol": "decorativa", "archivo": "carrito/assets/resumen-divisor-titulo.svg" },
+        { "id": "resumen-divisor", "nodeId": "4151:10161", "tipo": "svg", "ancho": 310, "alto": 1, "rol": "decorativa", "archivo": "carrito/assets/resumen-divisor.svg" },
+        { "id": "resumen-divisor-total", "nodeId": "4151:10163", "tipo": "svg", "ancho": 344, "alto": 1, "rol": "decorativa", "archivo": "carrito/assets/resumen-divisor-total.svg" },
+        { "id": "boton-flecha", "nodeId": "3711:6163", "tipo": "svg", "ancho": 18, "alto": 18, "rol": "decorativa", "archivo": "carrito/assets/boton-flecha.svg" }
+      ],
+      "componentes": [
+        { "nombre": "Botón", "variante": "Frambuesa", "props": { "texto": "Ir a Pagar", "flecha": true } }
+      ],
+      "senales": [
+        { "tipo": "listado", "evidencia": "Carrito de WooCommerce. Columna izquierda (4151:10179, 607px, nota del usuario: \"Esta es la seccion donde se alojara todo lo seleccionado\"): una sola línea de producto con imagen 68px radio 12, ícono regalo + \"Curso · acceso por 4 meses\" (verde), nombre \"Recién Nacidos Go (0 a 12 semanas)\", precio \"$97\" bajo el nombre y otro \"$97\" a la derecha (precio unitario y total de línea), y un divisor #bcb28a. Sin cabecera de columnas, sin cantidad, sin quitar producto.", "estado": "propuesto" },
+        { "tipo": "repetidor", "evidencia": "La línea de producto (4151:10149) se repite por cada artículo del carrito; en el resumen también hay una línea por producto (ícono regalo + \"Curso\" + nombre + precio).", "estado": "propuesto" },
+        { "tipo": "otro", "evidencia": "Resumen (4151:10157, nota: \"resumen es\" este nodo): caja 345×292 borde #bcb28a radio 12 con título \"Resumen de compra\", línea del producto, Subtotal, Descuento (\"- $0\"), Total, y debajo, fuera de la caja y centrado, botón Frambuesa \"Ir a Pagar\" con flecha (va al checkout). Maquetado con posiciones absolutas: reconstruir como lista de filas con divisores.", "estado": "propuesto" }
+      ]
+    }
+  ]
+}

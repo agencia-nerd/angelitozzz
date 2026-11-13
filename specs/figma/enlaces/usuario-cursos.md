@@ -1,4 +1,6 @@
-# Figma: Cursos inscritos
+# Figma: usuario-cursos
+
+<!-- Título original del archivo: Cursos inscritos -->
 
 - **Frame de la página:** https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4164-25690&t=lySNWh2dFHTQgiTC-4
 

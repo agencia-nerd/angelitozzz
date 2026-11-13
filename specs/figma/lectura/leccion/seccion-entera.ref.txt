@@ -1,0 +1,590 @@
+// Figma get_design_context · node 4176:27855 "Alumna · Escritorio" (seccion-entera) · file FumWuCPT1PPDg5vBTYoufA · leído 2026-11-13
+// La respuesta no vino truncada: incluye completos "seccion especifica del curso" / temario (4176:27857) y "contenido" (4176:27889).
+// Después van, separados, los frames de las notas: PD (3901:7716) y Materiales (3899:7674).
+// Al final va el frame de la nota Angelita Pro (4205:98): el mensaje inicial que va arriba del video (el enlace anterior, 3883:5893, ya no existía).
+// Las URLs temporales de assets se reemplazaron por las rutas relativas de los archivos descargados.
+
+// =====================================================================
+// 1. SECCIÓN ENTERA · 4176:27855 · captura: seccion-entera.png
+// =====================================================================
+
+const imgFlecha = "assets/boton-flecha.svg";
+const imgLogoMundoAngelitozzz = "assets/banner-logo-mundo.png";
+const imgVector = "assets/banner-vector-decorativo.svg";
+const imgVector1 = "assets/sidebar-icono-contenido.svg";
+const imgLetsIconsVideoFill = "assets/temario-icono-video.svg";
+const imgFrame500 = "assets/temario-check-completado.svg";
+const imgLetsIconsVideoFill1 = "assets/temario-icono-pdf.svg";
+const imgIconoDescargar = "assets/temario-icono-descargar.svg";
+const imgFrame529 = "assets/cabecera-volver.svg";
+const imgFrame501 = "assets/marcar-completo-check.svg";
+const imgFrame = "assets/video-play.svg";
+const imgFrame516 = "assets/pestana-icono-resumen.svg";
+const imgFrame517 = "assets/pestana-icono-materiales.svg";
+
+type BotonProps = {
+  className?: string;
+  flecha?: boolean;
+  texto?: string;
+  tipo?: "Claro";
+};
+
+function Boton({ className, flecha = true, texto = "Texto del botón", tipo = "Claro" }: BotonProps) {
+  return (
+    <div className={className || "bg-[var(--color\\/crema,#f8f6f1)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px]"} data-node-id="3704:15616">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3704:15617">
+        {texto}
+      </p>
+      {flecha && (
+        <div className="relative shrink-0 size-[18px]" data-node-id="3704:15618" data-name="Flecha">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+type BannerMundoAngelitozzzCursosProps = {
+  className?: string;
+  curso?: "Recién Nacidos Go";
+};
+
+function BannerMundoAngelitozzzCursos({ className, curso = "Recién Nacidos Go" }: BannerMundoAngelitozzzCursosProps) {
+  return (
+    <div className={className || "content-stretch flex gap-[32px] items-center overflow-clip pl-[32px] pr-[40px] py-[32px] relative rounded-[24px] shadow-[0px_16px_40px_0px_rgba(36,69,74,0.18)] w-[1033px]"} data-node-id="3586:1504" style={{ backgroundImage: "linear-gradient(156.56586032118062deg, rgb(28, 58, 62) 11.538%, rgb(35, 69, 73) 57.692%, rgb(62, 107, 109) 88.462%)" }}>
+      <div className="border-3 border-[#e9b44c] border-solid relative rounded-[48px] shadow-[0px_0px_16px_2px_rgba(247,245,240,0.15)] shrink-0 size-[96px]" data-node-id="3586:1493" data-name="Logo Mundo Angelitozzz">
+        <div aria-hidden className="absolute inset-0 pointer-events-none rounded-[48px]">
+          <div className="absolute bg-[var(--color\/crema,#f8f6f1)] inset-0 rounded-[48px]" />
+          <img alt="" className="absolute max-w-none object-contain rounded-[48px] size-full" src={imgLogoMundoAngelitozzz} />
+        </div>
+      </div>
+      <div className="[word-break:break-word] content-stretch flex flex-[1_0_0] flex-col gap-[8px] items-start min-w-px overflow-clip relative" data-node-id="3586:1494" data-name="Frame">
+        <p className="font-['Barlow_Condensed:Medium'] leading-[1.2] not-italic relative shrink-0 text-[32px] text-[color:var(--color\/crema,#f8f6f1)] w-full" data-node-id="3586:1495">
+          Tu mes gratis en Mundo Angelitozzz
+        </p>
+        <p className="font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/beige,#d7d0b5)] w-full" data-node-id="3586:1496">
+          Incluido con tu curso: sesiones grupales en vivo con Bárbara todos los miércoles a las 10:00am (Perú/Colombia) y la videoteca de talleres.
+        </p>
+        <p className="font-['Barlow_Condensed:Italic'] italic leading-[1.5] relative shrink-0 text-[18px] text-[rgba(255,255,255,0.8)] w-full" data-node-id="3912:2">
+          Si ya lo activaste, puedes ignorar este mensaje.
+        </p>
+      </div>
+      <div className="content-stretch flex flex-col items-center overflow-clip relative shrink-0" data-node-id="3906:6" data-name="Acciones">
+        <Boton className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" flecha={false} texto="Activar mi mes gratis" />
+      </div>
+      <div className="absolute flex inset-[-41.73%_8.31%_97.2%_82.95%] items-center justify-center" data-node-id="3586:1503" style={{ containerType: "size" }}>
+        <div className="flex-none h-[hypot(-21.1457cqw,-78.8807cqh)] rotate-[165.26deg] skew-x-[0.53deg] w-[hypot(-78.8543cqw,21.1193cqh)]">
+          <div className="relative size-full" data-name="Vector">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function AlumnaEscritorio() {
+  return (
+    <div className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex flex-col items-center px-[135px] py-[120px] relative size-full" data-node-id="4176:27855" data-name="Alumna · Escritorio">
+      <div className="content-stretch flex gap-[60px] h-[1506px] items-start relative shrink-0 w-[1649px]" data-node-id="4176:27856">
+        {/* ===================== SECCION ESPECIFICA DEL CURSO / TEMARIO (4176:27857) ===================== */}
+        <div className="content-stretch flex flex-col h-[926px] items-start pr-[55px] relative shrink-0 w-[458px]" data-node-id="4176:27857">
+          <div className="content-stretch flex flex-col gap-[45px] items-start relative shrink-0 w-[397px]" data-node-id="4176:28037">
+            <div className="content-stretch flex gap-[21px] items-center relative shrink-0" data-node-id="4176:27729">
+              <div className="h-[41px] relative shrink-0 w-[47px]" data-node-id="4176:27730" data-name="Vector">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector1} />
+              </div>
+              <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.15] not-italic relative shrink-0 text-[46px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="4176:27731">
+                Contenido del curso
+              </p>
+            </div>
+            <div className="content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-full" data-node-id="4176:28036">
+              <div className="bg-[var(--color\/verde,#234549)] content-stretch flex gap-[10px] h-[50px] items-center justify-center pl-[15px] pr-[20px] py-[10px] relative rounded-[15px] shrink-0 w-full" data-node-id="4176:27609">
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[22px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="4176:27610">
+                  Recién Nacidos Go
+                </p>
+              </div>
+              <div className="bg-[var(--color\/blanco,white)] content-stretch flex h-[50px] items-center justify-between px-[15px] py-[10px] relative rounded-[15px] shrink-0 w-full" data-node-id="4176:27613">
+                <div className="content-stretch flex gap-[10px] items-center relative shrink-0" data-node-id="4176:27614">
+                  <div className="relative shrink-0 size-[24px]" data-node-id="4176:27615" data-name="lets-icons:video-fill">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgLetsIconsVideoFill} />
+                  </div>
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic overflow-hidden relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] text-ellipsis whitespace-nowrap" data-node-id="4176:27617">
+                    Bienvenida
+                  </p>
+                </div>
+                <div className="content-stretch flex gap-[10px] items-center justify-end relative shrink-0" data-node-id="4176:27618">
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4176:27619">
+                    3:59
+                  </p>
+                  <div className="bg-[#9cb09d] content-stretch flex flex-col items-center justify-center relative rounded-[17.5px] shrink-0 size-[24px]" data-node-id="4176:27620">
+                    <div className="h-[12px] relative shrink-0 w-[14px]" data-node-id="4176:27621">
+                      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame500} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-[var(--color\/blanco,white)] content-stretch flex h-[50px] items-center justify-between px-[15px] py-[10px] relative rounded-[15px] shrink-0 w-full" data-node-id="4176:27623">
+                <div className="content-stretch flex gap-[10px] items-center relative shrink-0" data-node-id="4176:27624">
+                  <div className="relative shrink-0 size-[24px]" data-node-id="4176:27625" data-name="lets-icons:video-fill">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgLetsIconsVideoFill} />
+                  </div>
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic overflow-hidden relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] text-ellipsis w-[198px] whitespace-nowrap" data-node-id="4176:27627">
+                    Objetivos del curso
+                  </p>
+                </div>
+                <div className="content-stretch flex gap-[10px] items-center justify-end relative shrink-0" data-node-id="4176:27628">
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4176:27629">
+                    3:20
+                  </p>
+                  <div className="bg-[#9cb09d] content-stretch flex flex-col items-center justify-center relative rounded-[17.5px] shrink-0 size-[24px]" data-node-id="4176:27630">
+                    <div className="h-[12px] relative shrink-0 w-[14px]" data-node-id="4176:27631">
+                      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame500} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a className="bg-[#fafeff] content-stretch cursor-pointer flex h-[50px] items-center justify-between px-[15px] py-[10px] relative rounded-[15px] shrink-0 w-full" data-node-id="4176:27633">
+                <div className="content-stretch flex gap-[10px] items-center relative shrink-0" data-node-id="4176:27634">
+                  <div className="relative shrink-0 size-[24px]" data-node-id="4176:27635" data-name="lets-icons:video-fill">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgLetsIconsVideoFill} />
+                  </div>
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic overflow-hidden relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)] text-ellipsis text-left w-[198px] whitespace-nowrap" data-node-id="4176:27637">
+                    Sueño seguro
+                  </p>
+                </div>
+                <div className="content-stretch flex gap-[10px] items-center justify-end relative shrink-0" data-node-id="4176:27638">
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] text-left whitespace-nowrap" data-node-id="4176:27639">
+                    4:10
+                  </p>
+                  <div className="bg-[#9cb09d] content-stretch flex flex-col items-center justify-center relative rounded-[17.5px] shrink-0 size-[24px]" data-node-id="4176:27640">
+                    <div className="h-[12px] relative shrink-0 w-[14px]" data-node-id="4176:27641">
+                      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame500} />
+                    </div>
+                  </div>
+                </div>
+              </a>
+              <div className="bg-[var(--color\/blanco,white)] content-stretch flex h-[50px] items-center justify-between px-[15px] py-[10px] relative rounded-[15px] shrink-0 w-full" data-node-id="4176:27643">
+                <div className="content-stretch flex gap-[10px] items-center relative shrink-0" data-node-id="4176:27644">
+                  <div className="relative shrink-0 size-[24px]" data-node-id="4176:27645" data-name="lets-icons:video-fill">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgLetsIconsVideoFill} />
+                  </div>
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic overflow-hidden relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] text-ellipsis w-[227px] whitespace-nowrap" data-node-id="4176:27647">
+                    Las 4 piezas del rompecabezas del sueño
+                  </p>
+                </div>
+                <div className="content-stretch flex gap-[10px] items-center justify-end relative shrink-0" data-node-id="4176:27648">
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4176:27649">
+                    5:20
+                  </p>
+                  <div className="border border-[#9ec0c0] border-solid content-stretch flex flex-col items-center justify-center relative rounded-[17.5px] shrink-0 size-[24px]" data-node-id="4176:27650">
+                    <div className="h-[12px] relative shrink-0 w-[14px]" data-node-id="4176:27651" />
+                  </div>
+                </div>
+              </div>
+              <a className="bg-[var(--color\/blanco,white)] content-stretch cursor-pointer flex h-[50px] items-center justify-between px-[15px] py-[10px] relative rounded-[15px] shrink-0 w-full" data-node-id="4176:27652">
+                <div className="content-stretch flex gap-[10px] items-center relative shrink-0" data-node-id="4176:27653">
+                  <div className="relative shrink-0 size-[24px]" data-node-id="4176:27654" data-name="lets-icons:video-fill">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgLetsIconsVideoFill} />
+                  </div>
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic overflow-hidden relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] text-ellipsis text-left w-[227px] whitespace-nowrap" data-node-id="4176:27656">
+                    5 herramientas para calmar a tu bebé
+                  </p>
+                </div>
+                <div className="content-stretch flex gap-[10px] items-center justify-end relative shrink-0" data-node-id="4176:27657">
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] text-left whitespace-nowrap" data-node-id="4176:27658">
+                    7:20
+                  </p>
+                  <div className="border border-[#9ec0c0] border-solid content-stretch flex flex-col items-center justify-center relative rounded-[17.5px] shrink-0 size-[24px]" data-node-id="4176:27659">
+                    <div className="h-[12px] relative shrink-0 w-[14px]" data-node-id="4176:27660" />
+                  </div>
+                </div>
+              </a>
+              <div className="bg-[var(--color\/blanco,white)] content-stretch flex h-[50px] items-center justify-between px-[15px] py-[10px] relative rounded-[15px] shrink-0 w-full" data-node-id="4176:27661">
+                <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-[287px]" data-node-id="4176:27662">
+                  <div className="relative shrink-0 size-[24px]" data-node-id="4176:27663" data-name="lets-icons:video-fill">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgLetsIconsVideoFill} />
+                  </div>
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic overflow-hidden relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] text-ellipsis w-[253px] whitespace-nowrap" data-node-id="4176:27665">
+                    Demostración práctica: el swaddle seguro
+                  </p>
+                </div>
+                <div className="content-stretch flex gap-[10px] items-center justify-end relative shrink-0" data-node-id="4176:27666">
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4176:27667">
+                    1:29
+                  </p>
+                  <div className="border border-[#9ec0c0] border-solid content-stretch flex flex-col items-center justify-center relative rounded-[17.5px] shrink-0 size-[24px]" data-node-id="4176:27668">
+                    <div className="h-[12px] relative shrink-0 w-[14px]" data-node-id="4176:27669" />
+                  </div>
+                </div>
+              </div>
+              <div className="bg-[var(--color\/blanco,white)] content-stretch flex h-[50px] items-center justify-between px-[15px] py-[10px] relative rounded-[15px] shrink-0 w-full" data-node-id="4176:27670">
+                <div className="content-stretch flex gap-[10px] items-center relative shrink-0" data-node-id="4176:27671">
+                  <div className="relative shrink-0 size-[24px]" data-node-id="4176:27672" data-name="lets-icons:video-fill">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgLetsIconsVideoFill} />
+                  </div>
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic overflow-hidden relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] text-ellipsis whitespace-nowrap" data-node-id="4176:27674">
+                    Horarios y siestas del recién nacido
+                  </p>
+                </div>
+                <div className="content-stretch flex gap-[10px] items-center justify-end relative shrink-0" data-node-id="4176:27675">
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4176:27676">
+                    9:05
+                  </p>
+                  <div className="border border-[#9ec0c0] border-solid content-stretch flex flex-col items-center justify-center relative rounded-[17.5px] shrink-0 size-[24px]" data-node-id="4176:27677">
+                    <div className="h-[12px] relative shrink-0 w-[14px]" data-node-id="4176:27678" />
+                  </div>
+                </div>
+              </div>
+              <div className="bg-[var(--color\/blanco,white)] content-stretch flex h-[50px] items-center justify-between px-[15px] py-[10px] relative rounded-[15px] shrink-0 w-full" data-node-id="4176:27679">
+                <div className="content-stretch flex gap-[10px] items-center relative shrink-0" data-node-id="4176:27680">
+                  <div className="relative shrink-0 size-[24px]" data-node-id="4176:27681" data-name="lets-icons:video-fill">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgLetsIconsVideoFill} />
+                  </div>
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic overflow-hidden relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] text-ellipsis w-[247px] whitespace-nowrap" data-node-id="4176:27683">
+                    Consejos para practicar el sueño independiente
+                  </p>
+                </div>
+                <div className="content-stretch flex gap-[10px] items-center justify-end relative shrink-0" data-node-id="4176:27684">
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4176:27685">
+                    5:10
+                  </p>
+                  <div className="border border-[#9ec0c0] border-solid content-stretch flex flex-col items-center justify-center relative rounded-[17.5px] shrink-0 size-[24px]" data-node-id="4176:27686">
+                    <div className="h-[12px] relative shrink-0 w-[14px]" data-node-id="4176:27687" />
+                  </div>
+                </div>
+              </div>
+              <div className="bg-[var(--color\/blanco,white)] content-stretch flex h-[50px] items-center justify-between px-[15px] py-[10px] relative rounded-[15px] shrink-0 w-full" data-node-id="4176:27688">
+                <div className="content-stretch flex gap-[10px] items-center relative shrink-0" data-node-id="4176:27689">
+                  <div className="relative shrink-0 size-[24px]" data-node-id="4176:27690" data-name="lets-icons:video-fill">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgLetsIconsVideoFill} />
+                  </div>
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic overflow-hidden relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] text-ellipsis w-[247px] whitespace-nowrap" data-node-id="4176:27692">
+                    Demostración: escalera de sueño
+                  </p>
+                </div>
+                <div className="content-stretch flex gap-[10px] items-center justify-end relative shrink-0" data-node-id="4176:27693">
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4176:27694">
+                    6:49
+                  </p>
+                  <div className="border border-[#9ec0c0] border-solid content-stretch flex flex-col items-center justify-center relative rounded-[17.5px] shrink-0 size-[24px]" data-node-id="4176:27695">
+                    <div className="h-[12px] relative shrink-0 w-[14px]" data-node-id="4176:27696" />
+                  </div>
+                </div>
+              </div>
+              <div className="bg-[var(--color\/blanco,white)] content-stretch flex h-[50px] items-center justify-between px-[15px] py-[10px] relative rounded-[15px] shrink-0 w-full" data-node-id="4176:27697">
+                <div className="content-stretch flex gap-[10px] items-center relative shrink-0" data-node-id="4176:27698">
+                  <div className="relative shrink-0 size-[24px]" data-node-id="4176:27699" data-name="lets-icons:video-fill">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgLetsIconsVideoFill} />
+                  </div>
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic overflow-hidden relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] text-ellipsis w-[246px] whitespace-nowrap" data-node-id="4176:27701">
+                    Las siestas del recién nacido
+                  </p>
+                </div>
+                <div className="content-stretch flex gap-[10px] items-center justify-end relative shrink-0" data-node-id="4176:27702">
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4176:27703">
+                    6:12
+                  </p>
+                  <div className="border border-[#9ec0c0] border-solid content-stretch flex flex-col items-center justify-center relative rounded-[17.5px] shrink-0 size-[24px]" data-node-id="4176:27704">
+                    <div className="h-[12px] relative shrink-0 w-[14px]" data-node-id="4176:27705" />
+                  </div>
+                </div>
+              </div>
+              <a className="bg-[var(--color\/blanco,white)] content-stretch cursor-pointer flex h-[50px] items-center justify-between px-[15px] py-[10px] relative rounded-[15px] shrink-0 w-full" data-node-id="4176:27706">
+                <div className="content-stretch flex gap-[10px] items-center relative shrink-0" data-node-id="4176:27707">
+                  <div className="relative shrink-0 size-[24px]" data-node-id="4176:27708" data-name="lets-icons:video-fill">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgLetsIconsVideoFill} />
+                  </div>
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic overflow-hidden relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] text-ellipsis text-left w-[227px] whitespace-nowrap" data-node-id="4176:27710">
+                    Consejos para las noches
+                  </p>
+                </div>
+                <div className="content-stretch flex gap-[10px] items-center justify-end relative shrink-0" data-node-id="4176:27711">
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] text-left whitespace-nowrap" data-node-id="4176:27712">
+                    3:15
+                  </p>
+                  <div className="border border-[#9ec0c0] border-solid content-stretch flex flex-col items-center justify-center relative rounded-[17.5px] shrink-0 size-[24px]" data-node-id="4176:27713">
+                    <div className="h-[12px] relative shrink-0 w-[14px]" data-node-id="4176:27714" />
+                  </div>
+                </div>
+              </a>
+              <div className="bg-[var(--color\/blanco,white)] content-stretch flex h-[50px] items-center justify-between px-[15px] py-[10px] relative rounded-[15px] shrink-0 w-full" data-node-id="4176:27715">
+                <div className="content-stretch flex gap-[10px] items-center relative shrink-0" data-node-id="4176:27716">
+                  <div className="relative shrink-0 size-[24px]" data-node-id="4176:27717" data-name="lets-icons:video-fill">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgLetsIconsVideoFill1} />
+                  </div>
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic overflow-hidden relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] text-ellipsis w-[227px] whitespace-nowrap" data-node-id="4176:27720">
+                    PDF Recién Nacidos Go
+                  </p>
+                </div>
+                <div className="relative shrink-0 size-[22px]" data-node-id="4176:27721" data-name="Ícono descargar">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIconoDescargar} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* ===================== CONTENIDO (4176:27889) ===================== */}
+        <div className="content-stretch flex flex-col items-start relative shrink-0 w-[1131px]" data-node-id="4176:27889">
+          <div className="content-stretch flex flex-col gap-[41px] items-start relative shrink-0 w-[1033px]" data-node-id="4176:28043">
+            <div className="content-stretch flex flex-col gap-[33px] items-start relative shrink-0 w-full" data-node-id="4176:28044">
+              <div className="content-stretch flex items-center justify-between relative shrink-0 w-full" data-node-id="4176:28045">
+                <div className="content-stretch flex gap-[34px] items-center relative shrink-0" data-node-id="4176:28046">
+                  <div className="relative shrink-0 size-[43px]" data-node-id="4176:28047">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame529} />
+                  </div>
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.15] not-italic relative shrink-0 text-[46px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4176:28049">
+                    Recién Nacidos Go
+                  </p>
+                </div>
+                <div className="bg-[var(--color\/blanco,white)] border border-[#9ec0c0] border-solid content-stretch flex gap-[15px] h-[50px] items-center justify-center p-[10px] relative rounded-[15px] shrink-0 w-[260px]" data-node-id="4176:28050">
+                  <div className="bg-[var(--color\/blanco,white)] border border-[#9ec0c0] border-solid content-stretch flex flex-col items-center justify-center relative rounded-[17.5px] shrink-0 size-[24px]" data-node-id="4176:28051">
+                    <div className="h-[12px] relative shrink-0 w-[14px]" data-node-id="4176:28052">
+                      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame501} />
+                    </div>
+                  </div>
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4176:28054">
+                    Marcar como completo
+                  </p>
+                </div>
+              </div>
+              <div className="bg-[var(--color\/beige,#d7d0b5)] content-stretch flex h-[567px] items-center justify-center overflow-clip relative rounded-[15px] shrink-0 w-full" data-node-id="4176:28055" data-name="Video (placeholder · Vimeo)">
+                <div className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex items-center justify-center overflow-clip relative rounded-[100px] shadow-[0px_6px_18px_0px_rgba(0,0,0,0.15)] shrink-0 size-[88px]" data-node-id="4176:28056" data-name="Botón play">
+                  <div className="relative shrink-0 size-[32px]" data-node-id="4176:28057" data-name="Frame">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="content-stretch flex gap-[10px] items-center relative shrink-0" data-node-id="4176:28059">
+              <div className="bg-[#fafeff] border border-[#492343] border-solid content-stretch flex gap-[15px] h-[50px] items-center justify-center p-[10px] relative rounded-[15px] shrink-0 w-[154px]" data-node-id="4176:28060">
+                <div className="h-[20px] relative shrink-0 w-[16px]" data-node-id="4176:28061">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame516} />
+                </div>
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[22px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="4176:28063">
+                  Resumen
+                </p>
+              </div>
+              <div className="bg-[var(--color\/blanco,white)] border border-[#dbdbdb] border-solid content-stretch flex gap-[10px] h-[50px] items-center justify-center p-[10px] relative rounded-[15px] shrink-0 w-[231px]" data-node-id="4176:28064">
+                <div className="h-[20px] relative shrink-0 w-[16px]" data-node-id="4176:28065">
+                  <div className="absolute inset-[0_-3.13%_0_0]">
+                    <img alt="" className="block max-w-none size-full" src={imgFrame517} />
+                  </div>
+                </div>
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4176:28067">
+                  Materiales
+                </p>
+              </div>
+            </div>
+            <BannerMundoAngelitozzzCursos className="content-stretch flex gap-[32px] items-center overflow-clip pl-[32px] pr-[40px] py-[32px] relative rounded-[24px] shadow-[0px_16px_40px_0px_rgba(36,69,74,0.18)] shrink-0 w-[1033px]" />
+            <div className="[word-break:break-word] content-stretch flex flex-col gap-[20px] items-start not-italic overflow-clip relative shrink-0 w-full" data-node-id="4176:28069" data-name="Descripción de la lección (Tutor · editor de la lección)">
+              <p className="font-['Barlow_Condensed:Medium'] leading-[1.2] relative shrink-0 text-[32px] text-[color:var(--color\/verde,#234549)] w-full" data-node-id="4176:28070">
+                Bienvenida
+              </p>
+              <div className="font-['Barlow_Condensed:Regular'] leading-[0] relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] w-full" data-node-id="4176:28071">
+                <p className="leading-[1.5] mb-[14px]">¡Felicidades por este primer paso — estás en el lugar correcto! 🤍</p>
+                <p className="leading-[1.5] mb-[14px]">Soy Bárbara, coach de sueño pediátrico con más de 10 años de experiencia y mamá de dos, y estoy feliz de que estés acá.</p>
+                <p className="leading-[1.5] mb-[14px]">En este curso vas a aprender, paso a paso y con demostraciones prácticas reales, todo lo que necesitas para ayudar a tu bebé a dormir con facilidad — desde el primer mes.</p>
+                <p className="font-['Barlow_Condensed:SemiBold'] leading-[1.5] mb-[14px]">Antes de empezar, una cosa importante:</p>
+                <p className="mb-[14px]">
+                  <span className="leading-[1.5]">Como bono de regalo por haber comprado el curso, tienes</span>
+                  <span className="[word-break:break-word] font-['Barlow_Condensed:SemiBold'] leading-[1.5] not-italic">{` 1 mes gratis en Mundo Angelitozzz Círculo Intern`}</span>
+                  <span className="leading-[1.5]">o — mi comunidad privada donde me conecto en vivo cada miércoles con las mamás que quieren traerme su caso en tiempo real.</span>
+                </p>
+                <p className="leading-[1.5] mb-[14px]">Revisa tu correo — te envié el enlace de invitación. Si no lo ves en tu bandeja principal, búscalo en Spam o Promociones. Una vez que lo encuentres, guarda mi correo en favoritos para que no se pierda ninguno de los mensajes del curso.</p>
+                <p className="leading-[1.5]">¡Ahora sí, a aprender! 🌙</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// --- Notas de la respuesta de Figma (sección entera) ---
+// Estilos usados: 2026/H2, 2026/H5, 2026/Body, L-green #FAFEFF, green 20 #9EC0C0, 2026/Body L, green 80 #492343, 2026/H3, 2026/Label.
+// Componente "Banner Mundo Angelitozzz (cursos)" (3586:1518): Banner fijo en la página de CADA video del curso (copy AGOSTO 2026, páginas 12 y 13). Botón: Activar mi mes gratis en Mundo Angelitozzz.
+// Componente "Botón" (3704:15621): Botón 2026 · Frambuesa (CTA principal sobre fondos claros) · Verde (sobre teal) · Claro (sobre verde oscuro) · Secundario (contorno).
+
+
+// =====================================================================
+// 2. NOTA "PD" (estilo cita) · 3901:7716 · captura: seccion-entera.pd.png
+// =====================================================================
+
+export default function PdEstiloCita() {
+  return (
+    <div className="bg-[var(--color\/blush,#f1dbd5)] border-[var(--color\/frambuesa,#a8566a)] border-l-4 border-solid content-stretch flex flex-col items-start overflow-clip px-[24px] py-[18px] relative rounded-[12px] size-full" data-node-id="3901:7716" data-name="PD (estilo cita)">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[0] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] w-full" data-node-id="3901:7717">
+        <span className="font-['Barlow_Condensed:SemiBold'] leading-[1.5]">PD:</span>
+        <span className="leading-[1.5]">{` ¿Ya activaste tu mes gratis en Mundo Angelitozzz? Revisa tu correo — está ahí esperándote. 🤍`}</span>
+      </p>
+    </div>
+  );
+}
+
+
+// =====================================================================
+// 3. NOTA "MATERIALES" (Archivo) · 3899:7674 · captura: seccion-entera.materiales.png
+// =====================================================================
+
+const imgFrame = "assets/material-icono-archivo.svg";
+const imgFrame1 = "assets/material-icono-descargar.svg";
+
+export default function Archivo() {
+  return (
+    <div className="bg-[var(--color\/blanco,white)] border border-[rgba(215,208,181,0.45)] border-solid content-stretch flex gap-[16px] items-center overflow-clip px-[20px] py-[16px] relative rounded-[16px] size-full" data-node-id="3899:7674" data-name="Archivo">
+      <div className="bg-[var(--color\/blush,#f1dbd5)] content-stretch flex items-center justify-center overflow-clip relative rounded-[12px] shrink-0 size-[48px]" data-node-id="3899:7675" data-name="Frame">
+        <div className="relative shrink-0 size-[22px]" data-node-id="3899:7676" data-name="Frame">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+        </div>
+      </div>
+      <div className="[word-break:break-word] content-stretch flex flex-[1_0_0] flex-col gap-[2px] items-start min-w-px not-italic overflow-clip relative whitespace-nowrap" data-node-id="3899:7679" data-name="Frame">
+        <p className="font-['Barlow_Condensed:Medium'] leading-[1.3] relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)]" data-node-id="3899:7680">
+          Horarios 4 a 9 meses
+        </p>
+        <p className="font-['Barlow_Condensed:Regular'] leading-[1.4] relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)]" data-node-id="3899:7681">
+          PDF · 13 páginas
+        </p>
+      </div>
+      <div className="bg-[var(--color\/crema,#f8f6f1)] border border-[var(--color\/beige,#d7d0b5)] border-solid content-stretch flex gap-[8px] items-center overflow-clip px-[16px] py-[10px] relative rounded-[100px] shrink-0" data-node-id="3899:7682" data-name="Frame">
+        <div className="relative shrink-0 size-[18px]" data-node-id="3899:7683" data-name="Frame">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame1} />
+        </div>
+        <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3899:7687">
+          Descargar
+        </p>
+      </div>
+    </div>
+  );
+}
+
+// --- Notas de la respuesta de Figma (materiales) ---
+// Estilos usados: 2026/Label, 2026/Caption, 2026/Label S.
+
+
+// =====================================================================
+// 4. NOTA "ANGELITA PRO" (mensaje inicial, va arriba del video) · 4205:98 · captura: seccion-entera.angelita-pro.png
+// =====================================================================
+
+const imgDecoracionDestelloChico = "assets/angelita-pro-destello-chico.svg";
+const imgDecoracionDestello = "assets/angelita-pro-destello.svg";
+const imgVector = "assets/angelita-pro-nube-chica.svg";
+const imgVector47 = "assets/angelita-pro-nube-chica-ojo-izq.svg";
+const imgVector48 = "assets/angelita-pro-nube-chica-ojo-der.svg";
+const imgVector1 = "assets/angelita-pro-nube.svg";
+const imgVector49 = "assets/angelita-pro-nube-ojo-izq.svg";
+const imgVector50 = "assets/angelita-pro-nube-ojo-der.svg";
+const imgIcono = "assets/angelita-pro-icono-luna.svg";
+
+export default function BienvenidaAngelitaBloqueDeIntroduccion() {
+  return (
+    <div className="bg-[var(--color\/blush,#f1dbd5)] content-stretch flex gap-[28px] items-center overflow-clip px-[32px] py-[28px] relative rounded-[24px] shadow-[0px_8px_24px_0px_rgba(35,69,73,0.08)] size-full" data-node-id="4205:98" data-name="Bienvenida Angelita (bloque de introducción)">
+      <div className="absolute inset-[75.76%_27.69%_17.93%_70.96%]" data-node-id="4207:13" data-name="Decoración · destello chico">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDecoracionDestelloChico} />
+      </div>
+      <div className="absolute inset-[15.58%_9.49%_74.49%_88.38%]" data-node-id="4207:12" data-name="Decoración · destello">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDecoracionDestello} />
+      </div>
+      <div className="absolute h-[90.172px] left-[65.15%] opacity-60 overflow-clip right-[20.33%] top-[-40px]" data-node-id="4207:7" data-name="Decoración · nube chica">
+        <div className="absolute contents inset-[0_0_0.01%_0]" data-node-id="4207:8">
+          <div className="absolute inset-[0_0_0.01%_0]" data-node-id="4207:9" data-name="Vector">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+          </div>
+          <div className="absolute flex inset-[29.84%_66.7%_68.04%_25.95%] items-center justify-center" data-node-id="4207:10" style={{ containerType: "size" }}>
+            <div className="-rotate-180 -scale-x-100 flex-none h-[100cqh] w-[100cqw]">
+              <div className="relative size-full">
+                <div className="absolute inset-[-58.65%_-10.19%_-58.64%_-10.19%]">
+                  <img alt="" className="block max-w-none size-full" src={imgVector47} />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="absolute flex inset-[29.84%_51.24%_68.04%_41.41%] items-center justify-center" data-node-id="4207:11" style={{ containerType: "size" }}>
+            <div className="flex-none h-[100cqh] rotate-180 w-[100cqw]">
+              <div className="relative size-full">
+                <div className="absolute inset-[-58.65%_-10.19%_-58.64%_-10.19%]">
+                  <img alt="" className="block max-w-none size-full" src={imgVector48} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="absolute h-[156.298px] left-[79.67%] opacity-90 overflow-clip right-[-4.84%] top-[121px]" data-node-id="4207:2" data-name="Decoración · nube">
+        <div className="absolute contents inset-[0_0_0.01%_0]" data-node-id="4207:3">
+          <div className="absolute inset-[0_0_0.01%_0]" data-node-id="4207:4" data-name="Vector">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector1} />
+          </div>
+          <div className="absolute flex inset-[29.84%_66.7%_68.04%_25.95%] items-center justify-center" data-node-id="4207:5" style={{ containerType: "size" }}>
+            <div className="-rotate-180 -scale-x-100 flex-none h-[100cqh] w-[100cqw]">
+              <div className="relative size-full">
+                <div className="absolute inset-[-58.65%_-10.19%_-58.64%_-10.19%]">
+                  <img alt="" className="block max-w-none size-full" src={imgVector49} />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="absolute flex inset-[29.84%_51.24%_68.04%_41.41%] items-center justify-center" data-node-id="4207:6" style={{ containerType: "size" }}>
+            <div className="flex-none h-[100cqh] rotate-180 w-[100cqw]">
+              <div className="relative size-full">
+                <div className="absolute inset-[-58.65%_-10.19%_-58.64%_-10.19%]">
+                  <img alt="" className="block max-w-none size-full" src={imgVector50} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="relative shrink-0 size-[88px]" data-node-id="4205:99" data-name="Ícono">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIcono} />
+      </div>
+      <div className="content-stretch flex flex-[1_0_0] flex-col gap-[8px] items-start min-w-px overflow-clip relative" data-node-id="4205:103" data-name="Contenido">
+        <p className="[word-break:break-word] font-['Barlow_Condensed:SemiBold'] leading-[1.4] not-italic relative shrink-0 text-[14px] text-[color:var(--color\/frambuesa,#a8566a)] tracking-[1.12px] w-full" data-node-id="4205:104">
+          ANTES DE EMPEZAR
+        </p>
+        <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.4] not-italic relative shrink-0 text-[28px] text-[color:var(--color\/verde,#234549)] w-full" data-node-id="4205:105">
+          Bienvenida a Angelita Pro.
+        </p>
+        <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.4] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)] w-full" data-node-id="4205:106">
+          Tómate unos minutos para ver el video de introducción y descargar tu Plan de Sueño.
+        </p>
+        <div className="content-start flex flex-wrap gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="4205:107" data-name="Pasos">
+          <div className="bg-[var(--color\/blanco,white)] content-stretch flex gap-[10px] items-center overflow-clip pl-[7px] pr-[14px] py-[7px] relative rounded-[999px] shrink-0" data-node-id="4205:108" data-name="Paso 1">
+            <div className="bg-[var(--color\/verde,#234549)] content-stretch flex items-center justify-center overflow-clip relative rounded-[12px] shrink-0 size-[24px]" data-node-id="4205:109" data-name="Frame">
+              <p className="[word-break:break-word] font-['Barlow_Condensed:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap" data-node-id="4205:110">
+                1
+              </p>
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="4205:111">
+              Mira el video
+            </p>
+          </div>
+          <div className="bg-[var(--color\/blanco,white)] content-stretch flex gap-[10px] items-center overflow-clip pl-[7px] pr-[14px] py-[7px] relative rounded-[999px] shrink-0" data-node-id="4205:112" data-name="Paso 2">
+            <div className="bg-[var(--color\/verde,#234549)] content-stretch flex items-center justify-center overflow-clip relative rounded-[12px] shrink-0 size-[24px]" data-node-id="4205:113" data-name="Frame">
+              <p className="[word-break:break-word] font-['Barlow_Condensed:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap" data-node-id="4205:114">
+                2
+              </p>
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="4205:115">
+              Descarga tu plan
+            </p>
+          </div>
+          <div className="bg-[var(--color\/blanco,white)] content-stretch flex gap-[10px] items-center overflow-clip pl-[7px] pr-[14px] py-[7px] relative rounded-[999px] shrink-0" data-node-id="4205:116" data-name="Paso 3">
+            <div className="bg-[var(--color\/verde,#234549)] content-stretch flex items-center justify-center overflow-clip relative rounded-[12px] shrink-0 size-[24px]" data-node-id="4205:117" data-name="Frame">
+              <p className="[word-break:break-word] font-['Barlow_Condensed:SemiBold'] leading-[normal] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap" data-node-id="4205:118">
+                3
+              </p>
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="4205:119">
+              Activa a Angelita
+            </p>
+          </div>
+        </div>
+        <p className="[word-break:break-word] font-['Barlow_Condensed:Italic'] italic leading-[1.4] relative shrink-0 text-[15px] text-[color:var(--color\/verde-suave,#56706f)] w-full" data-node-id="4205:120">
+          Tus 2 semanas con Angelita empiezan cuando tú la actives, no hoy.
+        </p>
+      </div>
+    </div>
+  );
+}

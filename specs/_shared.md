@@ -24,7 +24,7 @@ Qué es cada página del diseño. Lo responde el usuario una sola vez; `analyze.
 
 Fuera de esta etapa (el usuario las agrega después): la ficha de cada curso (interna de producto), la página de cursos a la que lleva el hero de Inicio y las demás páginas aún sin diseño.
 
-**Cursos (2026-11-10, plan en `specs/plan/checklist-cursos.md`):** los cursos se dan con Tutor LMS y se cobran con WooCommerce (Tutor → Monetización: WooCommerce). La página Soluciones de sueño deja de ser la tienda de Woo: lista el tipo de contenido `solucion` (la landing de venta de cada curso), que se une a uno o más cursos de Tutor. Las landings, la lección, el carrito, el checkout, el regalo y la cuenta tienen diseño (`specs/figma/enlaces/`) y entran a esta tabla en la F1.
+**Cursos (plan en `specs/plan/checklist-cursos.md`):** desde 2026-11-13 los cursos son a medida, sin Tutor LMS: el plugin propio `angelitozzz-cursos` registra `curso` y `leccion`, guarda inscripciones y avance, controla el acceso y hace el puente con WooCommerce, que cobra (con Niubiz). El tema solo pinta. La página Soluciones de sueño deja de ser la tienda de Woo: lista el tipo de contenido `solucion` (la landing de venta de cada curso), que se une a uno o más cursos. Las landings, la lección, el carrito, el checkout, el regalo y la cuenta tienen diseño (`specs/figma/enlaces/`) y entran a esta tabla en la F1.
 
 ## Contenido dinámico
 
@@ -33,9 +33,10 @@ Una fila por tipo de contenido que se repite o se filtra (entradas, productos, p
 | Contenido  | Origen | Taxonomías                                                                                                            | Campos por elemento                                                                                                                                                                                      | Filtros                                      | Plantillas                                                                                                                                                              | Acción                                                           |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
 | post       | post   | `category` jerárquica: Especiales, Bebés 0–4 meses, Bebés 4–24 meses, Bebés 24 meses–4 años, Bases del sueño, Siestas | Nativos de WordPress: título, extracto, contenido (editor), fecha, autor (avatar e Información biográfica del usuario), imagen destacada. Tiempo de lectura calculado del contenido, sin campo           | categoría (pastillas del hero), búsqueda `q` | `home.php` (listado: una sección por categoría elegida por el admin), `category.php` ("Ver todos" de cada categoría, reutiliza hero y tarjeta), `single.php` (artículo) | "Leer artículo": enlace al artículo                              |
-| solucion   | cpt    | ninguna                                                                                                               | Tipo de contenido nuevo: la landing de venta de un curso. Nombre (título), foto de la tarjeta (imagen destacada), etiqueta de esquina, ícono, edad, beneficios, cursos de Tutor que vende (1 o más), tipo de compra (directa, selector de etapas, suscripción), precios por cantidad y secciones (contenido flexible). El precio no es campo: sale del producto de Woo de su curso | ninguno                                      | `archive-solucion.php` (página Soluciones de sueño, `/soluciones-de-sueno/`), `single-solucion.php` (landing, `/soluciones-de-sueno/<slug>/`)                            | Botón de la tarjeta: enlace a la landing de la solución          |
-| curso      | cpt    | `course-category` de Tutor (edad)                                                                                     | Tipo de contenido de Tutor LMS (`courses`, ya existe): temario, lecciones con video de Vimeo, materiales, progreso, inscripción y duración del acceso. Se edita en el constructor de Tutor, no con ACF  | ninguno                                      | Las de Tutor, sobrescritas en `tutor/` solo donde el diseño lo pide (lección, cuenta, login). URL `/cursos/<slug>/`: sin comprar redirige a su solución             | Comprar: lo hace la landing de la solución                       |
-| producto   | woo    | ninguna                                                                                                               | Solo para cobrar: un producto Simple + Virtual + "For Tutor" por curso, unido al curso en Tutor. Nativos de Woo: precio, precio rebajado (precio de lanzamiento), cupones. Oculto del catálogo         | ninguno                                      | No tiene listado ni ficha: `/tienda/` redirige a `/soluciones-de-sueno/`                                                                                                 | Agregar al carrito de Woo (desde la landing)                     |
+| solucion   | cpt    | ninguna                                                                                                               | Tipo de contenido nuevo: la landing de venta de un curso. Nombre (título), foto de la tarjeta (imagen destacada), etiqueta de esquina, ícono, edad, beneficios, cursos que vende (1 o más), tipo de compra (directa, selector de etapas, suscripción), precios por cantidad y secciones (contenido flexible). El precio no es campo: sale del producto de Woo de su curso | ninguno                                      | `archive-solucion.php` (página Soluciones de sueño, `/soluciones-de-sueno/`), `single-solucion.php` (landing, `/soluciones-de-sueno/<slug>/`)                            | Botón de la tarjeta: enlace a la landing de la solución          |
+| curso      | cpt    | ninguna | Tipo de contenido del plugin `angelitozzz-cursos` (no se registra con ACF). Título, extracto, portada (imagen destacada), duración del acceso (4, 6, 12 meses o ilimitado), información adicional (qué aprenderás, requisitos, para quién es) y su producto de Woo. Se edita en el constructor de Bárbara (`admin-constructor.md`), no en el admin de WordPress | ninguno | No tiene listado ni ficha pública: la URL del curso sin comprar redirige a su solución; con inscripción vigente, a su última lección vista | Comprar: lo hace la landing de la solución |
+| leccion    | cpt    | ninguna | Tipo de contenido del plugin, hijo de un `curso`: módulo, orden, video (enlace de Vimeo; la duración se lee sola), texto (con la cita "PD"), materiales (PDF protegidos) y vista previa gratuita sí/no. Se edita en el constructor. El acceso y el avance son de las tablas del plugin | ninguno | `single-leccion.php` (`/cursos/<curso>/<leccion>/`, solo con inscripción vigente) | Marcar como completa (avance del plugin) |
+| producto   | woo    | ninguna                                                                                                               | Solo para cobrar: un producto Simple + Virtual por curso, que el constructor crea y actualiza al publicar el curso (el plugin guarda la relación). Nativos de Woo: precio, precio rebajado (precio de lanzamiento), cupones. Oculto del catálogo         | ninguno                                      | No tiene listado ni ficha: `/tienda/` redirige a `/soluciones-de-sueno/`                                                                                                 | Agregar al carrito de Woo (desde la landing)                     |
 | testimonio | cpt    | `categoria_testimonio` no jerárquica: Soluciones de Sueño, Mundo Angelitozzz                                          | Tipo de contenido nuevo. Nombre (título), foto (imagen destacada), testimonio (contenido), estrellas (1–5), edad del bebé (texto: "Bebé de 5 meses")                                                     | categoría (pastillas)                        | `archive-testimonio.php` (página Testimonios, `/testimonios/`)                                                                                                          | ninguna                                                          |
 
 - `Contenido`: nombre en singular, snake_case, sin tildes (`producto`, `proyecto`, `post`).
@@ -62,7 +63,7 @@ Solo si algún contenido tiene `Origen: woo`; si no, se deja vacía o se borra. 
 - **Variaciones:** no
 - **Filtros de tienda:** no
 
-Decidido en la F0 (2026-11-10): carrito, checkout y mini-carrito clásicos, porque el diseño es propio y los plugins de pasarela peruanos (Niubiz) no siempre soportan el checkout en bloques. El mini-carrito es un drawer que se abre al agregar un curso. La cuenta no es la de Woo: la lleva el panel de Tutor LMS (escritorio, mi perfil, cursos inscritos e historial de pedidos), y "Mi cuenta" de Woo redirige ahí. Las etapas de Horarios Ideales no son variaciones: son 3 cursos con su propio producto.
+Decidido en la F0 (2026-11-10): carrito, checkout y mini-carrito clásicos, porque el diseño es propio y los plugins de pasarela peruanos (Niubiz) no siempre soportan el checkout en bloques. El mini-carrito es un drawer que se abre al agregar un curso. La cuenta no es la de Woo: es propia (página `/cuenta/` del tema, con datos del plugin `angelitozzz-cursos`: escritorio, mi perfil, cursos inscritos e historial de pedidos leído de `WC_Order`), y "Mi cuenta" de Woo redirige ahí. Hasta 2026-11-13 era el panel de Tutor LMS, que se dejó. Las etapas de Horarios Ideales no son variaciones: son 3 cursos con su propio producto.
 
 - `Pieza`: las que WooCommerce puede dibujar como plantilla PHP o como bloque: `carrito`, `checkout`, `mini-carrito` y `cuenta`. Tienda, tarjeta de producto y ficha son siempre plantillas PHP y no se preguntan.
 - `Modo`: `clásico` (plantilla PHP de `woocommerce/`: el HTML sale del diseño), `bloques` (bloque de WooCommerce: no hay plantilla, el diseño se aproxima con CSS) o `no aplica` (el diseño no tiene esa pieza).
@@ -190,6 +191,69 @@ Cada componente vive en `template-parts/components/<nombre>.php` y recibe sus da
 - **Destino:** `template-parts/components/producto-card.php`
 - **Argumentos:** `imagen` (array imagen/ID o vacío: sin imagen usa la imagen por defecto "not found", `assets/img/ayudarte-imagen-not-found.webp`), `etiqueta` (string, opcional), `etiqueta_icono` (`ninguno` | `destellos` | `estrella`), `titulo` (string, requerido), `edad` (string, opcional), `descripcion` (string, opcional: se oculta si viene vacía; los relacionados de las landings no la llevan), `beneficios` (array de strings, opcional), `boton` (array link, requerido), `loading` (`lazy` | `eager`, por defecto `lazy`: `eager` para las tarjetas de la primera pantalla)
 - **Se usa en:** home/como-ayudarte, soluciones-de-sueno/shop (`archive-solucion.php`; hoy, provisional, `woocommerce/content-product.php`), solucion/relacionados
+
+### resumen-compra
+
+- **Origen:** caja "Resumen de compra" de carrito (4151:10157) y checkout (4156:9961): borde `#bcb28a`, radio 12, 345 px de ancho
+- **Destino:** `template-parts/components/resumen-compra.php`
+- **Argumentos:** `items` (array de `tipo` ("Curso"), `nombre` y `precio` (string ya formateado por Woo); requerido), `subtotal` (string, requerido), `descuento` (string, opcional: sin valor no se imprime la fila), `impuesto` (array `etiqueta` ("IGV") y `monto`, opcional: sin valor no se imprime la fila), `total` (string, requerido)
+- **Se usa en:** carrito/carrito-de-compras (`woocommerce/cart/cart.php`), checkout/hero (`woocommerce/checkout/review-order.php`). Título "Resumen de compra" fijo; cada fila con su etiqueta a la izquierda y el monto a la derecha, separadas por líneas `#bcb28a`. Los datos los arma la plantilla de Woo desde el carrito; el componente no llama a Woo.
+
+### acceso-tarjeta
+
+- **Origen:** "Tarjeta" y "Decoración acceso" de iniciar-sesion (4156:23796), crear-cuenta (4156:23743) y recuperar-contrasena (4156:24625)
+- **Destino:** `template-parts/components/acceso-tarjeta.php` y `template-parts/components/acceso-tarjeta-fin.php`
+- **Argumentos:** `titulo` (string, requerido: el `h1`), `bajada` (string, opcional). Imprime el fondo crema con la decoración (nube dormida, destellos, luna; `aria-hidden`), la tarjeta blanca (560 px, padding 56, radio 28, sombra `0 12px 40px #24454a14`, separación 32 px) con el logo de Mundo Angelitozzz (asset fijo del tema, `alt` "Mundo Angelitozzz"), el título y la bajada. El formulario de cada pantalla va debajo, dentro de la tarjeta: el componente se abre con `acceso-tarjeta` y se cierra con `acceso-tarjeta-fin`.
+- **Se usa en:** iniciar-sesion, crear-cuenta, recuperar-contrasena (`template-parts/pages/<pantalla>/formulario.php`)
+
+### campo-acceso
+
+- **Origen:** campos de las pantallas de acceso: caja crema con borde `#d7d0b5` (`--color-neutro`), radio 12, padding 14/16, ícono de 18 px a la izquierda, etiqueta verde encima (`--text-rotulo`), placeholder en `--color-tinta-suave`
+- **Destino:** `template-parts/components/campo-acceso.php` y `src/js/modules/ver-contrasena.js`
+- **Argumentos:** `id` (string, requerido), `name` (string, requerido), `etiqueta` (string, requerido), `tipo` (`text` | `email` | `password`, por defecto `text`), `placeholder` (string), `icono` (`correo` | `candado` | `ninguno`, por defecto `ninguno`), `autocomplete` (string), `requerido` (bool, por defecto `true`), `valor` (string: lo que ya escribió, al volver con error). Con `tipo` `password` agrega el botón ojo (ver u ocultar, `aria-pressed`, nombre accesible "Mostrar contraseña").
+- **Se usa en:** iniciar-sesion, crear-cuenta, recuperar-contrasena. No en el checkout: allí los campos son subrayados, como su diseño (decisión del usuario, 2026-11-13).
+
+### cuenta-menu
+
+- **Origen:** "drawer" de las 4 vistas de la cuenta (usuario-escritorio 4164:25044, usuario-mi-perfil 4164:26839, usuario-cursos 4164:25448, usuario-historial-pedido 4164:25910)
+- **Destino:** `template-parts/components/cuenta-menu.php`
+- **Argumentos:** `menu` (`alumna` | `instructora`, por defecto `alumna`), `activo` (con `alumna`: `escritorio` | `perfil` | `cursos` | `pedidos`; con `instructora`: `escritorio` | `cursos`; requerido). Con `instructora` (`admin-escritorio.md`, `admin-cursos.md`) los ítems son "Escritorio" y "Cursos" del administrador (`/administrador/`, `/administrador/cursos/`) y la columna mide 458 px. Imprime "Hola," y el nombre de la alumna (`h1`, `--text-h1`, verde), un `<nav aria-label="Mi cuenta">` con los 4 ítems (321 × 50, radio 15, ícono en círculo de 36 px; activo con fondo verde, texto blanco `--text-h5` y `aria-current="page"`; inactivo con texto `--text-cuerpo-l` y círculo salvia) y al pie `boton` variante claro "Cerrar sesión" (`wp_logout_url`). Columna de 377 px con borde derecho negro de 1 px. Los enlaces son las vistas de `/cuenta/` (`/cuenta/`, `/cuenta/perfil/`, `/cuenta/cursos/`, `/cuenta/pedidos/`).
+- **Se usa en:** `pages/template-cuenta.php` (todas las vistas de la cuenta) y `pages/template-administrador.php` (con `menu` `instructora`). En móvil (propuesta): saludo arriba y los ítems como fila de pestañas con scroll propio.
+
+### cuenta-pestanas
+
+- **Origen:** tarjetas de pestaña de usuario-mi-perfil, usuario-cursos y usuario-historial-pedido (173 × 94, radio 15, ícono de 35 px sobre el texto)
+- **Destino:** `template-parts/components/cuenta-pestanas.php`
+- **Argumentos:** `pestanas` (array de `id`, `texto`, `icono`, `url` o `panel`, `numero` opcional; requerido), `activa` (string, requerido), `modo` (`enlaces` | `tabs`, por defecto `enlaces`: con `tabs` usa `role="tablist"` y cambia de panel sin recargar). Activa: fondo `#fafeff`, borde de 2 px `#492343`, texto verde; inactiva: fondo blanco, sin borde, texto negro.
+- **Se usa en:** usuario-mi-perfil (`tabs`), usuario-cursos (`enlaces`, con número), usuario-historial-pedido (una sola, como título)
+
+### curso-progreso-card
+
+- **Origen:** tarjetas de curso de usuario-escritorio (horizontal, 1212 × 238) y usuario-cursos (vertical, 355 × 467)
+- **Destino:** `template-parts/components/curso-progreso-card.php`
+- **Argumentos:** `curso_id` (int, requerido: de él salen imagen, título y extracto; lecciones y progreso, de `angelitozzz_cursos_*`), `variante` (`horizontal` | `vertical`, por defecto `vertical`), `lecciones` (bool: muestra "N de M lecciones", por defecto `true` en vertical). El pie cambia con el avance: 0 % "Empezar curso", en progreso "Continuar curso", 100 % etiqueta "Completado" y `boton` secundario "Volver a ver". Barra de 8 px (fondo crema con borde beige, relleno frambuesa, radio 100) con `role="progressbar"` y su valor.
+- **Se usa en:** usuario-escritorio (horizontal), usuario-cursos (vertical)
+
+### reglas-contrasena
+
+- **Origen:** lista "Su contraseña debe tener al menos:" de usuario-mi-perfil / Seguridad (4164:27124)
+- **Destino:** `template-parts/components/reglas-contrasena.php` y `src/js/modules/reglas-contrasena.js`
+- **Argumentos:** `campo` (string, requerido: id del campo de contraseña que vigila). Lista de 4 reglas en 2 × 2 (8 caracteres, 1 letra minúscula, 1 número, 1 letra mayúscula) con ícono de 30 px: cumplida check `#9cb09d`, pendiente ✕ `#f5a8a9`; cada regla dice su estado en texto para lectores ("cumplida" / "pendiente") y la lista se anuncia con `aria-live="polite"`. Las mismas 4 reglas se validan en el servidor (plugin `angelitozzz-cursos`, F3).
+- **Se usa en:** usuario-mi-perfil (Seguridad), crear-cuenta, recuperar-contrasena (nueva contraseña), checkout (contraseña de la cuenta nueva). Regla de todo el sitio (decisión del usuario, 2026-11-13).
+
+### banner-mundo
+
+- **Origen:** componente Figma "Banner Mundo" (3586:1518), en la primera lección (`leccion.md`)
+- **Destino:** `template-parts/components/banner-mundo.php`
+- **Argumentos:** `titulo` (string, opcional: si no viene, el de Ajustes del sitio), `texto` (string, opcional, ídem), `variante` (`leccion` | `confirmacion`, por defecto `leccion`). El enlace, el pie y el texto del botón salen siempre de `get_field('opciones_mes_gratis_mundo', 'option')`; sin enlace no imprime nada. Degradado verde, logo de Mundo de 96 px con borde dorado, `boton` claro sin flecha en pestaña nueva (`angelitozzz_link`).
+- **Se usa en:** leccion/banner-mundo (primera lección de los cursos con mes gratis); la confirmación de compra (spec de gracias, pendiente) con el título "Espera — hay algo más esperándote"
+
+### curso-admin-card
+
+- **Origen:** tarjetas de la lista de cursos del administrador (`admin-cursos`, nodo 4184:29718; 355 × 467, radio 20)
+- **Destino:** `template-parts/components/curso-admin-card.php`
+- **Argumentos:** `curso_id` (int, requerido: de él salen portada, título, estado, fecha, estudiantes y el precio de su producto de Woo, por `angelitozzz_cursos_admin_lista()`). Muestra la `etiqueta` "Borrador" si no está publicado y el botón "Más opciones" (⋯) con su menú: Editar, Ver en el sitio, Publicar / Pasar a borrador, Eliminar.
+- **Se usa en:** admin-cursos/seccion
 
 ### testimonio-destacado
 

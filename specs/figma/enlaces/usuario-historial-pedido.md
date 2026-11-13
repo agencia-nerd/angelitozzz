@@ -1,4 +1,6 @@
-# Figma: Historial de pedidos
+# Figma: usuario-historial-pedido
+
+<!-- Título original del archivo: Historial de pedidos -->
 
 - **Frame de la página:** https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4164-25905&t=lySNWh2dFHTQgiTC-4
 

@@ -1,0 +1,238 @@
+// get_design_context de 4184:29056 (Alumna · Escritorio, nombre de capa heredado; es el escritorio del administrador), leído completo (no truncado).
+// Incluye las dos partes que señalan las notas: el drawer 4184:29058 y "contenido" 4184:29180; no hizo falta leerlas aparte.
+// URLs temporales de Figma reemplazadas por los archivos descargados en assets/.
+const imgFlecha = "assets/boton-flecha-verde.svg";
+const imgMaterialSymbolsLock = "assets/menu-icono-escritorio.svg";
+const imgMdiBooks = "assets/menu-icono-cursos.svg";
+const imgMdiAccountCog = "assets/crear-curso-icono.svg";
+const imgGroup = "assets/resumen-icono-estudiantes.svg";
+
+type BotonProps = {
+  className?: string;
+  flecha?: boolean;
+  texto?: string;
+  tipo?: "Claro";
+};
+
+function Boton({ className, flecha = true, texto = "Texto del botón", tipo = "Claro" }: BotonProps) {
+  return (
+    <div className={className || "bg-[var(--color\\/crema,#f8f6f1)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px]"} data-node-id="3704:15616">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3704:15617">
+        {texto}
+      </p>
+      {flecha && (
+        <div className="relative shrink-0 size-[18px]" data-node-id="3704:15618" data-name="Flecha">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function AlumnaEscritorio() {
+  return (
+    <div className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex flex-col items-center px-[135px] py-[120px] relative size-full" data-node-id="4184:29056" data-name="Alumna · Escritorio">
+      <div className="content-stretch flex gap-[60px] h-[851px] items-start relative shrink-0 w-[1649px]" data-node-id="4184:29057">
+
+        {/* ===================== PARTE 1: drawer (4184:29058) ===================== */}
+        <div className="border-black border-r border-solid content-stretch flex flex-col h-[836px] items-start justify-between pr-[55px] relative shrink-0 w-[458px]" data-node-id="4184:29058">
+          <div className="content-stretch flex flex-col gap-[80px] items-start relative shrink-0 w-[320px]" data-node-id="4184:29311">
+            <div className="[word-break:break-word] content-stretch flex flex-col gap-[9px] items-start not-italic relative shrink-0 w-[201px]" data-node-id="4184:29310">
+              <p className="font-['Barlow_Condensed:Regular'] h-[21px] leading-[1.5] relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] w-full" data-node-id="4184:28692">
+                Hola,
+              </p>
+              <p className="font-['Barlow_Condensed:SemiBold'] h-[60px] leading-[1.1] relative shrink-0 text-[50px] text-[color:var(--color\/verde,#234549)] w-full" data-node-id="4184:28689">
+                Bárbara
+              </p>
+            </div>
+            <div className="content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-full" data-node-id="4184:28736" data-name="Admin-Bar">
+              <div className="bg-[var(--color\/verde,#234549)] h-[49px] relative rounded-[15px] shrink-0 w-full" data-node-id="4184:28737">
+                <div className="absolute bg-[var(--color\/blanco,white)] left-[19px] overflow-clip rounded-[45px] size-[36px] top-[6px]" data-node-id="4184:28738" data-name="ICONO">
+                  <div className="absolute left-[6px] size-[24px] top-[6px]" data-node-id="4184:28739" data-name="material-symbols:lock">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMaterialSymbolsLock} />
+                  </div>
+                </div>
+                <p className="[word-break:break-word] absolute font-['Barlow_Condensed:Medium'] leading-[1.3] left-[70px] not-italic text-[22px] text-[color:var(--color\/blanco,white)] top-[8.5px] whitespace-nowrap" data-node-id="4184:28741">
+                  Escritorio
+                </p>
+              </div>
+              <div className="bg-[var(--color\/crema,#f8f6f1)] h-[50px] relative rounded-[15px] shrink-0 w-full" data-node-id="4184:28746">
+                <div className="absolute bg-[var(--color\/teal,#9cb0b0)] left-[19px] overflow-clip rounded-[45px] size-[36px] top-[6px]" data-node-id="4184:28747" data-name="ICONO">
+                  <div className="absolute left-[6px] size-[24px] top-[6px]" data-node-id="4184:28748" data-name="mdi:books">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMdiBooks} />
+                  </div>
+                </div>
+                <p className="[word-break:break-word] absolute font-['Barlow_Condensed:Regular'] h-[28px] leading-[1.5] left-[70px] not-italic text-[20px] text-[color:var(--color\/texto,black)] top-[12px] w-[58px]" data-node-id="4184:28750">{`Cursos `}</p>
+              </div>
+            </div>
+          </div>
+          <Boton className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" texto="Cerrar sesión" />
+        </div>
+
+        {/* ===================== PARTE 2: contenido (4184:29180) ===================== */}
+        <div className="content-stretch flex flex-col items-start relative shrink-0 w-[1131px]" data-node-id="4184:29180">
+          <div className="content-stretch flex flex-col items-start relative shrink-0 w-[1033px]" data-node-id="4184:29181">
+            <div className="content-stretch flex flex-col gap-[49px] items-start relative shrink-0 w-[1108px]" data-node-id="4184:29606">
+              <div className="content-stretch flex flex-col gap-[13px] items-end relative shrink-0 w-full" data-node-id="4184:29607">
+                <div className="content-stretch flex items-center relative shrink-0" data-node-id="4184:29608">
+                  <div className="bg-[var(--color\/verde,#234549)] content-stretch flex flex-col gap-[8px] h-[94px] items-center justify-center pb-[10px] pt-[11px] px-[10px] relative rounded-[15px] shrink-0 w-[173px]" data-node-id="4184:29609">
+                    <div className="relative shrink-0 size-[35px]" data-node-id="4184:29610" data-name="mdi:account-cog">
+                      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMdiAccountCog} />
+                    </div>
+                    <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/blanco,white)] text-center whitespace-nowrap" data-node-id="4184:29612">
+                      Crear nuevo curso
+                    </p>
+                  </div>
+                </div>
+                <div className="content-stretch flex flex-col gap-[28px] items-start relative shrink-0 w-full" data-node-id="4184:29613">
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[24px] text-[color:var(--color\/verde,#234549)] w-full" data-node-id="4184:29614">
+                    Resumen
+                  </p>
+                  <div className="content-stretch flex gap-[20px] items-center relative shrink-0 w-full" data-node-id="4184:29615">
+                    <div className="bg-[var(--color\/blanco,white)] content-stretch flex h-[147px] items-center justify-between pl-[20px] pr-[30px] py-[20px] relative rounded-[15px] shrink-0 w-[355px]" data-node-id="4184:29616">
+                      <div className="[word-break:break-word] content-stretch flex flex-col gap-[5px] items-start not-italic relative shrink-0 w-[213px]" data-node-id="4184:29617">
+                        <p className="font-['Barlow_Condensed:SemiBold'] leading-[1.1] relative shrink-0 text-[50px] text-[color:var(--color\/verde,#234549)] w-full" data-node-id="4184:29618">
+                          683
+                        </p>
+                        <p className="font-['Barlow_Condensed:Regular'] leading-[1.5] relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] w-full" data-node-id="4184:29619">
+                          Estudiantes en total
+                        </p>
+                      </div>
+                      <div className="overflow-clip relative shrink-0 size-[55px]" data-node-id="4184:29620" data-name="hugeicons:students">
+                        <div className="absolute inset-[16.67%_8.33%]" data-node-id="4184:29621" data-name="Group">
+                          <div className="absolute inset-[-4.09%_-3.27%]">
+                            <img alt="" className="block max-w-none size-full" src={imgGroup} />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-[var(--color\/blanco,white)] content-stretch flex h-[147px] items-center justify-between pl-[20px] pr-[30px] py-[20px] relative rounded-[15px] shrink-0 w-[355px]" data-node-id="4184:29624">
+                      <div className="[word-break:break-word] content-stretch flex flex-col gap-[5px] items-start not-italic relative shrink-0 w-[213px]" data-node-id="4184:29625">
+                        <p className="font-['Barlow_Condensed:SemiBold'] leading-[1.1] relative shrink-0 text-[50px] text-[color:var(--color\/verde,#234549)] w-full" data-node-id="4184:29626">
+                          6
+                        </p>
+                        <p className="font-['Barlow_Condensed:Regular'] leading-[1.5] relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] w-full" data-node-id="4184:29627">
+                          Total de cursos
+                        </p>
+                      </div>
+                      <div className="relative shrink-0 size-[55px]" data-node-id="4184:29628" data-name="hugeicons:students" />
+                    </div>
+                    <div className="bg-[var(--color\/blanco,white)] content-stretch flex h-[147px] items-center justify-between pl-[20px] pr-[30px] py-[20px] relative rounded-[15px] shrink-0 w-[355px]" data-node-id="4184:29632">
+                      <div className="content-stretch flex flex-col gap-[5px] items-start relative shrink-0 w-[213px]" data-node-id="4184:29633">
+                        <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] w-full" data-node-id="4184:29635">
+                          Ganancias totales
+                        </p>
+                      </div>
+                      <div className="relative shrink-0 size-[55px]" data-node-id="4184:29636" data-name="hugeicons:students" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="content-stretch flex flex-col gap-[28px] items-start relative shrink-0 w-full" data-node-id="4184:29640">
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[24px] text-[color:var(--color\/verde,#234549)] w-full" data-node-id="4184:29641">
+                  Cursos
+                </p>
+                <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="4184:29642">
+                  <div className="content-stretch flex flex-col gap-[10px] h-[60px] items-start px-[26px] py-[15px] relative shrink-0 w-full" data-node-id="4184:29643">
+                    <div className="absolute contents left-0 top-0" data-node-id="4184:29644">
+                      <div className="absolute bg-[var(--color\/blanco,white)] border-[#c1c1c1] border-b-[1.5px] border-solid h-[60px] left-0 rounded-tl-[15px] rounded-tr-[15px] top-0 w-[1108px]" data-node-id="4184:29645" />
+                    </div>
+                    <div className="[word-break:break-word] content-stretch flex font-['Barlow_Condensed:Medium'] items-center justify-between leading-[1.3] not-italic relative shrink-0 text-[22px] text-[color:var(--color\/verde,#234549)] w-[535px]" data-node-id="4184:29646">
+                      <p className="relative shrink-0 w-[50px]" data-node-id="4184:29647">
+                        Curso
+                      </p>
+                      <p className="relative shrink-0 whitespace-nowrap" data-node-id="4184:29648">
+                        Estudiantes inscritos
+                      </p>
+                    </div>
+                  </div>
+                  <div className="content-stretch flex flex-col gap-[10px] h-[60px] items-start px-[26px] py-[15px] relative shrink-0 w-full" data-node-id="4184:29649">
+                    <div className="absolute contents left-0 top-0" data-node-id="4184:29650">
+                      <div className="absolute bg-[var(--color\/blanco,white)] border-[#c1c1c1] border-b-[1.5px] border-solid h-[60px] left-0 top-0 w-[1108px]" data-node-id="4184:29651" />
+                    </div>
+                    <div className="[word-break:break-word] content-stretch flex font-['Barlow_Condensed:Regular'] items-center justify-between leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] w-[387px]" data-node-id="4184:29652">
+                      <p className="relative shrink-0 w-[127px]" data-node-id="4184:29653">
+                        Angelita Pro
+                      </p>
+                      <p className="relative shrink-0 whitespace-nowrap" data-node-id="4184:29654">
+                        19
+                      </p>
+                    </div>
+                  </div>
+                  <div className="content-stretch flex flex-col gap-[10px] h-[60px] items-start px-[26px] py-[15px] relative shrink-0 w-full" data-node-id="4184:29655">
+                    <div className="absolute contents left-0 top-0" data-node-id="4184:29656">
+                      <div className="absolute bg-[var(--color\/blanco,white)] border-[#c1c1c1] border-b-[1.5px] border-solid h-[60px] left-0 top-0 w-[1108px]" data-node-id="4184:29657" />
+                    </div>
+                    <div className="[word-break:break-word] content-stretch flex font-['Barlow_Condensed:Regular'] items-center justify-between leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] w-[390px]" data-node-id="4184:29658">
+                      <p className="relative shrink-0 w-[149px]" data-node-id="4184:29659">
+                        Recién Nacidos Go
+                      </p>
+                      <p className="relative shrink-0 whitespace-nowrap" data-node-id="4184:29660">
+                        82
+                      </p>
+                    </div>
+                  </div>
+                  <div className="content-stretch flex flex-col gap-[10px] h-[60px] items-start px-[26px] py-[15px] relative shrink-0 w-full" data-node-id="4184:29661">
+                    <div className="absolute contents left-0 top-0" data-node-id="4184:29662">
+                      <div className="absolute bg-[var(--color\/blanco,white)] border-[#c1c1c1] border-b-[1.5px] border-solid h-[60px] left-0 top-0 w-[1108px]" data-node-id="4184:29663" />
+                    </div>
+                    <div className="[word-break:break-word] content-stretch flex font-['Barlow_Condensed:Regular'] items-center justify-between leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] w-[382px]" data-node-id="4184:29664">
+                      <p className="relative shrink-0 w-[205px]" data-node-id="4184:29665">
+                        Horarios · 4 a 9 meses
+                      </p>
+                      <p className="relative shrink-0 whitespace-nowrap" data-node-id="4184:29666">
+                        5
+                      </p>
+                    </div>
+                  </div>
+                  <div className="content-stretch flex flex-col gap-[10px] h-[60px] items-start px-[26px] py-[15px] relative shrink-0 w-full" data-node-id="4184:29667">
+                    <div className="absolute contents left-0 top-0" data-node-id="4184:29668">
+                      <div className="absolute bg-[var(--color\/blanco,white)] border-[#c1c1c1] border-b-[1.5px] border-solid h-[60px] left-0 top-0 w-[1108px]" data-node-id="4184:29669" />
+                    </div>
+                    <div className="[word-break:break-word] font-['Barlow_Condensed:Regular'] h-[30px] leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] w-[390px]" data-node-id="4184:29670">
+                      <p className="absolute left-0 top-0 w-[168px]" data-node-id="4184:29671">
+                        Horarios · 9 a 15 meses
+                      </p>
+                      <p className="absolute left-[373px] top-0 whitespace-nowrap" data-node-id="4184:29672">
+                        96
+                      </p>
+                    </div>
+                  </div>
+                  <div className="content-stretch flex flex-col gap-[10px] h-[60px] items-start px-[26px] py-[15px] relative shrink-0 w-full" data-node-id="4184:29673">
+                    <div className="absolute contents left-0 top-0" data-node-id="4184:29674">
+                      <div className="absolute bg-[var(--color\/blanco,white)] border-[#c1c1c1] border-b-[1.5px] border-solid h-[60px] left-0 top-0 w-[1108px]" data-node-id="4184:29675" />
+                    </div>
+                    <div className="[word-break:break-word] content-stretch flex font-['Barlow_Condensed:Regular'] items-center justify-between leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] w-[390px]" data-node-id="4184:29676">
+                      <p className="relative shrink-0 w-[184px]" data-node-id="4184:29677">
+                        Horarios · 15 a 36 meses
+                      </p>
+                      <p className="relative shrink-0 whitespace-nowrap" data-node-id="4184:29678">
+                        36
+                      </p>
+                    </div>
+                  </div>
+                  <div className="content-stretch flex flex-col gap-[10px] h-[60px] items-start px-[26px] py-[15px] relative shrink-0 w-full" data-node-id="4184:29679">
+                    <div className="absolute contents left-0 top-0" data-node-id="4184:29680">
+                      <div className="absolute bg-[var(--color\/blanco,white)] border-[#c1c1c1] border-b-[1.5px] border-solid h-[60px] left-0 rounded-bl-[15px] rounded-br-[15px] top-0 w-[1108px]" data-node-id="4184:29681" />
+                    </div>
+                    <div className="[word-break:break-word] content-stretch flex font-['Barlow_Condensed:Regular'] items-center justify-between leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] w-[386px]" data-node-id="4184:29682">
+                      <p className="relative shrink-0 w-[127px]" data-node-id="4184:29683">
+                        Semanas extra
+                      </p>
+                      <p className="relative shrink-0 whitespace-nowrap" data-node-id="4184:29684">
+                        51
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Estilos del diseño: 2026/Body L, 2026/H1, 2026/H5, 2026/Label, 2026/Body XL, green 80 (#492343).
+// Componente Botón (3704:15621): "Botón 2026 · Frambuesa (CTA principal sobre fondos claros) · Verde (sobre teal) · Claro (sobre verde oscuro) · Secundario (contorno)."

@@ -6,7 +6,7 @@
 - **Tipo:** detalle
 - **Contenido:** solucion
 - **Secciones (en orden):** hero, tarjeta, compra, secciones, relacionados, modal-selecciona-edad, modal-etapa, drawer-carrito
-- **Skills usadas:** wp-helper (imágenes, enlaces y textos), wp-accordion (preguntas frecuentes), wp-modal (selector de edad, etapa y drawer del carrito). Después: wp-acf (campos y contenido inicial), wp-woocommerce (precio, carrito y drawer), lógica propia en `inc/tutor/` e `inc/woocommerce/` (F4)
+- **Skills usadas:** wp-helper (imágenes, enlaces y textos), wp-accordion (preguntas frecuentes), wp-modal (selector de edad, etapa y drawer del carrito). Después: wp-acf (campos y contenido inicial), wp-woocommerce (precio, carrito y drawer), lógica propia en el plugin `angelitozzz-cursos` (curso, acceso, inscripción) e `inc/woocommerce/` (carrito, etapas, descuento)
 - **Grupo ACF:** Solución (landing)
 - **Ubicación:** tipo de contenido = solucion
 - **Padre:** ninguno
@@ -100,7 +100,7 @@ Valores de las otras landings (para el contenido inicial): ver "Orden de cada la
 ## Sección: compra
 
 - **Origen:** notas de Horarios Ideales y `specs/figma/lectura/curso-horarios-ideales/modal-etapas.ref.txt` (escala "2 cursos $67 · 3 cursos $97")
-- **Destino:** `inc/woocommerce/` y `inc/tutor/` (F4); sin marcado propio
+- **Destino:** `inc/woocommerce/` (carrito, etapas, descuento) y el plugin `angelitozzz-cursos` (curso ↔ producto); sin marcado propio
 - **Grupo:** `solucion_compra`
 - **Skill:** ninguna
 - **Comportamiento:** define qué vende la solución y cómo. `directa`: el botón del hero agrega el producto de Woo de su curso. `etapas`: abre `modal-selecciona-edad` con los cursos del bloque `etapas` y aplica el descuento por cantidad. `suscripcion` (Angelita Pro): la renovación cada 4 meses con 7 días de prueba se define en la F5 (depende de Niubiz). El precio de cada curso es el de su producto de Woo.
@@ -110,7 +110,7 @@ Valores de las otras landings (para el contenido inicial): ver "Orden de cada la
 
 | Campo                                  | Tipo         | Descripción                                                                                                         | Valor actual     | Requerido |
 | -------------------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------- | ---------------- | --------- |
-| `solucion_compra_cursos`               | relationship | Cursos de Tutor que vende esta solución (con etapas, uno por etapa). Contenido: curso. Mínimo: 1                    | A Dormir Por Fin | sí        |
+| `solucion_compra_cursos`               | relationship | Cursos que vende esta solución (con etapas, uno por etapa). Contenido: curso. Mínimo: 1                    | A Dormir Por Fin | sí        |
 | `solucion_compra_tipo`                 | select       | Cómo se compra. Opciones: directa, etapas, suscripcion                                                              | directa          | sí        |
 | `solucion_compra_descuentos`           | repeater     | Precio total al comprar varios cursos juntos (solo con etapas). El diseño tiene 2.                                 | —                | no        |
 | `solucion_compra_descuentos.cantidad`  | number       | Cantidad de cursos.                                                                                                 | 2                | sí        |
@@ -135,7 +135,7 @@ Valores de las otras landings (para el contenido inicial): ver "Orden de cada la
     - `experiencia` (A Dormir Por Fin, `experiencia-exclusiva.ref.txt`, 4013:15567): título, texto centrado (primer y último párrafo en negrita: el texto se escribe con el marcador de negrita de wp-helper), foto horizontal redondeada y botón. Móvil: igual, en una columna.
     - `pasos` (A Dormir Por Fin, `como-funciona.ref.txt`, 4013:15672): antetítulo, título, bajada, 3 tarjetas blancas (foto, "Paso n", título `h3`, texto, etiqueta crema) y botón verde. "Paso n" se numera solo. Móvil: tarjetas apiladas (2 en tablet).
     - `galeria` (conoce por dentro de A. Pro 4013:14037; resumen breve de Recién Nacidos 4013:18035): título, bajada, slider de diapositivas (una a la vez, flechas debajo; `solucion-galeria.js`), texto bajo las flechas y botón de compra opcional. Cada diapositiva es una imagen y, si tiene video de Vimeo, muestra el botón play y reproduce en el mismo lugar (decisión del usuario, 2026-11-13). Con una sola diapositiva no se muestran flechas. El botón hace lo mismo que el botón del hero y puede llevar el precio ("Comprar ahora — $97 USD").
-    - `etapas` (Horarios Ideales, `etapas.ref.txt`, 4013:19194): título y 3 tarjetas (foto, título `h3`, texto, botón "Más información" que abre `modal-etapa` con los datos de esa etapa). Cada etapa es un curso de Tutor. Móvil: tarjetas apiladas.
+    - `etapas` (Horarios Ideales, `etapas.ref.txt`, 4013:19194): título y 3 tarjetas (foto, título `h3`, texto, botón "Más información" que abre `modal-etapa` con los datos de esa etapa). Cada etapa es un curso. Móvil: tarjetas apiladas.
     - `testimonios` (componente Figma "Testimonio · Destacado": A. Pro 4013:14078, A Dormir 4013:15586, Horarios 4013:19383, Recién Nacidos 4013:18105): título, un testimonio a la vez (cita en itálica + autora), flechas a los lados y puntos; fila de "Z" y nubes decorativas. Usa el componente nuevo `testimonio-destacado` (`_shared.md`).
     - `preguntas` (A. Pro 4013:14164, A Dormir 4013:15724, Horarios 4013:19424, Recién Nacidos 4013:18192): título y acordeón (`<details>`, con wp-accordion); la primera abierta; con más de 5 se muestran 5 y "Ver más" despliega el resto. Una pregunta sin respuesta no se imprime.
 - **Indicaciones del diseño:**
@@ -212,7 +212,7 @@ Valores de las otras landings (para el contenido inicial): ver "Orden de cada la
 | `solucion_secciones_bloques.etapas.fondo` | select | Color de fondo. Opciones: crema, rosa, beige, salvia, blanco | crema | sí |
 | `solucion_secciones_bloques.etapas.titulo` | text | Título del bloque. | El sueño cambia con cada etapa. Los horarios también. Elige la tuya. | sí |
 | `solucion_secciones_bloques.etapas.items` | repeater | Etapas, de menor a mayor edad. El diseño tiene 3. | — | sí |
-| `solucion_secciones_bloques.etapas.items.curso` | post_object | Curso de Tutor de esta etapa (de él sale el precio). Contenido: curso | — | sí |
+| `solucion_secciones_bloques.etapas.items.curso` | post_object | Curso de esta etapa (de su producto de Woo sale el precio). Contenido: curso | — | sí |
 | `solucion_secciones_bloques.etapas.items.edad` | text | Edad corta, para el selector de edad. | 4 a 9 meses | sí |
 | `solucion_secciones_bloques.etapas.items.imagen` | image | Foto de la tarjeta y del selector de edad. Recomendado: hasta 2000 px en el lado más largo, cuadrada. | — | sí |
 | `solucion_secciones_bloques.etapas.items.titulo` | text | Título de la tarjeta. | Curso Para bebés de 4 a 9 meses | sí |
