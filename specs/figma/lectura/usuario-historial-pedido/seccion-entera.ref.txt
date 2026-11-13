@@ -1,0 +1,227 @@
+const imgFlecha = `usuario-historial-pedido/assets/boton-flecha.svg`;
+const imgMaterialSymbolsLock = `usuario-historial-pedido/assets/menu-icono-escritorio.svg`;
+const imgIcono = `usuario-historial-pedido/assets/menu-icono-perfil.svg`;
+const imgMdiBooks = `usuario-historial-pedido/assets/menu-icono-cursos.svg`;
+const imgIconoHistorial = `usuario-historial-pedido/assets/menu-icono-historial.svg`;
+const imgVector = `usuario-historial-pedido/assets/pestana-icono-corazon.svg`;
+
+type EtiquetaProps = {
+  className?: string;
+  estilo?: "Tarjeta";
+  icono?: "Ninguno";
+  texto?: string;
+};
+
+function Etiqueta({ className, estilo = "Tarjeta", icono = "Ninguno", texto = "Etiqueta" }: EtiquetaProps) {
+  return (
+    <div className={className || "bg-[var(--color\\/teal,#9cb0b0)] content-stretch flex items-center px-[14px] py-[6px] relative rounded-[100px]"} data-node-id="3719:4260">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="3719:4261">
+        {texto}
+      </p>
+    </div>
+  );
+}
+
+type BotonProps = {
+  className?: string;
+  flecha?: boolean;
+  texto?: string;
+  tipo?: "Claro";
+};
+
+function Boton({ className, flecha = true, texto = "Texto del botón", tipo = "Claro" }: BotonProps) {
+  return (
+    <div className={className || "bg-[var(--color\\/crema,#f8f6f1)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px]"} data-node-id="3704:15616">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3704:15617">
+        {texto}
+      </p>
+      {flecha && (
+        <div className="relative shrink-0 size-[18px]" data-node-id="3704:15618" data-name="Flecha">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function AlumnaEscritorio() {
+  return (
+    <div className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex flex-col items-center px-[135px] py-[120px] relative size-full" data-node-id="4164:25908" data-name="Alumna · Escritorio">
+      <div className="content-stretch flex gap-[60px] h-[926px] items-start relative shrink-0 w-[1649px]" data-node-id="4164:25909">
+        <div className="border-black border-r border-solid content-stretch flex flex-col gap-[476px] h-[926px] items-start pr-[55px] relative shrink-0 w-[377px]" data-node-id="4164:25910">
+          <div className="content-stretch flex flex-col gap-[45px] items-start relative shrink-0 w-[321px]" data-node-id="4164:25911">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] h-[21px] leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] w-full" data-node-id="4164:25912">
+              Hola,
+            </p>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:SemiBold'] h-[60px] leading-[1.1] not-italic relative shrink-0 text-[50px] text-[color:var(--color\/verde,#234549)] w-full" data-node-id="4164:25913">
+              Ana Lucía
+            </p>
+            <div className="content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-full" data-node-id="4164:25914">
+              <div className="bg-[var(--color\/crema,#f8f6f1)] h-[50px] relative rounded-[15px] shrink-0 w-full" data-node-id="4164:26576">
+                <p className="[word-break:break-word] absolute font-['Barlow_Condensed:Regular'] leading-[1.5] left-[70px] not-italic text-[20px] text-[color:var(--color\/texto,black)] top-[7.5px] whitespace-nowrap" data-node-id="4164:26577">
+                  Escritorio
+                </p>
+                <div className="absolute bg-[var(--color\/teal,#9cb0b0)] left-[19px] overflow-clip rounded-[45px] size-[36px] top-[6px]" data-node-id="4164:26578" data-name="ICONO">
+                  <div className="absolute left-[6px] size-[24px] top-[6px]" data-node-id="4164:26579" data-name="material-symbols:lock">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMaterialSymbolsLock} />
+                  </div>
+                </div>
+              </div>
+              <div className="bg-[var(--color\/crema,#f8f6f1)] h-[50px] relative rounded-[15px] shrink-0 w-full" data-node-id="4164:25920">
+                <div className="absolute left-[19px] size-[36px] top-[7px]" data-node-id="4164:25921" data-name="ICONO">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIcono} />
+                </div>
+                <p className="[word-break:break-word] absolute font-['Barlow_Condensed:Regular'] h-[27px] leading-[1.5] left-[70px] not-italic text-[20px] text-[color:var(--color\/texto,black)] top-[12px] w-[67px]" data-node-id="4164:25923">{`Mi perfil `}</p>
+              </div>
+              <div className="bg-[var(--color\/crema,#f8f6f1)] h-[49px] relative rounded-[15px] shrink-0 w-full" data-node-id="4164:25924">
+                <div className="absolute bg-[var(--color\/teal,#9cb0b0)] left-[19px] overflow-clip rounded-[45px] size-[36px] top-[6px]" data-node-id="4164:25925" data-name="ICONO">
+                  <div className="absolute left-[6px] size-[24px] top-[6px]" data-node-id="4164:25926" data-name="mdi:books">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMdiBooks} />
+                  </div>
+                </div>
+                <p className="[word-break:break-word] absolute font-['Barlow_Condensed:Regular'] leading-[1.5] left-[70px] not-italic text-[20px] text-[color:var(--color\/texto,black)] top-[7.5px] whitespace-nowrap" data-node-id="4164:25928">
+                  Cursos inscritos
+                </p>
+              </div>
+              <div className="bg-[var(--color\/verde,#234549)] h-[49px] relative rounded-[15px] shrink-0 w-full" data-node-id="4164:26568">
+                <div className="absolute bg-[var(--color\/blanco,white)] left-[19px] overflow-clip rounded-[45px] size-[36px] top-[6px]" data-node-id="4164:26569" data-name="ICONO">
+                  <div className="absolute left-[8px] size-[20px] top-[8px]" data-node-id="4164:26570" data-name="Ícono historial">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIconoHistorial} />
+                  </div>
+                </div>
+                <p className="[word-break:break-word] absolute font-['Barlow_Condensed:Medium'] leading-[1.3] left-[70px] not-italic text-[22px] text-[color:var(--color\/blanco,white)] top-[8.5px] whitespace-nowrap" data-node-id="4164:26574">
+                  Historial de pedidos
+                </p>
+              </div>
+            </div>
+          </div>
+          <Boton className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" texto="Cerrar sesión" />
+        </div>
+        <div className="content-stretch flex flex-col gap-[50px] items-start relative shrink-0 w-[1212px]" data-node-id="4164:25942">
+          <div className="content-stretch flex items-center relative shrink-0" data-node-id="4164:26247">
+            <div className="bg-[#fafeff] border-2 border-[#492343] border-solid content-stretch flex flex-col gap-[8px] h-[94px] items-center justify-center pb-[10px] pt-[11px] px-[10px] relative rounded-[15px] shrink-0 w-[173px]" data-node-id="4164:26248">
+              <div className="overflow-clip relative shrink-0 size-[35px]" data-node-id="4164:26249" data-name="mdi:account-cog">
+                <div className="absolute aspect-[24/24] left-0 overflow-clip right-0 top-0" data-node-id="4164:26250" data-name="mdi:account-lock">
+                  <div className="absolute inset-[22.86%_17.14%_17.14%_17.14%]" data-node-id="4164:26251" data-name="Vector">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+                  </div>
+                </div>
+              </div>
+              <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] text-center whitespace-nowrap" data-node-id="4164:26252">
+                Historial
+              </p>
+            </div>
+          </div>
+          <div className="content-stretch flex flex-col items-start relative shrink-0 w-[1181px]" data-node-id="4164:26516">
+            <div className="bg-[var(--color\/blanco,white)] border-[#c1c1c1] border-b-[1.5px] border-solid h-[60px] relative rounded-tl-[15px] rounded-tr-[15px] shrink-0 w-[1121px]" data-node-id="4164:26517" />
+            <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="4164:26518">
+              <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-0 mt-0 place-items-start relative row-1" data-node-id="4164:26519">
+                <div className="bg-[var(--color\/blanco,white)] border-[#c1c1c1] border-b-[1.5px] border-solid col-1 h-[60px] ml-0 mt-0 relative row-1 w-[1121px]" data-node-id="4164:26520" />
+              </div>
+              <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[25px] mt-[15px] not-italic relative row-1 text-[20px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4164:26521">
+                #0001
+              </p>
+              <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[263px] mt-[15px] not-italic relative row-1 text-[20px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4164:26522">
+                Cursos de Horarios · 9 a 15 meses
+              </p>
+              <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[567px] mt-[15px] not-italic relative row-1 text-[20px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4164:26523">
+                5 de noviembre, 2025
+              </p>
+              <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] h-[30px] leading-[1.5] ml-[795px] mt-[15px] not-italic relative row-1 text-[20px] text-[color:var(--color\/texto,black)] w-[46px]" data-node-id="4164:26524">
+                $ 37
+              </p>
+              <Etiqueta className="bg-[var(--color\/teal,#9cb0b0)] col-1 content-stretch flex items-center ml-[972px] mt-[15px] px-[14px] py-[6px] relative rounded-[100px] row-1" texto="Activo" />
+            </div>
+            <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="4164:26526">
+              <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-0 mt-0 place-items-start relative row-1" data-node-id="4164:26527">
+                <div className="bg-[var(--color\/blanco,white)] border-[#c1c1c1] border-b-[1.5px] border-solid col-1 h-[60px] ml-0 mt-0 relative row-1 w-[1121px]" data-node-id="4164:26528" />
+              </div>
+              <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[25px] mt-[15px] not-italic relative row-1 text-[20px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4164:26529">
+                #0001
+              </p>
+              <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[263px] mt-[15px] not-italic relative row-1 text-[20px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4164:26530">
+                Recién Nacidos Go
+              </p>
+              <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[567px] mt-[15px] not-italic relative row-1 text-[20px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4164:26531">
+                10 de noviembre, 2025
+              </p>
+              <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] h-[30px] leading-[1.5] ml-[795px] mt-[15px] not-italic relative row-1 text-[20px] text-[color:var(--color\/texto,black)] w-[61px]" data-node-id="4164:26532">
+                $ 97
+              </p>
+              <Etiqueta className="bg-[var(--color\/teal,#9cb0b0)] col-1 content-stretch flex items-center ml-[961px] mt-[15px] px-[14px] py-[6px] relative rounded-[100px] row-1" texto="Cancelado" />
+            </div>
+            <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="4164:26534">
+              <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-0 mt-0 place-items-start relative row-1" data-node-id="4164:26535">
+                <div className="bg-[var(--color\/blanco,white)] border-[#c1c1c1] border-b-[1.5px] border-solid col-1 h-[60px] ml-0 mt-0 relative row-1 w-[1121px]" data-node-id="4164:26536" />
+              </div>
+              <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[25px] mt-[15px] not-italic relative row-1 text-[20px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4164:26537">
+                #0001
+              </p>
+              <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[263px] mt-[15px] not-italic relative row-1 text-[20px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4164:26538">
+                Cursos de Horarios · 4 a 9 meses
+              </p>
+              <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[567px] mt-[15px] not-italic relative row-1 text-[20px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4164:26539">
+                10 de julio, 2025
+              </p>
+              <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] h-[30px] leading-[1.5] ml-[795px] mt-[15px] not-italic relative row-1 text-[20px] text-[color:var(--color\/texto,black)] w-[61px]" data-node-id="4164:26540">
+                $ 37
+              </p>
+              <Etiqueta className="bg-[var(--color\/teal,#9cb0b0)] col-1 content-stretch flex items-center ml-[960px] mt-[15px] px-[14px] py-[6px] relative rounded-[100px] row-1" texto="Por expirar" />
+            </div>
+            <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="4164:26542">
+              <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-0 mt-0 place-items-start relative row-1" data-node-id="4164:26543">
+                <div className="bg-[var(--color\/blanco,white)] border-[#c1c1c1] border-b-[1.5px] border-solid col-1 h-[60px] ml-0 mt-0 relative row-1 w-[1121px]" data-node-id="4164:26544" />
+              </div>
+              <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[25px] mt-[15px] not-italic relative row-1 text-[20px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4164:26545">
+                #0001
+              </p>
+              <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[263px] mt-[15px] not-italic relative row-1 text-[20px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4164:26546">
+                Angelita Pro
+              </p>
+              <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[567px] mt-[15px] not-italic relative row-1 text-[20px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4164:26547">
+                10 de enero, 2025
+              </p>
+              <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] h-[30px] leading-[1.5] ml-[795px] mt-[15px] not-italic relative row-1 text-[20px] text-[color:var(--color\/texto,black)] w-[68px]" data-node-id="4164:26548">
+                $ 67
+              </p>
+              <Etiqueta className="bg-[var(--color\/teal,#9cb0b0)] col-1 content-stretch flex items-center ml-[972px] mt-[15px] px-[14px] py-[6px] relative rounded-[100px] row-1" texto="Activo" />
+            </div>
+            <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="4164:26550">
+              <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-0 mt-0 place-items-start relative row-1" data-node-id="4164:26551">
+                <div className="bg-[var(--color\/blanco,white)] col-1 h-[60px] ml-0 mt-0 relative rounded-bl-[15px] rounded-br-[15px] row-1 w-[1121px]" data-node-id="4164:26552" />
+              </div>
+              <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[25px] mt-[15px] not-italic relative row-1 text-[20px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4164:26553">
+                #0001
+              </p>
+              <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[263px] mt-[15px] not-italic relative row-1 text-[20px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4164:26554">
+                Llamada con Bárbara
+              </p>
+              <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[567px] mt-[15px] not-italic relative row-1 text-[20px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4164:26555">
+                31 de diciembre, 2025
+              </p>
+              <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] h-[30px] leading-[1.5] ml-[795px] mt-[15px] not-italic relative row-1 text-[20px] text-[color:var(--color\/texto,black)] w-[68px]" data-node-id="4164:26556">
+                $ 30
+              </p>
+              <Etiqueta className="bg-[var(--color\/teal,#9cb0b0)] col-1 content-stretch flex items-center ml-[972px] mt-[15px] px-[14px] py-[6px] relative rounded-[100px] row-1" texto="Activo" />
+            </div>
+            <p className="[word-break:break-word] absolute font-['Barlow_Condensed:Medium'] h-[30px] leading-[1.3] left-[25px] not-italic text-[22px] text-[color:var(--color\/verde,#234549)] top-[15px] w-[107px]" data-node-id="4164:26558">
+              ID del pedido
+            </p>
+            <p className="[word-break:break-word] absolute font-['Barlow_Condensed:Medium'] h-[30px] leading-[1.3] left-[263px] not-italic text-[22px] text-[color:var(--color\/verde,#234549)] top-[10px] w-[66px]" data-node-id="4164:26559">
+              Nombre
+            </p>
+            <p className="[word-break:break-word] absolute font-['Barlow_Condensed:Medium'] h-[30px] leading-[1.3] left-[567px] not-italic text-[22px] text-[color:var(--color\/verde,#234549)] top-[15px] w-[139px]" data-node-id="4164:26560">
+              Fecha de compra
+            </p>
+            <p className="[word-break:break-word] absolute font-['Barlow_Condensed:Medium'] h-[30px] leading-[1.3] left-[793px] not-italic text-[22px] text-[color:var(--color\/verde,#234549)] top-[15px] w-[52px]" data-node-id="4164:26561">
+              Precio
+            </p>
+            <p className="[word-break:break-word] absolute font-['Barlow_Condensed:Medium'] h-[30px] leading-[1.3] left-[935px] not-italic text-[22px] text-[color:var(--color\/verde,#234549)] top-[15px] w-[57px]" data-node-id="4164:26562">
+              Estado
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

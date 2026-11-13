@@ -1,0 +1,163 @@
+// get_design_context de 4156:23937 (capa "Acceso · Iniciar sesión", frame de la sección formulario), leído completo (no truncado).
+// Incluye la parte que señala la nota, la "Tarjeta" 4156:23743, por eso no se leyó aparte.
+// URLs temporales de Figma reemplazadas por los archivos descargados en assets/.
+const imgFlecha = "assets/boton-flecha.svg";
+const imgLogoMundoAngelitozzz = "assets/formulario-logo-mundo-angelitozzz.png";
+const imgVector = "assets/formulario-nube.svg";
+const imgVector47 = "assets/formulario-nube-ojo-izq.svg";
+const imgVector48 = "assets/formulario-nube-ojo-der.svg";
+const imgDecoracionAcceso = "assets/formulario-destello-rosa.svg";
+const imgDecoracionAcceso1 = "assets/formulario-destello-lineas.svg";
+const imgDecoracionAcceso2 = "assets/formulario-luna.svg";
+const imgIconoMail = "assets/formulario-icono-correo.svg";
+const imgIconoLock = "assets/formulario-icono-candado.svg";
+const imgIconoEye = "assets/formulario-icono-ojo.svg";
+const imgIconoCheck = "assets/formulario-icono-check.svg";
+
+type BotonProps = {
+  className?: string;
+  flecha?: boolean;
+  texto?: string;
+  tipo?: "Frambuesa";
+};
+
+function Boton({ className, flecha = true, texto = "Texto del botón", tipo = "Frambuesa" }: BotonProps) {
+  return (
+    <div className={className || "bg-[var(--color\\/frambuesa,#a8566a)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px]"} data-node-id="3711:6161">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="3711:6162">
+        {texto}
+      </p>
+      {flecha && (
+        <div className="relative shrink-0 size-[18px]" data-node-id="3711:6163" data-name="Flecha">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function AccesoIniciarSesion() {
+  return (
+    <div className="bg-[var(--color\/crema,#f8f6f1)] relative size-full" data-node-id="4156:23937" data-name="Acceso · Iniciar sesión">
+      <div className="absolute h-[156.298px] left-[19.9%] overflow-clip right-[66.56%] top-[772px]" data-node-id="4156:23962" data-name="Decoración acceso">
+        <div className="absolute contents inset-[0_0_0.01%_0]" data-node-id="4156:23963">
+          <div className="absolute inset-[0_0_0.01%_0]" data-node-id="4156:23964" data-name="Vector">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+          </div>
+          <div className="absolute flex inset-[29.84%_66.7%_68.04%_25.95%] items-center justify-center" data-node-id="4156:23965" style={{ containerType: "size" }}>
+            <div className="-rotate-180 -scale-x-100 flex-none h-[100cqh] w-[100cqw]">
+              <div className="relative size-full">
+                <div className="absolute inset-[-58.65%_-10.19%_-58.64%_-10.19%]">
+                  <img alt="" className="block max-w-none size-full" src={imgVector47} />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="absolute flex inset-[29.84%_51.24%_68.04%_41.41%] items-center justify-center" data-node-id="4156:23966" style={{ containerType: "size" }}>
+            <div className="flex-none h-[100cqh] rotate-180 w-[100cqw]">
+              <div className="relative size-full">
+                <div className="absolute inset-[-58.65%_-10.19%_-58.64%_-10.19%]">
+                  <img alt="" className="block max-w-none size-full" src={imgVector48} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="absolute inset-[67.76%_67.45%_30.35%_30.78%]" data-node-id="4156:23967" data-name="Decoración acceso">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDecoracionAcceso} />
+      </div>
+      <div className="absolute flex inset-[10.87%_66.38%_85.71%_30.36%] items-center justify-center" data-node-id="4156:23968" style={{ containerType: "size" }}>
+        <div className="flex-none h-[hypot(12.271cqw,100cqh)] skew-x-[11.44deg] w-[87.729cqw]">
+          <div className="relative size-full" data-name="Decoración acceso">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDecoracionAcceso1} />
+          </div>
+        </div>
+      </div>
+      <div className="absolute flex h-[43.633px] items-center justify-center left-[1322.99px] top-[220.24px] w-[44.476px]" data-node-id="4156:23982">
+        <div className="-scale-y-100 flex-none skew-x-[-0.62deg]">
+          <div className="h-[43.635px] relative w-[44px]" data-name="Decoración acceso">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDecoracionAcceso2} />
+          </div>
+        </div>
+      </div>
+      <div className="-translate-x-1/2 -translate-y-1/2 absolute bg-[var(--color\/blanco,white)] content-stretch flex flex-col gap-[32px] items-center left-1/2 overflow-clip p-[56px] rounded-[28px] shadow-[0px_12px_40px_0px_rgba(36,69,74,0.08)] top-[calc(50%+0.5px)] w-[560px]" data-node-id="4156:23743" data-name="Tarjeta">
+        <div className="relative shrink-0 size-[132px]" data-node-id="4156:23744" data-name="Logo Mundo Angelitozzz">
+          <img alt="" className="absolute inset-0 max-w-none object-contain pointer-events-none size-full" src={imgLogoMundoAngelitozzz} />
+        </div>
+        <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.15] min-w-full not-italic relative shrink-0 text-[46px] text-[color:var(--color\/verde,#234549)] text-center w-[min-content]" data-node-id="4156:23745">
+          Crea tu cuenta
+        </p>
+        <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] text-center w-[min-content]" data-node-id="4156:23746">
+          Con tu cuenta accedes a tus cursos desde cualquier dispositivo.
+        </p>
+        <div className="content-stretch flex gap-[16px] items-start overflow-clip relative shrink-0 w-full" data-node-id="4156:23747" data-name="Frame">
+          <div className="content-stretch flex flex-[1_0_0] flex-col gap-[8px] items-start min-w-px overflow-clip relative" data-node-id="4156:23748" data-name="Frame">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="4156:23749">
+              Nombre
+            </p>
+            <div className="bg-[var(--color\/crema,#f8f6f1)] border border-[#d7d0b5] border-solid content-stretch flex items-center overflow-clip px-[16px] py-[14px] relative rounded-[12px] shrink-0 w-full" data-node-id="4156:23750" data-name="Frame">
+              <p className="[word-break:break-word] flex-[1_0_0] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-px not-italic relative text-[18px] text-[color:var(--color\/texto-suave,#6b6b6b)]" data-node-id="4156:23751">
+                Ej. Ana Lucía
+              </p>
+            </div>
+          </div>
+          <div className="content-stretch flex flex-[1_0_0] flex-col gap-[8px] items-start min-w-px overflow-clip relative" data-node-id="4156:23752" data-name="Frame">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="4156:23753">
+              Apellidos
+            </p>
+            <div className="bg-[var(--color\/crema,#f8f6f1)] border border-[#d7d0b5] border-solid content-stretch flex items-center overflow-clip px-[16px] py-[14px] relative rounded-[12px] shrink-0 w-full" data-node-id="4156:23754" data-name="Frame">
+              <p className="[word-break:break-word] flex-[1_0_0] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-px not-italic relative text-[18px] text-[color:var(--color\/texto-suave,#6b6b6b)]" data-node-id="4156:23755">
+                Ej. León
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex flex-col gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="4156:23756" data-name="Frame">
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="4156:23757">
+            Correo electrónico
+          </p>
+          <div className="bg-[var(--color\/crema,#f8f6f1)] border border-[#d7d0b5] border-solid content-stretch flex gap-[10px] items-center overflow-clip px-[16px] py-[14px] relative rounded-[12px] shrink-0 w-full" data-node-id="4156:23758" data-name="Frame">
+            <div className="relative shrink-0 size-[18px]" data-node-id="4156:23759" data-name="Ícono mail">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIconoMail} />
+            </div>
+            <p className="[word-break:break-word] flex-[1_0_0] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-px not-italic relative text-[18px] text-[color:var(--color\/texto-suave,#6b6b6b)]" data-node-id="4156:23762">
+              tucorreo@ejemplo.com
+            </p>
+          </div>
+        </div>
+        <div className="content-stretch flex flex-col gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="4156:23763" data-name="Frame">
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="4156:23764">
+            Contraseña
+          </p>
+          <div className="bg-[var(--color\/crema,#f8f6f1)] border border-[#d7d0b5] border-solid content-stretch flex gap-[10px] items-center overflow-clip px-[16px] py-[14px] relative rounded-[12px] shrink-0 w-full" data-node-id="4156:23765" data-name="Frame">
+            <div className="relative shrink-0 size-[18px]" data-node-id="4156:23766" data-name="Ícono lock">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIconoLock} />
+            </div>
+            <p className="[word-break:break-word] flex-[1_0_0] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-px not-italic relative text-[18px] text-[color:var(--color\/texto-suave,#6b6b6b)]" data-node-id="4156:23769">
+              Mínimo 8 caracteres
+            </p>
+            <div className="relative shrink-0 size-[18px]" data-node-id="4156:23770" data-name="Ícono eye">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIconoEye} />
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex gap-[12px] items-center overflow-clip relative shrink-0 w-full" data-node-id="4156:23773" data-name="Frame">
+          <div className="bg-[var(--color\/verde,#234549)] content-stretch flex items-center justify-center overflow-clip relative rounded-[6px] shrink-0 size-[22px]" data-node-id="4156:23774" data-name="Frame">
+            <div className="relative shrink-0 size-[15px]" data-node-id="4156:23775" data-name="Ícono check">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIconoCheck} />
+            </div>
+          </div>
+          <p className="[word-break:break-word] flex-[1_0_0] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-px not-italic relative text-[16px] text-[color:var(--color\/texto,black)]" data-node-id="4156:23777">
+            Acepto los términos y condiciones y la política de privacidad
+          </p>
+        </div>
+        <Boton className="bg-[var(--color\/frambuesa,#a8566a)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" texto="Crear cuenta" />
+        <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[0] min-w-full not-italic relative shrink-0 text-[0px] text-black text-center w-[min-content]" data-node-id="4156:23779">
+          <span className="leading-[1.5] text-[18px]">{`¿Ya tienes cuenta? `}</span>
+          <span className="[text-underline-position:from-font] decoration-from-font decoration-solid font-['Barlow_Condensed:Medium'] leading-[1.3] text-[#234549] text-[18px] underline">Inicia sesión</span>
+        </p>
+      </div>
+    </div>
+  );
+}

@@ -102,3 +102,18 @@ Stack: WordPress (Local WP) + Vite + Tailwind + pnpm.
 - Es un `<details>` nativo: no pongas enlaces ni botones dentro del título, no ocultes el panel con `display: none` ni armes uno con `div` y `aria-expanded`. Para enlazar un ítem, dale `id` y usa `<a href="#id">`.
 - No edites el motor (`inc/accordions.php`, `src/js/modules/accordion.js`, `src/css/accordion.css`): se actualiza desde la skill wp-accordion.
 <!-- wp-accordion:end -->
+## Cursos (plugin angelitozzz-cursos)
+- Los cursos son a medida, sin Tutor LMS. El plan, las decisiones y el avance están en `specs/plan/checklist-cursos.md`.
+- La lógica de negocio va en el plugin propio `angelitozzz-cursos` (`wp-content/plugins/angelitozzz-cursos/`, fuera del repo del tema y sin repo propio por ahora): tipos `curso` y `leccion`, inscripciones, avance, vencimiento, acceso, descargas protegidas, puente con WooCommerce, cuentas, roles y la API REST `angelitozzz/v1` del constructor. El tema solo pinta: plantillas, componentes, CSS y JS.
+- El tema lee el plugin solo por sus funciones públicas `angelitozzz_cursos_*`. Nunca consulta sus tablas ni repite su lógica.
+- El cobro es de WooCommerce + Niubiz (plugin oficial). El plugin no toca la tarjeta: solo inscribe cuando el pedido está pagado y quita el acceso si se reembolsa o se cancela.
+- Seguridad en todo código a medida:
+  - Sanea lo que entra y escapa lo que sale. SQL solo con `$wpdb->prepare`.
+  - Nonce y capacidad en cada formulario, AJAX o REST (`permission_callback`).
+  - Comprueba que cada lección, descarga o inscripción sea de la usuaria.
+  - Límite de intentos en el login y mensajes que no revelan si un correo existe.
+  - Las reglas de contraseña se validan en el servidor.
+  - En las subidas, verifica el tipo real y el tamaño.
+  - No guardes claves en el repo.
+- El plugin usa el prefijo `angelitozzz_` (funciones, hooks, opciones, tablas) y el text domain `angelitozzz-cursos`. Versiona su esquema con migraciones y borra lo suyo en `uninstall.php`. Pasa `php -l`, PHPCS (WordPress Coding Standards) y PHPUnit.
+- Solo plugins oficiales y con actualizaciones. No uses plugins de GPLVault para pagos, cuentas ni seguridad.

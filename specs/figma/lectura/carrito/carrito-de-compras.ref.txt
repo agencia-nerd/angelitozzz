@@ -1,0 +1,128 @@
+const imgFlecha = "assets/boton-flecha.svg";
+const imgCuteLittleGirlIsSleepingBedWithTeddyBearToy1 = "assets/carrito-producto.png";
+const imgVector = "assets/carrito-icono-regalo.svg";
+const imgLine77 = "assets/carrito-divisor.svg";
+const imgVector34 = "assets/resumen-divisor.svg";
+const imgVector41 = "assets/resumen-divisor-titulo.svg";
+const imgVector35 = "assets/resumen-divisor-total.svg";
+const imgVector1 = "assets/resumen-icono-regalo.svg";
+
+type BotonProps = {
+  className?: string;
+  flecha?: boolean;
+  texto?: string;
+  tipo?: "Frambuesa";
+};
+
+function Boton({ className, flecha = true, texto = "Texto del botón", tipo = "Frambuesa" }: BotonProps) {
+  return (
+    <div className={className || "bg-[var(--color\\/frambuesa,#a8566a)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px]"} data-node-id="3711:6161">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="3711:6162">
+        {texto}
+      </p>
+      {flecha && (
+        <div className="relative shrink-0 size-[18px]" data-node-id="3711:6163" data-name="Flecha">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function CompraCarrito() {
+  return (
+    <div className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex flex-col items-start px-[411px] py-[120px] relative size-full" data-node-id="4151:10148" data-name="Compra · Carrito">
+      <div className="content-stretch flex flex-col gap-[36px] items-start relative shrink-0 w-full" data-node-id="4151:10183">
+        <p className="[word-break:break-word] font-['Barlow_Condensed:SemiBold'] leading-[1.1] not-italic relative shrink-0 text-[50px] text-[color:var(--color\/verde,#234549)] w-full" data-node-id="4151:10181">
+          Carrito de compras
+        </p>
+        <div className="content-stretch flex gap-[145px] items-start relative shrink-0 w-full" data-node-id="4151:10180">
+          <div className="content-stretch flex flex-col gap-[28px] items-start relative shrink-0 w-[607px]" data-node-id="4151:10179">
+            <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="4151:10149">
+              <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[556px] mt-[7px] not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4151:10150">
+                $97
+              </p>
+              <div className="col-1 h-[19px] ml-[85px] mt-0 relative row-1 w-[18px]" data-node-id="4151:10151" data-name="Vector">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+              </div>
+              <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[109px] mt-0 not-italic relative row-1 text-[16px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="4151:10152">
+                Curso · acceso por 4 meses
+              </p>
+              <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[85px] mt-[25px] not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] w-[285px]" data-node-id="4151:10153">
+                Recién Nacidos Go (0 a 12 semanas)
+              </p>
+              <div className="col-1 ml-0 mt-[4px] relative rounded-[12px] row-1 size-[68px]" data-node-id="4151:10154" data-name="cute-little-girl-is-sleeping-bed-with-teddy-bear-toy 1">
+                <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[12px] size-full" src={imgCuteLittleGirlIsSleepingBedWithTeddyBearToy1} />
+              </div>
+              <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[85px] mt-[49px] not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4151:10155">
+                $97
+              </p>
+            </div>
+            <div className="h-0 relative shrink-0 w-full" data-node-id="4151:10156">
+              <div className="absolute inset-[-1px_0_0_0]">
+                <img alt="" className="block max-w-none size-full" src={imgLine77} />
+              </div>
+            </div>
+          </div>
+          <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="4151:10157">
+            <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[56px] mt-[15px] not-italic relative row-1 text-[24px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4151:10158">
+              Resumen de compra
+            </p>
+            <div className="border border-[#bcb28a] border-solid col-1 h-[292px] ml-0 mt-0 relative rounded-[12px] row-1 w-[345px]" data-node-id="4151:10159" />
+            <div className="col-1 h-0 ml-[17.5px] mt-[182px] relative row-1 w-[309.5px]" data-node-id="4151:10160">
+              <div className="absolute inset-[-0.5px_0]">
+                <img alt="" className="block max-w-none size-full" src={imgVector34} />
+              </div>
+            </div>
+            <div className="col-1 h-0 ml-[17.5px] mt-[125px] relative row-1 w-[309.5px]" data-node-id="4151:10161">
+              <div className="absolute inset-[-0.5px_0]">
+                <img alt="" className="block max-w-none size-full" src={imgVector34} />
+              </div>
+            </div>
+            <div className="col-1 h-0 ml-px mt-[57px] relative row-1 w-[345px]" data-node-id="4151:10162">
+              <div className="absolute inset-[-0.5px_0]">
+                <img alt="" className="block max-w-none size-full" src={imgVector41} />
+              </div>
+            </div>
+            <div className="col-1 h-0 ml-[0.5px] mt-[238px] relative row-1 w-[343.5px]" data-node-id="4151:10163">
+              <div className="absolute inset-[-0.5px_0]">
+                <img alt="" className="block max-w-none size-full" src={imgVector35} />
+              </div>
+            </div>
+            <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[26px] mt-[198px] not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4151:10164">
+              Descuento:
+            </p>
+            <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[262px] mt-[198px] not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4151:10165">
+              - $0
+            </p>
+            <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[26px] mt-[252px] not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4151:10166">
+              Total:
+            </p>
+            <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[270px] mt-[252px] not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4151:10167">
+              $97
+            </p>
+            <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[26px] mt-[88px] not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4151:10168">
+              Recién Nacidos Go
+            </p>
+            <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[45px] mt-[68px] not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4151:10169">
+              Curso
+            </p>
+            <div className="col-1 h-[15px] ml-[25.89px] mt-[70px] relative row-1 w-[14.211px]" data-node-id="4151:10170" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector1} />
+            </div>
+            <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[270px] mt-[80px] not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4151:10171">
+              $97
+            </p>
+            <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[26px] mt-[142px] not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4151:10172">
+              Subtotal:
+            </p>
+            <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[270px] mt-[142px] not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4151:10173">
+              $97
+            </p>
+            <Boton className="bg-[var(--color\/frambuesa,#a8566a)] col-1 content-stretch flex gap-[10px] items-center ml-[101px] mt-[314px] pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] row-1" texto="Ir a Pagar" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

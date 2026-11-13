@@ -1,4 +1,6 @@
-# Figma: Mi perfil
+# Figma: usuario-mi-perfil
+
+<!-- Título original del archivo: Mi perfil -->
 
 - **Frame de la página:** https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4164-26834&t=lySNWh2dFHTQgiTC-4
 

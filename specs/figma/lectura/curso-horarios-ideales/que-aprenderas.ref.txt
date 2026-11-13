@@ -1,0 +1,130 @@
+// imgVector9 e imgVector12 eran el mismo separador (solo cambiaba el id del path): se guardó uno, assets/que-aprenderas-separador.svg.
+// La foto se sirvió con extensión .png pero es un JPEG 4096x2731.
+const imgMomGentlyBreastFeedingHerChild1 = "assets/que-aprenderas-madre-bebe.jpg";
+const imgMaskGroup = "assets/que-aprenderas-estrellas.svg";
+const imgVector = "assets/que-aprenderas-check.svg";
+const imgVector9 = "assets/que-aprenderas-separador.svg";
+const imgVector12 = "assets/que-aprenderas-separador.svg";
+const imgGroup451 = "assets/que-aprenderas-nube-izquierda.svg";
+const imgGroup452 = "assets/que-aprenderas-nube-arriba.svg";
+
+export default function QueAprenderas() {
+  return (
+    <div className="bg-[var(--color\/blush,#f1dbd5)] relative size-full" data-node-id="4013:19268" data-name="¿Qué aprenderás?">
+      <div className="-translate-x-1/2 absolute content-stretch flex flex-col h-[572px] items-center justify-between left-1/2 top-[89px] w-[1196px]" data-node-id="4013:19323">
+        <p className="[word-break:break-word] font-['Barlow_Condensed:SemiBold'] leading-[1.1] not-italic relative shrink-0 text-[50px] text-[color:var(--color\/verde,#234549)] text-center w-full" data-node-id="4013:19269">
+          ¿Qué aprenderás?
+        </p>
+        <div className="content-stretch flex gap-[84px] items-start relative shrink-0 w-full" data-node-id="4013:19311">
+          <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="4013:19310">
+            <div className="col-1 h-[385px] ml-0 mt-0 relative rounded-[20px] row-1 w-[414px]" data-node-id="4013:19304" data-name="mom-gently-breast-feeding-her-child 1">
+              <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[20px] size-full" src={imgMomGentlyBreastFeedingHerChild1} />
+            </div>
+            <div className="col-1 h-[385px] ml-0 mt-0 relative row-1 w-[414px]" data-node-id="4013:19305" data-name="Mask group">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMaskGroup} />
+            </div>
+          </div>
+          <div className="content-stretch flex flex-col items-start relative shrink-0 w-[698px]" data-node-id="4013:19298">
+            <div className="content-stretch flex flex-col gap-[27px] h-[442px] items-start overflow-clip relative shrink-0 w-full" data-node-id="4013:19270">
+              <div className="content-stretch flex gap-[29px] items-center relative shrink-0 w-full" data-node-id="4013:19271">
+                <div className="h-[12.918px] relative shrink-0 w-[13.751px]" data-node-id="4013:19272" data-name="Vector">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+                </div>
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[655px]" data-node-id="4013:19273">
+                  Cómo combinar señales de sueño y ventanas de vigilia para crear rutinas que funcionen.
+                </p>
+              </div>
+              <div className="h-0 relative shrink-0 w-[602px]" data-node-id="4013:19274">
+                <div className="absolute inset-[-0.5px_0]">
+                  <img alt="" className="block max-w-none size-full" src={imgVector9} />
+                </div>
+              </div>
+              <div className="content-stretch flex gap-[21px] items-center relative shrink-0" data-node-id="4013:19275">
+                <div className="h-[12.918px] relative shrink-0 w-[13.751px]" data-node-id="4013:19276" data-name="Vector">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+                </div>
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[639px]" data-node-id="4013:19277">
+                  A identificar los rangos de horario ideales para tu bebé — no promedios genéricos.
+                </p>
+              </div>
+              <div className="h-0 relative shrink-0 w-[602px]" data-node-id="4013:19278">
+                <div className="absolute inset-[-0.5px_0]">
+                  <img alt="" className="block max-w-none size-full" src={imgVector9} />
+                </div>
+              </div>
+              <div className="content-stretch flex gap-[21px] items-center relative shrink-0" data-node-id="4013:19279">
+                <div className="h-[12.918px] relative shrink-0 w-[13.751px]" data-node-id="4013:19280" data-name="Vector">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+                </div>
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] h-[39px] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[578px]" data-node-id="4013:19281">
+                  Cómo manejar días complicados: siestas cortas, cansancio acumulado y saltos de desarrollo.
+                </p>
+              </div>
+              <div className="h-0 relative shrink-0 w-[602px]" data-node-id="4013:19282">
+                <div className="absolute inset-[-0.5px_0]">
+                  <img alt="" className="block max-w-none size-full" src={imgVector9} />
+                </div>
+              </div>
+              <div className="content-stretch flex gap-[21px] items-center relative shrink-0" data-node-id="4013:19283">
+                <div className="h-[12.918px] relative shrink-0 w-[13.751px]" data-node-id="4013:19284" data-name="Vector">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+                </div>
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[639px]" data-node-id="4013:19285">
+                  Qué hacer cuando los horarios cambian con cada etapa — para adaptarte sin volver a cero.
+                </p>
+              </div>
+              <div className="h-0 relative shrink-0 w-[602px]" data-node-id="4013:19286">
+                <div className="absolute inset-[-0.5px_0]">
+                  <img alt="" className="block max-w-none size-full" src={imgVector12} />
+                </div>
+              </div>
+              <div className="content-stretch flex gap-[21px] items-center relative shrink-0" data-node-id="4013:19287">
+                <div className="h-[12.918px] relative shrink-0 w-[13.751px]" data-node-id="4013:19288" data-name="Vector">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+                </div>
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[620px]" data-node-id="4013:19289">
+                  Cómo organizar tu día para que el sueño fluya naturalmente, sin peleas ni frustración.
+                </p>
+              </div>
+              <div className="h-0 relative shrink-0 w-[602px]" data-node-id="4013:19290">
+                <div className="absolute inset-[-0.5px_0]">
+                  <img alt="" className="block max-w-none size-full" src={imgVector12} />
+                </div>
+              </div>
+              <div className="content-stretch flex gap-[21px] items-center relative shrink-0" data-node-id="4013:19291">
+                <div className="h-[12.918px] relative shrink-0 w-[13.751px]" data-node-id="4013:19292" data-name="Vector">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+                </div>
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] h-[56px] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[639px]" data-node-id="4013:19293">
+                  Cómo manejar las madrugadas y los despertares tempranos antes de las 6am.
+                </p>
+              </div>
+              <div className="h-0 relative shrink-0 w-[602px]" data-node-id="4013:19294">
+                <div className="absolute inset-[-0.5px_0]">
+                  <img alt="" className="block max-w-none size-full" src={imgVector12} />
+                </div>
+              </div>
+              <div className="content-stretch flex gap-[21px] items-center relative shrink-0" data-node-id="4013:19295">
+                <div className="h-[12.918px] relative shrink-0 w-[13.751px]" data-node-id="4013:19296" data-name="Vector">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="absolute h-[138px] left-[-45px] overflow-clip top-[454px] w-[229px]" data-node-id="4013:19312" data-name="Frame">
+        <div className="absolute contents inset-[0_0_0.01%_0]" data-node-id="4013:19313">
+          <div className="absolute inset-[0_0_0.01%_0]" data-node-id="4013:19314">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup451} />
+          </div>
+        </div>
+      </div>
+      <div className="absolute contents left-[11.56%] right-[73.96%] top-[-5px]" data-node-id="4013:19318">
+        <div className="absolute h-[121px] left-[11.56%] right-[73.96%] top-[-5px]" data-node-id="4013:19319">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup452} />
+        </div>
+      </div>
+    </div>
+  );
+}

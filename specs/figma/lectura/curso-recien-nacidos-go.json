@@ -1,0 +1,1694 @@
+{
+  "formato": 1,
+  "pagina": "curso-recien-nacidos-go",
+  "fuente": {
+    "fileKey": "FumWuCPT1PPDg5vBTYoufA",
+    "nodeId": "4013:17830",
+    "ancho": 1920,
+    "alto": 6516
+  },
+  "tokens": {
+    "colores": {
+      "color/texto": "#000000",
+      "color/teal": "#9cb0b0",
+      "color/verde": "#234549",
+      "color/blanco": "#ffffff",
+      "color/beige": "#d7d0b5",
+      "color/frambuesa": "#a8566a",
+      "color/crema": "#f8f6f1",
+      "color/blush": "#f1dbd5",
+      "color/texto-suave": "#6b6b6b",
+      "green 80": "#492343",
+      "Blanco": "#ffffff",
+      "Beige": "#d7d0b5"
+    },
+    "texto": {
+      "2026/Body S": {
+        "familia": "Barlow Condensed",
+        "peso": 400,
+        "tamano": 16,
+        "interlineado": 1.5,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Body": {
+        "familia": "Barlow Condensed",
+        "peso": 400,
+        "tamano": 18,
+        "interlineado": 1.5,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Body L": {
+        "familia": "Barlow Condensed",
+        "peso": 400,
+        "tamano": 20,
+        "interlineado": 1.5,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Body XL": {
+        "familia": "Barlow Condensed",
+        "peso": 400,
+        "tamano": 24,
+        "interlineado": 1.5,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Label S": {
+        "familia": "Barlow Condensed",
+        "peso": 500,
+        "tamano": 15,
+        "interlineado": 1.3,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Label": {
+        "familia": "Barlow Condensed",
+        "peso": 500,
+        "tamano": 18,
+        "interlineado": 1.3,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Display": {
+        "familia": "Barlow Condensed",
+        "peso": 600,
+        "tamano": 52,
+        "interlineado": 1,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/H1": {
+        "familia": "Barlow Condensed",
+        "peso": 600,
+        "tamano": 50,
+        "interlineado": 1.1,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/H2": {
+        "familia": "Barlow Condensed",
+        "peso": 500,
+        "tamano": 46,
+        "interlineado": 1.15,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/H3": {
+        "familia": "Barlow Condensed",
+        "peso": 500,
+        "tamano": 32,
+        "interlineado": 1.2,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/H4": {
+        "familia": "Barlow Condensed",
+        "peso": 500,
+        "tamano": 26,
+        "interlineado": 1.25,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      }
+    },
+    "sombras": {
+      "shadow header": "DROP_SHADOW #CAC29B26 (-2, 0) blur 12 spread 0; DROP_SHADOW #CAC29B21 (-10, 10) blur 22 spread 0; DROP_SHADOW #CAC29B14 (-22, 40) blur 30 spread 0; DROP_SHADOW #CAC29B05 (-39, 80) blur 36 spread 0"
+    }
+  },
+  "secciones": [
+    {
+      "nombre": "hero",
+      "nodeId": "4013:17861",
+      "nombreCapa": "Hero",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 845
+      },
+      "referencia": "curso-recien-nacidos-go/hero.ref.txt",
+      "captura": "curso-recien-nacidos-go/hero.png",
+      "textos": [
+        {
+          "nodeId": "I4013:17866;3719:4265",
+          "texto": "Asesoría personalizada",
+          "estilo": "2026/Label S",
+          "color": "color/verde",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "4013:17870",
+          "texto": "Todo lo que necesitas saber para que tu recién nacido duerma mejor — desde los primeros días.",
+          "estilo": "2026/H1",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:17872",
+          "texto": "Curso Online · 0 a 12 semanas",
+          "estilo": "2026/Body XL",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "4013:17874",
+          "texto": "Técnicas suaves, rutinas claras y 100% compatible con la lactancia y el colecho.\n11 videos cortos · PDF descargable · 4 meses de acceso · Bonus: 4 sesiones de coaching grupal en vivo con Bárbara",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4013:17916",
+          "texto": "¿Te regalaron este curso? Canjea tu código",
+          "estilo": "2026/Body",
+          "color": null,
+          "rol": "otro"
+        },
+        {
+          "nodeId": "4013:17920",
+          "texto": "¿Tienes preguntas? Escríbeme por WhatsApp",
+          "estilo": "2026/Body",
+          "color": null,
+          "rol": "otro"
+        },
+        {
+          "nodeId": "4013:17891",
+          "texto": "$67 USD",
+          "estilo": "2026/H3",
+          "color": "color/verde",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "I4013:17892;3711:6162",
+          "texto": "Comprar ahora",
+          "estilo": "2026/Label",
+          "color": "color/blanco",
+          "rol": "boton"
+        },
+        {
+          "nodeId": "I4013:17893;3704:15612",
+          "texto": "Regalar este curso",
+          "estilo": "2026/Label",
+          "color": "color/verde",
+          "rol": "boton"
+        },
+        {
+          "nodeId": "4013:17894",
+          "texto": "Precio de lanzamiento (antes $97) · 7 días de prueba completa",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "pie"
+        },
+        {
+          "nodeId": "4013:17896",
+          "texto": "Código de cupón de descuento",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "etiqueta"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 107,
+            "usos": 1
+          },
+          {
+            "valor": 385,
+            "usos": 2
+          },
+          {
+            "valor": 88,
+            "usos": 2
+          },
+          {
+            "valor": 23,
+            "usos": 3
+          },
+          {
+            "valor": 28,
+            "usos": 2
+          },
+          {
+            "valor": 10,
+            "usos": 2
+          },
+          {
+            "valor": 8,
+            "usos": 1
+          },
+          {
+            "valor": 14,
+            "usos": 3
+          },
+          {
+            "valor": 6,
+            "usos": 2
+          },
+          {
+            "valor": 20,
+            "usos": 3
+          },
+          {
+            "valor": 24,
+            "usos": 2
+          },
+          {
+            "valor": 651,
+            "usos": 1
+          },
+          {
+            "valor": 492,
+            "usos": 1
+          },
+          {
+            "valor": 345,
+            "usos": 1
+          },
+          {
+            "valor": 335,
+            "usos": 2
+          },
+          {
+            "valor": 320,
+            "usos": 1
+          },
+          {
+            "valor": 730,
+            "usos": 1
+          }
+        ],
+        "colores": [
+          {
+            "valor": "#000000",
+            "usos": 2
+          },
+          {
+            "valor": "#ffffff",
+            "usos": 1
+          }
+        ],
+        "radios": [
+          {
+            "valor": 100,
+            "usos": 3
+          },
+          {
+            "valor": 8,
+            "usos": 2
+          }
+        ]
+      },
+      "imagenes": [
+        {
+          "id": "hero-foto-fondo",
+          "nodeId": "4013:17863",
+          "tipo": "jpg",
+          "ancho": 730,
+          "alto": 835,
+          "rol": "contenido",
+          "archivo": "curso-recien-nacidos-go/assets/hero-foto-bebe.jpg"
+        },
+        {
+          "id": "hero-foto-curso",
+          "nodeId": "4013:17887",
+          "tipo": "jpg",
+          "ancho": 335,
+          "alto": 184,
+          "rol": "contenido",
+          "archivo": "curso-recien-nacidos-go/assets/hero-foto-bebe.jpg"
+        },
+        {
+          "id": "hero-fondo-capa",
+          "nodeId": "4013:17864",
+          "tipo": "svg",
+          "ancho": 1920,
+          "alto": 845,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/hero-fondo-capa.svg"
+        },
+        {
+          "id": "hero-subrayado",
+          "nodeId": "4013:17873",
+          "tipo": "svg",
+          "ancho": 345,
+          "alto": 1,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/hero-subrayado.svg"
+        },
+        {
+          "id": "hero-icono-regalo",
+          "nodeId": "4013:17911",
+          "tipo": "svg",
+          "ancho": 21,
+          "alto": 21,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/hero-icono-regalo.svg"
+        },
+        {
+          "id": "hero-cupon-linea",
+          "nodeId": "4013:17897",
+          "tipo": "svg",
+          "ancho": 322,
+          "alto": 1,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/hero-cupon-linea.svg"
+        },
+        {
+          "id": "hero-cupon-enviar",
+          "nodeId": "4013:17898",
+          "tipo": "svg",
+          "ancho": 24,
+          "alto": 24,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/hero-cupon-enviar.svg"
+        },
+        {
+          "id": "boton-flecha",
+          "nodeId": "I4013:17892;3711:6163",
+          "tipo": "svg",
+          "ancho": 18,
+          "alto": 18,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/boton-flecha.svg"
+        },
+        {
+          "id": "boton-flecha-secundario",
+          "nodeId": "I4013:17893;3704:15613",
+          "tipo": "svg",
+          "ancho": 18,
+          "alto": 18,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/boton-flecha-secundario.svg"
+        }
+      ],
+      "componentes": [
+        {
+          "nombre": "Etiqueta",
+          "variante": "Hero",
+          "props": {
+            "texto": "Asesoría personalizada",
+            "icono": "Ninguno"
+          }
+        },
+        {
+          "nombre": "Botón",
+          "variante": "Frambuesa",
+          "props": {
+            "texto": "Comprar ahora",
+            "flecha": true
+          }
+        },
+        {
+          "nombre": "Botón",
+          "variante": "Secundario",
+          "props": {
+            "texto": "Regalar este curso",
+            "flecha": false
+          }
+        }
+      ],
+      "senales": [
+        {
+          "tipo": "formulario",
+          "evidencia": "Tarjeta de compra (crema, radio 8, 375×537): 'Código de cupón de descuento' sobre una línea de 322 px con un círculo verde con flecha a la derecha (hero-cupon-enviar.svg): es un campo de cupón con botón de aplicar, dibujado como texto + línea, no como input.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Tarjeta de compra del curso: imagen (la misma foto del fondo del hero, recortada h 273% top -124.5%), precio '$67 USD' (H3), Botón Frambuesa 'Comprar ahora' con flecha, Botón Secundario 'Regalar este curso' sin flecha (boton-flecha-secundario.svg viene en el código pero no se muestra), nota 'Precio de lanzamiento (antes $97) · 7 días de prueba completa' y el cupón. Apunta a datos del producto (precio, precio anterior) y a las acciones comprar / regalar.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Dos enlaces subrayados (Body 18, text-black suelto): '¿Te regalaron este curso? Canjea tu código' con ícono de regalo 21px (en el código es un <a>) y '¿Tienes preguntas? Escríbeme por WhatsApp' (un <p>, sin destino en el diseño). La etiqueta del hero dice 'Asesoría personalizada' aunque la página es un curso online.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "decorativo",
+          "evidencia": "Fondo del hero: foto del bebé (hero-foto-bebe.jpg, JPEG 2731×4096) a 730×835 con opacity 45% pegada a la izquierda, cubierta por un rectángulo 1920×845 con degradado lineal beige #D7D0B5 (100% → 76%) (hero-fondo-capa.svg).",
+          "estado": "propuesto"
+        }
+      ]
+    },
+    {
+      "nombre": "porque-este-curso",
+      "nodeId": "4013:17922",
+      "nombreCapa": "Por qué este curso (copy AGOSTO · sin imágenes)",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 640
+      },
+      "referencia": "curso-recien-nacidos-go/porque-este-curso.ref.txt",
+      "captura": "curso-recien-nacidos-go/porque-este-curso.png",
+      "textos": [
+        {
+          "nodeId": "4013:17923",
+          "texto": "No es otro curso de sueño infantil.",
+          "estilo": "2026/H1",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:17924",
+          "texto": "Es el único recurso que combina la ciencia del sueño del recién nacido con herramientas prácticas aplicables desde hoy — en videos cortos, claros y sin abrumarte.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "4013:17949",
+          "texto": "Ciencia + práctica, sin complicaciones\nEntiende cómo funciona el sueño de tu bebé según su edad y etapa — y qué puedes hacer hoy mismo. Sin teoría interminable, sin tecnicismos.",
+          "estilo": null,
+          "color": null,
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4013:17958",
+          "texto": "A tu ritmo, sin presión\nNo es un plan rígido. Prueba las técnicas que se adapten mejor a ti y a tu bebé — sin estrés, sin culpa.",
+          "estilo": null,
+          "color": null,
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4013:17969",
+          "texto": "Compatible con tu crianza\nFunciona con lactancia materna exclusiva, colecho y crianza con apego. No tienes que elegir entre dormir mejor y criar como quieres.",
+          "estilo": null,
+          "color": null,
+          "rol": "parrafo"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 100,
+            "usos": 1
+          },
+          {
+            "valor": 110,
+            "usos": 1
+          },
+          {
+            "valor": 20,
+            "usos": 4
+          },
+          {
+            "valor": 36,
+            "usos": 1
+          },
+          {
+            "valor": 80,
+            "usos": 1
+          },
+          {
+            "valor": 760,
+            "usos": 1
+          },
+          {
+            "valor": 300,
+            "usos": 3
+          }
+        ],
+        "colores": [
+          {
+            "valor": "#234549",
+            "usos": 3
+          },
+          {
+            "valor": "#000000",
+            "usos": 3
+          }
+        ],
+        "radios": []
+      },
+      "imagenes": [
+        {
+          "id": "porque-icono-fondo",
+          "nodeId": "4013:17929",
+          "tipo": "svg",
+          "ancho": 119,
+          "alto": 110,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/porque-icono-fondo.svg"
+        },
+        {
+          "id": "porque-icono-ciencia",
+          "nodeId": "4013:17931",
+          "tipo": "svg",
+          "ancho": 64,
+          "alto": 64,
+          "rol": "contenido",
+          "archivo": "curso-recien-nacidos-go/assets/porque-icono-ciencia.svg"
+        },
+        {
+          "id": "porque-icono-reloj",
+          "nodeId": "4013:17952",
+          "tipo": "svg",
+          "ancho": 119,
+          "alto": 110,
+          "rol": "contenido",
+          "archivo": "curso-recien-nacidos-go/assets/porque-icono-reloj.svg"
+        },
+        {
+          "id": "porque-icono-bebe",
+          "nodeId": "4013:17963",
+          "tipo": "svg",
+          "ancho": 33,
+          "alto": 54,
+          "rol": "contenido",
+          "archivo": "curso-recien-nacidos-go/assets/porque-icono-bebe.svg"
+        }
+      ],
+      "componentes": [],
+      "senales": [
+        {
+          "tipo": "repetidor",
+          "evidencia": "3 pilares hermanos idénticos (300 de ancho, gap 80): ícono ~119×110 (círculo beige + dibujo), título Medium 22/1.3 #234549 y párrafo Body S 16, centrados. El título y el párrafo son un solo nodo de texto con dos estilos (22 Medium sin variable + 16 Regular).",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Los íconos 1 y 3 son el círculo beige (porque-icono-fondo.svg, reutilizado: 4013:17929 y 4013:17961) + un dibujo encima (ciencia: cara con nube y sol; bebé envuelto). El 2 (reloj de arena) es un solo SVG que ya trae su círculo. El título de pilar (Medium 22, lh 1.3) no corresponde a ningún estilo 2026 (H4 es 26).",
+          "estado": "propuesto"
+        }
+      ]
+    },
+    {
+      "nombre": "lista-que-aprenderas",
+      "nodeId": "4013:18034",
+      "nombreCapa": "Lista de que aprenderas",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 1125
+      },
+      "referencia": "curso-recien-nacidos-go/lista-que-aprenderas.ref.txt",
+      "captura": "curso-recien-nacidos-go/lista-que-aprenderas.png",
+      "textos": [
+        {
+          "nodeId": "4013:17987",
+          "texto": "¿Qué aprenderás?",
+          "estilo": "2026/H1",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:17990",
+          "texto": "Entender el sueño de tu recién nacido según su edad y etapa — sin confusión ni información contradictoria.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:17993",
+          "texto": "Identificar sus señales de sueño tempranas para actuar antes de que llegue al llanto.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:17996",
+          "texto": "Calmar el llanto con 5 herramientas prácticas y efectivas.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:17999",
+          "texto": "Usar correctamente el swaddle, el ruido blanco y otras herramientas de calma para ayudarle a dormir mejor.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:18002",
+          "texto": "Crear el ambiente de sueño ideal para tu bebé.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:18005",
+          "texto": "Establecer ventanas de vigilia y horarios flexibles para su edad.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:18008",
+          "texto": "Construir rutinas suaves que le ayuden a anticipar el sueño.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:18011",
+          "texto": "Manejar los despertares nocturnos para alargar sus bloques de sueño.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:18014",
+          "texto": "Sentar las bases para que aprenda a conciliar el sueño de manera gradual e independiente.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:18027",
+          "texto": "Ver menos",
+          "estilo": "2026/Body",
+          "color": "color/verde",
+          "rol": "boton"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 88,
+            "usos": 2
+          },
+          {
+            "valor": 27,
+            "usos": 1
+          },
+          {
+            "valor": 166,
+            "usos": 1
+          },
+          {
+            "valor": 35,
+            "usos": 1
+          },
+          {
+            "valor": 10,
+            "usos": 9
+          },
+          {
+            "valor": 750,
+            "usos": 9
+          },
+          {
+            "valor": 749,
+            "usos": 9
+          },
+          {
+            "valor": 774,
+            "usos": 1
+          },
+          {
+            "valor": 414,
+            "usos": 1
+          }
+        ],
+        "colores": [],
+        "radios": [
+          {
+            "valor": 20,
+            "usos": 1
+          }
+        ]
+      },
+      "imagenes": [
+        {
+          "id": "aprenderas-foto-madre-bebe",
+          "nodeId": "4013:17981",
+          "tipo": "jpg",
+          "ancho": 414,
+          "alto": 533,
+          "rol": "contenido",
+          "archivo": "curso-recien-nacidos-go/assets/aprenderas-foto-madre-bebe.jpg"
+        },
+        {
+          "id": "aprenderas-nube-izquierda",
+          "nodeId": "4013:17970",
+          "tipo": "svg",
+          "ancho": 229,
+          "alto": 138,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/aprenderas-nube-izquierda.svg"
+        },
+        {
+          "id": "aprenderas-nube-superior",
+          "nodeId": "4013:17975",
+          "tipo": "svg",
+          "ancho": 278,
+          "alto": 121,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/aprenderas-nube-superior.svg"
+        },
+        {
+          "id": "aprenderas-estrella-grande",
+          "nodeId": "4013:17984",
+          "tipo": "svg",
+          "ancho": 225,
+          "alto": 220,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/aprenderas-estrella-grande.svg"
+        },
+        {
+          "id": "aprenderas-estrella-chica",
+          "nodeId": "4013:17985",
+          "tipo": "svg",
+          "ancho": 103,
+          "alto": 100,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/aprenderas-estrella-chica.svg"
+        },
+        {
+          "id": "aprenderas-check",
+          "nodeId": "4013:17989",
+          "tipo": "svg",
+          "ancho": 14,
+          "alto": 13,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/aprenderas-check.svg"
+        },
+        {
+          "id": "aprenderas-separador",
+          "nodeId": "4013:18016",
+          "tipo": "svg",
+          "ancho": 749,
+          "alto": 1,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/aprenderas-separador.svg"
+        },
+        {
+          "id": "aprenderas-ver-menos-icono",
+          "nodeId": "4013:18028",
+          "tipo": "svg",
+          "ancho": 10,
+          "alto": 10,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/aprenderas-ver-menos-icono.svg"
+        }
+      ],
+      "componentes": [],
+      "senales": [
+        {
+          "tipo": "repetidor",
+          "evidencia": "9 ítems hermanos idénticos: check 14×13 + texto Body S (750 de ancho), separados por una línea de 748.5 px (gap 35). Es una lista simple de textos.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Al final de la lista hay 'Ver menos' (Body 18 verde) con una flecha de 10 px hacia arriba: el diseño muestra la lista desplegada con un control para contraerla (ver más / ver menos). Cuántos ítems se ven contraídos no está en el diseño.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "decorativo",
+          "evidencia": "Columna izquierda (grupo 772×772 posicionado en grid): foto madre con bebé 414×533 radio 20 (JPEG 4096×2730 recortado: w 193%, left -30.5%), dos nubes beige con ojos cerrados (229×138 y 278×121) y dos estrellas de contorno (grande teal rotada 21°, chica beige rotada -10°), superpuestas a la foto.",
+          "estado": "propuesto"
+        }
+      ]
+    },
+    {
+      "nombre": "resumen-breve",
+      "nodeId": "4013:18035",
+      "nombreCapa": "Resumen breve del curso",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 836
+      },
+      "referencia": "curso-recien-nacidos-go/resumen-breve.ref.txt",
+      "captura": "curso-recien-nacidos-go/resumen-breve.png",
+      "textos": [
+        {
+          "nodeId": "4013:18036",
+          "texto": "Así se ve el curso por dentro.",
+          "estilo": "2026/H1",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:18038",
+          "texto": "Cada video es corto, claro y lleno de información práctica — para que puedas verlo cuando tu bebé te lo permita y aplicarlo ese mismo día.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "4013:18055",
+          "texto": "Desde tu compra tienes 4 meses para acceder y ver el curso las veces que quieras.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "I4013:18057;3711:6162",
+          "texto": "Comprar ahora — $97 USD",
+          "estilo": "2026/Label",
+          "color": "color/blanco",
+          "rol": "boton"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 405,
+            "usos": 2
+          },
+          {
+            "valor": 104,
+            "usos": 2
+          },
+          {
+            "valor": 16,
+            "usos": 2
+          },
+          {
+            "valor": 40,
+            "usos": 1
+          },
+          {
+            "valor": 20,
+            "usos": 2
+          },
+          {
+            "valor": 32,
+            "usos": 1
+          },
+          {
+            "valor": 820,
+            "usos": 1
+          },
+          {
+            "valor": 600,
+            "usos": 1
+          },
+          {
+            "valor": 614,
+            "usos": 1
+          },
+          {
+            "valor": 48,
+            "usos": 2
+          },
+          {
+            "valor": 28,
+            "usos": 1
+          },
+          {
+            "valor": 24,
+            "usos": 1
+          },
+          {
+            "valor": 14,
+            "usos": 1
+          },
+          {
+            "valor": 10,
+            "usos": 1
+          }
+        ],
+        "colores": [],
+        "radios": [
+          {
+            "valor": 10,
+            "usos": 1
+          },
+          {
+            "valor": 100,
+            "usos": 3
+          }
+        ]
+      },
+      "imagenes": [
+        {
+          "id": "resumen-foto-curso",
+          "nodeId": "4013:18041",
+          "tipo": "png",
+          "ancho": 614,
+          "alto": 298,
+          "rol": "contenido",
+          "archivo": "curso-recien-nacidos-go/assets/resumen-foto-curso.png"
+        },
+        {
+          "id": "resumen-flecha-izquierda",
+          "nodeId": "4013:18047",
+          "tipo": "svg",
+          "ancho": 20,
+          "alto": 20,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/resumen-flecha-izquierda.svg"
+        },
+        {
+          "id": "resumen-flecha-derecha",
+          "nodeId": "4013:18051",
+          "tipo": "svg",
+          "ancho": 20,
+          "alto": 20,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/resumen-flecha-derecha.svg"
+        },
+        {
+          "id": "resumen-boton-flecha",
+          "nodeId": "I4013:18057;3711:6163",
+          "tipo": "svg",
+          "ancho": 18,
+          "alto": 18,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/boton-flecha.svg"
+        },
+        {
+          "id": "resumen-destello-blanco-izquierda",
+          "nodeId": "4013:18083",
+          "tipo": "svg",
+          "ancho": 151,
+          "alto": 132,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/resumen-destello-blanco-izquierda.svg"
+        },
+        {
+          "id": "resumen-destello-dorado-izquierda",
+          "nodeId": "4013:18098",
+          "tipo": "svg",
+          "ancho": 34,
+          "alto": 39,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/resumen-destello-dorado-izquierda.svg"
+        },
+        {
+          "id": "resumen-destello-gris-izquierda",
+          "nodeId": "4013:18100",
+          "tipo": "svg",
+          "ancho": 26,
+          "alto": 26,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/resumen-destello-gris-izquierda.svg"
+        },
+        {
+          "id": "resumen-destello-dorado-derecha",
+          "nodeId": "4013:18080",
+          "tipo": "svg",
+          "ancho": 59,
+          "alto": 65,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/resumen-destello-dorado-derecha.svg"
+        },
+        {
+          "id": "resumen-destello-gris-derecha",
+          "nodeId": "4013:18077",
+          "tipo": "svg",
+          "ancho": 29,
+          "alto": 31,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/resumen-destello-gris-derecha.svg"
+        },
+        {
+          "id": "resumen-destello-blanco-derecha",
+          "nodeId": "4013:18062",
+          "tipo": "svg",
+          "ancho": 91,
+          "alto": 70,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/resumen-destello-blanco-derecha.svg"
+        }
+      ],
+      "componentes": [
+        {
+          "nombre": "Botón",
+          "variante": "Frambuesa",
+          "props": {
+            "texto": "Comprar ahora — $97 USD",
+            "flecha": true
+          }
+        }
+      ],
+      "senales": [
+        {
+          "tipo": "slider",
+          "evidencia": "Una sola imagen 614×298 radio 10 (PNG 1170×780, recortada: w 113.8%, h 156%) con dos flechas circulares de contorno verde 48 px debajo ('Flecha izquierda' / 'Flecha derecha', gap 16): galería/slider de capturas del curso del que el diseño solo dibuja una diapositiva. Sin puntos ni contador.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "repetidor",
+          "evidencia": "Las diapositivas del slider (imagen) son una lista: el diseño muestra 1.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "decorativo",
+          "evidencia": "6 destellos de 4 puntas posicionados en absoluto sobre el fondo blush: blanco grande (151×132), dorado #D8B11E y gris #9CB0B0 a la izquierda; dorado, gris y blanco a la derecha. Además hay un grupo 'Group 442' (4013:18058) con dos frames vacíos (sin imagen) a la izquierda de la foto.",
+          "estado": "propuesto"
+        }
+      ]
+    },
+    {
+      "nombre": "testimonios",
+      "nodeId": "4013:18105",
+      "nombreCapa": "Testimonio · Destacado",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 526
+      },
+      "referencia": "curso-recien-nacidos-go/testimonios.ref.txt",
+      "captura": "curso-recien-nacidos-go/testimonios.png",
+      "textos": [
+        {
+          "nodeId": "I4013:18105;3810:108",
+          "texto": "Lo que dicen las mamás que ya lo tomaron.",
+          "estilo": "2026/H2",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "I4013:18105;3810:111",
+          "texto": "“Mi bebé tiene 12 días y ya la puedo poner en el moisés. Antes solo dormía en brazos.”",
+          "estilo": null,
+          "color": "color/verde",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "I4013:18105;3810:112",
+          "texto": "Valeria, mamá de Joaquín (12 días)",
+          "estilo": "2026/Label",
+          "color": "color/texto-suave",
+          "rol": "pie"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 96,
+            "usos": 1
+          },
+          {
+            "valor": 181,
+            "usos": 1
+          },
+          {
+            "valor": 405,
+            "usos": 3
+          },
+          {
+            "valor": 20,
+            "usos": 1
+          },
+          {
+            "valor": 22,
+            "usos": 1
+          },
+          {
+            "valor": 8,
+            "usos": 1
+          },
+          {
+            "valor": 820,
+            "usos": 1
+          },
+          {
+            "valor": 48,
+            "usos": 2
+          }
+        ],
+        "colores": [],
+        "radios": [
+          {
+            "valor": 100,
+            "usos": 2
+          }
+        ]
+      },
+      "imagenes": [
+        {
+          "id": "testimonios-nube-derecha",
+          "nodeId": "I4013:18105;3810:132",
+          "tipo": "svg",
+          "ancho": 240,
+          "alto": 104,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/testimonios-nube-derecha.svg"
+        },
+        {
+          "id": "testimonios-nube-izquierda",
+          "nodeId": "I4013:18105;3810:129",
+          "tipo": "svg",
+          "ancho": 280,
+          "alto": 168,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/testimonios-nube-izquierda.svg"
+        },
+        {
+          "id": "testimonios-nube-ojo-1",
+          "nodeId": "I4013:18105;3810:130",
+          "tipo": "svg",
+          "ancho": 21,
+          "alto": 4,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/testimonios-nube-ojo-1.svg"
+        },
+        {
+          "id": "testimonios-nube-ojo-2",
+          "nodeId": "I4013:18105;3810:131",
+          "tipo": "svg",
+          "ancho": 21,
+          "alto": 4,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/testimonios-nube-ojo-2.svg"
+        },
+        {
+          "id": "testimonios-puntos",
+          "nodeId": "I4013:18105;3810:114",
+          "tipo": "svg",
+          "ancho": 58,
+          "alto": 10,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/testimonios-puntos.svg"
+        },
+        {
+          "id": "testimonios-flecha-izquierda",
+          "nodeId": "I4013:18105;3810:120",
+          "tipo": "svg",
+          "ancho": 20,
+          "alto": 20,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/testimonios-flecha-izquierda.svg"
+        },
+        {
+          "id": "testimonios-flecha-derecha",
+          "nodeId": "I4013:18105;3810:124",
+          "tipo": "svg",
+          "ancho": 20,
+          "alto": 20,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/testimonios-flecha-derecha.svg"
+        }
+      ],
+      "componentes": [
+        {
+          "nombre": "Testimonio · Destacado",
+          "variante": null,
+          "props": {
+            "titulo": "Lo que dicen las mamás que ya lo tomaron.",
+            "testimonio": "“Mi bebé tiene 12 días y ya la puedo poner en el moisés. Antes solo dormía en brazos.”",
+            "nombre": "Valeria, mamá de Joaquín (12 días)"
+          }
+        }
+      ],
+      "senales": [
+        {
+          "tipo": "slider",
+          "evidencia": "La sección entera es una instancia del componente 'Testimonio · Destacado' (3810:107): un testimonio centrado con flechas blancas de borde beige 48 px a izquierda y derecha y 4 puntos debajo (el primero activo, 10 px, los otros 8 px). Las props de la instancia son los valores por defecto del componente.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "repetidor",
+          "evidencia": "Los puntos indican 4 testimonios; el diseño solo dibuja 1 (testimonio + nombre).",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "decorativo",
+          "evidencia": "'Detalle ZZZ': 15 letras 'Z' (Barlow Condensed Medium, 45 a 85 px, crema, opacidad 40%) rotadas en una onda a lo ancho del fondo inferior; nube con ojos cerrados abajo a la izquierda (nube + 2 trazos de ojos) y nube arriba a la derecha recortada por el borde. La descripción del componente dice 'con corazón', pero no hay corazón en esta instancia.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "El testimonio usa Barlow Condensed Medium Italic 26/1.25 verde sin estilo de texto asignado (H4 es 26/1.25 Medium no itálica). La home usa otro componente ('Testimonios · Tarjetas'), donde este mismo testimonio de Valeria aparece como tarjeta.",
+          "estado": "propuesto"
+        }
+      ]
+    },
+    {
+      "nombre": "preguntas-frecuentes",
+      "nodeId": "4013:18192",
+      "nombreCapa": "Preguntas de la pagina",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 1011
+      },
+      "referencia": "curso-recien-nacidos-go/preguntas-frecuentes.ref.txt",
+      "captura": "curso-recien-nacidos-go/preguntas-frecuentes.png",
+      "textos": [
+        {
+          "nodeId": "4013:18193",
+          "texto": "¡Respondemos a tus preguntas!",
+          "estilo": "2026/H1",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:18198",
+          "texto": "¿Este curso es para mí?",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:18235",
+          "texto": "Si tu bebé tiene entre 0 y 12 semanas de nacido (¡edad corregida también cuenta!) o si estás embarazada, entonces sí, este curso es perfecto para ti. Especialmente si estás en busca de una base clara, amorosa y realista para ayudar a tu recién nacido a descansar mejor desde los primeros días.",
+          "estilo": "2026/Body",
+          "color": "color/texto-suave",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4013:18203",
+          "texto": "¿Qué incluye este curso?",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:18208",
+          "texto": "¿Puedo verlo en cualquier momento?",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:18213",
+          "texto": "¿Es compatible con la lactancia materna?",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:18218",
+          "texto": "¿Necesito comprar cosas especiales para aplicar lo que aprendo?",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:18231",
+          "texto": "Ver más",
+          "estilo": "2026/Body XL",
+          "color": "color/verde",
+          "rol": "boton"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 457,
+            "usos": 2
+          },
+          {
+            "valor": 88,
+            "usos": 2
+          },
+          {
+            "valor": 65,
+            "usos": 1
+          },
+          {
+            "valor": 16,
+            "usos": 1
+          },
+          {
+            "valor": 20,
+            "usos": 2
+          },
+          {
+            "valor": 54,
+            "usos": 5
+          },
+          {
+            "valor": 10,
+            "usos": 6
+          },
+          {
+            "valor": 774,
+            "usos": 1
+          },
+          {
+            "valor": 760,
+            "usos": 1
+          },
+          {
+            "valor": 749,
+            "usos": 5
+          },
+          {
+            "valor": 112,
+            "usos": 1
+          },
+          {
+            "valor": 40,
+            "usos": 1
+          }
+        ],
+        "colores": [],
+        "radios": []
+      },
+      "imagenes": [
+        {
+          "id": "preguntas-check",
+          "nodeId": "4013:18197",
+          "tipo": "svg",
+          "ancho": 14,
+          "alto": 13,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/preguntas-check.svg"
+        },
+        {
+          "id": "preguntas-separador",
+          "nodeId": "4013:18199",
+          "tipo": "svg",
+          "ancho": 749,
+          "alto": 1,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/preguntas-separador.svg"
+        },
+        {
+          "id": "preguntas-ver-mas-icono",
+          "nodeId": "4013:18232",
+          "tipo": "svg",
+          "ancho": 10,
+          "alto": 10,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/preguntas-ver-mas-icono.svg"
+        }
+      ],
+      "componentes": [],
+      "senales": [
+        {
+          "tipo": "acordeon",
+          "evidencia": "5 preguntas hermanas (check 14×13 + pregunta Body L 20) con línea separadora de 748.5 px; solo la primera está abierta y muestra su respuesta (Body 18, texto-suave, 760 de ancho, gap 54). Las otras 4 no tienen respuesta en el diseño.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "repetidor",
+          "evidencia": "Lista de preguntas propias de este curso. La nota de enlaces/ dice: 'las preguntas frecuentes tambien son independientes en este curso.'",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Debajo de la lista, 'Ver más' (Body XL 24 verde) con flecha de 10 px hacia abajo: muestra más preguntas. El ícono a la izquierda de cada pregunta es un check, no un +/chevron.",
+          "estado": "propuesto"
+        }
+      ]
+    },
+    {
+      "nombre": "contenido-relacionado",
+      "nodeId": "4013:18237",
+      "nombreCapa": "Contenido relacionado",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 841
+      },
+      "referencia": "curso-recien-nacidos-go/contenido-relacionado.ref.txt",
+      "captura": "curso-recien-nacidos-go/contenido-relacionado.png",
+      "textos": [
+        {
+          "nodeId": "4013:18239",
+          "texto": "También podría interesarte...",
+          "estilo": "2026/H1",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:18240",
+          "texto": "Descubre otros cursos diseñados para acompañarte en diferentes etapas del desarrollo del sueño de tu bebé.",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "4013:18261",
+          "texto": "Angelita Pro\n(4 a 24 meses · Desde $67)",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "4013:18250",
+          "texto": "Recién Nacidos Go\n(0 a 12 semanas · $97)",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "4013:18249",
+          "texto": "Top ventas",
+          "estilo": "2026/Body S",
+          "color": "color/blanco",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "4013:18257",
+          "texto": "Nuevo",
+          "estilo": "2026/Label S",
+          "color": "color/blanco",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "4013:18244",
+          "texto": "Curso Online",
+          "estilo": "2026/Label S",
+          "color": "color/blanco",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "4013:18255",
+          "texto": "Más información",
+          "estilo": "2026/Label",
+          "color": "color/blanco",
+          "rol": "boton"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 88,
+            "usos": 2
+          },
+          {
+            "valor": 47,
+            "usos": 1
+          },
+          {
+            "valor": 20,
+            "usos": 1
+          },
+          {
+            "valor": 1106,
+            "usos": 2
+          },
+          {
+            "valor": 346,
+            "usos": 4
+          },
+          {
+            "valor": 370,
+            "usos": 4
+          },
+          {
+            "valor": 380,
+            "usos": 1
+          },
+          {
+            "valor": 18,
+            "usos": 3
+          },
+          {
+            "valor": 16,
+            "usos": 3
+          },
+          {
+            "valor": 7,
+            "usos": 3
+          },
+          {
+            "valor": 6,
+            "usos": 1
+          },
+          {
+            "valor": 28,
+            "usos": 2
+          },
+          {
+            "valor": 24,
+            "usos": 2
+          },
+          {
+            "valor": 14,
+            "usos": 2
+          },
+          {
+            "valor": 10,
+            "usos": 2
+          },
+          {
+            "valor": 97,
+            "usos": 1
+          }
+        ],
+        "colores": [
+          {
+            "valor": "#B49E49",
+            "usos": 1
+          }
+        ],
+        "radios": [
+          {
+            "valor": 20,
+            "usos": 5
+          },
+          {
+            "valor": 16,
+            "usos": 3
+          },
+          {
+            "valor": 100,
+            "usos": 2
+          }
+        ]
+      },
+      "imagenes": [
+        {
+          "id": "relacionado-fondo-lunas",
+          "nodeId": "4013:18237",
+          "tipo": "png",
+          "ancho": 1920,
+          "alto": 841,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/relacionado-fondo-lunas.png"
+        },
+        {
+          "id": "relacionado-angelita-pro-placeholder",
+          "nodeId": "4013:18258",
+          "tipo": "png",
+          "ancho": 346,
+          "alto": 370,
+          "rol": "contenido",
+          "archivo": "curso-recien-nacidos-go/assets/relacionado-angelita-pro-placeholder.png"
+        },
+        {
+          "id": "relacionado-recien-nacidos-go",
+          "nodeId": "4013:18245",
+          "tipo": "jpg",
+          "ancho": 346,
+          "alto": 370,
+          "rol": "contenido",
+          "archivo": "curso-recien-nacidos-go/assets/hero-foto-bebe.jpg"
+        },
+        {
+          "id": "relacionado-icono-destellos",
+          "nodeId": "4013:18257",
+          "tipo": "svg",
+          "ancho": 14,
+          "alto": 14,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/relacionado-icono-destellos.svg"
+        },
+        {
+          "id": "relacionado-sello-top-ventas",
+          "nodeId": "4013:18248",
+          "tipo": "svg",
+          "ancho": 97,
+          "alto": 97,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/relacionado-sello-top-ventas.svg"
+        },
+        {
+          "id": "relacionado-boton-flecha",
+          "nodeId": "4013:18255",
+          "tipo": "svg",
+          "ancho": 18,
+          "alto": 18,
+          "rol": "decorativa",
+          "archivo": "curso-recien-nacidos-go/assets/boton-flecha.svg"
+        }
+      ],
+      "componentes": [
+        {
+          "nombre": "Etiqueta",
+          "variante": "Esquina",
+          "props": {
+            "texto": "Nuevo",
+            "icono": "Destellos"
+          }
+        },
+        {
+          "nombre": "Botón",
+          "variante": "Frambuesa",
+          "props": {
+            "texto": "Más información",
+            "flecha": true
+          }
+        },
+        {
+          "nombre": "Etiqueta",
+          "variante": "Esquina",
+          "props": {
+            "texto": "Curso Online",
+            "icono": "Ninguno"
+          }
+        },
+        {
+          "nombre": "Etiqueta",
+          "variante": "Esquina",
+          "props": {
+            "texto": "Curso Online",
+            "icono": "Ninguno"
+          }
+        },
+        {
+          "nombre": "Botón",
+          "variante": "Frambuesa",
+          "props": {
+            "texto": "Más información",
+            "flecha": true
+          }
+        }
+      ],
+      "senales": [
+        {
+          "tipo": "repetidor",
+          "evidencia": "Tarjetas de curso relacionadas (346 de ancho): imagen 346×370 radio 20 con Etiqueta 'Esquina' teal arriba a la izquierda, nombre + '(edad · precio)' en 2 líneas (Body L 20, centrado) y Botón Frambuesa 'Más información' con flecha. El diseño dibuja SOLO 2 tarjetas (Angelita Pro y Recién Nacidos Go, separadas 34 px); la nota de enlaces/ pide 3 ('Que rija 3 card de contenido relacionado').",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "listado",
+          "evidencia": "Cursos relacionados: contenido dinámico (productos/cursos) más que texto fijo. La segunda tarjeta es el propio curso Recién Nacidos Go, que es la página actual.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Capas tapadas: en la tarjeta Angelita Pro, una segunda capa 'shutterstock_294453899 1' (4013:18260) con la misma imagen placeholder se pinta encima de la imagen y de la etiqueta 'Nuevo' (en la captura la etiqueta no se ve). En la tarjeta Recién Nacidos Go hay un sello circular dorado #B49E49 de 97 px 'Top ventas' (4013:18247) que queda debajo de una segunda 'Imagen con etiqueta' (4013:18251) y tampoco se ve. Las dos imágenes de Recién Nacidos Go son la misma foto del hero (descarga idéntica, se guardó una sola vez como hero-foto-bebe.jpg). Los nodeId de las etiquetas 'Nuevo'/'Curso Online' y de las flechas de los botones son los de su contenedor: el código no trae el id de la instancia y get_metadata de 4013:18237 no devolvió hijos.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "decorativo",
+          "evidencia": "Fondo de la sección: imagen de relleno del frame (relacionado-fondo-lunas.png, PNG 1920×881 RGBA) con lunas rosadas sobre blush, object-cover.",
+          "estado": "propuesto"
+        }
+      ]
+    }
+  ]
+}

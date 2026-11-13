@@ -1,4 +1,6 @@
-# Figma: curso A Dormir Por Fin (asesoría) - Interna de cursos
+# Figma: curso-a-dormir-por-fin
+
+<!-- Título original del archivo: curso A Dormir Por Fin (asesoría) - Interna de cursos -->
 
 - **Frame de la página:** https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4013-15090&t=C9Q9IWqYULHocJi2-4
 
@@ -18,6 +20,7 @@
     - nota: las preguntas frecuentes tambien son independientes en este curso.
 - contenido-relacionado: https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4013-16012&t=C9Q9IWqYULHocJi2-4
     - nota: Que rija 3 card de contenido relacionado.
+- drawer-carrito: https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=3752-5054&t=C9Q9IWqYULHocJi2-4
 
 
 

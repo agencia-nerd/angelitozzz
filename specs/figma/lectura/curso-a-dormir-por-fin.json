@@ -1,0 +1,2276 @@
+{
+  "formato": 1,
+  "pagina": "curso-a-dormir-por-fin",
+  "fuente": {
+    "fileKey": "FumWuCPT1PPDg5vBTYoufA",
+    "nodeId": "4013:15090",
+    "ancho": 1920,
+    "alto": 9514
+  },
+  "tokens": {
+    "colores": {
+      "color/texto": "#000000",
+      "color/teal": "#9cb0b0",
+      "color/verde": "#234549",
+      "color/blanco": "#ffffff",
+      "color/beige": "#d7d0b5",
+      "color/frambuesa": "#a8566a",
+      "color/crema": "#f8f6f1",
+      "green 80": "#492343",
+      "color/blush": "#f1dbd5",
+      "color/texto-suave": "#6b6b6b",
+      "Blanco": "#FFFFFF",
+      "Beige": "#D7D0B5"
+    },
+    "texto": {
+      "2026/Body S": {
+        "familia": "Barlow Condensed",
+        "peso": 400,
+        "tamano": 16,
+        "interlineado": 1.5,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Body": {
+        "familia": "Barlow Condensed",
+        "peso": 400,
+        "tamano": 18,
+        "interlineado": 1.5,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Body L": {
+        "familia": "Barlow Condensed",
+        "peso": 400,
+        "tamano": 20,
+        "interlineado": 1.5,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Body XL": {
+        "familia": "Barlow Condensed",
+        "peso": 400,
+        "tamano": 24,
+        "interlineado": 1.5,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Caption": {
+        "familia": "Barlow Condensed",
+        "peso": 400,
+        "tamano": 14,
+        "interlineado": 1.4,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Label S": {
+        "familia": "Barlow Condensed",
+        "peso": 500,
+        "tamano": 15,
+        "interlineado": 1.3,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Label": {
+        "familia": "Barlow Condensed",
+        "peso": 500,
+        "tamano": 18,
+        "interlineado": 1.3,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Eyebrow": {
+        "familia": "Barlow Condensed",
+        "peso": 500,
+        "tamano": 18,
+        "interlineado": 1.3,
+        "espaciado": {
+          "valor": 4,
+          "unidad": "%"
+        }
+      },
+      "2026/Display": {
+        "familia": "Barlow Condensed",
+        "peso": 600,
+        "tamano": 52,
+        "interlineado": 1,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/H1": {
+        "familia": "Barlow Condensed",
+        "peso": 600,
+        "tamano": 50,
+        "interlineado": 1.1,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/H2": {
+        "familia": "Barlow Condensed",
+        "peso": 500,
+        "tamano": 46,
+        "interlineado": 1.15,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/H3": {
+        "familia": "Barlow Condensed",
+        "peso": 500,
+        "tamano": 32,
+        "interlineado": 1.2,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/H4": {
+        "familia": "Barlow Condensed",
+        "peso": 500,
+        "tamano": 26,
+        "interlineado": 1.25,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      }
+    },
+    "sombras": {
+      "shadow header": "DROP_SHADOW #CAC29B26 (-2, 0) blur 12 spread 0; DROP_SHADOW #CAC29B21 (-10, 10) blur 22 spread 0; DROP_SHADOW #CAC29B14 (-22, 40) blur 30 spread 0; DROP_SHADOW #CAC29B05 (-39, 80) blur 36 spread 0"
+    }
+  },
+  "secciones": [
+    {
+      "nombre": "hero",
+      "nodeId": "4013:15172",
+      "nombreCapa": "Hero",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 845
+      },
+      "referencia": "curso-a-dormir-por-fin/hero.ref.txt",
+      "captura": "curso-a-dormir-por-fin/hero.png",
+      "textos": [
+        {
+          "nodeId": "I4013:15177;3719:4265",
+          "texto": "Asesoría personalizada",
+          "estilo": "2026/Label S",
+          "color": "color/verde",
+          "rol": "eyebrow"
+        },
+        {
+          "nodeId": "4013:15181",
+          "texto": "A Dormir Por Fin.\nTu bebé durmiendo 10 a 12 horas de corrido — con un plan diseñado por Bárbara, para ti.",
+          "estilo": "2026/H1",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:15183",
+          "texto": "Asesoría Personalizada · 4 meses a 4 años",
+          "estilo": "2026/Body XL",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "4013:15185",
+          "texto": "Tres semanas de acompañamiento directo conmigo por WhatsApp. Cada duda, cada pregunta, cada noche difícil — respondida por Bárbara personalmente.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4013:15192",
+          "texto": "3 semanas",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "4013:15196",
+          "texto": "Con Bárbara",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "4013:15210",
+          "texto": "$67 USD",
+          "estilo": "2026/H3",
+          "color": "color/verde",
+          "rol": "otro"
+        },
+        {
+          "nodeId": "I4013:15211;3711:6162",
+          "texto": "Comprar ahora",
+          "estilo": "2026/Label",
+          "color": "color/blanco",
+          "rol": "boton"
+        },
+        {
+          "nodeId": "I4013:15212;3704:15612",
+          "texto": "Regalar este curso",
+          "estilo": "2026/Label",
+          "color": "color/verde",
+          "rol": "boton"
+        },
+        {
+          "nodeId": "4013:15213",
+          "texto": "Precio de lanzamiento (antes $97) · 7 días de prueba completa",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "pie"
+        },
+        {
+          "nodeId": "4013:15215",
+          "texto": "Código de cupón de descuento",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "etiqueta"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 4,
+            "usos": 2
+          },
+          {
+            "valor": 6,
+            "usos": 2
+          },
+          {
+            "valor": 8,
+            "usos": 1
+          },
+          {
+            "valor": 10,
+            "usos": 5
+          },
+          {
+            "valor": 11,
+            "usos": 2
+          },
+          {
+            "valor": 14,
+            "usos": 4
+          },
+          {
+            "valor": 16,
+            "usos": 2
+          },
+          {
+            "valor": 20,
+            "usos": 2
+          },
+          {
+            "valor": 23,
+            "usos": 1
+          },
+          {
+            "valor": 24,
+            "usos": 3
+          },
+          {
+            "valor": 28,
+            "usos": 4
+          },
+          {
+            "valor": 36,
+            "usos": 1
+          },
+          {
+            "valor": 88,
+            "usos": 1
+          },
+          {
+            "valor": 97,
+            "usos": 1
+          },
+          {
+            "valor": 107,
+            "usos": 1
+          },
+          {
+            "valor": 385,
+            "usos": 1
+          }
+        ],
+        "colores": [],
+        "radios": [
+          {
+            "valor": 4,
+            "usos": 2
+          },
+          {
+            "valor": 8,
+            "usos": 3
+          },
+          {
+            "valor": 100,
+            "usos": 4
+          }
+        ]
+      },
+      "imagenes": [
+        {
+          "id": "hero-foto-bebe",
+          "nodeId": "4013:15174",
+          "tipo": "jpg",
+          "ancho": 730,
+          "alto": 835,
+          "rol": "contenido",
+          "archivo": "curso-a-dormir-por-fin/assets/hero-foto-bebe.jpg"
+        },
+        {
+          "id": "hero-fondo-degradado",
+          "nodeId": "4013:15175",
+          "tipo": "svg",
+          "ancho": 1920,
+          "alto": 845,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/hero-fondo-degradado.svg"
+        },
+        {
+          "id": "hero-linea-subtitulo",
+          "nodeId": "4013:15184",
+          "tipo": "svg",
+          "ancho": 345,
+          "alto": 1,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/hero-linea-subtitulo.svg"
+        },
+        {
+          "id": "hero-icono-reloj",
+          "nodeId": "4013:15189",
+          "tipo": "svg",
+          "ancho": 23,
+          "alto": 23,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/hero-icono-reloj.svg"
+        },
+        {
+          "id": "hero-icono-barbara",
+          "nodeId": "4013:15240",
+          "tipo": "png",
+          "ancho": 28,
+          "alto": 32,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/hero-icono-barbara.png"
+        },
+        {
+          "id": "hero-tarjeta-foto",
+          "nodeId": "4013:15206",
+          "tipo": "jpg",
+          "ancho": 335,
+          "alto": 184,
+          "rol": "contenido",
+          "archivo": "curso-a-dormir-por-fin/assets/hero-foto-bebe.jpg"
+        },
+        {
+          "id": "boton-flecha",
+          "nodeId": "I4013:15211;3711:6163",
+          "tipo": "svg",
+          "ancho": 18,
+          "alto": 18,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/boton-flecha.svg"
+        },
+        {
+          "id": "boton-flecha-verde",
+          "nodeId": "3704:15613",
+          "tipo": "svg",
+          "ancho": 18,
+          "alto": 18,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/boton-flecha-verde.svg"
+        },
+        {
+          "id": "hero-linea-cupon",
+          "nodeId": "4013:15216",
+          "tipo": "svg",
+          "ancho": 322,
+          "alto": 1,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/hero-linea-cupon.svg"
+        },
+        {
+          "id": "hero-cupon-flecha",
+          "nodeId": "4013:15217",
+          "tipo": "svg",
+          "ancho": 24,
+          "alto": 24,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/hero-cupon-flecha.svg"
+        }
+      ],
+      "componentes": [
+        {
+          "nombre": "Etiqueta",
+          "variante": "Hero",
+          "props": {
+            "texto": "Asesoría personalizada"
+          }
+        },
+        {
+          "nombre": "Botón",
+          "variante": "Frambuesa",
+          "props": {
+            "texto": "Comprar ahora",
+            "flecha": true
+          }
+        },
+        {
+          "nombre": "Botón",
+          "variante": "Secundario",
+          "props": {
+            "texto": "Regalar este curso",
+            "flecha": false
+          }
+        }
+      ],
+      "senales": [
+        {
+          "tipo": "formulario",
+          "evidencia": "Campo \"Código de cupón de descuento\" con línea inferior y botón circular con flecha (4013:15214): entrada de cupón; en WooCommerce el cupón se aplica en carrito/checkout.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Tarjeta de compra (4013:15204, crema): precio \"$67 USD\", botón \"Comprar ahora\" (Frambuesa) y \"Regalar este curso\" (Secundario sin flecha). Comprar = agregar al carrito de WooCommerce y abrir el drawer-carrito (nota de página). El precio y \"antes $97\" del frame no coinciden con \"Todo por $399 USD\" de ademas-incluye.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "decorativo",
+          "evidencia": "Fondo: foto del bebé (730×835, opacidad 45 %, pegada a la izquierda) bajo un rectángulo degradado SVG de 1920×845. La misma foto se usa en la tarjeta de compra (335×184).",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Dos chips con borde negro (radio 4px): reloj + \"3 semanas\" y avatar + \"Con Bárbara\". La nota de enlaces dice \"tiene 7 dias de prueba gratuita completa\", y el frame lo muestra en el texto bajo los botones.",
+          "estado": "propuesto"
+        }
+      ]
+    },
+    {
+      "nombre": "seccion-de-comparacion",
+      "nodeId": "4013:15285",
+      "nombreCapa": "Seccion de comparacion",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 520
+      },
+      "referencia": "curso-a-dormir-por-fin/seccion-de-comparacion.ref.txt",
+      "captura": "curso-a-dormir-por-fin/seccion-de-comparacion.png",
+      "textos": [
+        {
+          "nodeId": "4013:15253",
+          "texto": "¿Te suena familiar?",
+          "estilo": "2026/H3",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:15254",
+          "texto": "• Llevas meses sin dormir una noche completa\n• Tu bebé solo duerme en brazos, con pecho o contigo en la cama\n• Ya intentaste métodos, consejos, rutinas — nada funciona de forma consistente\n• Te sientes agotada, confundida y al límite\n• Quieres una solución real — no otro consejo genérico de internet",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:15257",
+          "texto": "Ahora imagina esto.",
+          "estilo": "2026/H3",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:15258",
+          "texto": "Acuestas a tu bebé en su cuna — y se duerme solo.\nDuerme 10 a 12 horas de corrido, sin despertarte.\nSus siestas son largas, predecibles y en los horarios correctos para su edad.\nLas tomas nocturnas innecesarias — eliminadas, gradual y respetuosamente.\nY tú — descansada, con energía, disfrutando tu maternidad.",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "parrafo"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 23,
+            "usos": 2
+          },
+          {
+            "valor": 56,
+            "usos": 1
+          },
+          {
+            "valor": 85,
+            "usos": 1
+          },
+          {
+            "valor": 110,
+            "usos": 1
+          },
+          {
+            "valor": 324,
+            "usos": 1
+          }
+        ],
+        "colores": [],
+        "radios": []
+      },
+      "imagenes": [
+        {
+          "id": "comparacion-divisor",
+          "nodeId": "4013:15255",
+          "tipo": "svg",
+          "ancho": 1,
+          "alto": 238,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/comparacion-divisor.svg"
+        }
+      ],
+      "componentes": [],
+      "senales": [
+        {
+          "tipo": "otro",
+          "evidencia": "Dos columnas de 470px dentro de una caja crema (p-56) separadas por una línea vertical de 238px; fondo de sección blanco. La columna izquierda lleva viñetas \"•\" en el texto, la derecha no.",
+          "estado": "propuesto"
+        }
+      ]
+    },
+    {
+      "nombre": "para-ti",
+      "nodeId": "4013:15514",
+      "nombreCapa": "Seccion si es para ti",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1919,
+        "alto": 1440
+      },
+      "referencia": "curso-a-dormir-por-fin/para-ti.ref.txt",
+      "captura": "curso-a-dormir-por-fin/para-ti.png",
+      "textos": [
+        {
+          "nodeId": "4013:15508",
+          "texto": "Esta asesoría es para ti si...",
+          "estilo": "2026/H1",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:15459",
+          "texto": "Prefieres trabajar directamente con Bárbara — la persona detrás del método.",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4013:15469",
+          "texto": "Tu caso es complejo — múltiples intentos fallidos, gemelos, situaciones médicas, colecho arraigado.",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4013:15501",
+          "texto": "Tu bebé o niño tiene entre 4 meses y 4 años — incluyendo mayores de 2 años y niños en su propia cama.",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4013:15441",
+          "texto": "Sus siestas son cortas, con mucha lucha o en horarios que no funcionan.",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4013:15439",
+          "texto": "Solo duerme en brazos, con pecho o en movimiento — y quieres cambiar eso.",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4013:15482",
+          "texto": "Quieres la certeza de que alguien con 10 años de experiencia está leyendo tu caso.",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4013:15479",
+          "texto": "Quieres sentirte completamente acompañada y segura en cada paso.",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4013:15510",
+          "texto": "Esta asesoría NO es para ti si...",
+          "estilo": "2026/H3",
+          "color": "color/verde",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "4013:15511",
+          "texto": "✕  Tu bebé tiene menos de 4 meses o más de 4 años\n✕  Buscas una solución sin ningún compromiso de tu parte",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "lista"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 6,
+            "usos": 1
+          },
+          {
+            "valor": 10,
+            "usos": 3
+          },
+          {
+            "valor": 12,
+            "usos": 2
+          },
+          {
+            "valor": 44,
+            "usos": 1
+          },
+          {
+            "valor": 87,
+            "usos": 1
+          },
+          {
+            "valor": 88,
+            "usos": 1
+          },
+          {
+            "valor": 106,
+            "usos": 1
+          },
+          {
+            "valor": 371,
+            "usos": 1
+          }
+        ],
+        "colores": [],
+        "radios": []
+      },
+      "imagenes": [
+        {
+          "id": "para-ti-corazon-fondo",
+          "nodeId": "4013:15505",
+          "tipo": "svg",
+          "ancho": 238,
+          "alto": 228,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/para-ti-corazon-fondo.svg"
+        },
+        {
+          "id": "para-ti-mancha-1",
+          "nodeId": "4013:15446",
+          "tipo": "svg",
+          "ancho": 101,
+          "alto": 90,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/para-ti-mancha-1.svg"
+        },
+        {
+          "id": "para-ti-icono-luna",
+          "nodeId": "4013:15447",
+          "tipo": "svg",
+          "ancho": 13,
+          "alto": 13,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/para-ti-icono-luna.svg"
+        },
+        {
+          "id": "para-ti-icono-bebe-cara",
+          "nodeId": "4013:15449",
+          "tipo": "svg",
+          "ancho": 40,
+          "alto": 40,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/para-ti-icono-bebe-cara.svg"
+        },
+        {
+          "id": "para-ti-icono-reloj-arena",
+          "nodeId": "4013:15461",
+          "tipo": "svg",
+          "ancho": 119,
+          "alto": 110,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/para-ti-icono-reloj-arena.svg"
+        },
+        {
+          "id": "para-ti-mancha-documento",
+          "nodeId": "4013:15491",
+          "tipo": "svg",
+          "ancho": 135,
+          "alto": 133,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/para-ti-mancha-documento.svg"
+        },
+        {
+          "id": "para-ti-icono-documento",
+          "nodeId": "4013:15493",
+          "tipo": "svg",
+          "ancho": 56,
+          "alto": 44,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/para-ti-icono-documento.svg"
+        },
+        {
+          "id": "para-ti-mancha-2",
+          "nodeId": "4013:15442",
+          "tipo": "svg",
+          "ancho": 113,
+          "alto": 91,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/para-ti-mancha-2.svg"
+        },
+        {
+          "id": "para-ti-icono-cuna",
+          "nodeId": "4013:15443",
+          "tipo": "svg",
+          "ancho": 50,
+          "alto": 41,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/para-ti-icono-cuna.svg"
+        },
+        {
+          "id": "para-ti-icono-bebe-brazos",
+          "nodeId": "4013:15431",
+          "tipo": "svg",
+          "ancho": 119,
+          "alto": 110,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/para-ti-icono-bebe-brazos.svg"
+        },
+        {
+          "id": "para-ti-mancha-3",
+          "nodeId": "4013:15481",
+          "tipo": "svg",
+          "ancho": 101,
+          "alto": 90,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/para-ti-mancha-3.svg"
+        },
+        {
+          "id": "para-ti-icono-biberon",
+          "nodeId": "4013:15483",
+          "tipo": "svg",
+          "ancho": 18,
+          "alto": 48,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/para-ti-icono-biberon.svg"
+        },
+        {
+          "id": "para-ti-icono-reloj-arena-2",
+          "nodeId": "4013:15471",
+          "tipo": "svg",
+          "ancho": 119,
+          "alto": 110,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/para-ti-icono-reloj-arena.svg"
+        }
+      ],
+      "componentes": [],
+      "senales": [
+        {
+          "tipo": "repetidor",
+          "evidencia": "7 ítems ícono + texto en una grilla de 3 columnas (gap 87/44): 3 + 3 + 1 centrado. Cada ícono es una mancha beige rotada con un pictograma encima (algunos armados con 2-3 vectores sueltos). El ícono de reloj de arena se repite en el ítem 2 y en el 7. El ítem \"Sus siestas…\" está maquetado con márgenes absolutos raros (ml calc(50%-588.5px), mt 369.98px) aunque en la captura se ve alineado.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "decorativo",
+          "evidencia": "Corazón rosa claro (238×228, rotado 14°) detrás del título.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Bloque \"Esta asesoría NO es para ti si...\" con 2 líneas que empiezan con \"✕\" como texto.",
+          "estado": "propuesto"
+        }
+      ]
+    },
+    {
+      "nombre": "que-incluye",
+      "nodeId": "4013:15550",
+      "nombreCapa": "Que incluye",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 868
+      },
+      "referencia": "curso-a-dormir-por-fin/que-incluye.ref.txt",
+      "captura": "curso-a-dormir-por-fin/que-incluye.png",
+      "textos": [
+        {
+          "nodeId": "4013:15525",
+          "texto": "¿Qué incluye tu asesoría?",
+          "estilo": "2026/H1",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:15528",
+          "texto": "Videollamada inicial — una sesión de 1 hora para conocernos y crear el plan ideal para ti y tu bebé de acuerdo a tu estilo.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:15529",
+          "texto": "Plan de sueño integral personalizado — métodos, horarios, rutinas y todo lo que necesitas para empezar.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:15530",
+          "texto": "3 semanas de WhatsApp ilimitado con Bárbara — cada duda, cada pregunta, respondida por Bárbara personalmente.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:15531",
+          "texto": "Plan de siestas incluido (si deseas).",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:15532",
+          "texto": "Ajustes según la respuesta de tu bebé.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:15546",
+          "texto": "Ver más",
+          "estilo": "2026/Body",
+          "color": "color/verde",
+          "rol": "boton"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 88,
+            "usos": 1
+          },
+          {
+            "valor": 112,
+            "usos": 1
+          },
+          {
+            "valor": 188,
+            "usos": 1
+          }
+        ],
+        "colores": [],
+        "radios": [
+          {
+            "valor": 20,
+            "usos": 2
+          }
+        ]
+      },
+      "imagenes": [
+        {
+          "id": "que-incluye-foto-mama-bebe",
+          "nodeId": "4013:15563",
+          "tipo": "jpg",
+          "ancho": 414,
+          "alto": 378,
+          "rol": "contenido",
+          "archivo": "curso-a-dormir-por-fin/assets/que-incluye-foto-mama-bebe.jpg"
+        },
+        {
+          "id": "que-incluye-nube-1",
+          "nodeId": "4013:15554",
+          "tipo": "svg",
+          "ancho": 229,
+          "alto": 138,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/que-incluye-nube-1.svg"
+        },
+        {
+          "id": "que-incluye-nube-2",
+          "nodeId": "4013:15559",
+          "tipo": "svg",
+          "ancho": 278,
+          "alto": 121,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/que-incluye-nube-2.svg"
+        },
+        {
+          "id": "que-incluye-nube-ojos",
+          "nodeId": "4013:15560",
+          "tipo": "svg",
+          "ancho": 68,
+          "alto": 5,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/que-incluye-nube-ojos.svg"
+        },
+        {
+          "id": "que-incluye-check",
+          "nodeId": "4013:15533",
+          "tipo": "svg",
+          "ancho": 14,
+          "alto": 13,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/que-incluye-check.svg"
+        },
+        {
+          "id": "que-incluye-linea",
+          "nodeId": "4013:15538",
+          "tipo": "svg",
+          "ancho": 749,
+          "alto": 1,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/que-incluye-linea.svg"
+        },
+        {
+          "id": "que-incluye-ver-mas-flecha",
+          "nodeId": "4013:15547",
+          "tipo": "svg",
+          "ancho": 10,
+          "alto": 10,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/que-incluye-ver-mas-flecha.svg"
+        }
+      ],
+      "componentes": [],
+      "senales": [
+        {
+          "tipo": "repetidor",
+          "evidencia": "5 ítems check + texto separados por líneas de 748px, todos posicionados con márgenes absolutos (una línea con ml 18 en vez de 24).",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "\"Ver más\" con flecha abajo al final de la lista: sugiere mostrar más ítems (no hay más ítems en el frame).",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "decorativo",
+          "evidencia": "Dos nubes beige (una con ojos cerrados) detrás/al lado de la foto con radio 20px.",
+          "estado": "propuesto"
+        }
+      ]
+    },
+    {
+      "nombre": "ademas-incluye",
+      "nodeId": "4013:16796",
+      "nombreCapa": "Adicionales",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 620
+      },
+      "referencia": "curso-a-dormir-por-fin/ademas-incluye.ref.txt",
+      "captura": "curso-a-dormir-por-fin/ademas-incluye.png",
+      "textos": [
+        {
+          "nodeId": "4013:16786",
+          "texto": "Además, incluye",
+          "estilo": "2026/H1",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:16785",
+          "texto": "Todo por $399 USD · Cupos limitados — trabajo con un número reducido de familias a la vez.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "4013:16790",
+          "texto": "E-book con guías de horarios — 4 meses a 3 años. Para navegar cada cambio con confianza.",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4013:16793",
+          "texto": "1 mes en Mundo Angelitozzz — 4 sesiones en vivo con Bárbara y videoteca completa.",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "parrafo"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 29,
+            "usos": 1
+          },
+          {
+            "valor": 55,
+            "usos": 1
+          },
+          {
+            "valor": 56,
+            "usos": 1
+          },
+          {
+            "valor": 100,
+            "usos": 1
+          },
+          {
+            "valor": 227,
+            "usos": 1
+          },
+          {
+            "valor": 255,
+            "usos": 1
+          }
+        ],
+        "colores": [],
+        "radios": [
+          {
+            "valor": 30,
+            "usos": 1
+          }
+        ]
+      },
+      "imagenes": [
+        {
+          "id": "ademas-incluye-icono-libro",
+          "nodeId": "4013:16788",
+          "tipo": "svg",
+          "ancho": 51,
+          "alto": 51,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/ademas-incluye-icono-libro.svg"
+        },
+        {
+          "id": "ademas-incluye-icono-premium",
+          "nodeId": "4013:16791",
+          "tipo": "svg",
+          "ancho": 48,
+          "alto": 48,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/ademas-incluye-icono-premium.svg"
+        },
+        {
+          "id": "ademas-incluye-divisor",
+          "nodeId": "4013:16794",
+          "tipo": "svg",
+          "ancho": 1,
+          "alto": 146,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/ademas-incluye-divisor.svg"
+        }
+      ],
+      "componentes": [],
+      "senales": [
+        {
+          "tipo": "repetidor",
+          "evidencia": "2 ítems ícono + texto separados por una línea vertical dentro de una caja beige (1110×420, radio 30). La sección no tiene fondo propio (toma el crema de la página).",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Precio \"Todo por $399 USD\" contradice el \"$67 USD (antes $97)\" del hero de la misma página.",
+          "estado": "propuesto"
+        }
+      ]
+    },
+    {
+      "nombre": "experiencia-exclusiva",
+      "nodeId": "4013:15567",
+      "nombreCapa": "Sección · Experiencia exclusiva",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 960
+      },
+      "referencia": "curso-a-dormir-por-fin/experiencia-exclusiva.ref.txt",
+      "captura": "curso-a-dormir-por-fin/experiencia-exclusiva.png",
+      "textos": [
+        {
+          "nodeId": "4013:15568",
+          "texto": "La experiencia más exclusiva de Angelitozzz.",
+          "estilo": "2026/H1",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:15570",
+          "texto": "Acceso directo a Bárbara. Sin intermediarios. Sin sistemas.\nAngelita fue entrenada con mi método y puede acompañar a miles de familias simultáneamente. Yo no puedo — y eso es exactamente lo que hace esta asesoría especial. Recibo una cantidad limitada de familias al mismo tiempo para garantizar mi total atención a cada caso.\nEsta asesoría es para quien quiere trabajar con la persona detrás del método. Para casos complejos que necesitan una mirada experta. Para mamás que prefieren un ser humano de su lado. Y para bebés y niños de hasta 4 años — incluyendo mayores de 2 años y niños que duermen en su propia cama.\nEl resultado: tu bebé durmiendo 10 a 12 horas de corrido por las noches, con siestas largas y sin batalla, en los horarios perfectos para su edad.",
+          "estilo": null,
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "I4013:15578;3711:6162",
+          "texto": "Escríbeme por WhatsApp",
+          "estilo": "2026/Label",
+          "color": "color/blanco",
+          "rol": "boton"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 10,
+            "usos": 2
+          },
+          {
+            "valor": 14,
+            "usos": 2
+          },
+          {
+            "valor": 24,
+            "usos": 2
+          },
+          {
+            "valor": 28,
+            "usos": 2
+          },
+          {
+            "valor": 104,
+            "usos": 1
+          },
+          {
+            "valor": 405,
+            "usos": 1
+          }
+        ],
+        "colores": [],
+        "radios": [
+          {
+            "valor": 20,
+            "usos": 2
+          },
+          {
+            "valor": 100,
+            "usos": 2
+          }
+        ]
+      },
+      "imagenes": [
+        {
+          "id": "experiencia-foto-barbara",
+          "nodeId": "4013:15573",
+          "tipo": "jpg",
+          "ancho": 623,
+          "alto": 277,
+          "rol": "contenido",
+          "archivo": "curso-a-dormir-por-fin/assets/experiencia-foto-barbara.jpg"
+        },
+        {
+          "id": "boton-flecha",
+          "nodeId": "I4013:15578;3711:6163",
+          "tipo": "svg",
+          "ancho": 18,
+          "alto": 18,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/boton-flecha.svg"
+        }
+      ],
+      "componentes": [
+        {
+          "nombre": "Botón",
+          "variante": "Frambuesa",
+          "props": {
+            "texto": "Escríbeme por WhatsApp",
+            "flecha": true
+          }
+        }
+      ],
+      "senales": [
+        {
+          "tipo": "otro",
+          "evidencia": "Un solo bloque de texto con 4 párrafos de estilos mezclados: primero y último en Label (Medium 18/1.3), los del medio en Body S (16/1.5); separados por párrafos vacíos con un carácter de ancho cero (U+200B).",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Foto de Bárbara 623×277 radio 20 con recorte manual (img al 113.67 % × 170.39 %, desplazada -13.42 % / -11.46 %): object-position a definir.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Botón \"Escríbeme por WhatsApp\": enlace al WhatsApp de las opciones del sitio, como en soluciones-de-sueno.",
+          "estado": "propuesto"
+        }
+      ]
+    },
+    {
+      "nombre": "como-funciona",
+      "nodeId": "4013:15672",
+      "nombreCapa": "Sección · Cómo funciona",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 1093
+      },
+      "referencia": "curso-a-dormir-por-fin/como-funciona.ref.txt",
+      "captura": "curso-a-dormir-por-fin/como-funciona.png",
+      "textos": [
+        {
+          "nodeId": "4013:15676",
+          "texto": "Cómo funciona la asesoría",
+          "estilo": "2026/Eyebrow",
+          "color": "color/verde",
+          "rol": "eyebrow"
+        },
+        {
+          "nodeId": "4013:15677",
+          "texto": "Un proceso de tres pasos — simple, claro y completamente guiado.",
+          "estilo": "2026/H1",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:15678",
+          "texto": "Cada semana te guiaremos con estrategias claras y prácticas adaptadas al crecimiento y desarrollo de tu bebé.",
+          "estilo": "2026/Body L",
+          "color": "color/verde",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "4013:15684",
+          "texto": "Paso 1",
+          "estilo": "2026/Label S",
+          "color": "color/frambuesa",
+          "rol": "eyebrow"
+        },
+        {
+          "nodeId": "4013:15685",
+          "texto": "Videollamada inicial",
+          "estilo": "2026/H4",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:15686",
+          "texto": "Una sesión de 1 hora para conocernos y crear el plan de sueño ideal para ti y tu bebé, de acuerdo a tu estilo.",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4013:15688",
+          "texto": "1 hora · por videollamada",
+          "estilo": "2026/Label S",
+          "color": "color/verde",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "4013:15692",
+          "texto": "Paso 2",
+          "estilo": "2026/Label S",
+          "color": "color/frambuesa",
+          "rol": "eyebrow"
+        },
+        {
+          "nodeId": "4013:15693",
+          "texto": "Tu plan de sueño",
+          "estilo": "2026/H4",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:15694",
+          "texto": "Recibes tu plan integral personalizado por escrito: métodos, horarios, rutinas y todo lo que necesitas para empezar con claridad.",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4013:15696",
+          "texto": "Plan escrito y personalizado",
+          "estilo": "2026/Label S",
+          "color": "color/verde",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "4013:15700",
+          "texto": "Paso 3",
+          "estilo": "2026/Label S",
+          "color": "color/frambuesa",
+          "rol": "eyebrow"
+        },
+        {
+          "nodeId": "4013:15701",
+          "texto": "3 semanas de WhatsApp conmigo",
+          "estilo": "2026/H4",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:15702",
+          "texto": "Me escribes cuando lo necesites: cada duda y cada noche difícil la respondo yo, personalmente.",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4013:15704",
+          "texto": "Acompañamiento directo",
+          "estilo": "2026/Label S",
+          "color": "color/verde",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "I4013:15706;3704:15607",
+          "texto": "Escríbeme por WhatsApp para empezar",
+          "estilo": "2026/Label",
+          "color": "color/crema",
+          "rol": "boton"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 6,
+            "usos": 3
+          },
+          {
+            "valor": 10,
+            "usos": 5
+          },
+          {
+            "valor": 14,
+            "usos": 5
+          },
+          {
+            "valor": 20,
+            "usos": 1
+          },
+          {
+            "valor": 24,
+            "usos": 2
+          },
+          {
+            "valor": 28,
+            "usos": 5
+          },
+          {
+            "valor": 32,
+            "usos": 1
+          },
+          {
+            "valor": 104,
+            "usos": 1
+          },
+          {
+            "valor": 405,
+            "usos": 1
+          }
+        ],
+        "colores": [],
+        "radios": [
+          {
+            "valor": 24,
+            "usos": 3
+          },
+          {
+            "valor": 100,
+            "usos": 5
+          }
+        ]
+      },
+      "imagenes": [
+        {
+          "id": "como-funciona-paso-1",
+          "nodeId": "4013:15682",
+          "tipo": "jpg",
+          "ancho": 349,
+          "alto": 220,
+          "rol": "contenido",
+          "archivo": "curso-a-dormir-por-fin/assets/como-funciona-paso-1.jpg"
+        },
+        {
+          "id": "como-funciona-paso-2",
+          "nodeId": "4013:15690",
+          "tipo": "jpg",
+          "ancho": 349,
+          "alto": 220,
+          "rol": "contenido",
+          "archivo": "curso-a-dormir-por-fin/assets/como-funciona-paso-2.jpg"
+        },
+        {
+          "id": "como-funciona-paso-3",
+          "nodeId": "4013:15698",
+          "tipo": "jpg",
+          "ancho": 349,
+          "alto": 220,
+          "rol": "contenido",
+          "archivo": "curso-a-dormir-por-fin/assets/como-funciona-paso-3.jpg"
+        },
+        {
+          "id": "como-funciona-nube",
+          "nodeId": "4013:15673",
+          "tipo": "svg",
+          "ancho": 300,
+          "alto": 131,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/como-funciona-nube.svg"
+        },
+        {
+          "id": "como-funciona-destello-derecha",
+          "nodeId": "4013:15674",
+          "tipo": "svg",
+          "ancho": 46,
+          "alto": 43,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/como-funciona-destello-derecha.svg"
+        },
+        {
+          "id": "como-funciona-destello-izquierda",
+          "nodeId": "4013:15675",
+          "tipo": "svg",
+          "ancho": 60,
+          "alto": 58,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/como-funciona-destello-izquierda.svg"
+        },
+        {
+          "id": "boton-flecha-crema",
+          "nodeId": "I4013:15706;3704:15608",
+          "tipo": "svg",
+          "ancho": 18,
+          "alto": 18,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/boton-flecha-crema.svg"
+        }
+      ],
+      "componentes": [
+        {
+          "nombre": "Botón",
+          "variante": "Verde",
+          "props": {
+            "texto": "Escríbeme por WhatsApp para empezar",
+            "flecha": true
+          }
+        }
+      ],
+      "senales": [
+        {
+          "tipo": "repetidor",
+          "evidencia": "3 tarjetas \"Paso\" blancas idénticas (radio 24, alto fijo 503): imagen 220px + Paso N + título H4 + texto + pastilla crema. La foto del paso 1 usa un recorte manual (alto 181.82 %, arriba).",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "decorativo",
+          "evidencia": "Dos destellos crema (arriba izquierda y derecha) y una nube que sobresale por abajo a la derecha (top 963px, right -2.5 %).",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Botón Verde \"Escríbeme por WhatsApp para empezar\": enlace al WhatsApp de las opciones.",
+          "estado": "propuesto"
+        }
+      ]
+    },
+    {
+      "nombre": "testimonios",
+      "nodeId": "4013:15586",
+      "nombreCapa": "Testimonio · Destacado",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 559
+      },
+      "referencia": "curso-a-dormir-por-fin/testimonios.ref.txt",
+      "captura": "curso-a-dormir-por-fin/testimonios.png",
+      "textos": [
+        {
+          "nodeId": "I4013:15586;3810:108",
+          "texto": "Lo que dicen las mamás que trabajaron con Bárbara.",
+          "estilo": "2026/H2",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "I4013:15586;3810:111",
+          "texto": "“Hay un antes y un después de la asesoría. La consistencia y la seguridad que nos dabas permitió que Lara aprenda a dormir sola.”",
+          "estilo": null,
+          "color": "color/verde",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "I4013:15586;3810:112",
+          "texto": "Bernardita, mamá de Lara (7 meses)",
+          "estilo": "2026/Label",
+          "color": "color/texto-suave",
+          "rol": "pie"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 20,
+            "usos": 2
+          },
+          {
+            "valor": 96,
+            "usos": 2
+          },
+          {
+            "valor": 181,
+            "usos": 2
+          },
+          {
+            "valor": 405,
+            "usos": 2
+          }
+        ],
+        "colores": [],
+        "radios": [
+          {
+            "valor": 100,
+            "usos": 2
+          }
+        ]
+      },
+      "imagenes": [
+        {
+          "id": "testimonios-nube-derecha",
+          "nodeId": "I4013:15586;3810:132",
+          "tipo": "svg",
+          "ancho": 240,
+          "alto": 104,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/testimonios-nube-derecha.svg"
+        },
+        {
+          "id": "testimonios-nube-izquierda",
+          "nodeId": "I4013:15586;3810:129",
+          "tipo": "svg",
+          "ancho": 280,
+          "alto": 168,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/testimonios-nube-izquierda.svg"
+        },
+        {
+          "id": "testimonios-nube-ojo-1",
+          "nodeId": "I4013:15586;3810:130",
+          "tipo": "svg",
+          "ancho": 26,
+          "alto": 4,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/testimonios-nube-ojo-1.svg"
+        },
+        {
+          "id": "testimonios-nube-ojo-2",
+          "nodeId": "I4013:15586;3810:131",
+          "tipo": "svg",
+          "ancho": 26,
+          "alto": 4,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/testimonios-nube-ojo-2.svg"
+        },
+        {
+          "id": "testimonios-puntos",
+          "nodeId": "I4013:15586;3810:114",
+          "tipo": "svg",
+          "ancho": 58,
+          "alto": 10,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/testimonios-puntos.svg"
+        },
+        {
+          "id": "testimonios-flecha-izquierda",
+          "nodeId": "I4013:15586;3810:120",
+          "tipo": "svg",
+          "ancho": 20,
+          "alto": 20,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/testimonios-flecha-izquierda.svg"
+        },
+        {
+          "id": "testimonios-flecha-derecha",
+          "nodeId": "I4013:15586;3810:124",
+          "tipo": "svg",
+          "ancho": 20,
+          "alto": 20,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/testimonios-flecha-derecha.svg"
+        }
+      ],
+      "componentes": [
+        {
+          "nombre": "Testimonio · Destacado",
+          "variante": null,
+          "props": {
+            "titulo": "Lo que dicen las mamás que trabajaron con Bárbara.",
+            "testimonio": "“Hay un antes y un después de la asesoría. La consistencia y la seguridad que nos dabas permitió que Lara aprenda a dormir sola.”",
+            "nombre": "Bernardita, mamá de Lara (7 meses)"
+          }
+        }
+      ],
+      "senales": [
+        {
+          "tipo": "slider",
+          "evidencia": "Instancia del componente \"Testimonio · Destacado\" (3810:107): un testimonio centrado, flechas izquierda/derecha (círculos blancos 48px con borde beige) y 4 puntos de paginación. Nota de enlaces: \"los testimonios de aca tambien son indepenientes\" (propios de este curso).",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "decorativo",
+          "evidencia": "15 letras \"Z\" crema al 40 % de opacidad en ola por la parte baja (texto rotado), nube a la derecha arriba y nube con ojos a la izquierda abajo. La descripción del componente menciona un corazón que este frame no tiene.",
+          "estado": "propuesto"
+        }
+      ]
+    },
+    {
+      "nombre": "preguntas-frecuentes",
+      "nodeId": "4013:15724",
+      "nombreCapa": "Preguntas de la pagina",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 1076
+      },
+      "referencia": "curso-a-dormir-por-fin/preguntas-frecuentes.ref.txt",
+      "captura": "curso-a-dormir-por-fin/preguntas-frecuentes.png",
+      "textos": [
+        {
+          "nodeId": "4013:15725",
+          "texto": "¡Respondemos a tus preguntas!",
+          "estilo": "2026/H1",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:15737",
+          "texto": "¿Cómo funciona el proceso?",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:15762",
+          "texto": "¿En cuánto tiempo veo resultados?",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:15742",
+          "texto": "¿Cómo se agenda la videollamada?",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:15747",
+          "texto": "¿Funciona con lactancia y colecho?",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:15752",
+          "texto": "¿Qué pasa si mi bebé se enferma?",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:15813",
+          "texto": "¿Esta asesoría es para niños mayores de 2 años?",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:15819",
+          "texto": "¿Cuántos cupos hay?",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:15755",
+          "texto": "Ver más",
+          "estilo": "2026/Body XL",
+          "color": "color/verde",
+          "rol": "boton"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 10,
+            "usos": 8
+          },
+          {
+            "valor": 16,
+            "usos": 1
+          },
+          {
+            "valor": 20,
+            "usos": 1
+          },
+          {
+            "valor": 54,
+            "usos": 7
+          },
+          {
+            "valor": 65,
+            "usos": 1
+          },
+          {
+            "valor": 88,
+            "usos": 1
+          },
+          {
+            "valor": 457,
+            "usos": 1
+          }
+        ],
+        "colores": [],
+        "radios": []
+      },
+      "imagenes": [
+        {
+          "id": "faq-check",
+          "nodeId": "4013:15736",
+          "tipo": "svg",
+          "ancho": 14,
+          "alto": 13,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/faq-check.svg"
+        },
+        {
+          "id": "faq-linea",
+          "nodeId": "4013:15738",
+          "tipo": "svg",
+          "ancho": 749,
+          "alto": 1,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/faq-linea.svg"
+        },
+        {
+          "id": "faq-ver-mas-flecha",
+          "nodeId": "4013:15756",
+          "tipo": "svg",
+          "ancho": 10,
+          "alto": 10,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/faq-ver-mas-flecha.svg"
+        }
+      ],
+      "componentes": [],
+      "senales": [
+        {
+          "tipo": "acordeon",
+          "evidencia": "7 preguntas con check + texto y línea inferior; el frame no trae respuestas ni ícono de abrir/cerrar (el ícono es un check, no un chevron). Nota de enlaces: \"las preguntas frecuentes tambien son independientes en este curso.\"",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "\"Ver más\" con flecha abajo: más preguntas ocultas o enlace a la página de preguntas frecuentes (a decidir).",
+          "estado": "propuesto"
+        }
+      ]
+    },
+    {
+      "nombre": "contenido-relacionado",
+      "nodeId": "4013:16012",
+      "nombreCapa": "Contenido relacionado",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 841
+      },
+      "referencia": "curso-a-dormir-por-fin/contenido-relacionado.ref.txt",
+      "captura": "curso-a-dormir-por-fin/contenido-relacionado.png",
+      "textos": [
+        {
+          "nodeId": "4013:16014",
+          "texto": "También podría interesarte...",
+          "estilo": "2026/H1",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:16015",
+          "texto": "Descubre otros cursos diseñados para acompañarte en diferentes etapas del desarrollo del sueño de tu bebé.",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "4013:15975",
+          "texto": "Angelita Pro\n(4 a 24 meses · Desde $67)",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "I4013:15976;3711:6162",
+          "texto": "Más información",
+          "estilo": "2026/Label",
+          "color": "color/blanco",
+          "rol": "boton"
+        },
+        {
+          "nodeId": "4013:15961",
+          "texto": "Recién Nacidos Go\n(0 a 12 semanas · $97)",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "I4013:15964;3863:534",
+          "texto": "Curso Online",
+          "estilo": "2026/Label S",
+          "color": "color/blanco",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "4013:15960",
+          "texto": "Top ventas",
+          "estilo": "2026/Body S",
+          "color": "color/blanco",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "I4013:15973;3863:538",
+          "texto": "Nuevo",
+          "estilo": "2026/Label S",
+          "color": "color/blanco",
+          "rol": "etiqueta"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 6,
+            "usos": 2
+          },
+          {
+            "valor": 7,
+            "usos": 4
+          },
+          {
+            "valor": 10,
+            "usos": 3
+          },
+          {
+            "valor": 14,
+            "usos": 3
+          },
+          {
+            "valor": 16,
+            "usos": 4
+          },
+          {
+            "valor": 18,
+            "usos": 4
+          },
+          {
+            "valor": 20,
+            "usos": 1
+          },
+          {
+            "valor": 24,
+            "usos": 3
+          },
+          {
+            "valor": 28,
+            "usos": 3
+          },
+          {
+            "valor": 47,
+            "usos": 1
+          },
+          {
+            "valor": 88,
+            "usos": 1
+          }
+        ],
+        "colores": [],
+        "radios": [
+          {
+            "valor": 16,
+            "usos": 4
+          },
+          {
+            "valor": 20,
+            "usos": 11
+          },
+          {
+            "valor": 100,
+            "usos": 3
+          }
+        ]
+      },
+      "imagenes": [
+        {
+          "id": "relacionado-fondo-lunas",
+          "nodeId": "4013:16012",
+          "tipo": "png",
+          "ancho": 1920,
+          "alto": 841,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/relacionado-fondo-lunas.png"
+        },
+        {
+          "id": "relacionado-angelita-pro-placeholder",
+          "nodeId": "4013:15974",
+          "tipo": "png",
+          "ancho": 346,
+          "alto": 370,
+          "rol": "contenido",
+          "archivo": "curso-a-dormir-por-fin/assets/relacionado-angelita-pro-placeholder.png"
+        },
+        {
+          "id": "relacionado-recien-nacidos-go",
+          "nodeId": "4013:15963",
+          "tipo": "jpg",
+          "ancho": 346,
+          "alto": 370,
+          "rol": "contenido",
+          "archivo": "curso-a-dormir-por-fin/assets/relacionado-recien-nacidos-go.jpg"
+        },
+        {
+          "id": "relacionado-etiqueta-destellos",
+          "nodeId": "I4013:15973;3863:536",
+          "tipo": "svg",
+          "ancho": 14,
+          "alto": 14,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/relacionado-etiqueta-destellos.svg"
+        },
+        {
+          "id": "relacionado-circulo-top-ventas",
+          "nodeId": "4013:15959",
+          "tipo": "svg",
+          "ancho": 97,
+          "alto": 97,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/relacionado-circulo-top-ventas.svg"
+        },
+        {
+          "id": "boton-flecha",
+          "nodeId": "I4013:15976;3711:6163",
+          "tipo": "svg",
+          "ancho": 18,
+          "alto": 18,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/boton-flecha.svg"
+        }
+      ],
+      "componentes": [
+        {
+          "nombre": "Etiqueta",
+          "variante": "Esquina",
+          "props": {
+            "texto": "Curso Online",
+            "icono": "Ninguno"
+          }
+        },
+        {
+          "nombre": "Etiqueta",
+          "variante": "Esquina",
+          "props": {
+            "texto": "Nuevo",
+            "icono": "Destellos"
+          }
+        },
+        {
+          "nombre": "Botón",
+          "variante": "Frambuesa",
+          "props": {
+            "texto": "Más información",
+            "flecha": true
+          }
+        }
+      ],
+      "senales": [
+        {
+          "tipo": "listado",
+          "evidencia": "Tarjetas de cursos relacionados (imagen 346×370 radio 20 + etiqueta esquina + nombre/rango/precio + botón \"Más información\"). El frame muestra 2 tarjetas (Angelita Pro y Recién Nacidos Go) pero la nota de enlaces dice \"Que rija 3 card de contenido relacionado\". Hay una tercera tarjeta OCULTA en Figma (4013:15977, hidden): \"Horarios del sueño del bebé (4 meses a 3 años)\" con burbujas de edad \"4 a 9 meses\", \"9 a 15 meses\", \"15 a 36 meses\"; no se leyó su código ni su imagen porque no se ve en el frame.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Capas tapadas: en Angelita Pro la imagen placeholder (nube, idéntica a soluciones-de-sueno/shop-angelita-pro-placeholder.png) tapa la etiqueta \"Nuevo\"; en Recién Nacidos Go hay dos imágenes iguales apiladas y la segunda tapa el círculo \"Top ventas\". Visible solo: \"Curso Online\" en Recién Nacidos Go.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "decorativo",
+          "evidencia": "Fondo PNG de lunas rosadas sobre blush (1920×881), a pantalla completa con object-cover.",
+          "estado": "propuesto"
+        }
+      ]
+    },
+    {
+      "nombre": "drawer-carrito",
+      "nodeId": "3752:5054",
+      "nombreCapa": "Panel",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 480,
+        "alto": 1080
+      },
+      "referencia": "curso-a-dormir-por-fin/drawer-carrito.ref.txt",
+      "captura": "curso-a-dormir-por-fin/drawer-carrito.png",
+      "textos": [
+        {
+          "nodeId": "3752:5056",
+          "texto": "Resumen de compra",
+          "estilo": "2026/H4",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "3752:5064",
+          "texto": "Curso",
+          "estilo": "2026/Caption",
+          "color": "color/texto-suave",
+          "rol": "eyebrow"
+        },
+        {
+          "nodeId": "3752:5065",
+          "texto": "Recién Nacidos Go",
+          "estilo": "2026/Label",
+          "color": "color/verde",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "3752:5066",
+          "texto": "Acceso por 4 meses",
+          "estilo": "2026/Caption",
+          "color": "color/texto-suave",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "3752:5067",
+          "texto": "$97",
+          "estilo": "2026/Label",
+          "color": "color/verde",
+          "rol": "otro"
+        },
+        {
+          "nodeId": "3752:5072",
+          "texto": "Te puede interesar también",
+          "estilo": "2026/Label",
+          "color": "color/verde",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "3752:5076",
+          "texto": "Angelita Pro",
+          "estilo": "2026/Label",
+          "color": "color/verde",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "3752:5077",
+          "texto": "$67 · 4 a 24 meses",
+          "estilo": "2026/Caption",
+          "color": "color/texto-suave",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "I3752:5078;3704:15612",
+          "texto": "Agregar",
+          "estilo": "2026/Label",
+          "color": "color/verde",
+          "rol": "boton"
+        },
+        {
+          "nodeId": "3752:5085",
+          "texto": "Subtotal",
+          "estilo": "2026/Label",
+          "color": "color/verde",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "3752:5086",
+          "texto": "$97",
+          "estilo": "2026/H4",
+          "color": "color/verde",
+          "rol": "otro"
+        },
+        {
+          "nodeId": "I3752:5087;3711:6162",
+          "texto": "Ir a pagar",
+          "estilo": "2026/Label",
+          "color": "color/blanco",
+          "rol": "boton"
+        },
+        {
+          "nodeId": "3752:5093",
+          "texto": "Seguir comprando",
+          "estilo": "2026/Label",
+          "color": "color/verde",
+          "rol": "boton"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 2,
+            "usos": 2
+          },
+          {
+            "valor": 10,
+            "usos": 3
+          },
+          {
+            "valor": 14,
+            "usos": 7
+          },
+          {
+            "valor": 16,
+            "usos": 1
+          },
+          {
+            "valor": 24,
+            "usos": 4
+          },
+          {
+            "valor": 28,
+            "usos": 6
+          }
+        ],
+        "colores": [],
+        "radios": [
+          {
+            "valor": 12,
+            "usos": 4
+          },
+          {
+            "valor": 16,
+            "usos": 1
+          },
+          {
+            "valor": 100,
+            "usos": 3
+          }
+        ]
+      },
+      "imagenes": [
+        {
+          "id": "drawer-producto",
+          "nodeId": "3752:5062",
+          "tipo": "jpg",
+          "ancho": 72,
+          "alto": 72,
+          "rol": "contenido",
+          "archivo": "curso-a-dormir-por-fin/assets/drawer-producto.jpg"
+        },
+        {
+          "id": "drawer-sugerido",
+          "nodeId": "3752:5074",
+          "tipo": "jpg",
+          "ancho": 64,
+          "alto": 64,
+          "rol": "contenido",
+          "archivo": "curso-a-dormir-por-fin/assets/relacionado-recien-nacidos-go.jpg"
+        },
+        {
+          "id": "drawer-cerrar",
+          "nodeId": "3752:5057",
+          "tipo": "svg",
+          "ancho": 24,
+          "alto": 24,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/drawer-cerrar.svg"
+        },
+        {
+          "id": "drawer-eliminar",
+          "nodeId": "3752:5068",
+          "tipo": "svg",
+          "ancho": 18,
+          "alto": 18,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/drawer-eliminar.svg"
+        },
+        {
+          "id": "boton-flecha",
+          "nodeId": "I3752:5087;3711:6163",
+          "tipo": "svg",
+          "ancho": 18,
+          "alto": 18,
+          "rol": "decorativa",
+          "archivo": "curso-a-dormir-por-fin/assets/boton-flecha.svg"
+        }
+      ],
+      "componentes": [
+        {
+          "nombre": "Botón",
+          "variante": "Secundario",
+          "props": {
+            "texto": "Agregar",
+            "flecha": false
+          }
+        },
+        {
+          "nombre": "Botón",
+          "variante": "Frambuesa",
+          "props": {
+            "texto": "Ir a pagar",
+            "flecha": true
+          }
+        }
+      ],
+      "senales": [
+        {
+          "tipo": "modal",
+          "evidencia": "Panel lateral (drawer) de 480×1080 \"Resumen de compra\" con cerrar (X): se abre al agregar un curso al carrito (nota de página: \"Para todo los cursos, al momento de guardar en el carrito sale este tipo drawer\"). Es el mini carrito de WooCommerce, común a todos los cursos. El nodo 3752:5054 está fuera del frame de la página.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "repetidor",
+          "evidencia": "Línea de producto (imagen 72px radio 12, \"Curso\", nombre, \"Acceso por 4 meses\", precio, papelera para quitar) y bloque \"Te puede interesar también\" con un sugerido (imagen 64px, nombre, \"$67 · 4 a 24 meses\", botón Secundario \"Agregar\").",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Pie crema fijo: Subtotal, botón Frambuesa de ancho completo \"Ir a pagar\" (checkout) y enlace subrayado \"Seguir comprando\" (cierra el drawer). El ejemplo muestra Recién Nacidos Go ($97), no A Dormir Por Fin; la imagen del sugerido Angelita Pro es la foto de Recién Nacidos Go.",
+          "estado": "propuesto"
+        }
+      ]
+    }
+  ]
+}

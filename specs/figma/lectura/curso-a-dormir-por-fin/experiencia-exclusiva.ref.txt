@@ -1,0 +1,55 @@
+const imgFlecha = "assets/boton-flecha.svg";
+const img844A7474Editar1 = "assets/experiencia-foto-barbara.jpg";
+
+type BotonProps = {
+  className?: string;
+  flecha?: boolean;
+  texto?: string;
+  tipo?: "Frambuesa";
+};
+
+function Boton({ className, flecha = true, texto = "Texto del botón", tipo = "Frambuesa" }: BotonProps) {
+  return (
+    <div className={className || "bg-[var(--color\\/frambuesa,#a8566a)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px]"} data-node-id="3711:6161">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="3711:6162">
+        {texto}
+      </p>
+      {flecha && (
+        <div className="relative shrink-0 size-[18px]" data-node-id="3711:6163" data-name="Flecha">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function SeccionExperienciaExclusiva() {
+  return (
+    <div className="bg-[var(--color\/blush,#f1dbd5)] content-stretch flex flex-col items-center px-[405px] py-[104px] relative size-full" data-node-id="4013:15567" data-name="Sección · Experiencia exclusiva">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:SemiBold'] leading-[1.1] min-w-full not-italic relative shrink-0 text-[50px] text-[color:var(--color\/verde,#234549)] text-center w-[min-content]" data-node-id="4013:15568">
+        La experiencia más exclusiva de Angelitozzz.
+      </p>
+      <div className="h-[16px] relative shrink-0 w-[10px]" data-node-id="4013:15569" data-name="espacio 16" />
+      <div className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[0] not-italic relative shrink-0 text-[0px] text-[color:var(--color\/texto,black)] text-center w-[820px] whitespace-pre-wrap" data-node-id="4013:15570">
+        <p className="font-['Barlow_Condensed:Medium'] leading-[1.3] mb-0 text-[18px] text-black">Acceso directo a Bárbara. Sin intermediarios. Sin sistemas.</p>
+        <p className="leading-[1.2] mb-0 text-[16px]">​</p>
+        <p className="leading-[1.5] mb-0 text-[16px] text-black">Angelita fue entrenada con mi método y puede acompañar a miles de familias simultáneamente. Yo no puedo — y eso es exactamente lo que hace esta asesoría especial. Recibo una cantidad limitada de familias al mismo tiempo para garantizar mi total atención a cada caso.</p>
+        <p className="leading-[1.2] mb-0 text-[16px]">​</p>
+        <p className="leading-[1.5] mb-0 text-[16px] text-black">Esta asesoría es para quien quiere trabajar con la persona detrás del método. Para casos complejos que necesitan una mirada experta. Para mamás que prefieren un ser humano de su lado. Y para bebés y niños de hasta 4 años — incluyendo mayores de 2 años y niños que duermen en su propia cama.</p>
+        <p className="leading-[1.2] mb-0 text-[16px]">​</p>
+        <p className="font-['Barlow_Condensed:Medium'] leading-[1.3] text-[18px] text-black">El resultado: tu bebé durmiendo 10 a 12 horas de corrido por las noches, con siestas largas y sin batalla, en los horarios perfectos para su edad.</p>
+      </div>
+      <div className="h-[40px] relative shrink-0 w-[10px]" data-node-id="4013:15571" data-name="espacio 40" />
+      <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="4013:15572">
+        <div className="col-1 h-[277px] ml-0 mt-0 relative rounded-[20px] row-1 w-[623px]" data-node-id="4013:15573" data-name="844A7474-Editar 1">
+          <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[20px]">
+            <img alt="" className="absolute h-[170.39%] left-[-13.42%] max-w-none top-[-11.46%] w-[113.67%]" src={img844A7474Editar1} />
+          </div>
+        </div>
+      </div>
+      <div className="h-[20px] relative shrink-0 w-[10px]" data-node-id="4013:15576" data-name="espacio 20" />
+      <div className="h-[32px] relative shrink-0 w-[10px]" data-node-id="4013:15577" data-name="espacio 32" />
+      <Boton className="bg-[var(--color\/frambuesa,#a8566a)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" texto="Escríbeme por WhatsApp" />
+    </div>
+  );
+}

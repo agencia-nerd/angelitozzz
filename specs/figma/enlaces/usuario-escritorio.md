@@ -1,4 +1,6 @@
-# Figma: Escritorio
+# Figma: usuario-escritorio
+
+<!-- Título original del archivo: Escritorio -->
 
 - **Frame de la página:** https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4164-24913&t=lySNWh2dFHTQgiTC-4
 

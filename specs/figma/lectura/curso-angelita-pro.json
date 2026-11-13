@@ -1,0 +1,1722 @@
+{
+  "formato": 1,
+  "pagina": "curso-angelita-pro",
+  "fuente": {
+    "fileKey": "FumWuCPT1PPDg5vBTYoufA",
+    "nodeId": "4012:13572",
+    "ancho": 1920,
+    "alto": 7148
+  },
+  "tokens": {
+    "colores": {
+      "color/texto": "#000000",
+      "color/teal": "#9cb0b0",
+      "color/verde": "#234549",
+      "color/blanco": "#ffffff",
+      "color/beige": "#d7d0b5",
+      "color/frambuesa": "#a8566a",
+      "color/crema": "#f8f6f1",
+      "green 80": "#492343",
+      "color/blush": "#f1dbd5",
+      "Beige": "#d7d0b5",
+      "color/texto-suave": "#6b6b6b"
+    },
+    "texto": {
+      "2026/Body S": {
+        "familia": "Barlow Condensed",
+        "peso": 400,
+        "tamano": 16,
+        "interlineado": 1.5,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Body": {
+        "familia": "Barlow Condensed",
+        "peso": 400,
+        "tamano": 18,
+        "interlineado": 1.5,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Body L": {
+        "familia": "Barlow Condensed",
+        "peso": 400,
+        "tamano": 20,
+        "interlineado": 1.5,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Body XL": {
+        "familia": "Barlow Condensed",
+        "peso": 400,
+        "tamano": 24,
+        "interlineado": 1.5,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Label S": {
+        "familia": "Barlow Condensed",
+        "peso": 500,
+        "tamano": 15,
+        "interlineado": 1.3,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Label": {
+        "familia": "Barlow Condensed",
+        "peso": 500,
+        "tamano": 18,
+        "interlineado": 1.3,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Display": {
+        "familia": "Barlow Condensed",
+        "peso": 600,
+        "tamano": 52,
+        "interlineado": 1,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/H1": {
+        "familia": "Barlow Condensed",
+        "peso": 600,
+        "tamano": 50,
+        "interlineado": 1.1,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/H2": {
+        "familia": "Barlow Condensed",
+        "peso": 500,
+        "tamano": 46,
+        "interlineado": 1.15,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/H3": {
+        "familia": "Barlow Condensed",
+        "peso": 500,
+        "tamano": 32,
+        "interlineado": 1.2,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/H4": {
+        "familia": "Barlow Condensed",
+        "peso": 500,
+        "tamano": 26,
+        "interlineado": 1.25,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      }
+    },
+    "sombras": {
+      "shadow header": "DROP_SHADOW #CAC29B26 (-2, 0) blur 12 spread 0; DROP_SHADOW #CAC29B21 (-10, 10) blur 22 spread 0; DROP_SHADOW #CAC29B14 (-22, 40) blur 30 spread 0; DROP_SHADOW #CAC29B05 (-39, 80) blur 36 spread 0"
+    }
+  },
+  "secciones": [
+    {
+      "nombre": "hero",
+      "nodeId": "4012:13687",
+      "nombreCapa": "Hero",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 845
+      },
+      "referencia": "curso-angelita-pro/hero.ref.txt",
+      "captura": "curso-angelita-pro/hero.png",
+      "textos": [
+        {
+          "nodeId": "I4012:13631;3719:4265",
+          "texto": "Nuevo",
+          "estilo": "2026/Label S",
+          "color": "color/blanco",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "4012:13635",
+          "texto": "Angelita Pro",
+          "estilo": "2026/H1",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4012:13637",
+          "texto": "Coach de sueño con IA · 4 a 24 meses",
+          "estilo": "2026/Body XL",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "4012:13639",
+          "texto": "Conoce a Angelita: la coach de sueño que nunca duerme — para que tú y tu bebé por fin puedan hacerlo. Entrenada con 10 años de experiencia real y más de 8.000 familias acompañadas. Disponible a cualquier hora, por WhatsApp. Sin citas. Sin esperas.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4012:13646",
+          "texto": "2 semanas 24/7",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "4012:13650",
+          "texto": "WhatsApp",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "4012:13657",
+          "texto": "¿Te regalaron este curso? Canjea tu código",
+          "estilo": "2026/Body",
+          "color": null,
+          "rol": "otro"
+        },
+        {
+          "nodeId": "4012:13664",
+          "texto": "$67 USD",
+          "estilo": "2026/H3",
+          "color": "color/verde",
+          "rol": "otro"
+        },
+        {
+          "nodeId": "I4012:13665;3711:6162",
+          "texto": "Quiero a Angelita",
+          "estilo": "2026/Label",
+          "color": "color/blanco",
+          "rol": "boton"
+        },
+        {
+          "nodeId": "I4012:13666;3704:15612",
+          "texto": "Regalar este curso",
+          "estilo": "2026/Label",
+          "color": "color/verde",
+          "rol": "boton"
+        },
+        {
+          "nodeId": "4012:13667",
+          "texto": "Precio de lanzamiento (antes $97) · 7 días de prueba completa",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "pie"
+        },
+        {
+          "nodeId": "4012:13669",
+          "texto": "Código de cupón de descuento",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "etiqueta"
+        }
+      ],
+      "imagenes": [
+        {
+          "id": "hero-curso-placeholder",
+          "nodeId": "4012:13660",
+          "tipo": "png",
+          "ancho": 335,
+          "alto": 184,
+          "rol": "contenido",
+          "archivo": "curso-angelita-pro/assets/hero-curso-placeholder.png"
+        },
+        {
+          "id": "hero-fondo-foto",
+          "nodeId": "4012:13628",
+          "tipo": "png",
+          "ancho": 730,
+          "alto": 835,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/hero-curso-placeholder.png"
+        },
+        {
+          "id": "hero-fondo-degradado",
+          "nodeId": "4012:13627",
+          "tipo": "svg",
+          "ancho": 1920,
+          "alto": 845,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/hero-fondo-degradado.svg"
+        },
+        {
+          "id": "hero-linea-subtitulo",
+          "nodeId": "4012:13638",
+          "tipo": "svg",
+          "ancho": 345,
+          "alto": 1,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/hero-linea-subtitulo.svg"
+        },
+        {
+          "id": "hero-icono-tiempo",
+          "nodeId": "4012:13643",
+          "tipo": "svg",
+          "ancho": 23,
+          "alto": 23,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/hero-icono-tiempo.svg"
+        },
+        {
+          "id": "hero-icono-computadora",
+          "nodeId": "4012:13648",
+          "tipo": "svg",
+          "ancho": 22,
+          "alto": 22,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/hero-icono-computadora.svg"
+        },
+        {
+          "id": "hero-icono-regalo",
+          "nodeId": "4012:13652",
+          "tipo": "svg",
+          "ancho": 21,
+          "alto": 21,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/hero-icono-regalo.svg"
+        },
+        {
+          "id": "hero-cupon-linea",
+          "nodeId": "4012:13670",
+          "tipo": "svg",
+          "ancho": 322,
+          "alto": 1,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/hero-cupon-linea.svg"
+        },
+        {
+          "id": "hero-cupon-boton",
+          "nodeId": "4012:13671",
+          "tipo": "svg",
+          "ancho": 24,
+          "alto": 24,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/hero-cupon-boton.svg"
+        },
+        {
+          "id": "etiqueta-icono-destellos",
+          "nodeId": "I4012:13631;3719:4263",
+          "tipo": "svg",
+          "ancho": 14,
+          "alto": 14,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/etiqueta-icono-destellos.svg"
+        },
+        {
+          "id": "boton-flecha",
+          "nodeId": "I4012:13665;3711:6163",
+          "tipo": "svg",
+          "ancho": 18,
+          "alto": 18,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/boton-flecha.svg"
+        },
+        {
+          "id": "boton-flecha-verde",
+          "nodeId": "3704:15613",
+          "tipo": "svg",
+          "ancho": 18,
+          "alto": 18,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/boton-flecha-verde.svg"
+        }
+      ],
+      "componentes": [
+        {
+          "nombre": "Etiqueta",
+          "variante": "Tarjeta",
+          "props": {
+            "texto": "Nuevo",
+            "icono": "Destellos"
+          }
+        },
+        {
+          "nombre": "Botón",
+          "variante": "Frambuesa",
+          "props": {
+            "texto": "Quiero a Angelita",
+            "flecha": true
+          }
+        },
+        {
+          "nombre": "Botón",
+          "variante": "Secundario",
+          "props": {
+            "texto": "Regalar este curso",
+            "flecha": false
+          }
+        }
+      ],
+      "senales": [
+        {
+          "tipo": "formulario",
+          "evidencia": "Campo 'Código de cupón de descuento' con línea inferior y botón circular con flecha (4012:13668) dentro de la tarjeta de compra: input + enviar (cupón de WooCommerce/Tutor).",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Tarjeta de compra 'Soluciones de Sueño' (4012:13658): imagen, precio '$67 USD', CTA 'Quiero a Angelita' (añadir al carrito) y 'Regalar este curso' (Secundario): datos del producto/curso, probablemente dinámicos (Woo/Tutor).",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Enlace subrayado '¿Te regalaron este curso? Canjea tu código' con ícono de regalo (4012:13651): destino o acción por definir (canje de regalo).",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "decorativo",
+          "evidencia": "Fondo del hero: foto 'shutterstock_294453899 1' al 45 % (730×835, misma imagen placeholder de nube) + rectángulo degradado SVG 1920×845 encima (4012:13629).",
+          "estado": "propuesto"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 10,
+            "usos": 5
+          },
+          {
+            "valor": 28,
+            "usos": 4
+          },
+          {
+            "valor": 24,
+            "usos": 3
+          },
+          {
+            "valor": 14,
+            "usos": 5
+          },
+          {
+            "valor": 6,
+            "usos": 4
+          },
+          {
+            "valor": 107,
+            "usos": 1
+          },
+          {
+            "valor": 385,
+            "usos": 1
+          },
+          {
+            "valor": 88,
+            "usos": 1
+          },
+          {
+            "valor": 23,
+            "usos": 1
+          },
+          {
+            "valor": 97,
+            "usos": 1
+          },
+          {
+            "valor": 8,
+            "usos": 2
+          },
+          {
+            "valor": 42,
+            "usos": 1
+          },
+          {
+            "valor": 36,
+            "usos": 1
+          },
+          {
+            "valor": 4,
+            "usos": 2
+          },
+          {
+            "valor": 16,
+            "usos": 2
+          },
+          {
+            "valor": 11,
+            "usos": 2
+          },
+          {
+            "valor": 20,
+            "usos": 2
+          }
+        ],
+        "colores": [
+          {
+            "valor": "#000000",
+            "usos": 3
+          }
+        ],
+        "radios": [
+          {
+            "valor": 100,
+            "usos": 5
+          },
+          {
+            "valor": 4,
+            "usos": 2
+          },
+          {
+            "valor": 8,
+            "usos": 3
+          }
+        ]
+      }
+    },
+    {
+      "nombre": "para-ti",
+      "nodeId": "4013:13738",
+      "nombreCapa": "Para ti es pro",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 890
+      },
+      "referencia": "curso-angelita-pro/para-ti.ref.txt",
+      "captura": "curso-angelita-pro/para-ti.png",
+      "textos": [
+        {
+          "nodeId": "4013:13692",
+          "texto": "Angelita Pro es para ti si...",
+          "estilo": "2026/H1",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:13693",
+          "texto": "Sus siestas duran 30 minutos o menos — o son una lucha constante",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:13695",
+          "texto": "Tu bebé tiene entre 4 y 24 meses y se despierta varias veces por noche",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:13694",
+          "texto": "Necesitas apoyo real a cualquier hora, incluso a las 3am — sin citas, sin esperas",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:13696",
+          "texto": "Estás lista para dejar de vivir agotada, confundida y al límite",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:13697",
+          "texto": "Quieres avanzar sin dudar ni cometer errores que frustren tus avances",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "lista"
+        }
+      ],
+      "imagenes": [
+        {
+          "id": "para-ti-corazon",
+          "nodeId": "4013:13689",
+          "tipo": "svg",
+          "ancho": 236,
+          "alto": 214,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/para-ti-corazon.svg"
+        },
+        {
+          "id": "para-ti-icono-reloj-arena",
+          "nodeId": "4013:13720",
+          "tipo": "svg",
+          "ancho": 119,
+          "alto": 110,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/para-ti-icono-reloj-arena.svg"
+        },
+        {
+          "id": "para-ti-mancha-bebe",
+          "nodeId": "4013:13706",
+          "tipo": "svg",
+          "ancho": 101,
+          "alto": 90,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/para-ti-mancha-bebe.svg"
+        },
+        {
+          "id": "para-ti-icono-bebe-luna",
+          "nodeId": "4013:13708",
+          "tipo": "svg",
+          "ancho": 13,
+          "alto": 12,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/para-ti-icono-bebe-luna.svg"
+        },
+        {
+          "id": "para-ti-icono-bebe-cara",
+          "nodeId": "4013:13710",
+          "tipo": "svg",
+          "ancho": 40,
+          "alto": 36,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/para-ti-icono-bebe-cara.svg"
+        },
+        {
+          "id": "para-ti-icono-cuna",
+          "nodeId": "4013:13727",
+          "tipo": "svg",
+          "ancho": 119,
+          "alto": 110,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/para-ti-icono-cuna.svg"
+        },
+        {
+          "id": "para-ti-mancha-agotada",
+          "nodeId": "4013:13699",
+          "tipo": "svg",
+          "ancho": 101,
+          "alto": 90,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/para-ti-mancha-agotada.svg"
+        },
+        {
+          "id": "para-ti-icono-agotada",
+          "nodeId": "4013:13701",
+          "tipo": "svg",
+          "ancho": 30,
+          "alto": 45,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/para-ti-icono-agotada.svg"
+        },
+        {
+          "id": "para-ti-icono-biberon",
+          "nodeId": "4013:13730",
+          "tipo": "svg",
+          "ancho": 119,
+          "alto": 110,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/para-ti-icono-biberon.svg"
+        }
+      ],
+      "componentes": [],
+      "senales": [
+        {
+          "tipo": "repetidor",
+          "evidencia": "5 ítems hermanos (4013:13739–13743) de 282 px: ícono beige 119×110 + texto centrado, en flex-wrap 3 + 2. Dos íconos están armados con varias piezas (mancha rotada + dibujo) y tres son un solo SVG.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "decorativo",
+          "evidencia": "Corazón rosa rotado 13° detrás del título (4013:13689).",
+          "estado": "propuesto"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 88,
+            "usos": 1
+          },
+          {
+            "valor": 413,
+            "usos": 1
+          },
+          {
+            "valor": 112,
+            "usos": 1
+          },
+          {
+            "valor": 6,
+            "usos": 3
+          },
+          {
+            "valor": 12,
+            "usos": 2
+          },
+          {
+            "valor": 52,
+            "usos": 1
+          },
+          {
+            "valor": 124,
+            "usos": 1
+          }
+        ],
+        "colores": [],
+        "radios": []
+      }
+    },
+    {
+      "nombre": "que-incluye",
+      "nodeId": "4013:13796",
+      "nombreCapa": "Soluciones de Sueño",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 994
+      },
+      "referencia": "curso-angelita-pro/que-incluye.ref.txt",
+      "captura": "curso-angelita-pro/que-incluye.png",
+      "textos": [
+        {
+          "nodeId": "4013:13919",
+          "texto": "¿Qué incluye Angelita Pro?",
+          "estilo": "2026/H1",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:13891",
+          "texto": "Angelita — 2 semanas de acompañamiento 24/7 por WhatsApp. La activas cuando estés lista.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:13896",
+          "texto": "Videos de preparación e implementación: Bárbara te explica qué va a pasar cada noche.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:13901",
+          "texto": "Tu Plan de Sueño descargable: el paso a paso completo, siempre a mano.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:13906",
+          "texto": "Plan de siestas incluido: noches y siestas, tú decides si trabajas ambas o solo una.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:13911",
+          "texto": "Semanas adicionales a $27 USD cada una, si necesitas más tiempo.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:13914",
+          "texto": "Ver más",
+          "estilo": "2026/Body XL",
+          "color": "color/verde",
+          "rol": "boton"
+        }
+      ],
+      "imagenes": [
+        {
+          "id": "lista-check",
+          "nodeId": "4013:13890",
+          "tipo": "svg",
+          "ancho": 14,
+          "alto": 13,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/lista-check.svg"
+        },
+        {
+          "id": "lista-separador",
+          "nodeId": "4013:13892",
+          "tipo": "svg",
+          "ancho": 749,
+          "alto": 1,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/lista-separador.svg"
+        },
+        {
+          "id": "ver-mas-flecha",
+          "nodeId": "4013:13915",
+          "tipo": "svg",
+          "ancho": 10,
+          "alto": 10,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/ver-mas-flecha.svg"
+        }
+      ],
+      "componentes": [],
+      "senales": [
+        {
+          "tipo": "repetidor",
+          "evidencia": "5 filas iguales (4013:13888–13908): check + texto + separador de 748 px, y 'Ver más' con flecha abajo al final.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "'Ver más' (4013:13913) sugiere mostrar más ítems de la lista al hacer clic (no hay más ítems en el frame).",
+          "estado": "propuesto"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 83,
+            "usos": 1
+          },
+          {
+            "valor": 121,
+            "usos": 1
+          },
+          {
+            "valor": 153,
+            "usos": 1
+          },
+          {
+            "valor": 16,
+            "usos": 1
+          },
+          {
+            "valor": 20,
+            "usos": 1
+          },
+          {
+            "valor": 54,
+            "usos": 5
+          },
+          {
+            "valor": 10,
+            "usos": 6
+          }
+        ],
+        "colores": [],
+        "radios": []
+      }
+    },
+    {
+      "nombre": "como-funciona",
+      "nodeId": "4013:13962",
+      "nombreCapa": "Soluciones de Sueño",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 591
+      },
+      "referencia": "curso-angelita-pro/como-funciona.ref.txt",
+      "captura": "curso-angelita-pro/como-funciona.png",
+      "textos": [
+        {
+          "nodeId": "4013:13934",
+          "texto": "Cómo funciona",
+          "estilo": "2026/H1",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:13933",
+          "texto": "Angelita no trabaja sola. Es un sistema completo de tres partes.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "4013:13925",
+          "texto": "El plan: videos temáticos y Tu Plan de Sueño, disponibles desde tu compra.",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4013:13931",
+          "texto": "La activación: cuando estés lista, le dices a Angelita “esta noche empiezo”.",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4013:13932",
+          "texto": "Angelita: te acompaña 24/7 por WhatsApp durante 2 semanas.",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "parrafo"
+        }
+      ],
+      "imagenes": [
+        {
+          "id": "como-funciona-icono-libro",
+          "nodeId": "4013:13923",
+          "tipo": "svg",
+          "ancho": 75,
+          "alto": 75,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/como-funciona-icono-libro.svg"
+        },
+        {
+          "id": "como-funciona-icono-diamante",
+          "nodeId": "4013:13926",
+          "tipo": "svg",
+          "ancho": 75,
+          "alto": 75,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/como-funciona-icono-diamante.svg"
+        },
+        {
+          "id": "como-funciona-icono-video",
+          "nodeId": "4013:13928",
+          "tipo": "svg",
+          "ancho": 75,
+          "alto": 75,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/como-funciona-icono-video.svg"
+        }
+      ],
+      "componentes": [],
+      "senales": [
+        {
+          "tipo": "repetidor",
+          "evidencia": "3 columnas iguales de 250 px (ícono 75 px + texto) separadas por líneas verticales de 1 px color #492343 (green 80) dentro de una caja beige con radio 30.",
+          "estado": "propuesto"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 405,
+            "usos": 1
+          },
+          {
+            "valor": 88,
+            "usos": 1
+          },
+          {
+            "valor": 33,
+            "usos": 1
+          },
+          {
+            "valor": 55,
+            "usos": 1
+          },
+          {
+            "valor": 18,
+            "usos": 1
+          },
+          {
+            "valor": 12,
+            "usos": 1
+          },
+          {
+            "valor": 16,
+            "usos": 1
+          }
+        ],
+        "colores": [
+          {
+            "valor": "#492343",
+            "usos": 2
+          }
+        ],
+        "radios": [
+          {
+            "valor": 30,
+            "usos": 1
+          }
+        ]
+      }
+    },
+    {
+      "nombre": "conoce-angelito-pro-por-dentro",
+      "nodeId": "4013:14037",
+      "nombreCapa": "Soluciones de Sueño",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 843
+      },
+      "referencia": "curso-angelita-pro/conoce-angelito-pro-por-dentro.ref.txt",
+      "captura": "curso-angelita-pro/conoce-angelito-pro-por-dentro.png",
+      "textos": [
+        {
+          "nodeId": "4013:13964",
+          "texto": "Conoce Angelita Pro por dentro",
+          "estilo": "2026/H1",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:13966",
+          "texto": "En este video Bárbara te explica cómo usar Angelita y cómo es tu plan de sueño.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "4013:13983",
+          "texto": "Tienes 4 meses de acceso a los videos y activas a Angelita cuando tú decidas.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "I4013:13985;3711:6162",
+          "texto": "Quiero a Angelita",
+          "estilo": "2026/Label",
+          "color": "color/blanco",
+          "rol": "boton"
+        }
+      ],
+      "imagenes": [
+        {
+          "id": "conoce-video-madre-bebe",
+          "nodeId": "4013:13969",
+          "tipo": "jpg",
+          "ancho": 614,
+          "alto": 298,
+          "rol": "contenido",
+          "archivo": "curso-angelita-pro/assets/conoce-video-madre-bebe.jpg"
+        },
+        {
+          "id": "conoce-flecha-izquierda",
+          "nodeId": "4013:13975",
+          "tipo": "svg",
+          "ancho": 20,
+          "alto": 20,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/conoce-flecha-izquierda.svg"
+        },
+        {
+          "id": "conoce-flecha-derecha",
+          "nodeId": "4013:13979",
+          "tipo": "svg",
+          "ancho": 20,
+          "alto": 20,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/conoce-flecha-derecha.svg"
+        },
+        {
+          "id": "conoce-destello-blanco-derecha",
+          "nodeId": "4013:14058",
+          "tipo": "svg",
+          "ancho": 63,
+          "alto": 69,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/conoce-destello-blanco-derecha.svg"
+        },
+        {
+          "id": "conoce-destello-teal-derecha",
+          "nodeId": "4013:14073",
+          "tipo": "svg",
+          "ancho": 15,
+          "alto": 17,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/conoce-destello-teal-derecha.svg"
+        },
+        {
+          "id": "conoce-destello-dorado-derecha",
+          "nodeId": "4013:14076",
+          "tipo": "svg",
+          "ancho": 31,
+          "alto": 34,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/conoce-destello-dorado-derecha.svg"
+        },
+        {
+          "id": "conoce-destello-blanco-izquierda",
+          "nodeId": "4013:14039",
+          "tipo": "svg",
+          "ancho": 121,
+          "alto": 132,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/conoce-destello-blanco-izquierda.svg"
+        },
+        {
+          "id": "conoce-destello-dorado-izquierda",
+          "nodeId": "4013:14053",
+          "tipo": "svg",
+          "ancho": 34,
+          "alto": 25,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/conoce-destello-dorado-izquierda.svg"
+        },
+        {
+          "id": "conoce-destello-teal-izquierda",
+          "nodeId": "4013:14054",
+          "tipo": "svg",
+          "ancho": 26,
+          "alto": 17,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/conoce-destello-teal-izquierda.svg"
+        },
+        {
+          "id": "boton-flecha",
+          "nodeId": "I4013:13985;3711:6163",
+          "tipo": "svg",
+          "ancho": 18,
+          "alto": 18,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/boton-flecha.svg"
+        }
+      ],
+      "componentes": [
+        {
+          "nombre": "Botón",
+          "variante": "Frambuesa",
+          "props": {
+            "texto": "Quiero a Angelita",
+            "flecha": true
+          }
+        }
+      ],
+      "senales": [
+        {
+          "tipo": "slider",
+          "evidencia": "Imagen/video 614×298 con flechas izquierda/derecha (4013:13973) debajo: carrusel de videos. Nota del usuario: 'consideraria que esto sea un campo ACF repetater en que caso se vaya a usar acf.'",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "repetidor",
+          "evidencia": "Las flechas implican varios videos/imágenes; el frame muestra solo uno (foto madre con bebé, sin botón de play).",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "decorativo",
+          "evidencia": "6 destellos SVG posicionados en absoluto (3 a la izquierda, 3 a la derecha: blanco, dorado y teal) sobre fondo color/blush.",
+          "estado": "propuesto"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 10,
+            "usos": 2
+          },
+          {
+            "valor": 28,
+            "usos": 2
+          },
+          {
+            "valor": 24,
+            "usos": 2
+          },
+          {
+            "valor": 14,
+            "usos": 2
+          },
+          {
+            "valor": 56,
+            "usos": 1
+          },
+          {
+            "valor": 16,
+            "usos": 2
+          },
+          {
+            "valor": 20,
+            "usos": 2
+          }
+        ],
+        "colores": [],
+        "radios": [
+          {
+            "valor": 100,
+            "usos": 4
+          },
+          {
+            "valor": 10,
+            "usos": 2
+          }
+        ]
+      }
+    },
+    {
+      "nombre": "testimonios",
+      "nodeId": "4013:14078",
+      "nombreCapa": "Testimonio · Destacado",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 526
+      },
+      "referencia": "curso-angelita-pro/testimonios.ref.txt",
+      "captura": "curso-angelita-pro/testimonios.png",
+      "textos": [
+        {
+          "nodeId": "I4013:14078;3810:108",
+          "texto": "¡Historias reales de mamás felices!",
+          "estilo": "2026/H2",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "I4013:14078;3810:111",
+          "texto": "“Mi bebé duerme 11 horas de corrido. No lo puedo creer.”",
+          "estilo": null,
+          "color": "color/verde",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "I4013:14078;3810:112",
+          "texto": "María L., Colombia",
+          "estilo": "2026/Label",
+          "color": "color/texto-suave",
+          "rol": "pie"
+        }
+      ],
+      "imagenes": [
+        {
+          "id": "testimonios-nube-derecha",
+          "nodeId": "I4013:14078;3810:132",
+          "tipo": "svg",
+          "ancho": 240,
+          "alto": 104,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/testimonios-nube-derecha.svg"
+        },
+        {
+          "id": "testimonios-nube-izquierda",
+          "nodeId": "I4013:14078;3810:129",
+          "tipo": "svg",
+          "ancho": 280,
+          "alto": 168,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/testimonios-nube-izquierda.svg"
+        },
+        {
+          "id": "testimonios-nube-ojo-1",
+          "nodeId": "I4013:14078;3810:130",
+          "tipo": "svg",
+          "ancho": 21,
+          "alto": 4,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/testimonios-nube-ojo-1.svg"
+        },
+        {
+          "id": "testimonios-nube-ojo-2",
+          "nodeId": "I4013:14078;3810:131",
+          "tipo": "svg",
+          "ancho": 21,
+          "alto": 4,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/testimonios-nube-ojo-2.svg"
+        },
+        {
+          "id": "testimonios-puntos",
+          "nodeId": "I4013:14078;3810:114",
+          "tipo": "svg",
+          "ancho": 58,
+          "alto": 10,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/testimonios-puntos.svg"
+        },
+        {
+          "id": "testimonios-flecha-izquierda",
+          "nodeId": "I4013:14078;3810:120",
+          "tipo": "svg",
+          "ancho": 20,
+          "alto": 20,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/testimonios-flecha-izquierda.svg"
+        },
+        {
+          "id": "testimonios-flecha-derecha",
+          "nodeId": "I4013:14078;3810:124",
+          "tipo": "svg",
+          "ancho": 20,
+          "alto": 20,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/testimonios-flecha-derecha.svg"
+        }
+      ],
+      "componentes": [
+        {
+          "nombre": "Testimonio · Destacado",
+          "variante": null,
+          "props": {
+            "titulo": "¡Historias reales de mamás felices!",
+            "testimonio": "“Mi bebé duerme 11 horas de corrido. No lo puedo creer.”",
+            "nombre": "María L., Colombia"
+          }
+        }
+      ],
+      "senales": [
+        {
+          "tipo": "slider",
+          "evidencia": "Instancia del componente 'Testimonio · Destacado' (3810:107): un testimonio centrado con flechas izquierda/derecha y 4 puntos de paginación.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "repetidor",
+          "evidencia": "4 puntos = varios testimonios. Nota del usuario: 'Los testimonios de este curso son independientes.'",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "decorativo",
+          "evidencia": "'Detalle ZZZ': 15 letras 'Z' de texto rotadas (color/crema, opacidad 40 %) en curva al pie + 2 nubes SVG en las esquinas.",
+          "estado": "propuesto"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 20,
+            "usos": 2
+          },
+          {
+            "valor": 181,
+            "usos": 2
+          },
+          {
+            "valor": 96,
+            "usos": 2
+          },
+          {
+            "valor": 405,
+            "usos": 2
+          }
+        ],
+        "colores": [],
+        "radios": [
+          {
+            "valor": 100,
+            "usos": 2
+          }
+        ]
+      }
+    },
+    {
+      "nombre": "preguntas-frecuentes",
+      "nodeId": "4013:14164",
+      "nombreCapa": "Preguntas de la pagina",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 922
+      },
+      "referencia": "curso-angelita-pro/preguntas-frecuentes.ref.txt",
+      "captura": "curso-angelita-pro/preguntas-frecuentes.png",
+      "textos": [
+        {
+          "nodeId": "4013:14165",
+          "texto": "¡Respondemos a tus preguntas!",
+          "estilo": "2026/H1",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:14170",
+          "texto": "¿Va a llorar mi bebé?",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "4013:14203",
+          "texto": "Es probable que proteste — está aprendiendo algo nuevo. Pero ninguno de los dos métodos implica dejarlo llorando solo sin respuesta. La evidencia científica confirma que el entrenamiento de sueño es seguro, efectivo y no afecta el apego ni el desarrollo emocional del bebé.",
+          "estilo": "2026/Body",
+          "color": "color/texto-suave",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4013:14175",
+          "texto": "¿Cuándo se activa Angelita?",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "4013:14180",
+          "texto": "¿Funciona si doy pecho?",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "4013:14185",
+          "texto": "¿Puedo agregar más tiempo?",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "4013:14190",
+          "texto": "¿Angelita reemplaza a Bárbara?",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "4013:14193",
+          "texto": "Ver más",
+          "estilo": "2026/Body XL",
+          "color": "color/verde",
+          "rol": "boton"
+        }
+      ],
+      "imagenes": [
+        {
+          "id": "lista-check",
+          "nodeId": "4013:14169",
+          "tipo": "svg",
+          "ancho": 14,
+          "alto": 13,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/lista-check.svg"
+        },
+        {
+          "id": "lista-separador",
+          "nodeId": "4013:14171",
+          "tipo": "svg",
+          "ancho": 749,
+          "alto": 1,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/lista-separador.svg"
+        },
+        {
+          "id": "ver-mas-flecha",
+          "nodeId": "4013:14194",
+          "tipo": "svg",
+          "ancho": 10,
+          "alto": 10,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/ver-mas-flecha.svg"
+        }
+      ],
+      "componentes": [],
+      "senales": [
+        {
+          "tipo": "acordeon",
+          "evidencia": "5 preguntas con check y separador; la primera se ve abierta con su respuesta (color/texto-suave), las otras 4 cerradas sin respuesta en el frame. Fondo color/crema.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "repetidor",
+          "evidencia": "Lista de preguntas + 'Ver más' al final. Nota del usuario: 'las preguntas frecuentes tambien son independientes en este curso.'",
+          "estado": "propuesto"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 65,
+            "usos": 1
+          },
+          {
+            "valor": 457,
+            "usos": 1
+          },
+          {
+            "valor": 88,
+            "usos": 1
+          },
+          {
+            "valor": 16,
+            "usos": 1
+          },
+          {
+            "valor": 20,
+            "usos": 1
+          },
+          {
+            "valor": 10,
+            "usos": 6
+          },
+          {
+            "valor": 54,
+            "usos": 4
+          }
+        ],
+        "colores": [],
+        "radios": []
+      }
+    },
+    {
+      "nombre": "contenido-relacionado",
+      "nodeId": "4013:14319",
+      "nombreCapa": "Contenido relacionado",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 846
+      },
+      "referencia": "curso-angelita-pro/contenido-relacionado.ref.txt",
+      "captura": "curso-angelita-pro/contenido-relacionado.png",
+      "textos": [
+        {
+          "nodeId": "4013:14321",
+          "texto": "También podría interesarte...",
+          "estilo": "2026/H1",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:14322",
+          "texto": "Descubre otros cursos diseñados para acompañarte en diferentes etapas del desarrollo del sueño de tu bebé.",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "I4013:14328;3863:534",
+          "texto": "Asesoría personalizada",
+          "estilo": "2026/Label S",
+          "color": "color/blanco",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "4013:14329",
+          "texto": "A Dormir Por Fin\n(4 meses a 4 años)",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "I4013:14330;3711:6162",
+          "texto": "Más información",
+          "estilo": "2026/Label",
+          "color": "color/blanco",
+          "rol": "boton"
+        },
+        {
+          "nodeId": "I4013:14335;3863:534",
+          "texto": "Curso Online",
+          "estilo": "2026/Label S",
+          "color": "color/blanco",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "4013:14337",
+          "texto": "Recién Nacidos Go\n(0 a 12 semanas)",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "I4013:14338;3711:6162",
+          "texto": "Más información",
+          "estilo": "2026/Label",
+          "color": "color/blanco",
+          "rol": "boton"
+        },
+        {
+          "nodeId": "I4013:14345;3863:534",
+          "texto": "Curso Online",
+          "estilo": "2026/Label S",
+          "color": "color/blanco",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "4013:14346",
+          "texto": "Cursos de Horarios Ideales\n(4 meses a 3 años)",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "I4013:14341;3711:6162",
+          "texto": "Más información",
+          "estilo": "2026/Label",
+          "color": "color/blanco",
+          "rol": "boton"
+        }
+      ],
+      "imagenes": [
+        {
+          "id": "relacionado-fondo-lunas",
+          "nodeId": "4013:14319",
+          "tipo": "png",
+          "ancho": 1920,
+          "alto": 846,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/relacionado-fondo-lunas.png"
+        },
+        {
+          "id": "relacionado-a-dormir-por-fin",
+          "nodeId": "4013:14327",
+          "tipo": "jpg",
+          "ancho": 346,
+          "alto": 370,
+          "rol": "contenido",
+          "archivo": "curso-angelita-pro/assets/relacionado-a-dormir-por-fin.jpg"
+        },
+        {
+          "id": "relacionado-recien-nacidos-go",
+          "nodeId": "4013:14334",
+          "tipo": "jpg",
+          "ancho": 346,
+          "alto": 370,
+          "rol": "contenido",
+          "archivo": "curso-angelita-pro/assets/relacionado-recien-nacidos-go.jpg"
+        },
+        {
+          "id": "relacionado-horarios-ideales",
+          "nodeId": "4013:14344",
+          "tipo": "png",
+          "ancho": 346,
+          "alto": 370,
+          "rol": "contenido",
+          "archivo": "curso-angelita-pro/assets/relacionado-horarios-ideales.png"
+        },
+        {
+          "id": "boton-flecha",
+          "nodeId": "I4013:14330;3711:6163",
+          "tipo": "svg",
+          "ancho": 18,
+          "alto": 18,
+          "rol": "decorativa",
+          "archivo": "curso-angelita-pro/assets/boton-flecha.svg"
+        }
+      ],
+      "componentes": [
+        {
+          "nombre": "Etiqueta",
+          "variante": "Esquina",
+          "props": {
+            "texto": "Asesoría personalizada",
+            "icono": null
+          }
+        },
+        {
+          "nombre": "Botón",
+          "variante": "Frambuesa",
+          "props": {
+            "texto": "Más información",
+            "flecha": true
+          }
+        },
+        {
+          "nombre": "Etiqueta",
+          "variante": "Esquina",
+          "props": {
+            "texto": "Curso Online",
+            "icono": null
+          }
+        },
+        {
+          "nombre": "Botón",
+          "variante": "Frambuesa",
+          "props": {
+            "texto": "Más información",
+            "flecha": true
+          }
+        },
+        {
+          "nombre": "Etiqueta",
+          "variante": "Esquina",
+          "props": {
+            "texto": "Curso Online",
+            "icono": null
+          }
+        },
+        {
+          "nombre": "Botón",
+          "variante": "Frambuesa",
+          "props": {
+            "texto": "Más información",
+            "flecha": true
+          }
+        }
+      ],
+      "senales": [
+        {
+          "tipo": "listado",
+          "evidencia": "3 tarjetas de curso (imagen 346×370 radio 20 con Etiqueta Esquina, nombre + rango de edad, botón 'Más información'): cursos relacionados, probablemente dinámicos (Tutor/Woo). Nota del usuario: 'Que rija 3 card de contenido relacionado.'",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "repetidor",
+          "evidencia": "3 tarjetas hermanas idénticas (4013:14324, 14331, 14339).",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "decorativo",
+          "evidencia": "Fondo de la sección: imagen PNG 1920×881 con lunas rosadas sobre blush (relleno del frame).",
+          "estado": "propuesto"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 18,
+            "usos": 4
+          },
+          {
+            "valor": 16,
+            "usos": 4
+          },
+          {
+            "valor": 7,
+            "usos": 4
+          },
+          {
+            "valor": 10,
+            "usos": 4
+          },
+          {
+            "valor": 28,
+            "usos": 4
+          },
+          {
+            "valor": 24,
+            "usos": 4
+          },
+          {
+            "valor": 14,
+            "usos": 4
+          },
+          {
+            "valor": 47,
+            "usos": 1
+          },
+          {
+            "valor": 88,
+            "usos": 1
+          },
+          {
+            "valor": 20,
+            "usos": 1
+          }
+        ],
+        "colores": [],
+        "radios": [
+          {
+            "valor": 16,
+            "usos": 4
+          },
+          {
+            "valor": 100,
+            "usos": 4
+          },
+          {
+            "valor": 20,
+            "usos": 11
+          }
+        ]
+      }
+    }
+  ]
+}

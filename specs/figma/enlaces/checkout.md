@@ -1,4 +1,6 @@
-# Figma: Compra - Datos y pago
+# Figma: checkout
+
+<!-- Título original del archivo: Compra - Datos y pago -->
 
 - **Frame de la página:** https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4156-9963&t=lySNWh2dFHTQgiTC-4
 

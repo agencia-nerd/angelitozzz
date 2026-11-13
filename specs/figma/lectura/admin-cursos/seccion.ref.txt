@@ -1,0 +1,296 @@
+// Figma get_design_context — nodo 4184:29688 (seccion: "Alumna · Escritorio", lista de cursos del administrador)
+// Assets: rutas relativas a specs/figma/lectura/admin-cursos/
+const imgFlecha = "assets/boton-flecha.svg";
+const imgImagen = "assets/tarjeta-angelita-pro.jpg";
+const imgImagen1 = "assets/tarjeta-recien-nacidos-go.jpg";
+const imgImagen2 = "assets/tarjeta-horarios-4-9.jpg";
+const imgImagen3 = "assets/tarjeta-horarios-9-15.jpg";
+const imgMaterialSymbolsLock = "assets/menu-icono-escritorio.svg";
+const imgMdiBooks = "assets/menu-icono-cursos.svg";
+const imgMdiAccountCog = "assets/boton-crear-curso-icono.svg";
+const imgFrame = "assets/tarjeta-icono-estudiantes.svg";
+const imgFrame1 = "assets/tarjeta-icono-fecha.svg";
+const imgFrame2 = "assets/tarjeta-icono-mas-opciones.svg";
+
+type BotonProps = {
+  className?: string;
+  flecha?: boolean;
+  texto?: string;
+  tipo?: "Claro";
+};
+
+function Boton({ className, flecha = true, texto = "Texto del botón", tipo = "Claro" }: BotonProps) {
+  return (
+    <div className={className || "bg-[var(--color\\/crema,#f8f6f1)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px]"} data-node-id="3704:15616">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3704:15617">
+        {texto}
+      </p>
+      {flecha && (
+        <div className="relative shrink-0 size-[18px]" data-node-id="3704:15618" data-name="Flecha">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function AlumnaEscritorio() {
+  return (
+    <div className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex flex-col items-center px-[135px] py-[120px] relative size-full" data-node-id="4184:29688" data-name="Alumna · Escritorio">
+      <div className="content-stretch flex gap-[60px] h-[915px] items-start relative shrink-0 w-[1649px]" data-node-id="4184:29689">
+        <div className="border-black border-r border-solid content-stretch flex flex-col h-[915px] items-start justify-between pr-[55px] relative shrink-0 w-[458px]" data-node-id="4184:29690">
+          <div className="content-stretch flex flex-col gap-[80px] items-start relative shrink-0 w-[320px]" data-node-id="4184:29691">
+            <div className="[word-break:break-word] content-stretch flex flex-col gap-[9px] items-start not-italic relative shrink-0 w-[201px]" data-node-id="4184:29692">
+              <p className="font-['Barlow_Condensed:Regular'] h-[21px] leading-[1.5] relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] w-full" data-node-id="4184:29693">
+                Hola,
+              </p>
+              <p className="font-['Barlow_Condensed:SemiBold'] h-[60px] leading-[1.1] relative shrink-0 text-[50px] text-[color:var(--color\/verde,#234549)] w-full" data-node-id="4184:29694">
+                Bárbara
+              </p>
+            </div>
+            <div className="content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-full" data-node-id="4184:29695" data-name="Admin-Bar">
+              <div className="bg-[var(--color\/crema,#f8f6f1)] h-[49px] relative rounded-[15px] shrink-0 w-full" data-node-id="4184:30314">
+                <div className="absolute bg-[var(--color\/teal,#9cb0b0)] left-[19px] overflow-clip rounded-[45px] size-[36px] top-[6px]" data-node-id="4184:30315" data-name="ICONO">
+                  <div className="absolute left-[6px] size-[24px] top-[6px]" data-node-id="4184:30316" data-name="material-symbols:lock">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMaterialSymbolsLock} />
+                  </div>
+                </div>
+                <p className="[word-break:break-word] absolute font-['Barlow_Condensed:Regular'] leading-[1.5] left-[70px] not-italic text-[20px] text-[color:var(--color\/texto,black)] top-[7.5px] whitespace-nowrap" data-node-id="4184:30318">
+                  Escritorio
+                </p>
+              </div>
+              <div className="bg-[var(--color\/verde,#234549)] h-[50px] relative rounded-[15px] shrink-0 w-full" data-node-id="4184:30304">
+                <div className="absolute bg-[var(--color\/blanco,white)] left-[19px] overflow-clip rounded-[45px] size-[36px] top-[6px]" data-node-id="4184:30305" data-name="ICONO">
+                  <div className="absolute left-[6px] size-[24px] top-[6px]" data-node-id="4184:30306" data-name="mdi:books">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMdiBooks} />
+                  </div>
+                </div>
+                <p className="[word-break:break-word] absolute font-['Barlow_Condensed:Medium'] h-[28px] leading-[1.3] left-[70px] not-italic text-[22px] text-[color:var(--color\/blanco,white)] top-[12px] w-[58px]" data-node-id="4184:30308">{`Cursos `}</p>
+              </div>
+            </div>
+          </div>
+          <Boton className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" texto="Cerrar sesión" />
+        </div>
+        <div className="content-stretch flex flex-col items-start relative shrink-0 w-[1131px]" data-node-id="4184:29718">
+          <div className="content-stretch flex flex-col items-start relative shrink-0 w-[1033px]" data-node-id="4184:29719">
+            <div className="content-stretch flex flex-col gap-[49px] items-start relative shrink-0 w-[1108px]" data-node-id="4184:29720">
+              <div className="content-stretch flex flex-col items-end relative shrink-0 w-full" data-node-id="4184:29721">
+                <div className="content-stretch flex items-center relative shrink-0" data-node-id="4184:29722">
+                  <div className="bg-[var(--color\/verde,#234549)] content-stretch flex flex-col gap-[8px] h-[94px] items-center justify-center pb-[10px] pt-[11px] px-[10px] relative rounded-[15px] shrink-0 w-[173px]" data-node-id="4184:29723">
+                    <div className="relative shrink-0 size-[35px]" data-node-id="4184:29724" data-name="mdi:account-cog">
+                      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMdiAccountCog} />
+                    </div>
+                    <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/blanco,white)] text-center whitespace-nowrap" data-node-id="4184:29726">
+                      Crear nuevo curso
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="content-start flex flex-wrap gap-[20px] items-start relative shrink-0 w-[1107px]" data-node-id="4184:30019">
+                <div className="bg-[var(--color\/blanco,white)] border border-[var(--color\/beige,#d7d0b5)] border-solid content-stretch flex flex-col items-start relative rounded-[20px] shrink-0 w-[355px]" data-node-id="4184:30020">
+                  <div className="h-[190px] relative shrink-0 w-full" data-node-id="4184:30021" data-name="Imagen">
+                    <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImagen} />
+                  </div>
+                  <div className="content-stretch flex flex-col gap-[10px] items-start overflow-clip p-[20px] relative shrink-0 w-full" data-node-id="4184:30022" data-name="Frame">
+                    <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[22px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="4184:30023">
+                      Angelita Pro
+                    </p>
+                    <div className="content-stretch flex gap-[16px] items-center overflow-clip relative shrink-0" data-node-id="4184:30024" data-name="Frame">
+                      <div className="content-stretch flex gap-[6px] items-center overflow-clip relative shrink-0" data-node-id="4184:30025" data-name="Frame">
+                        <div className="relative shrink-0 size-[16px]" data-node-id="4184:30026" data-name="Frame">
+                          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                        </div>
+                        <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.4] not-italic relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)] whitespace-nowrap" data-node-id="4184:30031">
+                          60 estudiantes
+                        </p>
+                      </div>
+                      <div className="content-stretch flex gap-[6px] items-center overflow-clip relative shrink-0" data-node-id="4184:30032" data-name="Frame">
+                        <div className="relative shrink-0 size-[16px]" data-node-id="4184:30033" data-name="Frame">
+                          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame1} />
+                        </div>
+                        <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.4] not-italic relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)] whitespace-nowrap" data-node-id="4184:30038">
+                          10/05/2025
+                        </p>
+                      </div>
+                    </div>
+                    <div className="h-[8px] relative shrink-0 w-[10px]" data-node-id="4184:30039" data-name="Empuje" />
+                    <div className="content-stretch flex items-center justify-between overflow-clip pt-[6px] relative shrink-0 w-full" data-node-id="4184:30040" data-name="Frame">
+                      <div className="[word-break:break-word] content-stretch flex flex-col items-start not-italic overflow-clip relative shrink-0 whitespace-nowrap" data-node-id="4184:30041" data-name="Frame">
+                        <p className="font-['Barlow_Condensed:Regular'] leading-[1.4] relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)]" data-node-id="4184:30042">
+                          Precio
+                        </p>
+                        <p className="font-['Barlow_Condensed:Medium'] leading-[1.25] relative shrink-0 text-[26px] text-[color:var(--color\/verde,#234549)]" data-node-id="4184:30043">
+                          $67
+                        </p>
+                      </div>
+                      <div className="bg-[var(--color\/crema,#f8f6f1)] border border-[var(--color\/beige,#d7d0b5)] border-solid content-stretch flex items-center justify-center overflow-clip relative rounded-[100px] shrink-0 size-[40px]" data-node-id="4184:30044" data-name="Más opciones">
+                        <div className="relative shrink-0 size-[20px]" data-node-id="4184:30045" data-name="Frame">
+                          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-[var(--color\/blanco,white)] border border-[var(--color\/beige,#d7d0b5)] border-solid content-stretch flex flex-col items-start relative rounded-[20px] shrink-0 w-[355px]" data-node-id="4184:30049">
+                  <div className="h-[190px] relative shrink-0 w-full" data-node-id="4184:30050" data-name="Imagen">
+                    <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImagen1} />
+                  </div>
+                  <div className="content-stretch flex flex-col gap-[10px] items-start overflow-clip p-[20px] relative shrink-0 w-full" data-node-id="4184:30051" data-name="Frame">
+                    <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[22px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="4184:30052">
+                      Recién Nacidos Go
+                    </p>
+                    <div className="content-stretch flex gap-[16px] items-center overflow-clip relative shrink-0" data-node-id="4184:30053" data-name="Frame">
+                      <div className="content-stretch flex gap-[6px] items-center overflow-clip relative shrink-0" data-node-id="4184:30054" data-name="Frame">
+                        <div className="relative shrink-0 size-[16px]" data-node-id="4184:30055" data-name="Frame">
+                          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                        </div>
+                        <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.4] not-italic relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)] whitespace-nowrap" data-node-id="4184:30060">
+                          60 estudiantes
+                        </p>
+                      </div>
+                      <div className="content-stretch flex gap-[6px] items-center overflow-clip relative shrink-0" data-node-id="4184:30061" data-name="Frame">
+                        <div className="relative shrink-0 size-[16px]" data-node-id="4184:30062" data-name="Frame">
+                          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame1} />
+                        </div>
+                        <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.4] not-italic relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)] whitespace-nowrap" data-node-id="4184:30067">
+                          10/05/2025
+                        </p>
+                      </div>
+                    </div>
+                    <div className="h-[8px] relative shrink-0 w-[10px]" data-node-id="4184:30068" data-name="Empuje" />
+                    <div className="content-stretch flex items-center justify-between overflow-clip pt-[6px] relative shrink-0 w-full" data-node-id="4184:30069" data-name="Frame">
+                      <div className="[word-break:break-word] content-stretch flex flex-col items-start not-italic overflow-clip relative shrink-0 whitespace-nowrap" data-node-id="4184:30070" data-name="Frame">
+                        <p className="font-['Barlow_Condensed:Regular'] leading-[1.4] relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)]" data-node-id="4184:30071">
+                          Precio
+                        </p>
+                        <p className="font-['Barlow_Condensed:Medium'] leading-[1.25] relative shrink-0 text-[26px] text-[color:var(--color\/verde,#234549)]" data-node-id="4184:30072">
+                          $97
+                        </p>
+                      </div>
+                      <div className="bg-[var(--color\/crema,#f8f6f1)] border border-[var(--color\/beige,#d7d0b5)] border-solid content-stretch flex items-center justify-center overflow-clip relative rounded-[100px] shrink-0 size-[40px]" data-node-id="4184:30073" data-name="Más opciones">
+                        <div className="relative shrink-0 size-[20px]" data-node-id="4184:30074" data-name="Frame">
+                          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-[var(--color\/blanco,white)] border border-[var(--color\/beige,#d7d0b5)] border-solid content-stretch flex flex-col items-start relative rounded-[20px] shrink-0 w-[355px]" data-node-id="4184:30078">
+                  <div className="h-[190px] relative shrink-0 w-full" data-node-id="4184:30079" data-name="Imagen">
+                    <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImagen2} />
+                  </div>
+                  <div className="content-stretch flex flex-col gap-[10px] items-start overflow-clip p-[20px] relative shrink-0 w-full" data-node-id="4184:30080" data-name="Frame">
+                    <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[22px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="4184:30081">
+                      Horarios · 4 a 9 meses
+                    </p>
+                    <div className="content-stretch flex gap-[16px] items-center overflow-clip relative shrink-0" data-node-id="4184:30082" data-name="Frame">
+                      <div className="content-stretch flex gap-[6px] items-center overflow-clip relative shrink-0" data-node-id="4184:30083" data-name="Frame">
+                        <div className="relative shrink-0 size-[16px]" data-node-id="4184:30084" data-name="Frame">
+                          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                        </div>
+                        <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.4] not-italic relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)] whitespace-nowrap" data-node-id="4184:30089">
+                          60 estudiantes
+                        </p>
+                      </div>
+                      <div className="content-stretch flex gap-[6px] items-center overflow-clip relative shrink-0" data-node-id="4184:30090" data-name="Frame">
+                        <div className="relative shrink-0 size-[16px]" data-node-id="4184:30091" data-name="Frame">
+                          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame1} />
+                        </div>
+                        <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.4] not-italic relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)] whitespace-nowrap" data-node-id="4184:30096">
+                          10/05/2025
+                        </p>
+                      </div>
+                    </div>
+                    <div className="h-[8px] relative shrink-0 w-[10px]" data-node-id="4184:30097" data-name="Empuje" />
+                    <div className="content-stretch flex items-center justify-between overflow-clip pt-[6px] relative shrink-0 w-full" data-node-id="4184:30098" data-name="Frame">
+                      <div className="[word-break:break-word] content-stretch flex flex-col items-start not-italic overflow-clip relative shrink-0 whitespace-nowrap" data-node-id="4184:30099" data-name="Frame">
+                        <p className="font-['Barlow_Condensed:Regular'] leading-[1.4] relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)]" data-node-id="4184:30100">
+                          Precio
+                        </p>
+                        <p className="font-['Barlow_Condensed:Medium'] leading-[1.25] relative shrink-0 text-[26px] text-[color:var(--color\/verde,#234549)]" data-node-id="4184:30101">
+                          $37
+                        </p>
+                      </div>
+                      <div className="bg-[var(--color\/crema,#f8f6f1)] border border-[var(--color\/beige,#d7d0b5)] border-solid content-stretch flex items-center justify-center overflow-clip relative rounded-[100px] shrink-0 size-[40px]" data-node-id="4184:30102" data-name="Más opciones">
+                        <div className="relative shrink-0 size-[20px]" data-node-id="4184:30103" data-name="Frame">
+                          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-[var(--color\/blanco,white)] border border-[var(--color\/beige,#d7d0b5)] border-solid content-stretch flex flex-col items-start relative rounded-[20px] shrink-0 w-[355px]" data-node-id="4184:30107">
+                  <div className="h-[190px] relative shrink-0 w-full" data-node-id="4184:30108" data-name="Imagen">
+                    <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImagen3} />
+                  </div>
+                  <div className="content-stretch flex flex-col gap-[10px] items-start overflow-clip p-[20px] relative shrink-0 w-full" data-node-id="4184:30109" data-name="Frame">
+                    <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[22px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="4184:30110">
+                      Horarios · 9 a 15 meses
+                    </p>
+                    <div className="content-stretch flex gap-[16px] items-center overflow-clip relative shrink-0" data-node-id="4184:30111" data-name="Frame">
+                      <div className="content-stretch flex gap-[6px] items-center overflow-clip relative shrink-0" data-node-id="4184:30112" data-name="Frame">
+                        <div className="relative shrink-0 size-[16px]" data-node-id="4184:30113" data-name="Frame">
+                          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+                        </div>
+                        <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.4] not-italic relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)] whitespace-nowrap" data-node-id="4184:30118">
+                          60 estudiantes
+                        </p>
+                      </div>
+                      <div className="content-stretch flex gap-[6px] items-center overflow-clip relative shrink-0" data-node-id="4184:30119" data-name="Frame">
+                        <div className="relative shrink-0 size-[16px]" data-node-id="4184:30120" data-name="Frame">
+                          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame1} />
+                        </div>
+                        <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.4] not-italic relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)] whitespace-nowrap" data-node-id="4184:30125">
+                          10/05/2025
+                        </p>
+                      </div>
+                    </div>
+                    <div className="h-[8px] relative shrink-0 w-[10px]" data-node-id="4184:30126" data-name="Empuje" />
+                    <div className="content-stretch flex items-center justify-between overflow-clip pt-[6px] relative shrink-0 w-full" data-node-id="4184:30127" data-name="Frame">
+                      <div className="[word-break:break-word] content-stretch flex flex-col items-start not-italic overflow-clip relative shrink-0 whitespace-nowrap" data-node-id="4184:30128" data-name="Frame">
+                        <p className="font-['Barlow_Condensed:Regular'] leading-[1.4] relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)]" data-node-id="4184:30129">
+                          Precio
+                        </p>
+                        <p className="font-['Barlow_Condensed:Medium'] leading-[1.25] relative shrink-0 text-[26px] text-[color:var(--color\/verde,#234549)]" data-node-id="4184:30130">
+                          $37
+                        </p>
+                      </div>
+                      <div className="bg-[var(--color\/crema,#f8f6f1)] border border-[var(--color\/beige,#d7d0b5)] border-solid content-stretch flex items-center justify-center overflow-clip relative rounded-[100px] shrink-0 size-[40px]" data-node-id="4184:30131" data-name="Más opciones">
+                        <div className="relative shrink-0 size-[20px]" data-node-id="4184:30132" data-name="Frame">
+                          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// =====================================================================
+// NOTIFICACIÓN AL PUBLICAR UN CURSO (nota del usuario) — nodo 3687:4671 "Aviso"
+// Captura: seccion.notificacion.png
+// =====================================================================
+const imgIconoCheckc = "assets/aviso-icono-check.svg";
+const imgIconoX = "assets/aviso-icono-cerrar.svg";
+
+export default function Aviso() {
+  return (
+    <div className="bg-[var(--color\/verde,#234549)] content-stretch flex gap-[14px] items-center overflow-clip px-[22px] py-[16px] relative rounded-[14px] shadow-[0px_12px_32px_0px_rgba(0,0,0,0.14)] size-full" data-node-id="3687:4671" data-name="Aviso">
+      <div className="relative shrink-0 size-[22px]" data-node-id="3687:4672" data-name="Ícono checkc">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIconoCheckc} />
+      </div>
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap" data-node-id="3687:4675">
+        ¡Curso publicado! Ya está visible en Soluciones de Sueño.
+      </p>
+      <div className="relative shrink-0 size-[18px]" data-node-id="3687:4676" data-name="Ícono x">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIconoX} />
+      </div>
+    </div>
+  );
+}

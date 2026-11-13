@@ -1,0 +1,111 @@
+// Las tres fotos son las mismas descargas que la sección etapas (mismo hash): se reutilizan sus archivos.
+// El nodo 3653:2355 es un grupo de 568x652 dibujado en (676, 230) de un lienzo de 1920: las posiciones absolutas son de ese lienzo.
+// Los "Mask group" (estrellas) miden 90x74 sobre cada miniatura (get_metadata); los inset en % del código no reflejan ese tamaño.
+const imgFlecha = "assets/boton-flecha.svg";
+const imgPortraitYoungFamily1 = "assets/etapas-4-a-9-meses.jpg";
+const imgCuteKidWithStuffedAnimal1 = "assets/etapas-15-a-36-meses.jpg";
+const imgSweetDarkCurlyHairedBabyGirlPaleBlueClothSittingGreyCouchHomeClappingHandsKidHomeChildhoodConcept1 = "assets/etapas-9-a-15-meses.jpg";
+const imgIconamoonCloseLight = "assets/modal-edad-cerrar.svg";
+const imgMaskGroup = "assets/modal-edad-estrellas.svg";
+const imgLine60 = "assets/modal-edad-linea.svg";
+const imgVector = "assets/modal-edad-check.svg";
+
+type BotonProps = {
+  className?: string;
+  flecha?: boolean;
+  texto?: string;
+  tipo?: "Frambuesa";
+};
+
+function Boton({ className, flecha = true, texto = "Texto del botón", tipo = "Frambuesa" }: BotonProps) {
+  return (
+    <div className={className || "bg-[var(--color\\/frambuesa,#a8566a)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px]"} data-node-id="3711:6161">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="3711:6162">
+        {texto}
+      </p>
+      {flecha && (
+        <div className="relative shrink-0 size-[18px]" data-node-id="3711:6163" data-name="Flecha">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function Group329() {
+  return (
+    <div className="contents relative size-full" data-node-id="3653:2355">
+      <div className="absolute bg-[var(--color\/crema,#f8f6f1)] h-[652px] left-[676px] rounded-[20px] top-[230px] w-[568px]" data-node-id="3653:2356" />
+      <div className="absolute left-[1184px] size-[41px] top-[252px]" data-node-id="3653:2357" data-name="iconamoon:close-light">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIconamoonCloseLight} />
+      </div>
+      <Boton className="absolute bg-[var(--color\/frambuesa,#a8566a)] content-stretch flex gap-[10px] items-center left-[857px] pl-[28px] pr-[24px] py-[14px] rounded-[100px] top-[794px]" texto="Agregar al carrito" />
+      <p className="-translate-x-1/2 [word-break:break-word] absolute font-['Barlow_Condensed:Regular'] leading-[1.5] left-[1032px] not-italic text-[18px] text-[color:var(--color\/texto,black)] text-center top-[711px] whitespace-nowrap" data-node-id="3653:2367">
+        Total:
+      </p>
+      <p className="-translate-x-1/2 [word-break:break-word] absolute font-['Barlow_Condensed:Regular'] leading-[1.5] left-[1128.5px] not-italic text-[24px] text-[color:var(--color\/texto,black)] text-center top-[706px] whitespace-nowrap" data-node-id="3653:2368">
+        $67.00
+      </p>
+      <div className="absolute bg-[#e9e4da] h-[33px] left-[986px] rounded-[2px] top-[741px] w-[188px]" data-node-id="3653:2369" />
+      <p className="[word-break:break-word] absolute font-['Barlow_Condensed:Regular'] leading-[1.5] left-[856px] not-italic text-[16px] text-[color:var(--color\/texto,black)] top-[406px] whitespace-nowrap" data-node-id="3653:2370">
+        4 a 9 meses
+      </p>
+      <p className="[word-break:break-word] absolute font-['Barlow_Condensed:Regular'] leading-[1.5] left-[856px] not-italic text-[16px] text-[color:var(--color\/texto,black)] top-[508px] whitespace-nowrap" data-node-id="3653:2371">
+        9 a 15 meses
+      </p>
+      <p className="[word-break:break-word] absolute font-['Barlow_Condensed:Regular'] leading-[1.5] left-[856px] not-italic text-[16px] text-[color:var(--color\/texto,black)] top-[610px] whitespace-nowrap" data-node-id="3653:2372">
+        15 a 36 meses
+      </p>
+      <p className="[word-break:break-word] absolute font-['Barlow_Condensed:Regular'] leading-[1.5] left-[calc(50%-253px)] not-italic text-[24px] text-[color:var(--color\/verde,#234549)] top-[257px] whitespace-nowrap" data-node-id="3653:2373">
+        Selecciona la edad de tu bebé
+      </p>
+      <p className="[word-break:break-word] absolute font-['Barlow_Condensed:Regular'] leading-[1.5] left-[708px] not-italic text-[16px] text-[color:var(--color\/texto,black)] top-[303px] w-[433px]" data-node-id="3653:2374">
+        Por la compra de dos o tres cursos, consigue un precio especial.
+      </p>
+      <div className="absolute border border-black border-solid left-[711px] rounded-[8px] size-[24px] top-[404px]" data-node-id="3653:2375" />
+      <div className="absolute border border-black border-solid left-[711px] rounded-[8px] size-[24px] top-[504px]" data-node-id="3653:2376" />
+      <div className="absolute border border-black border-solid left-[711px] rounded-[8px] size-[24px] top-[607px]" data-node-id="3653:2377" />
+      <div className="absolute contents left-[754px] top-[379px]" data-node-id="3653:2378">
+        <div className="absolute h-[74px] left-[754px] rounded-[12px] top-[379px] w-[90px]" data-node-id="3653:2379" data-name="portrait-young-family 1">
+          <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[12px] size-full" src={imgPortraitYoungFamily1} />
+        </div>
+        <div className="absolute inset-[5.41%_56.04%_93.53%_39.27%]" data-node-id="3653:2380" data-name="Mask group">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMaskGroup} />
+        </div>
+      </div>
+      <div className="absolute contents left-[754px] top-[582px]" data-node-id="3653:2385">
+        <div className="absolute h-[74px] left-[754px] rounded-[12px] top-[582px] w-[90px]" data-node-id="3653:2386" data-name="cute-kid-with-stuffed-animal 1">
+          <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[12px] size-full" src={imgCuteKidWithStuffedAnimal1} />
+        </div>
+        <div className="absolute inset-[8.31%_56.04%_90.64%_39.27%]" data-node-id="3653:2387" data-name="Mask group">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMaskGroup} />
+        </div>
+      </div>
+      <div className="absolute h-0 left-[711px] top-[693px] w-[463px]" data-node-id="3653:2392">
+        <div className="absolute inset-[-1px_0_0_0]">
+          <img alt="" className="block max-w-none size-full" src={imgLine60} />
+        </div>
+      </div>
+      <div className="absolute h-[12.916px] left-[716px] top-[409px] w-[13.751px]" data-node-id="3653:2393" data-name="Vector">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+      </div>
+      <div className="absolute h-[12.916px] left-[716px] top-[509px] w-[13.751px]" data-node-id="3653:2394" data-name="Vector">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+      </div>
+      <div className="absolute contents left-[754px] top-[480px]" data-node-id="3653:2395">
+        <div className="absolute h-[74px] left-[754px] rounded-[12px] top-[480px] w-[90px]" data-node-id="3653:2396" data-name="sweet-dark-curly-haired-baby-girl-pale-blue-cloth-sitting-grey-couch-home-clapping-hands-kid-home-childhood-concept 1">
+          <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[12px] size-full" src={imgSweetDarkCurlyHairedBabyGirlPaleBlueClothSittingGreyCouchHomeClappingHandsKidHomeChildhoodConcept1} />
+        </div>
+        <div className="absolute inset-[6.85%_56.04%_92.09%_39.27%]" data-node-id="3653:2397" data-name="Mask group">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMaskGroup} />
+        </div>
+      </div>
+      <p className="-translate-x-1/2 [word-break:break-word] absolute font-['Barlow_Condensed:Regular'] leading-[1.5] left-[1082.5px] not-italic text-[16px] text-[color:var(--color\/texto,black)] text-center top-[746px] whitespace-nowrap" data-node-id="3653:2402">
+        Estás ahorrando $7.00
+      </p>
+    </div>
+  );
+}
+
+// Component descriptions (Figma):
+// Botón (3704:15621): Botón 2026 · Frambuesa (CTA principal sobre fondos claros) · Verde (sobre teal) · Claro (sobre verde oscuro) · Secundario (contorno).

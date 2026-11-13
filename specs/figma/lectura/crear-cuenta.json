@@ -1,0 +1,124 @@
+{
+  "formato": 1,
+  "pagina": "crear-cuenta",
+  "fuente": {
+    "fileKey": "FumWuCPT1PPDg5vBTYoufA",
+    "nodeId": "4156:23934",
+    "ancho": 1920,
+    "alto": 1799
+  },
+  "tokens": {
+    "colores": {
+      "color/texto": "#000000",
+      "color/teal": "#9cb0b0",
+      "color/verde": "#234549",
+      "color/blanco": "#ffffff",
+      "color/beige": "#d7d0b5",
+      "color/frambuesa": "#a8566a",
+      "color/crema": "#f8f6f1",
+      "color/blush": "#f1dbd5",
+      "color/texto-suave": "#6b6b6b",
+      "green 20": "#9EC0C0",
+      "green 80": "#492343"
+    },
+    "texto": {
+      "2026/Body S": { "familia": "Barlow Condensed", "peso": 400, "tamano": 16, "interlineado": 1.5, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Body": { "familia": "Barlow Condensed", "peso": 400, "tamano": 18, "interlineado": 1.5, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Label S": { "familia": "Barlow Condensed", "peso": 500, "tamano": 15, "interlineado": 1.3, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Body L": { "familia": "Barlow Condensed", "peso": 400, "tamano": 20, "interlineado": 1.5, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Label": { "familia": "Barlow Condensed", "peso": 500, "tamano": 18, "interlineado": 1.3, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/H2": { "familia": "Barlow Condensed", "peso": 500, "tamano": 46, "interlineado": 1.15, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/H4": { "familia": "Barlow Condensed", "peso": 500, "tamano": 26, "interlineado": 1.25, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Display": { "familia": "Barlow Condensed", "peso": 600, "tamano": 52, "interlineado": 1, "espaciado": { "valor": 0, "unidad": "%" } }
+    },
+    "sombras": {
+      "shadow header": "DROP_SHADOW #CAC29B26 (-2, 0) blur 12 spread 0; DROP_SHADOW #CAC29B21 (-10, 10) blur 22 spread 0; DROP_SHADOW #CAC29B14 (-22, 40) blur 30 spread 0; DROP_SHADOW #CAC29B05 (-39, 80) blur 36 spread 0"
+    }
+  },
+  "secciones": [
+    {
+      "nombre": "formulario",
+      "nodeId": "4156:23937",
+      "nombreCapa": "Acceso · Iniciar sesión",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": { "ancho": 1920, "alto": 1108 },
+      "referencia": "crear-cuenta/formulario.ref.txt",
+      "captura": "crear-cuenta/formulario.png",
+      "textos": [
+        { "nodeId": "4156:23745", "texto": "Crea tu cuenta", "estilo": "2026/H2", "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "4156:23746", "texto": "Con tu cuenta accedes a tus cursos desde cualquier dispositivo.", "estilo": "2026/Body L", "color": "color/texto", "rol": "subtitulo" },
+        { "nodeId": "4156:23749", "texto": "Nombre", "estilo": "2026/Label", "color": "color/verde", "rol": "etiqueta" },
+        { "nodeId": "4156:23751", "texto": "Ej. Ana Lucía", "estilo": "2026/Body", "color": "color/texto-suave", "rol": "otro" },
+        { "nodeId": "4156:23753", "texto": "Apellidos", "estilo": "2026/Label", "color": "color/verde", "rol": "etiqueta" },
+        { "nodeId": "4156:23755", "texto": "Ej. León", "estilo": "2026/Body", "color": "color/texto-suave", "rol": "otro" },
+        { "nodeId": "4156:23757", "texto": "Correo electrónico", "estilo": "2026/Label", "color": "color/verde", "rol": "etiqueta" },
+        { "nodeId": "4156:23762", "texto": "tucorreo@ejemplo.com", "estilo": "2026/Body", "color": "color/texto-suave", "rol": "otro" },
+        { "nodeId": "4156:23764", "texto": "Contraseña", "estilo": "2026/Label", "color": "color/verde", "rol": "etiqueta" },
+        { "nodeId": "4156:23769", "texto": "Mínimo 8 caracteres", "estilo": "2026/Body", "color": "color/texto-suave", "rol": "otro" },
+        { "nodeId": "4156:23777", "texto": "Acepto los términos y condiciones y la política de privacidad", "estilo": "2026/Body S", "color": "color/texto", "rol": "etiqueta" },
+        { "nodeId": "I4156:23778;3711:6162", "texto": "Crear cuenta", "estilo": "2026/Label", "color": "color/blanco", "rol": "boton" },
+        { "nodeId": "4156:23779", "texto": "¿Ya tienes cuenta? Inicia sesión", "estilo": "2026/Body", "color": "color/texto", "rol": "parrafo" }
+      ],
+      "sueltos": {
+        "espacios": [
+          { "valor": 8, "usos": 4 },
+          { "valor": 10, "usos": 3 },
+          { "valor": 12, "usos": 1 },
+          { "valor": 14, "usos": 5 },
+          { "valor": 16, "usos": 5 },
+          { "valor": 24, "usos": 1 },
+          { "valor": 28, "usos": 1 },
+          { "valor": 32, "usos": 1 },
+          { "valor": 56, "usos": 1 },
+          { "valor": 560, "usos": 1 }
+        ],
+        "colores": [
+          { "valor": "#d7d0b5", "usos": 4 },
+          { "valor": "#234549", "usos": 1 },
+          { "valor": "#24454a14", "usos": 1 }
+        ],
+        "radios": [
+          { "valor": 6, "usos": 1 },
+          { "valor": 12, "usos": 4 },
+          { "valor": 28, "usos": 1 },
+          { "valor": 100, "usos": 1 }
+        ]
+      },
+      "imagenes": [
+        { "id": "formulario-logo-mundo-angelitozzz", "nodeId": "4156:23744", "tipo": "png", "ancho": 132, "alto": 132, "rol": "contenido", "archivo": "crear-cuenta/assets/formulario-logo-mundo-angelitozzz.png" },
+        { "id": "formulario-icono-correo", "nodeId": "4156:23759", "tipo": "svg", "ancho": 18, "alto": 18, "rol": "decorativa", "archivo": "crear-cuenta/assets/formulario-icono-correo.svg" },
+        { "id": "formulario-icono-candado", "nodeId": "4156:23766", "tipo": "svg", "ancho": 18, "alto": 18, "rol": "decorativa", "archivo": "crear-cuenta/assets/formulario-icono-candado.svg" },
+        { "id": "formulario-icono-ojo", "nodeId": "4156:23770", "tipo": "svg", "ancho": 18, "alto": 18, "rol": "decorativa", "archivo": "crear-cuenta/assets/formulario-icono-ojo.svg" },
+        { "id": "formulario-icono-check", "nodeId": "4156:23775", "tipo": "svg", "ancho": 15, "alto": 15, "rol": "decorativa", "archivo": "crear-cuenta/assets/formulario-icono-check.svg" },
+        { "id": "boton-flecha", "nodeId": "I4156:23778;3711:6163", "tipo": "svg", "ancho": 18, "alto": 18, "rol": "decorativa", "archivo": "crear-cuenta/assets/boton-flecha.svg" },
+        { "id": "formulario-nube", "nodeId": "4156:23964", "tipo": "svg", "ancho": 260, "alto": 156, "rol": "decorativa", "archivo": "crear-cuenta/assets/formulario-nube.svg" },
+        { "id": "formulario-nube-ojo-izq", "nodeId": "4156:23965", "tipo": "svg", "ancho": 19, "alto": 3, "rol": "decorativa", "archivo": "crear-cuenta/assets/formulario-nube-ojo-izq.svg" },
+        { "id": "formulario-nube-ojo-der", "nodeId": "4156:23966", "tipo": "svg", "ancho": 19, "alto": 3, "rol": "decorativa", "archivo": "crear-cuenta/assets/formulario-nube-ojo-der.svg" },
+        { "id": "formulario-destello-rosa", "nodeId": "4156:23967", "tipo": "svg", "ancho": 34, "alto": 21, "rol": "decorativa", "archivo": "crear-cuenta/assets/formulario-destello-rosa.svg" },
+        { "id": "formulario-destello-lineas", "nodeId": "4156:23968", "tipo": "svg", "ancho": 63, "alto": 38, "rol": "decorativa", "archivo": "crear-cuenta/assets/formulario-destello-lineas.svg" },
+        { "id": "formulario-luna", "nodeId": "4156:23982", "tipo": "svg", "ancho": 44, "alto": 44, "rol": "decorativa", "archivo": "crear-cuenta/assets/formulario-luna.svg" }
+      ],
+      "componentes": [
+        { "nombre": "Botón", "variante": "Frambuesa", "props": { "texto": "Crear cuenta", "flecha": true } }
+      ],
+      "senales": [
+        {
+          "tipo": "formulario",
+          "evidencia": "Tarjeta blanca centrada (4156:23743, 560px, padding 56, radio 28, sombra suave) con logo, título \"Crea tu cuenta\", subtítulo y campos en caja (fondo crema, borde #d7d0b5, radio 12, etiqueta verde encima): Nombre (placeholder \"Ej. Ana Lucía\") y Apellidos (\"Ej. León\") en dos columnas; Correo electrónico con ícono sobre (\"tucorreo@ejemplo.com\"); Contraseña con ícono candado, placeholder \"Mínimo 8 caracteres\" y ojo para mostrar/ocultar. Ningún campo lleva asterisco. Sin confirmar contraseña. Casilla 22px verde marcada \"Acepto los términos y condiciones y la política de privacidad\" (sin enlaces dibujados). Botón Frambuesa \"Crear cuenta\" con flecha. Equivale al registro de cuenta (WooCommerce/Tutor).",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Pie de la tarjeta \"¿Ya tienes cuenta? Inicia sesión\" con \"Inicia sesión\" subrayado en verde #234549 (enlace a la página de iniciar sesión). Sin login social, sin newsletter, sin estados de error o éxito dibujados.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "decorativo",
+          "evidencia": "Vectores absolutos alrededor de la tarjeta (capas \"Decoración acceso\"): nube dormida beige con dos ojos cerrados (4156:23962, 260×156, abajo a la izquierda), destello rosa (4156:23967), destello de líneas rosa (4156:23968, arriba a la izquierda) y luna teal (4156:23982, derecha). Probablemente compartidos con iniciar-sesion / recuperar-contrasena.",
+          "estado": "propuesto"
+        }
+      ]
+    }
+  ]
+}

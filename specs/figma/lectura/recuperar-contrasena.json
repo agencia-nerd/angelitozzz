@@ -1,0 +1,105 @@
+{
+  "formato": 1,
+  "pagina": "recuperar-contrasena",
+  "fuente": {
+    "fileKey": "FumWuCPT1PPDg5vBTYoufA",
+    "nodeId": "4156:24274",
+    "ancho": 1920,
+    "alto": 1799
+  },
+  "tokens": {
+    "colores": {
+      "color/texto": "#000000",
+      "color/teal": "#9cb0b0",
+      "color/verde": "#234549",
+      "color/blanco": "#ffffff",
+      "color/beige": "#d7d0b5",
+      "color/frambuesa": "#a8566a",
+      "color/crema": "#f8f6f1",
+      "color/blush": "#f1dbd5",
+      "color/texto-suave": "#6b6b6b",
+      "green 20": "#9ec0c0",
+      "green 80": "#492343"
+    },
+    "texto": {
+      "2026/Body S": { "familia": "Barlow Condensed", "peso": 400, "tamano": 16, "interlineado": 1.5, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Body": { "familia": "Barlow Condensed", "peso": 400, "tamano": 18, "interlineado": 1.5, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Body L": { "familia": "Barlow Condensed", "peso": 400, "tamano": 20, "interlineado": 1.5, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Label S": { "familia": "Barlow Condensed", "peso": 500, "tamano": 15, "interlineado": 1.3, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Label": { "familia": "Barlow Condensed", "peso": 500, "tamano": 18, "interlineado": 1.3, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/H4": { "familia": "Barlow Condensed", "peso": 500, "tamano": 26, "interlineado": 1.25, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/H2": { "familia": "Barlow Condensed", "peso": 500, "tamano": 46, "interlineado": 1.15, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Display": { "familia": "Barlow Condensed", "peso": 600, "tamano": 52, "interlineado": 1, "espaciado": { "valor": 0, "unidad": "%" } }
+    },
+    "sombras": {
+      "shadow header": "DROP_SHADOW #CAC29B26 (-2, 0) blur 12 spread 0; DROP_SHADOW #CAC29B21 (-10, 10) blur 22 spread 0; DROP_SHADOW #CAC29B14 (-22, 40) blur 30 spread 0; DROP_SHADOW #CAC29B05 (-39, 80) blur 36 spread 0"
+    }
+  },
+  "secciones": [
+    {
+      "nombre": "formulario",
+      "nodeId": "4156:24277",
+      "nombreCapa": "Acceso · Iniciar sesión",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": { "ancho": 1920, "alto": 1108 },
+      "referencia": "recuperar-contrasena/formulario.ref.txt",
+      "captura": "recuperar-contrasena/formulario.png",
+      "textos": [
+        { "nodeId": "4156:24627", "texto": "Recupera tu contraseña", "estilo": "2026/H2", "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "4156:24628", "texto": "Escribe tu correo y te enviaremos un enlace para crear una nueva.", "estilo": "2026/Body L", "color": "color/texto", "rol": "parrafo" },
+        { "nodeId": "4156:24630", "texto": "Correo electrónico", "estilo": "2026/Label", "color": "color/verde", "rol": "etiqueta" },
+        { "nodeId": "4156:24635", "texto": "tucorreo@ejemplo.com", "estilo": "2026/Body", "color": "color/texto-suave", "rol": "otro" },
+        { "nodeId": "I4156:24636;3711:6162", "texto": "Enviar enlace", "estilo": "2026/Label", "color": "color/blanco", "rol": "boton" },
+        { "nodeId": "4156:24637", "texto": "Volver a iniciar sesión", "estilo": "2026/Label", "color": "color/verde", "rol": "boton" }
+      ],
+      "sueltos": {
+        "espacios": [
+          { "valor": 8, "usos": 1 },
+          { "valor": 10, "usos": 2 },
+          { "valor": 14, "usos": 2 },
+          { "valor": 16, "usos": 1 },
+          { "valor": 24, "usos": 1 },
+          { "valor": 28, "usos": 1 },
+          { "valor": 32, "usos": 1 },
+          { "valor": 56, "usos": 1 }
+        ],
+        "colores": [
+          { "valor": "#d7d0b5", "usos": 1 },
+          { "valor": "#24454a14", "usos": 1 }
+        ],
+        "radios": [
+          { "valor": 12, "usos": 1 },
+          { "valor": 28, "usos": 1 },
+          { "valor": 100, "usos": 1 }
+        ]
+      },
+      "imagenes": [
+        { "id": "formulario-logo", "nodeId": "4156:24626", "tipo": "png", "ancho": 132, "alto": 132, "rol": "contenido", "archivo": "recuperar-contrasena/assets/formulario-logo.png" },
+        { "id": "formulario-icono-mail", "nodeId": "4156:24632", "tipo": "svg", "ancho": 18, "alto": 18, "rol": "decorativa", "archivo": "recuperar-contrasena/assets/formulario-icono-mail.svg" },
+        { "id": "boton-flecha", "nodeId": "I4156:24636;3711:6163", "tipo": "svg", "ancho": 18, "alto": 18, "rol": "decorativa", "archivo": "recuperar-contrasena/assets/boton-flecha.svg" },
+        { "id": "formulario-nube", "nodeId": "4156:24280", "tipo": "svg", "ancho": 260, "alto": 156, "rol": "decorativa", "archivo": "recuperar-contrasena/assets/formulario-nube.svg" },
+        { "id": "formulario-nube-ojo-izq", "nodeId": "4156:24281", "tipo": "svg", "ancho": 19, "alto": 3, "rol": "decorativa", "archivo": "recuperar-contrasena/assets/formulario-nube-ojo-izq.svg" },
+        { "id": "formulario-nube-ojo-der", "nodeId": "4156:24282", "tipo": "svg", "ancho": 19, "alto": 3, "rol": "decorativa", "archivo": "recuperar-contrasena/assets/formulario-nube-ojo-der.svg" },
+        { "id": "formulario-destello-rosa", "nodeId": "4156:24283", "tipo": "svg", "ancho": 34, "alto": 21, "rol": "decorativa", "archivo": "recuperar-contrasena/assets/formulario-destello-rosa.svg" },
+        { "id": "formulario-destello-superior", "nodeId": "4156:24284", "tipo": "svg", "ancho": 63, "alto": 38, "rol": "decorativa", "archivo": "recuperar-contrasena/assets/formulario-destello-superior.svg" },
+        { "id": "formulario-luna", "nodeId": "4156:24298", "tipo": "svg", "ancho": 44, "alto": 44, "rol": "decorativa", "archivo": "recuperar-contrasena/assets/formulario-luna.svg" }
+      ],
+      "componentes": [
+        { "nombre": "Botón", "variante": "Frambuesa", "props": { "texto": "Enviar enlace", "flecha": true } }
+      ],
+      "senales": [
+        {
+          "tipo": "formulario",
+          "evidencia": "Tarjeta blanca centrada (4156:24625, 560px, padding 56, radio 28, sombra 0 12 40 rgba(36,69,74,0.08)): logo circular, título \"Recupera tu contraseña\", texto explicativo, un solo campo \"Correo electrónico\" (caja crema con borde #d7d0b5 radio 12, ícono de sobre y placeholder \"tucorreo@ejemplo.com\"), botón Frambuesa \"Enviar enlace\" con flecha y enlace subrayado \"Volver a iniciar sesión\". Equivale al formulario de contraseña perdida de WooCommerce (lost password).",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "decorativo",
+          "evidencia": "Piezas absolutas sobre fondo crema alrededor de la tarjeta: nube con ojos cerrados (4156:24278, 3 vectores), destello rosa (4156:24283), destello superior (4156:24284) y luna teal (4156:24298). Mismo nombre de capa \"Decoración acceso\" que en las otras pantallas de acceso.",
+          "estado": "propuesto"
+        }
+      ]
+    }
+  ]
+}

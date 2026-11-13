@@ -1,0 +1,232 @@
+{
+  "formato": 1,
+  "pagina": "leccion",
+  "fuente": {
+    "fileKey": "FumWuCPT1PPDg5vBTYoufA",
+    "nodeId": "4176:27852",
+    "ancho": 1920,
+    "alto": 2449
+  },
+  "tokens": {
+    "colores": {
+      "color/texto": "#000000",
+      "color/teal": "#9cb0b0",
+      "color/verde": "#234549",
+      "color/blanco": "#ffffff",
+      "color/beige": "#d7d0b5",
+      "color/frambuesa": "#a8566a",
+      "color/crema": "#f8f6f1",
+      "color/blush": "#f1dbd5",
+      "color/texto-suave": "#6b6b6b",
+      "color/verde-suave": "#56706f",
+      "L-green": "#fafeff",
+      "green 20": "#9ec0c0",
+      "green 80": "#492343"
+    },
+    "texto": {
+      "2026/Body S": { "familia": "Barlow Condensed", "peso": 400, "tamano": 16, "interlineado": 1.5, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Body": { "familia": "Barlow Condensed", "peso": 400, "tamano": 18, "interlineado": 1.5, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Body L": { "familia": "Barlow Condensed", "peso": 400, "tamano": 20, "interlineado": 1.5, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Label S": { "familia": "Barlow Condensed", "peso": 500, "tamano": 15, "interlineado": 1.3, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Label": { "familia": "Barlow Condensed", "peso": 500, "tamano": 18, "interlineado": 1.3, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Caption": { "familia": "Barlow Condensed", "peso": 400, "tamano": 14, "interlineado": 1.4, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/H5": { "familia": "Barlow Condensed", "peso": 500, "tamano": 22, "interlineado": 1.3, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/H4": { "familia": "Barlow Condensed", "peso": 500, "tamano": 26, "interlineado": 1.25, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/H3": { "familia": "Barlow Condensed", "peso": 500, "tamano": 32, "interlineado": 1.2, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/H2": { "familia": "Barlow Condensed", "peso": 500, "tamano": 46, "interlineado": 1.15, "espaciado": { "valor": 0, "unidad": "%" } },
+      "2026/Display": { "familia": "Barlow Condensed", "peso": 600, "tamano": 52, "interlineado": 1, "espaciado": { "valor": 0, "unidad": "%" } }
+    },
+    "sombras": {
+      "shadow header": "DROP_SHADOW #CAC29B26 (-2, 0) blur 12 spread 0; DROP_SHADOW #CAC29B21 (-10, 10) blur 22 spread 0; DROP_SHADOW #CAC29B14 (-22, 40) blur 30 spread 0; DROP_SHADOW #CAC29B05 (-39, 80) blur 36 spread 0"
+    }
+  },
+  "secciones": [
+    {
+      "nombre": "seccion-entera",
+      "nodeId": "4176:27855",
+      "nombreCapa": "Alumna · Escritorio",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": { "ancho": 1920, "alto": 1746 },
+      "referencia": "leccion/seccion-entera.ref.txt",
+      "captura": "leccion/seccion-entera.png",
+      "textos": [
+        { "nodeId": "4176:27731", "texto": "Contenido del curso", "estilo": "2026/H2", "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "4176:27610", "texto": "Recién Nacidos Go", "estilo": "2026/H5", "color": "color/blanco", "rol": "subtitulo" },
+        { "nodeId": "4176:27617", "texto": "Bienvenida", "estilo": "2026/Body", "color": "color/texto", "rol": "lista" },
+        { "nodeId": "4176:27619", "texto": "3:59", "estilo": "2026/Body", "color": "color/texto", "rol": "etiqueta" },
+        { "nodeId": "4176:27627", "texto": "Objetivos del curso", "estilo": "2026/Body", "color": "color/texto", "rol": "lista" },
+        { "nodeId": "4176:27629", "texto": "3:20", "estilo": "2026/Body", "color": "color/texto", "rol": "etiqueta" },
+        { "nodeId": "4176:27637", "texto": "Sueño seguro", "estilo": "2026/Body", "color": "color/verde", "rol": "lista" },
+        { "nodeId": "4176:27639", "texto": "4:10", "estilo": "2026/Body", "color": "color/texto", "rol": "etiqueta" },
+        { "nodeId": "4176:27647", "texto": "Las 4 piezas del rompecabezas del sueño", "estilo": "2026/Body", "color": "color/texto", "rol": "lista" },
+        { "nodeId": "4176:27649", "texto": "5:20", "estilo": "2026/Body", "color": "color/texto", "rol": "etiqueta" },
+        { "nodeId": "4176:27656", "texto": "5 herramientas para calmar a tu bebé", "estilo": "2026/Body", "color": "color/texto", "rol": "lista" },
+        { "nodeId": "4176:27658", "texto": "7:20", "estilo": "2026/Body", "color": "color/texto", "rol": "etiqueta" },
+        { "nodeId": "4176:27665", "texto": "Demostración práctica: el swaddle seguro", "estilo": "2026/Body", "color": "color/texto", "rol": "lista" },
+        { "nodeId": "4176:27667", "texto": "1:29", "estilo": "2026/Body", "color": "color/texto", "rol": "etiqueta" },
+        { "nodeId": "4176:27674", "texto": "Horarios y siestas del recién nacido", "estilo": "2026/Body", "color": "color/texto", "rol": "lista" },
+        { "nodeId": "4176:27676", "texto": "9:05", "estilo": "2026/Body", "color": "color/texto", "rol": "etiqueta" },
+        { "nodeId": "4176:27683", "texto": "Consejos para practicar el sueño independiente", "estilo": "2026/Body", "color": "color/texto", "rol": "lista" },
+        { "nodeId": "4176:27685", "texto": "5:10", "estilo": "2026/Body", "color": "color/texto", "rol": "etiqueta" },
+        { "nodeId": "4176:27692", "texto": "Demostración: escalera de sueño", "estilo": "2026/Body", "color": "color/texto", "rol": "lista" },
+        { "nodeId": "4176:27694", "texto": "6:49", "estilo": "2026/Body", "color": "color/texto", "rol": "etiqueta" },
+        { "nodeId": "4176:27701", "texto": "Las siestas del recién nacido", "estilo": "2026/Body", "color": "color/texto", "rol": "lista" },
+        { "nodeId": "4176:27703", "texto": "6:12", "estilo": "2026/Body", "color": "color/texto", "rol": "etiqueta" },
+        { "nodeId": "4176:27710", "texto": "Consejos para las noches", "estilo": "2026/Body", "color": "color/texto", "rol": "lista" },
+        { "nodeId": "4176:27712", "texto": "3:15", "estilo": "2026/Body", "color": "color/texto", "rol": "etiqueta" },
+        { "nodeId": "4176:27720", "texto": "PDF Recién Nacidos Go", "estilo": "2026/Body", "color": "color/texto", "rol": "lista" },
+        { "nodeId": "4176:28049", "texto": "Recién Nacidos Go", "estilo": "2026/H2", "color": "color/texto", "rol": "titulo" },
+        { "nodeId": "4176:28054", "texto": "Marcar como completo", "estilo": "2026/Body L", "color": "color/texto", "rol": "boton" },
+        { "nodeId": "4176:28063", "texto": "Resumen", "estilo": "2026/H5", "color": "color/verde", "rol": "etiqueta" },
+        { "nodeId": "4176:28067", "texto": "Materiales", "estilo": "2026/Body L", "color": "color/texto", "rol": "etiqueta" },
+        { "nodeId": "3586:1495", "texto": "Tu mes gratis en Mundo Angelitozzz", "estilo": "2026/H3", "color": "color/crema", "rol": "titulo" },
+        { "nodeId": "3586:1496", "texto": "Incluido con tu curso: sesiones grupales en vivo con Bárbara todos los miércoles a las 10:00am (Perú/Colombia) y la videoteca de talleres.", "estilo": "2026/Body", "color": "color/beige", "rol": "parrafo" },
+        { "nodeId": "3912:2", "texto": "Si ya lo activaste, puedes ignorar este mensaje.", "estilo": null, "color": null, "rol": "pie" },
+        { "nodeId": "3704:15617", "texto": "Activar mi mes gratis", "estilo": "2026/Label", "color": "color/verde", "rol": "boton" },
+        { "nodeId": "4176:28070", "texto": "Bienvenida", "estilo": "2026/H3", "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "4176:28071", "texto": "¡Felicidades por este primer paso — estás en el lugar correcto! 🤍\nSoy Bárbara, coach de sueño pediátrico con más de 10 años de experiencia y mamá de dos, y estoy feliz de que estés acá.\nEn este curso vas a aprender, paso a paso y con demostraciones prácticas reales, todo lo que necesitas para ayudar a tu bebé a dormir con facilidad — desde el primer mes.\nAntes de empezar, una cosa importante:\nComo bono de regalo por haber comprado el curso, tienes 1 mes gratis en Mundo Angelitozzz Círculo Interno — mi comunidad privada donde me conecto en vivo cada miércoles con las mamás que quieren traerme su caso en tiempo real.\nRevisa tu correo — te envié el enlace de invitación. Si no lo ves en tu bandeja principal, búscalo en Spam o Promociones. Una vez que lo encuentres, guarda mi correo en favoritos para que no se pierda ninguno de los mensajes del curso.\n¡Ahora sí, a aprender! 🌙", "estilo": "2026/Body L", "color": "color/texto", "rol": "parrafo" },
+        { "nodeId": "3901:7717", "texto": "PD: ¿Ya activaste tu mes gratis en Mundo Angelitozzz? Revisa tu correo — está ahí esperándote. 🤍", "estilo": "2026/Body L", "color": "color/texto", "rol": "parrafo" },
+        { "nodeId": "3899:7680", "texto": "Horarios 4 a 9 meses", "estilo": "2026/Label", "color": "color/verde", "rol": "subtitulo" },
+        { "nodeId": "3899:7681", "texto": "PDF · 13 páginas", "estilo": "2026/Caption", "color": "color/texto-suave", "rol": "etiqueta" },
+        { "nodeId": "3899:7687", "texto": "Descargar", "estilo": "2026/Label S", "color": "color/verde", "rol": "boton" },
+        { "nodeId": "4205:104", "texto": "ANTES DE EMPEZAR", "estilo": null, "color": "color/frambuesa", "rol": "eyebrow" },
+        { "nodeId": "4205:105", "texto": "Bienvenida a Angelita Pro.", "estilo": null, "color": "color/verde", "rol": "titulo" },
+        { "nodeId": "4205:106", "texto": "Tómate unos minutos para ver el video de introducción y descargar tu Plan de Sueño.", "estilo": null, "color": "color/verde", "rol": "parrafo" },
+        { "nodeId": "4205:110", "texto": "1", "estilo": null, "color": "color/crema", "rol": "etiqueta" },
+        { "nodeId": "4205:111", "texto": "Mira el video", "estilo": null, "color": "color/verde", "rol": "lista" },
+        { "nodeId": "4205:114", "texto": "2", "estilo": null, "color": "color/crema", "rol": "etiqueta" },
+        { "nodeId": "4205:115", "texto": "Descarga tu plan", "estilo": null, "color": "color/verde", "rol": "lista" },
+        { "nodeId": "4205:118", "texto": "3", "estilo": null, "color": "color/crema", "rol": "etiqueta" },
+        { "nodeId": "4205:119", "texto": "Activa a Angelita", "estilo": null, "color": "color/verde", "rol": "lista" },
+        { "nodeId": "4205:120", "texto": "Tus 2 semanas con Angelita empiezan cuando tú la actives, no hoy.", "estilo": null, "color": "color/verde-suave", "rol": "pie" }
+      ],
+      "sueltos": {
+        "espacios": [
+          { "valor": 2, "usos": 1 },
+          { "valor": 8, "usos": 2 },
+          { "valor": 10, "usos": 30 },
+          { "valor": 14, "usos": 8 },
+          { "valor": 15, "usos": 16 },
+          { "valor": 16, "usos": 3 },
+          { "valor": 18, "usos": 1 },
+          { "valor": 20, "usos": 3 },
+          { "valor": 21, "usos": 1 },
+          { "valor": 24, "usos": 2 },
+          { "valor": 28, "usos": 1 },
+          { "valor": 32, "usos": 3 },
+          { "valor": 33, "usos": 1 },
+          { "valor": 34, "usos": 1 },
+          { "valor": 40, "usos": 1 },
+          { "valor": 41, "usos": 1 },
+          { "valor": 45, "usos": 1 },
+          { "valor": 55, "usos": 1 },
+          { "valor": 60, "usos": 1 },
+          { "valor": 120, "usos": 1 },
+          { "valor": 135, "usos": 1 }
+        ],
+        "colores": [
+          { "valor": "#9cb09d", "usos": 3 },
+          { "valor": "#9ec0c0", "usos": 10 },
+          { "valor": "#fafeff", "usos": 2 },
+          { "valor": "#492343", "usos": 1 },
+          { "valor": "#dbdbdb", "usos": 1 },
+          { "valor": "#e9b44c", "usos": 1 },
+          { "valor": "#1c3a3e", "usos": 1 },
+          { "valor": "#3e6b6d", "usos": 1 },
+          { "valor": "#ffffffcc", "usos": 1 },
+          { "valor": "#244a4a2e", "usos": 1 },
+          { "valor": "#00000026", "usos": 1 },
+          { "valor": "#f7f5f026", "usos": 1 },
+          { "valor": "#d7d0b573", "usos": 1 }
+        ],
+        "radios": [
+          { "valor": 12, "usos": 2 },
+          { "valor": 15, "usos": 18 },
+          { "valor": 16, "usos": 1 },
+          { "valor": 17.5, "usos": 13 },
+          { "valor": 24, "usos": 1 },
+          { "valor": 48, "usos": 1 },
+          { "valor": 100, "usos": 3 }
+        ]
+      },
+      "imagenes": [
+        { "id": "banner-logo-mundo", "nodeId": "3586:1493", "tipo": "png", "ancho": 96, "alto": 96, "rol": "contenido", "archivo": "leccion/assets/banner-logo-mundo.png" },
+        { "id": "banner-vector-decorativo", "nodeId": "3586:1503", "tipo": "svg", "ancho": 74, "alto": 72, "rol": "decorativa", "archivo": "leccion/assets/banner-vector-decorativo.svg" },
+        { "id": "sidebar-icono-contenido", "nodeId": "4176:27730", "tipo": "svg", "ancho": 47, "alto": 41, "rol": "decorativa", "archivo": "leccion/assets/sidebar-icono-contenido.svg" },
+        { "id": "temario-icono-video", "nodeId": "4176:27615", "tipo": "svg", "ancho": 24, "alto": 24, "rol": "decorativa", "archivo": "leccion/assets/temario-icono-video.svg" },
+        { "id": "temario-check-completado", "nodeId": "4176:27621", "tipo": "svg", "ancho": 14, "alto": 12, "rol": "decorativa", "archivo": "leccion/assets/temario-check-completado.svg" },
+        { "id": "temario-icono-pdf", "nodeId": "4176:27717", "tipo": "svg", "ancho": 24, "alto": 24, "rol": "decorativa", "archivo": "leccion/assets/temario-icono-pdf.svg" },
+        { "id": "temario-icono-descargar", "nodeId": "4176:27721", "tipo": "svg", "ancho": 22, "alto": 22, "rol": "decorativa", "archivo": "leccion/assets/temario-icono-descargar.svg" },
+        { "id": "cabecera-volver", "nodeId": "4176:28047", "tipo": "svg", "ancho": 43, "alto": 43, "rol": "decorativa", "archivo": "leccion/assets/cabecera-volver.svg" },
+        { "id": "marcar-completo-check", "nodeId": "4176:28052", "tipo": "svg", "ancho": 14, "alto": 12, "rol": "decorativa", "archivo": "leccion/assets/marcar-completo-check.svg" },
+        { "id": "video-play", "nodeId": "4176:28057", "tipo": "svg", "ancho": 32, "alto": 32, "rol": "decorativa", "archivo": "leccion/assets/video-play.svg" },
+        { "id": "pestana-icono-resumen", "nodeId": "4176:28061", "tipo": "svg", "ancho": 16, "alto": 20, "rol": "decorativa", "archivo": "leccion/assets/pestana-icono-resumen.svg" },
+        { "id": "pestana-icono-materiales", "nodeId": "4176:28065", "tipo": "svg", "ancho": 16, "alto": 20, "rol": "decorativa", "archivo": "leccion/assets/pestana-icono-materiales.svg" },
+        { "id": "boton-flecha", "nodeId": "3704:15618", "tipo": "svg", "ancho": 18, "alto": 18, "rol": "decorativa", "archivo": "leccion/assets/boton-flecha.svg" },
+        { "id": "material-icono-archivo", "nodeId": "3899:7676", "tipo": "svg", "ancho": 22, "alto": 22, "rol": "decorativa", "archivo": "leccion/assets/material-icono-archivo.svg" },
+        { "id": "material-icono-descargar", "nodeId": "3899:7683", "tipo": "svg", "ancho": 18, "alto": 18, "rol": "decorativa", "archivo": "leccion/assets/material-icono-descargar.svg" },
+        { "id": "angelita-pro-icono-luna", "nodeId": "4205:99", "tipo": "svg", "ancho": 88, "alto": 88, "rol": "decorativa", "archivo": "leccion/assets/angelita-pro-icono-luna.svg" },
+        { "id": "angelita-pro-destello-chico", "nodeId": "4207:13", "tipo": "svg", "ancho": 14, "alto": 15, "rol": "decorativa", "archivo": "leccion/assets/angelita-pro-destello-chico.svg" },
+        { "id": "angelita-pro-destello", "nodeId": "4207:12", "tipo": "svg", "ancho": 22, "alto": 23, "rol": "decorativa", "archivo": "leccion/assets/angelita-pro-destello.svg" },
+        { "id": "angelita-pro-nube-chica", "nodeId": "4207:9", "tipo": "svg", "ancho": 150, "alto": 90, "rol": "decorativa", "archivo": "leccion/assets/angelita-pro-nube-chica.svg" },
+        { "id": "angelita-pro-nube-chica-ojo-izq", "nodeId": "4207:10", "tipo": "svg", "ancho": 11, "alto": 2, "rol": "decorativa", "archivo": "leccion/assets/angelita-pro-nube-chica-ojo-izq.svg" },
+        { "id": "angelita-pro-nube-chica-ojo-der", "nodeId": "4207:11", "tipo": "svg", "ancho": 11, "alto": 2, "rol": "decorativa", "archivo": "leccion/assets/angelita-pro-nube-chica-ojo-der.svg" },
+        { "id": "angelita-pro-nube", "nodeId": "4207:4", "tipo": "svg", "ancho": 260, "alto": 156, "rol": "decorativa", "archivo": "leccion/assets/angelita-pro-nube.svg" },
+        { "id": "angelita-pro-nube-ojo-izq", "nodeId": "4207:5", "tipo": "svg", "ancho": 19, "alto": 3, "rol": "decorativa", "archivo": "leccion/assets/angelita-pro-nube-ojo-izq.svg" },
+        { "id": "angelita-pro-nube-ojo-der", "nodeId": "4207:6", "tipo": "svg", "ancho": 19, "alto": 3, "rol": "decorativa", "archivo": "leccion/assets/angelita-pro-nube-ojo-der.svg" }
+      ],
+      "componentes": [
+        { "nombre": "Banner Mundo Angelitozzz (cursos)", "variante": "Recién Nacidos Go", "props": { "titulo": "Tu mes gratis en Mundo Angelitozzz", "texto": "Incluido con tu curso: sesiones grupales en vivo con Bárbara todos los miércoles a las 10:00am (Perú/Colombia) y la videoteca de talleres.", "nota": "Si ya lo activaste, puedes ignorar este mensaje.", "boton": "Activar mi mes gratis" } },
+        { "nombre": "Botón", "variante": "Claro", "props": { "texto": "Activar mi mes gratis", "flecha": false } }
+      ],
+      "senales": [
+        {
+          "tipo": "listado",
+          "evidencia": "Temario lateral (4176:27857, 458 px con pr 55): ícono de libros + \"Contenido del curso\" (H2 verde), un solo módulo con cabecera verde \"Recién Nacidos Go\" (H5 blanco, 50 px, radio 15) y 11 lecciones + 1 PDF en filas de 50 px (blanco, radio 15, gap 10): ícono video 24 px + título Body con elipsis + duración + círculo de estado 24 px. Estados: completada (círculo relleno #9cb09d con check: Bienvenida, Objetivos del curso, Sueño seguro), actual (\"Sueño seguro\": fondo L-green #fafeff, título verde, ya marcada completa), pendiente (círculo vacío con borde green 20 #9ec0c0). No hay estado \"bloqueada\" dibujado. Último ítem \"PDF Recién Nacidos Go\" con ícono de documento y de descarga en lugar de duración y check. Datos de Tutor LMS (temas/lecciones del curso).",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "repetidor",
+          "evidencia": "Las 11 filas de lección comparten estructura exacta (ícono, título, duración, círculo de estado); solo cambian texto, duración y estado. Algunas filas son <a> y otras <div> en la capa (sin criterio visible): todas deberían ser enlaces a la lección.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "pestanas",
+          "evidencia": "Dos pestañas bajo el video (4176:28059): \"Resumen\" (activa: 154 px, fondo L-green #fafeff, borde green 80 #492343, H5 verde, ícono documento) y \"Materiales\" (231 px, fondo blanco, borde #dbdbdb, Body L negro, ícono clip). Solo están estas dos. Resumen contiene el banner Mundo y la descripción de la lección (y el PD según nota); Materiales muestra tarjetas \"Archivo\" (nota 3899:7674).",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Reproductor de video (4176:28055, 1033×567, fondo beige, radio 15) con botón play circular crema de 88 px y sombra: placeholder del iframe de Vimeo de cada lección (nota de página).",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Cabecera del contenido (4176:28045): botón circular volver 43 px + título del curso \"Recién Nacidos Go\" (H2 negro) a la izquierda; a la derecha botón \"Marcar como completo\" (260×50, blanco, borde green 20, radio 15, círculo con check). No hay barra ni porcentaje de progreso ni botones anterior/siguiente en el diseño.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Banner Mundo Angelitozzz (componente 3586:1518, 1033 px, gradiente verde #1c3a3e→#234549→#3e6b6d, radio 24, sombra): logo circular 96 px con borde dorado #e9b44c, título H3 crema, texto Body beige, nota itálica blanca 80 %, botón Claro \"Activar mi mes gratis\" sin flecha y un vector decorativo semioculto arriba a la derecha. Según nota de página: solo en la primera lección de cada curso, enlace editable desde el panel; la línea \"Si ya lo activaste…\" del diseño choca con la nota \"Sin estados, sin 'Ya lo activé'\".",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "repetidor",
+          "evidencia": "Tarjeta \"Archivo\" de la pestaña Materiales (3899:7674, 1033×82, blanco, borde beige 45 %, radio 16): cuadrado blush 48 px con ícono de documento, nombre (Label verde) + \"PDF · 13 páginas\" (Caption texto-suave), botón píldora crema con borde beige, ícono descarga y \"Descargar\" (Label S). Una por adjunto de Tutor (Lesson attachments).",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Cita PD (3901:7716, 1033×66): fondo color/blush #f1dbd5, borde izquierdo 4 px frambuesa, radio 12, padding 24/18; \"PD:\" en SemiBold + texto Body L. Va dentro de Resumen cuando el texto de la lección termina en \"PD:\" (estilo del contenido de Tutor, no un campo).",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Mensaje inicial de Angelita Pro (nota 4205:98 \"Bienvenida Angelita (bloque de introducción)\", 1033×231, va arriba del video como un mensaje; captura seccion-entera.angelita-pro.png): tarjeta color/blush #f1dbd5, radio 24, padding 28/32, gap 28, sombra 0 8 24 rgba(35,69,73,0.08). A la izquierda ícono circular blanco de 88 px con luna verde y estrella dorada (SVG). A la derecha, columna con gap 8: eyebrow \"ANTES DE EMPEZAR\" (14 px SemiBold, tracking 1.12 px, frambuesa), título \"Bienvenida a Angelita Pro.\" (28 px Medium verde), párrafo 18 px verde, tres pasos numerados en píldoras blancas (radio 999, círculo verde de 24 px con número crema + texto 16 px Medium verde, flex-wrap gap 8): \"Mira el video\", \"Descarga tu plan\", \"Activa a Angelita\"; y una nota itálica 15 px color/verde-suave #56706f. No hay botones ni enlaces: los pasos son etiquetas. Decoración absoluta a la derecha: dos destellos blancos y dos nubes con ojos cerrados (opacidad 60 % y 90 %, la chica sale por arriba y la grande por la derecha, recortadas por overflow). Los textos no usan estilos de texto con nombre (tamaños sueltos 14/28/18/16/15, interlineado 1.4). Solo para el curso Angelita Pro (según nota del enlace); repetidor de 3 pasos.",
+          "estado": "propuesto"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,580 @@
+{
+  "formato": 1,
+  "pagina": "checkout",
+  "fuente": {
+    "fileKey": "FumWuCPT1PPDg5vBTYoufA",
+    "nodeId": "4156:9963",
+    "ancho": 1920,
+    "alto": 1708
+  },
+  "tokens": {
+    "colores": {
+      "color/texto": "#000000",
+      "color/teal": "#9cb0b0",
+      "color/verde": "#234549",
+      "color/blanco": "#ffffff",
+      "color/beige": "#d7d0b5",
+      "color/frambuesa": "#a8566a",
+      "color/crema": "#f8f6f1",
+      "green 80": "#492343"
+    },
+    "texto": {
+      "2026/Body S": {
+        "familia": "Barlow Condensed",
+        "peso": 400,
+        "tamano": 16,
+        "interlineado": 1.5,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Body": {
+        "familia": "Barlow Condensed",
+        "peso": 400,
+        "tamano": 18,
+        "interlineado": 1.5,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Label S": {
+        "familia": "Barlow Condensed",
+        "peso": 500,
+        "tamano": 15,
+        "interlineado": 1.3,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Body L": {
+        "familia": "Barlow Condensed",
+        "peso": 400,
+        "tamano": 20,
+        "interlineado": 1.5,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Body XL": {
+        "familia": "Barlow Condensed",
+        "peso": 400,
+        "tamano": 24,
+        "interlineado": 1.5,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Label": {
+        "familia": "Barlow Condensed",
+        "peso": 500,
+        "tamano": 18,
+        "interlineado": 1.3,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/H4": {
+        "familia": "Barlow Condensed",
+        "peso": 500,
+        "tamano": 26,
+        "interlineado": 1.25,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Display": {
+        "familia": "Barlow Condensed",
+        "peso": 600,
+        "tamano": 52,
+        "interlineado": 1,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      }
+    },
+    "sombras": {
+      "shadow header": "DROP_SHADOW #CAC29B26 (-2, 0) blur 12 spread 0; DROP_SHADOW #CAC29B21 (-10, 10) blur 22 spread 0; DROP_SHADOW #CAC29B14 (-22, 40) blur 30 spread 0; DROP_SHADOW #CAC29B05 (-39, 80) blur 36 spread 0"
+    }
+  },
+  "secciones": [
+    {
+      "nombre": "hero",
+      "nodeId": "4156:9962",
+      "nombreCapa": "seccion checkout",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 1016
+      },
+      "referencia": "checkout/hero.ref.txt",
+      "captura": "checkout/hero.png",
+      "textos": [
+        {
+          "nodeId": "4156:9854",
+          "texto": "Iniciar sesión",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4156:9857",
+          "texto": "Correo:",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "4156:9860",
+          "texto": "Contraseña:",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "4156:9867",
+          "texto": "Iniciar sesión",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "boton"
+        },
+        {
+          "nodeId": "4156:9869",
+          "texto": "¿No tienes una cuenta?",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4156:9870",
+          "texto": "Regístrate",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "boton"
+        },
+        {
+          "nodeId": "4156:9879",
+          "texto": "Datos de facturación",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4156:9882",
+          "texto": "Nombres y Apellidos:",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "4156:9885",
+          "texto": "Celular (con código de país):  +51 ▾",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "4156:9889",
+          "texto": "Tipo de documento",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "4156:9894",
+          "texto": "Número de documento:",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "4156:9901",
+          "texto": "Guardar información",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "boton"
+        },
+        {
+          "nodeId": "4156:9904",
+          "texto": "Método de pago",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4156:9905",
+          "texto": "Tarjetas de crédito / débito aceptadas",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4156:9922",
+          "texto": "Tus datos personales se utilizarán para procesar tu pedido, mejorar tu experiencia en esta web y otros propósitos descritos en nuestra política de privacidad.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4156:9925",
+          "texto": " He leído y estoy de acuerdo con los términos y condiciones de la web *",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "4156:9928",
+          "texto": "Resumen de compra",
+          "estilo": "2026/Body XL",
+          "color": "color/texto",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4156:9942",
+          "texto": "Curso",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "4156:9941",
+          "texto": "Recién Nacidos Go",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "otro"
+        },
+        {
+          "nodeId": "4156:9943",
+          "texto": "$97",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "otro"
+        },
+        {
+          "nodeId": "4156:9944",
+          "texto": "Subtotal:",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "4156:9945",
+          "texto": "$97",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "otro"
+        },
+        {
+          "nodeId": "4156:9935",
+          "texto": "Descuento:",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "4156:9937",
+          "texto": "- $0",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "otro"
+        },
+        {
+          "nodeId": "4156:9936",
+          "texto": "IGV:",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "4156:9938",
+          "texto": "$0",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "otro"
+        },
+        {
+          "nodeId": "4156:9939",
+          "texto": "Total:",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "4156:9940",
+          "texto": "$97",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "otro"
+        },
+        {
+          "nodeId": "I4156:9946;3711:6162",
+          "texto": "Pagar ahora",
+          "estilo": "2026/Label",
+          "color": "color/blanco",
+          "rol": "boton"
+        },
+        {
+          "nodeId": "4156:9949",
+          "texto": "Código de descuento",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "4156:9956",
+          "texto": "Aplicar ",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "boton"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 4,
+            "usos": 2
+          },
+          {
+            "valor": 5,
+            "usos": 2
+          },
+          {
+            "valor": 6,
+            "usos": 3
+          },
+          {
+            "valor": 10,
+            "usos": 1
+          },
+          {
+            "valor": 14,
+            "usos": 2
+          },
+          {
+            "valor": 21,
+            "usos": 1
+          },
+          {
+            "valor": 24,
+            "usos": 3
+          },
+          {
+            "valor": 25,
+            "usos": 2
+          },
+          {
+            "valor": 28,
+            "usos": 3
+          },
+          {
+            "valor": 30,
+            "usos": 1
+          },
+          {
+            "valor": 31,
+            "usos": 1
+          },
+          {
+            "valor": 35,
+            "usos": 2
+          },
+          {
+            "valor": 37,
+            "usos": 1
+          },
+          {
+            "valor": 39,
+            "usos": 1
+          },
+          {
+            "valor": 41,
+            "usos": 1
+          },
+          {
+            "valor": 53,
+            "usos": 1
+          },
+          {
+            "valor": 120,
+            "usos": 1
+          },
+          {
+            "valor": 192,
+            "usos": 1
+          }
+        ],
+        "colores": [
+          {
+            "valor": "#bcb28a",
+            "usos": 5
+          },
+          {
+            "valor": "#000000",
+            "usos": 7
+          }
+        ],
+        "radios": [
+          {
+            "valor": 12,
+            "usos": 2
+          },
+          {
+            "valor": 100,
+            "usos": 4
+          }
+        ]
+      },
+      "imagenes": [
+        {
+          "id": "hero-linea-campo-larga",
+          "nodeId": "4156:9858",
+          "tipo": "svg",
+          "ancho": 421,
+          "alto": 1,
+          "rol": "decorativa",
+          "archivo": "checkout/assets/hero-linea-campo-larga.svg"
+        },
+        {
+          "id": "hero-linea-campo-contrasena",
+          "nodeId": "4156:9861",
+          "tipo": "svg",
+          "ancho": 400,
+          "alto": 1,
+          "rol": "decorativa",
+          "archivo": "checkout/assets/hero-linea-campo-contrasena.svg"
+        },
+        {
+          "id": "hero-linea-campo",
+          "nodeId": "4156:9886",
+          "tipo": "svg",
+          "ancho": 399,
+          "alto": 1,
+          "rol": "decorativa",
+          "archivo": "checkout/assets/hero-linea-campo.svg"
+        },
+        {
+          "id": "hero-linea-campo-documento",
+          "nodeId": "4156:9892",
+          "tipo": "svg",
+          "ancho": 424,
+          "alto": 1,
+          "rol": "decorativa",
+          "archivo": "checkout/assets/hero-linea-campo-documento.svg"
+        },
+        {
+          "id": "hero-icono-desplegable",
+          "nodeId": "4156:9890",
+          "tipo": "svg",
+          "ancho": 13,
+          "alto": 13,
+          "rol": "decorativa",
+          "archivo": "checkout/assets/hero-icono-desplegable.svg"
+        },
+        {
+          "id": "hero-logos-tarjetas",
+          "nodeId": "4156:9906",
+          "tipo": "svg",
+          "ancho": 212,
+          "alto": 53,
+          "rol": "contenido",
+          "archivo": "checkout/assets/hero-logos-tarjetas.svg"
+        },
+        {
+          "id": "hero-resumen-divisor-titulo",
+          "nodeId": "4156:9933",
+          "tipo": "svg",
+          "ancho": 345,
+          "alto": 1,
+          "rol": "decorativa",
+          "archivo": "checkout/assets/hero-resumen-divisor-titulo.svg"
+        },
+        {
+          "id": "hero-resumen-divisor",
+          "nodeId": "4156:9930",
+          "tipo": "svg",
+          "ancho": 310,
+          "alto": 1,
+          "rol": "decorativa",
+          "archivo": "checkout/assets/hero-resumen-divisor.svg"
+        },
+        {
+          "id": "hero-resumen-divisor-total",
+          "nodeId": "4156:9934",
+          "tipo": "svg",
+          "ancho": 344,
+          "alto": 1,
+          "rol": "decorativa",
+          "archivo": "checkout/assets/hero-resumen-divisor-total.svg"
+        },
+        {
+          "id": "hero-linea-cupon",
+          "nodeId": "4156:9950",
+          "tipo": "svg",
+          "ancho": 253,
+          "alto": 1,
+          "rol": "decorativa",
+          "archivo": "checkout/assets/hero-linea-cupon.svg"
+        },
+        {
+          "id": "boton-flecha",
+          "nodeId": "I4156:9946;3711:6163",
+          "tipo": "svg",
+          "ancho": 18,
+          "alto": 18,
+          "rol": "decorativa",
+          "archivo": "checkout/assets/boton-flecha.svg"
+        }
+      ],
+      "componentes": [
+        {
+          "nombre": "Botón",
+          "variante": "Frambuesa",
+          "props": {
+            "texto": "Pagar ahora",
+            "flecha": true
+          }
+        }
+      ],
+      "senales": [
+        {
+          "tipo": "formulario",
+          "evidencia": "Bloque \"Sin iniciar sesion\" (4156:9853): título \"Iniciar sesión\", campos subrayados \"Correo:\" y \"Contraseña:\" (etiqueta encima, línea negra debajo, sin placeholder), botón píldora beige \"Iniciar sesión\" y \"¿No tienes una cuenta?\" + \"Regístrate\". En WooCommerce equivale al login del checkout / creación de cuenta.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "formulario",
+          "evidencia": "Bloque \"Datos de facturación\" (4156:9878): grilla 2×2 de campos subrayados: \"Nombres y Apellidos:\", \"Celular (con código de país): +51 ▾\" (selector de prefijo dentro de la etiqueta), \"Tipo de documento\" (desplegable con flecha 13px) y \"Número de documento:\"; botón beige \"Guardar información\". Ningún campo lleva asterisco. No hay correo de facturación, dirección, ciudad ni país.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Caja \"Método de pago\" (4156:9902, borde #bcb28a, radio 12): título, \"Tarjetas de crédito / débito aceptadas\" y logos Visa, Mastercard, American Express y Diners Club (un solo SVG). Sin radio de métodos ni campos de tarjeta: lo pinta la pasarela (Niubiz).",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "formulario",
+          "evidencia": "Disclaimer (4156:9921): texto de privacidad con enlace \"política de privacidad\" (https://angelitozzz.com/?page_id=3) y casilla 14px \"He leído y estoy de acuerdo con los términos y condiciones de la web *\" con enlace a /terminos-y-condiciones/; el asterisco la marca obligatoria. Coincide con los textos de privacidad/términos de WooCommerce.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "\"Resumen de compra\" (4156:9927, caja con borde #bcb28a radio 12, divisores #bcb28a): fila producto \"Curso\" / \"Recién Nacidos Go\" $97, Subtotal $97, Descuento \"- $0\", IGV $0, Total $97; botón Frambuesa \"Pagar ahora\" con flecha bajo la caja (envío del pedido). Es la tabla de revisión del pedido de WooCommerce.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "formulario",
+          "evidencia": "Cupón (4156:9947): campo subrayado \"Código de descuento\" + botón píldora beige \"Aplicar\" (75×28) bajo el resumen.",
+          "estado": "propuesto"
+        }
+      ]
+    }
+  ]
+}

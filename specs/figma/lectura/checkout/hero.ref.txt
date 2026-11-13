@@ -1,0 +1,303 @@
+// get_design_context de 4156:9962 (seccion checkout), leído completo (no truncado).
+// Contiene las dos partes de las notas: "datos y pago del usuario" (4156:9926) y "resumen de compra" (4156:9961).
+// URLs temporales de Figma reemplazadas por los archivos descargados en assets/.
+const imgFlecha = "assets/boton-flecha.svg";
+const imgVector28 = "assets/hero-linea-campo-larga.svg";
+const imgVector29 = "assets/hero-linea-campo-contrasena.svg";
+const imgVector39 = "assets/hero-linea-campo.svg";
+const imgEpArrowUp = "assets/hero-icono-desplegable.svg";
+const imgVector37 = "assets/hero-linea-campo-documento.svg";
+const imgFrame518 = "assets/hero-logos-tarjetas.svg";
+const imgVector42 = "assets/hero-resumen-divisor.svg";
+const imgVector41 = "assets/hero-resumen-divisor-titulo.svg";
+const imgVector44 = "assets/hero-resumen-divisor-total.svg";
+const imgLine57 = "assets/hero-linea-cupon.svg";
+
+type BotonProps = {
+  className?: string;
+  flecha?: boolean;
+  texto?: string;
+  tipo?: "Frambuesa";
+};
+
+function Boton({ className, flecha = true, texto = "Texto del botón", tipo = "Frambuesa" }: BotonProps) {
+  return (
+    <div className={className || "bg-[var(--color\\/frambuesa,#a8566a)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px]"} data-node-id="3711:6161">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="3711:6162">
+        {texto}
+      </p>
+      {flecha && (
+        <div className="relative shrink-0 size-[18px]" data-node-id="3711:6163" data-name="Flecha">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function SeccionCheckout() {
+  return (
+    <div className="content-stretch flex gap-[192px] items-start justify-center py-[120px] relative size-full" data-node-id="4156:9962" data-name="seccion checkout">
+      {/* ===================== PARTE 1: datos y pago del usuario (4156:9926) ===================== */}
+      <div className="content-stretch flex flex-col gap-[28px] items-start relative shrink-0 w-[969px]" data-node-id="4156:9926" data-name="contenido del usuario">
+        <div className="content-stretch flex flex-col gap-[21px] items-start overflow-clip p-[24px] relative shrink-0 w-[881.459px]" data-node-id="4156:9853" data-name="Sin iniciar sesion">
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="4156:9854">
+            Iniciar sesión
+          </p>
+          <div className="content-stretch flex gap-[35px] items-center relative shrink-0 w-full" data-node-id="4156:9855">
+            <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-[420.805px]" data-node-id="4156:9856">
+              <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="4156:9857">
+                Correo:
+              </p>
+              <div className="flex h-[0.435px] items-center justify-center relative shrink-0" data-node-id="4156:9858">
+                <div className="flex-none rotate-[0.06deg] skew-x-[0.06deg]">
+                  <div className="h-0 relative w-[420.806px]">
+                    <div className="absolute inset-[-0.5px_0]">
+                      <img alt="" className="block max-w-none size-full" src={imgVector28} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="content-stretch flex flex-col gap-[5px] items-start overflow-clip relative shrink-0 w-[377px]" data-node-id="4156:9859">
+              <div className="flex h-[24.401px] items-center justify-center min-w-full relative shrink-0 w-[min-content]" data-node-id="4156:9860">
+                <div className="flex-none rotate-[0.06deg] skew-x-[0.06deg] w-full">
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative text-[16px] text-[color:var(--color\/texto,black)] w-full">Contraseña:</p>
+                </div>
+              </div>
+              <div className="h-0 relative shrink-0 w-[400px]" data-node-id="4156:9861">
+                <div className="absolute inset-[-0.5px_0]">
+                  <img alt="" className="block max-w-none size-full" src={imgVector29} />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="4156:9862">
+            <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-0 mt-0 place-items-start relative row-1" data-node-id="4156:9863">
+              <div className="bg-[var(--color\/beige,#d7d0b5)] col-1 h-[34px] ml-0 mt-0 relative rounded-[100px] row-1 w-[123px]" data-node-id="4156:9864" />
+            </div>
+            <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-[7.62px] mt-[4.4px] place-items-start relative row-1" data-node-id="4156:9865">
+              <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-0 mt-0 place-items-start relative row-1" data-node-id="4156:9866">
+                <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] h-[24.933px] leading-[1.5] ml-0 mt-0 not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] text-center w-[106.673px]" data-node-id="4156:9867">
+                  Iniciar sesión
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="[word-break:break-word] content-stretch flex font-['Barlow_Condensed:Regular'] gap-[53px] items-center leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4156:9868">
+            <p className="relative shrink-0" data-node-id="4156:9869">
+              ¿No tienes una cuenta?
+            </p>
+            <p className="relative shrink-0" data-node-id="4156:9870">
+              Regístrate
+            </p>
+          </div>
+        </div>
+        <div className="content-stretch flex flex-col gap-[25px] items-start p-[24px] relative shrink-0 w-[886.013px]" data-node-id="4156:9878" data-name="Facturacion">
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="4156:9879">
+            Datos de facturación
+          </p>
+          <div className="gap-x-[39px] gap-y-[28px] grid grid-cols-[repeat(2,minmax(0,1fr))] grid-rows-[repeat(2,fit-content(100%))] relative shrink-0 w-full" data-node-id="4156:9880">
+            <div className="content-stretch flex flex-col gap-[5px] items-start justify-self-stretch relative self-stretch shrink-0" data-node-id="4156:9881">
+              <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="4156:9882">
+                Nombres y Apellidos:
+              </p>
+              <div className="flex h-[0.435px] items-center justify-center relative shrink-0" data-node-id="4156:9883">
+                <div className="flex-none rotate-[0.06deg] skew-x-[0.06deg]">
+                  <div className="h-0 relative w-[420.806px]">
+                    <div className="absolute inset-[-0.5px_0]">
+                      <img alt="" className="block max-w-none size-full" src={imgVector28} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="content-stretch flex flex-col gap-[6px] items-start justify-self-stretch relative self-stretch shrink-0" data-node-id="4156:9884">
+              <div className="flex h-[24.425px] items-center justify-center min-w-full relative shrink-0 w-[min-content]" data-node-id="4156:9885">
+                <div className="flex-none rotate-[0.06deg] skew-x-[0.06deg] w-full">
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] font-normal leading-[1.5] relative text-[16px] text-[color:var(--color\/texto,black)] w-full whitespace-pre-wrap" style={{ fontVariationSettings: '"CTGR" 0, "wdth" 100' }}>{`Celular (con código de país):  +51 ▾`}</p>
+                </div>
+              </div>
+              <div className="h-0 relative shrink-0 w-[399px]" data-node-id="4156:9886">
+                <div className="absolute inset-[-0.5px_0]">
+                  <img alt="" className="block max-w-none size-full" src={imgVector39} />
+                </div>
+              </div>
+            </div>
+            <div className="content-stretch flex flex-col gap-[6px] items-start justify-self-stretch relative self-stretch shrink-0" data-node-id="4156:9887">
+              <div className="content-stretch flex items-center justify-between relative shrink-0 w-full" data-node-id="4156:9888">
+                <div className="flex h-[24.215px] items-center justify-center relative shrink-0" data-node-id="4156:9889">
+                  <div className="flex-none rotate-[0.06deg] skew-x-[0.06deg]">
+                    <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative text-[16px] text-[color:var(--color\/texto,black)] w-[202.359px]">Tipo de documento</p>
+                  </div>
+                </div>
+                <div className="flex items-center justify-center relative shrink-0" data-node-id="4156:9890">
+                  <div className="flex-none rotate-180">
+                    <div className="relative size-[13px]" data-name="ep:arrow-up">
+                      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEpArrowUp} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="h-0 relative shrink-0 w-[423.666px]" data-node-id="4156:9892">
+                <div className="absolute inset-[-0.5px_0]">
+                  <img alt="" className="block max-w-none size-full" src={imgVector37} />
+                </div>
+              </div>
+            </div>
+            <div className="content-stretch flex flex-col gap-[6px] items-start justify-self-stretch relative self-stretch shrink-0" data-node-id="4156:9893">
+              <div className="flex h-[24.425px] items-center justify-center min-w-full relative shrink-0 w-[min-content]" data-node-id="4156:9894">
+                <div className="flex-none rotate-[0.06deg] skew-x-[0.06deg] w-full">
+                  <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative text-[16px] text-[color:var(--color\/texto,black)] w-full">Número de documento:</p>
+                </div>
+              </div>
+              <div className="h-0 relative shrink-0 w-[399px]" data-node-id="4156:9895">
+                <div className="absolute inset-[-0.5px_0]">
+                  <img alt="" className="block max-w-none size-full" src={imgVector39} />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="4156:9896">
+            <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-0 mt-0 place-items-start relative row-1" data-node-id="4156:9897">
+              <div className="bg-[var(--color\/beige,#d7d0b5)] col-1 h-[34px] ml-0 mt-0 relative rounded-[100px] row-1 w-[168px]" data-node-id="4156:9898" />
+            </div>
+            <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-[4.17px] mt-[5.4px] place-items-start relative row-1" data-node-id="4156:9899">
+              <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-0 mt-0 place-items-start relative row-1" data-node-id="4156:9900">
+                <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] h-[24.933px] leading-[1.5] ml-0 mt-0 not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] text-center w-[159.652px]" data-node-id="4156:9901">
+                  Guardar información
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="border border-[#bcb28a] border-solid content-stretch flex h-[124px] items-center justify-between pb-[31px] pl-[30px] pr-[35px] pt-[25px] relative rounded-[12px] shrink-0 w-full" data-node-id="4156:9902" data-name="Método de pago">
+          <div className="[word-break:break-word] content-stretch flex flex-col font-['Barlow_Condensed:Regular'] gap-[14px] items-start leading-[1.5] not-italic relative shrink-0 text-[color:var(--color\/texto,black)] w-[209px]" data-node-id="4156:9903">
+            <p className="relative shrink-0 text-[20px] w-full" data-node-id="4156:9904">
+              Método de pago
+            </p>
+            <p className="relative shrink-0 text-[16px] w-full" data-node-id="4156:9905">
+              Tarjetas de crédito / débito aceptadas
+            </p>
+          </div>
+          <div className="h-[53px] relative shrink-0 w-[212.257px]" data-node-id="4156:9906">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame518} />
+          </div>
+        </div>
+        <div className="content-stretch flex flex-col gap-[41px] items-start relative shrink-0 w-[954px]" data-node-id="4156:9921" data-name="Disclaimer">
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[0] min-w-full not-italic relative shrink-0 text-[0px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="4156:9922">
+            <span className="leading-[1.5] text-[16px] text-black">{`Tus datos personales se utilizarán para procesar tu pedido, mejorar tu experiencia en esta web y otros propósitos descritos en nuestra `}</span>
+            <a className="cursor-pointer leading-[1.5] text-[16px] text-black" href="https://angelitozzz.com/?page_id=3" target="_blank">
+              <span href="https://angelitozzz.com/?page_id=3" target="_blank">
+                política de privacidad
+              </span>
+            </a>
+            <span className="leading-[1.5] text-[16px] text-black">.</span>
+          </p>
+          <div className="content-stretch flex gap-[4px] items-center relative shrink-0" data-node-id="4156:9923">
+            <div className="border border-black border-solid relative shrink-0 size-[14px]" data-node-id="4156:9924" />
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[0] not-italic relative shrink-0 text-[0px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4156:9925">
+              <span className="leading-[1.5] text-[16px] text-black">{` He leído y estoy de acuerdo con los `}</span>
+              <a className="cursor-pointer leading-[1.5] text-[16px] text-black" href="https://angelitozzz.com/terminos-y-condiciones/" target="_blank">
+                <span href="https://angelitozzz.com/terminos-y-condiciones/" target="_blank">
+                  términos y condiciones
+                </span>
+              </a>
+              <span className="leading-[1.5] text-[16px] text-black">{` de la web *`}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      {/* ===================== PARTE 2: resumen de compra (4156:9961) ===================== */}
+      <div className="content-stretch flex flex-col gap-[37px] items-center leading-[0] relative shrink-0 w-[346px]" data-node-id="4156:9961">
+        <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0" data-node-id="4156:9927">
+          <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[56px] mt-[15px] not-italic relative row-1 text-[24px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4156:9928">
+            Resumen de compra
+          </p>
+          <div className="border border-[#bcb28a] border-solid col-1 h-[358px] ml-0 mt-0 relative rounded-[12px] row-1 w-[345px]" data-node-id="4156:9929" />
+          <div className="col-1 h-0 ml-[17.5px] mt-[181px] relative row-1 w-[309.5px]" data-node-id="4156:9930">
+            <div className="absolute inset-[-0.5px_0]">
+              <img alt="" className="block max-w-none size-full" src={imgVector42} />
+            </div>
+          </div>
+          <div className="col-1 h-0 ml-[17.5px] mt-[243px] relative row-1 w-[309.5px]" data-node-id="4156:9931">
+            <div className="absolute inset-[-0.5px_0]">
+              <img alt="" className="block max-w-none size-full" src={imgVector42} />
+            </div>
+          </div>
+          <div className="col-1 h-0 ml-[17.5px] mt-[124px] relative row-1 w-[309.5px]" data-node-id="4156:9932">
+            <div className="absolute inset-[-0.5px_0]">
+              <img alt="" className="block max-w-none size-full" src={imgVector42} />
+            </div>
+          </div>
+          <div className="col-1 h-0 ml-px mt-[57px] relative row-1 w-[345px]" data-node-id="4156:9933">
+            <div className="absolute inset-[-0.5px_0]">
+              <img alt="" className="block max-w-none size-full" src={imgVector41} />
+            </div>
+          </div>
+          <div className="col-1 h-0 ml-[0.5px] mt-[305px] relative row-1 w-[343.5px]" data-node-id="4156:9934">
+            <div className="absolute inset-[-0.5px_0]">
+              <img alt="" className="block max-w-none size-full" src={imgVector44} />
+            </div>
+          </div>
+          <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[26px] mt-[197px] not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4156:9935">
+            Descuento:
+          </p>
+          <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[26px] mt-[259px] not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4156:9936">
+            IGV:
+          </p>
+          <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[266px] mt-[197px] not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4156:9937">
+            - $0
+          </p>
+          <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[270px] mt-[259px] not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4156:9938">
+            $0
+          </p>
+          <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[26px] mt-[319px] not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4156:9939">
+            Total:
+          </p>
+          <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[270px] mt-[319px] not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4156:9940">
+            $97
+          </p>
+          <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[26px] mt-[89px] not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4156:9941">
+            Recién Nacidos Go
+          </p>
+          <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[26px] mt-[69px] not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4156:9942">
+            Curso
+          </p>
+          <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[270px] mt-[74px] not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4156:9943">
+            $97
+          </p>
+          <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[26px] mt-[141px] not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4156:9944">
+            Subtotal:
+          </p>
+          <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[270px] mt-[141px] not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4156:9945">
+            $97
+          </p>
+          <Boton className="bg-[var(--color\/frambuesa,#a8566a)] col-1 content-stretch cursor-pointer flex gap-[10px] items-center ml-[85px] mt-[392px] pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] row-1" texto="Pagar ahora" />
+        </div>
+        <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0" data-node-id="4156:9947">
+          <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-0 mt-0 place-items-start relative row-1" data-node-id="4156:9948">
+            <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-0 mt-0 not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] w-[184px]" data-node-id="4156:9949">
+              Código de descuento
+            </p>
+            <div className="col-1 h-0 ml-px mt-[26px] relative row-1 w-[253px]" data-node-id="4156:9950">
+              <div className="absolute inset-[-1px_0_0_0]">
+                <img alt="" className="block max-w-none size-full" src={imgLine57} />
+              </div>
+            </div>
+            <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-[269px] mt-0 place-items-start relative row-1" data-node-id="4156:9951">
+              <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-0 mt-0 place-items-start relative row-1" data-node-id="4156:9952">
+                <div className="bg-[var(--color\/beige,#d7d0b5)] col-1 h-[28px] ml-0 mt-0 relative rounded-[100px] row-1 w-[75px]" data-node-id="4156:9953" />
+              </div>
+              <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-[7px] mt-[2px] place-items-start relative row-1" data-node-id="4156:9954">
+                <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-0 mt-0 place-items-start relative row-1" data-node-id="4156:9955">
+                  <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] h-[22px] leading-[1.5] ml-0 mt-0 not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] text-center w-[60px]" data-node-id="4156:9956">{`Aplicar `}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

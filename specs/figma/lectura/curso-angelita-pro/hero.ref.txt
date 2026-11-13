@@ -1,0 +1,165 @@
+const imgFlecha = "assets/boton-flecha.svg";
+const imgFlecha1 = "assets/boton-flecha-verde.svg";
+const imgIcono = "assets/etiqueta-icono-destellos.svg";
+const imgShutterstock2944538991 = "assets/hero-curso-placeholder.png";
+const imgRectangle110 = "assets/hero-fondo-degradado.svg";
+const imgLine61 = "assets/hero-linea-subtitulo.svg";
+const imgCarbonTime = "assets/hero-icono-tiempo.svg";
+const imgMaterialSymbolsComputerOutline = "assets/hero-icono-computadora.svg";
+const imgIconoRegaloCanje = "assets/hero-icono-regalo.svg";
+const imgLine57 = "assets/hero-cupon-linea.svg";
+const imgGroup123 = "assets/hero-cupon-boton.svg";
+
+type BotonProps = {
+  className?: string;
+  flecha?: boolean;
+  texto?: string;
+  tipo?: "Secundario" | "Frambuesa";
+};
+
+function Boton({ className, flecha = true, texto = "Texto del botón", tipo = "Frambuesa" }: BotonProps) {
+  const isFrambuesa = tipo === "Frambuesa";
+  const isSecundario = tipo === "Secundario";
+  return (
+    <div className={className || `content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] ${isSecundario ? String.raw`border-[1.5px] border-[var(--color\/verde,#234549)] border-solid` : String.raw`bg-[var(--color\/frambuesa,#a8566a)]`}`} id={isSecundario ? "node-3704_15611" : "node-3711_6161"}>
+      {isFrambuesa && (
+        <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="3711:6162">
+          {texto}
+        </p>
+      )}
+      {isFrambuesa && flecha && (
+        <div className="relative shrink-0 size-[18px]" data-node-id="3711:6163" data-name="Flecha">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha} />
+        </div>
+      )}
+      {isSecundario && (
+        <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3704:15612">
+          {texto}
+        </p>
+      )}
+      {isSecundario && flecha && (
+        <div className="relative shrink-0 size-[18px]" data-node-id="3704:15613" data-name="Flecha">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha1} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+type EtiquetaProps = {
+  className?: string;
+  estilo?: "Tarjeta";
+  icono?: "Destellos";
+  texto?: string;
+};
+
+function Etiqueta({ className, estilo = "Tarjeta", icono = "Destellos", texto = "Etiqueta" }: EtiquetaProps) {
+  return (
+    <div className={className || "bg-[var(--color\\/teal,#9cb0b0)] content-stretch flex gap-[6px] items-center px-[14px] py-[6px] relative rounded-[100px]"} data-node-id="3719:4262">
+      <div className="relative shrink-0 size-[14px]" data-node-id="3719:4263" data-name="Ícono">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIcono} />
+      </div>
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="3719:4265">
+        {texto}
+      </p>
+    </div>
+  );
+}
+
+export default function Hero() {
+  return (
+    <div className="content-stretch flex gap-[107px] items-center justify-center px-[385px] py-[88px] relative size-full" data-node-id="4012:13687" data-name="Hero">
+      <div className="absolute contents left-0 top-0" data-node-id="4012:13629" data-name="Imagen de fondo del hero personalizado">
+        <div className="absolute h-[835px] left-0 opacity-45 top-[10px] w-[730px]" data-node-id="4012:13628" data-name="shutterstock_294453899 1">
+          <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgShutterstock2944538991} />
+        </div>
+        <div className="absolute h-[845px] left-0 top-0 w-[1920px]" data-node-id="4012:13627">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgRectangle110} />
+        </div>
+      </div>
+      <div className="content-stretch flex flex-col gap-[23px] items-start relative shrink-0 w-[651px]" data-node-id="4012:13630">
+        <Etiqueta className="bg-[var(--color\/teal,#9cb0b0)] content-stretch flex gap-[6px] items-center px-[14px] py-[6px] relative rounded-[100px] shrink-0" texto="Nuevo" />
+        <div className="content-stretch flex flex-col gap-[97px] items-start relative shrink-0 w-full" data-node-id="4012:13632">
+          <div className="content-stretch flex flex-col gap-[28px] items-start relative shrink-0 w-full" data-node-id="4012:13633">
+            <div className="content-stretch flex flex-col gap-[10px] items-start relative shrink-0 w-full" data-node-id="4012:13634">
+              <p className="[word-break:break-word] font-['Barlow_Condensed:SemiBold'] leading-[1.1] min-w-full not-italic relative shrink-0 text-[50px] text-[color:var(--color\/verde,#234549)] w-[min-content]" data-node-id="4012:13635">
+                Angelita Pro
+              </p>
+              <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-[385px]" data-node-id="4012:13636">
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[24px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="4012:13637">
+                  Coach de sueño con IA · 4 a 24 meses
+                </p>
+                <div className="h-0 relative shrink-0 w-[345px]" data-node-id="4012:13638">
+                  <div className="absolute inset-[-1px_0_0_0]">
+                    <img alt="" className="block max-w-none size-full" src={imgLine61} />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic overflow-hidden relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] text-ellipsis w-[492px]" data-node-id="4012:13639">
+              Conoce a Angelita: la coach de sueño que nunca duerme — para que tú y tu bebé por fin puedan hacerlo. Entrenada con 10 años de experiencia real y más de 8.000 familias acompañadas. Disponible a cualquier hora, por WhatsApp. Sin citas. Sin esperas.
+            </p>
+          </div>
+          <div className="content-stretch flex flex-col gap-[42px] items-start relative shrink-0 w-[330px]" data-node-id="4012:13640">
+            <div className="content-stretch flex gap-[36px] items-center relative shrink-0 w-full" data-node-id="4012:13641">
+              <div className="border border-black border-solid content-stretch flex gap-[4px] items-center justify-center overflow-clip px-[16px] py-[11px] relative rounded-[4px] shrink-0" data-node-id="4012:13642" data-name="2 semanas 24/7">
+                <div className="relative shrink-0 size-[23px]" data-node-id="4012:13643" data-name="carbon:time">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgCarbonTime} />
+                </div>
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[87px]" data-node-id="4012:13646">
+                  2 semanas 24/7
+                </p>
+              </div>
+              <div className="border border-black border-solid content-stretch flex gap-[4px] items-center justify-center overflow-clip px-[16px] py-[11px] relative rounded-[4px] shrink-0 w-[146px]" data-node-id="4012:13647" data-name="WhatsApp">
+                <div className="relative shrink-0 size-[22px]" data-node-id="4012:13648" data-name="material-symbols:computer-outline">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgMaterialSymbolsComputerOutline} />
+                </div>
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4012:13650">
+                  WhatsApp
+                </p>
+              </div>
+            </div>
+            <div className="content-stretch flex gap-[8px] items-center relative shrink-0" data-node-id="4012:13651" data-name="cupon">
+              <div className="relative shrink-0 size-[21px]" data-node-id="4012:13652" data-name="Ícono regalo (canje)">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIconoRegaloCanje} />
+              </div>
+              <a className="[word-break:break-word] block cursor-pointer font-['Barlow_Condensed:Regular'] leading-[0] not-italic relative shrink-0 text-[0px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4012:13657">
+                <p className="[text-underline-position:from-font] decoration-from-font decoration-solid leading-[1.5] text-[18px] text-black underline">¿Te regalaron este curso? Canjea tu código</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex flex-col gap-[10px] items-start overflow-clip p-[20px] relative rounded-[8px] shrink-0" data-node-id="4012:13658" data-name="Soluciones de Sueño">
+        <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="4012:13659" data-name="Imagen del curso">
+          <div className="col-1 h-[184px] ml-0 mt-0 relative rounded-[8px] row-1 w-[335px]" data-node-id="4012:13660" data-name="844A7474-Editar 1">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[8px] size-full" src={imgShutterstock2944538991} />
+          </div>
+        </div>
+        <div className="content-stretch flex flex-col gap-[20px] items-center overflow-clip relative shrink-0 w-[335px]" data-node-id="4012:13663" data-name="info">
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.2] not-italic relative shrink-0 text-[32px] text-[color:var(--color\/verde,#234549)] text-center w-[118.325px]" data-node-id="4012:13664">
+            $67 USD
+          </p>
+          <Boton className="bg-[var(--color\/frambuesa,#a8566a)] content-stretch cursor-pointer flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" texto="Quiero a Angelita" />
+          <Boton className="border-[1.5px] border-[var(--color\/verde,#234549)] border-solid content-stretch cursor-pointer flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" flecha={false} texto="Regalar este curso" tipo="Secundario" />
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[320px]" data-node-id="4012:13667">
+            Precio de lanzamiento (antes $97) · 7 días de prueba completa
+          </p>
+          <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="4012:13668">
+            <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[3.01px] mt-[3px] not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] w-[254.7px]" data-node-id="4012:13669">
+              Código de cupón de descuento
+            </p>
+            <div className="col-1 h-0 ml-0 mt-[32px] relative row-1 w-[321.884px]" data-node-id="4012:13670">
+              <div className="absolute inset-[-1px_0_0_0]">
+                <img alt="" className="block max-w-none size-full" src={imgLine57} />
+              </div>
+            </div>
+            <div className="col-1 h-[24px] ml-[288.79px] mt-0 relative row-1 w-[24.066px]" data-node-id="4012:13671">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup123} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

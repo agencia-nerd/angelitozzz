@@ -1,0 +1,129 @@
+// imgVector, imgVector1 e imgVector2 eran tres descargas con el mismo contenido (misma mancha beige): se guardó una sola, assets/para-ti-mancha.svg.
+const imgVector = "assets/para-ti-mancha.svg";
+const imgGroup420 = "assets/para-ti-reloj-circulo.svg";
+const imgGroup421 = "assets/para-ti-reloj-agujas.svg";
+const imgVector1 = "assets/para-ti-mancha.svg";
+const imgGroup424 = "assets/para-ti-icono-bebe-nube.svg";
+const imgGroup579 = "assets/para-ti-icono-reloj-arena.svg";
+const imgGroup426 = "assets/para-ti-icono-biberon.svg";
+const imgGroup422 = "assets/para-ti-icono-bebe-envuelto.svg";
+const imgVector2 = "assets/para-ti-mancha.svg";
+
+export default function SeccionSiEsParaTi() {
+  return (
+    <div className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex flex-col items-center py-[88px] relative size-full" data-node-id="4013:19266" data-name="Seccion si es para ti">
+      <div className="content-stretch flex flex-col gap-[112px] items-center relative shrink-0 w-[1083.5px]" data-node-id="4013:19265">
+        <p className="[word-break:break-word] font-['Barlow_Condensed:SemiBold'] leading-[1.1] not-italic relative shrink-0 text-[50px] text-[color:var(--color\/verde,#234549)] text-center w-full" data-node-id="4013:19196">
+          Este curso es para ti si...
+        </p>
+        <div className="gap-x-[105px] gap-y-[50px] grid grid-cols-[repeat(3,minmax(0,1fr))] grid-rows-[repeat(2,fit-content(100%))] relative shrink-0 w-full" data-node-id="4013:19264">
+          <div className="content-stretch flex flex-col gap-[16px] items-center justify-self-stretch relative self-stretch shrink-0" data-node-id="4013:19258">
+            <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="4013:19236">
+              <div className="col-1 h-[89.899px] ml-0 mt-0 relative row-1 w-[100.982px]" data-node-id="4013:19237" data-name="Vector">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+              </div>
+              <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-[29.55px] mt-[23.81px] place-items-start relative row-1" data-node-id="4013:19238">
+                <div className="col-1 h-[41.396px] ml-0 mt-0 relative row-1 w-[41.87px]" data-node-id="4013:19239">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup420} />
+                </div>
+                <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-[20.93px] mt-[7.73px] place-items-start relative row-1" data-node-id="4013:19241">
+                  <div className="col-1 h-[19.772px] ml-0 mt-0 relative row-1 w-[10.468px]" data-node-id="4013:19242">
+                    <div className="absolute inset-[-5.88%_-11.11%]">
+                      <img alt="" className="block max-w-none size-full" src={imgGroup421} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] text-center w-[min-content]" data-node-id="4013:19197">
+              No entiendes la lógica detrás de los horarios y sientes que todo es prueba y error.
+            </p>
+          </div>
+          <div className="content-stretch flex flex-col gap-[6px] items-center justify-self-stretch relative self-stretch shrink-0" data-node-id="4013:19259">
+            <div className="flex h-[110.271px] items-center justify-center relative shrink-0 w-[118.584px]" data-node-id="4013:19203">
+              <div className="flex-none rotate-[-12.97deg]">
+                <div className="h-[89.899px] relative w-[100.982px]" data-name="Vector">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector1} />
+                </div>
+              </div>
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] text-center w-[min-content]" data-node-id="4013:19199">
+              Tu bebé vive cansado — siestas cortas, mal humor y un círculo vicioso que no para.
+            </p>
+            <div className="absolute h-[63.732px] left-[102.1px] top-[24px] w-[65.032px]" data-node-id="4013:19218">
+              <div className="absolute inset-[-1.47%_-1.44%_0_-1.44%]">
+                <img alt="" className="block max-w-none size-full" src={imgGroup424} />
+              </div>
+            </div>
+          </div>
+          <div className="content-stretch flex flex-col gap-[6px] items-center justify-self-stretch relative self-stretch shrink-0" data-node-id="4013:19260">
+            <div className="h-[110.271px] relative shrink-0 w-[118.584px]" data-node-id="4013:19252">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup579} />
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] text-center w-[min-content]" data-node-id="4013:19198">
+              Has probado diferentes horarios online y sigues sin encontrar el que funciona para tu bebé.
+            </p>
+          </div>
+          <div className="content-stretch flex flex-col gap-[12px] items-center justify-self-stretch relative self-stretch shrink-0" data-node-id="4013:19263">
+            <div className="flex h-[110.271px] items-center justify-center relative shrink-0 w-[118.584px]" data-node-id="4013:19205">
+              <div className="flex-none rotate-[-12.97deg]">
+                <div className="h-[89.899px] relative w-[100.982px]" data-name="Vector">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector1} />
+                </div>
+              </div>
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] h-[72px] leading-[1.5] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] text-center w-[min-content]" data-node-id="4013:19202">
+              Cada vez que crees haber encontrado el horario ideal, algo cambia y vuelves a cero.
+            </p>
+            <div className="absolute h-[55.2px] left-[130px] top-[27px] w-[20.7px]" data-node-id="4013:19206">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup426} />
+            </div>
+          </div>
+          <div className="content-stretch flex flex-col gap-[12px] items-center justify-self-stretch relative self-stretch shrink-0" data-node-id="4013:19262">
+            <div className="flex h-[110.271px] items-center justify-center relative shrink-0 w-[118.584px]" data-node-id="4013:19204">
+              <div className="flex-none rotate-[-12.97deg]">
+                <div className="h-[89.899px] relative w-[100.982px]" data-name="Vector">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector1} />
+                </div>
+              </div>
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] h-[48px] leading-[1.5] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] text-center w-[min-content]" data-node-id="4013:19200">
+              Los cuadros de ventanas de vigilia que encuentras online no aplican para tu bebé.
+            </p>
+            <div className="absolute h-[49.298px] left-[126.8px] top-[31px] w-[30.092px]" data-node-id="4013:19212">
+              <div className="absolute inset-[-2.71%_0_-2.71%_-4.45%]">
+                <img alt="" className="block max-w-none size-full" src={imgGroup422} />
+              </div>
+            </div>
+          </div>
+          <div className="content-stretch flex flex-col items-center justify-self-stretch relative self-stretch shrink-0" data-node-id="4013:19261">
+            <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="4013:19244">
+              <div className="col-1 flex h-[110.271px] items-center justify-center ml-0 mt-0 relative row-1 w-[118.584px]" data-node-id="4013:19245">
+                <div className="flex-none rotate-[-12.97deg]">
+                  <div className="h-[89.899px] relative w-[100.982px]" data-name="Vector">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector2} />
+                  </div>
+                </div>
+              </div>
+              <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-[38.36px] mt-[34px] place-items-start relative row-1" data-node-id="4013:19246">
+                <div className="col-1 h-[41.396px] ml-0 mt-0 relative row-1 w-[41.87px]" data-node-id="4013:19247">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup420} />
+                </div>
+                <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-[20.93px] mt-[7.73px] place-items-start relative row-1" data-node-id="4013:19249">
+                  <div className="col-1 h-[19.772px] ml-0 mt-0 relative row-1 w-[10.468px]" data-node-id="4013:19250">
+                    <div className="absolute inset-[-5.88%_-11.11%]">
+                      <img alt="" className="block max-w-none size-full" src={imgGroup421} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] h-[48px] leading-[1.5] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] text-center w-[min-content]" data-node-id="4013:19201">
+              No sabes cómo ajustar los horarios a medida que tu bebé crece.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
