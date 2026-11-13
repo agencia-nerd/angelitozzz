@@ -43,7 +43,7 @@ $colgantes = [
                             <img class="max-w-none" src="<?= esc_url(get_theme_file_uri('assets/img/home/' . $colgante['archivo'])) ?>" alt="" width="<?= esc_attr($colgante['ancho']) ?>" height="<?= esc_attr($colgante['alto']) ?>" loading="lazy">
                         </div>
                     <?php endif; ?>
-                    <p class="<?= esc_attr('mt-4 max-w-[280px] text-body lg:mt-12 ' . ($colgante['texto'] ?? '')) ?>"><?= esc_html($texto) ?></p>
+                    <p class="<?= esc_attr('mt-4 max-w-[280px] text-cuerpo lg:mt-12 ' . ($colgante['texto'] ?? '')) ?>"><?= esc_html($texto) ?></p>
                 </li>
             <?php endforeach; ?>
         </ul>

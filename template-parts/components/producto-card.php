@@ -51,19 +51,19 @@ if ($titulo === '') {
             <?php endif; ?>
         </div>
         <div>
-            <h3 class="text-body"><?= esc_html($titulo) ?></h3>
+            <h3 class="text-cuerpo"><?= esc_html($titulo) ?></h3>
             <?php if ($edad !== '') : ?>
-                <p class="text-body"><?= esc_html($edad) ?></p>
+                <p class="text-cuerpo"><?= esc_html($edad) ?></p>
             <?php endif; ?>
         </div>
     </div>
 
     <?php if ($descripcion !== '') : ?>
-        <p class="max-w-[314px] text-body-s text-tinta-suave"><?= angelitozzz_highlight($descripcion) ?></p>
+        <p class="max-w-[314px] text-cuerpo-s text-tinta-suave"><?= angelitozzz_highlight($descripcion) ?></p>
     <?php endif; ?>
 
     <?php if ($beneficios) : ?>
-        <ul class="lista-puntos w-full max-w-[314px] text-left text-body-s">
+        <ul class="lista-puntos w-full max-w-[314px] text-left text-cuerpo-s">
             <?php foreach ($beneficios as $beneficio) : ?>
                 <li><?= esc_html($beneficio) ?></li>
             <?php endforeach; ?>

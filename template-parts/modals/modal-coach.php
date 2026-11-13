@@ -39,7 +39,7 @@ angelitozzz_modal_start('modal-coach', [
 ]);
 ?>
 <div class="flex flex-col gap-5" data-coach-paso="formulario">
-    <p class="text-body"><?= angelitozzz_highlight($texto) ?></p>
+    <p class="text-cuerpo"><?= angelitozzz_highlight($texto) ?></p>
     <?php get_template_part('template-parts/forms/coach'); ?>
 </div>
 
@@ -49,8 +49,8 @@ angelitozzz_modal_start('modal-coach', [
     data-whatsapp="<?= esc_attr(preg_replace('/\D/', '', $whatsapp_coach)) ?>">
     <img class="size-[72px]" src="<?= esc_url(get_theme_file_uri('assets/img/modal-gracias-check.svg')) ?>" alt="" aria-hidden="true" width="72" height="72" loading="lazy">
     <p class="text-h3 text-marca" aria-hidden="true" data-coach-titulo></p>
-    <p class="text-body-l"><?= angelitozzz_highlight($gracias_texto) ?></p>
-    <a class="inline-flex items-center gap-[10px] rounded-full bg-acento py-[14px] pl-7 pr-6 text-label text-blanco focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca aria-disabled:cursor-default aria-disabled:opacity-50" aria-disabled="true" data-coach-whatsapp>
+    <p class="text-cuerpo-l"><?= angelitozzz_highlight($gracias_texto) ?></p>
+    <a class="inline-flex items-center gap-[10px] rounded-full bg-acento py-[14px] pl-7 pr-6 text-rotulo text-blanco focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca aria-disabled:cursor-default aria-disabled:opacity-50" aria-disabled="true" data-coach-whatsapp>
         <span><?= esc_html($gracias_boton) ?></span>
         <span class="sr-only" hidden data-coach-aviso>(<?= esc_html__('se abre en una pestaña nueva', 'angelitozzz') ?>)</span>
         <svg class="size-[18px] shrink-0" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.75 9h10.5M9 3.75 14.25 9 9 14.25" /></svg>

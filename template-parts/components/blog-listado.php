@@ -31,7 +31,7 @@ $titulo = trim((string) ($args['titulo'] ?? ''));
                 </ul>
             <?php else : ?>
                 <?php $blog_id = (int) get_option('page_for_posts'); ?>
-                <p class="text-center text-body text-marca">
+                <p class="text-center text-cuerpo text-marca">
                     <?= esc_html(angelitozzz_query_is_filtered()
                         ? __('No encontramos artículos con esa búsqueda.', 'angelitozzz')
                         : __('Todavía no hay artículos en esta categoría.', 'angelitozzz')) ?>

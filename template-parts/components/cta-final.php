@@ -30,7 +30,7 @@ $id = wp_unique_id('cta-final-');
     <div class="relative mx-auto flex max-w-sitio flex-col items-center gap-5 text-center">
         <h2 id="<?= esc_attr($id) ?>" class="text-h2 text-marca max-md:text-h3"><?= angelitozzz_highlight($titulo) ?></h2>
         <?php if ($descripcion !== '') : ?>
-            <p class="text-body-l"><?= angelitozzz_highlight($descripcion) ?></p>
+            <p class="text-cuerpo-l"><?= angelitozzz_highlight($descripcion) ?></p>
         <?php endif; ?>
         <div class="mt-2">
             <?php get_template_part('template-parts/components/boton', null, [

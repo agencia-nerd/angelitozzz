@@ -21,7 +21,7 @@ $imagen = $quien_soy['imagen'] ?? null;
                     <?= angelitozzz_highlight($titulo) ?>
                     <img class="pointer-events-none absolute -top-9 left-full ml-1 size-[46px] max-md:-top-6 max-md:size-8" src="<?= esc_url(get_theme_file_uri('assets/img/home/quien-soy-corazon.svg')) ?>" alt="" aria-hidden="true" width="46" height="46" loading="lazy">
                 </h2>
-                <p class="text-body-s"><?= angelitozzz_highlight($texto) ?></p>
+                <p class="text-cuerpo-s"><?= angelitozzz_highlight($texto) ?></p>
             </div>
             <?php get_template_part('template-parts/components/boton', null, [
                 'enlace'   => $boton,

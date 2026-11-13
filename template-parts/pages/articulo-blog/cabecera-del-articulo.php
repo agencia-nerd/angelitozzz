@@ -55,7 +55,7 @@ if ($imagen_id) {
         <div class="flex items-center gap-3.5">
             <?= get_avatar($autor_id, 44, '', '', ['class' => 'size-11 shrink-0 rounded-full object-cover', 'extra_attr' => 'aria-hidden="true"']) ?>
             <div class="flex min-w-0 flex-col gap-0.5">
-                <p class="text-label text-marca"><?= esc_html(sprintf(__('Por %s', 'angelitozzz'), get_the_author_meta('display_name', $autor_id))) ?></p>
+                <p class="text-rotulo text-marca"><?= esc_html(sprintf(__('Por %s', 'angelitozzz'), get_the_author_meta('display_name', $autor_id))) ?></p>
                 <p class="text-caption text-tinta-suave">
                     <time datetime="<?= esc_attr(get_the_date('c', $post_id)) ?>"><?= esc_html(get_the_date('j \d\e F \d\e Y', $post_id)) ?></time>
                     · <?= esc_html(sprintf(__('%d min de lectura', 'angelitozzz'), $minutos)) ?>

@@ -17,7 +17,7 @@ $id_titulo = wp_unique_id('contacto-titulo-');
         <header class="flex w-full max-w-[392px] flex-col items-center gap-11.5 text-center">
             <h1 id="<?= esc_attr($id_titulo) ?>" class="text-display text-marca max-md:text-h1"><?= angelitozzz_highlight($titulo) ?></h1>
             <?php if ($subtitulo !== '') : ?>
-                <p class="text-body-s"><?= angelitozzz_highlight($subtitulo) ?></p>
+                <p class="text-cuerpo-s"><?= angelitozzz_highlight($subtitulo) ?></p>
             <?php endif; ?>
         </header>
 

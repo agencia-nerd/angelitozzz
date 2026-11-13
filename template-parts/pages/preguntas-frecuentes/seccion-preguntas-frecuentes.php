@@ -44,8 +44,8 @@ if ($titulo === '' && !$preguntas) {
             'class'         => 'flex w-full max-w-[774px] flex-col gap-4 py-5',
             'item_class'    => 'relative pb-[54px] max-md:pb-6 after:absolute after:bottom-0 after:left-[26px] after:right-0 after:border-b after:border-neutro max-md:after:left-6',
             'summary_class' => 'max-md:items-start',
-            'title_class'   => 'faq-check relative pl-6 text-body-l text-tinta',
-            'panel_class'   => 'pt-[54px] text-body-s text-tinta max-md:pt-6',
+            'title_class'   => 'faq-check relative pl-6 text-cuerpo-l text-tinta',
+            'panel_class'   => 'pt-[54px] text-cuerpo-s text-tinta max-md:pt-6',
         ]);
 
         foreach ($visibles as $i => $fila) {
@@ -64,7 +64,7 @@ if ($titulo === '' && !$preguntas) {
         ?>
 
         <?php if ($ocultos) : ?>
-            <button type="button" class="-mt-8 flex items-center gap-2.5 text-body-xl text-marca focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca max-md:-mt-4" data-ver-mas aria-expanded="false" aria-controls="<?= esc_attr($id_base . '-1') ?>">
+            <button type="button" class="-mt-8 flex items-center gap-2.5 text-cuerpo-xl text-marca focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca max-md:-mt-4" data-ver-mas aria-expanded="false" aria-controls="<?= esc_attr($id_base . '-1') ?>">
                 <span><?= esc_html__('Ver más', 'angelitozzz') ?></span>
                 <svg class="size-[10px] shrink-0 rotate-180 text-contorno" viewBox="0 0 10.2 10.31" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
                     <path d="M9.57562 4.65278L5.10032 0.625L0.625006 4.65278" />

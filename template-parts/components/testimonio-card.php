@@ -54,10 +54,10 @@ if ($nombre === '' || $texto === '') {
                     'estilo' => 'tarjeta',
                 ]); ?>
                 <?php if ($edad !== '') : ?>
-                    <span class="rounded-full bg-fondo px-3.5 py-1.5 text-label-s text-marca"><?= esc_html($edad) ?></span>
+                    <span class="rounded-full bg-fondo px-3.5 py-1.5 text-rotulo-s text-marca"><?= esc_html($edad) ?></span>
                 <?php endif; ?>
             </div>
         <?php endif; ?>
-        <p class="text-body text-tinta"><?= esc_html($texto) ?></p>
+        <p class="text-cuerpo text-tinta"><?= esc_html($texto) ?></p>
     </div>
 </article>

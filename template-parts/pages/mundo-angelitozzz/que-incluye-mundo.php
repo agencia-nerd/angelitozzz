@@ -31,7 +31,7 @@ $hero = get_field('mundo_angelitozzz_hero') ?: [];
             <?php endif; ?>
             <h2 id="mundo-angelitozzz-incluye-titulo" class="max-w-[900px] text-h3 text-marca lg:text-h1"><?= angelitozzz_highlight($titulo) ?></h2>
             <?php if ($bajada !== '') : ?>
-                <p class="max-w-[760px] text-body text-marca lg:text-body-l"><?= angelitozzz_highlight($bajada) ?></p>
+                <p class="max-w-[760px] text-cuerpo text-marca lg:text-cuerpo-l"><?= angelitozzz_highlight($bajada) ?></p>
             <?php endif; ?>
         </div>
 
@@ -47,9 +47,9 @@ $hero = get_field('mundo_angelitozzz_hero') ?: [];
                     ]) ?>
                     <div class="flex flex-1 flex-col items-start gap-2.5 p-7">
                         <h3 class="text-h4 text-marca"><?= esc_html($titulo_tarjeta) ?></h3>
-                        <p class="text-body text-tinta"><?= angelitozzz_highlight((string) ($beneficio['texto'] ?? '')) ?></p>
+                        <p class="text-cuerpo text-tinta"><?= angelitozzz_highlight((string) ($beneficio['texto'] ?? '')) ?></p>
                         <?php if ($etiqueta !== '') : ?>
-                            <span class="mt-auto rounded-full bg-fondo px-3.5 py-1.5 text-label-s text-marca"><?= esc_html($etiqueta) ?></span>
+                            <span class="mt-auto rounded-full bg-fondo px-3.5 py-1.5 text-rotulo-s text-marca"><?= esc_html($etiqueta) ?></span>
                         <?php endif; ?>
                     </div>
                 </li>

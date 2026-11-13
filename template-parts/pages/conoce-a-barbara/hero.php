@@ -33,12 +33,12 @@ $deco = static fn(string $archivo): string => esc_url(get_theme_file_uri('assets
                 <img class="h-[42px] w-[46px] shrink-0 max-md:h-[29px] max-md:w-8" src="<?= $deco('hero-corazon.svg') ?>" alt="" aria-hidden="true" width="46" height="42">
             </h1>
             <?php if ($bajada !== '') : ?>
-                <p class="text-body-xl text-marca max-md:text-body-l"><?= angelitozzz_highlight($bajada) ?></p>
+                <p class="text-cuerpo-xl text-marca max-md:text-cuerpo-l"><?= angelitozzz_highlight($bajada) ?></p>
             <?php endif; ?>
         </div>
 
         <div class="mt-14 flex flex-col items-center gap-20 max-lg:gap-10 lg:flex-row">
-            <div class="flex-1 text-body-l [&>p:not(:last-child)]:mb-4.5">
+            <div class="flex-1 text-cuerpo-l [&>p:not(:last-child)]:mb-4.5">
                 <?= wpautop(angelitozzz_highlight($texto), false) ?>
             </div>
             <div class="aspect-[23/28] w-full max-w-[460px] shrink-0 overflow-hidden rounded-[32px] lg:w-[460px]">

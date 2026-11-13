@@ -18,7 +18,7 @@ $categoria = angelitozzz_query_filter('categoria');
 $opciones  = (array) ($categoria['opciones'] ?? []);
 $hay_marca = (bool) array_filter($opciones, static fn(array $o): bool => !empty($o['marcada']));
 
-$pastilla = 'inline-flex items-center rounded-full border border-neutro bg-blanco px-4.5 py-2 text-label-s text-marca peer-checked:border-marca peer-checked:bg-marca peer-checked:text-fondo peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-marca';
+$pastilla = 'inline-flex items-center rounded-full border border-neutro bg-blanco px-4.5 py-2 text-rotulo-s text-marca peer-checked:border-marca peer-checked:bg-marca peer-checked:text-fondo peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-marca';
 ?>
 <section class="bg-fondo px-4 py-16 lg:py-26" aria-labelledby="testimonios-titulo">
     <div class="mx-auto flex max-w-sitio flex-col items-center gap-6">
@@ -28,7 +28,7 @@ $pastilla = 'inline-flex items-center rounded-full border border-neutro bg-blanc
             <?php endif; ?>
             <h1 id="testimonios-titulo" class="text-h2 font-semibold text-marca lg:text-h1"><?= esc_html($titulo) ?></h1>
             <?php if ($bajada !== '') : ?>
-                <p class="text-body-l text-tinta"><?= angelitozzz_highlight($bajada) ?></p>
+                <p class="text-cuerpo-l text-tinta"><?= angelitozzz_highlight($bajada) ?></p>
             <?php endif; ?>
         </div>
 
@@ -49,7 +49,7 @@ $pastilla = 'inline-flex items-center rounded-full border border-neutro bg-blanc
                         <?php endforeach; ?>
                     </div>
                 </fieldset>
-                <button class="sr-only focus:not-sr-only focus:mt-3 focus:rounded-full focus:bg-marca focus:px-4.5 focus:py-2 focus:text-label-s focus:text-fondo" type="submit"><?= esc_html__('Filtrar', 'angelitozzz') ?></button>
+                <button class="sr-only focus:not-sr-only focus:mt-3 focus:rounded-full focus:bg-marca focus:px-4.5 focus:py-2 focus:text-rotulo-s focus:text-fondo" type="submit"><?= esc_html__('Filtrar', 'angelitozzz') ?></button>
             </form>
         <?php endif; ?>
 
@@ -61,7 +61,7 @@ $pastilla = 'inline-flex items-center rounded-full border border-neutro bg-blanc
                     get_template_part('template-parts/components/testimonio-card', null, ['post_id' => get_the_ID()]);
                 endwhile; ?>
             <?php else : ?>
-                <p class="text-center text-body text-marca-suave"><?= esc_html__('Aún no hay testimonios en esta categoría.', 'angelitozzz') ?></p>
+                <p class="text-center text-cuerpo text-marca-suave"><?= esc_html__('Aún no hay testimonios en esta categoría.', 'angelitozzz') ?></p>
             <?php endif; ?>
         </div>
 

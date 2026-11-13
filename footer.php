@@ -58,14 +58,14 @@ $aviso     = esc_html__('se abre en una pestaña nueva', 'angelitozzz');
                 <div class="flex max-w-[520px] flex-col gap-[9px]">
                     <h2 class="text-h4 text-marca"><?= esc_html($newsletter_titulo) ?></h2>
                     <?php if ($newsletter_texto !== '') : ?>
-                        <p class="text-body"><?= angelitozzz_highlight($newsletter_texto) ?></p>
+                        <p class="text-cuerpo"><?= angelitozzz_highlight($newsletter_texto) ?></p>
                     <?php endif; ?>
                 </div>
                 <?php get_template_part('template-parts/forms/newsletter'); ?>
             </div>
 
             <div class="flex flex-col gap-[66px] max-md:gap-10">
-                <nav class="grid grid-cols-2 gap-x-6 gap-y-6 text-body-s lg:flex lg:gap-[192px]" aria-label="<?= esc_attr__('Pie de página', 'angelitozzz') ?>">
+                <nav class="grid grid-cols-2 gap-x-6 gap-y-6 text-cuerpo-s lg:flex lg:gap-[192px]" aria-label="<?= esc_attr__('Pie de página', 'angelitozzz') ?>">
                     <?php
                     angelitozzz_menu('pie-navegacion', $menu_navegacion, [
                         'clase' => 'col-span-2 grid grid-flow-col grid-rows-3 gap-x-6 gap-y-6 lg:gap-x-[192px] [&_a:hover]:text-marca [&_a]:whitespace-nowrap',
@@ -114,8 +114,8 @@ $aviso     = esc_html__('se abre en una pestaña nueva', 'angelitozzz');
 
         <div class="mt-[52px] border-t border-contorno/20 max-md:mt-10">
             <div class="mx-auto flex max-w-[1140px] items-center justify-between gap-4 px-4 py-6 max-md:flex-col">
-                <p class="text-body-s text-marca opacity-50"><?= esc_html($copyright) ?></p>
-                <p class="flex items-center gap-[11px] text-body-s">
+                <p class="text-cuerpo-s text-marca opacity-50"><?= esc_html($copyright) ?></p>
+                <p class="flex items-center gap-[11px] text-cuerpo-s">
                     <span>Made with</span>
                     <svg class="h-2.5 w-[11px] text-marca" viewBox="0 0 11 10" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5.5 8.75a.75.75 0 0 1-.39-.11C3.43 7.6 2.69 6.88 2.29 6.44c-.86-.95-1.27-1.93-1.26-2.99C1.05 2.24 2.12 1.25 3.42 1.25c.95 0 1.6.48 1.98.89a.14.14 0 0 0 .2 0c.38-.41 1.04-.89 1.98-.89 1.3 0 2.37.99 2.39 2.2.01 1.06-.4 2.04-1.26 2.99-.4.44-1.13 1.16-2.82 2.2a.75.75 0 0 1-.39.11" /></svg>
                     <span class="sr-only"><?= esc_html__('con amor por', 'angelitozzz') ?></span>

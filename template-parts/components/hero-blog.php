@@ -49,7 +49,7 @@ foreach ((array) (angelitozzz_query_filter('categoria')['opciones'] ?? []) as $o
     ];
 }
 
-$pastilla        = 'block rounded-full px-4.5 py-2 text-label-s whitespace-nowrap transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca';
+$pastilla        = 'block rounded-full px-4.5 py-2 text-rotulo-s whitespace-nowrap transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca';
 $pastilla_activa = $pastilla . ' bg-marca text-fondo';
 $pastilla_normal = $pastilla . ' bg-blanco text-marca hover:bg-neutro';
 ?>
@@ -69,7 +69,7 @@ $pastilla_normal = $pastilla . ' bg-blanco text-marca hover:bg-neutro';
             <h1 id="blog-hero-titulo" class="text-display text-marca"><?= esc_html($titulo) ?></h1>
 
             <?php if ($bajada !== '') : ?>
-                <p class="text-body-xl text-marca"><?= angelitozzz_highlight($bajada) ?></p>
+                <p class="text-cuerpo-xl text-marca"><?= angelitozzz_highlight($bajada) ?></p>
             <?php endif; ?>
         </div>
 
@@ -79,12 +79,12 @@ $pastilla_normal = $pastilla . ' bg-blanco text-marca hover:bg-neutro';
                 <label for="blog-buscador" class="sr-only"><?= esc_html__('Buscar en el blog', 'angelitozzz') ?></label>
                 <input
                     id="blog-buscador"
-                    class="min-w-0 flex-1 bg-transparent text-body text-tinta placeholder:text-tinta-suave focus:outline-none"
+                    class="min-w-0 flex-1 bg-transparent text-cuerpo text-tinta placeholder:text-tinta-suave focus:outline-none"
                     type="search"
                     name="q"
                     value="<?= esc_attr($buscado) ?>"
                     placeholder="<?= esc_attr($placeholder) ?>">
-                <button class="shrink-0 rounded-full bg-acento px-5 py-2.5 text-label-s text-blanco transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca" type="submit">
+                <button class="shrink-0 rounded-full bg-acento px-5 py-2.5 text-rotulo-s text-blanco transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca" type="submit">
                     <?= esc_html($boton) ?>
                 </button>
             </div>

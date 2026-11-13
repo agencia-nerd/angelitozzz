@@ -47,7 +47,7 @@ if (!$tarjetas) {
     <div class="mx-auto flex max-w-sitio flex-col gap-7">
         <div class="flex flex-wrap items-center justify-between gap-x-6 gap-y-2 max-md:flex-col max-md:items-start">
             <h2 id="te-puede-interesar-titulo" class="text-h3 text-marca"><?= esc_html__('También te puede interesar', 'angelitozzz') ?></h2>
-            <a class="text-body-s text-marca hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca" href="<?= esc_url($ver_todo) ?>"><?= esc_html__('Ver todo →', 'angelitozzz') ?></a>
+            <a class="text-cuerpo-s text-marca hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca" href="<?= esc_url($ver_todo) ?>"><?= esc_html__('Ver todo →', 'angelitozzz') ?></a>
         </div>
 
         <ul class="grid gap-7.5 md:grid-cols-2 lg:grid-cols-3">

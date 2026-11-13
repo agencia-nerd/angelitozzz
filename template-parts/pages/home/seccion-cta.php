@@ -30,11 +30,11 @@ $boton  = $cta['boton'] ?? null;
         </div>
 
         <?php if ($texto !== '') : ?>
-            <p class="text-body"><?= angelitozzz_highlight($texto) ?></p>
+            <p class="text-cuerpo"><?= angelitozzz_highlight($texto) ?></p>
         <?php endif; ?>
 
         <?php if ($puntos) : ?>
-            <ul class="lista-puntos text-body max-md:text-left">
+            <ul class="lista-puntos text-cuerpo max-md:text-left">
                 <?php foreach ($puntos as $punto) : ?>
                     <li><?= esc_html($punto) ?></li>
                 <?php endforeach; ?>
