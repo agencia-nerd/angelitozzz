@@ -1,0 +1,112 @@
+const imgIndoorShotAttractiveDarkHairedFemaleWearingWhiteTShirtLyingBedWithHerInfantBabyHavingRestTogetherMommyLookingHerCuteDaughter2 = "assets/que-incluye-foto-mama-bebe.jpg";
+const imgFrame = "assets/que-incluye-nube-1.svg";
+const imgVector = "assets/que-incluye-nube-2.svg";
+const imgGroup410 = "assets/que-incluye-nube-ojos.svg";
+const imgVector1 = "assets/que-incluye-check.svg";
+const imgVector8 = "assets/que-incluye-linea.svg";
+const imgIcon = "assets/que-incluye-ver-mas-flecha.svg";
+
+export default function QueIncluye() {
+  return (
+    <div className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex flex-col items-center py-[88px] relative size-full" data-node-id="4013:15550" data-name="Que incluye">
+      <div className="content-stretch flex flex-col gap-[112px] items-center relative shrink-0 w-[1636px]" data-node-id="4013:15566">
+        <p className="[word-break:break-word] font-['Barlow_Condensed:SemiBold'] leading-[1.1] not-italic relative shrink-0 text-[50px] text-[color:var(--color\/verde,#234549)] text-center w-full" data-node-id="4013:15525">
+          ¿Qué incluye tu asesoría?
+        </p>
+        <div className="content-stretch flex gap-[188px] items-center leading-[0] relative shrink-0 w-full" data-node-id="4013:15565">
+          <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0" data-node-id="4013:15564">
+            <div className="col-1 h-[138px] ml-0 mt-[198px] relative row-1 w-[229px]" data-node-id="4013:15554" data-name="Frame">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+            </div>
+            <div className="col-1 h-[121px] ml-[189px] mt-0 relative row-1 w-[278px]" data-node-id="4013:15559" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+            </div>
+            <div className="col-1 h-[4.554px] ml-[240px] mt-[55px] relative row-1 w-[68px]" data-node-id="4013:15560">
+              <div className="absolute inset-[-52.05%_-3.49%_-52.06%_-3.49%]">
+                <img alt="" className="block max-w-none size-full" src={imgGroup410} />
+              </div>
+            </div>
+            <div className="col-1 h-[378px] ml-[260px] mt-[90px] relative rounded-[20px] row-1 w-[414px]" data-node-id="4013:15563" data-name="indoor-shot-attractive-dark-haired-female-wearing-white-t-shirt-lying-bed-with-her-infant-baby-having-rest-together-mommy-looking-her-cute-daughter 2">
+              <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[20px] size-full" src={imgIndoorShotAttractiveDarkHairedFemaleWearingWhiteTShirtLyingBedWithHerInfantBabyHavingRestTogetherMommyLookingHerCuteDaughter2} />
+            </div>
+          </div>
+          <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0" data-node-id="4013:15527">
+            <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[24px] mt-0 not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] w-[750px]" data-node-id="4013:15528">
+              Videollamada inicial — una sesión de 1 hora para conocernos y crear el plan ideal para ti y tu bebé de acuerdo a tu estilo.
+            </p>
+            <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[24px] mt-[108px] not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] w-[750px]" data-node-id="4013:15529">
+              Plan de sueño integral personalizado — métodos, horarios, rutinas y todo lo que necesitas para empezar.
+            </p>
+            <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[24px] mt-[193px] not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] w-[750px]" data-node-id="4013:15530">
+              3 semanas de WhatsApp ilimitado con Bárbara — cada duda, cada pregunta, respondida por Bárbara personalmente.
+            </p>
+            <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[24px] mt-[294px] not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] w-[750px]" data-node-id="4013:15531">
+              Plan de siestas incluido (si deseas).
+            </p>
+            <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[24px] mt-[384px] not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] w-[750px]" data-node-id="4013:15532">
+              Ajustes según la respuesta de tu bebé.
+            </p>
+            <div className="col-1 h-[12.916px] ml-0 mt-[5px] relative row-1 w-[13.751px]" data-node-id="4013:15533" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector1} />
+            </div>
+            <div className="col-1 h-[12.916px] ml-0 mt-[112px] relative row-1 w-[13.751px]" data-node-id="4013:15534" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector1} />
+            </div>
+            <div className="col-1 h-[12.916px] ml-0 mt-[197px] relative row-1 w-[13.751px]" data-node-id="4013:15535" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector1} />
+            </div>
+            <div className="col-1 h-[12.916px] ml-0 mt-[298px] relative row-1 w-[13.751px]" data-node-id="4013:15536" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector1} />
+            </div>
+            <div className="col-1 h-[12.916px] ml-0 mt-[388px] relative row-1 w-[13.751px]" data-node-id="4013:15537" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector1} />
+            </div>
+            <div className="col-1 h-0 ml-[24px] mt-[163px] relative row-1 w-[748.5px]" data-node-id="4013:15538">
+              <div className="absolute inset-[-0.5px_0]">
+                <img alt="" className="block max-w-none size-full" src={imgVector8} />
+              </div>
+            </div>
+            <div className="col-1 h-0 ml-[24px] mt-[78px] relative row-1 w-[748.5px]" data-node-id="4013:15539">
+              <div className="absolute inset-[-0.5px_0]">
+                <img alt="" className="block max-w-none size-full" src={imgVector8} />
+              </div>
+            </div>
+            <div className="col-1 h-0 ml-[24px] mt-[264px] relative row-1 w-[748.5px]" data-node-id="4013:15540">
+              <div className="absolute inset-[-0.5px_0]">
+                <img alt="" className="block max-w-none size-full" src={imgVector8} />
+              </div>
+            </div>
+            <div className="col-1 h-0 ml-[18px] mt-[354px] relative row-1 w-[748.5px]" data-node-id="4013:15541">
+              <div className="absolute inset-[-0.5px_0]">
+                <img alt="" className="block max-w-none size-full" src={imgVector8} />
+              </div>
+            </div>
+            <div className="col-1 h-0 ml-[24px] mt-[459px] relative row-1 w-[748.5px]" data-node-id="4013:15542">
+              <div className="absolute inset-[-0.5px_0]">
+                <img alt="" className="block max-w-none size-full" src={imgVector8} />
+              </div>
+            </div>
+            <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-[34px] mt-[498px] place-items-start relative row-1" data-node-id="4013:15543">
+              <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-0 mt-0 place-items-start relative row-1" data-node-id="4013:15544">
+                <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-0 mt-0 place-items-start relative row-1" data-node-id="4013:15545">
+                  <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-0 mt-0 not-italic relative row-1 text-[18px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="4013:15546">
+                    Ver más
+                  </p>
+                  <div className="col-1 flex items-center justify-center ml-[63px] mt-[8px] relative row-1 size-[10px]" data-node-id="4013:15547">
+                    <div className="flex-none rotate-180">
+                      <div className="relative size-[10px]" data-name="Icon">
+                        <div className="absolute inset-[-1.88%_-1.29%_-1.25%_-0.72%]">
+                          <img alt="" className="block max-w-none size-full" src={imgIcon} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

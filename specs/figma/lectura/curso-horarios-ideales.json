@@ -1,0 +1,2172 @@
+{
+  "formato": 1,
+  "pagina": "curso-horarios-ideales",
+  "fuente": {
+    "fileKey": "FumWuCPT1PPDg5vBTYoufA",
+    "nodeId": "4013:19063",
+    "ancho": 1920,
+    "alto": 6871
+  },
+  "tokens": {
+    "colores": {
+      "color/texto": "#000000",
+      "color/teal": "#9cb0b0",
+      "color/verde": "#234549",
+      "color/blanco": "#ffffff",
+      "color/beige": "#d7d0b5",
+      "color/frambuesa": "#a8566a",
+      "color/crema": "#f8f6f1",
+      "color/blush": "#f1dbd5",
+      "color/texto-suave": "#6b6b6b",
+      "green 80": "#492343",
+      "Blanco": "#ffffff",
+      "Beige": "#d7d0b5"
+    },
+    "texto": {
+      "2026/Body S": {
+        "familia": "Barlow Condensed",
+        "peso": 400,
+        "tamano": 16,
+        "interlineado": 1.5,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Body": {
+        "familia": "Barlow Condensed",
+        "peso": 400,
+        "tamano": 18,
+        "interlineado": 1.5,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Body L": {
+        "familia": "Barlow Condensed",
+        "peso": 400,
+        "tamano": 20,
+        "interlineado": 1.5,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Body XL": {
+        "familia": "Barlow Condensed",
+        "peso": 400,
+        "tamano": 24,
+        "interlineado": 1.5,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Caption": {
+        "familia": "Barlow Condensed",
+        "peso": 400,
+        "tamano": 14,
+        "interlineado": 1.4,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Label S": {
+        "familia": "Barlow Condensed",
+        "peso": 500,
+        "tamano": 15,
+        "interlineado": 1.3,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Label": {
+        "familia": "Barlow Condensed",
+        "peso": 500,
+        "tamano": 18,
+        "interlineado": 1.3,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/Display": {
+        "familia": "Barlow Condensed",
+        "peso": 600,
+        "tamano": 52,
+        "interlineado": 1,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/H1": {
+        "familia": "Barlow Condensed",
+        "peso": 600,
+        "tamano": 50,
+        "interlineado": 1.1,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/H2": {
+        "familia": "Barlow Condensed",
+        "peso": 500,
+        "tamano": 46,
+        "interlineado": 1.15,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/H3": {
+        "familia": "Barlow Condensed",
+        "peso": 500,
+        "tamano": 32,
+        "interlineado": 1.2,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      },
+      "2026/H4": {
+        "familia": "Barlow Condensed",
+        "peso": 500,
+        "tamano": 26,
+        "interlineado": 1.25,
+        "espaciado": {
+          "valor": 0,
+          "unidad": "%"
+        }
+      }
+    },
+    "sombras": {
+      "shadow header": "DROP_SHADOW #CAC29B26 (-2, 0) blur 12 spread 0; DROP_SHADOW #CAC29B21 (-10, 10) blur 22 spread 0; DROP_SHADOW #CAC29B14 (-22, 40) blur 30 spread 0; DROP_SHADOW #CAC29B05 (-39, 80) blur 36 spread 0"
+    }
+  },
+  "secciones": [
+    {
+      "nombre": "hero",
+      "nodeId": "4013:19109",
+      "nombreCapa": "Hero",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 845
+      },
+      "referencia": "curso-horarios-ideales/hero.ref.txt",
+      "captura": "curso-horarios-ideales/hero.png",
+      "textos": [
+        {
+          "nodeId": "I4013:19114;3719:4265",
+          "texto": "Curso Online",
+          "estilo": "2026/Label S",
+          "color": "color/verde",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "4013:19118",
+          "texto": "El horario ideal de sueño para tu bebé — según su edad.",
+          "estilo": "2026/H1",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:19120",
+          "texto": "Asesoría Personalizada · 4 meses a 4 años",
+          "estilo": "2026/Body XL",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "4013:19122",
+          "texto": "Aprende a leer a tu bebé y crear rutinas que funcionen de verdad. Sin adivinar. Sin confusión.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4013:19129",
+          "texto": "3 semanas",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "4013:19164",
+          "texto": "¿Te regalaron este curso? Canjea tu código",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "otro"
+        },
+        {
+          "nodeId": "4013:19139",
+          "texto": "$67 USD",
+          "estilo": "2026/H3",
+          "color": "color/verde",
+          "rol": "otro"
+        },
+        {
+          "nodeId": "I4013:19140;3711:6162",
+          "texto": "Comprar ahora",
+          "estilo": "2026/Label",
+          "color": "color/blanco",
+          "rol": "boton"
+        },
+        {
+          "nodeId": "I4013:19141;3704:15612",
+          "texto": "Regalar este curso",
+          "estilo": "2026/Label",
+          "color": "color/verde",
+          "rol": "boton"
+        },
+        {
+          "nodeId": "4013:19142",
+          "texto": "Precio de lanzamiento (antes $97) · 7 días de prueba completa",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "pie"
+        },
+        {
+          "nodeId": "4013:19144",
+          "texto": "Código de cupón de descuento",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "etiqueta"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 107,
+            "usos": 1
+          },
+          {
+            "valor": 385,
+            "usos": 1
+          },
+          {
+            "valor": 88,
+            "usos": 1
+          },
+          {
+            "valor": 23,
+            "usos": 2
+          },
+          {
+            "valor": 46,
+            "usos": 1
+          },
+          {
+            "valor": 28,
+            "usos": 2
+          },
+          {
+            "valor": 10,
+            "usos": 3
+          },
+          {
+            "valor": 8,
+            "usos": 1
+          },
+          {
+            "valor": 14,
+            "usos": 1
+          },
+          {
+            "valor": 6,
+            "usos": 2
+          },
+          {
+            "valor": 16,
+            "usos": 1
+          },
+          {
+            "valor": 11,
+            "usos": 1
+          },
+          {
+            "valor": 4,
+            "usos": 1
+          },
+          {
+            "valor": 20,
+            "usos": 3
+          },
+          {
+            "valor": 24,
+            "usos": 2
+          },
+          {
+            "valor": 651,
+            "usos": 1
+          },
+          {
+            "valor": 492,
+            "usos": 1
+          },
+          {
+            "valor": 345,
+            "usos": 1
+          },
+          {
+            "valor": 335,
+            "usos": 2
+          },
+          {
+            "valor": 320,
+            "usos": 1
+          }
+        ],
+        "colores": [
+          {
+            "valor": "#000000",
+            "usos": 2
+          }
+        ],
+        "radios": [
+          {
+            "valor": 100,
+            "usos": 3
+          },
+          {
+            "valor": 4,
+            "usos": 1
+          },
+          {
+            "valor": 8,
+            "usos": 2
+          }
+        ]
+      },
+      "imagenes": [
+        {
+          "id": "hero-foto-familia",
+          "nodeId": "4013:19111",
+          "tipo": "png",
+          "ancho": 730,
+          "alto": 835,
+          "rol": "contenido",
+          "archivo": "curso-horarios-ideales/assets/hero-foto-familia.png"
+        },
+        {
+          "id": "hero-foto-familia-tarjeta",
+          "nodeId": "4013:19135",
+          "tipo": "png",
+          "ancho": 335,
+          "alto": 184,
+          "rol": "contenido",
+          "archivo": "curso-horarios-ideales/assets/hero-foto-familia.png"
+        },
+        {
+          "id": "hero-degradado",
+          "nodeId": "4013:19112",
+          "tipo": "svg",
+          "ancho": 1920,
+          "alto": 845,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/hero-degradado.svg"
+        },
+        {
+          "id": "hero-subrayado",
+          "nodeId": "4013:19121",
+          "tipo": "svg",
+          "ancho": 345,
+          "alto": 1,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/hero-subrayado.svg"
+        },
+        {
+          "id": "hero-icono-reloj",
+          "nodeId": "4013:19126",
+          "tipo": "svg",
+          "ancho": 23,
+          "alto": 23,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/hero-icono-reloj.svg"
+        },
+        {
+          "id": "hero-icono-regalo",
+          "nodeId": "4013:19159",
+          "tipo": "svg",
+          "ancho": 18,
+          "alto": 18,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/hero-icono-regalo.svg"
+        },
+        {
+          "id": "hero-cupon-linea",
+          "nodeId": "4013:19145",
+          "tipo": "svg",
+          "ancho": 322,
+          "alto": 1,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/hero-cupon-linea.svg"
+        },
+        {
+          "id": "hero-cupon-boton",
+          "nodeId": "4013:19146",
+          "tipo": "svg",
+          "ancho": 24,
+          "alto": 24,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/hero-cupon-boton.svg"
+        },
+        {
+          "id": "boton-flecha",
+          "nodeId": "3711:6163",
+          "tipo": "svg",
+          "ancho": 18,
+          "alto": 18,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/boton-flecha.svg"
+        },
+        {
+          "id": "boton-flecha-verde",
+          "nodeId": "3704:15613",
+          "tipo": "svg",
+          "ancho": 18,
+          "alto": 18,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/boton-flecha-verde.svg"
+        }
+      ],
+      "componentes": [
+        {
+          "nombre": "Etiqueta",
+          "variante": "Hero",
+          "props": {
+            "texto": "Curso Online"
+          }
+        },
+        {
+          "nombre": "Botón",
+          "variante": "Frambuesa",
+          "props": {
+            "texto": "Comprar ahora",
+            "flecha": true
+          }
+        },
+        {
+          "nombre": "Botón",
+          "variante": "Secundario",
+          "props": {
+            "texto": "Regalar este curso",
+            "flecha": false
+          }
+        }
+      ],
+      "senales": [
+        {
+          "tipo": "formulario",
+          "evidencia": "Tarjeta de compra (4013:19133, crema, radio 8): campo \"Código de cupón de descuento\" con línea inferior y botón circular verde con flecha (hero-cupon-boton.svg). Es un input de cupón con envío, no texto.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "modal",
+          "evidencia": "Las notas de página dicen que al comprar sale el modal \"Selecciona la edad de tu bebé\" (sección modal-selecciona-edad, 3653:2355): el botón \"Comprar ahora\" lo abre en vez de ir directo al carrito.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "El enlace \"¿Te regalaron este curso? Canjea tu código\" (subrayado, con ícono de regalo) y el botón Secundario \"Regalar este curso\" son flujos de regalo/canje: el diseño no dice adónde llevan.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "decorativo",
+          "evidencia": "Fondo: la misma foto hero-foto-familia.png (PNG 1600x1066) a 730x835 con opacidad 45% pegada a la izquierda, tapada por hero-degradado.svg (1920x845, degradado beige). La misma foto se repite como imagen de la tarjeta de compra (335x184, radio 8).",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Textos que no cuadran con este curso: el subtítulo dice \"Asesoría Personalizada · 4 meses a 4 años\" (es el de A Dormir Por Fin; las etapas de este curso van de 4 a 36 meses) y el precio \"$67 USD (antes $97)\" no coincide con los modales ($37 por etapa, 2 cursos $67, 3 cursos $97). La capa del chip de duración se llama \"2 semanas 24/7\" pero el texto dice \"3 semanas \" (con espacio final). La tarjeta de compra se llama \"Soluciones de Sueño\".",
+          "estado": "propuesto"
+        }
+      ]
+    },
+    {
+      "nombre": "etapas",
+      "nodeId": "4013:19194",
+      "nombreCapa": "Etapas",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 1019
+      },
+      "referencia": "curso-horarios-ideales/etapas.ref.txt",
+      "captura": "curso-horarios-ideales/etapas.png",
+      "textos": [
+        {
+          "nodeId": "4013:19168",
+          "texto": "El sueño cambia con cada etapa. Los horarios también. Elige la tuya.",
+          "estilo": "2026/H2",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:19172",
+          "texto": "Curso Para bebés de 4 a 9 meses",
+          "estilo": "2026/Body XL",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "4013:19173",
+          "texto": "Curso Para bebés de\n9 a 15 meses",
+          "estilo": "2026/Body XL",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "4013:19174",
+          "texto": "Curso Para bebés de 15 a 36 meses",
+          "estilo": "2026/Body XL",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "4013:19179",
+          "texto": "¿Sientes que tu bebé parece tener sueño todo el día pero duerme poco? Esta etapa es un laberinto de señales confusas. Aprenderás a identificar las ventanas de vigilia correctas, evitar el círculo vicioso de siestas cortas y descubrir el secreto de la última ventana del día para que las tres siestas funcionen como relojito. Todo lo que necesitas para descifrar el horario ideal — sin adivinar.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4013:19180",
+          "texto": "Los horarios cambiaron, tu bebé dejó la tercera siesta — y el caos amenaza con volver. Esta etapa viene cargada de cambios, crisis y confusión. Aprenderás a combinar ventanas de vigilia con los horarios ideales para su edad y su tanque de sueño — para que tus días fluyan mejor y tus noches vuelvan a ser tranquilas.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4013:19181",
+          "texto": "Bienvenida a la etapa de los mini exploradores que ya no quieren siestas y madrugan como si fueran gallos. Tu guía para las crisis de los 18 y 24 meses, entender qué hacer cuando la siesta desaparece y cómo reajustar los horarios cuando todo parece desbordarse. Más que horarios — claridad y calma.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "I4013:19170;3711:6162",
+          "texto": "Más información",
+          "estilo": "2026/Label",
+          "color": "color/blanco",
+          "rol": "boton"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 88,
+            "usos": 1
+          },
+          {
+            "valor": 139,
+            "usos": 1
+          },
+          {
+            "valor": 314,
+            "usos": 6
+          },
+          {
+            "valor": 292,
+            "usos": 3
+          },
+          {
+            "valor": 81,
+            "usos": 1
+          },
+          {
+            "valor": 395,
+            "usos": 2
+          },
+          {
+            "valor": 245,
+            "usos": 1
+          },
+          {
+            "valor": 254,
+            "usos": 2
+          }
+        ],
+        "colores": [],
+        "radios": [
+          {
+            "valor": 20,
+            "usos": 3
+          },
+          {
+            "valor": 100,
+            "usos": 3
+          }
+        ]
+      },
+      "imagenes": [
+        {
+          "id": "etapas-4-a-9-meses",
+          "nodeId": "4013:19171",
+          "tipo": "jpg",
+          "ancho": 314,
+          "alto": 292,
+          "rol": "contenido",
+          "archivo": "curso-horarios-ideales/assets/etapas-4-a-9-meses.jpg"
+        },
+        {
+          "id": "etapas-9-a-15-meses",
+          "nodeId": "4013:19176",
+          "tipo": "jpg",
+          "ancho": 314,
+          "alto": 292,
+          "rol": "contenido",
+          "archivo": "curso-horarios-ideales/assets/etapas-9-a-15-meses.jpg"
+        },
+        {
+          "id": "etapas-15-a-36-meses",
+          "nodeId": "4013:19178",
+          "tipo": "jpg",
+          "ancho": 314,
+          "alto": 292,
+          "rol": "contenido",
+          "archivo": "curso-horarios-ideales/assets/etapas-15-a-36-meses.jpg"
+        }
+      ],
+      "componentes": [
+        {
+          "nombre": "Botón",
+          "variante": "Frambuesa",
+          "props": {
+            "texto": "Más información",
+            "flecha": true
+          }
+        },
+        {
+          "nombre": "Botón",
+          "variante": "Frambuesa",
+          "props": {
+            "texto": "Más información",
+            "flecha": true
+          }
+        },
+        {
+          "nombre": "Botón",
+          "variante": "Frambuesa",
+          "props": {
+            "texto": "Más información",
+            "flecha": true
+          }
+        }
+      ],
+      "senales": [
+        {
+          "tipo": "repetidor",
+          "evidencia": "3 tarjetas de etapa iguales en columnas de 314 (separación 81): foto 314x292 radio 20, título Body XL centrado \"Curso Para bebés de X a Y meses\", descripción Body S centrada y Botón Frambuesa \"Más información\". Están dibujadas con posiciones sueltas (grid con márgenes), no con auto layout; los botones quedan alineados abajo (mt 600) aunque las descripciones tengan alto distinto. La nota de página dice que cada etapa es un curso con su propio precio.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "modal",
+          "evidencia": "Las notas de página dicen que \"Más información\" abre el modal de etapas (sección modal-etapas, 3752:5964) con video de preview y precio. El diseño solo dibuja ese modal para 4 a 9 meses; las otras dos etapas usarían el mismo modal con sus datos.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Las tarjetas no muestran precio; los precios solo aparecen en los modales ($37 por etapa; 2 cursos $67 · 3 cursos $97).",
+          "estado": "propuesto"
+        }
+      ]
+    },
+    {
+      "nombre": "para-ti",
+      "nodeId": "4013:19266",
+      "nombreCapa": "Seccion si es para ti",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 752
+      },
+      "referencia": "curso-horarios-ideales/para-ti.ref.txt",
+      "captura": "curso-horarios-ideales/para-ti.png",
+      "textos": [
+        {
+          "nodeId": "4013:19196",
+          "texto": "Este curso es para ti si...",
+          "estilo": "2026/H1",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:19197",
+          "texto": "No entiendes la lógica detrás de los horarios y sientes que todo es prueba y error.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4013:19199",
+          "texto": "Tu bebé vive cansado — siestas cortas, mal humor y un círculo vicioso que no para.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4013:19198",
+          "texto": "Has probado diferentes horarios online y sigues sin encontrar el que funciona para tu bebé.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4013:19202",
+          "texto": "Cada vez que crees haber encontrado el horario ideal, algo cambia y vuelves a cero.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4013:19200",
+          "texto": "Los cuadros de ventanas de vigilia que encuentras online no aplican para tu bebé.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4013:19201",
+          "texto": "No sabes cómo ajustar los horarios a medida que tu bebé crece.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "parrafo"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 88,
+            "usos": 1
+          },
+          {
+            "valor": 112,
+            "usos": 1
+          },
+          {
+            "valor": 105,
+            "usos": 1
+          },
+          {
+            "valor": 50,
+            "usos": 1
+          },
+          {
+            "valor": 16,
+            "usos": 1
+          },
+          {
+            "valor": 6,
+            "usos": 2
+          },
+          {
+            "valor": 12,
+            "usos": 2
+          },
+          {
+            "valor": 1083.5,
+            "usos": 1
+          }
+        ],
+        "colores": [],
+        "radios": []
+      },
+      "imagenes": [
+        {
+          "id": "para-ti-mancha",
+          "nodeId": "4013:19237",
+          "tipo": "svg",
+          "ancho": 101,
+          "alto": 90,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/para-ti-mancha.svg"
+        },
+        {
+          "id": "para-ti-reloj-circulo",
+          "nodeId": "4013:19239",
+          "tipo": "svg",
+          "ancho": 42,
+          "alto": 41,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/para-ti-reloj-circulo.svg"
+        },
+        {
+          "id": "para-ti-reloj-agujas",
+          "nodeId": "4013:19242",
+          "tipo": "svg",
+          "ancho": 10,
+          "alto": 20,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/para-ti-reloj-agujas.svg"
+        },
+        {
+          "id": "para-ti-icono-bebe-nube",
+          "nodeId": "4013:19218",
+          "tipo": "svg",
+          "ancho": 65,
+          "alto": 64,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/para-ti-icono-bebe-nube.svg"
+        },
+        {
+          "id": "para-ti-icono-reloj-arena",
+          "nodeId": "4013:19252",
+          "tipo": "svg",
+          "ancho": 119,
+          "alto": 110,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/para-ti-icono-reloj-arena.svg"
+        },
+        {
+          "id": "para-ti-icono-biberon",
+          "nodeId": "4013:19206",
+          "tipo": "svg",
+          "ancho": 21,
+          "alto": 55,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/para-ti-icono-biberon.svg"
+        },
+        {
+          "id": "para-ti-icono-bebe-envuelto",
+          "nodeId": "4013:19212",
+          "tipo": "svg",
+          "ancho": 30,
+          "alto": 49,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/para-ti-icono-bebe-envuelto.svg"
+        }
+      ],
+      "componentes": [],
+      "senales": [
+        {
+          "tipo": "repetidor",
+          "evidencia": "6 ítems en grilla de 3 columnas x 2 filas (gap 105 horizontal / 50 vertical, 1083.5 de ancho): ícono sobre mancha beige + texto Body S centrado.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "decorativo",
+          "evidencia": "Cada ícono es una mancha beige (para-ti-mancha.svg, a veces girada -12.97°) con un ícono de línea encima armado con piezas sueltas en posición absoluta (reloj = círculo + agujas, bebé con nube, reloj de arena que ya incluye su mancha, biberón, bebé envuelto). El 1.º y el 6.º usan el mismo reloj. Stage B decide si se funden en un SVG por ícono.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Las tres descargas de la mancha beige eran idénticas: se guardó un solo archivo. Las alturas de texto varían (48/72) y el gap ícono-texto cambia según el ítem (16, 6 o 12).",
+          "estado": "propuesto"
+        }
+      ]
+    },
+    {
+      "nombre": "que-aprenderas",
+      "nodeId": "4013:19268",
+      "nombreCapa": "¿Qué aprenderás?",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 750
+      },
+      "referencia": "curso-horarios-ideales/que-aprenderas.ref.txt",
+      "captura": "curso-horarios-ideales/que-aprenderas.png",
+      "textos": [
+        {
+          "nodeId": "4013:19269",
+          "texto": "¿Qué aprenderás?",
+          "estilo": "2026/H1",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:19273",
+          "texto": "Cómo combinar señales de sueño y ventanas de vigilia para crear rutinas que funcionen.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:19277",
+          "texto": "A identificar los rangos de horario ideales para tu bebé — no promedios genéricos.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:19281",
+          "texto": "Cómo manejar días complicados: siestas cortas, cansancio acumulado y saltos de desarrollo.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:19285",
+          "texto": "Qué hacer cuando los horarios cambian con cada etapa — para adaptarte sin volver a cero.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:19289",
+          "texto": "Cómo organizar tu día para que el sueño fluya naturalmente, sin peleas ni frustración.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "lista"
+        },
+        {
+          "nodeId": "4013:19293",
+          "texto": "Cómo manejar las madrugadas y los despertares tempranos antes de las 6am.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "lista"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 89,
+            "usos": 1
+          },
+          {
+            "valor": 84,
+            "usos": 1
+          },
+          {
+            "valor": 27,
+            "usos": 1
+          },
+          {
+            "valor": 29,
+            "usos": 1
+          },
+          {
+            "valor": 21,
+            "usos": 6
+          },
+          {
+            "valor": 1196,
+            "usos": 1
+          },
+          {
+            "valor": 698,
+            "usos": 1
+          },
+          {
+            "valor": 602,
+            "usos": 6
+          },
+          {
+            "valor": 414,
+            "usos": 1
+          },
+          {
+            "valor": 385,
+            "usos": 1
+          }
+        ],
+        "colores": [],
+        "radios": [
+          {
+            "valor": 20,
+            "usos": 1
+          }
+        ]
+      },
+      "imagenes": [
+        {
+          "id": "que-aprenderas-madre-bebe",
+          "nodeId": "4013:19304",
+          "tipo": "jpg",
+          "ancho": 414,
+          "alto": 385,
+          "rol": "contenido",
+          "archivo": "curso-horarios-ideales/assets/que-aprenderas-madre-bebe.jpg"
+        },
+        {
+          "id": "que-aprenderas-estrellas",
+          "nodeId": "4013:19305",
+          "tipo": "svg",
+          "ancho": 414,
+          "alto": 385,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/que-aprenderas-estrellas.svg"
+        },
+        {
+          "id": "que-aprenderas-check",
+          "nodeId": "4013:19272",
+          "tipo": "svg",
+          "ancho": 14,
+          "alto": 13,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/que-aprenderas-check.svg"
+        },
+        {
+          "id": "que-aprenderas-separador",
+          "nodeId": "4013:19274",
+          "tipo": "svg",
+          "ancho": 602,
+          "alto": 1,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/que-aprenderas-separador.svg"
+        },
+        {
+          "id": "que-aprenderas-nube-izquierda",
+          "nodeId": "4013:19312",
+          "tipo": "svg",
+          "ancho": 229,
+          "alto": 138,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/que-aprenderas-nube-izquierda.svg"
+        },
+        {
+          "id": "que-aprenderas-nube-arriba",
+          "nodeId": "4013:19318",
+          "tipo": "svg",
+          "ancho": 278,
+          "alto": 121,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/que-aprenderas-nube-arriba.svg"
+        }
+      ],
+      "componentes": [],
+      "senales": [
+        {
+          "tipo": "repetidor",
+          "evidencia": "Lista de 6 ítems con check (13.75x12.9) + texto Body S, separados por líneas de 602 color #E4AD9E (dentro del SVG). Hay un 7.º ítem con el check visible y su texto OCULTO en Figma (4013:19297 \"Herramientas prácticas para tomar decisiones informadas y dejar de adivinar cada día.\"); ese check suelto queda cortado por el alto fijo 442.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "decorativo",
+          "evidencia": "Foto 414x385 radio 20 (JPEG servido como .png) con estrellas de contorno encima (que-aprenderas-estrellas.svg, mask group) y dos nubes rosadas con ojos cerrados en posición absoluta (izquierda 229x138 en top 454, arriba 278x121). Fondo color/blush.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "El primer ítem usa gap 29 y los demás 21; el texto 3 tiene alto 39 y el 6 alto 56: desajustes del diseño, no intención.",
+          "estado": "propuesto"
+        }
+      ]
+    },
+    {
+      "nombre": "ademas-incluye",
+      "nodeId": "4013:19363",
+      "nombreCapa": "Que incluye",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 460
+      },
+      "referencia": "curso-horarios-ideales/ademas-incluye.ref.txt",
+      "captura": "curso-horarios-ideales/ademas-incluye.png",
+      "textos": [
+        {
+          "nodeId": "4013:19367",
+          "texto": "Lo que incluye además del curso.",
+          "estilo": "2026/H2",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:19371",
+          "texto": "Guías de horarios descargables — una guía por cada etapa, para tener siempre a mano el horario ideal.",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4013:19377",
+          "texto": "1 mes en Mundo Angelitozzz — 4 sesiones grupales en vivo con Bárbara, todos los miércoles a las 10am hora Perú/Colombia, y videoteca completa.",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4013:19378",
+          "texto": "Grabaciones de talleres de transiciones de siestas — según la etapa en la que estás.",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "parrafo"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 229,
+            "usos": 1
+          },
+          {
+            "valor": 20,
+            "usos": 1
+          },
+          {
+            "valor": 1191,
+            "usos": 1
+          },
+          {
+            "valor": 420,
+            "usos": 1
+          },
+          {
+            "valor": 289,
+            "usos": 1
+          },
+          {
+            "valor": 200,
+            "usos": 1
+          },
+          {
+            "valor": 290,
+            "usos": 1
+          }
+        ],
+        "colores": [],
+        "radios": [
+          {
+            "valor": 30,
+            "usos": 1
+          }
+        ]
+      },
+      "imagenes": [
+        {
+          "id": "ademas-incluye-icono-libro",
+          "nodeId": "4013:19369",
+          "tipo": "svg",
+          "ancho": 51,
+          "alto": 51,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/ademas-incluye-icono-libro.svg"
+        },
+        {
+          "id": "ademas-incluye-icono-diamante",
+          "nodeId": "4013:19372",
+          "tipo": "svg",
+          "ancho": 48,
+          "alto": 48,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/ademas-incluye-icono-diamante.svg"
+        },
+        {
+          "id": "ademas-incluye-icono-video",
+          "nodeId": "4013:19374",
+          "tipo": "svg",
+          "ancho": 43,
+          "alto": 43,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/ademas-incluye-icono-video.svg"
+        },
+        {
+          "id": "ademas-incluye-divisor",
+          "nodeId": "4013:19379",
+          "tipo": "svg",
+          "ancho": 1,
+          "alto": 146,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/ademas-incluye-divisor.svg"
+        }
+      ],
+      "componentes": [],
+      "senales": [
+        {
+          "tipo": "repetidor",
+          "evidencia": "Tarjeta crema 1191x420 radio 30 sobre fondo blush con 3 beneficios (ícono de línea + texto Body centrado) separados por 2 divisores verticales de 146 (color green 80 dentro del SVG). Posiciones sueltas: anchos de texto 289/200/290 y los íconos a alturas distintas.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Hay un subtítulo OCULTO en Figma (4013:19366): \"Con la compra de los talleres de horarios, recibirás además estos bonos que harán de tu experiencia mucho más sencilla.\"",
+          "estado": "propuesto"
+        }
+      ]
+    },
+    {
+      "nombre": "testimonios",
+      "nodeId": "4013:19383",
+      "nombreCapa": "Testimonio · Destacado",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 559
+      },
+      "referencia": "curso-horarios-ideales/testimonios.ref.txt",
+      "captura": "curso-horarios-ideales/testimonios.png",
+      "textos": [
+        {
+          "nodeId": "I4013:19383;3810:108",
+          "texto": "Lo que dicen las mamás que ya lo tomaron.",
+          "estilo": "2026/H2",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "I4013:19383;3810:111",
+          "texto": "“Por fin entendí las ventanas de vigilia de mi bebé. En una semana sus siestas pasaron de 30 minutos a más de una hora.”",
+          "estilo": null,
+          "color": "color/verde",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "I4013:19383;3810:112",
+          "texto": "Andrea, mamá de Lucas (7 meses)",
+          "estilo": "2026/Label",
+          "color": "color/texto-suave",
+          "rol": "pie"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 20,
+            "usos": 1
+          },
+          {
+            "valor": 96,
+            "usos": 1
+          },
+          {
+            "valor": 181,
+            "usos": 1
+          },
+          {
+            "valor": 405,
+            "usos": 3
+          },
+          {
+            "valor": 22,
+            "usos": 1
+          },
+          {
+            "valor": 8,
+            "usos": 1
+          },
+          {
+            "valor": 820,
+            "usos": 1
+          }
+        ],
+        "colores": [],
+        "radios": [
+          {
+            "valor": 100,
+            "usos": 2
+          }
+        ]
+      },
+      "imagenes": [
+        {
+          "id": "testimonios-nube-derecha",
+          "nodeId": "I4013:19383;3810:132",
+          "tipo": "svg",
+          "ancho": 240,
+          "alto": 104,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/testimonios-nube-derecha.svg"
+        },
+        {
+          "id": "testimonios-nube-izquierda",
+          "nodeId": "I4013:19383;3810:129",
+          "tipo": "svg",
+          "ancho": 280,
+          "alto": 168,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/testimonios-nube-izquierda.svg"
+        },
+        {
+          "id": "testimonios-ojo-izquierdo",
+          "nodeId": "I4013:19383;3810:130",
+          "tipo": "svg",
+          "ancho": 25,
+          "alto": 8,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/testimonios-ojo-izquierdo.svg"
+        },
+        {
+          "id": "testimonios-ojo-derecho",
+          "nodeId": "I4013:19383;3810:131",
+          "tipo": "svg",
+          "ancho": 25,
+          "alto": 8,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/testimonios-ojo-derecho.svg"
+        },
+        {
+          "id": "testimonios-puntos",
+          "nodeId": "I4013:19383;3810:114",
+          "tipo": "svg",
+          "ancho": 58,
+          "alto": 10,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/testimonios-puntos.svg"
+        },
+        {
+          "id": "testimonios-flecha-izquierda",
+          "nodeId": "I4013:19383;3810:120",
+          "tipo": "svg",
+          "ancho": 20,
+          "alto": 20,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/testimonios-flecha-izquierda.svg"
+        },
+        {
+          "id": "testimonios-flecha-derecha",
+          "nodeId": "I4013:19383;3810:124",
+          "tipo": "svg",
+          "ancho": 20,
+          "alto": 20,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/testimonios-flecha-derecha.svg"
+        }
+      ],
+      "componentes": [
+        {
+          "nombre": "Testimonio · Destacado",
+          "variante": null,
+          "props": {
+            "titulo": "Lo que dicen las mamás que ya lo tomaron.",
+            "testimonio": "“Por fin entendí las ventanas de vigilia de mi bebé. En una semana sus siestas pasaron de 30 minutos a más de una hora.”",
+            "nombre": "Andrea, mamá de Lucas (7 meses)"
+          }
+        }
+      ],
+      "senales": [
+        {
+          "tipo": "slider",
+          "evidencia": "Instancia del componente \"Testimonio · Destacado\": un testimonio a la vez, flechas izquierda/derecha (círculo blanco 48 con borde beige) y 4 puntos de paginación: carrusel de testimonios.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "decorativo",
+          "evidencia": "Fila de \"Z\" crema al 40% de opacidad con tamaños y giros distintos (texto, no imagen) a lo ancho de la parte baja, y dos nubes con ojos cerrados (derecha arriba, izquierda abajo). Fondo color/beige.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "El testimonio usa Barlow Condensed Medium Italic 26/1.25 (H4 en cursiva, sin variable propia).",
+          "estado": "propuesto"
+        }
+      ]
+    },
+    {
+      "nombre": "preguntas-frecuentes",
+      "nodeId": "4013:19424",
+      "nombreCapa": "Preguntas de la pagina",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 954
+      },
+      "referencia": "curso-horarios-ideales/preguntas-frecuentes.ref.txt",
+      "captura": "curso-horarios-ideales/preguntas-frecuentes.png",
+      "textos": [
+        {
+          "nodeId": "4013:19425",
+          "texto": "¡Respondemos a tus preguntas!",
+          "estilo": "2026/H1",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:19430",
+          "texto": "¿Cómo funciona el curso?",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "4013:19431",
+          "texto": "Acceso inmediato. Videos cortos que puedes ver en un solo día. Incluye guías descargables.",
+          "estilo": "2026/Body S",
+          "color": "color/texto-suave",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "4013:19436",
+          "texto": "¿Por qué están divididos por edad?",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "4013:19441",
+          "texto": "¿Qué pasa si mi bebé está entre dos grupos?",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "4013:19446",
+          "texto": "¿Este curso logrará que mi bebé duerma de corrido?",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "4013:19451",
+          "texto": "¿Puedo comprar más de uno?",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "4013:19454",
+          "texto": "Ver más",
+          "estilo": "2026/Body XL",
+          "color": "color/verde",
+          "rol": "boton"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 457,
+            "usos": 1
+          },
+          {
+            "valor": 88,
+            "usos": 1
+          },
+          {
+            "valor": 65,
+            "usos": 1
+          },
+          {
+            "valor": 16,
+            "usos": 1
+          },
+          {
+            "valor": 20,
+            "usos": 1
+          },
+          {
+            "valor": 54,
+            "usos": 5
+          },
+          {
+            "valor": 10,
+            "usos": 6
+          },
+          {
+            "valor": 774,
+            "usos": 1
+          },
+          {
+            "valor": 760,
+            "usos": 1
+          },
+          {
+            "valor": 748.5,
+            "usos": 5
+          }
+        ],
+        "colores": [],
+        "radios": []
+      },
+      "imagenes": [
+        {
+          "id": "preguntas-frecuentes-check",
+          "nodeId": "4013:19429",
+          "tipo": "svg",
+          "ancho": 14,
+          "alto": 13,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/preguntas-frecuentes-check.svg"
+        },
+        {
+          "id": "preguntas-frecuentes-separador",
+          "nodeId": "4013:19432",
+          "tipo": "svg",
+          "ancho": 749,
+          "alto": 1,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/preguntas-frecuentes-separador.svg"
+        },
+        {
+          "id": "preguntas-frecuentes-ver-mas-flecha",
+          "nodeId": "4013:19455",
+          "tipo": "svg",
+          "ancho": 10,
+          "alto": 10,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/preguntas-frecuentes-ver-mas-flecha.svg"
+        }
+      ],
+      "componentes": [],
+      "senales": [
+        {
+          "tipo": "acordeon",
+          "evidencia": "5 preguntas (check + pregunta Body L) separadas por líneas; la primera está abierta con su respuesta (Body S color/texto-suave) y las otras 4 cerradas. La nota de la sección dice que las preguntas frecuentes son independientes en este curso.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Botón \"Ver más\" (Body XL verde) con flecha hacia abajo bajo la lista: muestra más preguntas. Solo la primera pregunta tiene respuesta escrita; las otras 4 no tienen texto de respuesta en Figma.",
+          "estado": "propuesto"
+        }
+      ]
+    },
+    {
+      "nombre": "contenido-relacionado",
+      "nodeId": "4013:19577",
+      "nombreCapa": "Contenido relacionado",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 1920,
+        "alto": 841
+      },
+      "referencia": "curso-horarios-ideales/contenido-relacionado.ref.txt",
+      "captura": "curso-horarios-ideales/contenido-relacionado.png",
+      "textos": [
+        {
+          "nodeId": "4013:19579",
+          "texto": "También podría interesarte...",
+          "estilo": "2026/H1",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "4013:19580",
+          "texto": "Descubre otros cursos diseñados para acompañarte en diferentes etapas del desarrollo del sueño de tu bebé.",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "4013:19601",
+          "texto": "Angelita Pro\n(4 a 24 meses · Desde $67)",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "4013:19590",
+          "texto": "Recién Nacidos Go\n(0 a 12 semanas · $97)",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "4013:19656",
+          "texto": "A Dormir Por Fin\n(4 meses a 4 años)",
+          "estilo": "2026/Body L",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "I4013:19599;3863:538",
+          "texto": "Nuevo",
+          "estilo": "2026/Label S",
+          "color": "color/blanco",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "I4013:19593;3863:534",
+          "texto": "Curso Online",
+          "estilo": "2026/Label S",
+          "color": "color/blanco",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "I4013:19655;3863:534",
+          "texto": "Asesoría personalizada",
+          "estilo": "2026/Label S",
+          "color": "color/blanco",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "4013:19589",
+          "texto": "Top ventas",
+          "estilo": "2026/Body S",
+          "color": "color/blanco",
+          "rol": "etiqueta"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 88,
+            "usos": 1
+          },
+          {
+            "valor": 47,
+            "usos": 1
+          },
+          {
+            "valor": 20,
+            "usos": 1
+          },
+          {
+            "valor": 10,
+            "usos": 1
+          },
+          {
+            "valor": 1106,
+            "usos": 2
+          },
+          {
+            "valor": 346,
+            "usos": 5
+          },
+          {
+            "valor": 370,
+            "usos": 5
+          }
+        ],
+        "colores": [],
+        "radios": [
+          {
+            "valor": 20,
+            "usos": 5
+          },
+          {
+            "valor": 16,
+            "usos": 4
+          },
+          {
+            "valor": 100,
+            "usos": 3
+          }
+        ]
+      },
+      "imagenes": [
+        {
+          "id": "contenido-relacionado-fondo-lunas",
+          "nodeId": "4013:19577",
+          "tipo": "png",
+          "ancho": 1920,
+          "alto": 841,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/contenido-relacionado-fondo-lunas.png"
+        },
+        {
+          "id": "contenido-relacionado-angelita-pro-placeholder",
+          "nodeId": "4013:19598",
+          "tipo": "png",
+          "ancho": 346,
+          "alto": 370,
+          "rol": "contenido",
+          "archivo": "curso-horarios-ideales/assets/contenido-relacionado-angelita-pro-placeholder.png"
+        },
+        {
+          "id": "contenido-relacionado-recien-nacidos-go",
+          "nodeId": "4013:19585",
+          "tipo": "jpg",
+          "ancho": 346,
+          "alto": 370,
+          "rol": "contenido",
+          "archivo": "curso-horarios-ideales/assets/contenido-relacionado-recien-nacidos-go.jpg"
+        },
+        {
+          "id": "contenido-relacionado-a-dormir-por-fin",
+          "nodeId": "4013:19654",
+          "tipo": "jpg",
+          "ancho": 346,
+          "alto": 370,
+          "rol": "contenido",
+          "archivo": "curso-horarios-ideales/assets/contenido-relacionado-a-dormir-por-fin.jpg"
+        },
+        {
+          "id": "contenido-relacionado-icono-destellos",
+          "nodeId": "I4013:19599;3863:536",
+          "tipo": "svg",
+          "ancho": 14,
+          "alto": 14,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/contenido-relacionado-icono-destellos.svg"
+        },
+        {
+          "id": "contenido-relacionado-circulo-top-ventas",
+          "nodeId": "4013:19588",
+          "tipo": "svg",
+          "ancho": 97,
+          "alto": 97,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/contenido-relacionado-circulo-top-ventas.svg"
+        }
+      ],
+      "componentes": [
+        {
+          "nombre": "Etiqueta",
+          "variante": "Esquina",
+          "props": {
+            "texto": "Nuevo",
+            "icono": "Destellos"
+          }
+        },
+        {
+          "nombre": "Etiqueta",
+          "variante": "Esquina",
+          "props": {
+            "texto": "Curso Online",
+            "icono": null
+          }
+        },
+        {
+          "nombre": "Etiqueta",
+          "variante": "Esquina",
+          "props": {
+            "texto": "Asesoría personalizada",
+            "icono": null
+          }
+        },
+        {
+          "nombre": "Botón",
+          "variante": "Frambuesa",
+          "props": {
+            "texto": "Más información",
+            "flecha": true
+          }
+        },
+        {
+          "nombre": "Botón",
+          "variante": "Frambuesa",
+          "props": {
+            "texto": "Más información",
+            "flecha": true
+          }
+        },
+        {
+          "nombre": "Botón",
+          "variante": "Frambuesa",
+          "props": {
+            "texto": "Más información",
+            "flecha": true
+          }
+        }
+      ],
+      "senales": [
+        {
+          "tipo": "repetidor",
+          "evidencia": "3 tarjetas de curso (346 de ancho): imagen 346x370 radio 20 con Etiqueta Esquina teal, nombre + rango/precio en 2 líneas (Body L centrado) y Botón Frambuesa \"Más información\". La nota de la sección dice: \"Que rija 3 card de contenido relacionado.\"",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "listado",
+          "evidencia": "Son otros cursos (Angelita Pro, Recién Nacidos Go, A Dormir Por Fin): contenido relacionado que vendría de los cursos/productos, no de texto fijo.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "decorativo",
+          "evidencia": "Fondo: contenido-relacionado-fondo-lunas.png (PNG 1920x881, lunas rosadas sobre blush) con object-cover.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Capas tapadas: en Angelita Pro la imagen de relleno (nube, PNG 1920x1920) está dos veces y la segunda tapa la Etiqueta \"Nuevo\" con destellos, que no se ve en la captura. En Recién Nacidos Go hay dos \"Imagen con etiqueta\" superpuestas con la misma foto y la segunda tapa el círculo \"Top ventas\" (97x97), que tampoco se ve. La tarjeta Angelita Pro no tiene foto real. Hay una 4.ª tarjeta OCULTA (4013:19603, \"Horarios del sueño del bebé (4 meses a 3 años)\" con burbujas de edades): es este mismo curso, oculto para no recomendarse a sí mismo.",
+          "estado": "propuesto"
+        }
+      ]
+    },
+    {
+      "nombre": "modal-selecciona-edad",
+      "nodeId": "3653:2355",
+      "nombreCapa": "Group 329",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 568,
+        "alto": 652
+      },
+      "referencia": "curso-horarios-ideales/modal-selecciona-edad.ref.txt",
+      "captura": "curso-horarios-ideales/modal-selecciona-edad.png",
+      "textos": [
+        {
+          "nodeId": "3653:2373",
+          "texto": "Selecciona la edad de tu bebé",
+          "estilo": "2026/Body XL",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "3653:2374",
+          "texto": "Por la compra de dos o tres cursos, consigue un precio especial.",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "subtitulo"
+        },
+        {
+          "nodeId": "3653:2370",
+          "texto": "4 a 9 meses",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "3653:2371",
+          "texto": "9 a 15 meses",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "3653:2372",
+          "texto": "15 a 36 meses",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "3653:2367",
+          "texto": "Total:",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "etiqueta"
+        },
+        {
+          "nodeId": "3653:2368",
+          "texto": "$67.00",
+          "estilo": "2026/Body XL",
+          "color": "color/texto",
+          "rol": "otro"
+        },
+        {
+          "nodeId": "3653:2402",
+          "texto": "Estás ahorrando $7.00",
+          "estilo": "2026/Body S",
+          "color": "color/texto",
+          "rol": "pie"
+        },
+        {
+          "nodeId": "I3718:4305;3711:6162",
+          "texto": "Agregar al carrito",
+          "estilo": "2026/Label",
+          "color": "color/blanco",
+          "rol": "boton"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 568,
+            "usos": 1
+          },
+          {
+            "valor": 652,
+            "usos": 1
+          },
+          {
+            "valor": 90,
+            "usos": 3
+          },
+          {
+            "valor": 74,
+            "usos": 3
+          },
+          {
+            "valor": 24,
+            "usos": 3
+          },
+          {
+            "valor": 463,
+            "usos": 1
+          },
+          {
+            "valor": 188,
+            "usos": 1
+          },
+          {
+            "valor": 33,
+            "usos": 1
+          }
+        ],
+        "colores": [
+          {
+            "valor": "#e9e4da",
+            "usos": 1
+          },
+          {
+            "valor": "#000000",
+            "usos": 3
+          }
+        ],
+        "radios": [
+          {
+            "valor": 20,
+            "usos": 1
+          },
+          {
+            "valor": 8,
+            "usos": 3
+          },
+          {
+            "valor": 12,
+            "usos": 3
+          },
+          {
+            "valor": 2,
+            "usos": 1
+          },
+          {
+            "valor": 100,
+            "usos": 1
+          }
+        ]
+      },
+      "imagenes": [
+        {
+          "id": "modal-edad-4-a-9-meses",
+          "nodeId": "3653:2379",
+          "tipo": "jpg",
+          "ancho": 90,
+          "alto": 74,
+          "rol": "contenido",
+          "archivo": "curso-horarios-ideales/assets/etapas-4-a-9-meses.jpg"
+        },
+        {
+          "id": "modal-edad-9-a-15-meses",
+          "nodeId": "3653:2396",
+          "tipo": "jpg",
+          "ancho": 90,
+          "alto": 74,
+          "rol": "contenido",
+          "archivo": "curso-horarios-ideales/assets/etapas-9-a-15-meses.jpg"
+        },
+        {
+          "id": "modal-edad-15-a-36-meses",
+          "nodeId": "3653:2386",
+          "tipo": "jpg",
+          "ancho": 90,
+          "alto": 74,
+          "rol": "contenido",
+          "archivo": "curso-horarios-ideales/assets/etapas-15-a-36-meses.jpg"
+        },
+        {
+          "id": "modal-edad-estrellas",
+          "nodeId": "3653:2380",
+          "tipo": "svg",
+          "ancho": 90,
+          "alto": 74,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/modal-edad-estrellas.svg"
+        },
+        {
+          "id": "modal-edad-cerrar",
+          "nodeId": "3653:2357",
+          "tipo": "svg",
+          "ancho": 41,
+          "alto": 41,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/modal-edad-cerrar.svg"
+        },
+        {
+          "id": "modal-edad-linea",
+          "nodeId": "3653:2392",
+          "tipo": "svg",
+          "ancho": 463,
+          "alto": 1,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/modal-edad-linea.svg"
+        },
+        {
+          "id": "modal-edad-check",
+          "nodeId": "3653:2393",
+          "tipo": "svg",
+          "ancho": 14,
+          "alto": 13,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/modal-edad-check.svg"
+        }
+      ],
+      "componentes": [
+        {
+          "nombre": "Botón",
+          "variante": "Frambuesa",
+          "props": {
+            "texto": "Agregar al carrito",
+            "flecha": true
+          }
+        }
+      ],
+      "senales": [
+        {
+          "tipo": "modal",
+          "evidencia": "Caja crema 568x652 radio 20 con botón cerrar (X 41x41). La nota de página dice que sale \"al momento de comprar\". No hay overlay dibujado: el grupo está suelto en un lienzo de 1920 en (676, 230).",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "formulario",
+          "evidencia": "3 casillas (24x24 radio 8, borde negro) con check, una por etapa (miniatura 90x74 radio 12 con estrellas + rango de edad); 2 marcadas en el diseño. Total \"$67.00\" y franja #e9e4da \"Estás ahorrando $7.00\" que cambian según cuántas se marquen; botón \"Agregar al carrito\". Es una selección múltiple de etapas con descuento por cantidad.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "repetidor",
+          "evidencia": "3 filas iguales (casilla + miniatura + texto) cada 100-103 px, posiciones absolutas. Las miniaturas son las mismas fotos de la sección etapas.",
+          "estado": "propuesto"
+        }
+      ]
+    },
+    {
+      "nombre": "modal-etapas",
+      "nodeId": "3752:5964",
+      "nombreCapa": "Modal",
+      "estado": "leida",
+      "leidoEn": "2026-11-13",
+      "tamano": {
+        "ancho": 620,
+        "alto": 614
+      },
+      "referencia": "curso-horarios-ideales/modal-etapas.ref.txt",
+      "captura": "curso-horarios-ideales/modal-etapas.png",
+      "textos": [
+        {
+          "nodeId": "3752:5974",
+          "texto": "Introducción al curso de Horarios",
+          "estilo": "2026/Caption",
+          "color": "color/texto-suave",
+          "rol": "eyebrow"
+        },
+        {
+          "nodeId": "3752:5975",
+          "texto": "Para bebés de 4 a 9 meses",
+          "estilo": "2026/H3",
+          "color": "color/verde",
+          "rol": "titulo"
+        },
+        {
+          "nodeId": "3752:5976",
+          "texto": "¿Sientes que tu bebé parece tener sueño todo el día pero igual duerme poco? En este curso aprenderás a priorizar las ventanas de vigilia y a evitar el círculo de siestas cortas y horarios caóticos. Descubre cómo lograr que las tres siestas funcionen como un reloj.",
+          "estilo": "2026/Body",
+          "color": "color/texto",
+          "rol": "parrafo"
+        },
+        {
+          "nodeId": "3752:5979",
+          "texto": "$37 USD",
+          "estilo": "2026/H4",
+          "color": "color/verde",
+          "rol": "otro"
+        },
+        {
+          "nodeId": "3752:5980",
+          "texto": "2 cursos $67 · 3 cursos $97",
+          "estilo": "2026/Caption",
+          "color": "color/texto-suave",
+          "rol": "pie"
+        },
+        {
+          "nodeId": "I3752:5981;3711:6162",
+          "texto": "Agregar al carrito",
+          "estilo": "2026/Label",
+          "color": "color/blanco",
+          "rol": "boton"
+        }
+      ],
+      "sueltos": {
+        "espacios": [
+          {
+            "valor": 320,
+            "usos": 1
+          },
+          {
+            "valor": 64,
+            "usos": 1
+          },
+          {
+            "valor": 40,
+            "usos": 1
+          },
+          {
+            "valor": 16,
+            "usos": 1
+          },
+          {
+            "valor": 32,
+            "usos": 1
+          },
+          {
+            "valor": 28,
+            "usos": 1
+          },
+          {
+            "valor": 12,
+            "usos": 1
+          },
+          {
+            "valor": 8,
+            "usos": 1
+          },
+          {
+            "valor": 2,
+            "usos": 1
+          }
+        ],
+        "colores": [],
+        "radios": [
+          {
+            "valor": 24,
+            "usos": 1
+          },
+          {
+            "valor": 100,
+            "usos": 3
+          }
+        ]
+      },
+      "imagenes": [
+        {
+          "id": "modal-etapas-video-portada",
+          "nodeId": "3752:5965",
+          "tipo": "jpg",
+          "ancho": 620,
+          "alto": 320,
+          "rol": "contenido",
+          "archivo": "curso-horarios-ideales/assets/modal-etapas-video-portada.jpg"
+        },
+        {
+          "id": "modal-etapas-icono-play",
+          "nodeId": "3752:5967",
+          "tipo": "svg",
+          "ancho": 24,
+          "alto": 24,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/modal-etapas-icono-play.svg"
+        },
+        {
+          "id": "modal-etapas-cerrar",
+          "nodeId": "3752:5970",
+          "tipo": "svg",
+          "ancho": 20,
+          "alto": 20,
+          "rol": "decorativa",
+          "archivo": "curso-horarios-ideales/assets/modal-etapas-cerrar.svg"
+        }
+      ],
+      "componentes": [
+        {
+          "nombre": "Botón",
+          "variante": "Frambuesa",
+          "props": {
+            "texto": "Agregar al carrito",
+            "flecha": true
+          }
+        }
+      ],
+      "senales": [
+        {
+          "tipo": "modal",
+          "evidencia": "Modal blanco 620x614 radio 24: cabecera de video 620x320 con botón play (círculo crema 64) y botón cerrar (círculo blanco 40 arriba a la derecha), luego eyebrow, título H3, descripción, precio y botón. Lo abre \"Más información\" de cada etapa (nota de página).",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Video de preview: el diseño solo trae la portada (foto JPEG servida como .png) y el botón play; no dice de dónde sale el video (archivo, YouTube/Vimeo, lección de Tutor). Un modal por etapa con su propio video, texto y precio; solo está dibujado el de 4 a 9 meses.",
+          "estado": "propuesto"
+        },
+        {
+          "tipo": "otro",
+          "evidencia": "Precio por etapa $37 USD; descuento por cantidad \"2 cursos $67 · 3 cursos $97\" (ahorro $7 con 2 y $14 con 3). Coincide con el modal de selección (2 marcadas = $67.00, ahorro $7.00).",
+          "estado": "propuesto"
+        }
+      ]
+    }
+  ]
+}

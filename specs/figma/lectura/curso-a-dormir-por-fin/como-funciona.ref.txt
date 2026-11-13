@@ -1,0 +1,124 @@
+const imgFlecha = "assets/boton-flecha-crema.svg";
+const imgImagen = "assets/como-funciona-paso-1.jpg";
+const imgImagen1 = "assets/como-funciona-paso-2.jpg";
+const imgImagen2 = "assets/como-funciona-paso-3.jpg";
+const imgDecoracion = "assets/como-funciona-nube.svg";
+const imgDecoracion1 = "assets/como-funciona-destello-derecha.svg";
+const imgDecoracion2 = "assets/como-funciona-destello-izquierda.svg";
+
+type BotonProps = {
+  className?: string;
+  flecha?: boolean;
+  texto?: string;
+  tipo?: "Verde";
+};
+
+function Boton({ className, flecha = true, texto = "Texto del botón", tipo = "Verde" }: BotonProps) {
+  return (
+    <div className={className || "bg-[var(--color\\/verde,#234549)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px]"} data-node-id="3704:15606">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap" data-node-id="3704:15607">
+        {texto}
+      </p>
+      {flecha && (
+        <div className="relative shrink-0 size-[18px]" data-node-id="3704:15608" data-name="Flecha">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function SeccionComoFunciona() {
+  return (
+    <div className="bg-[var(--color\/teal,#9cb0b0)] content-stretch flex flex-col gap-[20px] items-center px-[405px] py-[104px] relative size-full" data-node-id="4013:15672" data-name="Sección · Cómo funciona">
+      <div className="absolute h-[130.576px] left-[86.88%] right-[-2.5%] top-[963px]" data-node-id="4013:15673" data-name="Decoración">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDecoracion} />
+      </div>
+      <div className="absolute inset-[10.98%_13.75%_85.1%_83.85%]" data-node-id="4013:15674" data-name="Decoración">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDecoracion1} />
+      </div>
+      <div className="absolute inset-[8.23%_83.85%_86.47%_13.02%]" data-node-id="4013:15675" data-name="Decoración">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDecoracion2} />
+      </div>
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)] tracking-[0.72px] whitespace-nowrap" data-node-id="4013:15676">
+        Cómo funciona la asesoría
+      </p>
+      <p className="[word-break:break-word] font-['Barlow_Condensed:SemiBold'] leading-[1.1] not-italic relative shrink-0 text-[50px] text-[color:var(--color\/verde,#234549)] text-center w-[900px]" data-node-id="4013:15677">
+        Un proceso de tres pasos — simple, claro y completamente guiado.
+      </p>
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/verde,#234549)] text-center w-[760px]" data-node-id="4013:15678">
+        Cada semana te guiaremos con estrategias claras y prácticas adaptadas al crecimiento y desarrollo de tu bebé.
+      </p>
+      <div className="h-[24px] relative shrink-0 w-[10px]" data-node-id="4013:15679" data-name="Frame" />
+      <div className="content-stretch flex gap-[32px] items-start overflow-clip relative shrink-0 w-full" data-node-id="4013:15680" data-name="Pasos">
+        <div className="bg-[var(--color\/blanco,white)] content-stretch flex flex-[1_0_0] flex-col h-[503px] items-start min-w-px overflow-clip relative rounded-[24px]" data-node-id="4013:15681" data-name="Paso">
+          <div className="h-[220px] relative shrink-0 w-full" data-node-id="4013:15682" data-name="Imagen">
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <img alt="" className="absolute h-[181.82%] left-0 max-w-none top-0 w-full" src={imgImagen} />
+            </div>
+          </div>
+          <div className="content-stretch flex flex-[1_0_0] flex-col gap-[10px] items-start min-h-px overflow-clip p-[28px] relative w-full" data-node-id="4013:15683" data-name="Frame">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/frambuesa,#a8566a)] whitespace-nowrap" data-node-id="4013:15684">
+              Paso 1
+            </p>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.25] min-w-full not-italic relative shrink-0 text-[26px] text-[color:var(--color\/verde,#234549)] w-[min-content]" data-node-id="4013:15685">
+              Videollamada inicial
+            </p>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="4013:15686">
+              Una sesión de 1 hora para conocernos y crear el plan de sueño ideal para ti y tu bebé, de acuerdo a tu estilo.
+            </p>
+            <div className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex items-start overflow-clip px-[14px] py-[6px] relative rounded-[100px] shrink-0" data-node-id="4013:15687" data-name="Frame">
+              <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="4013:15688">
+                1 hora · por videollamada
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="bg-[var(--color\/blanco,white)] content-stretch flex flex-[1_0_0] flex-col h-[503px] items-start min-w-px overflow-clip relative rounded-[24px]" data-node-id="4013:15689" data-name="Paso">
+          <div className="h-[220px] relative shrink-0 w-full" data-node-id="4013:15690" data-name="Imagen">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImagen1} />
+          </div>
+          <div className="content-stretch flex flex-[1_0_0] flex-col gap-[10px] items-start min-h-px overflow-clip p-[28px] relative w-full" data-node-id="4013:15691" data-name="Frame">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/frambuesa,#a8566a)] whitespace-nowrap" data-node-id="4013:15692">
+              Paso 2
+            </p>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.25] min-w-full not-italic relative shrink-0 text-[26px] text-[color:var(--color\/verde,#234549)] w-[min-content]" data-node-id="4013:15693">
+              Tu plan de sueño
+            </p>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="4013:15694">
+              Recibes tu plan integral personalizado por escrito: métodos, horarios, rutinas y todo lo que necesitas para empezar con claridad.
+            </p>
+            <div className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex items-start overflow-clip px-[14px] py-[6px] relative rounded-[100px] shrink-0" data-node-id="4013:15695" data-name="Frame">
+              <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="4013:15696">
+                Plan escrito y personalizado
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="bg-[var(--color\/blanco,white)] content-stretch flex flex-[1_0_0] flex-col h-[503px] items-start min-w-px overflow-clip relative rounded-[24px]" data-node-id="4013:15697" data-name="Paso">
+          <div className="h-[220px] relative shrink-0 w-full" data-node-id="4013:15698" data-name="Imagen">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImagen2} />
+          </div>
+          <div className="content-stretch flex flex-[1_0_0] flex-col gap-[10px] items-start min-h-px overflow-clip p-[28px] relative w-full" data-node-id="4013:15699" data-name="Frame">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/frambuesa,#a8566a)] whitespace-nowrap" data-node-id="4013:15700">
+              Paso 3
+            </p>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.25] min-w-full not-italic relative shrink-0 text-[26px] text-[color:var(--color\/verde,#234549)] w-[min-content]" data-node-id="4013:15701">
+              3 semanas de WhatsApp conmigo
+            </p>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] w-[min-content]" data-node-id="4013:15702">
+              Me escribes cuando lo necesites: cada duda y cada noche difícil la respondo yo, personalmente.
+            </p>
+            <div className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex items-start overflow-clip px-[14px] py-[6px] relative rounded-[100px] shrink-0" data-node-id="4013:15703" data-name="Frame">
+              <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="4013:15704">
+                Acompañamiento directo
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="h-[24px] relative shrink-0 w-[10px]" data-node-id="4013:15705" data-name="Frame" />
+      <Boton className="bg-[var(--color\/verde,#234549)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" texto="Escríbeme por WhatsApp para empezar" />
+    </div>
+  );
+}

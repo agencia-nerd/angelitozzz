@@ -1,0 +1,104 @@
+const imgVector = "assets/lista-check.svg";
+const imgVector14 = "assets/lista-separador.svg";
+const imgIcon = "assets/ver-mas-flecha.svg";
+
+export default function SolucionesDeSueno() {
+  return (
+    <div className="content-stretch flex flex-col gap-[83px] items-end px-[121px] py-[153px] relative size-full" data-node-id="4013:13796" data-name="Soluciones de Sueño">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:SemiBold'] leading-[1.1] min-w-full not-italic relative shrink-0 text-[50px] text-[color:var(--color\/verde,#234549)] text-center w-[min-content]" data-node-id="4013:13919">
+        ¿Qué incluye Angelita Pro?
+      </p>
+      <div className="content-stretch flex flex-col gap-[16px] items-start py-[20px] relative shrink-0 w-[774px]" data-node-id="4013:13918" data-name="preguntas">
+        <div className="content-stretch flex flex-col gap-[54px] items-end justify-center relative shrink-0 w-full" data-node-id="4013:13888">
+          <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="4013:13889">
+            <div className="h-[12.916px] relative shrink-0 w-[13.751px]" data-node-id="4013:13890" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4013:13891">
+              Angelita — 2 semanas de acompañamiento 24/7 por WhatsApp. La activas cuando estés lista.
+            </p>
+          </div>
+          <div className="h-0 relative shrink-0 w-[748.5px]" data-node-id="4013:13892">
+            <div className="absolute inset-[-0.5px_0]">
+              <img alt="" className="block max-w-none size-full" src={imgVector14} />
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex flex-col gap-[54px] items-end justify-center relative shrink-0 w-full" data-node-id="4013:13893">
+          <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="4013:13894">
+            <div className="h-[12.916px] relative shrink-0 w-[13.751px]" data-node-id="4013:13895" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4013:13896">
+              Videos de preparación e implementación: Bárbara te explica qué va a pasar cada noche.
+            </p>
+          </div>
+          <div className="h-0 relative shrink-0 w-[748.5px]" data-node-id="4013:13897">
+            <div className="absolute inset-[-0.5px_0]">
+              <img alt="" className="block max-w-none size-full" src={imgVector14} />
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex flex-col gap-[54px] items-end justify-center relative shrink-0 w-full" data-node-id="4013:13898">
+          <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="4013:13899">
+            <div className="h-[12.916px] relative shrink-0 w-[13.751px]" data-node-id="4013:13900" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4013:13901">
+              Tu Plan de Sueño descargable: el paso a paso completo, siempre a mano.
+            </p>
+          </div>
+          <div className="h-0 relative shrink-0 w-[748.5px]" data-node-id="4013:13902">
+            <div className="absolute inset-[-0.5px_0]">
+              <img alt="" className="block max-w-none size-full" src={imgVector14} />
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex flex-col gap-[54px] items-end justify-center relative shrink-0 w-full" data-node-id="4013:13903">
+          <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="4013:13904">
+            <div className="h-[12.916px] relative shrink-0 w-[13.751px]" data-node-id="4013:13905" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4013:13906">
+              Plan de siestas incluido: noches y siestas, tú decides si trabajas ambas o solo una.
+            </p>
+          </div>
+          <div className="h-0 relative shrink-0 w-[748.5px]" data-node-id="4013:13907">
+            <div className="absolute inset-[-0.5px_0]">
+              <img alt="" className="block max-w-none size-full" src={imgVector14} />
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex flex-col gap-[54px] items-end justify-center relative shrink-0 w-full" data-node-id="4013:13908">
+          <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="4013:13909">
+            <div className="h-[12.916px] relative shrink-0 w-[13.751px]" data-node-id="4013:13910" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4013:13911">
+              Semanas adicionales a $27 USD cada una, si necesitas más tiempo.
+            </p>
+          </div>
+          <div className="h-0 relative shrink-0 w-[748.5px]" data-node-id="4013:13912">
+            <div className="absolute inset-[-0.5px_0]">
+              <img alt="" className="block max-w-none size-full" src={imgVector14} />
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex gap-[10px] h-[40px] items-center justify-center relative shrink-0 w-[112px]" data-node-id="4013:13913" data-name="Ver mas">
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[24px] text-[color:var(--color\/verde,#234549)] w-[66px]" data-node-id="4013:13914">
+            Ver más
+          </p>
+          <div className="flex items-center justify-center relative shrink-0" data-node-id="4013:13915">
+            <div className="flex-none rotate-180">
+              <div className="relative size-[10px]" data-name="Icon">
+                <div className="absolute inset-[-1.88%_-1.29%_-1.25%_-0.72%]">
+                  <img alt="" className="block max-w-none size-full" src={imgIcon} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -49,17 +49,17 @@ Avance del plan de cursos (Tutor LMS + WooCommerce + ACF). Una rama y un PR por 
 
 ## F1 · Specs desde Figma
 
-- [ ] Soluciones de sueño: actualizar el spec al tipo `solucion` (listado `archive-solucion.php`)
-- [ ] Landing Angelita Pro
-- [ ] Landing A Dormir Por Fin
-- [ ] Landing Horarios Ideales (con modal de etapas y modal "Selecciona la edad")
-- [ ] Landing Recién Nacidos Go
-- [ ] Biblioteca de layouts de la landing (los que se repiten entre cursos van una sola vez)
-- [ ] Drawer del carrito
+- [x] Soluciones de sueño: actualizar el spec al tipo `solucion` (listado `archive-solucion.php`) → `soluciones-de-sueno.md`, vuelve a `pendiente`
+- [x] Landing Angelita Pro
+- [x] Landing A Dormir Por Fin
+- [x] Landing Horarios Ideales (con modal de etapas y modal "Selecciona la edad")
+- [x] Landing Recién Nacidos Go
+- [x] Biblioteca de layouts de la landing (los que se repiten entre cursos van una sola vez) → las 4 landings son un solo spec, `solucion.md`: hero, tarjeta, compra, 10 layouts flexibles, relacionados y modales
+- [x] Drawer del carrito (en `solucion.md`)
 - [ ] Carrito
 - [ ] Checkout
-- [ ] Página de gracias (con bloque del mes gratis en Mundo)
-- [ ] Regalo: compra exitosa con código, "¿Te regalaron un curso?" y "Regalo canjeado"
+- [ ] Página de gracias (con bloque del mes gratis en Mundo) → faltan los enlaces de Figma en `specs/figma/enlaces/`
+- [ ] Regalo: compra exitosa con código, "¿Te regalaron un curso?" y "Regalo canjeado" → faltan los enlaces de Figma en `specs/figma/enlaces/`
 - [ ] Iniciar sesión, crear cuenta y recuperar contraseña
 - [ ] Cuenta de la alumna: escritorio, mi perfil (datos y seguridad), cursos inscritos, historial de pedidos
 - [ ] Cursos inscritos: proponer las vistas "Inscritos" y "Completados" (siguiendo "Activos")
@@ -72,7 +72,7 @@ Avance del plan de cursos (Tutor LMS + WooCommerce + ACF). Una rama y un PR por 
 
 - [x] Listado de Soluciones de sueño maquetado (provisional en `woocommerce/archive-product.php`, rama `feat/soluciones-de-sueno`)
 - [ ] Mover el listado a `archive-solucion.php` reutilizando `shop.php` y `producto-card`
-- [ ] `single-solucion.php` + un archivo por layout en `template-parts/solucion/`
+- [ ] `single-solucion.php` + un archivo por layout en `template-parts/pages/solucion/`
 - [ ] Modales con wp-modal: drawer del carrito, etapas, selector de edad
 - [ ] Preguntas frecuentes de cada landing con wp-accordion
 - [ ] Carrito, checkout y gracias en `woocommerce/`

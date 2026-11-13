@@ -1,0 +1,149 @@
+const imgGroup = "assets/para-ti-corazon-fondo.svg";
+const imgVector = "assets/para-ti-mancha-1.svg";
+const imgVector1 = "assets/para-ti-icono-luna.svg";
+const imgGroup1 = "assets/para-ti-icono-bebe-cara.svg";
+const imgGroup576 = "assets/para-ti-icono-reloj-arena.svg";
+const imgGroup449 = "assets/para-ti-mancha-documento.svg";
+const imgGroup565 = "assets/para-ti-icono-documento.svg";
+const imgVector2 = "assets/para-ti-mancha-2.svg";
+const imgVector63 = "assets/para-ti-icono-cuna.svg";
+const imgGroup577 = "assets/para-ti-icono-bebe-brazos.svg";
+const imgVector3 = "assets/para-ti-mancha-3.svg";
+const imgGroup426 = "assets/para-ti-icono-biberon.svg";
+
+export default function SeccionSiEsParaTi() {
+  return (
+    <div className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex items-center px-[371px] py-[88px] relative size-full" data-node-id="4013:15514" data-name="Seccion si es para ti">
+      <div className="content-stretch flex flex-col gap-[106px] items-center relative shrink-0 w-[1177px]" data-node-id="4013:15513" data-name="Asesoria recomendada si...">
+        <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="4013:15509">
+          <div className="col-1 flex h-[279.728px] items-center justify-center ml-0 mt-0 relative row-1 w-[289.106px]" data-node-id="4013:15505">
+            <div className="flex-none rotate-[14.36deg] skew-x-[-0.47deg]">
+              <div className="h-[228.285px] relative w-[238.098px]" data-name="Group">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup} />
+              </div>
+            </div>
+          </div>
+          <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:SemiBold'] leading-[1.1] ml-[158.93px] mt-[145.68px] not-italic relative row-1 text-[50px] text-[color:var(--color\/verde,#234549)] text-center whitespace-nowrap" data-node-id="4013:15508">
+            Esta asesoría es para ti si...
+          </p>
+        </div>
+        <div className="gap-x-[87px] gap-y-[44px] grid grid-cols-[repeat(3,minmax(0,1fr))] grid-rows-[repeat(3,fit-content(100%))] relative shrink-0 w-full" data-node-id="4013:15503">
+          <div className="col-1 content-stretch flex flex-col gap-[6px] items-center justify-self-stretch relative row-1 self-stretch shrink-0" data-node-id="4013:15444">
+            <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="4013:15445">
+              <div className="col-1 flex h-[110.271px] items-center justify-center ml-0 mt-0 relative row-1 w-[118.584px]" data-node-id="4013:15446">
+                <div className="flex-none rotate-[-12.97deg]">
+                  <div className="h-[89.899px] relative w-[100.982px]" data-name="Vector">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+                  </div>
+                </div>
+              </div>
+              <div className="col-1 h-[13px] ml-[71px] mt-[27px] relative row-1 w-[12.502px]" data-node-id="4013:15447" data-name="Vector">
+                <div className="absolute inset-[-5.56%_-5.78%]">
+                  <img alt="" className="block max-w-none size-full" src={imgVector1} />
+                </div>
+              </div>
+              <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-[39px] mt-[40px] place-items-start relative row-1" data-node-id="4013:15448">
+                <div className="col-1 h-[39.557px] ml-0 mt-0 relative row-1 w-[39.657px]" data-node-id="4013:15449" data-name="Group">
+                  <div className="absolute inset-[0_-2.35%]">
+                    <img alt="" className="block max-w-none size-full" src={imgGroup1} />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] text-center w-[min-content]" data-node-id="4013:15459">
+              Prefieres trabajar directamente con Bárbara — la persona detrás del método.
+            </p>
+          </div>
+          <div className="col-2 content-stretch flex flex-col items-center justify-self-stretch relative row-1 self-stretch shrink-0" data-node-id="4013:15460">
+            <div className="h-[110.271px] relative shrink-0 w-[118.584px]" data-node-id="4013:15461">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup576} />
+            </div>
+            <div className="content-stretch flex items-center justify-center p-[10px] relative shrink-0 w-full" data-node-id="4013:15468">
+              <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] text-center w-[332px]" data-node-id="4013:15469">
+                Tu caso es complejo — múltiples intentos fallidos, gemelos, situaciones médicas, colecho arraigado.
+              </p>
+            </div>
+          </div>
+          <div className="col-3 content-stretch flex flex-col items-center justify-self-stretch relative row-1 self-stretch shrink-0" data-node-id="4013:15489">
+            <div className="flex h-[175.813px] items-center justify-center leading-[0] mb-[-26px] relative shrink-0 w-[176.932px]" data-node-id="4013:15490">
+              <div className="flex-none rotate-[23.95deg]">
+                <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative">
+                  <div className="col-1 h-[132.532px] ml-0 mt-0 relative row-1 w-[134.735px]" data-node-id="4013:15491">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup449} />
+                  </div>
+                  <div className="col-1 h-[43.775px] ml-[42.41px] mt-[43.96px] relative row-1 w-[55.552px]" data-node-id="4013:15493">
+                    <div className="absolute inset-[0_-2.25%_0_0]">
+                      <img alt="" className="block max-w-none size-full" src={imgGroup565} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] text-center w-[395px]" data-node-id="4013:15501">
+              Tu bebé o niño tiene entre 4 meses y 4 años — incluyendo mayores de 2 años y niños en su propia cama.
+            </p>
+          </div>
+          <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid justify-self-stretch leading-[0] place-items-start relative row-2 self-stretch shrink-0" data-node-id="4013:15440">
+            <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] h-[72.1px] leading-[1.5] ml-[calc(50%-588.5px)] mt-[369.98px] not-italic relative row-1 text-[18px] text-[color:var(--color\/texto,black)] text-center w-[334.333px]" data-node-id="4013:15441">
+              Sus siestas son cortas, con mucha lucha o en horarios que no funcionan.
+            </p>
+            <div className="col-1 flex h-[110.425px] items-center justify-center ml-[100.19px] mt-[247.81px] relative row-1 w-[133.49px]" data-node-id="4013:15442">
+              <div className="flex-none rotate-[-11.58deg] skew-x-[2.94deg]">
+                <div className="h-[90.62px] relative w-[113.077px]" data-name="Vector">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector2} />
+                </div>
+              </div>
+            </div>
+            <div className="col-1 h-[41.106px] ml-[141.84px] mt-[281.86px] relative row-1 w-[49.531px]" data-node-id="4013:15443">
+              <div className="absolute inset-[-3.04%_-2.52%]">
+                <img alt="" className="block max-w-none size-full" src={imgVector63} />
+              </div>
+            </div>
+          </div>
+          <div className="col-2 content-stretch flex flex-col gap-[12px] items-center justify-self-stretch relative row-2 self-stretch shrink-0" data-node-id="4013:15430">
+            <div className="h-[110.271px] relative shrink-0 w-[118.584px]" data-node-id="4013:15431">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup577} />
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] h-[72px] leading-[1.5] min-w-full not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] text-center w-[min-content]" data-node-id="4013:15439">
+              Solo duerme en brazos, con pecho o en movimiento — y quieres cambiar eso.
+            </p>
+          </div>
+          <div className="col-3 content-stretch flex flex-col gap-[12px] items-center justify-self-stretch relative row-2 self-stretch shrink-0" data-node-id="4013:15480">
+            <div className="flex h-[110.271px] items-center justify-center relative shrink-0 w-[118.584px]" data-node-id="4013:15481">
+              <div className="flex-none rotate-[-12.97deg]">
+                <div className="h-[89.899px] relative w-[100.982px]" data-name="Vector">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector3} />
+                </div>
+              </div>
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] h-[72px] leading-[1.5] min-w-full not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] text-center w-[min-content]" data-node-id="4013:15482">
+              Quieres la certeza de que alguien con 10 años de experiencia está leyendo tu caso.
+            </p>
+            <div className="absolute h-[48px] left-[158.33px] top-[31.19px] w-[18px]" data-node-id="4013:15483">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup426} />
+            </div>
+          </div>
+          <div className="col-2 content-stretch flex flex-col items-center justify-self-stretch relative row-3 self-stretch shrink-0" data-node-id="4013:15470">
+            <div className="h-[110.271px] relative shrink-0 w-[118.584px]" data-node-id="4013:15471">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup576} />
+            </div>
+            <div className="content-stretch flex items-center justify-center p-[10px] relative shrink-0 w-full" data-node-id="4013:15478">
+              <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] text-center w-[332px]" data-node-id="4013:15479">
+                Quieres sentirte completamente acompañada y segura en cada paso.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="[word-break:break-word] content-stretch flex flex-col gap-[10px] items-center relative shrink-0 text-center w-[640px]" data-node-id="4013:15512">
+          <p className="font-['Barlow_Condensed:Medium'] leading-[1.2] not-italic relative shrink-0 text-[32px] text-[color:var(--color\/verde,#234549)] w-full" data-node-id="4013:15510">
+            Esta asesoría NO es para ti si...
+          </p>
+          <div className="font-['Barlow_Condensed:Regular'] font-normal leading-[0] relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] w-full whitespace-pre-wrap" data-node-id="4013:15511" style={{ fontVariationSettings: '"CTGR" 0, "wdth" 100' }}>
+            <p className="leading-[1.5] mb-0">{`✕  Tu bebé tiene menos de 4 meses o más de 4 años`}</p>
+            <p className="leading-[1.5]">{`✕  Buscas una solución sin ningún compromiso de tu parte`}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

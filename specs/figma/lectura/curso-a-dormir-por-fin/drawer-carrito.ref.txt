@@ -1,0 +1,121 @@
+const imgFlecha = "assets/boton-flecha.svg";
+const imgFlecha1 = "assets/boton-flecha-verde.svg";
+const imgRectangle = "assets/drawer-producto.jpg";
+const imgRectangle1 = "assets/relacionado-recien-nacidos-go.jpg";
+const imgFrame = "assets/drawer-cerrar.svg";
+const imgFrame1 = "assets/drawer-eliminar.svg";
+
+type BotonProps = {
+  className?: string;
+  flecha?: boolean;
+  texto?: string;
+  tipo?: "Secundario" | "Frambuesa";
+};
+
+function Boton({ className, flecha = true, texto = "Texto del botón", tipo = "Frambuesa" }: BotonProps) {
+  const isFrambuesa = tipo === "Frambuesa";
+  const isSecundario = tipo === "Secundario";
+  return (
+    <div className={className || `content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] ${isSecundario ? String.raw`border-[1.5px] border-[var(--color\/verde,#234549)] border-solid` : String.raw`bg-[var(--color\/frambuesa,#a8566a)]`}`} id={isSecundario ? "node-3704_15611" : "node-3711_6161"}>
+      {isFrambuesa && (
+        <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="3711:6162">
+          {texto}
+        </p>
+      )}
+      {isFrambuesa && flecha && (
+        <div className="relative shrink-0 size-[18px]" data-node-id="3711:6163" data-name="Flecha">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha} />
+        </div>
+      )}
+      {isSecundario && (
+        <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3704:15612">
+          {texto}
+        </p>
+      )}
+      {isSecundario && flecha && (
+        <div className="relative shrink-0 size-[18px]" data-node-id="3704:15613" data-name="Flecha">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha1} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function Panel() {
+  return (
+    <div className="bg-[var(--color\/blanco,white)] content-stretch flex flex-col items-start relative size-full" data-node-id="3752:5054" data-name="Panel">
+      <div className="content-stretch flex items-center justify-between overflow-clip p-[28px] relative shrink-0 w-full" data-node-id="3752:5055" data-name="Título">
+        <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.25] not-italic relative shrink-0 text-[26px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3752:5056">
+          Resumen de compra
+        </p>
+        <div className="relative shrink-0 size-[24px]" data-node-id="3752:5057" data-name="Frame">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+        </div>
+      </div>
+      <div className="content-stretch flex flex-[1_0_0] flex-col gap-[16px] items-start min-h-px overflow-clip px-[28px] relative w-full" data-node-id="3752:5060" data-name="Productos">
+        <div className="content-stretch flex gap-[14px] items-center overflow-clip relative shrink-0 w-full" data-node-id="3752:5061" data-name="Producto">
+          <div className="relative rounded-[12px] shrink-0 size-[72px]" data-node-id="3752:5062" data-name="Rectangle">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[12px] size-full" src={imgRectangle} />
+          </div>
+          <div className="[word-break:break-word] content-stretch flex flex-[1_0_0] flex-col gap-[2px] items-start min-w-px not-italic overflow-clip relative whitespace-nowrap" data-node-id="3752:5063" data-name="Frame">
+            <p className="font-['Barlow_Condensed:Regular'] leading-[1.4] relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)]" data-node-id="3752:5064">
+              Curso
+            </p>
+            <p className="font-['Barlow_Condensed:Medium'] leading-[1.3] relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)]" data-node-id="3752:5065">
+              Recién Nacidos Go
+            </p>
+            <p className="font-['Barlow_Condensed:Regular'] leading-[1.4] relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)]" data-node-id="3752:5066">
+              Acceso por 4 meses
+            </p>
+          </div>
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3752:5067">
+            $97
+          </p>
+          <div className="relative shrink-0 size-[18px]" data-node-id="3752:5068" data-name="Frame">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame1} />
+          </div>
+        </div>
+        <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="3752:5072">
+          Te puede interesar también
+        </p>
+        <div className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex gap-[14px] items-center overflow-clip p-[14px] relative rounded-[16px] shrink-0 w-full" data-node-id="3752:5073" data-name="Sugerido">
+          <div className="relative rounded-[12px] shrink-0 size-[64px]" data-node-id="3752:5074" data-name="Rectangle">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[12px] size-full" src={imgRectangle1} />
+          </div>
+          <div className="[word-break:break-word] content-stretch flex flex-[1_0_0] flex-col gap-[2px] items-start min-w-px not-italic overflow-clip relative whitespace-nowrap" data-node-id="3752:5075" data-name="Frame">
+            <p className="font-['Barlow_Condensed:Medium'] leading-[1.3] relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)]" data-node-id="3752:5076">
+              Angelita Pro
+            </p>
+            <p className="font-['Barlow_Condensed:Regular'] leading-[1.4] relative shrink-0 text-[14px] text-[color:var(--color\/texto-suave,#6b6b6b)]" data-node-id="3752:5077">
+              $67 · 4 a 24 meses
+            </p>
+          </div>
+          <Boton className="border-[1.5px] border-[var(--color\/verde,#234549)] border-solid content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" flecha={false} texto="Agregar" tipo="Secundario" />
+        </div>
+      </div>
+      <div className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex flex-col gap-[14px] items-start overflow-clip px-[28px] py-[24px] relative shrink-0 w-full" data-node-id="3752:5083" data-name="Total">
+        <div className="[word-break:break-word] content-stretch flex font-['Barlow_Condensed:Medium'] items-start justify-between not-italic overflow-clip relative shrink-0 text-[color:var(--color\/verde,#234549)] w-full whitespace-nowrap" data-node-id="3752:5084" data-name="Frame">
+          <p className="leading-[1.3] relative shrink-0 text-[18px]" data-node-id="3752:5085">
+            Subtotal
+          </p>
+          <p className="leading-[1.25] relative shrink-0 text-[26px]" data-node-id="3752:5086">
+            $97
+          </p>
+        </div>
+        <div className="bg-[var(--color\/frambuesa,#a8566a)] content-stretch flex gap-[10px] items-center justify-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0 w-full" data-node-id="3752:5087" data-name="Botón">
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="I3752:5087;3711:6162">
+            Ir a pagar
+          </p>
+          <div className="relative shrink-0 size-[18px]" data-node-id="I3752:5087;3711:6163" data-name="Flecha">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha} />
+          </div>
+        </div>
+        <div className="content-stretch flex items-start justify-center overflow-clip relative shrink-0 w-full" data-node-id="3752:5092" data-name="Frame">
+          <p className="[text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/verde,#234549)] underline whitespace-nowrap" data-node-id="3752:5093">
+            Seguir comprando
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}

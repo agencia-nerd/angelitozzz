@@ -1,0 +1,115 @@
+const imgVector = "assets/lista-check.svg";
+const imgVector14 = "assets/lista-separador.svg";
+const imgIcon = "assets/ver-mas-flecha.svg";
+
+export default function PreguntasDeLaPagina() {
+  return (
+    <div className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex flex-col gap-[65px] items-center px-[457px] py-[88px] relative size-full" data-node-id="4013:14164" data-name="Preguntas de la pagina">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:SemiBold'] leading-[1.1] not-italic relative shrink-0 text-[50px] text-[color:var(--color\/verde,#234549)] text-center whitespace-nowrap" data-node-id="4013:14165">
+        ¡Respondemos a tus preguntas!
+      </p>
+      <div className="content-stretch flex flex-col gap-[16px] items-center py-[20px] relative shrink-0 w-[774px]" data-node-id="4013:14166" data-name="preguntas">
+        <div className="content-stretch flex flex-col items-end justify-center relative shrink-0 w-full" data-node-id="4013:14167">
+          <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="4013:14168">
+            <div className="h-[12.916px] relative shrink-0 w-[13.751px]" data-node-id="4013:14169" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4013:14170">
+              ¿Va a llorar mi bebé?
+            </p>
+          </div>
+          <div className="flex items-center justify-center relative shrink-0" data-node-id="4013:14202">
+            <div className="-scale-y-100 flex-none rotate-180">
+              <div className="h-[100px] overflow-clip relative w-[750px]" data-name="respuesta">
+                <div className="absolute flex inset-[11.17%_-0.02%_79.17%_14.72%] items-center justify-center" data-node-id="4013:14203" style={{ containerType: "size" }}>
+                  <div className="-scale-x-100 flex-none h-[100cqh] w-[100cqw]">
+                    <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative size-full text-[18px] text-[color:var(--color\/texto-suave,#6b6b6b)]">Es probable que proteste — está aprendiendo algo nuevo. Pero ninguno de los dos métodos implica dejarlo llorando solo sin respuesta. La evidencia científica confirma que el entrenamiento de sueño es seguro, efectivo y no afecta el apego ni el desarrollo emocional del bebé.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="h-0 relative shrink-0 w-[748.5px]" data-node-id="4013:14171">
+            <div className="absolute inset-[-0.5px_0]">
+              <img alt="" className="block max-w-none size-full" src={imgVector14} />
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex flex-col gap-[54px] items-end justify-center relative shrink-0 w-full" data-node-id="4013:14172">
+          <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="4013:14173">
+            <div className="h-[12.916px] relative shrink-0 w-[13.751px]" data-node-id="4013:14174" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4013:14175">
+              ¿Cuándo se activa Angelita?
+            </p>
+          </div>
+          <div className="h-0 relative shrink-0 w-[748.5px]" data-node-id="4013:14176">
+            <div className="absolute inset-[-0.5px_0]">
+              <img alt="" className="block max-w-none size-full" src={imgVector14} />
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex flex-col gap-[54px] items-end justify-center relative shrink-0 w-full" data-node-id="4013:14177">
+          <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="4013:14178">
+            <div className="h-[12.916px] relative shrink-0 w-[13.751px]" data-node-id="4013:14179" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4013:14180">
+              ¿Funciona si doy pecho?
+            </p>
+          </div>
+          <div className="h-0 relative shrink-0 w-[748.5px]" data-node-id="4013:14181">
+            <div className="absolute inset-[-0.5px_0]">
+              <img alt="" className="block max-w-none size-full" src={imgVector14} />
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex flex-col gap-[54px] items-end justify-center relative shrink-0 w-full" data-node-id="4013:14182">
+          <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="4013:14183">
+            <div className="h-[12.916px] relative shrink-0 w-[13.751px]" data-node-id="4013:14184" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4013:14185">
+              ¿Puedo agregar más tiempo?
+            </p>
+          </div>
+          <div className="h-0 relative shrink-0 w-[748.5px]" data-node-id="4013:14186">
+            <div className="absolute inset-[-0.5px_0]">
+              <img alt="" className="block max-w-none size-full" src={imgVector14} />
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex flex-col gap-[54px] items-end justify-center relative shrink-0 w-full" data-node-id="4013:14187">
+          <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="4013:14188">
+            <div className="h-[12.916px] relative shrink-0 w-[13.751px]" data-node-id="4013:14189" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[20px] text-[color:var(--color\/texto,black)] whitespace-nowrap" data-node-id="4013:14190">
+              ¿Angelita reemplaza a Bárbara?
+            </p>
+          </div>
+          <div className="h-0 relative shrink-0 w-[748.5px]" data-node-id="4013:14191">
+            <div className="absolute inset-[-0.5px_0]">
+              <img alt="" className="block max-w-none size-full" src={imgVector14} />
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex gap-[10px] h-[40px] items-center justify-center relative shrink-0 w-[112px]" data-node-id="4013:14192" data-name="Ver mas">
+          <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[24px] text-[color:var(--color\/verde,#234549)] w-[66px]" data-node-id="4013:14193">
+            Ver más
+          </p>
+          <div className="flex items-center justify-center relative shrink-0" data-node-id="4013:14194">
+            <div className="flex-none rotate-180">
+              <div className="relative size-[10px]" data-name="Icon">
+                <div className="absolute inset-[-1.88%_-1.29%_-1.25%_-0.72%]">
+                  <img alt="" className="block max-w-none size-full" src={imgIcon} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

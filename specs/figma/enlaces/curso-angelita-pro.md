@@ -1,4 +1,6 @@
-# Figma: curso angelito pro - Interna de cursos
+# Figma: curso-angelita-pro
+
+<!-- Título original del archivo: curso angelito pro - Interna de cursos -->
 
 - **Frame de la página:** https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4012-13572&t=C9Q9IWqYULHocJi2-4
 

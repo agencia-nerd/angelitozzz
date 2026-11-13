@@ -1,0 +1,72 @@
+const imgFlecha = "assets/boton-flecha.svg";
+const imgPortraitYoungFamily1 = "assets/etapas-4-a-9-meses.jpg";
+const imgSweetDarkCurlyHairedBabyGirlPaleBlueClothSittingGreyCouchHomeClappingHandsKidHomeChildhoodConcept1 = "assets/etapas-9-a-15-meses.jpg";
+const imgCuteKidWithStuffedAnimal1 = "assets/etapas-15-a-36-meses.jpg";
+
+type BotonProps = {
+  className?: string;
+  flecha?: boolean;
+  texto?: string;
+  tipo?: "Frambuesa";
+};
+
+function Boton({ className, flecha = true, texto = "Texto del botón", tipo = "Frambuesa" }: BotonProps) {
+  return (
+    <div className={className || "bg-[var(--color\\/frambuesa,#a8566a)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px]"} data-node-id="3711:6161">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="3711:6162">
+        {texto}
+      </p>
+      {flecha && (
+        <div className="relative shrink-0 size-[18px]" data-node-id="3711:6163" data-name="Flecha">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function Etapas() {
+  return (
+    <div className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex flex-col gap-[139px] items-center py-[88px] relative size-full" data-node-id="4013:19194" data-name="Etapas">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.15] min-w-full not-italic relative shrink-0 text-[46px] text-[color:var(--color\/verde,#234549)] text-center w-[min-content]" data-node-id="4013:19168">
+        El sueño cambia con cada etapa. Los horarios también. Elige la tuya.
+      </p>
+      <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="4013:19169">
+        <Boton className="bg-[var(--color\/frambuesa,#a8566a)] col-1 content-stretch cursor-pointer flex gap-[10px] items-center ml-[68px] mt-[600px] pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] row-1" texto="Más información" />
+        <div className="col-1 h-[292px] ml-0 mt-0 relative rounded-[20px] row-1 w-[314px]" data-node-id="4013:19171" data-name="portrait-young-family 1">
+          <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[20px] size-full" src={imgPortraitYoungFamily1} />
+        </div>
+        <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[37px] mt-[309px] not-italic relative row-1 text-[24px] text-[color:var(--color\/texto,black)] text-center w-[245px]" data-node-id="4013:19172">
+          Curso Para bebés de 4 a 9 meses
+        </p>
+        <div className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] ml-[433px] mt-[309px] not-italic relative row-1 text-[24px] text-[color:var(--color\/texto,black)] text-center w-[254px] whitespace-pre-wrap" data-node-id="4013:19173">
+          <p className="leading-[1.5] mb-0">{`Curso Para bebés de `}</p>
+          <p className="leading-[1.5]">9 a 15 meses</p>
+        </div>
+        <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[823px] mt-[309px] not-italic relative row-1 text-[24px] text-[color:var(--color\/texto,black)] text-center w-[254px]" data-node-id="4013:19174">
+          Curso Para bebés de 15 a 36 meses
+        </p>
+        <Boton className="bg-[var(--color\/frambuesa,#a8566a)] col-1 content-stretch cursor-pointer flex gap-[10px] items-center ml-[460px] mt-[600px] pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] row-1" texto="Más información" />
+        <div className="col-1 h-[292px] ml-[395px] mt-0 relative rounded-[20px] row-1 w-[314px]" data-node-id="4013:19176" data-name="sweet-dark-curly-haired-baby-girl-pale-blue-cloth-sitting-grey-couch-home-clapping-hands-kid-home-childhood-concept 1">
+          <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[20px] size-full" src={imgSweetDarkCurlyHairedBabyGirlPaleBlueClothSittingGreyCouchHomeClappingHandsKidHomeChildhoodConcept1} />
+        </div>
+        <Boton className="bg-[var(--color\/frambuesa,#a8566a)] col-1 content-stretch cursor-pointer flex gap-[10px] items-center ml-[855px] mt-[600px] pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] row-1" texto="Más información" />
+        <div className="col-1 h-[292px] ml-[790px] mt-0 relative rounded-[20px] row-1 w-[314px]" data-node-id="4013:19178" data-name="cute-kid-with-stuffed-animal 1">
+          <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[20px] size-full" src={imgCuteKidWithStuffedAnimal1} />
+        </div>
+        <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-0 mt-[385px] not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] text-center w-[314px]" data-node-id="4013:19179">
+          ¿Sientes que tu bebé parece tener sueño todo el día pero duerme poco? Esta etapa es un laberinto de señales confusas. Aprenderás a identificar las ventanas de vigilia correctas, evitar el círculo vicioso de siestas cortas y descubrir el secreto de la última ventana del día para que las tres siestas funcionen como relojito. Todo lo que necesitas para descifrar el horario ideal — sin adivinar.
+        </p>
+        <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[395px] mt-[385px] not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] text-center w-[314px]" data-node-id="4013:19180">
+          Los horarios cambiaron, tu bebé dejó la tercera siesta — y el caos amenaza con volver. Esta etapa viene cargada de cambios, crisis y confusión. Aprenderás a combinar ventanas de vigilia con los horarios ideales para su edad y su tanque de sueño — para que tus días fluyan mejor y tus noches vuelvan a ser tranquilas.
+        </p>
+        <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[790px] mt-[385px] not-italic relative row-1 text-[16px] text-[color:var(--color\/texto,black)] text-center w-[314px]" data-node-id="4013:19181">
+          Bienvenida a la etapa de los mini exploradores que ya no quieren siestas y madrugan como si fueran gallos. Tu guía para las crisis de los 18 y 24 meses, entender qué hacer cuando la siesta desaparece y cómo reajustar los horarios cuando todo parece desbordarse. Más que horarios — claridad y calma.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+// Component descriptions (Figma):
+// Botón (3704:15621): Botón 2026 · Frambuesa (CTA principal sobre fondos claros) · Verde (sobre teal) · Claro (sobre verde oscuro) · Secundario (contorno).

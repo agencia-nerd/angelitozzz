@@ -1,0 +1,43 @@
+const imgLine93 = "assets/comparacion-divisor.svg";
+
+export default function SeccionDeComparacion() {
+  return (
+    <div className="bg-white content-stretch flex flex-col items-start px-[324px] py-[85px] relative size-full" data-node-id="4013:15285" data-name="Seccion de comparacion">
+      <div className="bg-[var(--color\/crema,#f8f6f1)] content-stretch flex gap-[110px] items-center p-[56px] relative shrink-0 w-full" data-node-id="4013:15251" data-name="Comparacion">
+        <div className="[word-break:break-word] content-stretch flex flex-col gap-[23px] items-start not-italic relative shrink-0 w-[470px]" data-node-id="4013:15252">
+          <p className="font-['Barlow_Condensed:Medium'] leading-[1.2] relative shrink-0 text-[32px] text-[color:var(--color\/verde,#234549)] w-full" data-node-id="4013:15253">
+            ¿Te suena familiar?
+          </p>
+          <div className="font-['Barlow_Condensed:Regular'] leading-[0] relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] w-full" data-node-id="4013:15254">
+            <p className="leading-[1.5] mb-0">• Llevas meses sin dormir una noche completa</p>
+            <p className="leading-[1.5] mb-0">• Tu bebé solo duerme en brazos, con pecho o contigo en la cama</p>
+            <p className="leading-[1.5] mb-0">• Ya intentaste métodos, consejos, rutinas — nada funciona de forma consistente</p>
+            <p className="leading-[1.5] mb-0">• Te sientes agotada, confundida y al límite</p>
+            <p className="leading-[1.5]">• Quieres una solución real — no otro consejo genérico de internet</p>
+          </div>
+        </div>
+        <div className="flex h-[238px] items-center justify-center relative shrink-0 w-0" data-node-id="4013:15255">
+          <div className="flex-none rotate-90">
+            <div className="h-0 relative w-[238px]">
+              <div className="absolute inset-[-1px_0_0_0]">
+                <img alt="" className="block max-w-none size-full" src={imgLine93} />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="[word-break:break-word] content-stretch flex flex-col gap-[23px] items-start not-italic relative shrink-0 w-[470px]" data-node-id="4013:15256">
+          <p className="font-['Barlow_Condensed:Medium'] leading-[1.2] relative shrink-0 text-[32px] text-[color:var(--color\/verde,#234549)] w-full" data-node-id="4013:15257">
+            Ahora imagina esto.
+          </p>
+          <div className="font-['Barlow_Condensed:Regular'] leading-[0] relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] w-full" data-node-id="4013:15258">
+            <p className="leading-[1.5] mb-0">Acuestas a tu bebé en su cuna — y se duerme solo.</p>
+            <p className="leading-[1.5] mb-0">Duerme 10 a 12 horas de corrido, sin despertarte.</p>
+            <p className="leading-[1.5] mb-0">Sus siestas son largas, predecibles y en los horarios correctos para su edad.</p>
+            <p className="leading-[1.5] mb-0">Las tomas nocturnas innecesarias — eliminadas, gradual y respetuosamente.</p>
+            <p className="leading-[1.5]">Y tú — descansada, con energía, disfrutando tu maternidad.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

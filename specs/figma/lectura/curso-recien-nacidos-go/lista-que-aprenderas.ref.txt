@@ -1,0 +1,183 @@
+const imgFrontViewMotherWithBabyHome1 = "assets/aprenderas-foto-madre-bebe.jpg";
+const imgFrame = "assets/aprenderas-nube-izquierda.svg";
+const imgGroup472 = "assets/aprenderas-nube-superior.svg";
+const imgVector = "assets/aprenderas-estrella-grande.svg";
+const imgVector1 = "assets/aprenderas-estrella-chica.svg";
+const imgVector2 = "assets/aprenderas-check.svg";
+const imgVector14 = "assets/aprenderas-separador.svg";
+const imgIcon = "assets/aprenderas-ver-menos-icono.svg";
+
+export default function ListaDeQueAprenderas() {
+  return (
+    <div className="bg-white content-stretch flex flex-col gap-[27px] items-center py-[88px] relative size-full" data-node-id="4013:18034" data-name="Lista de que aprenderas">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:SemiBold'] leading-[1.1] not-italic relative shrink-0 text-[50px] text-[color:var(--color\/verde,#234549)] text-center w-full" data-node-id="4013:17987">
+        ¿Qué aprenderás?
+      </p>
+      <div className="content-stretch flex gap-[166px] items-center justify-center relative shrink-0 w-full" data-node-id="4013:18033">
+        <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="4013:17986">
+          <div className="col-1 h-[138px] ml-0 mt-[279px] relative row-1 w-[229px]" data-node-id="4013:17970" data-name="Frame">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+          </div>
+          <div className="col-1 h-[121px] ml-[332px] mt-0 relative row-1 w-[278px]" data-node-id="4013:17975">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup472} />
+          </div>
+          <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-[358px] mt-[189.86px] place-items-start relative row-1" data-node-id="4013:17980">
+            <div className="col-1 h-[532.943px] ml-0 mt-0 relative rounded-[20px] row-1 w-[414px]" data-node-id="4013:17981" data-name="front-view-mother-with-baby-home 1">
+              <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[20px]">
+                <img alt="" className="absolute h-full left-[-30.52%] max-w-none top-0 w-[193.14%]" src={imgFrontViewMotherWithBabyHome1} />
+              </div>
+            </div>
+            <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-[2px] mt-[0.2px] place-items-start relative row-1" data-node-id="4013:17982" data-name="Mask group" />
+          </div>
+          <div className="col-1 flex h-[220.428px] items-center justify-center ml-[171px] mt-[552px] relative row-1 w-[225.461px]" data-node-id="4013:17984">
+            <div className="flex-none rotate-[21.13deg] skew-x-[-0.28deg]">
+              <div className="h-[168.743px] relative w-[175.692px]" data-name="Vector">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+              </div>
+            </div>
+          </div>
+          <div className="col-1 flex h-[99.842px] items-center justify-center ml-[280px] mt-[191px] relative row-1 w-[103.069px]" data-node-id="4013:17985">
+            <div className="flex-none rotate-[-9.83deg] skew-x-[0.14deg]">
+              <div className="h-[85.854px] relative w-[89.52px]" data-name="Vector">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector1} />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex flex-col gap-[35px] items-start relative shrink-0 w-[773.751px]" data-node-id="4013:18031">
+          <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="4013:17988">
+            <div className="h-[12.916px] relative shrink-0 w-[13.751px]" data-node-id="4013:17989" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector2} />
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[750px]" data-node-id="4013:17990">
+              Entender el sueño de tu recién nacido según su edad y etapa — sin confusión ni información contradictoria.
+            </p>
+          </div>
+          <div className="h-0 relative shrink-0 w-[748.5px]" data-node-id="4013:18016">
+            <div className="absolute inset-[-0.5px_0]">
+              <img alt="" className="block max-w-none size-full" src={imgVector14} />
+            </div>
+          </div>
+          <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="4013:17991">
+            <div className="h-[12.916px] relative shrink-0 w-[13.751px]" data-node-id="4013:17992" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector2} />
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] h-[18px] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[750px]" data-node-id="4013:17993">
+              Identificar sus señales de sueño tempranas para actuar antes de que llegue al llanto.
+            </p>
+          </div>
+          <div className="h-0 relative shrink-0 w-[748.5px]" data-node-id="4013:18015">
+            <div className="absolute inset-[-0.5px_0]">
+              <img alt="" className="block max-w-none size-full" src={imgVector14} />
+            </div>
+          </div>
+          <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="4013:17994">
+            <div className="h-[12.916px] relative shrink-0 w-[13.751px]" data-node-id="4013:17995" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector2} />
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[750px]" data-node-id="4013:17996">
+              Calmar el llanto con 5 herramientas prácticas y efectivas.
+            </p>
+          </div>
+          <div className="h-0 relative shrink-0 w-[748.5px]" data-node-id="4013:18017">
+            <div className="absolute inset-[-0.5px_0]">
+              <img alt="" className="block max-w-none size-full" src={imgVector14} />
+            </div>
+          </div>
+          <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="4013:17997">
+            <div className="h-[12.916px] relative shrink-0 w-[13.751px]" data-node-id="4013:17998" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector2} />
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[750px]" data-node-id="4013:17999">
+              Usar correctamente el swaddle, el ruido blanco y otras herramientas de calma para ayudarle a dormir mejor.
+            </p>
+          </div>
+          <div className="h-0 relative shrink-0 w-[748.5px]" data-node-id="4013:18018">
+            <div className="absolute inset-[-0.5px_0]">
+              <img alt="" className="block max-w-none size-full" src={imgVector14} />
+            </div>
+          </div>
+          <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="4013:18000">
+            <div className="h-[12.916px] relative shrink-0 w-[13.751px]" data-node-id="4013:18001" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector2} />
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[750px]" data-node-id="4013:18002">
+              Crear el ambiente de sueño ideal para tu bebé.
+            </p>
+          </div>
+          <div className="h-0 relative shrink-0 w-[748.5px]" data-node-id="4013:18019">
+            <div className="absolute inset-[-0.5px_0]">
+              <img alt="" className="block max-w-none size-full" src={imgVector14} />
+            </div>
+          </div>
+          <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="4013:18003">
+            <div className="h-[12.916px] relative shrink-0 w-[13.751px]" data-node-id="4013:18004" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector2} />
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[750px]" data-node-id="4013:18005">
+              Establecer ventanas de vigilia y horarios flexibles para su edad.
+            </p>
+          </div>
+          <div className="h-0 relative shrink-0 w-[748.5px]" data-node-id="4013:18020">
+            <div className="absolute inset-[-0.5px_0]">
+              <img alt="" className="block max-w-none size-full" src={imgVector14} />
+            </div>
+          </div>
+          <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="4013:18006">
+            <div className="h-[12.916px] relative shrink-0 w-[13.751px]" data-node-id="4013:18007" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector2} />
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[750px]" data-node-id="4013:18008">
+              Construir rutinas suaves que le ayuden a anticipar el sueño.
+            </p>
+          </div>
+          <div className="h-0 relative shrink-0 w-[748.5px]" data-node-id="4013:18021">
+            <div className="absolute inset-[-0.5px_0]">
+              <img alt="" className="block max-w-none size-full" src={imgVector14} />
+            </div>
+          </div>
+          <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="4013:18009">
+            <div className="h-[12.916px] relative shrink-0 w-[13.751px]" data-node-id="4013:18010" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector2} />
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[750px]" data-node-id="4013:18011">
+              Manejar los despertares nocturnos para alargar sus bloques de sueño.
+            </p>
+          </div>
+          <div className="h-0 relative shrink-0 w-[748.5px]" data-node-id="4013:18022">
+            <div className="absolute inset-[-0.5px_0]">
+              <img alt="" className="block max-w-none size-full" src={imgVector14} />
+            </div>
+          </div>
+          <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="4013:18012">
+            <div className="h-[12.916px] relative shrink-0 w-[13.751px]" data-node-id="4013:18013" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector2} />
+            </div>
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] w-[750px]" data-node-id="4013:18014">
+              Sentar las bases para que aprenda a conciliar el sueño de manera gradual e independiente.
+            </p>
+          </div>
+          <div className="h-0 relative shrink-0 w-[748.5px]" data-node-id="4013:18023">
+            <div className="absolute inset-[-0.5px_0]">
+              <img alt="" className="block max-w-none size-full" src={imgVector14} />
+            </div>
+          </div>
+          <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="4013:18024">
+            <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-0 mt-0 place-items-start relative row-1" data-node-id="4013:18025">
+              <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-0 mt-0 place-items-start relative row-1" data-node-id="4013:18026">
+                <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-0 mt-0 not-italic relative row-1 text-[18px] text-[color:var(--color\/verde,#234549)] whitespace-nowrap" data-node-id="4013:18027">
+                  Ver menos
+                </p>
+                <div className="col-1 ml-[98px] mt-[6px] relative row-1 size-[10px]" data-node-id="4013:18028" data-name="Icon">
+                  <div className="absolute inset-[-1.87%_-1.29%_-1.25%_-0.72%]">
+                    <img alt="" className="block max-w-none size-full" src={imgIcon} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,37 @@
+const imgPhBookLight = "assets/ademas-incluye-icono-libro.svg";
+const imgFluentPremium28Regular = "assets/ademas-incluye-icono-premium.svg";
+const imgGroup253 = "assets/ademas-incluye-divisor.svg";
+
+export default function Adicionales() {
+  return (
+    <div className="content-stretch flex items-start justify-center py-[100px] relative size-full" data-node-id="4013:16796" data-name="Adicionales">
+      <div className="bg-[var(--color\/beige,#d7d0b5)] content-stretch flex flex-col gap-[29px] h-[420px] items-start pb-[56px] pl-[227px] pr-[255px] pt-[55px] relative rounded-[30px] shrink-0 w-[1110px]" data-node-id="4013:16783">
+        <p className="[word-break:break-word] font-['Barlow_Condensed:SemiBold'] leading-[1.1] not-italic relative shrink-0 text-[50px] text-[color:var(--color\/verde,#234549)] text-center w-full" data-node-id="4013:16786">
+          Además, incluye
+        </p>
+        <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] text-center w-full" data-node-id="4013:16785">
+          Todo por $399 USD · Cupos limitados — trabajo con un número reducido de familias a la vez.
+        </p>
+        <div className="grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0 w-full" data-node-id="4013:16787">
+          <div className="col-1 h-[51px] ml-[15.59%] mt-[22px] relative row-1 w-[8.46%]" data-node-id="4013:16788" data-name="ph:book-light">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgPhBookLight} />
+          </div>
+          <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-0 mt-[91px] not-italic relative row-1 text-[18px] text-[color:var(--color\/texto,black)] text-center w-[39.8%]" data-node-id="4013:16790">
+            E-book con guías de horarios — 4 meses a 3 años. Para navegar cada cambio con confianza.
+          </p>
+          <div className="col-1 h-[48px] ml-[76.12%] mt-[23px] relative row-1 w-[7.96%]" data-node-id="4013:16791" data-name="fluent:premium-28-regular">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFluentPremium28Regular} />
+          </div>
+          <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[60.2%] mt-[91px] not-italic relative row-1 text-[18px] text-[color:var(--color\/texto,black)] text-center w-[39.8%]" data-node-id="4013:16793">
+            1 mes en Mundo Angelitozzz — 4 sesiones en vivo con Bárbara y videoteca completa.
+          </p>
+          <div className="col-1 h-[146px] ml-[50.41%] mt-0 relative row-1 w-0" data-node-id="4013:16794">
+            <div className="absolute inset-[0_-1px_0_0]">
+              <img alt="" className="block max-w-none size-full" src={imgGroup253} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

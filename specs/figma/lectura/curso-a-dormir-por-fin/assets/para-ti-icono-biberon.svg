@@ -1,0 +1,12 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="18" height="48" viewBox="0 0 18 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 426">
+<path id="Vector 63" d="M3 13.5C3 12 3.6 8.4 6 6" stroke-width="2.53846" stroke-linecap="round" stroke="#492343" style="stroke:#492343;stroke:color(display-p3 0.2863 0.1373 0.2639);stroke-opacity:1;"/>
+<path id="Vector 64" d="M15 13.5C15 12 14.4 8.4 12 6" stroke-width="2.53846" stroke-linecap="round" stroke="#492343" style="stroke:#492343;stroke:color(display-p3 0.2863 0.1373 0.2639);stroke-opacity:1;"/>
+<mask id="stroke0_0_30" fill="white">
+<path d="M0 20C0 18.8954 0.895431 18 2 18H16C17.1046 18 18 18.8954 18 20V46C18 47.1046 17.1046 48 16 48H2C0.89543 48 0 47.1046 0 46V20Z"/>
+</mask>
+<rect id="Rectangle 179" y="18" width="18" height="30" rx="2" stroke-width="5" stroke="#492343" style="stroke:#492343;stroke:color(display-p3 0.2863 0.1373 0.2639);stroke-opacity:1;" mask="url(#stroke0_0_30)"/>
+<rect id="Rectangle 180" x="1" y="14" width="16" height="4" rx="2" stroke-width="2" stroke="#492343" style="stroke:#492343;stroke:color(display-p3 0.2863 0.1373 0.2639);stroke-opacity:1;"/>
+<circle id="Ellipse 60" cx="8.75" cy="3.75" r="2.67857" stroke-width="2.14286" stroke="#492343" style="stroke:#492343;stroke:color(display-p3 0.2863 0.1373 0.2639);stroke-opacity:1;"/>
+</g>
+</svg>

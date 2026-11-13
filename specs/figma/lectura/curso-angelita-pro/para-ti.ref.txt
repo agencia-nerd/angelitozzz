@@ -1,0 +1,117 @@
+const imgGroup = "assets/para-ti-corazon.svg";
+const imgGroup444 = "assets/para-ti-icono-reloj-arena.svg";
+const imgVector = "assets/para-ti-mancha-bebe.svg";
+const imgVector1 = "assets/para-ti-icono-bebe-luna.svg";
+const imgGroup1 = "assets/para-ti-icono-bebe-cara.svg";
+const imgGroup446 = "assets/para-ti-icono-cuna.svg";
+const imgVector2 = "assets/para-ti-mancha-agotada.svg";
+const imgGroup2 = "assets/para-ti-icono-agotada.svg";
+const imgGroup448 = "assets/para-ti-icono-biberon.svg";
+
+export default function ParaTiEsPro() {
+  return (
+    <div className="content-stretch flex flex-col items-start pb-[88px] px-[413px] relative size-full" data-node-id="4013:13738" data-name="Para ti es pro">
+      <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="4013:13688">
+        <div className="col-1 content-stretch flex flex-col gap-[112px] items-center ml-0 mt-0 relative row-1 w-[1093px]" data-node-id="4013:13795">
+          <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="4013:13794">
+            <div className="col-1 flex h-[259.562px] items-center justify-center ml-0 mt-0 relative row-1 w-[289.106px]" data-node-id="4013:13689">
+              <div className="flex-none rotate-[13.18deg] skew-x-[-2.97deg]">
+                <div className="h-[214.263px] relative w-[235.728px]" data-name="Group">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup} />
+                </div>
+              </div>
+            </div>
+            <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:SemiBold'] leading-[1.1] ml-[189.56px] mt-[224.27px] not-italic relative row-1 text-[50px] text-[color:var(--color\/verde,#234549)] text-center whitespace-nowrap" data-node-id="4013:13692">
+              Angelita Pro es para ti si...
+            </p>
+          </div>
+          <div className="content-stretch flex flex-wrap gap-[52px_124px] h-[410.542px] items-center justify-center relative shrink-0 w-full" data-node-id="4013:13793">
+            <div className="flex flex-row items-center self-stretch" data-node-id="4013:13739">
+              <div className="content-stretch flex flex-col gap-[6px] h-full items-center relative shrink-0 w-[281.667px]">
+                <div className="h-[110.271px] relative shrink-0 w-[118.584px]" data-node-id="4013:13720">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup444} />
+                </div>
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] text-center w-[min-content]" data-node-id="4013:13693">
+                  Sus siestas duran 30 minutos o menos — o son una lucha constante
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-row items-center self-stretch" data-node-id="4013:13740">
+              <div className="content-stretch flex flex-col gap-[6px] h-full items-center relative shrink-0 w-[281.667px]">
+                <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="4013:13705">
+                  <div className="col-1 flex h-[110.271px] items-center justify-center ml-0 mt-0 relative row-1 w-[118.584px]" data-node-id="4013:13706">
+                    <div className="flex-none rotate-[-12.97deg]">
+                      <div className="h-[89.899px] relative w-[100.982px]" data-name="Vector">
+                        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-[31px] mt-[28px] place-items-start relative row-1" data-node-id="4013:13707">
+                    <div className="col-1 h-[11.692px] ml-[39px] mt-0 relative row-1 w-[12.502px]" data-node-id="4013:13708" data-name="Vector">
+                      <div className="absolute inset-[-6.18%_-5.78%]">
+                        <img alt="" className="block max-w-none size-full" src={imgVector1} />
+                      </div>
+                    </div>
+                    <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-0 mt-[13px] place-items-start relative row-1" data-node-id="4013:13709">
+                      <div className="col-1 h-[35.577px] ml-0 mt-0 relative row-1 w-[39.657px]" data-node-id="4013:13710" data-name="Group">
+                        <div className="absolute inset-[0_-2.35%]">
+                          <img alt="" className="block max-w-none size-full" src={imgGroup1} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] text-center w-[min-content]" data-node-id="4013:13695">
+                  Tu bebé tiene entre 4 y 24 meses y se despierta varias veces por noche
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-row items-center self-stretch" data-node-id="4013:13741">
+              <div className="content-stretch flex flex-col gap-[6px] h-full items-center relative shrink-0 w-[281.667px]">
+                <div className="h-[110.271px] relative shrink-0 w-[118.584px]" data-node-id="4013:13727">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup446} />
+                </div>
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] text-center w-[min-content]" data-node-id="4013:13694">
+                  Necesitas apoyo real a cualquier hora, incluso a las 3am — sin citas, sin esperas
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-row items-center self-stretch" data-node-id="4013:13742">
+              <div className="content-stretch flex flex-col gap-[12px] h-full items-center relative shrink-0 w-[281.667px]">
+                <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="4013:13698">
+                  <div className="col-1 flex h-[110.271px] items-center justify-center ml-0 mt-0 relative row-1 w-[118.584px]" data-node-id="4013:13699">
+                    <div className="flex-none rotate-[-12.97deg]">
+                      <div className="h-[89.899px] relative w-[100.982px]" data-name="Vector">
+                        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector2} />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-[44px] mt-[32px] place-items-start relative row-1" data-node-id="4013:13700">
+                    <div className="col-1 h-[44.846px] ml-0 mt-0 relative row-1 w-[29.918px]" data-node-id="4013:13701" data-name="Group">
+                      <div className="absolute inset-[-2.98%_-4.47%]">
+                        <img alt="" className="block max-w-none size-full" src={imgGroup2} />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] h-[72px] leading-[1.5] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] text-center w-[min-content]" data-node-id="4013:13696">
+                  Estás lista para dejar de vivir agotada, confundida y al límite
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-row items-center self-stretch" data-node-id="4013:13743">
+              <div className="content-stretch flex flex-col gap-[12px] h-full items-center relative shrink-0 w-[281.667px]">
+                <div className="h-[110.271px] relative shrink-0 w-[118.584px]" data-node-id="4013:13730">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup448} />
+                </div>
+                <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] h-[72px] leading-[1.5] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] text-center w-[min-content]" data-node-id="4013:13697">
+                  Quieres avanzar sin dudar ni cometer errores que frustren tus avances
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

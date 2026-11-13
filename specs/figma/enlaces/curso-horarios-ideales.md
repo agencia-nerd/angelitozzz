@@ -1,4 +1,6 @@
-# Figma: Cursos de Horarios Ideales - Interna de cursos
+# Figma: curso-horarios-ideales
+
+<!-- Título original del archivo: Cursos de Horarios Ideales - Interna de cursos -->
 
 - **Frame de la página:** https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4013-19063&t=C9Q9IWqYULHocJi2-4
 
@@ -14,6 +16,8 @@
     - nota: las preguntas frecuentes tambien son independientes en este curso.
 - contenido-relacionado: https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4013-19577&t=C9Q9IWqYULHocJi2-4
     - nota: Que rija 3 card de contenido relacionado.
+- modal-selecciona-edad: https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=3653-2355&t=C9Q9IWqYULHocJi2-4
+- modal-etapas: https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=3752-5964&t=C9Q9IWqYULHocJi2-4
 
 ## Notas
 

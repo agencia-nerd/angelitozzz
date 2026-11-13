@@ -1,0 +1,48 @@
+// Capa oculta en Figma (no sale en el código): 4013:19366 "Con la compra de los talleres de horarios, recibirás además estos bonos que harán de tu experiencia mucho más sencilla."
+const imgPhBookLight = "assets/ademas-incluye-icono-libro.svg";
+const imgFluentPremium28Regular = "assets/ademas-incluye-icono-diamante.svg";
+const imgOcticonVideo24 = "assets/ademas-incluye-icono-video.svg";
+const imgGroup253 = "assets/ademas-incluye-divisor.svg";
+
+export default function QueIncluye() {
+  return (
+    <div className="bg-[var(--color\/blush,#f1dbd5)] content-stretch flex flex-col items-center px-[229px] py-[20px] relative size-full" data-node-id="4013:19363" data-name="Que incluye">
+      <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="4013:19364">
+        <div className="bg-[var(--color\/crema,#f8f6f1)] col-1 h-[420px] ml-0 mt-0 relative rounded-[30px] row-1 w-[1191px]" data-node-id="4013:19365" data-name="Lo que incluye además del curso." />
+        <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Medium'] leading-[1.15] ml-[329.5px] mt-[53px] not-italic relative row-1 text-[46px] text-[color:var(--color\/verde,#234549)] text-center w-[533px]" data-node-id="4013:19367">
+          Lo que incluye además del curso.
+        </p>
+        <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-[87.5px] mt-[167px] place-items-start relative row-1" data-node-id="4013:19368">
+          <div className="col-1 ml-[119px] mt-[6px] relative row-1 size-[51px]" data-node-id="4013:19369" data-name="ph:book-light">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgPhBookLight} />
+          </div>
+          <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-0 mt-[63px] not-italic relative row-1 text-[18px] text-[color:var(--color\/texto,black)] text-center w-[289px]" data-node-id="4013:19371">
+            Guías de horarios descargables — una guía por cada etapa, para tener siempre a mano el horario ideal.
+          </p>
+          <div className="col-1 ml-[484px] mt-0 relative row-1 size-[48px]" data-node-id="4013:19372" data-name="fluent:premium-28-regular">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFluentPremium28Regular} />
+          </div>
+          <div className="col-1 ml-[850px] mt-[32px] relative row-1 size-[43px]" data-node-id="4013:19374" data-name="octicon:video-24">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgOcticonVideo24} />
+          </div>
+          <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[408px] mt-[56px] not-italic relative row-1 text-[18px] text-[color:var(--color\/texto,black)] text-center w-[200px]" data-node-id="4013:19377">
+            1 mes en Mundo Angelitozzz — 4 sesiones grupales en vivo con Bárbara, todos los miércoles a las 10am hora Perú/Colombia, y videoteca completa.
+          </p>
+          <p className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] leading-[1.5] ml-[727px] mt-[88px] not-italic relative row-1 text-[18px] text-[color:var(--color\/texto,black)] text-center w-[290px]" data-node-id="4013:19378">
+            Grabaciones de talleres de transiciones de siestas — según la etapa en la que estás.
+          </p>
+          <div className="col-1 h-[146px] ml-[329px] mt-[30px] relative row-1 w-0" data-node-id="4013:19379">
+            <div className="absolute inset-[0_-1px_0_0]">
+              <img alt="" className="block max-w-none size-full" src={imgGroup253} />
+            </div>
+          </div>
+          <div className="col-1 h-[146px] ml-[687px] mt-[30px] relative row-1 w-0" data-node-id="4013:19381">
+            <div className="absolute inset-[0_-1px_0_0]">
+              <img alt="" className="block max-w-none size-full" src={imgGroup253} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -2,13 +2,13 @@
   "ok": true,
   "source": "figma",
   "summary": {
-    "pages": 9,
-    "sections": 40,
+    "pages": 13,
+    "sections": 76,
     "sectionsPending": 0,
-    "images": 223,
-    "repeatedGroups": 5,
-    "interactions": 15,
-    "dynamicCandidates": 9,
+    "images": 442,
+    "repeatedGroups": 6,
+    "interactions": 35,
+    "dynamicCandidates": 13,
     "findings": 3
   },
   "pages": [
@@ -426,6 +426,842 @@
           "notes": [
             "el correo que sea un enlace que lleve al correo (mailto:)",
             "usar el campo de whatsapp que se usa en configuracion del sitio"
+          ],
+          "mobile": null
+        }
+      ]
+    },
+    {
+      "file": "specs/figma/enlaces/curso-a-dormir-por-fin.md",
+      "title": "curso-a-dormir-por-fin",
+      "fuente": {
+        "fileKey": "FumWuCPT1PPDg5vBTYoufA",
+        "nodeId": "4013:15090"
+      },
+      "notes": [],
+      "sections": [
+        {
+          "name": "hero",
+          "nodeId": "4013:15172",
+          "nombreCapa": "Hero",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 845
+          },
+          "components": [
+            "Etiqueta",
+            "Botón"
+          ],
+          "images": 10,
+          "texts": 11,
+          "signals": [
+            "formulario",
+            "otro",
+            "decorativo",
+            "otro"
+          ],
+          "notes": [
+            "tiene 7 dias de prueba gratuita completa."
+          ],
+          "mobile": null
+        },
+        {
+          "name": "seccion-de-comparacion",
+          "nodeId": "4013:15285",
+          "nombreCapa": "Seccion de comparacion",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 520
+          },
+          "components": [],
+          "images": 1,
+          "texts": 4,
+          "signals": [
+            "otro"
+          ],
+          "notes": [],
+          "mobile": null
+        },
+        {
+          "name": "para-ti",
+          "nodeId": "4013:15514",
+          "nombreCapa": "Seccion si es para ti",
+          "estado": "leida",
+          "size": {
+            "ancho": 1919,
+            "alto": 1440
+          },
+          "components": [],
+          "images": 13,
+          "texts": 10,
+          "signals": [
+            "repetidor",
+            "decorativo",
+            "otro"
+          ],
+          "notes": [],
+          "mobile": null
+        },
+        {
+          "name": "que-incluye",
+          "nodeId": "4013:15550",
+          "nombreCapa": "Que incluye",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 868
+          },
+          "components": [],
+          "images": 7,
+          "texts": 7,
+          "signals": [
+            "repetidor",
+            "otro",
+            "decorativo"
+          ],
+          "notes": [],
+          "mobile": null
+        },
+        {
+          "name": "ademas-incluye",
+          "nodeId": "4013:16796",
+          "nombreCapa": "Adicionales",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 620
+          },
+          "components": [],
+          "images": 3,
+          "texts": 4,
+          "signals": [
+            "repetidor",
+            "otro"
+          ],
+          "notes": [],
+          "mobile": null
+        },
+        {
+          "name": "experiencia-exclusiva",
+          "nodeId": "4013:15567",
+          "nombreCapa": "Sección · Experiencia exclusiva",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 960
+          },
+          "components": [
+            "Botón"
+          ],
+          "images": 2,
+          "texts": 3,
+          "signals": [
+            "otro",
+            "otro",
+            "otro"
+          ],
+          "notes": [],
+          "mobile": null
+        },
+        {
+          "name": "como-funciona",
+          "nodeId": "4013:15672",
+          "nombreCapa": "Sección · Cómo funciona",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 1093
+          },
+          "components": [
+            "Botón"
+          ],
+          "images": 7,
+          "texts": 16,
+          "signals": [
+            "repetidor",
+            "decorativo",
+            "otro"
+          ],
+          "notes": [],
+          "mobile": null
+        },
+        {
+          "name": "testimonios",
+          "nodeId": "4013:15586",
+          "nombreCapa": "Testimonio · Destacado",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 559
+          },
+          "components": [
+            "Testimonio · Destacado"
+          ],
+          "images": 7,
+          "texts": 3,
+          "signals": [
+            "slider",
+            "decorativo"
+          ],
+          "notes": [
+            "los testimonios de aca tambien son indepenientes"
+          ],
+          "mobile": null
+        },
+        {
+          "name": "preguntas-frecuentes",
+          "nodeId": "4013:15724",
+          "nombreCapa": "Preguntas de la pagina",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 1076
+          },
+          "components": [],
+          "images": 3,
+          "texts": 9,
+          "signals": [
+            "acordeon",
+            "otro"
+          ],
+          "notes": [
+            "las preguntas frecuentes tambien son independientes en este curso."
+          ],
+          "mobile": null
+        },
+        {
+          "name": "contenido-relacionado",
+          "nodeId": "4013:16012",
+          "nombreCapa": "Contenido relacionado",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 841
+          },
+          "components": [
+            "Etiqueta",
+            "Botón"
+          ],
+          "images": 6,
+          "texts": 8,
+          "signals": [
+            "listado",
+            "otro",
+            "decorativo"
+          ],
+          "notes": [
+            "Que rija 3 card de contenido relacionado."
+          ],
+          "mobile": null
+        },
+        {
+          "name": "drawer-carrito",
+          "nodeId": "3752:5054",
+          "nombreCapa": "Panel",
+          "estado": "leida",
+          "size": {
+            "ancho": 480,
+            "alto": 1080
+          },
+          "components": [
+            "Botón"
+          ],
+          "images": 5,
+          "texts": 13,
+          "signals": [
+            "modal",
+            "repetidor",
+            "otro"
+          ],
+          "notes": [],
+          "mobile": null
+        }
+      ]
+    },
+    {
+      "file": "specs/figma/enlaces/curso-angelita-pro.md",
+      "title": "curso-angelita-pro",
+      "fuente": {
+        "fileKey": "FumWuCPT1PPDg5vBTYoufA",
+        "nodeId": "4012:13572"
+      },
+      "notes": [],
+      "sections": [
+        {
+          "name": "hero",
+          "nodeId": "4012:13687",
+          "nombreCapa": "Hero",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 845
+          },
+          "components": [
+            "Etiqueta",
+            "Botón"
+          ],
+          "images": 12,
+          "texts": 12,
+          "signals": [
+            "formulario",
+            "otro",
+            "otro",
+            "decorativo"
+          ],
+          "notes": [],
+          "mobile": null
+        },
+        {
+          "name": "para-ti",
+          "nodeId": "4013:13738",
+          "nombreCapa": "Para ti es pro",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 890
+          },
+          "components": [],
+          "images": 9,
+          "texts": 6,
+          "signals": [
+            "repetidor",
+            "decorativo"
+          ],
+          "notes": [],
+          "mobile": null
+        },
+        {
+          "name": "que-incluye",
+          "nodeId": "4013:13796",
+          "nombreCapa": "Soluciones de Sueño",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 994
+          },
+          "components": [],
+          "images": 3,
+          "texts": 7,
+          "signals": [
+            "repetidor",
+            "otro"
+          ],
+          "notes": [],
+          "mobile": null
+        },
+        {
+          "name": "como-funciona",
+          "nodeId": "4013:13962",
+          "nombreCapa": "Soluciones de Sueño",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 591
+          },
+          "components": [],
+          "images": 3,
+          "texts": 5,
+          "signals": [
+            "repetidor"
+          ],
+          "notes": [],
+          "mobile": null
+        },
+        {
+          "name": "conoce-angelito-pro-por-dentro",
+          "nodeId": "4013:14037",
+          "nombreCapa": "Soluciones de Sueño",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 843
+          },
+          "components": [
+            "Botón"
+          ],
+          "images": 10,
+          "texts": 4,
+          "signals": [
+            "slider",
+            "repetidor",
+            "decorativo"
+          ],
+          "notes": [
+            "consideraria que esto sea un campo ACF repetater en que caso se vaya a usar acf."
+          ],
+          "mobile": null
+        },
+        {
+          "name": "testimonios",
+          "nodeId": "4013:14078",
+          "nombreCapa": "Testimonio · Destacado",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 526
+          },
+          "components": [
+            "Testimonio · Destacado"
+          ],
+          "images": 7,
+          "texts": 3,
+          "signals": [
+            "slider",
+            "repetidor",
+            "decorativo"
+          ],
+          "notes": [
+            "Los testimonios de este curso son independientes."
+          ],
+          "mobile": null
+        },
+        {
+          "name": "preguntas-frecuentes",
+          "nodeId": "4013:14164",
+          "nombreCapa": "Preguntas de la pagina",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 922
+          },
+          "components": [],
+          "images": 3,
+          "texts": 8,
+          "signals": [
+            "acordeon",
+            "repetidor"
+          ],
+          "notes": [
+            "las preguntas frecuentes tambien son independientes en este curso."
+          ],
+          "mobile": null
+        },
+        {
+          "name": "contenido-relacionado",
+          "nodeId": "4013:14319",
+          "nombreCapa": "Contenido relacionado",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 846
+          },
+          "components": [
+            "Etiqueta",
+            "Botón"
+          ],
+          "images": 5,
+          "texts": 11,
+          "signals": [
+            "listado",
+            "repetidor",
+            "decorativo"
+          ],
+          "notes": [
+            "Que rija 3 card de contenido relacionado."
+          ],
+          "mobile": null
+        }
+      ]
+    },
+    {
+      "file": "specs/figma/enlaces/curso-horarios-ideales.md",
+      "title": "curso-horarios-ideales",
+      "fuente": {
+        "fileKey": "FumWuCPT1PPDg5vBTYoufA",
+        "nodeId": "4013:19063"
+      },
+      "notes": [
+        "En este curso conlleva mas cursos por dentro, por ejemplo, en este caso se rige segun las edades del bebe y cada uno tiene un precio",
+        "al momento de comprar ahora sale este modal : https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=3653-2355&t=C9Q9IWqYULHocJi2-4",
+        "En el apartado de etapas el boton que dice mas informacion tambien sale un modal : https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=3752-5964&t=C9Q9IWqYULHocJi2-4",
+        "En ese figma del modal de etapas sale un video de preview, con los precios de cada uno."
+      ],
+      "sections": [
+        {
+          "name": "hero",
+          "nodeId": "4013:19109",
+          "nombreCapa": "Hero",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 845
+          },
+          "components": [
+            "Etiqueta",
+            "Botón"
+          ],
+          "images": 10,
+          "texts": 11,
+          "signals": [
+            "formulario",
+            "modal",
+            "otro",
+            "decorativo",
+            "otro"
+          ],
+          "notes": [],
+          "mobile": null
+        },
+        {
+          "name": "etapas",
+          "nodeId": "4013:19194",
+          "nombreCapa": "Etapas",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 1019
+          },
+          "components": [
+            "Botón"
+          ],
+          "images": 3,
+          "texts": 8,
+          "signals": [
+            "repetidor",
+            "modal",
+            "otro"
+          ],
+          "notes": [],
+          "mobile": null
+        },
+        {
+          "name": "para-ti",
+          "nodeId": "4013:19266",
+          "nombreCapa": "Seccion si es para ti",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 752
+          },
+          "components": [],
+          "images": 7,
+          "texts": 7,
+          "signals": [
+            "repetidor",
+            "decorativo",
+            "otro"
+          ],
+          "notes": [],
+          "mobile": null
+        },
+        {
+          "name": "que-aprenderas",
+          "nodeId": "4013:19268",
+          "nombreCapa": "¿Qué aprenderás?",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 750
+          },
+          "components": [],
+          "images": 6,
+          "texts": 7,
+          "signals": [
+            "repetidor",
+            "decorativo",
+            "otro"
+          ],
+          "notes": [],
+          "mobile": null
+        },
+        {
+          "name": "ademas-incluye",
+          "nodeId": "4013:19363",
+          "nombreCapa": "Que incluye",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 460
+          },
+          "components": [],
+          "images": 4,
+          "texts": 4,
+          "signals": [
+            "repetidor",
+            "otro"
+          ],
+          "notes": [],
+          "mobile": null
+        },
+        {
+          "name": "testimonios",
+          "nodeId": "4013:19383",
+          "nombreCapa": "Testimonio · Destacado",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 559
+          },
+          "components": [
+            "Testimonio · Destacado"
+          ],
+          "images": 7,
+          "texts": 3,
+          "signals": [
+            "slider",
+            "decorativo",
+            "otro"
+          ],
+          "notes": [],
+          "mobile": null
+        },
+        {
+          "name": "preguntas-frecuentes",
+          "nodeId": "4013:19424",
+          "nombreCapa": "Preguntas de la pagina",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 954
+          },
+          "components": [],
+          "images": 3,
+          "texts": 8,
+          "signals": [
+            "acordeon",
+            "otro"
+          ],
+          "notes": [
+            "las preguntas frecuentes tambien son independientes en este curso."
+          ],
+          "mobile": null
+        },
+        {
+          "name": "contenido-relacionado",
+          "nodeId": "4013:19577",
+          "nombreCapa": "Contenido relacionado",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 841
+          },
+          "components": [
+            "Etiqueta",
+            "Botón"
+          ],
+          "images": 6,
+          "texts": 9,
+          "signals": [
+            "repetidor",
+            "listado",
+            "decorativo",
+            "otro"
+          ],
+          "notes": [
+            "Que rija 3 card de contenido relacionado."
+          ],
+          "mobile": null
+        },
+        {
+          "name": "modal-selecciona-edad",
+          "nodeId": "3653:2355",
+          "nombreCapa": "Group 329",
+          "estado": "leida",
+          "size": {
+            "ancho": 568,
+            "alto": 652
+          },
+          "components": [
+            "Botón"
+          ],
+          "images": 7,
+          "texts": 9,
+          "signals": [
+            "modal",
+            "formulario",
+            "repetidor"
+          ],
+          "notes": [],
+          "mobile": null
+        },
+        {
+          "name": "modal-etapas",
+          "nodeId": "3752:5964",
+          "nombreCapa": "Modal",
+          "estado": "leida",
+          "size": {
+            "ancho": 620,
+            "alto": 614
+          },
+          "components": [
+            "Botón"
+          ],
+          "images": 3,
+          "texts": 6,
+          "signals": [
+            "modal",
+            "otro",
+            "otro"
+          ],
+          "notes": [],
+          "mobile": null
+        }
+      ]
+    },
+    {
+      "file": "specs/figma/enlaces/curso-recien-nacidos-go.md",
+      "title": "curso-recien-nacidos-go",
+      "fuente": {
+        "fileKey": "FumWuCPT1PPDg5vBTYoufA",
+        "nodeId": "4013:17830"
+      },
+      "notes": [],
+      "sections": [
+        {
+          "name": "hero",
+          "nodeId": "4013:17861",
+          "nombreCapa": "Hero",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 845
+          },
+          "components": [
+            "Etiqueta",
+            "Botón"
+          ],
+          "images": 9,
+          "texts": 11,
+          "signals": [
+            "formulario",
+            "otro",
+            "otro",
+            "decorativo"
+          ],
+          "notes": [],
+          "mobile": null
+        },
+        {
+          "name": "porque-este-curso",
+          "nodeId": "4013:17922",
+          "nombreCapa": "Por qué este curso (copy AGOSTO · sin imágenes)",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 640
+          },
+          "components": [],
+          "images": 4,
+          "texts": 5,
+          "signals": [
+            "repetidor",
+            "otro"
+          ],
+          "notes": [],
+          "mobile": null
+        },
+        {
+          "name": "lista-que-aprenderas",
+          "nodeId": "4013:18034",
+          "nombreCapa": "Lista de que aprenderas",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 1125
+          },
+          "components": [],
+          "images": 8,
+          "texts": 11,
+          "signals": [
+            "repetidor",
+            "otro",
+            "decorativo"
+          ],
+          "notes": [],
+          "mobile": null
+        },
+        {
+          "name": "resumen-breve",
+          "nodeId": "4013:18035",
+          "nombreCapa": "Resumen breve del curso",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 836
+          },
+          "components": [
+            "Botón"
+          ],
+          "images": 10,
+          "texts": 4,
+          "signals": [
+            "slider",
+            "repetidor",
+            "decorativo"
+          ],
+          "notes": [],
+          "mobile": null
+        },
+        {
+          "name": "testimonios",
+          "nodeId": "4013:18105",
+          "nombreCapa": "Testimonio · Destacado",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 526
+          },
+          "components": [
+            "Testimonio · Destacado"
+          ],
+          "images": 7,
+          "texts": 3,
+          "signals": [
+            "slider",
+            "repetidor",
+            "decorativo",
+            "otro"
+          ],
+          "notes": [],
+          "mobile": null
+        },
+        {
+          "name": "preguntas-frecuentes",
+          "nodeId": "4013:18192",
+          "nombreCapa": "Preguntas de la pagina",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 1011
+          },
+          "components": [],
+          "images": 3,
+          "texts": 8,
+          "signals": [
+            "acordeon",
+            "repetidor",
+            "otro"
+          ],
+          "notes": [
+            "las preguntas frecuentes tambien son independientes en este curso."
+          ],
+          "mobile": null
+        },
+        {
+          "name": "contenido-relacionado",
+          "nodeId": "4013:18237",
+          "nombreCapa": "Contenido relacionado",
+          "estado": "leida",
+          "size": {
+            "ancho": 1920,
+            "alto": 841
+          },
+          "components": [
+            "Etiqueta",
+            "Botón"
+          ],
+          "images": 6,
+          "texts": 8,
+          "signals": [
+            "repetidor",
+            "listado",
+            "otro",
+            "decorativo"
+          ],
+          "notes": [
+            "Que rija 3 card de contenido relacionado."
           ],
           "mobile": null
         }
@@ -907,7 +1743,7 @@
           ],
           "notes": [
             "las preguntas frecuentes de esta pagina son independientes de lo que se tiene en las demas paginas",
-            "cuando tenga mas de 10 preguntas, que aparezca lo que es el boton de ver mas."
+            "cuando tenga mas de 6 preguntas, que aparezca el boton de ver mas; cada clic muestra las siguientes 6 y asi sucesivamente (o las que sobren)."
           ],
           "mobile": null
         },
@@ -1014,7 +1850,8 @@
         "nodeId": "3747:4319"
       },
       "notes": [
-        "incluye las skills necesarias."
+        "incluye las skills necesarias.",
+        "Esta pagina no deberia de tener internas."
       ],
       "sections": [
         {
@@ -1840,6 +2677,2415 @@
         "alto": 69,
         "rol": "decorativa",
         "archivo": "contacto/assets/cta-destello-blanco-superior.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "hero",
+        "id": "hero-foto-bebe",
+        "nodeId": "4013:15174",
+        "tipo": "jpg",
+        "ancho": 730,
+        "alto": 835,
+        "rol": "contenido",
+        "archivo": "curso-a-dormir-por-fin/assets/hero-foto-bebe.jpg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "hero",
+        "id": "hero-fondo-degradado",
+        "nodeId": "4013:15175",
+        "tipo": "svg",
+        "ancho": 1920,
+        "alto": 845,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/hero-fondo-degradado.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "hero",
+        "id": "hero-linea-subtitulo",
+        "nodeId": "4013:15184",
+        "tipo": "svg",
+        "ancho": 345,
+        "alto": 1,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/hero-linea-subtitulo.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "hero",
+        "id": "hero-icono-reloj",
+        "nodeId": "4013:15189",
+        "tipo": "svg",
+        "ancho": 23,
+        "alto": 23,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/hero-icono-reloj.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "hero",
+        "id": "hero-icono-barbara",
+        "nodeId": "4013:15240",
+        "tipo": "png",
+        "ancho": 28,
+        "alto": 32,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/hero-icono-barbara.png"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "hero",
+        "id": "hero-tarjeta-foto",
+        "nodeId": "4013:15206",
+        "tipo": "jpg",
+        "ancho": 335,
+        "alto": 184,
+        "rol": "contenido",
+        "archivo": "curso-a-dormir-por-fin/assets/hero-foto-bebe.jpg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "hero",
+        "id": "boton-flecha",
+        "nodeId": "I4013:15211;3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/boton-flecha.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "hero",
+        "id": "boton-flecha-verde",
+        "nodeId": "3704:15613",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/boton-flecha-verde.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "hero",
+        "id": "hero-linea-cupon",
+        "nodeId": "4013:15216",
+        "tipo": "svg",
+        "ancho": 322,
+        "alto": 1,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/hero-linea-cupon.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "hero",
+        "id": "hero-cupon-flecha",
+        "nodeId": "4013:15217",
+        "tipo": "svg",
+        "ancho": 24,
+        "alto": 24,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/hero-cupon-flecha.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "seccion-de-comparacion",
+        "id": "comparacion-divisor",
+        "nodeId": "4013:15255",
+        "tipo": "svg",
+        "ancho": 1,
+        "alto": 238,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/comparacion-divisor.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "para-ti",
+        "id": "para-ti-corazon-fondo",
+        "nodeId": "4013:15505",
+        "tipo": "svg",
+        "ancho": 238,
+        "alto": 228,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/para-ti-corazon-fondo.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "para-ti",
+        "id": "para-ti-mancha-1",
+        "nodeId": "4013:15446",
+        "tipo": "svg",
+        "ancho": 101,
+        "alto": 90,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/para-ti-mancha-1.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "para-ti",
+        "id": "para-ti-icono-luna",
+        "nodeId": "4013:15447",
+        "tipo": "svg",
+        "ancho": 13,
+        "alto": 13,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/para-ti-icono-luna.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "para-ti",
+        "id": "para-ti-icono-bebe-cara",
+        "nodeId": "4013:15449",
+        "tipo": "svg",
+        "ancho": 40,
+        "alto": 40,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/para-ti-icono-bebe-cara.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "para-ti",
+        "id": "para-ti-icono-reloj-arena",
+        "nodeId": "4013:15461",
+        "tipo": "svg",
+        "ancho": 119,
+        "alto": 110,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/para-ti-icono-reloj-arena.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "para-ti",
+        "id": "para-ti-mancha-documento",
+        "nodeId": "4013:15491",
+        "tipo": "svg",
+        "ancho": 135,
+        "alto": 133,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/para-ti-mancha-documento.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "para-ti",
+        "id": "para-ti-icono-documento",
+        "nodeId": "4013:15493",
+        "tipo": "svg",
+        "ancho": 56,
+        "alto": 44,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/para-ti-icono-documento.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "para-ti",
+        "id": "para-ti-mancha-2",
+        "nodeId": "4013:15442",
+        "tipo": "svg",
+        "ancho": 113,
+        "alto": 91,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/para-ti-mancha-2.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "para-ti",
+        "id": "para-ti-icono-cuna",
+        "nodeId": "4013:15443",
+        "tipo": "svg",
+        "ancho": 50,
+        "alto": 41,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/para-ti-icono-cuna.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "para-ti",
+        "id": "para-ti-icono-bebe-brazos",
+        "nodeId": "4013:15431",
+        "tipo": "svg",
+        "ancho": 119,
+        "alto": 110,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/para-ti-icono-bebe-brazos.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "para-ti",
+        "id": "para-ti-mancha-3",
+        "nodeId": "4013:15481",
+        "tipo": "svg",
+        "ancho": 101,
+        "alto": 90,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/para-ti-mancha-3.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "para-ti",
+        "id": "para-ti-icono-biberon",
+        "nodeId": "4013:15483",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 48,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/para-ti-icono-biberon.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "para-ti",
+        "id": "para-ti-icono-reloj-arena-2",
+        "nodeId": "4013:15471",
+        "tipo": "svg",
+        "ancho": 119,
+        "alto": 110,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/para-ti-icono-reloj-arena.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "que-incluye",
+        "id": "que-incluye-foto-mama-bebe",
+        "nodeId": "4013:15563",
+        "tipo": "jpg",
+        "ancho": 414,
+        "alto": 378,
+        "rol": "contenido",
+        "archivo": "curso-a-dormir-por-fin/assets/que-incluye-foto-mama-bebe.jpg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "que-incluye",
+        "id": "que-incluye-nube-1",
+        "nodeId": "4013:15554",
+        "tipo": "svg",
+        "ancho": 229,
+        "alto": 138,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/que-incluye-nube-1.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "que-incluye",
+        "id": "que-incluye-nube-2",
+        "nodeId": "4013:15559",
+        "tipo": "svg",
+        "ancho": 278,
+        "alto": 121,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/que-incluye-nube-2.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "que-incluye",
+        "id": "que-incluye-nube-ojos",
+        "nodeId": "4013:15560",
+        "tipo": "svg",
+        "ancho": 68,
+        "alto": 5,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/que-incluye-nube-ojos.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "que-incluye",
+        "id": "que-incluye-check",
+        "nodeId": "4013:15533",
+        "tipo": "svg",
+        "ancho": 14,
+        "alto": 13,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/que-incluye-check.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "que-incluye",
+        "id": "que-incluye-linea",
+        "nodeId": "4013:15538",
+        "tipo": "svg",
+        "ancho": 749,
+        "alto": 1,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/que-incluye-linea.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "que-incluye",
+        "id": "que-incluye-ver-mas-flecha",
+        "nodeId": "4013:15547",
+        "tipo": "svg",
+        "ancho": 10,
+        "alto": 10,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/que-incluye-ver-mas-flecha.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "ademas-incluye",
+        "id": "ademas-incluye-icono-libro",
+        "nodeId": "4013:16788",
+        "tipo": "svg",
+        "ancho": 51,
+        "alto": 51,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/ademas-incluye-icono-libro.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "ademas-incluye",
+        "id": "ademas-incluye-icono-premium",
+        "nodeId": "4013:16791",
+        "tipo": "svg",
+        "ancho": 48,
+        "alto": 48,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/ademas-incluye-icono-premium.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "ademas-incluye",
+        "id": "ademas-incluye-divisor",
+        "nodeId": "4013:16794",
+        "tipo": "svg",
+        "ancho": 1,
+        "alto": 146,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/ademas-incluye-divisor.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "experiencia-exclusiva",
+        "id": "experiencia-foto-barbara",
+        "nodeId": "4013:15573",
+        "tipo": "jpg",
+        "ancho": 623,
+        "alto": 277,
+        "rol": "contenido",
+        "archivo": "curso-a-dormir-por-fin/assets/experiencia-foto-barbara.jpg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "experiencia-exclusiva",
+        "id": "boton-flecha",
+        "nodeId": "I4013:15578;3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/boton-flecha.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "como-funciona",
+        "id": "como-funciona-paso-1",
+        "nodeId": "4013:15682",
+        "tipo": "jpg",
+        "ancho": 349,
+        "alto": 220,
+        "rol": "contenido",
+        "archivo": "curso-a-dormir-por-fin/assets/como-funciona-paso-1.jpg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "como-funciona",
+        "id": "como-funciona-paso-2",
+        "nodeId": "4013:15690",
+        "tipo": "jpg",
+        "ancho": 349,
+        "alto": 220,
+        "rol": "contenido",
+        "archivo": "curso-a-dormir-por-fin/assets/como-funciona-paso-2.jpg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "como-funciona",
+        "id": "como-funciona-paso-3",
+        "nodeId": "4013:15698",
+        "tipo": "jpg",
+        "ancho": 349,
+        "alto": 220,
+        "rol": "contenido",
+        "archivo": "curso-a-dormir-por-fin/assets/como-funciona-paso-3.jpg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "como-funciona",
+        "id": "como-funciona-nube",
+        "nodeId": "4013:15673",
+        "tipo": "svg",
+        "ancho": 300,
+        "alto": 131,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/como-funciona-nube.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "como-funciona",
+        "id": "como-funciona-destello-derecha",
+        "nodeId": "4013:15674",
+        "tipo": "svg",
+        "ancho": 46,
+        "alto": 43,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/como-funciona-destello-derecha.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "como-funciona",
+        "id": "como-funciona-destello-izquierda",
+        "nodeId": "4013:15675",
+        "tipo": "svg",
+        "ancho": 60,
+        "alto": 58,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/como-funciona-destello-izquierda.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "como-funciona",
+        "id": "boton-flecha-crema",
+        "nodeId": "I4013:15706;3704:15608",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/boton-flecha-crema.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "testimonios",
+        "id": "testimonios-nube-derecha",
+        "nodeId": "I4013:15586;3810:132",
+        "tipo": "svg",
+        "ancho": 240,
+        "alto": 104,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/testimonios-nube-derecha.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "testimonios",
+        "id": "testimonios-nube-izquierda",
+        "nodeId": "I4013:15586;3810:129",
+        "tipo": "svg",
+        "ancho": 280,
+        "alto": 168,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/testimonios-nube-izquierda.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "testimonios",
+        "id": "testimonios-nube-ojo-1",
+        "nodeId": "I4013:15586;3810:130",
+        "tipo": "svg",
+        "ancho": 26,
+        "alto": 4,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/testimonios-nube-ojo-1.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "testimonios",
+        "id": "testimonios-nube-ojo-2",
+        "nodeId": "I4013:15586;3810:131",
+        "tipo": "svg",
+        "ancho": 26,
+        "alto": 4,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/testimonios-nube-ojo-2.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "testimonios",
+        "id": "testimonios-puntos",
+        "nodeId": "I4013:15586;3810:114",
+        "tipo": "svg",
+        "ancho": 58,
+        "alto": 10,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/testimonios-puntos.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "testimonios",
+        "id": "testimonios-flecha-izquierda",
+        "nodeId": "I4013:15586;3810:120",
+        "tipo": "svg",
+        "ancho": 20,
+        "alto": 20,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/testimonios-flecha-izquierda.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "testimonios",
+        "id": "testimonios-flecha-derecha",
+        "nodeId": "I4013:15586;3810:124",
+        "tipo": "svg",
+        "ancho": 20,
+        "alto": 20,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/testimonios-flecha-derecha.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "preguntas-frecuentes",
+        "id": "faq-check",
+        "nodeId": "4013:15736",
+        "tipo": "svg",
+        "ancho": 14,
+        "alto": 13,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/faq-check.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "preguntas-frecuentes",
+        "id": "faq-linea",
+        "nodeId": "4013:15738",
+        "tipo": "svg",
+        "ancho": 749,
+        "alto": 1,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/faq-linea.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "preguntas-frecuentes",
+        "id": "faq-ver-mas-flecha",
+        "nodeId": "4013:15756",
+        "tipo": "svg",
+        "ancho": 10,
+        "alto": 10,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/faq-ver-mas-flecha.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "contenido-relacionado",
+        "id": "relacionado-fondo-lunas",
+        "nodeId": "4013:16012",
+        "tipo": "png",
+        "ancho": 1920,
+        "alto": 841,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/relacionado-fondo-lunas.png"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "contenido-relacionado",
+        "id": "relacionado-angelita-pro-placeholder",
+        "nodeId": "4013:15974",
+        "tipo": "png",
+        "ancho": 346,
+        "alto": 370,
+        "rol": "contenido",
+        "archivo": "curso-a-dormir-por-fin/assets/relacionado-angelita-pro-placeholder.png"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "contenido-relacionado",
+        "id": "relacionado-recien-nacidos-go",
+        "nodeId": "4013:15963",
+        "tipo": "jpg",
+        "ancho": 346,
+        "alto": 370,
+        "rol": "contenido",
+        "archivo": "curso-a-dormir-por-fin/assets/relacionado-recien-nacidos-go.jpg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "contenido-relacionado",
+        "id": "relacionado-etiqueta-destellos",
+        "nodeId": "I4013:15973;3863:536",
+        "tipo": "svg",
+        "ancho": 14,
+        "alto": 14,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/relacionado-etiqueta-destellos.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "contenido-relacionado",
+        "id": "relacionado-circulo-top-ventas",
+        "nodeId": "4013:15959",
+        "tipo": "svg",
+        "ancho": 97,
+        "alto": 97,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/relacionado-circulo-top-ventas.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "contenido-relacionado",
+        "id": "boton-flecha",
+        "nodeId": "I4013:15976;3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/boton-flecha.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "drawer-carrito",
+        "id": "drawer-producto",
+        "nodeId": "3752:5062",
+        "tipo": "jpg",
+        "ancho": 72,
+        "alto": 72,
+        "rol": "contenido",
+        "archivo": "curso-a-dormir-por-fin/assets/drawer-producto.jpg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "drawer-carrito",
+        "id": "drawer-sugerido",
+        "nodeId": "3752:5074",
+        "tipo": "jpg",
+        "ancho": 64,
+        "alto": 64,
+        "rol": "contenido",
+        "archivo": "curso-a-dormir-por-fin/assets/relacionado-recien-nacidos-go.jpg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "drawer-carrito",
+        "id": "drawer-cerrar",
+        "nodeId": "3752:5057",
+        "tipo": "svg",
+        "ancho": 24,
+        "alto": 24,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/drawer-cerrar.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "drawer-carrito",
+        "id": "drawer-eliminar",
+        "nodeId": "3752:5068",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/drawer-eliminar.svg"
+      },
+      {
+        "page": "curso-a-dormir-por-fin",
+        "section": "drawer-carrito",
+        "id": "boton-flecha",
+        "nodeId": "I3752:5087;3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "curso-a-dormir-por-fin/assets/boton-flecha.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "hero",
+        "id": "hero-curso-placeholder",
+        "nodeId": "4012:13660",
+        "tipo": "png",
+        "ancho": 335,
+        "alto": 184,
+        "rol": "contenido",
+        "archivo": "curso-angelita-pro/assets/hero-curso-placeholder.png"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "hero",
+        "id": "hero-fondo-foto",
+        "nodeId": "4012:13628",
+        "tipo": "png",
+        "ancho": 730,
+        "alto": 835,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/hero-curso-placeholder.png"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "hero",
+        "id": "hero-fondo-degradado",
+        "nodeId": "4012:13627",
+        "tipo": "svg",
+        "ancho": 1920,
+        "alto": 845,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/hero-fondo-degradado.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "hero",
+        "id": "hero-linea-subtitulo",
+        "nodeId": "4012:13638",
+        "tipo": "svg",
+        "ancho": 345,
+        "alto": 1,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/hero-linea-subtitulo.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "hero",
+        "id": "hero-icono-tiempo",
+        "nodeId": "4012:13643",
+        "tipo": "svg",
+        "ancho": 23,
+        "alto": 23,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/hero-icono-tiempo.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "hero",
+        "id": "hero-icono-computadora",
+        "nodeId": "4012:13648",
+        "tipo": "svg",
+        "ancho": 22,
+        "alto": 22,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/hero-icono-computadora.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "hero",
+        "id": "hero-icono-regalo",
+        "nodeId": "4012:13652",
+        "tipo": "svg",
+        "ancho": 21,
+        "alto": 21,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/hero-icono-regalo.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "hero",
+        "id": "hero-cupon-linea",
+        "nodeId": "4012:13670",
+        "tipo": "svg",
+        "ancho": 322,
+        "alto": 1,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/hero-cupon-linea.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "hero",
+        "id": "hero-cupon-boton",
+        "nodeId": "4012:13671",
+        "tipo": "svg",
+        "ancho": 24,
+        "alto": 24,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/hero-cupon-boton.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "hero",
+        "id": "etiqueta-icono-destellos",
+        "nodeId": "I4012:13631;3719:4263",
+        "tipo": "svg",
+        "ancho": 14,
+        "alto": 14,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/etiqueta-icono-destellos.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "hero",
+        "id": "boton-flecha",
+        "nodeId": "I4012:13665;3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/boton-flecha.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "hero",
+        "id": "boton-flecha-verde",
+        "nodeId": "3704:15613",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/boton-flecha-verde.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "para-ti",
+        "id": "para-ti-corazon",
+        "nodeId": "4013:13689",
+        "tipo": "svg",
+        "ancho": 236,
+        "alto": 214,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/para-ti-corazon.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "para-ti",
+        "id": "para-ti-icono-reloj-arena",
+        "nodeId": "4013:13720",
+        "tipo": "svg",
+        "ancho": 119,
+        "alto": 110,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/para-ti-icono-reloj-arena.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "para-ti",
+        "id": "para-ti-mancha-bebe",
+        "nodeId": "4013:13706",
+        "tipo": "svg",
+        "ancho": 101,
+        "alto": 90,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/para-ti-mancha-bebe.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "para-ti",
+        "id": "para-ti-icono-bebe-luna",
+        "nodeId": "4013:13708",
+        "tipo": "svg",
+        "ancho": 13,
+        "alto": 12,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/para-ti-icono-bebe-luna.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "para-ti",
+        "id": "para-ti-icono-bebe-cara",
+        "nodeId": "4013:13710",
+        "tipo": "svg",
+        "ancho": 40,
+        "alto": 36,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/para-ti-icono-bebe-cara.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "para-ti",
+        "id": "para-ti-icono-cuna",
+        "nodeId": "4013:13727",
+        "tipo": "svg",
+        "ancho": 119,
+        "alto": 110,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/para-ti-icono-cuna.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "para-ti",
+        "id": "para-ti-mancha-agotada",
+        "nodeId": "4013:13699",
+        "tipo": "svg",
+        "ancho": 101,
+        "alto": 90,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/para-ti-mancha-agotada.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "para-ti",
+        "id": "para-ti-icono-agotada",
+        "nodeId": "4013:13701",
+        "tipo": "svg",
+        "ancho": 30,
+        "alto": 45,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/para-ti-icono-agotada.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "para-ti",
+        "id": "para-ti-icono-biberon",
+        "nodeId": "4013:13730",
+        "tipo": "svg",
+        "ancho": 119,
+        "alto": 110,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/para-ti-icono-biberon.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "que-incluye",
+        "id": "lista-check",
+        "nodeId": "4013:13890",
+        "tipo": "svg",
+        "ancho": 14,
+        "alto": 13,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/lista-check.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "que-incluye",
+        "id": "lista-separador",
+        "nodeId": "4013:13892",
+        "tipo": "svg",
+        "ancho": 749,
+        "alto": 1,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/lista-separador.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "que-incluye",
+        "id": "ver-mas-flecha",
+        "nodeId": "4013:13915",
+        "tipo": "svg",
+        "ancho": 10,
+        "alto": 10,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/ver-mas-flecha.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "como-funciona",
+        "id": "como-funciona-icono-libro",
+        "nodeId": "4013:13923",
+        "tipo": "svg",
+        "ancho": 75,
+        "alto": 75,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/como-funciona-icono-libro.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "como-funciona",
+        "id": "como-funciona-icono-diamante",
+        "nodeId": "4013:13926",
+        "tipo": "svg",
+        "ancho": 75,
+        "alto": 75,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/como-funciona-icono-diamante.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "como-funciona",
+        "id": "como-funciona-icono-video",
+        "nodeId": "4013:13928",
+        "tipo": "svg",
+        "ancho": 75,
+        "alto": 75,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/como-funciona-icono-video.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "conoce-angelito-pro-por-dentro",
+        "id": "conoce-video-madre-bebe",
+        "nodeId": "4013:13969",
+        "tipo": "jpg",
+        "ancho": 614,
+        "alto": 298,
+        "rol": "contenido",
+        "archivo": "curso-angelita-pro/assets/conoce-video-madre-bebe.jpg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "conoce-angelito-pro-por-dentro",
+        "id": "conoce-flecha-izquierda",
+        "nodeId": "4013:13975",
+        "tipo": "svg",
+        "ancho": 20,
+        "alto": 20,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/conoce-flecha-izquierda.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "conoce-angelito-pro-por-dentro",
+        "id": "conoce-flecha-derecha",
+        "nodeId": "4013:13979",
+        "tipo": "svg",
+        "ancho": 20,
+        "alto": 20,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/conoce-flecha-derecha.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "conoce-angelito-pro-por-dentro",
+        "id": "conoce-destello-blanco-derecha",
+        "nodeId": "4013:14058",
+        "tipo": "svg",
+        "ancho": 63,
+        "alto": 69,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/conoce-destello-blanco-derecha.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "conoce-angelito-pro-por-dentro",
+        "id": "conoce-destello-teal-derecha",
+        "nodeId": "4013:14073",
+        "tipo": "svg",
+        "ancho": 15,
+        "alto": 17,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/conoce-destello-teal-derecha.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "conoce-angelito-pro-por-dentro",
+        "id": "conoce-destello-dorado-derecha",
+        "nodeId": "4013:14076",
+        "tipo": "svg",
+        "ancho": 31,
+        "alto": 34,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/conoce-destello-dorado-derecha.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "conoce-angelito-pro-por-dentro",
+        "id": "conoce-destello-blanco-izquierda",
+        "nodeId": "4013:14039",
+        "tipo": "svg",
+        "ancho": 121,
+        "alto": 132,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/conoce-destello-blanco-izquierda.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "conoce-angelito-pro-por-dentro",
+        "id": "conoce-destello-dorado-izquierda",
+        "nodeId": "4013:14053",
+        "tipo": "svg",
+        "ancho": 34,
+        "alto": 25,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/conoce-destello-dorado-izquierda.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "conoce-angelito-pro-por-dentro",
+        "id": "conoce-destello-teal-izquierda",
+        "nodeId": "4013:14054",
+        "tipo": "svg",
+        "ancho": 26,
+        "alto": 17,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/conoce-destello-teal-izquierda.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "conoce-angelito-pro-por-dentro",
+        "id": "boton-flecha",
+        "nodeId": "I4013:13985;3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/boton-flecha.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "testimonios",
+        "id": "testimonios-nube-derecha",
+        "nodeId": "I4013:14078;3810:132",
+        "tipo": "svg",
+        "ancho": 240,
+        "alto": 104,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/testimonios-nube-derecha.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "testimonios",
+        "id": "testimonios-nube-izquierda",
+        "nodeId": "I4013:14078;3810:129",
+        "tipo": "svg",
+        "ancho": 280,
+        "alto": 168,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/testimonios-nube-izquierda.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "testimonios",
+        "id": "testimonios-nube-ojo-1",
+        "nodeId": "I4013:14078;3810:130",
+        "tipo": "svg",
+        "ancho": 21,
+        "alto": 4,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/testimonios-nube-ojo-1.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "testimonios",
+        "id": "testimonios-nube-ojo-2",
+        "nodeId": "I4013:14078;3810:131",
+        "tipo": "svg",
+        "ancho": 21,
+        "alto": 4,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/testimonios-nube-ojo-2.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "testimonios",
+        "id": "testimonios-puntos",
+        "nodeId": "I4013:14078;3810:114",
+        "tipo": "svg",
+        "ancho": 58,
+        "alto": 10,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/testimonios-puntos.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "testimonios",
+        "id": "testimonios-flecha-izquierda",
+        "nodeId": "I4013:14078;3810:120",
+        "tipo": "svg",
+        "ancho": 20,
+        "alto": 20,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/testimonios-flecha-izquierda.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "testimonios",
+        "id": "testimonios-flecha-derecha",
+        "nodeId": "I4013:14078;3810:124",
+        "tipo": "svg",
+        "ancho": 20,
+        "alto": 20,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/testimonios-flecha-derecha.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "preguntas-frecuentes",
+        "id": "lista-check",
+        "nodeId": "4013:14169",
+        "tipo": "svg",
+        "ancho": 14,
+        "alto": 13,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/lista-check.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "preguntas-frecuentes",
+        "id": "lista-separador",
+        "nodeId": "4013:14171",
+        "tipo": "svg",
+        "ancho": 749,
+        "alto": 1,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/lista-separador.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "preguntas-frecuentes",
+        "id": "ver-mas-flecha",
+        "nodeId": "4013:14194",
+        "tipo": "svg",
+        "ancho": 10,
+        "alto": 10,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/ver-mas-flecha.svg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "contenido-relacionado",
+        "id": "relacionado-fondo-lunas",
+        "nodeId": "4013:14319",
+        "tipo": "png",
+        "ancho": 1920,
+        "alto": 846,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/relacionado-fondo-lunas.png"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "contenido-relacionado",
+        "id": "relacionado-a-dormir-por-fin",
+        "nodeId": "4013:14327",
+        "tipo": "jpg",
+        "ancho": 346,
+        "alto": 370,
+        "rol": "contenido",
+        "archivo": "curso-angelita-pro/assets/relacionado-a-dormir-por-fin.jpg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "contenido-relacionado",
+        "id": "relacionado-recien-nacidos-go",
+        "nodeId": "4013:14334",
+        "tipo": "jpg",
+        "ancho": 346,
+        "alto": 370,
+        "rol": "contenido",
+        "archivo": "curso-angelita-pro/assets/relacionado-recien-nacidos-go.jpg"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "contenido-relacionado",
+        "id": "relacionado-horarios-ideales",
+        "nodeId": "4013:14344",
+        "tipo": "png",
+        "ancho": 346,
+        "alto": 370,
+        "rol": "contenido",
+        "archivo": "curso-angelita-pro/assets/relacionado-horarios-ideales.png"
+      },
+      {
+        "page": "curso-angelita-pro",
+        "section": "contenido-relacionado",
+        "id": "boton-flecha",
+        "nodeId": "I4013:14330;3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "curso-angelita-pro/assets/boton-flecha.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "hero",
+        "id": "hero-foto-familia",
+        "nodeId": "4013:19111",
+        "tipo": "png",
+        "ancho": 730,
+        "alto": 835,
+        "rol": "contenido",
+        "archivo": "curso-horarios-ideales/assets/hero-foto-familia.png"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "hero",
+        "id": "hero-foto-familia-tarjeta",
+        "nodeId": "4013:19135",
+        "tipo": "png",
+        "ancho": 335,
+        "alto": 184,
+        "rol": "contenido",
+        "archivo": "curso-horarios-ideales/assets/hero-foto-familia.png"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "hero",
+        "id": "hero-degradado",
+        "nodeId": "4013:19112",
+        "tipo": "svg",
+        "ancho": 1920,
+        "alto": 845,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/hero-degradado.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "hero",
+        "id": "hero-subrayado",
+        "nodeId": "4013:19121",
+        "tipo": "svg",
+        "ancho": 345,
+        "alto": 1,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/hero-subrayado.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "hero",
+        "id": "hero-icono-reloj",
+        "nodeId": "4013:19126",
+        "tipo": "svg",
+        "ancho": 23,
+        "alto": 23,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/hero-icono-reloj.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "hero",
+        "id": "hero-icono-regalo",
+        "nodeId": "4013:19159",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/hero-icono-regalo.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "hero",
+        "id": "hero-cupon-linea",
+        "nodeId": "4013:19145",
+        "tipo": "svg",
+        "ancho": 322,
+        "alto": 1,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/hero-cupon-linea.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "hero",
+        "id": "hero-cupon-boton",
+        "nodeId": "4013:19146",
+        "tipo": "svg",
+        "ancho": 24,
+        "alto": 24,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/hero-cupon-boton.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "hero",
+        "id": "boton-flecha",
+        "nodeId": "3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/boton-flecha.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "hero",
+        "id": "boton-flecha-verde",
+        "nodeId": "3704:15613",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/boton-flecha-verde.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "etapas",
+        "id": "etapas-4-a-9-meses",
+        "nodeId": "4013:19171",
+        "tipo": "jpg",
+        "ancho": 314,
+        "alto": 292,
+        "rol": "contenido",
+        "archivo": "curso-horarios-ideales/assets/etapas-4-a-9-meses.jpg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "etapas",
+        "id": "etapas-9-a-15-meses",
+        "nodeId": "4013:19176",
+        "tipo": "jpg",
+        "ancho": 314,
+        "alto": 292,
+        "rol": "contenido",
+        "archivo": "curso-horarios-ideales/assets/etapas-9-a-15-meses.jpg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "etapas",
+        "id": "etapas-15-a-36-meses",
+        "nodeId": "4013:19178",
+        "tipo": "jpg",
+        "ancho": 314,
+        "alto": 292,
+        "rol": "contenido",
+        "archivo": "curso-horarios-ideales/assets/etapas-15-a-36-meses.jpg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "para-ti",
+        "id": "para-ti-mancha",
+        "nodeId": "4013:19237",
+        "tipo": "svg",
+        "ancho": 101,
+        "alto": 90,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/para-ti-mancha.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "para-ti",
+        "id": "para-ti-reloj-circulo",
+        "nodeId": "4013:19239",
+        "tipo": "svg",
+        "ancho": 42,
+        "alto": 41,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/para-ti-reloj-circulo.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "para-ti",
+        "id": "para-ti-reloj-agujas",
+        "nodeId": "4013:19242",
+        "tipo": "svg",
+        "ancho": 10,
+        "alto": 20,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/para-ti-reloj-agujas.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "para-ti",
+        "id": "para-ti-icono-bebe-nube",
+        "nodeId": "4013:19218",
+        "tipo": "svg",
+        "ancho": 65,
+        "alto": 64,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/para-ti-icono-bebe-nube.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "para-ti",
+        "id": "para-ti-icono-reloj-arena",
+        "nodeId": "4013:19252",
+        "tipo": "svg",
+        "ancho": 119,
+        "alto": 110,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/para-ti-icono-reloj-arena.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "para-ti",
+        "id": "para-ti-icono-biberon",
+        "nodeId": "4013:19206",
+        "tipo": "svg",
+        "ancho": 21,
+        "alto": 55,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/para-ti-icono-biberon.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "para-ti",
+        "id": "para-ti-icono-bebe-envuelto",
+        "nodeId": "4013:19212",
+        "tipo": "svg",
+        "ancho": 30,
+        "alto": 49,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/para-ti-icono-bebe-envuelto.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "que-aprenderas",
+        "id": "que-aprenderas-madre-bebe",
+        "nodeId": "4013:19304",
+        "tipo": "jpg",
+        "ancho": 414,
+        "alto": 385,
+        "rol": "contenido",
+        "archivo": "curso-horarios-ideales/assets/que-aprenderas-madre-bebe.jpg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "que-aprenderas",
+        "id": "que-aprenderas-estrellas",
+        "nodeId": "4013:19305",
+        "tipo": "svg",
+        "ancho": 414,
+        "alto": 385,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/que-aprenderas-estrellas.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "que-aprenderas",
+        "id": "que-aprenderas-check",
+        "nodeId": "4013:19272",
+        "tipo": "svg",
+        "ancho": 14,
+        "alto": 13,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/que-aprenderas-check.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "que-aprenderas",
+        "id": "que-aprenderas-separador",
+        "nodeId": "4013:19274",
+        "tipo": "svg",
+        "ancho": 602,
+        "alto": 1,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/que-aprenderas-separador.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "que-aprenderas",
+        "id": "que-aprenderas-nube-izquierda",
+        "nodeId": "4013:19312",
+        "tipo": "svg",
+        "ancho": 229,
+        "alto": 138,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/que-aprenderas-nube-izquierda.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "que-aprenderas",
+        "id": "que-aprenderas-nube-arriba",
+        "nodeId": "4013:19318",
+        "tipo": "svg",
+        "ancho": 278,
+        "alto": 121,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/que-aprenderas-nube-arriba.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "ademas-incluye",
+        "id": "ademas-incluye-icono-libro",
+        "nodeId": "4013:19369",
+        "tipo": "svg",
+        "ancho": 51,
+        "alto": 51,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/ademas-incluye-icono-libro.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "ademas-incluye",
+        "id": "ademas-incluye-icono-diamante",
+        "nodeId": "4013:19372",
+        "tipo": "svg",
+        "ancho": 48,
+        "alto": 48,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/ademas-incluye-icono-diamante.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "ademas-incluye",
+        "id": "ademas-incluye-icono-video",
+        "nodeId": "4013:19374",
+        "tipo": "svg",
+        "ancho": 43,
+        "alto": 43,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/ademas-incluye-icono-video.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "ademas-incluye",
+        "id": "ademas-incluye-divisor",
+        "nodeId": "4013:19379",
+        "tipo": "svg",
+        "ancho": 1,
+        "alto": 146,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/ademas-incluye-divisor.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "testimonios",
+        "id": "testimonios-nube-derecha",
+        "nodeId": "I4013:19383;3810:132",
+        "tipo": "svg",
+        "ancho": 240,
+        "alto": 104,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/testimonios-nube-derecha.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "testimonios",
+        "id": "testimonios-nube-izquierda",
+        "nodeId": "I4013:19383;3810:129",
+        "tipo": "svg",
+        "ancho": 280,
+        "alto": 168,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/testimonios-nube-izquierda.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "testimonios",
+        "id": "testimonios-ojo-izquierdo",
+        "nodeId": "I4013:19383;3810:130",
+        "tipo": "svg",
+        "ancho": 25,
+        "alto": 8,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/testimonios-ojo-izquierdo.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "testimonios",
+        "id": "testimonios-ojo-derecho",
+        "nodeId": "I4013:19383;3810:131",
+        "tipo": "svg",
+        "ancho": 25,
+        "alto": 8,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/testimonios-ojo-derecho.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "testimonios",
+        "id": "testimonios-puntos",
+        "nodeId": "I4013:19383;3810:114",
+        "tipo": "svg",
+        "ancho": 58,
+        "alto": 10,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/testimonios-puntos.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "testimonios",
+        "id": "testimonios-flecha-izquierda",
+        "nodeId": "I4013:19383;3810:120",
+        "tipo": "svg",
+        "ancho": 20,
+        "alto": 20,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/testimonios-flecha-izquierda.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "testimonios",
+        "id": "testimonios-flecha-derecha",
+        "nodeId": "I4013:19383;3810:124",
+        "tipo": "svg",
+        "ancho": 20,
+        "alto": 20,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/testimonios-flecha-derecha.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "preguntas-frecuentes",
+        "id": "preguntas-frecuentes-check",
+        "nodeId": "4013:19429",
+        "tipo": "svg",
+        "ancho": 14,
+        "alto": 13,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/preguntas-frecuentes-check.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "preguntas-frecuentes",
+        "id": "preguntas-frecuentes-separador",
+        "nodeId": "4013:19432",
+        "tipo": "svg",
+        "ancho": 749,
+        "alto": 1,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/preguntas-frecuentes-separador.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "preguntas-frecuentes",
+        "id": "preguntas-frecuentes-ver-mas-flecha",
+        "nodeId": "4013:19455",
+        "tipo": "svg",
+        "ancho": 10,
+        "alto": 10,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/preguntas-frecuentes-ver-mas-flecha.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "contenido-relacionado",
+        "id": "contenido-relacionado-fondo-lunas",
+        "nodeId": "4013:19577",
+        "tipo": "png",
+        "ancho": 1920,
+        "alto": 841,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/contenido-relacionado-fondo-lunas.png"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "contenido-relacionado",
+        "id": "contenido-relacionado-angelita-pro-placeholder",
+        "nodeId": "4013:19598",
+        "tipo": "png",
+        "ancho": 346,
+        "alto": 370,
+        "rol": "contenido",
+        "archivo": "curso-horarios-ideales/assets/contenido-relacionado-angelita-pro-placeholder.png"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "contenido-relacionado",
+        "id": "contenido-relacionado-recien-nacidos-go",
+        "nodeId": "4013:19585",
+        "tipo": "jpg",
+        "ancho": 346,
+        "alto": 370,
+        "rol": "contenido",
+        "archivo": "curso-horarios-ideales/assets/contenido-relacionado-recien-nacidos-go.jpg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "contenido-relacionado",
+        "id": "contenido-relacionado-a-dormir-por-fin",
+        "nodeId": "4013:19654",
+        "tipo": "jpg",
+        "ancho": 346,
+        "alto": 370,
+        "rol": "contenido",
+        "archivo": "curso-horarios-ideales/assets/contenido-relacionado-a-dormir-por-fin.jpg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "contenido-relacionado",
+        "id": "contenido-relacionado-icono-destellos",
+        "nodeId": "I4013:19599;3863:536",
+        "tipo": "svg",
+        "ancho": 14,
+        "alto": 14,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/contenido-relacionado-icono-destellos.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "contenido-relacionado",
+        "id": "contenido-relacionado-circulo-top-ventas",
+        "nodeId": "4013:19588",
+        "tipo": "svg",
+        "ancho": 97,
+        "alto": 97,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/contenido-relacionado-circulo-top-ventas.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "modal-selecciona-edad",
+        "id": "modal-edad-4-a-9-meses",
+        "nodeId": "3653:2379",
+        "tipo": "jpg",
+        "ancho": 90,
+        "alto": 74,
+        "rol": "contenido",
+        "archivo": "curso-horarios-ideales/assets/etapas-4-a-9-meses.jpg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "modal-selecciona-edad",
+        "id": "modal-edad-9-a-15-meses",
+        "nodeId": "3653:2396",
+        "tipo": "jpg",
+        "ancho": 90,
+        "alto": 74,
+        "rol": "contenido",
+        "archivo": "curso-horarios-ideales/assets/etapas-9-a-15-meses.jpg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "modal-selecciona-edad",
+        "id": "modal-edad-15-a-36-meses",
+        "nodeId": "3653:2386",
+        "tipo": "jpg",
+        "ancho": 90,
+        "alto": 74,
+        "rol": "contenido",
+        "archivo": "curso-horarios-ideales/assets/etapas-15-a-36-meses.jpg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "modal-selecciona-edad",
+        "id": "modal-edad-estrellas",
+        "nodeId": "3653:2380",
+        "tipo": "svg",
+        "ancho": 90,
+        "alto": 74,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/modal-edad-estrellas.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "modal-selecciona-edad",
+        "id": "modal-edad-cerrar",
+        "nodeId": "3653:2357",
+        "tipo": "svg",
+        "ancho": 41,
+        "alto": 41,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/modal-edad-cerrar.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "modal-selecciona-edad",
+        "id": "modal-edad-linea",
+        "nodeId": "3653:2392",
+        "tipo": "svg",
+        "ancho": 463,
+        "alto": 1,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/modal-edad-linea.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "modal-selecciona-edad",
+        "id": "modal-edad-check",
+        "nodeId": "3653:2393",
+        "tipo": "svg",
+        "ancho": 14,
+        "alto": 13,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/modal-edad-check.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "modal-etapas",
+        "id": "modal-etapas-video-portada",
+        "nodeId": "3752:5965",
+        "tipo": "jpg",
+        "ancho": 620,
+        "alto": 320,
+        "rol": "contenido",
+        "archivo": "curso-horarios-ideales/assets/modal-etapas-video-portada.jpg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "modal-etapas",
+        "id": "modal-etapas-icono-play",
+        "nodeId": "3752:5967",
+        "tipo": "svg",
+        "ancho": 24,
+        "alto": 24,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/modal-etapas-icono-play.svg"
+      },
+      {
+        "page": "curso-horarios-ideales",
+        "section": "modal-etapas",
+        "id": "modal-etapas-cerrar",
+        "nodeId": "3752:5970",
+        "tipo": "svg",
+        "ancho": 20,
+        "alto": 20,
+        "rol": "decorativa",
+        "archivo": "curso-horarios-ideales/assets/modal-etapas-cerrar.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "hero",
+        "id": "hero-foto-fondo",
+        "nodeId": "4013:17863",
+        "tipo": "jpg",
+        "ancho": 730,
+        "alto": 835,
+        "rol": "contenido",
+        "archivo": "curso-recien-nacidos-go/assets/hero-foto-bebe.jpg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "hero",
+        "id": "hero-foto-curso",
+        "nodeId": "4013:17887",
+        "tipo": "jpg",
+        "ancho": 335,
+        "alto": 184,
+        "rol": "contenido",
+        "archivo": "curso-recien-nacidos-go/assets/hero-foto-bebe.jpg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "hero",
+        "id": "hero-fondo-capa",
+        "nodeId": "4013:17864",
+        "tipo": "svg",
+        "ancho": 1920,
+        "alto": 845,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/hero-fondo-capa.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "hero",
+        "id": "hero-subrayado",
+        "nodeId": "4013:17873",
+        "tipo": "svg",
+        "ancho": 345,
+        "alto": 1,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/hero-subrayado.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "hero",
+        "id": "hero-icono-regalo",
+        "nodeId": "4013:17911",
+        "tipo": "svg",
+        "ancho": 21,
+        "alto": 21,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/hero-icono-regalo.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "hero",
+        "id": "hero-cupon-linea",
+        "nodeId": "4013:17897",
+        "tipo": "svg",
+        "ancho": 322,
+        "alto": 1,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/hero-cupon-linea.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "hero",
+        "id": "hero-cupon-enviar",
+        "nodeId": "4013:17898",
+        "tipo": "svg",
+        "ancho": 24,
+        "alto": 24,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/hero-cupon-enviar.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "hero",
+        "id": "boton-flecha",
+        "nodeId": "I4013:17892;3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/boton-flecha.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "hero",
+        "id": "boton-flecha-secundario",
+        "nodeId": "I4013:17893;3704:15613",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/boton-flecha-secundario.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "porque-este-curso",
+        "id": "porque-icono-fondo",
+        "nodeId": "4013:17929",
+        "tipo": "svg",
+        "ancho": 119,
+        "alto": 110,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/porque-icono-fondo.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "porque-este-curso",
+        "id": "porque-icono-ciencia",
+        "nodeId": "4013:17931",
+        "tipo": "svg",
+        "ancho": 64,
+        "alto": 64,
+        "rol": "contenido",
+        "archivo": "curso-recien-nacidos-go/assets/porque-icono-ciencia.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "porque-este-curso",
+        "id": "porque-icono-reloj",
+        "nodeId": "4013:17952",
+        "tipo": "svg",
+        "ancho": 119,
+        "alto": 110,
+        "rol": "contenido",
+        "archivo": "curso-recien-nacidos-go/assets/porque-icono-reloj.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "porque-este-curso",
+        "id": "porque-icono-bebe",
+        "nodeId": "4013:17963",
+        "tipo": "svg",
+        "ancho": 33,
+        "alto": 54,
+        "rol": "contenido",
+        "archivo": "curso-recien-nacidos-go/assets/porque-icono-bebe.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "lista-que-aprenderas",
+        "id": "aprenderas-foto-madre-bebe",
+        "nodeId": "4013:17981",
+        "tipo": "jpg",
+        "ancho": 414,
+        "alto": 533,
+        "rol": "contenido",
+        "archivo": "curso-recien-nacidos-go/assets/aprenderas-foto-madre-bebe.jpg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "lista-que-aprenderas",
+        "id": "aprenderas-nube-izquierda",
+        "nodeId": "4013:17970",
+        "tipo": "svg",
+        "ancho": 229,
+        "alto": 138,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/aprenderas-nube-izquierda.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "lista-que-aprenderas",
+        "id": "aprenderas-nube-superior",
+        "nodeId": "4013:17975",
+        "tipo": "svg",
+        "ancho": 278,
+        "alto": 121,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/aprenderas-nube-superior.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "lista-que-aprenderas",
+        "id": "aprenderas-estrella-grande",
+        "nodeId": "4013:17984",
+        "tipo": "svg",
+        "ancho": 225,
+        "alto": 220,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/aprenderas-estrella-grande.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "lista-que-aprenderas",
+        "id": "aprenderas-estrella-chica",
+        "nodeId": "4013:17985",
+        "tipo": "svg",
+        "ancho": 103,
+        "alto": 100,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/aprenderas-estrella-chica.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "lista-que-aprenderas",
+        "id": "aprenderas-check",
+        "nodeId": "4013:17989",
+        "tipo": "svg",
+        "ancho": 14,
+        "alto": 13,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/aprenderas-check.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "lista-que-aprenderas",
+        "id": "aprenderas-separador",
+        "nodeId": "4013:18016",
+        "tipo": "svg",
+        "ancho": 749,
+        "alto": 1,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/aprenderas-separador.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "lista-que-aprenderas",
+        "id": "aprenderas-ver-menos-icono",
+        "nodeId": "4013:18028",
+        "tipo": "svg",
+        "ancho": 10,
+        "alto": 10,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/aprenderas-ver-menos-icono.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "resumen-breve",
+        "id": "resumen-foto-curso",
+        "nodeId": "4013:18041",
+        "tipo": "png",
+        "ancho": 614,
+        "alto": 298,
+        "rol": "contenido",
+        "archivo": "curso-recien-nacidos-go/assets/resumen-foto-curso.png"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "resumen-breve",
+        "id": "resumen-flecha-izquierda",
+        "nodeId": "4013:18047",
+        "tipo": "svg",
+        "ancho": 20,
+        "alto": 20,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/resumen-flecha-izquierda.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "resumen-breve",
+        "id": "resumen-flecha-derecha",
+        "nodeId": "4013:18051",
+        "tipo": "svg",
+        "ancho": 20,
+        "alto": 20,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/resumen-flecha-derecha.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "resumen-breve",
+        "id": "resumen-boton-flecha",
+        "nodeId": "I4013:18057;3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/boton-flecha.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "resumen-breve",
+        "id": "resumen-destello-blanco-izquierda",
+        "nodeId": "4013:18083",
+        "tipo": "svg",
+        "ancho": 151,
+        "alto": 132,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/resumen-destello-blanco-izquierda.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "resumen-breve",
+        "id": "resumen-destello-dorado-izquierda",
+        "nodeId": "4013:18098",
+        "tipo": "svg",
+        "ancho": 34,
+        "alto": 39,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/resumen-destello-dorado-izquierda.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "resumen-breve",
+        "id": "resumen-destello-gris-izquierda",
+        "nodeId": "4013:18100",
+        "tipo": "svg",
+        "ancho": 26,
+        "alto": 26,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/resumen-destello-gris-izquierda.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "resumen-breve",
+        "id": "resumen-destello-dorado-derecha",
+        "nodeId": "4013:18080",
+        "tipo": "svg",
+        "ancho": 59,
+        "alto": 65,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/resumen-destello-dorado-derecha.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "resumen-breve",
+        "id": "resumen-destello-gris-derecha",
+        "nodeId": "4013:18077",
+        "tipo": "svg",
+        "ancho": 29,
+        "alto": 31,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/resumen-destello-gris-derecha.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "resumen-breve",
+        "id": "resumen-destello-blanco-derecha",
+        "nodeId": "4013:18062",
+        "tipo": "svg",
+        "ancho": 91,
+        "alto": 70,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/resumen-destello-blanco-derecha.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "testimonios",
+        "id": "testimonios-nube-derecha",
+        "nodeId": "I4013:18105;3810:132",
+        "tipo": "svg",
+        "ancho": 240,
+        "alto": 104,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/testimonios-nube-derecha.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "testimonios",
+        "id": "testimonios-nube-izquierda",
+        "nodeId": "I4013:18105;3810:129",
+        "tipo": "svg",
+        "ancho": 280,
+        "alto": 168,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/testimonios-nube-izquierda.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "testimonios",
+        "id": "testimonios-nube-ojo-1",
+        "nodeId": "I4013:18105;3810:130",
+        "tipo": "svg",
+        "ancho": 21,
+        "alto": 4,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/testimonios-nube-ojo-1.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "testimonios",
+        "id": "testimonios-nube-ojo-2",
+        "nodeId": "I4013:18105;3810:131",
+        "tipo": "svg",
+        "ancho": 21,
+        "alto": 4,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/testimonios-nube-ojo-2.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "testimonios",
+        "id": "testimonios-puntos",
+        "nodeId": "I4013:18105;3810:114",
+        "tipo": "svg",
+        "ancho": 58,
+        "alto": 10,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/testimonios-puntos.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "testimonios",
+        "id": "testimonios-flecha-izquierda",
+        "nodeId": "I4013:18105;3810:120",
+        "tipo": "svg",
+        "ancho": 20,
+        "alto": 20,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/testimonios-flecha-izquierda.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "testimonios",
+        "id": "testimonios-flecha-derecha",
+        "nodeId": "I4013:18105;3810:124",
+        "tipo": "svg",
+        "ancho": 20,
+        "alto": 20,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/testimonios-flecha-derecha.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "preguntas-frecuentes",
+        "id": "preguntas-check",
+        "nodeId": "4013:18197",
+        "tipo": "svg",
+        "ancho": 14,
+        "alto": 13,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/preguntas-check.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "preguntas-frecuentes",
+        "id": "preguntas-separador",
+        "nodeId": "4013:18199",
+        "tipo": "svg",
+        "ancho": 749,
+        "alto": 1,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/preguntas-separador.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "preguntas-frecuentes",
+        "id": "preguntas-ver-mas-icono",
+        "nodeId": "4013:18232",
+        "tipo": "svg",
+        "ancho": 10,
+        "alto": 10,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/preguntas-ver-mas-icono.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "contenido-relacionado",
+        "id": "relacionado-fondo-lunas",
+        "nodeId": "4013:18237",
+        "tipo": "png",
+        "ancho": 1920,
+        "alto": 841,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/relacionado-fondo-lunas.png"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "contenido-relacionado",
+        "id": "relacionado-angelita-pro-placeholder",
+        "nodeId": "4013:18258",
+        "tipo": "png",
+        "ancho": 346,
+        "alto": 370,
+        "rol": "contenido",
+        "archivo": "curso-recien-nacidos-go/assets/relacionado-angelita-pro-placeholder.png"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "contenido-relacionado",
+        "id": "relacionado-recien-nacidos-go",
+        "nodeId": "4013:18245",
+        "tipo": "jpg",
+        "ancho": 346,
+        "alto": 370,
+        "rol": "contenido",
+        "archivo": "curso-recien-nacidos-go/assets/hero-foto-bebe.jpg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "contenido-relacionado",
+        "id": "relacionado-icono-destellos",
+        "nodeId": "4013:18257",
+        "tipo": "svg",
+        "ancho": 14,
+        "alto": 14,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/relacionado-icono-destellos.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "contenido-relacionado",
+        "id": "relacionado-sello-top-ventas",
+        "nodeId": "4013:18248",
+        "tipo": "svg",
+        "ancho": 97,
+        "alto": 97,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/relacionado-sello-top-ventas.svg"
+      },
+      {
+        "page": "curso-recien-nacidos-go",
+        "section": "contenido-relacionado",
+        "id": "relacionado-boton-flecha",
+        "nodeId": "4013:18255",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "curso-recien-nacidos-go/assets/boton-flecha.svg"
       },
       {
         "page": "home",
@@ -3546,6 +6792,10 @@
           "blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -3561,6 +6811,10 @@
           "blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -3576,6 +6830,10 @@
           "blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -3591,6 +6849,10 @@
           "blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -3606,6 +6868,10 @@
           "blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -3621,6 +6887,10 @@
           "blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -3636,6 +6906,10 @@
           "blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -3650,6 +6924,10 @@
           "articulo-blog",
           "blog",
           "conoce-a-barbara",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz"
         ]
@@ -3661,6 +6939,10 @@
           "articulo-blog",
           "blog",
           "conoce-a-barbara",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -3676,6 +6958,10 @@
           "blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -3695,6 +6981,26 @@
         ]
       },
       {
+        "name": "Blanco",
+        "value": "#FFFFFF",
+        "paginas": [
+          "curso-a-dormir-por-fin",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go"
+        ]
+      },
+      {
+        "name": "Beige",
+        "value": "#D7D0B5",
+        "paginas": [
+          "curso-a-dormir-por-fin",
+          "preguntas-frecuentes",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go"
+        ]
+      },
+      {
         "name": "green 20",
         "value": "#9ec0c0",
         "paginas": [
@@ -3706,13 +7012,6 @@
         "value": "#c4704a",
         "paginas": [
           "mundo-angelitozzz"
-        ]
-      },
-      {
-        "name": "Beige",
-        "value": "#D7D0B5",
-        "paginas": [
-          "preguntas-frecuentes"
         ]
       },
       {
@@ -3729,14 +7028,47 @@
         "name": null,
         "value": "#000000",
         "suelto": true,
-        "usos": 4,
+        "usos": 17,
         "paginas": [
           "contacto",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "mundo-angelitozzz"
         ],
         "cercano": {
           "name": "color/texto",
           "value": "#000000",
+          "distancia": 0
+        }
+      },
+      {
+        "name": null,
+        "value": "#234549",
+        "suelto": true,
+        "usos": 4,
+        "paginas": [
+          "curso-recien-nacidos-go",
+          "mundo-angelitozzz"
+        ],
+        "cercano": {
+          "name": "color/verde",
+          "value": "#234549",
+          "distancia": 0
+        }
+      },
+      {
+        "name": null,
+        "value": "#492343",
+        "suelto": true,
+        "usos": 4,
+        "paginas": [
+          "curso-angelita-pro",
+          "home"
+        ],
+        "cercano": {
+          "name": "green 80",
+          "value": "#492343",
           "distancia": 0
         }
       },
@@ -3767,20 +7099,6 @@
       },
       {
         "name": null,
-        "value": "#492343",
-        "suelto": true,
-        "usos": 2,
-        "paginas": [
-          "home"
-        ],
-        "cercano": {
-          "name": "green 80",
-          "value": "#492343",
-          "distancia": 0
-        }
-      },
-      {
-        "name": null,
         "value": "#d7d0b500",
         "suelto": true,
         "usos": 2,
@@ -3795,15 +7113,16 @@
       },
       {
         "name": null,
-        "value": "#234549",
+        "value": "#ffffff",
         "suelto": true,
-        "usos": 1,
+        "usos": 2,
         "paginas": [
+          "curso-recien-nacidos-go",
           "mundo-angelitozzz"
         ],
         "cercano": {
-          "name": "color/verde",
-          "value": "#234549",
+          "name": "color/blanco",
+          "value": "#ffffff",
           "distancia": 0
         }
       },
@@ -3833,16 +7152,26 @@
       },
       {
         "name": null,
-        "value": "#ffffff",
+        "value": "#b49e49",
         "suelto": true,
         "usos": 1,
         "paginas": [
-          "mundo-angelitozzz"
+          "curso-recien-nacidos-go"
+        ],
+        "cercano": null
+      },
+      {
+        "name": null,
+        "value": "#e9e4da",
+        "suelto": true,
+        "usos": 1,
+        "paginas": [
+          "curso-horarios-ideales"
         ],
         "cercano": {
-          "name": "color/blanco",
-          "value": "#ffffff",
-          "distancia": 0
+          "name": "color/blush",
+          "value": "#f1dbd5",
+          "distancia": 13
         }
       }
     ],
@@ -3935,56 +7264,70 @@
     ],
     "spacing": [
       {
-        "valor": 8,
-        "usos": 63,
-        "paginas": [
-          "articulo-blog",
-          "blog",
-          "conoce-a-barbara",
-          "contacto",
-          "home",
-          "mundo-angelitozzz",
-          "preguntas-frecuentes",
-          "soluciones-de-sueno",
-          "testimonios"
-        ]
-      },
-      {
         "valor": 10,
-        "usos": 56,
+        "usos": 138,
         "paginas": [
           "articulo-blog",
           "blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
-          "soluciones-de-sueno",
-          "testimonios"
-        ]
-      },
-      {
-        "valor": 24,
-        "usos": 51,
-        "paginas": [
-          "articulo-blog",
-          "blog",
-          "conoce-a-barbara",
-          "contacto",
-          "home",
-          "mundo-angelitozzz",
           "soluciones-de-sueno",
           "testimonios"
         ]
       },
       {
         "valor": 14,
-        "usos": 46,
+        "usos": 85,
         "paginas": [
           "articulo-blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
+          "home",
+          "mundo-angelitozzz",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "valor": 24,
+        "usos": 84,
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
+          "home",
+          "mundo-angelitozzz",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "valor": 28,
+        "usos": 74,
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "soluciones-de-sueno",
@@ -3993,10 +7336,68 @@
       },
       {
         "valor": 16,
-        "usos": 43,
+        "usos": 72,
         "paginas": [
           "articulo-blog",
           "blog",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "valor": 8,
+        "usos": 71,
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
+          "home",
+          "mundo-angelitozzz",
+          "preguntas-frecuentes",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "valor": 6,
+        "usos": 59,
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
+          "home",
+          "mundo-angelitozzz",
+          "soluciones-de-sueno",
+          "testimonios"
+        ]
+      },
+      {
+        "valor": 20,
+        "usos": 57,
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -4006,11 +7407,14 @@
       },
       {
         "valor": 18,
-        "usos": 40,
+        "usos": 52,
         "paginas": [
           "articulo-blog",
           "blog",
           "conoce-a-barbara",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-recien-nacidos-go",
           "home",
           "soluciones-de-sueno",
           "testimonios"
@@ -4018,59 +7422,59 @@
       },
       {
         "valor": 12,
-        "usos": 38,
+        "usos": 46,
         "paginas": [
           "articulo-blog",
           "blog",
           "conoce-a-barbara",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
           "home",
           "mundo-angelitozzz",
           "testimonios"
         ]
       },
       {
-        "valor": 6,
-        "usos": 37,
-        "paginas": [
-          "articulo-blog",
-          "blog",
-          "conoce-a-barbara",
-          "home",
-          "mundo-angelitozzz",
-          "soluciones-de-sueno",
-          "testimonios"
-        ]
-      },
-      {
-        "valor": 28,
-        "usos": 36,
+        "valor": 88,
+        "usos": 35,
         "paginas": [
           "articulo-blog",
           "blog",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
-          "soluciones-de-sueno",
-          "testimonios"
+          "preguntas-frecuentes",
+          "soluciones-de-sueno"
         ]
       },
       {
-        "valor": 2,
-        "usos": 21,
+        "valor": 54,
+        "usos": 34,
         "paginas": [
-          "articulo-blog",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
-          "mundo-angelitozzz",
-          "testimonios"
+          "preguntas-frecuentes"
         ]
       },
       {
-        "valor": 20,
-        "usos": 21,
+        "valor": 405,
+        "usos": 34,
         "paginas": [
           "articulo-blog",
           "blog",
           "conoce-a-barbara",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -4080,45 +7484,51 @@
       },
       {
         "valor": 7,
-        "usos": 19,
+        "usos": 30,
         "paginas": [
           "articulo-blog",
           "blog",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-recien-nacidos-go",
           "soluciones-de-sueno"
         ]
       },
       {
-        "valor": 32,
-        "usos": 19,
+        "valor": 2,
+        "usos": 24,
         "paginas": [
           "articulo-blog",
+          "curso-a-dormir-por-fin",
+          "curso-horarios-ideales",
           "home",
           "mundo-angelitozzz",
-          "soluciones-de-sueno",
           "testimonios"
         ]
       },
       {
-        "valor": 405,
-        "usos": 19,
+        "valor": 32,
+        "usos": 22,
         "paginas": [
           "articulo-blog",
-          "blog",
-          "conoce-a-barbara",
+          "curso-a-dormir-por-fin",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
-          "preguntas-frecuentes",
           "soluciones-de-sueno",
           "testimonios"
         ]
       },
       {
         "valor": 104,
-        "usos": 13,
+        "usos": 17,
         "paginas": [
           "articulo-blog",
           "blog",
           "conoce-a-barbara",
+          "curso-a-dormir-por-fin",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -4127,58 +7537,98 @@
         ]
       },
       {
-        "valor": 88,
-        "usos": 12,
+        "valor": 314,
+        "usos": 14,
         "paginas": [
-          "articulo-blog",
-          "blog",
-          "contacto",
-          "home",
-          "mundo-angelitozzz",
-          "preguntas-frecuentes",
+          "curso-horarios-ideales",
           "soluciones-de-sueno"
         ]
       },
       {
+        "valor": 749,
+        "usos": 14,
+        "paginas": [
+          "curso-recien-nacidos-go"
+        ]
+      },
+      {
         "valor": 40,
-        "usos": 10,
+        "usos": 13,
         "paginas": [
           "blog",
           "conoce-a-barbara",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home"
         ]
       },
       {
-        "valor": 56,
-        "usos": 9,
+        "valor": 346,
+        "usos": 13,
         "paginas": [
-          "conoce-a-barbara",
-          "home",
-          "mundo-angelitozzz"
-        ]
-      },
-      {
-        "valor": 54,
-        "usos": 8,
-        "paginas": [
-          "home",
-          "preguntas-frecuentes"
-        ]
-      },
-      {
-        "valor": 314,
-        "usos": 8,
-        "paginas": [
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "soluciones-de-sueno"
         ]
       },
       {
         "valor": 4,
-        "usos": 7,
+        "usos": 12,
         "paginas": [
           "articulo-blog",
           "blog",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
           "home"
+        ]
+      },
+      {
+        "valor": 56,
+        "usos": 12,
+        "paginas": [
+          "conoce-a-barbara",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "home",
+          "mundo-angelitozzz"
+        ]
+      },
+      {
+        "valor": 23,
+        "usos": 9,
+        "paginas": [
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go"
+        ]
+      },
+      {
+        "valor": 370,
+        "usos": 9,
+        "paginas": [
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go"
+        ]
+      },
+      {
+        "valor": 750,
+        "usos": 9,
+        "paginas": [
+          "curso-recien-nacidos-go"
+        ]
+      },
+      {
+        "valor": 181,
+        "usos": 8,
+        "paginas": [
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
+          "home",
+          "mundo-angelitozzz"
         ]
       },
       {
@@ -4192,12 +7642,77 @@
         ]
       },
       {
+        "valor": 96,
+        "usos": 7,
+        "paginas": [
+          "blog",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go"
+        ]
+      },
+      {
+        "valor": 11,
+        "usos": 6,
+        "paginas": [
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "home"
+        ]
+      },
+      {
+        "valor": 21,
+        "usos": 6,
+        "paginas": [
+          "curso-horarios-ideales"
+        ]
+      },
+      {
         "valor": 30,
         "usos": 6,
         "paginas": [
           "articulo-blog",
           "blog",
           "conoce-a-barbara"
+        ]
+      },
+      {
+        "valor": 48,
+        "usos": 6,
+        "paginas": [
+          "articulo-blog",
+          "curso-recien-nacidos-go",
+          "home"
+        ]
+      },
+      {
+        "valor": 385,
+        "usos": 6,
+        "paginas": [
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go"
+        ]
+      },
+      {
+        "valor": 457,
+        "usos": 6,
+        "paginas": [
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
+          "preguntas-frecuentes"
+        ]
+      },
+      {
+        "valor": 602,
+        "usos": 6,
+        "paginas": [
+          "curso-horarios-ideales"
         ]
       },
       {
@@ -4209,10 +7724,86 @@
         ]
       },
       {
-        "valor": 346,
+        "valor": 65,
+        "usos": 5,
+        "paginas": [
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
+          "preguntas-frecuentes"
+        ]
+      },
+      {
+        "valor": 748.5,
+        "usos": 5,
+        "paginas": [
+          "curso-horarios-ideales"
+        ]
+      },
+      {
+        "valor": 22,
         "usos": 4,
         "paginas": [
+          "blog",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
+          "home"
+        ]
+      },
+      {
+        "valor": 44,
+        "usos": 4,
+        "paginas": [
+          "curso-a-dormir-por-fin",
+          "home"
+        ]
+      },
+      {
+        "valor": 47,
+        "usos": 4,
+        "paginas": [
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go"
+        ]
+      },
+      {
+        "valor": 80,
+        "usos": 4,
+        "paginas": [
+          "conoce-a-barbara",
+          "curso-recien-nacidos-go",
           "soluciones-de-sueno"
+        ]
+      },
+      {
+        "valor": 107,
+        "usos": 4,
+        "paginas": [
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go"
+        ]
+      },
+      {
+        "valor": 112,
+        "usos": 4,
+        "paginas": [
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go"
+        ]
+      },
+      {
+        "valor": 335,
+        "usos": 4,
+        "paginas": [
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go"
         ]
       },
       {
@@ -4230,18 +7821,89 @@
         ]
       },
       {
-        "valor": 44,
-        "usos": 3,
+        "valor": 1106,
+        "usos": 4,
         "paginas": [
-          "home"
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go"
         ]
       },
       {
-        "valor": 80,
+        "valor": 36,
         "usos": 3,
         "paginas": [
-          "conoce-a-barbara",
-          "soluciones-de-sueno"
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-recien-nacidos-go"
+        ]
+      },
+      {
+        "valor": 74,
+        "usos": 3,
+        "paginas": [
+          "curso-horarios-ideales"
+        ]
+      },
+      {
+        "valor": 90,
+        "usos": 3,
+        "paginas": [
+          "curso-horarios-ideales"
+        ]
+      },
+      {
+        "valor": 97,
+        "usos": 3,
+        "paginas": [
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-recien-nacidos-go"
+        ]
+      },
+      {
+        "valor": 292,
+        "usos": 3,
+        "paginas": [
+          "curso-horarios-ideales"
+        ]
+      },
+      {
+        "valor": 300,
+        "usos": 3,
+        "paginas": [
+          "curso-recien-nacidos-go"
+        ]
+      },
+      {
+        "valor": 320,
+        "usos": 3,
+        "paginas": [
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go"
+        ]
+      },
+      {
+        "valor": 760,
+        "usos": 3,
+        "paginas": [
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go"
+        ]
+      },
+      {
+        "valor": 774,
+        "usos": 3,
+        "paginas": [
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go"
+        ]
+      },
+      {
+        "valor": 820,
+        "usos": 3,
+        "paginas": [
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go"
         ]
       },
       {
@@ -4253,34 +7915,129 @@
         ]
       },
       {
-        "valor": 22,
+        "valor": 27,
         "usos": 2,
         "paginas": [
-          "blog",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go"
+        ]
+      },
+      {
+        "valor": 29,
+        "usos": 2,
+        "paginas": [
+          "curso-a-dormir-por-fin",
+          "curso-horarios-ideales"
+        ]
+      },
+      {
+        "valor": 33,
+        "usos": 2,
+        "paginas": [
+          "curso-angelita-pro",
+          "curso-horarios-ideales"
+        ]
+      },
+      {
+        "valor": 46,
+        "usos": 2,
+        "paginas": [
+          "contacto",
+          "curso-horarios-ideales"
+        ]
+      },
+      {
+        "valor": 52,
+        "usos": 2,
+        "paginas": [
+          "curso-angelita-pro",
           "home"
         ]
       },
       {
-        "valor": 48,
+        "valor": 55,
         "usos": 2,
         "paginas": [
-          "articulo-blog",
-          "home"
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro"
         ]
       },
       {
-        "valor": 181,
+        "valor": 64,
         "usos": 2,
         "paginas": [
-          "home",
-          "mundo-angelitozzz"
+          "contacto",
+          "curso-horarios-ideales"
         ]
       },
       {
-        "valor": 11,
-        "usos": 1,
+        "valor": 100,
+        "usos": 2,
         "paginas": [
-          "home"
+          "curso-a-dormir-por-fin",
+          "curso-recien-nacidos-go"
+        ]
+      },
+      {
+        "valor": 110,
+        "usos": 2,
+        "paginas": [
+          "curso-a-dormir-por-fin",
+          "curso-recien-nacidos-go"
+        ]
+      },
+      {
+        "valor": 188,
+        "usos": 2,
+        "paginas": [
+          "curso-a-dormir-por-fin",
+          "curso-horarios-ideales"
+        ]
+      },
+      {
+        "valor": 254,
+        "usos": 2,
+        "paginas": [
+          "curso-horarios-ideales"
+        ]
+      },
+      {
+        "valor": 345,
+        "usos": 2,
+        "paginas": [
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go"
+        ]
+      },
+      {
+        "valor": 395,
+        "usos": 2,
+        "paginas": [
+          "curso-horarios-ideales"
+        ]
+      },
+      {
+        "valor": 414,
+        "usos": 2,
+        "paginas": [
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go"
+        ]
+      },
+      {
+        "valor": 492,
+        "usos": 2,
+        "paginas": [
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go"
+        ]
+      },
+      {
+        "valor": 651,
+        "usos": 2,
+        "paginas": [
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go"
         ]
       },
       {
@@ -4298,6 +8055,13 @@
         ]
       },
       {
+        "valor": 35,
+        "usos": 1,
+        "paginas": [
+          "curso-recien-nacidos-go"
+        ]
+      },
+      {
         "valor": 38,
         "usos": 1,
         "paginas": [
@@ -4305,10 +8069,10 @@
         ]
       },
       {
-        "valor": 46,
+        "valor": 42,
         "usos": 1,
         "paginas": [
-          "contacto"
+          "curso-angelita-pro"
         ]
       },
       {
@@ -4319,10 +8083,10 @@
         ]
       },
       {
-        "valor": 52,
+        "valor": 50,
         "usos": 1,
         "paginas": [
-          "home"
+          "curso-horarios-ideales"
         ]
       },
       {
@@ -4347,20 +8111,6 @@
         ]
       },
       {
-        "valor": 64,
-        "usos": 1,
-        "paginas": [
-          "contacto"
-        ]
-      },
-      {
-        "valor": 65,
-        "usos": 1,
-        "paginas": [
-          "preguntas-frecuentes"
-        ]
-      },
-      {
         "valor": 66,
         "usos": 1,
         "paginas": [
@@ -4382,10 +8132,73 @@
         ]
       },
       {
-        "valor": 96,
+        "valor": 81,
         "usos": 1,
         "paginas": [
-          "blog"
+          "curso-horarios-ideales"
+        ]
+      },
+      {
+        "valor": 83,
+        "usos": 1,
+        "paginas": [
+          "curso-angelita-pro"
+        ]
+      },
+      {
+        "valor": 84,
+        "usos": 1,
+        "paginas": [
+          "curso-horarios-ideales"
+        ]
+      },
+      {
+        "valor": 85,
+        "usos": 1,
+        "paginas": [
+          "curso-a-dormir-por-fin"
+        ]
+      },
+      {
+        "valor": 87,
+        "usos": 1,
+        "paginas": [
+          "curso-a-dormir-por-fin"
+        ]
+      },
+      {
+        "valor": 89,
+        "usos": 1,
+        "paginas": [
+          "curso-horarios-ideales"
+        ]
+      },
+      {
+        "valor": 105,
+        "usos": 1,
+        "paginas": [
+          "curso-horarios-ideales"
+        ]
+      },
+      {
+        "valor": 106,
+        "usos": 1,
+        "paginas": [
+          "curso-a-dormir-por-fin"
+        ]
+      },
+      {
+        "valor": 121,
+        "usos": 1,
+        "paginas": [
+          "curso-angelita-pro"
+        ]
+      },
+      {
+        "valor": 124,
+        "usos": 1,
+        "paginas": [
+          "curso-angelita-pro"
         ]
       },
       {
@@ -4393,6 +8206,27 @@
         "usos": 1,
         "paginas": [
           "mundo-angelitozzz"
+        ]
+      },
+      {
+        "valor": 139,
+        "usos": 1,
+        "paginas": [
+          "curso-horarios-ideales"
+        ]
+      },
+      {
+        "valor": 153,
+        "usos": 1,
+        "paginas": [
+          "curso-angelita-pro"
+        ]
+      },
+      {
+        "valor": 166,
+        "usos": 1,
+        "paginas": [
+          "curso-recien-nacidos-go"
         ]
       },
       {
@@ -4410,10 +8244,45 @@
         ]
       },
       {
+        "valor": 200,
+        "usos": 1,
+        "paginas": [
+          "curso-horarios-ideales"
+        ]
+      },
+      {
+        "valor": 227,
+        "usos": 1,
+        "paginas": [
+          "curso-a-dormir-por-fin"
+        ]
+      },
+      {
         "valor": 228,
         "usos": 1,
         "paginas": [
           "contacto"
+        ]
+      },
+      {
+        "valor": 229,
+        "usos": 1,
+        "paginas": [
+          "curso-horarios-ideales"
+        ]
+      },
+      {
+        "valor": 245,
+        "usos": 1,
+        "paginas": [
+          "curso-horarios-ideales"
+        ]
+      },
+      {
+        "valor": 255,
+        "usos": 1,
+        "paginas": [
+          "curso-a-dormir-por-fin"
         ]
       },
       {
@@ -4431,6 +8300,41 @@
         ]
       },
       {
+        "valor": 289,
+        "usos": 1,
+        "paginas": [
+          "curso-horarios-ideales"
+        ]
+      },
+      {
+        "valor": 290,
+        "usos": 1,
+        "paginas": [
+          "curso-horarios-ideales"
+        ]
+      },
+      {
+        "valor": 324,
+        "usos": 1,
+        "paginas": [
+          "curso-a-dormir-por-fin"
+        ]
+      },
+      {
+        "valor": 371,
+        "usos": 1,
+        "paginas": [
+          "curso-a-dormir-por-fin"
+        ]
+      },
+      {
+        "valor": 380,
+        "usos": 1,
+        "paginas": [
+          "curso-recien-nacidos-go"
+        ]
+      },
+      {
         "valor": 388,
         "usos": 1,
         "paginas": [
@@ -4442,6 +8346,20 @@
         "usos": 1,
         "paginas": [
           "home"
+        ]
+      },
+      {
+        "valor": 413,
+        "usos": 1,
+        "paginas": [
+          "curso-angelita-pro"
+        ]
+      },
+      {
+        "valor": 420,
+        "usos": 1,
+        "paginas": [
+          "curso-horarios-ideales"
         ]
       },
       {
@@ -4466,10 +8384,38 @@
         ]
       },
       {
-        "valor": 457,
+        "valor": 463,
         "usos": 1,
         "paginas": [
-          "preguntas-frecuentes"
+          "curso-horarios-ideales"
+        ]
+      },
+      {
+        "valor": 568,
+        "usos": 1,
+        "paginas": [
+          "curso-horarios-ideales"
+        ]
+      },
+      {
+        "valor": 600,
+        "usos": 1,
+        "paginas": [
+          "curso-recien-nacidos-go"
+        ]
+      },
+      {
+        "valor": 614,
+        "usos": 1,
+        "paginas": [
+          "curso-recien-nacidos-go"
+        ]
+      },
+      {
+        "valor": 652,
+        "usos": 1,
+        "paginas": [
+          "curso-horarios-ideales"
         ]
       },
       {
@@ -4480,22 +8426,61 @@
         ]
       },
       {
+        "valor": 698,
+        "usos": 1,
+        "paginas": [
+          "curso-horarios-ideales"
+        ]
+      },
+      {
+        "valor": 730,
+        "usos": 1,
+        "paginas": [
+          "curso-recien-nacidos-go"
+        ]
+      },
+      {
+        "valor": 1083.5,
+        "usos": 1,
+        "paginas": [
+          "curso-horarios-ideales"
+        ]
+      },
+      {
         "valor": 1103,
         "usos": 1,
         "paginas": [
           "soluciones-de-sueno"
+        ]
+      },
+      {
+        "valor": 1191,
+        "usos": 1,
+        "paginas": [
+          "curso-horarios-ideales"
+        ]
+      },
+      {
+        "valor": 1196,
+        "usos": 1,
+        "paginas": [
+          "curso-horarios-ideales"
         ]
       }
     ],
     "radii": [
       {
         "valor": 100,
-        "usos": 75,
+        "usos": 134,
         "paginas": [
           "articulo-blog",
           "blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -4505,22 +8490,42 @@
       },
       {
         "valor": 20,
-        "usos": 41,
+        "usos": 83,
         "paginas": [
           "articulo-blog",
           "blog",
           "conoce-a-barbara",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "testimonios"
         ]
       },
       {
+        "valor": 16,
+        "usos": 38,
+        "paginas": [
+          "articulo-blog",
+          "blog",
+          "conoce-a-barbara",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
+          "soluciones-de-sueno"
+        ]
+      },
+      {
         "valor": 24,
-        "usos": 24,
+        "usos": 28,
         "paginas": [
           "articulo-blog",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-horarios-ideales",
           "home",
           "mundo-angelitozzz",
           "soluciones-de-sueno",
@@ -4528,20 +8533,49 @@
         ]
       },
       {
-        "valor": 16,
-        "usos": 22,
+        "valor": 8,
+        "usos": 13,
         "paginas": [
-          "articulo-blog",
-          "blog",
-          "conoce-a-barbara",
-          "soluciones-de-sueno"
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go"
         ]
       },
       {
         "valor": 12,
-        "usos": 6,
+        "usos": 13,
         "paginas": [
+          "curso-a-dormir-por-fin",
+          "curso-horarios-ideales",
           "home"
+        ]
+      },
+      {
+        "valor": 4,
+        "usos": 5,
+        "paginas": [
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales"
+        ]
+      },
+      {
+        "valor": 30,
+        "usos": 4,
+        "paginas": [
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "mundo-angelitozzz"
+        ]
+      },
+      {
+        "valor": 10,
+        "usos": 3,
+        "paginas": [
+          "curso-angelita-pro",
+          "curso-recien-nacidos-go"
         ]
       },
       {
@@ -4560,17 +8594,17 @@
         ]
       },
       {
+        "valor": 2,
+        "usos": 1,
+        "paginas": [
+          "curso-horarios-ideales"
+        ]
+      },
+      {
         "valor": 6,
         "usos": 1,
         "paginas": [
           "home"
-        ]
-      },
-      {
-        "valor": 30,
-        "usos": 1,
-        "paginas": [
-          "mundo-angelitozzz"
         ]
       }
     ],
@@ -4585,6 +8619,10 @@
           "preguntas-frecuentes",
           "blog",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "soluciones-de-sueno",
           "testimonios"
@@ -4601,6 +8639,10 @@
           "blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -4617,6 +8659,10 @@
           "blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -4633,6 +8679,10 @@
           "blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -4649,6 +8699,10 @@
           "blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -4665,6 +8719,10 @@
           "blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -4681,6 +8739,10 @@
           "blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -4697,6 +8759,10 @@
           "blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -4712,6 +8778,10 @@
           "articulo-blog",
           "blog",
           "conoce-a-barbara",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz"
         ]
@@ -4724,6 +8794,10 @@
           "articulo-blog",
           "blog",
           "conoce-a-barbara",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -4740,6 +8814,10 @@
           "blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -4760,6 +8838,28 @@
         ]
       },
       {
+        "name": "Blanco",
+        "tipo": "color",
+        "valor": "#FFFFFF",
+        "paginas": [
+          "curso-a-dormir-por-fin",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go"
+        ]
+      },
+      {
+        "name": "Beige",
+        "tipo": "color",
+        "valor": "#D7D0B5",
+        "paginas": [
+          "curso-a-dormir-por-fin",
+          "preguntas-frecuentes",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go"
+        ]
+      },
+      {
         "name": "green 20",
         "tipo": "color",
         "valor": "#9ec0c0",
@@ -4773,14 +8873,6 @@
         "valor": "#c4704a",
         "paginas": [
           "mundo-angelitozzz"
-        ]
-      },
-      {
-        "name": "Beige",
-        "tipo": "color",
-        "valor": "#D7D0B5",
-        "paginas": [
-          "preguntas-frecuentes"
         ]
       },
       {
@@ -4801,6 +8893,10 @@
           "blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "soluciones-de-sueno"
@@ -4823,6 +8919,10 @@
           "articulo-blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -4847,6 +8947,10 @@
           "articulo-blog",
           "blog",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "soluciones-de-sueno"
@@ -4870,6 +8974,10 @@
           "blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -4894,6 +9002,10 @@
           "articulo-blog",
           "blog",
           "conoce-a-barbara",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "preguntas-frecuentes"
         ]
       },
@@ -4913,6 +9025,10 @@
         "paginas": [
           "articulo-blog",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -4938,6 +9054,10 @@
           "blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -4963,6 +9083,10 @@
           "blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -4988,6 +9112,10 @@
           "blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -5013,6 +9141,10 @@
           "blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -5037,6 +9169,8 @@
           "articulo-blog",
           "blog",
           "conoce-a-barbara",
+          "curso-a-dormir-por-fin",
+          "curso-horarios-ideales",
           "home",
           "mundo-angelitozzz"
         ]
@@ -5057,6 +9191,10 @@
         "paginas": [
           "blog",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -5080,6 +9218,7 @@
         "paginas": [
           "blog",
           "conoce-a-barbara",
+          "curso-a-dormir-por-fin",
           "home",
           "mundo-angelitozzz",
           "testimonios"
@@ -5131,6 +9270,10 @@
           "preguntas-frecuentes",
           "blog",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "soluciones-de-sueno",
           "testimonios"
@@ -5153,6 +9296,10 @@
           "blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "soluciones-de-sueno"
@@ -5172,6 +9319,10 @@
           "articulo-blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -5193,6 +9344,10 @@
           "articulo-blog",
           "blog",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "soluciones-de-sueno"
@@ -5213,6 +9368,10 @@
           "blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -5234,6 +9393,10 @@
           "articulo-blog",
           "blog",
           "conoce-a-barbara",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "preguntas-frecuentes"
         ]
       },
@@ -5250,6 +9413,10 @@
         "paginas": [
           "articulo-blog",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -5272,6 +9439,10 @@
           "blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -5294,6 +9465,10 @@
           "blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -5316,6 +9491,10 @@
           "blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -5338,6 +9517,10 @@
           "blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -5359,6 +9542,8 @@
           "articulo-blog",
           "blog",
           "conoce-a-barbara",
+          "curso-a-dormir-por-fin",
+          "curso-horarios-ideales",
           "home",
           "mundo-angelitozzz"
         ]
@@ -5376,6 +9561,10 @@
         "paginas": [
           "blog",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -5396,6 +9585,7 @@
         "paginas": [
           "blog",
           "conoce-a-barbara",
+          "curso-a-dormir-por-fin",
           "home",
           "mundo-angelitozzz",
           "testimonios"
@@ -5437,12 +9627,16 @@
       "id": "componente:Botón",
       "tag": "componente",
       "nombre": "Botón",
-      "count": 31,
+      "count": 59,
       "kind": "cross-page",
       "files": [
         "articulo-blog",
         "conoce-a-barbara",
         "contacto",
+        "curso-a-dormir-por-fin",
+        "curso-angelita-pro",
+        "curso-horarios-ideales",
+        "curso-recien-nacidos-go",
         "home",
         "mundo-angelitozzz",
         "preguntas-frecuentes",
@@ -5486,6 +9680,118 @@
         {
           "page": "contacto",
           "section": "seccion-de-cta"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "hero"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "hero"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "experiencia-exclusiva"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "como-funciona"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "contenido-relacionado"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "drawer-carrito"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "drawer-carrito"
+        },
+        {
+          "page": "curso-angelita-pro",
+          "section": "hero"
+        },
+        {
+          "page": "curso-angelita-pro",
+          "section": "hero"
+        },
+        {
+          "page": "curso-angelita-pro",
+          "section": "conoce-angelito-pro-por-dentro"
+        },
+        {
+          "page": "curso-angelita-pro",
+          "section": "contenido-relacionado"
+        },
+        {
+          "page": "curso-angelita-pro",
+          "section": "contenido-relacionado"
+        },
+        {
+          "page": "curso-angelita-pro",
+          "section": "contenido-relacionado"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "hero"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "hero"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "etapas"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "etapas"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "etapas"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "contenido-relacionado"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "contenido-relacionado"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "contenido-relacionado"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "modal-selecciona-edad"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "modal-etapas"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "hero"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "hero"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "resumen-breve"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "contenido-relacionado"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "contenido-relacionado"
         },
         {
           "page": "home",
@@ -5629,11 +9935,15 @@
       "id": "componente:Etiqueta",
       "tag": "componente",
       "nombre": "Etiqueta",
-      "count": 16,
+      "count": 31,
       "kind": "cross-page",
       "files": [
         "articulo-blog",
         "conoce-a-barbara",
+        "curso-a-dormir-por-fin",
+        "curso-angelita-pro",
+        "curso-horarios-ideales",
+        "curso-recien-nacidos-go",
         "home",
         "soluciones-de-sueno",
         "testimonios"
@@ -5641,6 +9951,7 @@
       "variantes": [
         "Tarjeta",
         "Esquina",
+        "Hero",
         "Estilo=Esquina, Icono=Destellos",
         "Estilo=Esquina, Icono=Estrella",
         "Estilo=Esquina, Icono=Ninguno"
@@ -5657,6 +9968,66 @@
         {
           "page": "conoce-a-barbara",
           "section": "seccion-blog"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "hero"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "contenido-relacionado"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "contenido-relacionado"
+        },
+        {
+          "page": "curso-angelita-pro",
+          "section": "hero"
+        },
+        {
+          "page": "curso-angelita-pro",
+          "section": "contenido-relacionado"
+        },
+        {
+          "page": "curso-angelita-pro",
+          "section": "contenido-relacionado"
+        },
+        {
+          "page": "curso-angelita-pro",
+          "section": "contenido-relacionado"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "hero"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "contenido-relacionado"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "contenido-relacionado"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "contenido-relacionado"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "hero"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "contenido-relacionado"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "contenido-relacionado"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "contenido-relacionado"
         },
         {
           "page": "home",
@@ -5802,6 +10173,39 @@
       "sample": "{\"enlace_texto\":\"Leer artículo\",\"etiqueta\":\"Especiales\",\"imagen\":\"interesar-foto-tarjeta-1\",\"meta\":\"Publicado el 12 de febrero de 2024 · 4 min de lectura\",\"resumen\":\"Qué esperar cuando tu bebé protesta y cómo acompañarlo con calma, sin culpa.\",\"titulo\":\"5 señales de que tu bebé está en transición de siestas\"}"
     },
     {
+      "id": "componente:Testimonio · Destacado",
+      "tag": "componente",
+      "nombre": "Testimonio · Destacado",
+      "count": 4,
+      "kind": "cross-page",
+      "files": [
+        "curso-a-dormir-por-fin",
+        "curso-angelita-pro",
+        "curso-horarios-ideales",
+        "curso-recien-nacidos-go"
+      ],
+      "variantes": [],
+      "locations": [
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "testimonios"
+        },
+        {
+          "page": "curso-angelita-pro",
+          "section": "testimonios"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "testimonios"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "testimonios"
+        }
+      ],
+      "sample": "{\"nombre\":\"Bernardita, mamá de Lara (7 meses)\",\"testimonio\":\"“Hay un antes y un después de la asesoría. La consistencia y la seguridad que nos dabas permitió que Lara aprenda a dormir sola.”\",\"titulo\":\"Lo que dicen las mamás que trabajaron con Bárbara.\"}"
+    },
+    {
       "id": "componente:Testimonios · Tarjetas",
       "tag": "componente",
       "nombre": "Testimonios · Tarjetas",
@@ -5848,6 +10252,166 @@
       "section": "seccion-de-contacto",
       "suggestedSkill": "wp-form",
       "hint": "Campos con etiqueta y línea inferior (Nombres y Apellidos, Email, Celular con prefijo de país '+51 ▾', '¿Sobre qué quieres escribirnos?' con flecha de desplegable, Mensaje con área alta de 69px), casilla 14×14 'He leído y acepto las políticas de privacidad' y botón 'Enviar mensaje'. La nota de enlaces/ pide la skill wp-form y envío a Mailpit (luego Fluent SMTP).",
+      "estado": "propuesto"
+    },
+    {
+      "type": "formulario",
+      "file": "curso-a-dormir-por-fin",
+      "section": "hero",
+      "suggestedSkill": "wp-form",
+      "hint": "Campo \"Código de cupón de descuento\" con línea inferior y botón circular con flecha (4013:15214): entrada de cupón; en WooCommerce el cupón se aplica en carrito/checkout.",
+      "estado": "propuesto"
+    },
+    {
+      "type": "slider",
+      "file": "curso-a-dormir-por-fin",
+      "section": "testimonios",
+      "suggestedSkill": null,
+      "hint": "Instancia del componente \"Testimonio · Destacado\" (3810:107): un testimonio centrado, flechas izquierda/derecha (círculos blancos 48px con borde beige) y 4 puntos de paginación. Nota de enlaces: \"los testimonios de aca tambien son indepenientes\" (propios de este curso).",
+      "estado": "propuesto"
+    },
+    {
+      "type": "acordeon",
+      "file": "curso-a-dormir-por-fin",
+      "section": "preguntas-frecuentes",
+      "suggestedSkill": "wp-accordion",
+      "hint": "7 preguntas con check + texto y línea inferior; el frame no trae respuestas ni ícono de abrir/cerrar (el ícono es un check, no un chevron). Nota de enlaces: \"las preguntas frecuentes tambien son independientes en este curso.\"",
+      "estado": "propuesto"
+    },
+    {
+      "type": "modal",
+      "file": "curso-a-dormir-por-fin",
+      "section": "drawer-carrito",
+      "suggestedSkill": "wp-modal",
+      "hint": "Panel lateral (drawer) de 480×1080 \"Resumen de compra\" con cerrar (X): se abre al agregar un curso al carrito (nota de página: \"Para todo los cursos, al momento de guardar en el carrito sale este tipo drawer\"). Es el mini carrito de WooCommerce, común a todos los cursos. El nodo 3752:5054 está fuera del frame de la página.",
+      "estado": "propuesto"
+    },
+    {
+      "type": "formulario",
+      "file": "curso-angelita-pro",
+      "section": "hero",
+      "suggestedSkill": "wp-form",
+      "hint": "Campo 'Código de cupón de descuento' con línea inferior y botón circular con flecha (4012:13668) dentro de la tarjeta de compra: input + enviar (cupón de WooCommerce/Tutor).",
+      "estado": "propuesto"
+    },
+    {
+      "type": "slider",
+      "file": "curso-angelita-pro",
+      "section": "conoce-angelito-pro-por-dentro",
+      "suggestedSkill": null,
+      "hint": "Imagen/video 614×298 con flechas izquierda/derecha (4013:13973) debajo: carrusel de videos. Nota del usuario: 'consideraria que esto sea un campo ACF repetater en que caso se vaya a usar acf.'",
+      "estado": "propuesto"
+    },
+    {
+      "type": "slider",
+      "file": "curso-angelita-pro",
+      "section": "testimonios",
+      "suggestedSkill": null,
+      "hint": "Instancia del componente 'Testimonio · Destacado' (3810:107): un testimonio centrado con flechas izquierda/derecha y 4 puntos de paginación.",
+      "estado": "propuesto"
+    },
+    {
+      "type": "acordeon",
+      "file": "curso-angelita-pro",
+      "section": "preguntas-frecuentes",
+      "suggestedSkill": "wp-accordion",
+      "hint": "5 preguntas con check y separador; la primera se ve abierta con su respuesta (color/texto-suave), las otras 4 cerradas sin respuesta en el frame. Fondo color/crema.",
+      "estado": "propuesto"
+    },
+    {
+      "type": "formulario",
+      "file": "curso-horarios-ideales",
+      "section": "hero",
+      "suggestedSkill": "wp-form",
+      "hint": "Tarjeta de compra (4013:19133, crema, radio 8): campo \"Código de cupón de descuento\" con línea inferior y botón circular verde con flecha (hero-cupon-boton.svg). Es un input de cupón con envío, no texto.",
+      "estado": "propuesto"
+    },
+    {
+      "type": "modal",
+      "file": "curso-horarios-ideales",
+      "section": "hero",
+      "suggestedSkill": "wp-modal",
+      "hint": "Las notas de página dicen que al comprar sale el modal \"Selecciona la edad de tu bebé\" (sección modal-selecciona-edad, 3653:2355): el botón \"Comprar ahora\" lo abre en vez de ir directo al carrito.",
+      "estado": "propuesto"
+    },
+    {
+      "type": "modal",
+      "file": "curso-horarios-ideales",
+      "section": "etapas",
+      "suggestedSkill": "wp-modal",
+      "hint": "Las notas de página dicen que \"Más información\" abre el modal de etapas (sección modal-etapas, 3752:5964) con video de preview y precio. El diseño solo dibuja ese modal para 4 a 9 meses; las otras dos etapas usarían el mismo modal con sus datos.",
+      "estado": "propuesto"
+    },
+    {
+      "type": "slider",
+      "file": "curso-horarios-ideales",
+      "section": "testimonios",
+      "suggestedSkill": null,
+      "hint": "Instancia del componente \"Testimonio · Destacado\": un testimonio a la vez, flechas izquierda/derecha (círculo blanco 48 con borde beige) y 4 puntos de paginación: carrusel de testimonios.",
+      "estado": "propuesto"
+    },
+    {
+      "type": "acordeon",
+      "file": "curso-horarios-ideales",
+      "section": "preguntas-frecuentes",
+      "suggestedSkill": "wp-accordion",
+      "hint": "5 preguntas (check + pregunta Body L) separadas por líneas; la primera está abierta con su respuesta (Body S color/texto-suave) y las otras 4 cerradas. La nota de la sección dice que las preguntas frecuentes son independientes en este curso.",
+      "estado": "propuesto"
+    },
+    {
+      "type": "modal",
+      "file": "curso-horarios-ideales",
+      "section": "modal-selecciona-edad",
+      "suggestedSkill": "wp-modal",
+      "hint": "Caja crema 568x652 radio 20 con botón cerrar (X 41x41). La nota de página dice que sale \"al momento de comprar\". No hay overlay dibujado: el grupo está suelto en un lienzo de 1920 en (676, 230).",
+      "estado": "propuesto"
+    },
+    {
+      "type": "formulario",
+      "file": "curso-horarios-ideales",
+      "section": "modal-selecciona-edad",
+      "suggestedSkill": "wp-form",
+      "hint": "3 casillas (24x24 radio 8, borde negro) con check, una por etapa (miniatura 90x74 radio 12 con estrellas + rango de edad); 2 marcadas en el diseño. Total \"$67.00\" y franja #e9e4da \"Estás ahorrando $7.00\" que cambian según cuántas se marquen; botón \"Agregar al carrito\". Es una selección múltiple de etapas con descuento por cantidad.",
+      "estado": "propuesto"
+    },
+    {
+      "type": "modal",
+      "file": "curso-horarios-ideales",
+      "section": "modal-etapas",
+      "suggestedSkill": "wp-modal",
+      "hint": "Modal blanco 620x614 radio 24: cabecera de video 620x320 con botón play (círculo crema 64) y botón cerrar (círculo blanco 40 arriba a la derecha), luego eyebrow, título H3, descripción, precio y botón. Lo abre \"Más información\" de cada etapa (nota de página).",
+      "estado": "propuesto"
+    },
+    {
+      "type": "formulario",
+      "file": "curso-recien-nacidos-go",
+      "section": "hero",
+      "suggestedSkill": "wp-form",
+      "hint": "Tarjeta de compra (crema, radio 8, 375×537): 'Código de cupón de descuento' sobre una línea de 322 px con un círculo verde con flecha a la derecha (hero-cupon-enviar.svg): es un campo de cupón con botón de aplicar, dibujado como texto + línea, no como input.",
+      "estado": "propuesto"
+    },
+    {
+      "type": "slider",
+      "file": "curso-recien-nacidos-go",
+      "section": "resumen-breve",
+      "suggestedSkill": null,
+      "hint": "Una sola imagen 614×298 radio 10 (PNG 1170×780, recortada: w 113.8%, h 156%) con dos flechas circulares de contorno verde 48 px debajo ('Flecha izquierda' / 'Flecha derecha', gap 16): galería/slider de capturas del curso del que el diseño solo dibuja una diapositiva. Sin puntos ni contador.",
+      "estado": "propuesto"
+    },
+    {
+      "type": "slider",
+      "file": "curso-recien-nacidos-go",
+      "section": "testimonios",
+      "suggestedSkill": null,
+      "hint": "La sección entera es una instancia del componente 'Testimonio · Destacado' (3810:107): un testimonio centrado con flechas blancas de borde beige 48 px a izquierda y derecha y 4 puntos debajo (el primero activo, 10 px, los otros 8 px). Las props de la instancia son los valores por defecto del componente.",
+      "estado": "propuesto"
+    },
+    {
+      "type": "acordeon",
+      "file": "curso-recien-nacidos-go",
+      "section": "preguntas-frecuentes",
+      "suggestedSkill": "wp-accordion",
+      "hint": "5 preguntas hermanas (check 14×13 + pregunta Body L 20) con línea separadora de 748.5 px; solo la primera está abierta y muestra su respuesta (Body 18, texto-suave, 760 de ancho, gap 54). Las otras 4 no tienen respuesta en el diseño.",
       "estado": "propuesto"
     },
     {
@@ -5997,6 +10561,38 @@
       "estado": "propuesto"
     },
     {
+      "page": "curso-a-dormir-por-fin",
+      "section": "contenido-relacionado",
+      "reasons": [
+        "Tarjetas de cursos relacionados (imagen 346×370 radio 20 + etiqueta esquina + nombre/rango/precio + botón \"Más información\"). El frame muestra 2 tarjetas (Angelita Pro y Recién Nacidos Go) pero la nota de enlaces dice \"Que rija 3 card de contenido relacionado\". Hay una tercera tarjeta OCULTA en Figma (4013:15977, hidden): \"Horarios del sueño del bebé (4 meses a 3 años)\" con burbujas de edad \"4 a 9 meses\", \"9 a 15 meses\", \"15 a 36 meses\"; no se leyó su código ni su imagen porque no se ve en el frame."
+      ],
+      "estado": "propuesto"
+    },
+    {
+      "page": "curso-angelita-pro",
+      "section": "contenido-relacionado",
+      "reasons": [
+        "3 tarjetas de curso (imagen 346×370 radio 20 con Etiqueta Esquina, nombre + rango de edad, botón 'Más información'): cursos relacionados, probablemente dinámicos (Tutor/Woo). Nota del usuario: 'Que rija 3 card de contenido relacionado.'"
+      ],
+      "estado": "propuesto"
+    },
+    {
+      "page": "curso-horarios-ideales",
+      "section": "contenido-relacionado",
+      "reasons": [
+        "Son otros cursos (Angelita Pro, Recién Nacidos Go, A Dormir Por Fin): contenido relacionado que vendría de los cursos/productos, no de texto fijo."
+      ],
+      "estado": "propuesto"
+    },
+    {
+      "page": "curso-recien-nacidos-go",
+      "section": "contenido-relacionado",
+      "reasons": [
+        "Cursos relacionados: contenido dinámico (productos/cursos) más que texto fijo. La segunda tarjeta es el propio curso Recién Nacidos Go, que es la página actual."
+      ],
+      "estado": "propuesto"
+    },
+    {
       "page": "home",
       "section": "seccion-instagram",
       "reasons": [
@@ -6028,12 +10624,16 @@
         "id": "componente:Botón",
         "tag": "componente",
         "nombre": "Botón",
-        "count": 31,
+        "count": 59,
         "kind": "cross-page",
         "files": [
           "articulo-blog",
           "conoce-a-barbara",
           "contacto",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "mundo-angelitozzz",
           "preguntas-frecuentes",
@@ -6077,6 +10677,118 @@
           {
             "page": "contacto",
             "section": "seccion-de-cta"
+          },
+          {
+            "page": "curso-a-dormir-por-fin",
+            "section": "hero"
+          },
+          {
+            "page": "curso-a-dormir-por-fin",
+            "section": "hero"
+          },
+          {
+            "page": "curso-a-dormir-por-fin",
+            "section": "experiencia-exclusiva"
+          },
+          {
+            "page": "curso-a-dormir-por-fin",
+            "section": "como-funciona"
+          },
+          {
+            "page": "curso-a-dormir-por-fin",
+            "section": "contenido-relacionado"
+          },
+          {
+            "page": "curso-a-dormir-por-fin",
+            "section": "drawer-carrito"
+          },
+          {
+            "page": "curso-a-dormir-por-fin",
+            "section": "drawer-carrito"
+          },
+          {
+            "page": "curso-angelita-pro",
+            "section": "hero"
+          },
+          {
+            "page": "curso-angelita-pro",
+            "section": "hero"
+          },
+          {
+            "page": "curso-angelita-pro",
+            "section": "conoce-angelito-pro-por-dentro"
+          },
+          {
+            "page": "curso-angelita-pro",
+            "section": "contenido-relacionado"
+          },
+          {
+            "page": "curso-angelita-pro",
+            "section": "contenido-relacionado"
+          },
+          {
+            "page": "curso-angelita-pro",
+            "section": "contenido-relacionado"
+          },
+          {
+            "page": "curso-horarios-ideales",
+            "section": "hero"
+          },
+          {
+            "page": "curso-horarios-ideales",
+            "section": "hero"
+          },
+          {
+            "page": "curso-horarios-ideales",
+            "section": "etapas"
+          },
+          {
+            "page": "curso-horarios-ideales",
+            "section": "etapas"
+          },
+          {
+            "page": "curso-horarios-ideales",
+            "section": "etapas"
+          },
+          {
+            "page": "curso-horarios-ideales",
+            "section": "contenido-relacionado"
+          },
+          {
+            "page": "curso-horarios-ideales",
+            "section": "contenido-relacionado"
+          },
+          {
+            "page": "curso-horarios-ideales",
+            "section": "contenido-relacionado"
+          },
+          {
+            "page": "curso-horarios-ideales",
+            "section": "modal-selecciona-edad"
+          },
+          {
+            "page": "curso-horarios-ideales",
+            "section": "modal-etapas"
+          },
+          {
+            "page": "curso-recien-nacidos-go",
+            "section": "hero"
+          },
+          {
+            "page": "curso-recien-nacidos-go",
+            "section": "hero"
+          },
+          {
+            "page": "curso-recien-nacidos-go",
+            "section": "resumen-breve"
+          },
+          {
+            "page": "curso-recien-nacidos-go",
+            "section": "contenido-relacionado"
+          },
+          {
+            "page": "curso-recien-nacidos-go",
+            "section": "contenido-relacionado"
           },
           {
             "page": "home",
@@ -6220,11 +10932,15 @@
         "id": "componente:Etiqueta",
         "tag": "componente",
         "nombre": "Etiqueta",
-        "count": 16,
+        "count": 31,
         "kind": "cross-page",
         "files": [
           "articulo-blog",
           "conoce-a-barbara",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go",
           "home",
           "soluciones-de-sueno",
           "testimonios"
@@ -6232,6 +10948,7 @@
         "variantes": [
           "Tarjeta",
           "Esquina",
+          "Hero",
           "Estilo=Esquina, Icono=Destellos",
           "Estilo=Esquina, Icono=Estrella",
           "Estilo=Esquina, Icono=Ninguno"
@@ -6248,6 +10965,66 @@
           {
             "page": "conoce-a-barbara",
             "section": "seccion-blog"
+          },
+          {
+            "page": "curso-a-dormir-por-fin",
+            "section": "hero"
+          },
+          {
+            "page": "curso-a-dormir-por-fin",
+            "section": "contenido-relacionado"
+          },
+          {
+            "page": "curso-a-dormir-por-fin",
+            "section": "contenido-relacionado"
+          },
+          {
+            "page": "curso-angelita-pro",
+            "section": "hero"
+          },
+          {
+            "page": "curso-angelita-pro",
+            "section": "contenido-relacionado"
+          },
+          {
+            "page": "curso-angelita-pro",
+            "section": "contenido-relacionado"
+          },
+          {
+            "page": "curso-angelita-pro",
+            "section": "contenido-relacionado"
+          },
+          {
+            "page": "curso-horarios-ideales",
+            "section": "hero"
+          },
+          {
+            "page": "curso-horarios-ideales",
+            "section": "contenido-relacionado"
+          },
+          {
+            "page": "curso-horarios-ideales",
+            "section": "contenido-relacionado"
+          },
+          {
+            "page": "curso-horarios-ideales",
+            "section": "contenido-relacionado"
+          },
+          {
+            "page": "curso-recien-nacidos-go",
+            "section": "hero"
+          },
+          {
+            "page": "curso-recien-nacidos-go",
+            "section": "contenido-relacionado"
+          },
+          {
+            "page": "curso-recien-nacidos-go",
+            "section": "contenido-relacionado"
+          },
+          {
+            "page": "curso-recien-nacidos-go",
+            "section": "contenido-relacionado"
           },
           {
             "page": "home",
@@ -6393,6 +11170,39 @@
         "sample": "{\"enlace_texto\":\"Leer artículo\",\"etiqueta\":\"Especiales\",\"imagen\":\"interesar-foto-tarjeta-1\",\"meta\":\"Publicado el 12 de febrero de 2024 · 4 min de lectura\",\"resumen\":\"Qué esperar cuando tu bebé protesta y cómo acompañarlo con calma, sin culpa.\",\"titulo\":\"5 señales de que tu bebé está en transición de siestas\"}"
       },
       {
+        "id": "componente:Testimonio · Destacado",
+        "tag": "componente",
+        "nombre": "Testimonio · Destacado",
+        "count": 4,
+        "kind": "cross-page",
+        "files": [
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "curso-horarios-ideales",
+          "curso-recien-nacidos-go"
+        ],
+        "variantes": [],
+        "locations": [
+          {
+            "page": "curso-a-dormir-por-fin",
+            "section": "testimonios"
+          },
+          {
+            "page": "curso-angelita-pro",
+            "section": "testimonios"
+          },
+          {
+            "page": "curso-horarios-ideales",
+            "section": "testimonios"
+          },
+          {
+            "page": "curso-recien-nacidos-go",
+            "section": "testimonios"
+          }
+        ],
+        "sample": "{\"nombre\":\"Bernardita, mamá de Lara (7 meses)\",\"testimonio\":\"“Hay un antes y un después de la asesoría. La consistencia y la seguridad que nos dabas permitió que Lara aprenda a dormir sola.”\",\"titulo\":\"Lo que dicen las mamás que trabajaron con Bárbara.\"}"
+      },
+      {
         "id": "componente:Testimonios · Tarjetas",
         "tag": "componente",
         "nombre": "Testimonios · Tarjetas",
@@ -6422,8 +11232,46 @@
       "id": "figma-token-conflict",
       "severity": "warning",
       "note": "Un mismo token tiene valores distintos en páginas distintas (se usó el de la primera página).",
-      "count": 1,
+      "count": 3,
       "locations": [
+        {
+          "token": "Blanco",
+          "valores": [
+            {
+              "valor": "#FFFFFF",
+              "paginas": [
+                "curso-a-dormir-por-fin"
+              ]
+            },
+            {
+              "valor": "#ffffff",
+              "paginas": [
+                "curso-horarios-ideales",
+                "curso-recien-nacidos-go"
+              ]
+            }
+          ]
+        },
+        {
+          "token": "Beige",
+          "valores": [
+            {
+              "valor": "#D7D0B5",
+              "paginas": [
+                "curso-a-dormir-por-fin",
+                "preguntas-frecuentes"
+              ]
+            },
+            {
+              "valor": "#d7d0b5",
+              "paginas": [
+                "curso-angelita-pro",
+                "curso-horarios-ideales",
+                "curso-recien-nacidos-go"
+              ]
+            }
+          ]
+        },
         {
           "token": "shadow header",
           "valores": [
@@ -6441,6 +11289,10 @@
               "paginas": [
                 "blog",
                 "contacto",
+                "curso-a-dormir-por-fin",
+                "curso-angelita-pro",
+                "curso-horarios-ideales",
+                "curso-recien-nacidos-go",
                 "home",
                 "soluciones-de-sueno",
                 "testimonios"
@@ -6454,7 +11306,7 @@
       "id": "figma-color-parecido",
       "severity": "info",
       "note": "Colores casi iguales: conviene unirlos en un token o decidir que son distintos (se pregunta en _shared.md).",
-      "count": 12,
+      "count": 15,
       "locations": [
         {
           "a": "color/teal #9cb0b0",
@@ -6467,9 +11319,19 @@
           "distancia": 18.1
         },
         {
+          "a": "color/blanco #ffffff",
+          "b": "Blanco #FFFFFF",
+          "distancia": 0
+        },
+        {
           "a": "color/beige #d7d0b5",
           "b": "Beige #D7D0B5",
           "distancia": 0
+        },
+        {
+          "a": "color/crema #f8f6f1",
+          "b": "Blanco #FFFFFF",
+          "distancia": 18.1
         },
         {
           "a": "color/texto-suave #6b6b6b",
@@ -6477,8 +11339,18 @@
           "distancia": 22
         },
         {
-          "a": "suelto #000000 (4 usos)",
+          "a": "suelto #000000 (17 usos)",
           "b": "color/texto #000000",
+          "distancia": 0
+        },
+        {
+          "a": "suelto #234549 (4 usos)",
+          "b": "color/verde #234549",
+          "distancia": 0
+        },
+        {
+          "a": "suelto #492343 (4 usos)",
+          "b": "green 80 #492343",
           "distancia": 0
         },
         {
@@ -6487,18 +11359,13 @@
           "distancia": 0
         },
         {
-          "a": "suelto #492343 (2 usos)",
-          "b": "green 80 #492343",
-          "distancia": 0
-        },
-        {
           "a": "suelto #d7d0b500 (2 usos)",
           "b": "color/beige #d7d0b5",
           "distancia": 0
         },
         {
-          "a": "suelto #234549 (1 usos)",
-          "b": "color/verde #234549",
+          "a": "suelto #ffffff (2 usos)",
+          "b": "color/blanco #ffffff",
           "distancia": 0
         },
         {
@@ -6507,9 +11374,9 @@
           "distancia": 0
         },
         {
-          "a": "suelto #ffffff (1 usos)",
-          "b": "color/blanco #ffffff",
-          "distancia": 0
+          "a": "suelto #e9e4da (1 usos)",
+          "b": "color/blush #f1dbd5",
+          "distancia": 13
         },
         {
           "a": "suelto #d7d0b5",
@@ -6522,7 +11389,7 @@
       "id": "figma-senal-propuesta",
       "severity": "info",
       "note": "Señales deducidas del diseño (repetidor, slider, formulario...): se confirman con el usuario en los specs.",
-      "count": 104,
+      "count": 207,
       "locations": [
         {
           "page": "articulo-blog",
@@ -6728,6 +11595,521 @@
           "page": "contacto",
           "section": "seccion-de-cta",
           "tipo": "otro"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "hero",
+          "tipo": "formulario"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "hero",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "hero",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "hero",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "seccion-de-comparacion",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "para-ti",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "para-ti",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "para-ti",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "que-incluye",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "que-incluye",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "que-incluye",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "ademas-incluye",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "ademas-incluye",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "experiencia-exclusiva",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "experiencia-exclusiva",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "experiencia-exclusiva",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "como-funciona",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "como-funciona",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "como-funciona",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "testimonios",
+          "tipo": "slider"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "testimonios",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "preguntas-frecuentes",
+          "tipo": "acordeon"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "preguntas-frecuentes",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "contenido-relacionado",
+          "tipo": "listado"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "contenido-relacionado",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "contenido-relacionado",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "drawer-carrito",
+          "tipo": "modal"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "drawer-carrito",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "curso-a-dormir-por-fin",
+          "section": "drawer-carrito",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-angelita-pro",
+          "section": "hero",
+          "tipo": "formulario"
+        },
+        {
+          "page": "curso-angelita-pro",
+          "section": "hero",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-angelita-pro",
+          "section": "hero",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-angelita-pro",
+          "section": "hero",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "curso-angelita-pro",
+          "section": "para-ti",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "curso-angelita-pro",
+          "section": "para-ti",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "curso-angelita-pro",
+          "section": "que-incluye",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "curso-angelita-pro",
+          "section": "que-incluye",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-angelita-pro",
+          "section": "como-funciona",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "curso-angelita-pro",
+          "section": "conoce-angelito-pro-por-dentro",
+          "tipo": "slider"
+        },
+        {
+          "page": "curso-angelita-pro",
+          "section": "conoce-angelito-pro-por-dentro",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "curso-angelita-pro",
+          "section": "conoce-angelito-pro-por-dentro",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "curso-angelita-pro",
+          "section": "testimonios",
+          "tipo": "slider"
+        },
+        {
+          "page": "curso-angelita-pro",
+          "section": "testimonios",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "curso-angelita-pro",
+          "section": "testimonios",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "curso-angelita-pro",
+          "section": "preguntas-frecuentes",
+          "tipo": "acordeon"
+        },
+        {
+          "page": "curso-angelita-pro",
+          "section": "preguntas-frecuentes",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "curso-angelita-pro",
+          "section": "contenido-relacionado",
+          "tipo": "listado"
+        },
+        {
+          "page": "curso-angelita-pro",
+          "section": "contenido-relacionado",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "curso-angelita-pro",
+          "section": "contenido-relacionado",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "hero",
+          "tipo": "formulario"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "hero",
+          "tipo": "modal"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "hero",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "hero",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "hero",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "etapas",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "etapas",
+          "tipo": "modal"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "etapas",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "para-ti",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "para-ti",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "para-ti",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "que-aprenderas",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "que-aprenderas",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "que-aprenderas",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "ademas-incluye",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "ademas-incluye",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "testimonios",
+          "tipo": "slider"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "testimonios",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "testimonios",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "preguntas-frecuentes",
+          "tipo": "acordeon"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "preguntas-frecuentes",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "contenido-relacionado",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "contenido-relacionado",
+          "tipo": "listado"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "contenido-relacionado",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "contenido-relacionado",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "modal-selecciona-edad",
+          "tipo": "modal"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "modal-selecciona-edad",
+          "tipo": "formulario"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "modal-selecciona-edad",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "modal-etapas",
+          "tipo": "modal"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "modal-etapas",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-horarios-ideales",
+          "section": "modal-etapas",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "hero",
+          "tipo": "formulario"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "hero",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "hero",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "hero",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "porque-este-curso",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "porque-este-curso",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "lista-que-aprenderas",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "lista-que-aprenderas",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "lista-que-aprenderas",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "resumen-breve",
+          "tipo": "slider"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "resumen-breve",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "resumen-breve",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "testimonios",
+          "tipo": "slider"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "testimonios",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "testimonios",
+          "tipo": "decorativo"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "testimonios",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "preguntas-frecuentes",
+          "tipo": "acordeon"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "preguntas-frecuentes",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "preguntas-frecuentes",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "contenido-relacionado",
+          "tipo": "repetidor"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "contenido-relacionado",
+          "tipo": "listado"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "contenido-relacionado",
+          "tipo": "otro"
+        },
+        {
+          "page": "curso-recien-nacidos-go",
+          "section": "contenido-relacionado",
+          "tipo": "decorativo"
         },
         {
           "page": "home",

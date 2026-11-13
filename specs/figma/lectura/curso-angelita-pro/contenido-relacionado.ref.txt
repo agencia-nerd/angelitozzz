@@ -1,0 +1,112 @@
+const imgFlecha = "assets/boton-flecha.svg";
+const imgContenidoRelacionado = "assets/relacionado-fondo-lunas.png";
+const imgNewbornBabyGirlSleepingBlueSheetsHome2 = "assets/relacionado-a-dormir-por-fin.jpg";
+const imgCuteLittleGirlIsSleepingBedWithTeddyBearToy2 = "assets/relacionado-recien-nacidos-go.jpg";
+const imgCuteBabySleepingPeacefullyNurseryFloor1 = "assets/relacionado-horarios-ideales.png";
+
+type EtiquetaProps = {
+  className?: string;
+  estilo?: "Esquina";
+  icono?: "Ninguno";
+  texto?: string;
+};
+
+function Etiqueta({ className, estilo = "Esquina", icono = "Ninguno", texto = "Etiqueta" }: EtiquetaProps) {
+  return (
+    <div className={className || "bg-[var(--color\\/teal,#9cb0b0)] content-stretch flex items-center pl-[18px] pr-[16px] py-[7px] relative rounded-br-[16px]"} data-node-id="3863:533">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[15px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="3863:534">
+        {texto}
+      </p>
+    </div>
+  );
+}
+
+type BotonProps = {
+  className?: string;
+  flecha?: boolean;
+  texto?: string;
+  tipo?: "Frambuesa";
+};
+
+function Boton({ className, flecha = true, texto = "Texto del botón", tipo = "Frambuesa" }: BotonProps) {
+  return (
+    <div className={className || "bg-[var(--color\\/frambuesa,#a8566a)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px]"} data-node-id="3711:6161">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="3711:6162">
+        {texto}
+      </p>
+      {flecha && (
+        <div className="relative shrink-0 size-[18px]" data-node-id="3711:6163" data-name="Flecha">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function ContenidoRelacionado() {
+  return (
+    <div className="content-stretch flex flex-col gap-[47px] items-center py-[88px] relative size-full" data-node-id="4013:14319" data-name="Contenido relacionado">
+      <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgContenidoRelacionado} />
+      <div className="[word-break:break-word] content-stretch flex flex-col gap-[20px] items-start not-italic relative shrink-0 w-[1106px]" data-node-id="4013:14320">
+        <p className="font-['Barlow_Condensed:SemiBold'] leading-[1.1] relative shrink-0 text-[50px] text-[color:var(--color\/verde,#234549)] w-full" data-node-id="4013:14321">
+          También podría interesarte...
+        </p>
+        <p className="font-['Barlow_Condensed:Regular'] leading-[1.5] relative shrink-0 text-[18px] text-[color:var(--color\/texto,black)] w-full" data-node-id="4013:14322">
+          Descubre otros cursos diseñados para acompañarte en diferentes etapas del desarrollo del sueño de tu bebé.
+        </p>
+      </div>
+      <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="4013:14323">
+        <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-0 mt-0 place-items-start relative row-1" data-node-id="4013:14324">
+          <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-0 mt-0 place-items-start relative row-1" data-node-id="4013:14325">
+            <div className="col-1 h-[370px] ml-0 mt-0 overflow-clip relative rounded-[20px] row-1 w-[346px]" data-node-id="4013:14326" data-name="Imagen con etiqueta">
+              <div className="absolute h-[370px] left-0 rounded-[20px] top-0 w-[346px]" data-node-id="4013:14327" data-name="newborn-baby-girl-sleeping-blue-sheets-home 2">
+                <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[20px] size-full" src={imgNewbornBabyGirlSleepingBlueSheetsHome2} />
+              </div>
+              <Etiqueta className="absolute bg-[var(--color\/teal,#9cb0b0)] content-stretch flex items-center left-0 pl-[18px] pr-[16px] py-[7px] rounded-br-[16px] top-0" texto="Asesoría personalizada" />
+            </div>
+            <div className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] ml-[28px] mt-[391px] not-italic relative row-1 text-[18px] text-[color:var(--color\/texto,black)] text-center w-[291px]" data-node-id="4013:14329">
+              <p className="leading-[1.5] mb-0">A Dormir Por Fin</p>
+              <p className="leading-[1.5]">(4 meses a 4 años)</p>
+            </div>
+          </div>
+          <Boton className="bg-[var(--color\/frambuesa,#a8566a)] col-1 content-stretch flex gap-[10px] items-center ml-[82px] mt-[465px] pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] row-1" texto="Más información" />
+        </div>
+        <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-[380px] mt-0 place-items-start relative row-1" data-node-id="4013:14331">
+          <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-0 mt-0 place-items-start relative row-1" data-node-id="4013:14332">
+            <div className="col-1 h-[370px] ml-0 mt-0 overflow-clip relative rounded-[20px] row-1 w-[346px]" data-node-id="4013:14333" data-name="Imagen con etiqueta">
+              <div className="absolute h-[370px] left-0 rounded-[20px] top-0 w-[346px]" data-node-id="4013:14334" data-name="cute-little-girl-is-sleeping-bed-with-teddy-bear-toy 2">
+                <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[20px] size-full" src={imgCuteLittleGirlIsSleepingBedWithTeddyBearToy2} />
+              </div>
+              <Etiqueta className="absolute bg-[var(--color\/teal,#9cb0b0)] content-stretch flex items-center left-0 pl-[18px] pr-[16px] py-[7px] rounded-br-[16px] top-0" texto="Curso Online" />
+            </div>
+            <div className="col-1 h-[370px] ml-0 mt-0 relative rounded-[20px] row-1 w-[346px]" data-node-id="4013:14336" data-name="shutterstock_294453899 1">
+              <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[20px] size-full" src={imgCuteLittleGirlIsSleepingBedWithTeddyBearToy2} />
+            </div>
+            <div className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] ml-[115px] mt-[391px] not-italic relative row-1 text-[18px] text-[color:var(--color\/texto,black)] text-center whitespace-nowrap" data-node-id="4013:14337">
+              <p className="leading-[1.5] mb-0">Recién Nacidos Go</p>
+              <p className="leading-[1.5]">(0 a 12 semanas)</p>
+            </div>
+          </div>
+          <Boton className="bg-[var(--color\/frambuesa,#a8566a)] col-1 content-stretch flex gap-[10px] items-center ml-[82px] mt-[465px] pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] row-1" texto="Más información" />
+        </div>
+        <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-[760px] mt-0 place-items-start relative row-1" data-node-id="4013:14339">
+          <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-0 mt-0 place-items-start relative row-1" data-node-id="4013:14340">
+            <Boton className="bg-[var(--color\/frambuesa,#a8566a)] col-1 content-stretch flex gap-[10px] items-center ml-[81px] mt-[470px] pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] row-1" texto="Más información" />
+            <div className="col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-0 mt-0 place-items-start relative row-1" data-node-id="4013:14342">
+              <div className="col-1 h-[370px] ml-0 mt-0 overflow-clip relative rounded-[20px] row-1 w-[346px]" data-node-id="4013:14343" data-name="Imagen con etiqueta">
+                <div className="absolute h-[370px] left-0 rounded-[20px] top-0 w-[346px]" data-node-id="4013:14344" data-name="cute-baby-sleeping-peacefully-nursery-floor 1">
+                  <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[20px] size-full" src={imgCuteBabySleepingPeacefullyNurseryFloor1} />
+                </div>
+                <Etiqueta className="absolute bg-[var(--color\/teal,#9cb0b0)] content-stretch flex items-center left-0 pl-[18px] pr-[16px] py-[7px] rounded-br-[16px] top-0" texto="Curso Online" />
+              </div>
+              <div className="[word-break:break-word] col-1 font-['Barlow_Condensed:Regular'] ml-[92px] mt-[391px] not-italic relative row-1 text-[18px] text-[color:var(--color\/texto,black)] text-center whitespace-nowrap" data-node-id="4013:14346">
+                <p className="leading-[1.5] mb-0">Cursos de Horarios Ideales</p>
+                <p className="leading-[1.5]">(4 meses a 3 años)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

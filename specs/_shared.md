@@ -188,8 +188,15 @@ Cada componente vive en `template-parts/components/<nombre>.php` y recibe sus da
 
 - **Origen:** tarjetas de soluciones-de-sueno/shop y home/como-ayudarte (imagen 346 × 374, etiqueta de esquina, nombre y edad, descripción, viñetas, botón)
 - **Destino:** `template-parts/components/producto-card.php`
-- **Argumentos:** `imagen` (array imagen/ID o vacío: sin imagen usa la imagen por defecto "not found", `assets/img/ayudarte-imagen-not-found.webp`), `etiqueta` (string, opcional), `etiqueta_icono` (`ninguno` | `destellos` | `estrella`), `titulo` (string, requerido), `edad` (string, opcional), `descripcion` (string, requerido), `beneficios` (array de strings, opcional), `boton` (array link, requerido), `loading` (`lazy` | `eager`, por defecto `lazy`: `eager` para las tarjetas de la primera pantalla)
-- **Se usa en:** home/como-ayudarte, soluciones-de-sueno/shop (`woocommerce/content-product.php` la llama)
+- **Argumentos:** `imagen` (array imagen/ID o vacío: sin imagen usa la imagen por defecto "not found", `assets/img/ayudarte-imagen-not-found.webp`), `etiqueta` (string, opcional), `etiqueta_icono` (`ninguno` | `destellos` | `estrella`), `titulo` (string, requerido), `edad` (string, opcional), `descripcion` (string, opcional: se oculta si viene vacía; los relacionados de las landings no la llevan), `beneficios` (array de strings, opcional), `boton` (array link, requerido), `loading` (`lazy` | `eager`, por defecto `lazy`: `eager` para las tarjetas de la primera pantalla)
+- **Se usa en:** home/como-ayudarte, soluciones-de-sueno/shop (`archive-solucion.php`; hoy, provisional, `woocommerce/content-product.php`), solucion/relacionados
+
+### testimonio-destacado
+
+- **Origen:** componente Figma "Testimonio · Destacado" (testimonios de las 4 landings de soluciones: curso-angelita-pro 4013:14078, curso-a-dormir-por-fin 4013:15586, curso-horarios-ideales 4013:19383, curso-recien-nacidos-go 4013:18105)
+- **Destino:** `template-parts/components/testimonio-destacado.php` y `src/js/modules/testimonio-destacado.js` (Swiper, un testimonio a la vez, no automático)
+- **Argumentos:** `titulo` (string, requerido), `testimonios` (array de `texto` y `autora`; requerido), `fondo` (`crema` | `rosa` | `beige` | `salvia` | `blanco`, por defecto `beige`)
+- **Se usa en:** solucion/secciones (layout `testimonios`). Distinto de `testimonios-slider` (tarjetas con estrellas de Inicio y Mundo): aquí es una cita grande en itálica con la autora, flechas blancas a los lados y puntos debajo; con un solo testimonio no hay flechas ni puntos. Decoración fija: fila de "Z" y nubes.
 
 ### testimonios-slider
 

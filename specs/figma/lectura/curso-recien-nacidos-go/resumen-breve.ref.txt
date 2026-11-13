@@ -1,0 +1,105 @@
+const imgFlecha = "assets/boton-flecha.svg";
+const img844A7474Editar1 = "assets/resumen-foto-curso.png";
+const imgFrame = "assets/resumen-flecha-izquierda.svg";
+const imgFrame1 = "assets/resumen-flecha-derecha.svg";
+const imgGroup = "assets/resumen-destello-blanco-derecha.svg";
+const imgGroup1 = "assets/resumen-destello-gris-derecha.svg";
+const imgGroup2 = "assets/resumen-destello-dorado-derecha.svg";
+const imgGroup3 = "assets/resumen-destello-blanco-izquierda.svg";
+const imgGroup4 = "assets/resumen-destello-dorado-izquierda.svg";
+const imgVector = "assets/resumen-destello-gris-izquierda.svg";
+
+type BotonProps = {
+  className?: string;
+  flecha?: boolean;
+  texto?: string;
+  tipo?: "Frambuesa";
+};
+
+function Boton({ className, flecha = true, texto = "Texto del botón", tipo = "Frambuesa" }: BotonProps) {
+  return (
+    <div className={className || "bg-[var(--color\\/frambuesa,#a8566a)] content-stretch flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px]"} data-node-id="3711:6161">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/blanco,white)] whitespace-nowrap" data-node-id="3711:6162">
+        {texto}
+      </p>
+      {flecha && (
+        <div className="relative shrink-0 size-[18px]" data-node-id="3711:6163" data-name="Flecha">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFlecha} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function ResumenBreveDelCurso() {
+  return (
+    <div className="bg-[var(--color\/blush,#f1dbd5)] content-stretch flex flex-col items-center px-[405px] py-[104px] relative size-full" data-node-id="4013:18035" data-name="Resumen breve del curso">
+      <p className="[word-break:break-word] font-['Barlow_Condensed:SemiBold'] leading-[1.1] min-w-full not-italic relative shrink-0 text-[50px] text-[color:var(--color\/verde,#234549)] text-center w-[min-content]" data-node-id="4013:18036">
+        Así se ve el curso por dentro.
+      </p>
+      <div className="h-[16px] relative shrink-0 w-[10px]" data-node-id="4013:18037" data-name="espacio 16" />
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] text-center w-[820px]" data-node-id="4013:18038">
+        Cada video es corto, claro y lleno de información práctica — para que puedas verlo cuando tu bebé te lo permita y aplicarlo ese mismo día.
+      </p>
+      <div className="h-[40px] relative shrink-0 w-[10px]" data-node-id="4013:18039" data-name="espacio 40" />
+      <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="4013:18040">
+        <div className="col-1 h-[298.428px] ml-0 mt-0 relative rounded-[10px] row-1 w-[613.734px]" data-node-id="4013:18041" data-name="844A7474-Editar 1">
+          <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[10px]">
+            <img alt="" className="absolute h-[155.99%] left-[-13.56%] max-w-none top-[-13.43%] w-[113.77%]" src={img844A7474Editar1} />
+          </div>
+        </div>
+      </div>
+      <div className="h-[20px] relative shrink-0 w-[10px]" data-node-id="4013:18044" data-name="espacio 20" />
+      <div className="content-stretch flex gap-[16px] items-center overflow-clip relative shrink-0" data-node-id="4013:18045" data-name="Flechas">
+        <div className="border-[1.5px] border-[var(--color\/verde,#234549)] border-solid content-stretch flex items-center justify-center overflow-clip relative rounded-[100px] shrink-0 size-[48px]" data-node-id="4013:18046" data-name="Flecha izquierda">
+          <div className="relative shrink-0 size-[20px]" data-node-id="4013:18047" data-name="Frame">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+          </div>
+        </div>
+        <div className="border-[1.5px] border-[var(--color\/verde,#234549)] border-solid content-stretch flex items-center justify-center overflow-clip relative rounded-[100px] shrink-0 size-[48px]" data-node-id="4013:18050" data-name="Flecha derecha">
+          <div className="relative shrink-0 size-[20px]" data-node-id="4013:18051" data-name="Frame">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame1} />
+          </div>
+        </div>
+      </div>
+      <div className="h-[20px] relative shrink-0 w-[10px]" data-node-id="4013:18054" data-name="espacio 20" />
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Regular'] leading-[1.5] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/texto,black)] text-center w-[600px]" data-node-id="4013:18055">
+        Desde tu compra tienes 4 meses para acceder y ver el curso las veces que quieras.
+      </p>
+      <div className="h-[32px] relative shrink-0 w-[10px]" data-node-id="4013:18056" data-name="espacio 32" />
+      <Boton className="bg-[var(--color\/frambuesa,#a8566a)] content-stretch cursor-pointer flex gap-[10px] items-center pl-[28px] pr-[24px] py-[14px] relative rounded-[100px] shrink-0" texto="Comprar ahora — $97 USD" />
+      <div className="absolute contents left-[490px] top-[334.63px]" data-node-id="4013:18058">
+        <div className="absolute h-[53.972px] left-[533.31px] top-[361.61px] w-[61.874px]" data-node-id="4013:18059" data-name="Frame" />
+        <div className="absolute h-[26.986px] left-[490px] top-[334.63px] w-[30.937px]" data-node-id="4013:18060" data-name="Frame" />
+      </div>
+      <div className="absolute contents left-[1501px] top-[334.32px]" data-node-id="4013:18061">
+        <div className="absolute h-[69.736px] left-[1580px] overflow-clip top-[716.84px] w-[91px]" data-node-id="4013:18062" data-name="Frame">
+          <div className="absolute inset-[0_11.73%_1.32%_19.01%]" data-node-id="4013:18063" data-name="Group">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup} />
+          </div>
+        </div>
+        <div className="absolute h-[31.304px] left-[1501px] overflow-clip top-[637.88px] w-[28.569px]" data-node-id="4013:18077" data-name="Frame">
+          <div className="absolute inset-[22.41%_38.35%_24.53%_8.18%]" data-node-id="4013:18078" data-name="Group">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup1} />
+          </div>
+        </div>
+        <div className="absolute h-[64.766px] left-[1521px] overflow-clip top-[334.32px] w-[59.108px]" data-node-id="4013:18080" data-name="Frame">
+          <div className="absolute inset-[22.41%_31.22%_24.53%_15.31%]" data-node-id="4013:18081" data-name="Group">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup2} />
+          </div>
+        </div>
+      </div>
+      <div className="absolute h-[132.293px] left-[376px] overflow-clip top-[122.04px] w-[151px]" data-node-id="4013:18083" data-name="Frame">
+        <div className="absolute inset-[0_13.46%_0_6.31%]" data-node-id="4013:18084" data-name="Group">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup3} />
+        </div>
+      </div>
+      <div className="absolute inset-[45.3%_81.83%_50.02%_16.41%]" data-node-id="4013:18098" data-name="Group">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGroup4} />
+      </div>
+      <div className="absolute inset-[68.01%_71.49%_28.83%_27.14%]" data-node-id="4013:18100" data-name="Vector">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+      </div>
+    </div>
+  );
+}

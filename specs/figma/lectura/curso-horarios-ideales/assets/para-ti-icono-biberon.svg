@@ -1,0 +1,12 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="20.7" height="55.2" viewBox="0 0 20.7 55.2" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 426">
+<path id="Vector 63" d="M3.45 15.525C3.45 13.8 4.14 9.66 6.9 6.9" stroke-width="2.91923" stroke-linecap="round" stroke="#492343" style="stroke:#492343;stroke:color(display-p3 0.2863 0.1373 0.2639);stroke-opacity:1;"/>
+<path id="Vector 64" d="M17.25 15.525C17.25 13.8 16.56 9.66 13.8 6.9" stroke-width="2.91923" stroke-linecap="round" stroke="#492343" style="stroke:#492343;stroke:color(display-p3 0.2863 0.1373 0.2639);stroke-opacity:1;"/>
+<mask id="stroke0_0_17" fill="white">
+<path d="M0 23C0 21.7297 1.02975 20.7 2.3 20.7H18.4C19.6703 20.7 20.7 21.7297 20.7 23V52.9C20.7 54.1703 19.6703 55.2 18.4 55.2H2.3C1.02974 55.2 0 54.1703 0 52.9V23Z"/>
+</mask>
+<rect id="Rectangle 179" y="20.7" width="20.7" height="34.5" rx="2.3" stroke-width="5.75" stroke="#492343" style="stroke:#492343;stroke:color(display-p3 0.2863 0.1373 0.2639);stroke-opacity:1;" mask="url(#stroke0_0_17)"/>
+<rect id="Rectangle 180" x="1.15" y="16.1" width="18.4" height="4.6" rx="2.3" stroke-width="2.3" stroke="#492343" style="stroke:#492343;stroke:color(display-p3 0.2863 0.1373 0.2639);stroke-opacity:1;"/>
+<circle id="Ellipse 60" cx="10.0625" cy="4.3125" r="3.08036" stroke-width="2.46429" stroke="#492343" style="stroke:#492343;stroke:color(display-p3 0.2863 0.1373 0.2639);stroke-opacity:1;"/>
+</g>
+</svg>

@@ -1,0 +1,155 @@
+const imgDecoracion = "assets/testimonios-nube-derecha.svg";
+const imgVector = "assets/testimonios-nube-izquierda.svg";
+const imgVector47 = "assets/testimonios-ojo-izquierdo.svg";
+const imgVector48 = "assets/testimonios-ojo-derecho.svg";
+const imgPuntos = "assets/testimonios-puntos.svg";
+const imgFrame = "assets/testimonios-flecha-izquierda.svg";
+const imgFrame1 = "assets/testimonios-flecha-derecha.svg";
+
+type TestimonioDestacadoProps = {
+  className?: string;
+  nombre?: string;
+  testimonio?: string;
+  titulo?: string;
+};
+
+function TestimonioDestacado({ className, nombre = "Valeria, mamá de Joaquín (12 días)", testimonio = "“Mi bebé tiene 12 días y ya la puedo poner en el moisés. Antes solo dormía en brazos.”", titulo = "Lo que dicen las mamás que ya lo tomaron." }: TestimonioDestacadoProps) {
+  return (
+    <div className={className || "bg-[var(--color\\/beige,#d7d0b5)] content-stretch flex flex-col gap-[20px] items-center overflow-clip pb-[181px] pt-[96px] px-[405px] relative w-[1920px]"} data-node-id="3810:107" data-name="Testimonio · Destacado">
+      <div className="absolute bottom-[8px] h-[190px] left-0 opacity-40 right-0" data-node-id="3818:45" data-name="Detalle ZZZ">
+        <div className="absolute flex h-[57.228px] items-center justify-center left-[-16.69px] top-[136px] w-[34.757px]" data-node-id="3818:46">
+          <div className="flex-none rotate-18">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[normal] not-italic relative text-[45px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap">Z</p>
+          </div>
+        </div>
+        <div className="absolute flex h-[61.313px] items-center justify-center left-[118.04px] top-[126px] w-[36.084px]" data-node-id="3818:47">
+          <div className="flex-none rotate-17">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[normal] not-italic relative text-[48px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap">Z</p>
+          </div>
+        </div>
+        <div className="absolute flex h-[69.604px] items-center justify-center left-[254.03px] top-[103px] w-[38.284px]" data-node-id="3818:48">
+          <div className="flex-none rotate-14">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[normal] not-italic relative text-[55px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap">Z</p>
+          </div>
+        </div>
+        <div className="absolute flex h-[79.132px] items-center justify-center left-[393.11px] top-[74px] w-[37.569px]" data-node-id="3818:49">
+          <div className="flex-none rotate-9">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[normal] not-italic relative text-[63px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap">Z</p>
+          </div>
+        </div>
+        <div className="absolute flex h-[87.813px] items-center justify-center left-[534px] top-[43px] w-[34.928px]" data-node-id="3818:50">
+          <div className="flex-none rotate-4">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[normal] not-italic relative text-[72px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap">Z</p>
+          </div>
+        </div>
+        <p className="[word-break:break-word] absolute font-['Barlow_Condensed:Medium'] leading-[normal] left-[675px] not-italic text-[79px] text-[color:var(--color\/crema,#f8f6f1)] top-[18px] whitespace-nowrap" data-node-id="3818:51">
+          Z
+        </p>
+        <div className="absolute flex h-[102.125px] items-center justify-center left-[810px] top-[1.81px] w-[37.504px]" data-node-id="3818:52">
+          <div className="-rotate-2 flex-none">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[normal] not-italic relative text-[84px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap">Z</p>
+          </div>
+        </div>
+        <div className="absolute flex h-[103.159px] items-center justify-center left-[945px] top-[-1.22px] w-[38.538px]" data-node-id="3818:53">
+          <div className="-rotate-2 flex-none">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[normal] not-italic relative text-[85px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap">Z</p>
+          </div>
+        </div>
+        <div className="absolute flex h-[101.578px] items-center justify-center left-[1078.24px] top-[11px] w-[35.758px]" data-node-id="3818:54">
+          <div className="flex-none rotate-1">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[normal] not-italic relative text-[84px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap">Z</p>
+          </div>
+        </div>
+        <div className="absolute flex h-[97.427px] items-center justify-center left-[1206.72px] top-[30px] w-[40.158px]" data-node-id="3818:55">
+          <div className="flex-none rotate-5">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[normal] not-italic relative text-[79px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap">Z</p>
+          </div>
+        </div>
+        <div className="absolute flex h-[92.857px] items-center justify-center left-[1334.55px] top-[54px] w-[44.999px]" data-node-id="3818:56">
+          <div className="flex-none rotate-10">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[normal] not-italic relative text-[74px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap">Z</p>
+          </div>
+        </div>
+        <div className="absolute flex h-[87.419px] items-center justify-center left-[1463.52px] top-[73px] w-[48.528px]" data-node-id="3818:57">
+          <div className="flex-none rotate-15">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[normal] not-italic relative text-[69px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap">Z</p>
+          </div>
+        </div>
+        <div className="absolute flex h-[86.603px] items-center justify-center left-[1596.03px] top-[85px] w-[50.751px]" data-node-id="3818:58">
+          <div className="flex-none rotate-17">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[normal] not-italic relative text-[68px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap">Z</p>
+          </div>
+        </div>
+        <div className="absolute flex h-[86.639px] items-center justify-center left-[1729.66px] top-[84px] w-[51.969px]" data-node-id="3818:59">
+          <div className="flex-none rotate-18">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[normal] not-italic relative text-[68px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap">Z</p>
+          </div>
+        </div>
+        <div className="absolute flex h-[92.86px] items-center justify-center left-[1865.74px] top-[70px] w-[53.094px]" data-node-id="3818:60">
+          <div className="flex-none rotate-16">
+            <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[normal] not-italic relative text-[73px] text-[color:var(--color\/crema,#f8f6f1)] whitespace-nowrap">Z</p>
+          </div>
+        </div>
+      </div>
+      <div className="absolute h-[104.46px] left-[89.58%] right-[-2.08%] top-[40px]" data-node-id="3810:132" data-name="Decoración">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDecoracion} />
+      </div>
+      <div className="absolute h-[168.321px] left-[-3.13%] overflow-clip right-[88.54%] top-[433.68px]" data-node-id="3810:127" data-name="Decoración">
+        <div className="absolute contents inset-[0_0_0.01%_0]" data-node-id="3810:128">
+          <div className="absolute inset-[0_0_0.01%_0]" data-node-id="3810:129" data-name="Vector">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+          </div>
+          <div className="absolute flex inset-[29.84%_66.7%_68.04%_25.95%] items-center justify-center" data-node-id="3810:130" style={{ containerType: "size" }}>
+            <div className="-rotate-180 -scale-x-100 flex-none h-[100cqh] w-[100cqw]">
+              <div className="relative size-full">
+                <div className="absolute inset-[-58.65%_-10.19%_-58.64%_-10.19%]">
+                  <img alt="" className="block max-w-none size-full" src={imgVector47} />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="absolute flex inset-[29.84%_51.24%_68.04%_41.41%] items-center justify-center" data-node-id="3810:131" style={{ containerType: "size" }}>
+            <div className="flex-none h-[100cqh] rotate-180 w-[100cqw]">
+              <div className="relative size-full">
+                <div className="absolute inset-[-58.65%_-10.19%_-58.64%_-10.19%]">
+                  <img alt="" className="block max-w-none size-full" src={imgVector48} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.15] not-italic relative shrink-0 text-[46px] text-[color:var(--color\/verde,#234549)] text-center whitespace-nowrap" data-node-id="3810:108">
+        {titulo}
+      </p>
+      <div className="h-[22px] relative shrink-0 w-[10px]" data-node-id="3817:29" data-name="Espacio título" />
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium_Italic'] italic leading-[1.25] relative shrink-0 text-[26px] text-[color:var(--color\/verde,#234549)] text-center w-[820px]" data-node-id="3810:111">
+        {testimonio}
+      </p>
+      <p className="[word-break:break-word] font-['Barlow_Condensed:Medium'] leading-[1.3] not-italic relative shrink-0 text-[18px] text-[color:var(--color\/texto-suave,#6b6b6b)] text-center whitespace-nowrap" data-node-id="3810:112">
+        {nombre}
+      </p>
+      <div className="h-[8px] relative shrink-0 w-[10px]" data-node-id="3810:113" data-name="Frame" />
+      <div className="h-[10px] relative shrink-0 w-[58px]" data-node-id="3810:114" data-name="Puntos">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgPuntos} />
+      </div>
+      <div className="-translate-y-1/2 absolute bg-[var(--color\/blanco,white)] border border-[var(--color\/beige,#d7d0b5)] border-solid content-stretch flex items-center justify-center left-[405px] overflow-clip rounded-[100px] size-[48px] top-[calc(50%-7px)]" data-node-id="3810:119" data-name="Flecha izquierda">
+        <div className="relative shrink-0 size-[20px]" data-node-id="3810:120" data-name="Frame">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+        </div>
+      </div>
+      <div className="-translate-y-1/2 absolute bg-[var(--color\/blanco,white)] border border-[var(--color\/beige,#d7d0b5)] border-solid content-stretch flex items-center justify-center overflow-clip right-[405px] rounded-[100px] size-[48px] top-[calc(50%-7px)]" data-node-id="3810:123" data-name="Flecha derecha">
+        <div className="relative shrink-0 size-[20px]" data-node-id="3810:124" data-name="Frame">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame1} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function TestimonioDestacado1() {
+  return <TestimonioDestacado className="bg-[var(--color\/beige,#d7d0b5)] content-stretch flex flex-col gap-[20px] items-center pb-[181px] pt-[96px] px-[405px] relative size-full" nombre="Andrea, mamá de Lucas (7 meses)" testimonio="“Por fin entendí las ventanas de vigilia de mi bebé. En una semana sus siestas pasaron de 30 minutos a más de una hora.”" />;
+}
+
+// Component descriptions (Figma):
+// Testimonio · Destacado (3810:107): Testimonio destacado 2026 · un testimonio centrado con corazón, flechas y puntos. Título, testimonio y nombre editables.
