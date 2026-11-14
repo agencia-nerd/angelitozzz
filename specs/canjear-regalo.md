@@ -32,7 +32,7 @@
     - **Nota** (`--text-nota`, `--color-tinta-suave`): "Si aún no tienes cuenta, la creas en el siguiente paso." Con sesión iniciada no se muestra.
     - **Errores** (propuesta, el diseño no los muestra): un solo mensaje para código inexistente, usado o vencido, "Este código no es válido o ya fue usado. Revisa que esté bien escrito.", y por exceso de intentos, "Demasiados intentos. Prueba de nuevo en unos minutos.". Van arriba del campo, en un recuadro con `role="alert"`; el campo toma borde `--color-acento` y conserva lo escrito.
     - **Seguridad** (plugin, F5): nonce; límite de intentos por IP y por usuaria (5 cada 15 minutos, propuesta); el código es de un solo uso y se marca usado en la misma operación que inscribe, para que dos envíos a la vez no lo canjeen dos veces.
-    - **Si ya tiene ese curso activo:** el canje extiende el acceso desde el vencimiento actual (misma regla que volver a comprar, `cursos-datos.md` → `inscripcion`).
+    - **Si ya tiene ese curso activo:** el acceso del canje empieza cuando vence el vigente (se encadena, misma regla que volver a comprar, `cursos-datos.md` → `inscripcion`).
     - Valores sueltos: tarjeta de 720 px, padding 56/64, radio 24 (`--radius-tarjeta`), separación 24 px entre bloques. Móvil (propuesta): la tarjeta ocupa el ancho con 16 px de margen y padding 32/24; el título baja a `--text-h3`; el botón queda centrado con su ancho natural.
 - **Indicaciones del diseño:**
     - nota: cuando alguien quiere canjear el curso.

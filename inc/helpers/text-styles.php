@@ -11,5 +11,6 @@ defined('ABSPATH') || exit;
 
 return [
     // wp-helper:styles:start
+    'italica' => ['marker' => '*', 'class' => 'italic'],
     // wp-helper:styles:end
 ];
