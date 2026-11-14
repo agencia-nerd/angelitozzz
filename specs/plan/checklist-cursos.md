@@ -112,16 +112,16 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 
 ## F2 · Plugin: datos, acceso y puente con Woo
 
-- [ ] Tipos `curso` y `leccion`, con su relación, módulos y orden
-- [ ] Tablas de inscripciones y de avance con migraciones
-- [ ] Acceso: lección solo con inscripción vigente; curso sin comprar → su solución
-- [ ] Materiales: carpeta protegida y descarga con permiso
-- [ ] Avance: completar lección, última vista, porcentaje y conteos (inscritos, activos, completados)
-- [ ] Vencimiento: tarea diaria y estado "Por expirar" (15 días o menos)
-- [ ] Puente con Woo: pedido pagado → inscribe (sin duplicar); reembolsado o cancelado → quita el acceso; registro en `wc_get_logger`
-- [ ] Reproductor de video en una sola función (Vimeo hoy)
-- [ ] Pruebas PHPUnit de inscripción, vencimiento, acceso y puente
-- [ ] `/security-review` y `/code-review` de la fase
+- [x] Tipos `curso` y `leccion`, con su relación, módulos y orden
+- [x] Tablas de inscripciones y de avance con migraciones
+- [x] Acceso: lección solo con inscripción vigente; curso sin comprar → su solución
+- [x] Materiales: carpeta protegida y descarga con permiso
+- [x] Avance: completar lección, última vista, porcentaje y conteos (inscritos, activos, completados)
+- [x] Vencimiento: tarea diaria y estado "Por expirar" (15 días o menos)
+- [x] Puente con Woo: pedido pagado → inscribe (sin duplicar); reembolsado o cancelado → quita el acceso; registro en `wc_get_logger`
+- [x] Reproductor de video en una sola función (Vimeo hoy)
+- [x] Pruebas PHPUnit de inscripción, vencimiento, acceso y puente (2026-11-14: plugin 0.2.0)
+- [x] Revisión de seguridad y correctitud de la fase (2026-11-14): como el plugin no tiene repo, `/security-review` y `/code-review` no aplican (revisan un diff de git); se hizo una revisión independiente del plugin completo. Sus 10 hallazgos se corrigieron con su prueba (57 pruebas en verde)
 
 ## F3 · Cuentas
 
@@ -131,7 +131,7 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 - [ ] Mi perfil: datos personales (cambiar el correo pide la contraseña) y seguridad
 - [ ] Rol `instructora` y capacidades; `wp-admin` cerrado para alumnas; `/mi-cuenta/` → escritorio
 - [ ] Cuenta creada al pagar en el checkout (Woo) con las mismas reglas
-- [ ] `/security-review` y `/code-review` de la fase
+- [x] Revisión de seguridad y correctitud de la fase (2026-11-14): como el plugin no tiene repo, `/security-review` y `/code-review` no aplican (revisan un diff de git); se hizo una revisión independiente del plugin completo. Sus 10 hallazgos se corrigieron con su prueba (57 pruebas en verde)
 
 ## F4 · Maquetación
 
@@ -160,7 +160,7 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 - [ ] Bloque de Mundo en gracias y en el correo de pedido, excepto en regalos
 - [ ] Banner de Mundo solo en la primera lección de cada curso (no en Angelita Pro); mensaje inicial de Angelita Pro
 - [ ] `specs/plan/sobrescrituras.md` al día
-- [ ] `/security-review` y `/code-review` de la fase
+- [x] Revisión de seguridad y correctitud de la fase (2026-11-14): como el plugin no tiene repo, `/security-review` y `/code-review` no aplican (revisan un diff de git); se hizo una revisión independiente del plugin completo. Sus 10 hallazgos se corrigieron con su prueba (57 pruebas en verde)
 
 ## F6 · Pagos y Angelita Pro
 

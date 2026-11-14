@@ -107,12 +107,13 @@
         - `inicio`: `DATETIME` en UTC.
         - `vence`: `DATETIME` en UTC; nulo = ilimitado.
         - `estado`: `activa` | `vencida` | `cancelada`.
+        - `meses`: duración comprada (0 = ilimitado), para recalcular una fila encadenada si se cancela la anterior.
         - `creado` y `actualizado`.
     - **Índices:** `usuario_id`, `curso_id`, `vence`, y único (`pedido_id`, `item_id`). Ese índice único hace que la misma línea de un pedido nunca inscriba dos veces.
     - **Reglas:**
         - **Inicio:** al quedar pagado el pedido; en un regalo, el día del canje.
         - **Vence:** inicio + `_angelitozzz_duracion_acceso` meses, al final del día en la zona horaria del sitio; 0 = ilimitado (`vence` nulo).
-        - **Volver a comprar un curso ya activo** (propuesta): se extiende desde el vencimiento actual; no hay dos inscripciones activas del mismo curso.
+        - **Volver a comprar un curso ya activo** (cambio de la F2, 2026-11-14): cada compra es su propia fila; si el curso está vigente con fecha de fin, la nueva empieza cuando vence la actual (se encadena). Para la alumna es un solo curso con el vencimiento más lejano, y un reembolso de la segunda compra solo quita lo que esa compra dio. Si el acceso vigente es ilimitado, la nueva fila empieza el mismo día. Si se cancela una fila, las que venían encadenadas detrás se adelantan para que no quede un hueco sin acceso. Un bloqueo por usuaria y curso evita que dos pagos simultáneos se encadenen desde la misma fecha.
         - **"Por expirar":** no es un estado guardado. Se calcula al leer (activa y vence en 15 días o menos).
         - **"Pendiente" del historial:** sale del pedido de Woo (`pending` o `on-hold`), no de esta tabla.
         - **Vencimiento:** una tarea diaria con Action Scheduler de WooCommerce (`angelitozzz_cursos_vencer`) pasa a `vencida` las activas cuyo `vence` ya pasó. El acceso igual se comprueba con la fecha en cada lectura: no depende de que la tarea haya corrido.
@@ -145,7 +146,7 @@
     - **Clave e índices:** clave (`usuario_id`, `leccion_id`); índice (`usuario_id`, `curso_id`).
     - **Reglas:**
         - **Vista:** abrir una lección con acceso guarda `vista`, que alimenta "Continuar curso" (última lección vista).
-        - **Marcar como completa:** `POST angelitozzz/v1/lecciones/<id>/completar` con nonce `wp_rest`; solo la usuaria con sesión y con acceso. Se puede desmarcar con `DELETE` en la misma ruta.
+        - **Marcar como completa:** `POST angelitozzz/v1/lecciones/<id>/completar` con nonce `wp_rest`; solo la usuaria con sesión y con el curso comprado (o quien gestiona). Una lección de vista previa se ve sin comprar, pero no guarda avance ni "última vista". Se puede desmarcar con `DELETE` en la misma ruta.
         - **Porcentaje:** lecciones completadas / lecciones publicadas del curso, redondeado. Los PDF del curso no cuentan.
         - **Estados del curso para la alumna:** 0 % = "Empezar", 1 a 99 % = "Continuar", 100 % = "Completado".
         - **Pestañas de la cuenta:** Inscritos = todas sus inscripciones (activas y por expirar); Activos = de 0 a 99 %; Completados = 100 %. Las vencidas o canceladas no se listan en "Cursos inscritos" (se ven en el historial).
@@ -183,6 +184,8 @@
         - Comprueba sesión, nonce y que el PDF pertenezca a una lección o curso que la usuaria puede ver.
         - Entrega el archivo con `Content-Type: application/pdf`, `Content-Disposition: attachment`, `X-Content-Type-Options: nosniff` y sin caché pública.
         - Si algo falla, 403, sin revelar si el archivo existe.
+    - **Sin listados ni feeds:** la consulta principal de `curso` o `leccion` que no es de una sola entrada (`/?post_type=leccion`, su feed) no devuelve nada, así el texto de una lección solo se ve pasando por este control.
+    - **Materiales privados:** el adjunto de cada PDF se guarda con estado `private` y su página de adjunto da 404 (salvo para quien gestiona), para que la URL del archivo no se revele recorriendo IDs. La subida exige poder editar el curso o la lección y comprueba, además del tipo, que el archivo empiece con `%PDF-`.
     - **Nunca se confía en IDs recibidos:** la usuaria es siempre la de la sesión (`get_current_user_id()`).
 - **Estado:** aprobado
 
@@ -215,10 +218,11 @@
     - **Pedido pagado:**
         - Con `woocommerce_order_status_processing` y `woocommerce_order_status_completed`, por cada línea cuyo producto tiene `_angelitozzz_curso_id`, se inscribe a la clienta del pedido (`customer_id`).
         - Sin duplicar (índice único `pedido_id` + `item_id`).
+        - Una línea ya reembolsada del todo (por cantidad o por monto) no inscribe, aunque el pedido pase después a completado.
         - Si la línea es un regalo, no inscribe: genera el código (sección `regalo`).
     - **Reembolso o cancelación:**
         - Con `woocommerce_order_status_refunded` y `woocommerce_order_status_cancelled`, todas las inscripciones del pedido pasan a `cancelada`.
-        - Con un reembolso parcial por línea (`woocommerce_order_refunded`), solo las líneas reembolsadas.
+        - Con un reembolso parcial (`woocommerce_order_refunded`), solo las líneas reembolsadas del todo, por cantidad o por monto. Un reembolso solo de importe que no se asigna a ninguna línea no quita accesos: para devolver un curso, el reembolso se hace desde la línea del pedido.
     - **Pedido sin clienta** (no debería pasar: el checkout exige cuenta): no inscribe y lo registra como error.
     - **HPOS:** solo `wc_get_order()` y `WC_Order`. La compatibilidad está declarada en `includes/compatibilidad.php`.
     - **Angelita Pro (F6):** si se usa WooCommerce Subscriptions, cada renovación pagada extiende la inscripción y la cancelación de la suscripción la deja vencer.
@@ -255,7 +259,7 @@
     - **Canje** (`canjear-regalo.md`):
         - No pasa por el checkout: el plugin valida el cupón (existe, es de regalo, no usado, no vencido) e inscribe a la usuaria de la sesión en `_angelitozzz_regalo_curso_id` con `origen` `regalo`, sin `pedido_id` ni `item_id`, y el inicio el día del canje.
         - En la misma operación marca el cupón como usado (por esa usuaria), con un bloqueo para que dos envíos a la vez no lo canjeen dos veces.
-        - Si ya tiene ese curso activo, se extiende desde el vencimiento actual (regla de `inscripcion`).
+        - Si ya tiene ese curso activo, el acceso del canje se encadena después del vigente (regla de `inscripcion`).
         - Límite de intentos por IP y por usuaria; un solo mensaje de error para inexistente, usado o vencido.
         - Sin sesión, el código válido se guarda en un dato temporal del servidor unido a una cookie de un solo uso, y se completa al volver con sesión.
     - **Reembolso del pedido de regalo:** si el código no se usó, el cupón se anula (pasa a borrador); si ya se canjeó, la inscripción de quien lo recibió pasa a `cancelada`.
