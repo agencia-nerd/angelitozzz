@@ -246,7 +246,14 @@ Cada componente vive en `template-parts/components/<nombre>.php` y recibe sus da
 - **Origen:** componente Figma "Banner Mundo" (3586:1518), en la primera lección (`leccion.md`)
 - **Destino:** `template-parts/components/banner-mundo.php`
 - **Argumentos:** `titulo` (string, opcional: si no viene, el de Ajustes del sitio), `texto` (string, opcional, ídem), `variante` (`leccion` | `confirmacion`, por defecto `leccion`). El enlace, el pie y el texto del botón salen siempre de `get_field('opciones_mes_gratis_mundo', 'option')`; sin enlace no imprime nada. Degradado verde, logo de Mundo de 96 px con borde dorado, `boton` claro sin flecha en pestaña nueva (`angelitozzz_link`).
-- **Se usa en:** leccion/banner-mundo (primera lección de los cursos con mes gratis); la confirmación de compra (spec de gracias, pendiente) con el título "Espera — hay algo más esperándote"
+- **Se usa en:** leccion/banner-mundo (primera lección de los cursos con mes gratis); gracias/mes-gratis-mundo (`variante` `confirmacion`, título "Espera — hay algo más esperándote")
+
+### confirmacion-tarjeta
+
+- **Origen:** tarjetas de regalo de Figma: "Regalo listo" (3649:1702), "Canje de regalo" (3640:1593) y "Canje exitoso" (3677:1971). Blanca, 720 px, padding 56/64, radio 24 (`--radius-tarjeta`), bloques centrados con 24 px entre ellos
+- **Destino:** `template-parts/components/confirmacion-tarjeta.php` y `template-parts/components/confirmacion-tarjeta-fin.php`
+- **Argumentos:** `titulo` (string, requerido), `nivel` (`h1` | `h2`, por defecto `h1`), `icono` (`regalo` | `check` | `ninguno`, por defecto `ninguno`: SVG de 56 px, fijo del tema y decorativo), `pastilla` (string, opcional: "✓ Compra exitosa", "✓ Regalo canjeado"), `pastilla_estilo` (`verde` | `neutro`, por defecto `verde`: verde = fondo `--color-marca` y texto `--color-fondo`; neutro = fondo `--color-neutro` y texto `--color-marca`; radio 100, padding 6/14, `--text-rotulo`), `texto` (string, opcional: `--text-cuerpo-l`, `--color-tinta`, centrado). Título en `--text-h2` `--color-marca`, centrado. El contenido de cada pantalla (campo, caja del código, caja de acceso, botones) va entre `confirmacion-tarjeta` y `confirmacion-tarjeta-fin`; `confirmacion-tarjeta-fin` recibe `nota` (string, opcional: `--text-nota`, `--color-tinta-suave`) y cierra la tarjeta.
+- **Se usa en:** canjear-regalo/canje, canjear-regalo/canjeado, gracias/confirmacion, gracias/regalo-listo
 
 ### curso-admin-card
 
