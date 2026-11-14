@@ -18,5 +18,5 @@ Reglas:
 
 | Archivo del tema | Original | Versión del original | Motivo | Estado |
 | --- | --- | --- | --- | --- |
-| `woocommerce/archive-product.php` | `woocommerce/templates/archive-product.php` | — | Listado provisional de Soluciones de sueño (solo maquetación, sin hooks). Se reemplaza por `archive-solucion.php` en la F2 | provisional |
-| `woocommerce/content-product.php` | `woocommerce/templates/content-product.php` | — | Tarjeta provisional del listado. Se reemplaza en la F2 | provisional |
+| `woocommerce/archive-product.php` | `woocommerce/templates/archive-product.php` | — | Listado provisional de Soluciones de sueño (solo maquetación, sin hooks). Se reemplaza por `archive-solucion.php` en la F4 | provisional |
+| `woocommerce/content-product.php` | `woocommerce/templates/content-product.php` | — | Tarjeta provisional del listado. Se reemplaza en la F4 | provisional |
