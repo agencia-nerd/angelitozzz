@@ -2,12 +2,12 @@
   "ok": true,
   "source": "figma",
   "summary": {
-    "pages": 25,
-    "sections": 88,
+    "pages": 27,
+    "sections": 91,
     "sectionsPending": 0,
-    "images": 577,
+    "images": 582,
     "repeatedGroups": 6,
-    "interactions": 56,
+    "interactions": 57,
     "dynamicCandidates": 20,
     "findings": 3
   },
@@ -363,6 +363,61 @@
             "otro"
           ],
           "notes": [],
+          "mobile": null
+        }
+      ]
+    },
+    {
+      "file": "specs/figma/enlaces/canjear-regalo.md",
+      "title": "canjear-regalo",
+      "fuente": {
+        "fileKey": "FumWuCPT1PPDg5vBTYoufA",
+        "nodeId": "3640:1593"
+      },
+      "notes": [],
+      "sections": [
+        {
+          "name": "canje",
+          "nodeId": "3640:1593",
+          "nombreCapa": "Canje de regalo",
+          "estado": "leida",
+          "size": {
+            "ancho": 720,
+            "alto": 505
+          },
+          "components": [
+            "Botón"
+          ],
+          "images": 2,
+          "texts": 5,
+          "signals": [
+            "formulario"
+          ],
+          "notes": [
+            "cuando alguien quiere canjear el curso."
+          ],
+          "mobile": null
+        },
+        {
+          "name": "canjeado",
+          "nodeId": "3677:1971",
+          "nombreCapa": "Canje exitoso",
+          "estado": "leida",
+          "size": {
+            "ancho": 720,
+            "alto": 589
+          },
+          "components": [
+            "Botón"
+          ],
+          "images": 1,
+          "texts": 6,
+          "signals": [
+            "otro"
+          ],
+          "notes": [
+            "curso canjeado."
+          ],
           "mobile": null
         }
       ]
@@ -1471,6 +1526,41 @@
           ],
           "notes": [
             "Que rija 3 card de contenido relacionado."
+          ],
+          "mobile": null
+        }
+      ]
+    },
+    {
+      "file": "specs/figma/enlaces/gracias.md",
+      "title": "gracias",
+      "fuente": {
+        "fileKey": "FumWuCPT1PPDg5vBTYoufA",
+        "nodeId": "3649:1702"
+      },
+      "notes": [
+        "Sobre lo de gracias tu me lo púedes proponer por favor."
+      ],
+      "sections": [
+        {
+          "name": "regalo-listo",
+          "nodeId": "3649:1702",
+          "nombreCapa": "Regalo listo",
+          "estado": "leida",
+          "size": {
+            "ancho": 720,
+            "alto": 614
+          },
+          "components": [
+            "Botón"
+          ],
+          "images": 2,
+          "texts": 6,
+          "signals": [
+            "otro"
+          ],
+          "notes": [
+            "cuando alguien regala el curso."
           ],
           "mobile": null
         }
@@ -3072,6 +3162,39 @@
         "alto": 18,
         "rol": "decorativa",
         "archivo": "blog/assets/flecha-leer.svg"
+      },
+      {
+        "page": "canjear-regalo",
+        "section": "canje",
+        "id": "canje-icono-regalo",
+        "nodeId": "3640:1594",
+        "tipo": "svg",
+        "ancho": 56,
+        "alto": 56,
+        "rol": "decorativa",
+        "archivo": "canjear-regalo/assets/canje-icono-regalo.svg"
+      },
+      {
+        "page": "canjear-regalo",
+        "section": "canje",
+        "id": "boton-flecha",
+        "nodeId": "3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "canjear-regalo/assets/boton-flecha.svg"
+      },
+      {
+        "page": "canjear-regalo",
+        "section": "canjeado",
+        "id": "canjeado-icono-check",
+        "nodeId": "3677:2072",
+        "tipo": "svg",
+        "ancho": 56,
+        "alto": 56,
+        "rol": "decorativa",
+        "archivo": "canjear-regalo/assets/canjeado-icono-check.svg"
       },
       {
         "page": "carrito",
@@ -6121,6 +6244,28 @@
         "archivo": "curso-recien-nacidos-go/assets/boton-flecha.svg"
       },
       {
+        "page": "gracias",
+        "section": "regalo-listo",
+        "id": "regalo-listo-icono-regalo",
+        "nodeId": "3649:1803",
+        "tipo": "svg",
+        "ancho": 56,
+        "alto": 56,
+        "rol": "decorativa",
+        "archivo": "gracias/assets/regalo-listo-icono-regalo.svg"
+      },
+      {
+        "page": "gracias",
+        "section": "regalo-listo",
+        "id": "boton-flecha",
+        "nodeId": "3711:6163",
+        "tipo": "svg",
+        "ancho": 18,
+        "alto": 18,
+        "rol": "decorativa",
+        "archivo": "gracias/assets/boton-flecha.svg"
+      },
+      {
         "page": "home",
         "section": "cintillo-promociones",
         "id": "cintillo-flecha",
@@ -8771,6 +8916,7 @@
           "admin-escritorio",
           "articulo-blog",
           "blog",
+          "canjear-regalo",
           "carrito",
           "checkout",
           "conoce-a-barbara",
@@ -8780,6 +8926,7 @@
           "curso-angelita-pro",
           "curso-horarios-ideales",
           "curso-recien-nacidos-go",
+          "gracias",
           "home",
           "iniciar-sesion",
           "leccion",
@@ -8833,6 +8980,7 @@
           "admin-escritorio",
           "articulo-blog",
           "blog",
+          "canjear-regalo",
           "carrito",
           "checkout",
           "conoce-a-barbara",
@@ -8842,6 +8990,7 @@
           "curso-angelita-pro",
           "curso-horarios-ideales",
           "curso-recien-nacidos-go",
+          "gracias",
           "home",
           "iniciar-sesion",
           "leccion",
@@ -8864,6 +9013,7 @@
           "admin-escritorio",
           "articulo-blog",
           "blog",
+          "canjear-regalo",
           "carrito",
           "checkout",
           "conoce-a-barbara",
@@ -8873,6 +9023,7 @@
           "curso-angelita-pro",
           "curso-horarios-ideales",
           "curso-recien-nacidos-go",
+          "gracias",
           "home",
           "iniciar-sesion",
           "leccion",
@@ -8926,6 +9077,7 @@
           "admin-escritorio",
           "articulo-blog",
           "blog",
+          "canjear-regalo",
           "carrito",
           "checkout",
           "conoce-a-barbara",
@@ -8935,6 +9087,7 @@
           "curso-angelita-pro",
           "curso-horarios-ideales",
           "curso-recien-nacidos-go",
+          "gracias",
           "home",
           "iniciar-sesion",
           "leccion",
@@ -8957,6 +9110,7 @@
           "admin-escritorio",
           "articulo-blog",
           "blog",
+          "canjear-regalo",
           "carrito",
           "checkout",
           "conoce-a-barbara",
@@ -8966,6 +9120,7 @@
           "curso-angelita-pro",
           "curso-horarios-ideales",
           "curso-recien-nacidos-go",
+          "gracias",
           "home",
           "iniciar-sesion",
           "leccion",
@@ -8987,12 +9142,14 @@
           "admin-cursos",
           "articulo-blog",
           "blog",
+          "canjear-regalo",
           "conoce-a-barbara",
           "crear-cuenta",
           "curso-a-dormir-por-fin",
           "curso-angelita-pro",
           "curso-horarios-ideales",
           "curso-recien-nacidos-go",
+          "gracias",
           "home",
           "iniciar-sesion",
           "leccion",
@@ -9170,21 +9327,11 @@
       },
       {
         "name": null,
-        "value": "#bcb28a",
-        "suelto": true,
-        "usos": 11,
-        "paginas": [
-          "carrito",
-          "checkout"
-        ],
-        "cercano": null
-      },
-      {
-        "name": null,
         "value": "#d7d0b5",
         "suelto": true,
-        "usos": 11,
+        "usos": 12,
         "paginas": [
+          "canjear-regalo",
           "crear-cuenta",
           "home",
           "iniciar-sesion",
@@ -9196,6 +9343,17 @@
           "value": "#d7d0b5",
           "distancia": 0
         }
+      },
+      {
+        "name": null,
+        "value": "#bcb28a",
+        "suelto": true,
+        "usos": 11,
+        "paginas": [
+          "carrito",
+          "checkout"
+        ],
+        "cercano": null
       },
       {
         "name": null,
@@ -9465,6 +9623,20 @@
       },
       {
         "name": null,
+        "value": "#c4704a",
+        "suelto": true,
+        "usos": 1,
+        "paginas": [
+          "gracias"
+        ],
+        "cercano": {
+          "name": "color/terracota",
+          "value": "#c4704a",
+          "distancia": 0
+        }
+      },
+      {
+        "name": null,
         "value": "#d7d0b573",
         "suelto": true,
         "usos": 1,
@@ -9617,6 +9789,12 @@
         ]
       },
       {
+        "valor": 34,
+        "estilos": [
+          "2026/Code"
+        ]
+      },
+      {
         "valor": 46,
         "estilos": [
           "2026/H2"
@@ -9638,12 +9816,13 @@
     "spacing": [
       {
         "valor": 10,
-        "usos": 243,
+        "usos": 246,
         "paginas": [
           "admin-cursos",
           "admin-escritorio",
           "articulo-blog",
           "blog",
+          "canjear-regalo",
           "carrito",
           "checkout",
           "conoce-a-barbara",
@@ -9653,6 +9832,7 @@
           "curso-angelita-pro",
           "curso-horarios-ideales",
           "curso-recien-nacidos-go",
+          "gracias",
           "home",
           "iniciar-sesion",
           "leccion",
@@ -9669,11 +9849,12 @@
       },
       {
         "valor": 14,
-        "usos": 131,
+        "usos": 136,
         "paginas": [
           "admin-cursos",
           "admin-escritorio",
           "articulo-blog",
+          "canjear-regalo",
           "carrito",
           "checkout",
           "conoce-a-barbara",
@@ -9683,6 +9864,7 @@
           "curso-angelita-pro",
           "curso-horarios-ideales",
           "curso-recien-nacidos-go",
+          "gracias",
           "home",
           "iniciar-sesion",
           "leccion",
@@ -9698,12 +9880,13 @@
       },
       {
         "valor": 24,
-        "usos": 112,
+        "usos": 116,
         "paginas": [
           "admin-cursos",
           "admin-escritorio",
           "articulo-blog",
           "blog",
+          "canjear-regalo",
           "carrito",
           "checkout",
           "conoce-a-barbara",
@@ -9713,6 +9896,7 @@
           "curso-angelita-pro",
           "curso-horarios-ideales",
           "curso-recien-nacidos-go",
+          "gracias",
           "home",
           "iniciar-sesion",
           "leccion",
@@ -9728,12 +9912,13 @@
       },
       {
         "valor": 28,
-        "usos": 105,
+        "usos": 108,
         "paginas": [
           "admin-cursos",
           "admin-escritorio",
           "articulo-blog",
           "blog",
+          "canjear-regalo",
           "carrito",
           "checkout",
           "contacto",
@@ -9742,6 +9927,7 @@
           "curso-angelita-pro",
           "curso-horarios-ideales",
           "curso-recien-nacidos-go",
+          "gracias",
           "home",
           "iniciar-sesion",
           "leccion",
@@ -9786,12 +9972,13 @@
       },
       {
         "valor": 20,
-        "usos": 100,
+        "usos": 102,
         "paginas": [
           "admin-cursos",
           "admin-escritorio",
           "articulo-blog",
           "blog",
+          "canjear-regalo",
           "conoce-a-barbara",
           "curso-a-dormir-por-fin",
           "curso-angelita-pro",
@@ -9810,17 +9997,19 @@
       },
       {
         "valor": 6,
-        "usos": 92,
+        "usos": 94,
         "paginas": [
           "admin-cursos",
           "articulo-blog",
           "blog",
+          "canjear-regalo",
           "checkout",
           "conoce-a-barbara",
           "curso-a-dormir-por-fin",
           "curso-angelita-pro",
           "curso-horarios-ideales",
           "curso-recien-nacidos-go",
+          "gracias",
           "home",
           "mundo-angelitozzz",
           "soluciones-de-sueno",
@@ -9832,11 +10021,12 @@
       },
       {
         "valor": 16,
-        "usos": 88,
+        "usos": 89,
         "paginas": [
           "admin-cursos",
           "articulo-blog",
           "blog",
+          "canjear-regalo",
           "crear-cuenta",
           "curso-a-dormir-por-fin",
           "curso-angelita-pro",
@@ -9854,7 +10044,7 @@
       },
       {
         "valor": 18,
-        "usos": 53,
+        "usos": 54,
         "paginas": [
           "articulo-blog",
           "blog",
@@ -9862,6 +10052,7 @@
           "curso-a-dormir-por-fin",
           "curso-angelita-pro",
           "curso-recien-nacidos-go",
+          "gracias",
           "home",
           "leccion",
           "soluciones-de-sueno",
@@ -9987,6 +10178,22 @@
         ]
       },
       {
+        "valor": 56,
+        "usos": 18,
+        "paginas": [
+          "canjear-regalo",
+          "conoce-a-barbara",
+          "crear-cuenta",
+          "curso-a-dormir-por-fin",
+          "curso-angelita-pro",
+          "gracias",
+          "home",
+          "iniciar-sesion",
+          "mundo-angelitozzz",
+          "recuperar-contrasena"
+        ]
+      },
+      {
         "valor": 104,
         "usos": 17,
         "paginas": [
@@ -10000,20 +10207,6 @@
           "preguntas-frecuentes",
           "soluciones-de-sueno",
           "testimonios"
-        ]
-      },
-      {
-        "valor": 56,
-        "usos": 15,
-        "paginas": [
-          "conoce-a-barbara",
-          "crear-cuenta",
-          "curso-a-dormir-por-fin",
-          "curso-angelita-pro",
-          "home",
-          "iniciar-sesion",
-          "mundo-angelitozzz",
-          "recuperar-contrasena"
         ]
       },
       {
@@ -10344,6 +10537,16 @@
         ]
       },
       {
+        "valor": 64,
+        "usos": 5,
+        "paginas": [
+          "canjear-regalo",
+          "contacto",
+          "curso-horarios-ideales",
+          "gracias"
+        ]
+      },
+      {
         "valor": 748.5,
         "usos": 5,
         "paginas": [
@@ -10592,14 +10795,6 @@
         "paginas": [
           "curso-angelita-pro",
           "home"
-        ]
-      },
-      {
-        "valor": 64,
-        "usos": 2,
-        "paginas": [
-          "contacto",
-          "curso-horarios-ideales"
         ]
       },
       {
@@ -11147,12 +11342,13 @@
     "radii": [
       {
         "valor": 100,
-        "usos": 188,
+        "usos": 193,
         "paginas": [
           "admin-cursos",
           "admin-escritorio",
           "articulo-blog",
           "blog",
+          "canjear-regalo",
           "carrito",
           "checkout",
           "conoce-a-barbara",
@@ -11162,6 +11358,7 @@
           "curso-angelita-pro",
           "curso-horarios-ideales",
           "curso-recien-nacidos-go",
+          "gracias",
           "home",
           "iniciar-sesion",
           "leccion",
@@ -11224,12 +11421,14 @@
       },
       {
         "valor": 24,
-        "usos": 29,
+        "usos": 32,
         "paginas": [
           "articulo-blog",
+          "canjear-regalo",
           "contacto",
           "curso-a-dormir-por-fin",
           "curso-horarios-ideales",
+          "gracias",
           "home",
           "leccion",
           "mundo-angelitozzz",
@@ -11239,13 +11438,15 @@
       },
       {
         "valor": 12,
-        "usos": 26,
+        "usos": 29,
         "paginas": [
+          "canjear-regalo",
           "carrito",
           "checkout",
           "crear-cuenta",
           "curso-a-dormir-por-fin",
           "curso-horarios-ideales",
+          "gracias",
           "home",
           "iniciar-sesion",
           "leccion",
@@ -11400,6 +11601,7 @@
           "admin-escritorio",
           "articulo-blog",
           "blog",
+          "canjear-regalo",
           "carrito",
           "checkout",
           "conoce-a-barbara",
@@ -11409,6 +11611,7 @@
           "curso-angelita-pro",
           "curso-horarios-ideales",
           "curso-recien-nacidos-go",
+          "gracias",
           "home",
           "iniciar-sesion",
           "leccion",
@@ -11464,6 +11667,7 @@
           "admin-escritorio",
           "articulo-blog",
           "blog",
+          "canjear-regalo",
           "carrito",
           "checkout",
           "conoce-a-barbara",
@@ -11473,6 +11677,7 @@
           "curso-angelita-pro",
           "curso-horarios-ideales",
           "curso-recien-nacidos-go",
+          "gracias",
           "home",
           "iniciar-sesion",
           "leccion",
@@ -11496,6 +11701,7 @@
           "admin-escritorio",
           "articulo-blog",
           "blog",
+          "canjear-regalo",
           "carrito",
           "checkout",
           "conoce-a-barbara",
@@ -11505,6 +11711,7 @@
           "curso-angelita-pro",
           "curso-horarios-ideales",
           "curso-recien-nacidos-go",
+          "gracias",
           "home",
           "iniciar-sesion",
           "leccion",
@@ -11560,6 +11767,7 @@
           "admin-escritorio",
           "articulo-blog",
           "blog",
+          "canjear-regalo",
           "carrito",
           "checkout",
           "conoce-a-barbara",
@@ -11569,6 +11777,7 @@
           "curso-angelita-pro",
           "curso-horarios-ideales",
           "curso-recien-nacidos-go",
+          "gracias",
           "home",
           "iniciar-sesion",
           "leccion",
@@ -11592,6 +11801,7 @@
           "admin-escritorio",
           "articulo-blog",
           "blog",
+          "canjear-regalo",
           "carrito",
           "checkout",
           "conoce-a-barbara",
@@ -11601,6 +11811,7 @@
           "curso-angelita-pro",
           "curso-horarios-ideales",
           "curso-recien-nacidos-go",
+          "gracias",
           "home",
           "iniciar-sesion",
           "leccion",
@@ -11623,12 +11834,14 @@
           "admin-cursos",
           "articulo-blog",
           "blog",
+          "canjear-regalo",
           "conoce-a-barbara",
           "crear-cuenta",
           "curso-a-dormir-por-fin",
           "curso-angelita-pro",
           "curso-horarios-ideales",
           "curso-recien-nacidos-go",
+          "gracias",
           "home",
           "iniciar-sesion",
           "leccion",
@@ -11824,6 +12037,7 @@
           "admin-escritorio",
           "articulo-blog",
           "blog",
+          "canjear-regalo",
           "carrito",
           "checkout",
           "conoce-a-barbara",
@@ -11905,6 +12119,7 @@
           "admin-cursos",
           "admin-escritorio",
           "articulo-blog",
+          "canjear-regalo",
           "checkout",
           "contacto",
           "crear-cuenta",
@@ -11912,6 +12127,7 @@
           "curso-angelita-pro",
           "curso-horarios-ideales",
           "curso-recien-nacidos-go",
+          "gracias",
           "home",
           "iniciar-sesion",
           "leccion",
@@ -11976,6 +12192,7 @@
         "paginas": [
           "admin-cursos",
           "articulo-blog",
+          "canjear-regalo",
           "conoce-a-barbara",
           "contacto",
           "crear-cuenta",
@@ -11983,6 +12200,7 @@
           "curso-angelita-pro",
           "curso-horarios-ideales",
           "curso-recien-nacidos-go",
+          "gracias",
           "home",
           "iniciar-sesion",
           "leccion",
@@ -12077,6 +12295,7 @@
           "admin-escritorio",
           "articulo-blog",
           "blog",
+          "canjear-regalo",
           "carrito",
           "checkout",
           "conoce-a-barbara",
@@ -12086,6 +12305,7 @@
           "curso-angelita-pro",
           "curso-horarios-ideales",
           "curso-recien-nacidos-go",
+          "gracias",
           "home",
           "iniciar-sesion",
           "leccion",
@@ -12256,7 +12476,26 @@
           }
         },
         "paginas": [
+          "canjear-regalo",
+          "gracias",
           "mundo-angelitozzz"
+        ]
+      },
+      {
+        "name": "2026/Code",
+        "tipo": "texto",
+        "valor": {
+          "familia": "Barlow Condensed",
+          "peso": 600,
+          "tamano": 34,
+          "interlineado": 1.2,
+          "espaciado": {
+            "valor": 2.72,
+            "unidad": "px"
+          }
+        },
+        "paginas": [
+          "gracias"
         ]
       },
       {
@@ -12346,6 +12585,7 @@
           "admin-escritorio",
           "articulo-blog",
           "blog",
+          "canjear-regalo",
           "carrito",
           "checkout",
           "conoce-a-barbara",
@@ -12421,6 +12661,7 @@
           "admin-cursos",
           "admin-escritorio",
           "articulo-blog",
+          "canjear-regalo",
           "checkout",
           "contacto",
           "crear-cuenta",
@@ -12428,6 +12669,7 @@
           "curso-angelita-pro",
           "curso-horarios-ideales",
           "curso-recien-nacidos-go",
+          "gracias",
           "home",
           "iniciar-sesion",
           "leccion",
@@ -12486,6 +12728,7 @@
         "paginas": [
           "admin-cursos",
           "articulo-blog",
+          "canjear-regalo",
           "conoce-a-barbara",
           "contacto",
           "crear-cuenta",
@@ -12493,6 +12736,7 @@
           "curso-angelita-pro",
           "curso-horarios-ideales",
           "curso-recien-nacidos-go",
+          "gracias",
           "home",
           "iniciar-sesion",
           "leccion",
@@ -12578,6 +12822,7 @@
           "admin-escritorio",
           "articulo-blog",
           "blog",
+          "canjear-regalo",
           "carrito",
           "checkout",
           "conoce-a-barbara",
@@ -12587,6 +12832,7 @@
           "curso-angelita-pro",
           "curso-horarios-ideales",
           "curso-recien-nacidos-go",
+          "gracias",
           "home",
           "iniciar-sesion",
           "leccion",
@@ -12739,7 +12985,23 @@
           "unidad": "%"
         },
         "paginas": [
+          "canjear-regalo",
+          "gracias",
           "mundo-angelitozzz"
+        ]
+      },
+      {
+        "name": "2026/Code",
+        "familia": "Barlow Condensed",
+        "peso": 600,
+        "tamano": 34,
+        "interlineado": 1.2,
+        "espaciado": {
+          "valor": 2.72,
+          "unidad": "px"
+        },
+        "paginas": [
+          "gracias"
         ]
       }
     ]
@@ -12749,12 +13011,13 @@
       "id": "componente:Botón",
       "tag": "componente",
       "nombre": "Botón",
-      "count": 83,
+      "count": 86,
       "kind": "cross-page",
       "files": [
         "admin-cursos",
         "admin-escritorio",
         "articulo-blog",
+        "canjear-regalo",
         "carrito",
         "checkout",
         "conoce-a-barbara",
@@ -12764,6 +13027,7 @@
         "curso-angelita-pro",
         "curso-horarios-ideales",
         "curso-recien-nacidos-go",
+        "gracias",
         "home",
         "iniciar-sesion",
         "leccion",
@@ -12803,6 +13067,14 @@
         {
           "page": "articulo-blog",
           "section": "cta-final"
+        },
+        {
+          "page": "canjear-regalo",
+          "section": "canje"
+        },
+        {
+          "page": "canjear-regalo",
+          "section": "canjeado"
         },
         {
           "page": "carrito",
@@ -12947,6 +13219,10 @@
         {
           "page": "curso-recien-nacidos-go",
           "section": "contenido-relacionado"
+        },
+        {
+          "page": "gracias",
+          "section": "regalo-listo"
         },
         {
           "page": "home",
@@ -13532,6 +13808,14 @@
     },
     {
       "type": "formulario",
+      "file": "canjear-regalo",
+      "section": "canje",
+      "suggestedSkill": "wp-form",
+      "hint": "Tarjeta blanca de 720 px (padding 56/64, radio 24, gap 24) con ícono de regalo de 56 px, título \"¿Te regalaron un curso?\", bajada, un campo (fondo crema, borde #d7d0b5, radio 12, placeholder \"Código de regalo (ej. ANGZ-4K7P)\"), botón Frambuesa \"Canjear código\" y nota en itálica \"Si aún no tienes cuenta, la creas en el siguiente paso.\". Sin estados de error dibujados.",
+      "estado": "propuesto"
+    },
+    {
+      "type": "formulario",
       "file": "checkout",
       "section": "hero",
       "suggestedSkill": "wp-form",
@@ -14100,12 +14384,13 @@
         "id": "componente:Botón",
         "tag": "componente",
         "nombre": "Botón",
-        "count": 83,
+        "count": 86,
         "kind": "cross-page",
         "files": [
           "admin-cursos",
           "admin-escritorio",
           "articulo-blog",
+          "canjear-regalo",
           "carrito",
           "checkout",
           "conoce-a-barbara",
@@ -14115,6 +14400,7 @@
           "curso-angelita-pro",
           "curso-horarios-ideales",
           "curso-recien-nacidos-go",
+          "gracias",
           "home",
           "iniciar-sesion",
           "leccion",
@@ -14154,6 +14440,14 @@
           {
             "page": "articulo-blog",
             "section": "cta-final"
+          },
+          {
+            "page": "canjear-regalo",
+            "section": "canje"
+          },
+          {
+            "page": "canjear-regalo",
+            "section": "canjeado"
           },
           {
             "page": "carrito",
@@ -14298,6 +14592,10 @@
           {
             "page": "curso-recien-nacidos-go",
             "section": "contenido-relacionado"
+          },
+          {
+            "page": "gracias",
+            "section": "regalo-listo"
           },
           {
             "page": "home",
@@ -14944,7 +15242,7 @@
       "id": "figma-color-parecido",
       "severity": "info",
       "note": "Colores casi iguales: conviene unirlos en un token o decidir que son distintos (se pregunta en _shared.md).",
-      "count": 54,
+      "count": 55,
       "locations": [
         {
           "a": "color/teal #9cb0b0",
@@ -14997,7 +15295,7 @@
           "distancia": 0
         },
         {
-          "a": "suelto #d7d0b5 (11 usos)",
+          "a": "suelto #d7d0b5 (12 usos)",
           "b": "color/beige #d7d0b5",
           "distancia": 0
         },
@@ -15074,6 +15372,11 @@
         {
           "a": "suelto #a8566a (1 usos)",
           "b": "color/frambuesa #a8566a",
+          "distancia": 0
+        },
+        {
+          "a": "suelto #c4704a (1 usos)",
+          "b": "color/terracota #c4704a",
           "distancia": 0
         },
         {
@@ -15222,7 +15525,7 @@
       "id": "figma-senal-propuesta",
       "severity": "info",
       "note": "Señales deducidas del diseño (repetidor, slider, formulario...): se confirman con el usuario en los specs.",
-      "count": 259,
+      "count": 262,
       "locations": [
         {
           "page": "admin-cursos",
@@ -15402,6 +15705,16 @@
         {
           "page": "blog",
           "section": "categoria-bebes-24-meses-4-anos",
+          "tipo": "otro"
+        },
+        {
+          "page": "canjear-regalo",
+          "section": "canje",
+          "tipo": "formulario"
+        },
+        {
+          "page": "canjear-regalo",
+          "section": "canjeado",
           "tipo": "otro"
         },
         {
@@ -16058,6 +16371,11 @@
           "page": "curso-recien-nacidos-go",
           "section": "contenido-relacionado",
           "tipo": "decorativo"
+        },
+        {
+          "page": "gracias",
+          "section": "regalo-listo",
+          "tipo": "otro"
         },
         {
           "page": "home",
