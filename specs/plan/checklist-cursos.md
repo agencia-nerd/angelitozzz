@@ -104,7 +104,7 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 - [x] `cursos-datos.md`: modelo de datos (curso, lección, inscripción, avance, vencimiento, roles, reglas de acceso, puente con Woo) → aprobado
 - [x] `leccion.md`: temario, video, Resumen, Materiales, banner de Mundo (con la línea "Si ya lo activaste…"), mensaje de Angelita Pro, cita "PD", "Marcar como completo" → aprobado (con `opciones.md` → `mes-gratis-mundo`)
 - [x] `admin-escritorio.md` y `admin-cursos.md` (lista, menú "Más opciones", aviso de publicado) → aprobados
-- [x] `admin-constructor.md`: pasos Básico, Contenido y Publicar (el paso 3 deja de tener los textos de venta), y los modales de editar y eliminar → pendiente de aprobar
+- [x] `admin-constructor.md`: pasos Básico, Contenido y Publicar (el paso 3 deja de tener los textos de venta), y los modales de editar y eliminar → aprobado (2026-11-14)
 - [ ] Página de gracias (con bloque del mes gratis en Mundo): faltan los enlaces de Figma en `specs/figma/enlaces/`
 - [ ] Regalo (compra exitosa con código, "¿Te regalaron un curso?", "Regalo canjeado"): faltan los enlaces de Figma
 - [ ] Comportamiento en móvil propuesto en cada spec (no hay frames móviles)
