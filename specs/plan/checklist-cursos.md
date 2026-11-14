@@ -80,9 +80,9 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 - [x] Borrar `inc/tutor/estilos.php` y su `require_once` de `functions.php`.
 - [x] Esqueleto del plugin `angelitozzz-cursos` en `wp-content/plugins/` (2026-11-13): cabecera, activación, migraciones versionadas, desinstalación, compatibilidad con HPOS, config de PHPCS y PHPUnit. Sin activar.
 - [x] Repo del plugin: no se crea por decisión del usuario (2026-11-13). El plugin queda solo en `wp-content/plugins/angelitozzz-cursos/`; su respaldo son los del sitio. Se puede hacer `git init` local o subirlo a GitHub más adelante
-- [ ] `composer install` en el plugin y suite de pruebas de WordPress con una base de datos de pruebas (al empezar la F2)
+- [x] `composer install` en el plugin y suite de pruebas de WordPress con una base de datos de pruebas (2026-11-14): PHP 8.4 de Local, suite de WP 7.1.4 en `~/Local Sites/angelitozzz/wp-tests/` y base `local_tests`; `composer test` en verde (detalle en el README del plugin)
 - [ ] Ocultar `/tienda/` de Woo y redirigirla a `/soluciones-de-sueno/` (cuando exista `archive-solucion.php`).
-- [ ] Mensaje a la clienta enviado: afiliación de Niubiz en USD, credenciales de prueba y consulta por cobros recurrentes.
+- [x] Mensaje a la clienta enviado (respuesta pendiente): afiliación de Niubiz en USD, credenciales de prueba y consulta por cobros recurrentes.
 - [ ] Credenciales de comercio de Niubiz: código de comercio, usuario y contraseña de **prueba (Sandbox)** y de producción.
 - [ ] Respuesta de Niubiz: ¿la cuenta puede tener cobros automáticos con tarjeta guardada en USD ("Pago programado" / tokenización)? Define cómo se renueva Angelita Pro.
 - [ ] Plugin **oficial** de Niubiz para WooCommerce (portal de desarrolladores: `desarrolladores.niubiz.com.pe/docs/plugins`) instalado y probado en Sandbox:
