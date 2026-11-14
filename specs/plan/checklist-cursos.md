@@ -125,12 +125,12 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 
 ## F3 · Cuentas
 
-- [ ] Iniciar sesión con límite de intentos y vuelta a la página de origen
-- [ ] Crear cuenta: usuario armado del correo y las 4 reglas de contraseña
-- [ ] Recuperar contraseña en 3 pasos, sin revelar si el correo existe
-- [ ] Mi perfil: datos personales (cambiar el correo pide la contraseña) y seguridad
-- [ ] Rol `instructora` y capacidades; `wp-admin` cerrado para alumnas; `/mi-cuenta/` → escritorio
-- [ ] Cuenta creada al pagar en el checkout (Woo) con las mismas reglas
+- [x] Iniciar sesión con límite de intentos y vuelta a la página de origen
+- [x] Crear cuenta: usuario armado del correo y las 4 reglas de contraseña
+- [x] Recuperar contraseña en 3 pasos, sin revelar si el correo existe
+- [x] Mi perfil: datos personales (cambiar el correo pide la contraseña) y seguridad
+- [x] Rol `instructora` y capacidades; `wp-admin` cerrado para alumnas; `/mi-cuenta/` → escritorio (2026-11-14: la instructora conserva `wp-admin` hasta que exista el constructor, F5)
+- [x] Cuenta creada al pagar en el checkout (Woo) con las mismas reglas (plugin 0.3.0, 78 pruebas en verde; las pantallas son de la F4)
 - [ ] Auditoría de seguridad al cerrar la F3 (decisión del usuario, 2026-11-14): plugin completo (F2 + F3) y plantillas de cuentas, con la skill `cloudflare/security-audit-skill` (https://github.com/cloudflare/security-audit-skill; leer su código antes de instalarla). Si no sirve para PHP/WordPress, otra equivalente. Cada hallazgo se corrige con su prueba
 
 ## F4 · Maquetación
@@ -154,6 +154,7 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 - [ ] wp-woocommerce: soporte del tema, sobrescrituras con `@version`, CSS clásico de Woo quitado, mini-carrito que se actualiza solo
 - [ ] Borrar `wp-content/mu-plugins/angelitozzz-preview-woo.php`
 - [ ] Constructor: API REST con permisos, nonce y validación; al publicar crea o actualiza el producto de Woo del curso
+- [ ] Cerrar `wp-admin` para la instructora cuando el constructor funcione (va al administrador de cursos; `cursos-datos.md` → `roles`)
 - [ ] Precio de la landing leído del producto de Woo (precio de lanzamiento = precio rebajado)
 - [ ] "Agregar al carrito" sin recargar y abre el drawer; selector de etapas; descuento por cantidad leído de ACF; cupón en el hero
 - [ ] Regalo: comprar como regalo genera el cupón; canje con sesión o creando la cuenta; el acceso empieza ese día

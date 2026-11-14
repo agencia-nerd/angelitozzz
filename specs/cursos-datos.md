@@ -293,7 +293,7 @@
         - sin `edit_posts` ni acceso a otras partes del admin.
     - **Administradora:** recibe también `angelitozzz_gestionar_cursos`. La desinstalación borra el rol y la capacidad.
     - **`wp-admin`:**
-        - cerrado para `customer` e `instructora`, que van a `/cuenta/` o al administrador de cursos;
+        - cerrado para `customer`, que va a `/cuenta/` (F3). Para la `instructora` se cierra en la F5, cuando exista el constructor: hasta entonces crea los cursos desde el admin (decisión del plan de la F3, 2026-11-14);
         - quedan permitidos `admin-ajax.php`, `admin-post.php` y la REST API;
         - la barra de administración se oculta para ellas.
     - **Bárbara:** la administradora le asigna el rol `instructora` a su usuaria (no hay registro de instructoras).
@@ -333,6 +333,12 @@
         - `angelitozzz_cursos_solucion_de( $curso_id )`.
         - `angelitozzz_cursos_admin_resumen()`: estudiantes, cursos y ganancias del escritorio de Bárbara; las ganancias son la suma de los pedidos pagados de sus productos, menos los reembolsos.
         - `angelitozzz_cursos_admin_lista()`: los cursos con su número de estudiantes.
+        - **Cuentas (F3):**
+            - `angelitozzz_cursos_url_envio()` y `angelitozzz_cursos_campos_ocultos( $accion, $volver_a )`: a dónde se envía un formulario y sus campos ocultos (acción, nonce, `redirect_to`). Acciones: `angelitozzz_iniciar_sesion`, `angelitozzz_crear_cuenta`, `angelitozzz_recuperar`, `angelitozzz_nueva_contrasena`, `angelitozzz_perfil_datos`, `angelitozzz_perfil_contrasena`.
+            - `angelitozzz_cursos_mensaje()`: el resultado del último envío (tipo `error` o `aviso`, texto y lo ya escrito, nunca contraseñas), una sola vez.
+            - `angelitozzz_cursos_reglas_contrasena( $clave )`: el estado de las 4 reglas, para la lista `reglas-contrasena`.
+            - `angelitozzz_cursos_url_pagina( $pagina, $vista )` y `angelitozzz_cursos_vista_cuenta()`: URL de las páginas de cuentas y la vista de `/cuenta/` (escritorio, perfil, cursos o pedidos).
+            - `angelitozzz_cursos_datos_perfil()`: nombre, apellidos, correo, teléfono y el correo pendiente de confirmar.
         - `angelitozzz_cursos_pedido_cursos( $pedido_id )`: los cursos de un pedido de la usuaria (no regalo), con duración y primera lección, para la página de gracias.
         - `angelitozzz_cursos_pedido_regalos( $pedido_id )`: los regalos de un pedido de la usuaria, con curso y código.
         - `angelitozzz_cursos_ultimo_canje()`: el canje que la usuaria acaba de hacer (curso, duración, primera lección); se lee una sola vez.
