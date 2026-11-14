@@ -260,7 +260,7 @@
         - Sin sesión, el código válido se guarda en un dato temporal del servidor unido a una cookie de un solo uso, y se completa al volver con sesión.
     - **Reembolso del pedido de regalo:** si el código no se usó, el cupón se anula (pasa a borrador); si ya se canjeó, la inscripción de quien lo recibió pasa a `cancelada`.
     - **Registro:** creación, canje y anulación quedan en `wc_get_logger` (fuente `angelitozzz-cursos`).
-- **Estado:** pendiente
+- **Estado:** aprobado
 
 **Campos ACF**
 
