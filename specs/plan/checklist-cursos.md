@@ -131,7 +131,7 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 - [ ] Mi perfil: datos personales (cambiar el correo pide la contraseña) y seguridad
 - [ ] Rol `instructora` y capacidades; `wp-admin` cerrado para alumnas; `/mi-cuenta/` → escritorio
 - [ ] Cuenta creada al pagar en el checkout (Woo) con las mismas reglas
-- [x] Revisión de seguridad y correctitud de la fase (2026-11-14): como el plugin no tiene repo, `/security-review` y `/code-review` no aplican (revisan un diff de git); se hizo una revisión independiente del plugin completo. Sus 10 hallazgos se corrigieron con su prueba (57 pruebas en verde)
+- [ ] Auditoría de seguridad al cerrar la F3 (decisión del usuario, 2026-11-14): plugin completo (F2 + F3) y plantillas de cuentas, con la skill `cloudflare/security-audit-skill` (https://github.com/cloudflare/security-audit-skill; leer su código antes de instalarla). Si no sirve para PHP/WordPress, otra equivalente. Cada hallazgo se corrige con su prueba
 
 ## F4 · Maquetación
 
@@ -160,7 +160,7 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 - [ ] Bloque de Mundo en gracias y en el correo de pedido, excepto en regalos
 - [ ] Banner de Mundo solo en la primera lección de cada curso (no en Angelita Pro); mensaje inicial de Angelita Pro
 - [ ] `specs/plan/sobrescrituras.md` al día
-- [x] Revisión de seguridad y correctitud de la fase (2026-11-14): como el plugin no tiene repo, `/security-review` y `/code-review` no aplican (revisan un diff de git); se hizo una revisión independiente del plugin completo. Sus 10 hallazgos se corrigieron con su prueba (57 pruebas en verde)
+- [ ] `/security-review` y `/code-review` de la fase
 
 ## F6 · Pagos y Angelita Pro
 
