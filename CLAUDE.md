@@ -2,6 +2,10 @@
 
 Stack: WordPress (Local WP) + Vite + Tailwind + pnpm.
 
+## Flujo de trabajo
+- Las ramas, los commits y los PR los hago yo. No hagas commit ni push: al terminar cada tarea, dame la rama y el mensaje de commit listos.
+- En las tareas grandes, primero el plan y espera mi aprobación antes de cambiar nada.
+
 ## Paquetes (pnpm)
 - Usa solo `pnpm`. Nunca `npm`, `yarn` ni `npx`; para ejecutar un paquete usa `pnpm dlx`.
 - No bajes `minimumReleaseAge` en `pnpm-workspace.yaml`.
