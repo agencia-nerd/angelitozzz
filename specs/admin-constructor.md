@@ -44,7 +44,7 @@
         - `h1`: el título del paso ("Crear nuevo curso", "Contenido del curso", "Publicar curso").
         - Título SEO del paso, con `noindex`.
         - Sin frame móvil: el móvil es una propuesta.
-- **Estado:** pendiente
+- **Estado:** aprobado
 
 ## Sección: pasos
 
@@ -62,7 +62,7 @@
         - secundario, contorno verde (`boton` `secundario`);
         - principal, frambuesa con flecha.
     - **Móvil (propuesta):** las pastillas con scroll propio, las tarjetas a todo el ancho y los botones apilados (el principal primero).
-- **Estado:** pendiente
+- **Estado:** aprobado
 
 **Campos ACF**
 
@@ -103,7 +103,7 @@
     - **Errores:** van junto a cada campo (`aria-describedby`) y en un resumen con `role="alert"`; no se pierde lo escrito.
 - **Indicaciones del diseño:**
     - (Las notas de "paso uno" de la página aplican aquí: la duración del acceso y el formulario.)
-- **Estado:** pendiente
+- **Estado:** aprobado
 
 **Campos ACF**
 
@@ -151,7 +151,7 @@ Datos que guarda (del plugin, no ACF; `cursos-datos.md` → `curso`): título, e
     - **Guardado:** cada cambio se guarda al momento por la API (crear, editar, ordenar, eliminar), sin un "guardar todo". Si una petición falla, el cambio se revierte en pantalla y se avisa.
 - **Indicaciones del diseño:**
     - (Las notas de "paso dos" de la página aplican aquí: la carga de contenido y el modal de eliminar.)
-- **Estado:** pendiente
+- **Estado:** aprobado
 
 **Campos ACF**
 
@@ -194,7 +194,7 @@ Contenido del diseño (ejemplo): "Módulo 1 · Bienvenida" con "Conoce a Bárbar
         - "Guardar lección": guarda por la API, cierra y actualiza la fila.
 - **Indicaciones del diseño:**
     - (La nota de la página "Para editar un modulo, curso es un modal asi" muestra este modal de lección; editar un módulo usa un modal chico con el mismo estilo.)
-- **Estado:** pendiente
+- **Estado:** aprobado
 
 **Campos ACF**
 
@@ -228,7 +228,7 @@ Datos que guarda (del plugin, no ACF; `cursos-datos.md` → `leccion`): título,
     - **Foco:** al abrirse, el foco va a "Cancelar".
 - **Indicaciones del diseño:**
     - (Nota de la página: "eliminar un modulo y lecciones modal". El diseño solo dibuja el de lección; los demás textos son propuesta.)
-- **Estado:** pendiente
+- **Estado:** aprobado
 
 **Campos ACF**
 
@@ -272,7 +272,7 @@ Datos que guarda (del plugin, no ACF; `cursos-datos.md` → `leccion`): título,
         - No se puede publicar sin los 4 primeros puntos de "Antes de publicar": el servidor también lo comprueba.
 - **Indicaciones del diseño:**
     - (Las notas de "paso tres" de la página aplican aquí; sus 4 campos de texto se quitan por decisión del usuario.)
-- **Estado:** pendiente
+- **Estado:** aprobado
 
 **Campos ACF**
 

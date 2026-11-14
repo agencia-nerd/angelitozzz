@@ -34,6 +34,6 @@ Antes de las páginas, revisa y aprueba [\_shared.md](_shared.md): tokens, compo
 | Lección                              | [leccion.md](leccion.md)                                   | `single-leccion.php`                      | aprobado  |
 | Administrador: escritorio            | [admin-escritorio.md](admin-escritorio.md)                 | `pages/template-administrador.php`        | aprobado  |
 | Administrador: cursos                | [admin-cursos.md](admin-cursos.md)                         | `pages/template-administrador.php`        | aprobado  |
-| Administrador: constructor de cursos | [admin-constructor.md](admin-constructor.md)               | `pages/template-administrador.php`        | pendiente |
+| Administrador: constructor de cursos | [admin-constructor.md](admin-constructor.md)               | `pages/template-administrador.php`        | aprobado  |
 
 <!-- design-import:paginas:fin -->
