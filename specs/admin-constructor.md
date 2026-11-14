@@ -103,6 +103,7 @@
     - **Errores:** van junto a cada campo (`aria-describedby`) y en un resumen con `role="alert"`; no se pierde lo escrito.
 - **Indicaciones del diseño:**
     - (Las notas de "paso uno" de la página aplican aquí: la duración del acceso y el formulario.)
+    - **Móvil (propuesta):** las dos tarjetas en una columna (información arriba, portada debajo); los campos que van en fila se apilan; la portada ocupa el ancho con su proporción; botones apilados como en `pasos`.
 - **Estado:** aprobado
 
 **Campos ACF**
@@ -151,6 +152,7 @@ Datos que guarda (del plugin, no ACF; `cursos-datos.md` → `curso`): título, e
     - **Guardado:** cada cambio se guarda al momento por la API (crear, editar, ordenar, eliminar), sin un "guardar todo". Si una petición falla, el cambio se revierte en pantalla y se avisa.
 - **Indicaciones del diseño:**
     - (Las notas de "paso dos" de la página aplican aquí: la carga de contenido y el modal de eliminar.)
+    - **Móvil (propuesta):** módulos e ítems a todo el ancho; en cada ítem, editar, subir, bajar y eliminar quedan visibles como botones de ícono de 44 px, así se ordena sin arrastrar; el título largo se corta con puntos suspensivos.
 - **Estado:** aprobado
 
 **Campos ACF**
@@ -194,6 +196,7 @@ Contenido del diseño (ejemplo): "Módulo 1 · Bienvenida" con "Conoce a Bárbar
         - "Guardar lección": guarda por la API, cierra y actualiza la fila.
 - **Indicaciones del diseño:**
     - (La nota de la página "Para editar un modulo, curso es un modal asi" muestra este modal de lección; editar un módulo usa un modal chico con el mismo estilo.)
+    - **Móvil (propuesta):** ocupa la pantalla con 16 px de margen y scroll interno; la cabecera y el pie quedan fijos; los campos en una columna.
 - **Estado:** aprobado
 
 **Campos ACF**
@@ -228,6 +231,7 @@ Datos que guarda (del plugin, no ACF; `cursos-datos.md` → `leccion`): título,
     - **Foco:** al abrirse, el foco va a "Cancelar".
 - **Indicaciones del diseño:**
     - (Nota de la página: "eliminar un modulo y lecciones modal". El diseño solo dibuja el de lección; los demás textos son propuesta.)
+    - **Móvil (propuesta):** ancho completo con 16 px de margen; los dos botones a todo el ancho, uno debajo del otro ("Eliminar" arriba, "Cancelar" abajo).
 - **Estado:** aprobado
 
 **Campos ACF**
@@ -272,6 +276,7 @@ Datos que guarda (del plugin, no ACF; `cursos-datos.md` → `leccion`): título,
         - No se puede publicar sin los 4 primeros puntos de "Antes de publicar": el servidor también lo comprueba.
 - **Indicaciones del diseño:**
     - (Las notas de "paso tres" de la página aplican aquí; sus 4 campos de texto se quitan por decisión del usuario.)
+    - **Móvil (propuesta):** tarjetas en una columna, a todo el ancho; la lista "Antes de publicar" debajo del resumen; botones apilados como en `pasos`.
 - **Estado:** aprobado
 
 **Campos ACF**

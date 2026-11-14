@@ -19,7 +19,7 @@
     - Toda compra tiene cuenta (`checkout.md`), así que la alumna llega con su sesión iniciada; Woo además comprueba la clave del pedido en la URL.
     - Sin campos ACF propios: los textos son fijos del tema (text domain `angelitozzz`); el banner usa `opciones.md` → `mes-gratis-mundo`.
     - Fondo crema `--color-fondo`, tarjetas centradas con 32 px entre ellas. Cintillo, header y footer salen de `header.php` y `footer.php`. Sin frame móvil: el móvil es una propuesta.
-- **Estado:** pendiente
+- **Estado:** aprobado
 
 ## Sección: confirmacion
 
@@ -34,7 +34,7 @@
     - El acceso real lo da el plugin con el pedido pagado (`cursos-datos.md` → `puente-woo`); la página solo lo muestra. Si la inscripción aún no existe al cargar (la pasarela avisa unos segundos después), se muestra igual el estado pagado: el botón lleva a la lección y la lección comprueba el acceso.
     - Los hooks de Woo quedan como comentarios `// woo:` en su lugar (`woocommerce_before_thankyou`, `woocommerce_thankyou`) hasta wp-woocommerce, que los conserva.
     - Valores sueltos: tarjeta de 720 px, padding 56/64, radio 24, 24 px entre bloques. Móvil (propuesta): la tarjeta ocupa el ancho con 16 px de margen y padding 32/24; el título baja a `--text-h3`.
-- **Estado:** pendiente
+- **Estado:** aprobado
 
 **Campos ACF**
 
@@ -67,7 +67,7 @@
     - Móvil (propuesta): como `confirmacion`; el código baja a 28 px si no cabe en una línea, sin partirse.
 - **Indicaciones del diseño:**
     - nota: cuando alguien regala el curso.
-- **Estado:** pendiente
+- **Estado:** aprobado
 
 **Campos ACF**
 
@@ -89,7 +89,7 @@
 - **Grupo:** ninguno
 - **Skill:** wp-helper
 - **Comportamiento:** componente `banner-mundo` con `variante` `confirmacion` y el título "Espera — hay algo más esperándote" (`h2`); el texto, el pie, el botón y el enlace salen de `opciones_mes_gratis_mundo` (`opciones.md`), y el enlace abre en pestaña nueva con `angelitozzz_link`. Se muestra solo si el pedido está pagado y tiene al menos un curso que no es regalo (quien recibe un regalo ve el banner en su primera lección, `leccion.md`). Sin enlace en Ajustes del sitio no se imprime. Ancho igual al de las tarjetas (720 px). Móvil: el del componente.
-- **Estado:** pendiente
+- **Estado:** aprobado
 
 **Campos ACF**
 

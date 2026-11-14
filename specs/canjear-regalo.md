@@ -18,7 +18,7 @@
     - `h1`: el título de la tarjeta visible ("¿Te regalaron un curso?" o "¡Listo, ya tienes tu curso!"). Título SEO "Canjear regalo | Angelitozzz", con `noindex`.
     - Fondo crema `--color-fondo`; la tarjeta blanca centrada (componente `confirmacion-tarjeta`). Cintillo, header y footer salen de `header.php` y `footer.php`.
     - Sin frame móvil en Figma: el comportamiento en móvil es una propuesta.
-- **Estado:** pendiente
+- **Estado:** aprobado
 
 ## Sección: canje
 
@@ -36,7 +36,7 @@
     - Valores sueltos: tarjeta de 720 px, padding 56/64, radio 24 (`--radius-tarjeta`), separación 24 px entre bloques. Móvil (propuesta): la tarjeta ocupa el ancho con 16 px de margen y padding 32/24; el título baja a `--text-h3`; el botón queda centrado con su ancho natural.
 - **Indicaciones del diseño:**
     - nota: cuando alguien quiere canjear el curso.
-- **Estado:** pendiente
+- **Estado:** aprobado
 
 **Campos ACF**
 
@@ -70,7 +70,7 @@
     - Móvil (propuesta): igual que `canje`; el texto largo se parte en varias líneas y la caja de acceso puede ocupar dos.
 - **Indicaciones del diseño:**
     - nota: curso canjeado.
-- **Estado:** pendiente
+- **Estado:** aprobado
 
 **Campos ACF**
 
