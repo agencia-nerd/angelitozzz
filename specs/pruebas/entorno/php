@@ -1,0 +1,4 @@
+#!/bin/sh
+# Lanzador de PHP (Git Bash): el PHP 8.4 de Local con el ini de línea de comandos.
+# Copiarlo a ~/bin/php (sin extensión) y cambiar <USUARIO> y la versión de PHP.
+exec "/c/Users/<USUARIO>/AppData/Roaming/Local/lightning-services/php-8.4.27+0/bin/win64/php.exe" -c "C:/Users/<USUARIO>/Local Sites/angelitozzz/wp-tests/php-cli.ini" "$@"

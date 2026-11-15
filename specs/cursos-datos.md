@@ -71,6 +71,7 @@
         - `_angelitozzz_modulo`: `id` del módulo del curso.
         - `_angelitozzz_video`: enlace de Vimeo, guardado solo si es una URL `https://vimeo.com/…` o `https://player.vimeo.com/…` válida.
         - `_angelitozzz_duracion`: segundos, leídos de Vimeo con oEmbed al guardar ("se detecta sola").
+        - `_angelitozzz_miniatura`: URL de la miniatura del video, leída de Vimeo con oEmbed junto con la duración (F4, bloque 6b: la muestra el modal de la lección del constructor).
         - `_angelitozzz_vista_previa`: sí/no, "Lección de vista previa gratuita".
         - `_angelitozzz_materiales`: IDs de PDF de la lección (pestaña "Materiales").
     - **Reproductor:** una sola función, `angelitozzz_cursos_video_html()` en `includes/video.php`, arma el iframe del proveedor. Hoy es Vimeo con `dnt=1`; cambiar de proveedor es cambiar esa función.
@@ -294,10 +295,12 @@
         - sin `edit_posts` ni acceso a otras partes del admin.
     - **Administradora:** recibe también `angelitozzz_gestionar_cursos`. La desinstalación borra el rol y la capacidad.
     - **`wp-admin`:**
-        - cerrado para `customer`, que va a `/cuenta/` (F3). Para la `instructora` se cierra en la F5, cuando exista el constructor: hasta entonces crea los cursos desde el admin (decisión del plan de la F3, 2026-11-14);
+        - cerrado para `customer`, que va a `/cuenta/` (F3), y para la `instructora`, que va a `/administrador/` (F4, bloque 6b, al existir el constructor; solo si esa página está publicada). La administradora sigue entrando;
         - quedan permitidos `admin-ajax.php`, `admin-post.php` y la REST API;
         - la barra de administración se oculta para ellas.
-    - **Bárbara:** la administradora le asigna el rol `instructora` a su usuaria (no hay registro de instructoras).
+    - **Pantallas de entrada** (pedido del usuario, F4 bloque 6b): hay una sola lista de cuentas (la de WordPress) y dos pantallas. `/wp-admin/` sin sesión usa la de WordPress (`wp-login.php`, con sus propios enlaces de registro y de contraseña): es la entrada del equipo. El resto del sitio usa `/iniciar-sesion/` con el diseño. Cualquiera puede entrar por cualquiera de las dos y después cada rol termina en su lugar: alumna en `/cuenta/`, instructora en `/administrador/`; la administradora, en el escritorio de WordPress si entró por `wp-login.php` y en `/administrador/` si entró por `/iniciar-sesion/` sin destino. El límite de intentos vale en las dos. Un navegador tiene una sola sesión: entrar con otra cuenta reemplaza la anterior y cerrar sesión la cierra en las dos pantallas (para probar dos cuentas a la vez, una ventana privada).
+    - **Página de inicio de cada rol** (`angelitozzz_cursos_inicio_de()`): después de entrar sin destino, y en el "Mi cuenta" del header, la alumna va a `/cuenta/` y quien gestiona cursos (instructora o administradora) a `/administrador/` (decisión del usuario, 2026-11-15).
+    - **Bárbara** (decisión del usuario, 2026-11-15): es la dueña del sitio y tiene una cuenta propia, con su correo, de rol **administradora**. Edita el contenido en `/wp-admin/` y los cursos en `/administrador/` (la administradora tiene `angelitozzz_gestionar_cursos`). La cuenta de la agencia es otra. El rol `instructora` queda para quien solo maneje cursos (una ayudante, por ejemplo); no hay registro de instructoras: se lo asigna una administradora.
 - **Estado:** aprobado
 
 **Campos ACF**
@@ -339,11 +342,15 @@
             - `angelitozzz_cursos_url_admin( $vista, $curso_id, $paso )`: URL de `escritorio`, `cursos`, `nuevo` o `editar`.
             - `angelitozzz_cursos_aviso_publicado( $curso_id )`: el texto del aviso "¡Curso publicado!", que cambia si el curso no está en ninguna solución.
             - `angelitozzz_cursos_pendientes_publicar( $curso_id )`: lo que falta para publicar (`clave`, `texto`, `bloquea`), para "Antes de publicar" del constructor.
+            - `angelitozzz_cursos_admin_curso( $curso_id )` (F4, bloque 6b; `includes/constructor.php`): todo lo que muestra el constructor. Campos del paso 1 (`titulo`, `descripcion`, `edad`, `tipo`, `duracion`, `mes_mundo`, `precio`, `precio_lanzamiento` del producto de Woo), `portada_id` y `portada_url`, `estado`, `estudiantes` (con acceso), `modulos` con sus `items` en orden (lecciones: `id`, `titulo`, `video`, `duracion`, `duracion_texto`, `miniatura`, `contenido`, `extracto`, `vista_previa`, `materiales`; PDF del curso: `id`, `nombre`, `tamano`), `totales` (módulos, lecciones y duración) y `pendientes`. Con 0, los valores de un curso nuevo.
         - **Cuentas (F3):**
             - `angelitozzz_cursos_url_envio()` y `angelitozzz_cursos_campos_ocultos( $accion, $volver_a )`: a dónde se envía un formulario y sus campos ocultos (acción, nonce, `redirect_to`). Acciones: `angelitozzz_iniciar_sesion`, `angelitozzz_crear_cuenta`, `angelitozzz_recuperar`, `angelitozzz_nueva_contrasena`, `angelitozzz_perfil_datos`, `angelitozzz_perfil_contrasena`.
             - `angelitozzz_cursos_mensaje()`: el resultado del último envío (tipo `error` o `aviso`, texto y lo ya escrito, nunca contraseñas), una sola vez.
             - `angelitozzz_cursos_reglas_contrasena( $clave )`: el estado de las 4 reglas, para la lista `reglas-contrasena`.
             - `angelitozzz_cursos_url_pagina( $pagina, $vista )` y `angelitozzz_cursos_vista_cuenta()`: URL de las páginas de cuentas y la vista de `/cuenta/` (escritorio, perfil, cursos o pedidos).
+            - `angelitozzz_cursos_url_login( $volver )`: URL de `/iniciar-sesion/` con su vuelta; si la vuelta es otra página de acceso no la anida (F4, bloque 6b). La usa el botón "Iniciar sesión" del header.
+            - `angelitozzz_cursos_inicio_de( $usuario_id )`: la página de inicio de cada rol (alumna: `/cuenta/`; quien gestiona cursos, instructora o administradora: `/administrador/`). La usa "Mi cuenta" del header.
+            - `angelitozzz_cursos_es_pagina_acceso( $url )`: si una URL es de iniciar sesión, crear cuenta o recuperar contraseña (no sirven como vuelta).
             - `angelitozzz_cursos_datos_perfil()`: nombre, apellidos, correo, teléfono y el correo pendiente de confirmar.
         - `angelitozzz_cursos_pedido_cursos( $pedido_id )`: los cursos de un pedido de la usuaria (no regalo), con duración y primera lección, para la página de gracias.
         - `angelitozzz_cursos_pedido_regalos( $pedido_id )`: los regalos de un pedido de la usuaria, con curso y código.

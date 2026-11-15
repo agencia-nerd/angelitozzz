@@ -82,3 +82,15 @@ if (document.querySelector('[data-video-leccion]')) {
 if (document.querySelector('[data-admin-cursos]')) {
     import('./modules/admin-cursos.js').then(({ initAdminCursos }) => initAdminCursos()).catch(console.error);
 }
+
+if (document.querySelector('[data-constructor-basico]')) {
+    import('./modules/constructor-basico.js').then(({ initConstructorBasico }) => initConstructorBasico()).catch(console.error);
+}
+
+if (document.querySelector('[data-constructor-contenido]')) {
+    import('./modules/constructor-contenido.js').then(({ initConstructorContenido }) => initConstructorContenido()).catch(console.error);
+}
+
+if (document.querySelector('[data-constructor-publicar]')) {
+    import('./modules/constructor-publicar.js').then(({ initConstructorPublicar }) => initConstructorPublicar()).catch(console.error);
+}

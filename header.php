@@ -20,14 +20,15 @@ $menu_principal = [
 $menu_derecha = [
     ['texto' => 'Contacto', 'url' => '/contacto/'],
 ];
-// Cuenta: sin sesión, "Iniciar sesión" con vuelta a esta página; con sesión, "Mi cuenta" (URLs del plugin
-// angelitozzz-cursos). El carrito abre el drawer (template-parts/modals/carrito.php) y, sin JS, lleva a la
-// página del carrito. woo: contador del carrito (hoy el del diseño, wp-woocommerce en la F5).
+// Cuenta: sin sesión, "Iniciar sesión" con vuelta a esta página (el plugin no la anida si ya estás en una
+// página de acceso); con sesión, "Mi cuenta" lleva a la página de inicio de cada rol (alumna: /cuenta/;
+// quien gestiona cursos, instructora o administradora como Bárbara: /administrador/). El carrito abre el drawer (template-parts/modals/carrito.php) y, sin JS,
+// lleva a la página del carrito. woo: contador del carrito (hoy el del diseño, wp-woocommerce en la F5).
 $con_sesion = is_user_logged_in();
-if (function_exists('angelitozzz_cursos_url_pagina')) {
+if (function_exists('angelitozzz_cursos_url_login') && function_exists('angelitozzz_cursos_inicio_de')) {
     $url_cuenta = $con_sesion
-        ? angelitozzz_cursos_url_pagina('cuenta')
-        : add_query_arg('redirect_to', rawurlencode(home_url(add_query_arg([]))), angelitozzz_cursos_url_pagina('iniciar-sesion'));
+        ? angelitozzz_cursos_inicio_de(get_current_user_id())
+        : angelitozzz_cursos_url_login(home_url(add_query_arg([])));
 } else {
     $url_cuenta = $con_sesion ? home_url('/cuenta/') : wp_login_url();
 }

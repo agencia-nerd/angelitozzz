@@ -3,89 +3,19 @@
  * publicar / pasar a borrador / eliminar por la API REST del plugin (angelitozzz/v1/cursos/<id>) y el
  * aviso "¡Curso publicado!".
  *
- * pedirConfirmacion() maneja el modal `eliminar` (template-parts/modals/eliminar.php) y la reutiliza
- * el constructor para lecciones, módulos y descargables.
+ * El modal `eliminar`, el cliente de la API (la base sale de rest_url() en data-api) y los helpers que
+ * comparte con el constructor (formatear, textosEliminar, pedirConfirmacion) están en admin-comun.js.
  */
 
-import { openModal, closeModal } from './modal.js';
+import { crearApi, formatear, textosEliminar, pedirConfirmacion } from './admin-comun.js';
 
 const DURACION_AVISO = 6000;
-
-/** Reemplaza %s, %d, %1$s, %2$d… en orden, como sprintf. */
-export function formatear(plantilla, ...valores) {
-    let siguiente = 0;
-    return String(plantilla).replace(/%(?:(\d+)\$)?[sd]/g, (_, posicion) => {
-        const indice = posicion ? Number(posicion) - 1 : siguiente++;
-        return String(valores[indice] ?? '');
-    });
-}
-
-/** Textos del modal `eliminar` (data-textos), o null si el modal no está en la página. */
-export function textosEliminar() {
-    const fuente = document.querySelector('#eliminar [data-textos]');
-    if (!fuente) return null;
-    try {
-        return JSON.parse(fuente.dataset.textos);
-    } catch {
-        return null;
-    }
-}
-
-/**
- * Abre el modal `eliminar` con un título y un texto. Resuelve 'confirmar', 'alternativa' o null
- * (Cancelar, Esc o cierre). El foco empieza en "Cancelar" y vuelve a `opener` al cerrar.
- *
- * @param {{titulo: string, texto: string, confirmar?: boolean, alternativa?: string, opener?: HTMLElement}} opciones
- * @returns {Promise<'confirmar'|'alternativa'|null>}
- */
-export function pedirConfirmacion({ titulo, texto, confirmar = true, alternativa = '', opener = document.activeElement }) {
-    const dialog = document.getElementById('eliminar');
-    if (!(dialog instanceof HTMLDialogElement)) return Promise.resolve(null);
-
-    const botonConfirmar = dialog.querySelector('[data-eliminar-confirmar]');
-    const botonAlternativa = dialog.querySelector('[data-eliminar-alternativa]');
-    const botonCancelar = dialog.querySelector('[data-eliminar-cancelar]');
-
-    dialog.querySelector('#eliminar-title').textContent = titulo;
-    const descripcion = dialog.querySelector('#eliminar-description');
-    if (descripcion) descripcion.textContent = texto;
-
-    botonConfirmar.hidden = !confirmar;
-    botonAlternativa.hidden = !alternativa;
-    if (alternativa) botonAlternativa.querySelector('span').textContent = alternativa;
-
-    return new Promise((resolver) => {
-        let resultado = null;
-
-        const elegir = (valor) => (event) => {
-            event.preventDefault(); // Son submit de un form method="dialog": se cierra a mano.
-            resultado = valor;
-            closeModal(dialog);
-        };
-        const alConfirmar = elegir('confirmar');
-        const alAlternativa = elegir('alternativa');
-
-        const alCerrar = () => {
-            botonConfirmar.removeEventListener('click', alConfirmar);
-            botonAlternativa.removeEventListener('click', alAlternativa);
-            resolver(resultado);
-        };
-
-        botonConfirmar.addEventListener('click', alConfirmar);
-        botonAlternativa.addEventListener('click', alAlternativa);
-        dialog.addEventListener('close', alCerrar, { once: true });
-
-        openModal(dialog, opener);
-        botonCancelar?.focus();
-    });
-}
 
 export function initAdminCursos() {
     const raiz = document.querySelector('[data-admin-cursos]');
     if (!raiz) return;
 
-    const api = raiz.dataset.api;
-    const nonce = raiz.dataset.nonce;
+    const pedir = crearApi(raiz.dataset.api, raiz.dataset.nonce);
     const zonaError = raiz.querySelector('[data-admin-error]');
     const aviso = raiz.querySelector('[data-admin-aviso-tarjeta]');
     const avisoTexto = raiz.querySelector('[data-admin-aviso-texto]');
@@ -151,34 +81,6 @@ export function initAdminCursos() {
             nodos.push(lista);
         }
         zonaError.replaceChildren(...nodos);
-    };
-
-    // ---------- API ----------
-
-    const pedir = async (metodo, ruta, cuerpo) => {
-        let respuesta;
-        try {
-            respuesta = await fetch(api + ruta, {
-                method: metodo,
-                credentials: 'same-origin',
-                headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json',
-                    'X-WP-Nonce': nonce,
-                },
-                body: cuerpo ? JSON.stringify(cuerpo) : undefined,
-            });
-        } catch {
-            throw null;
-        }
-        let datos = null;
-        try {
-            datos = await respuesta.json();
-        } catch {
-            datos = null;
-        }
-        if (!respuesta.ok) throw datos;
-        return datos;
     };
 
     const ocupada = (tarjeta, si) => {
@@ -259,7 +161,7 @@ export function initAdminCursos() {
         limpiarError();
         ocupada(tarjeta, true);
         try {
-            const datos = await pedir('POST', `${tarjeta.dataset.id}/estado`, { estado });
+            const datos = await pedir('POST', `/cursos/${tarjeta.dataset.id}/estado`, { estado });
             actualizarEstado(tarjeta, datos?.estado || estado);
             if (datos?.aviso) mostrarAviso(datos.aviso);
         } catch (error) {
@@ -300,7 +202,7 @@ export function initAdminCursos() {
         limpiarError();
         ocupada(tarjeta, true);
         try {
-            const datos = await pedir('DELETE', tarjeta.dataset.id);
+            const datos = await pedir('DELETE', `/cursos/${tarjeta.dataset.id}`);
             const item = tarjeta.closest('li');
             const lista = item?.parentElement;
             item?.remove();

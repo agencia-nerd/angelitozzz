@@ -28,6 +28,7 @@ get_header();
             <?php get_template_part('template-parts/components/cuenta-menu', null, [
                 'menu'   => 'instructora',
                 'activo' => $vista === 'escritorio' ? 'escritorio' : 'cursos',
+                'saludo' => $vista === 'constructor' ? 'p' : 'h1',
             ]); ?>
 
             <div class="flex min-w-0 flex-1 flex-col gap-[13px] max-md:gap-6">

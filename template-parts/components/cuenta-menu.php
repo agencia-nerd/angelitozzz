@@ -8,12 +8,15 @@
  * $args:
  * - menu   ('alumna' | 'instructora', por defecto 'alumna')
  * - activo (alumna: 'escritorio' | 'perfil' | 'cursos' | 'pedidos'; instructora: 'escritorio' | 'cursos'; requerido)
+ * - saludo ('h1' | 'p', por defecto 'h1': con 'p' el nombre no es el título de la página; lo usa el
+ *           constructor de cursos, cuyo h1 es el título del paso)
  */
 
 defined('ABSPATH') || exit;
 
 $menu   = ($args['menu'] ?? 'alumna') === 'instructora' ? 'instructora' : 'alumna';
 $activo = (string) ($args['activo'] ?? '');
+$saludo = ($args['saludo'] ?? 'h1') === 'p' ? 'p' : 'h1';
 
 $usuaria = wp_get_current_user();
 $nombre  = trim((string) $usuaria->first_name) !== '' ? (string) $usuaria->first_name : (string) $usuaria->display_name;
@@ -39,9 +42,9 @@ $ancho = $menu === 'instructora' ? 'lg:w-[458px]' : 'lg:w-[377px]';
 <aside class="<?= esc_attr('flex shrink-0 flex-col gap-12 lg:min-h-[1140px] lg:border-r lg:border-tinta lg:pr-14 max-lg:gap-6 max-lg:border-b max-lg:border-neutro max-lg:pb-6 ' . $ancho) ?>">
     <div class="flex flex-col gap-10 max-lg:gap-2">
         <p class="text-cuerpo-s text-tinta" aria-hidden="true"><?= esc_html__('Hola,', 'angelitozzz') ?></p>
-        <h1 class="text-h1 text-marca max-md:text-h3">
+        <<?= $saludo ?> class="text-h1 text-marca max-md:text-h3">
             <span class="sr-only"><?= esc_html__('Hola,', 'angelitozzz') ?> </span><?= esc_html($nombre) ?>
-        </h1>
+        </<?= $saludo ?>>
     </div>
 
     <nav class="-mx-4 overflow-x-auto px-4 lg:mx-0 lg:overflow-visible lg:px-0" aria-label="<?= esc_attr($menu === 'instructora' ? __('Administrador de cursos', 'angelitozzz') : __('Mi cuenta', 'angelitozzz')) ?>">

@@ -36,7 +36,7 @@
 ## Sección: seccion
 
 - **Origen:** `specs/figma/lectura/admin-cursos/seccion.ref.txt` (nodo 4184:29688: menú 4184:29690, contenido 4184:29718, aviso 3687:4671 en "PARTE" final; capturas `seccion.png` y `seccion.notificacion.png`)
-- **Destino:** `template-parts/pages/administrador/cursos.php`, `template-parts/components/curso-admin-card.php`, `template-parts/modals/eliminar.php` (el mismo modal de confirmación del constructor), `template-parts/components/cuenta-menu.php`, `src/js/modules/admin-cursos.js`, `pages/template-administrador.php` ("Crear nuevo curso"), plugin `includes/admin.php` e `includes/rest-admin.php`
+- **Destino:** `template-parts/pages/administrador/cursos.php`, `template-parts/components/curso-admin-card.php`, `template-parts/modals/eliminar.php`, `template-parts/components/cuenta-menu.php`, `src/js/modules/admin-cursos.js`, `src/js/modules/admin-comun.js`, `pages/template-administrador.php`
 - **Grupo:** ninguno
 - **Skill:** wp-modal
 - **Comportamiento:** lista de cursos con sus acciones, en el marco del administrador.
@@ -60,6 +60,7 @@
         - **Confirmación:** abre un modal de wp-modal, con el mismo estilo que "¿Eliminar esta lección?" del constructor, "¿Eliminar este curso?".
         - **Con estudiantes inscritas** (alumnas con acceso hoy o encadenado): el curso no se elimina (la API responde 409). El modal "Este curso no se puede eliminar" lo explica y, si el curso está publicado, solo ofrece "Pasar a borrador": sale del sitio y de la venta, y las alumnas inscritas conservan su acceso (`cursos-datos.md` → `acceso`).
         - **Sin estudiantes:** se envía a la papelera de WordPress con sus lecciones; su producto de Woo pasa a borrador.
+    - **Piezas:** "Crear nuevo curso" lo imprime `pages/template-administrador.php` (lo comparten escritorio y lista); el modal `eliminar` es el mismo del constructor; `admin-comun.js` tiene lo que la lista comparte con el constructor (`pedirConfirmacion()`, cliente de la API). Los datos y las acciones son del plugin (`includes/admin.php` e `includes/rest-admin.php`).
     - **Acciones** (publicar, borrador, eliminar): API REST `angelitozzz/v1` con nonce `wp_rest` y la capacidad (sin sesión 401, sin la capacidad 403): `POST /cursos/<id>/estado` con `estado` `publicado` o `borrador`, y `DELETE /cursos/<id>`. Publicar exige lo mismo que el paso 3 del constructor (título, portada, precio y una lección con video; si falta algo, 422 con la lista) y deja publicados el curso, sus lecciones y su producto (oculto del catálogo); pasar a borrador pasa a borrador el curso y su producto. La tarjeta se actualiza sin recargar. Si fallan, el mensaje va con `role="alert"` (con la lista de lo que falta).
     - **Aviso "¡Curso publicado! Ya está visible en Soluciones de Sueño.":**
         - **Cuándo:** al volver del constructor tras publicar (`/administrador/cursos/?publicado=<id>`; el JS quita el parámetro de la URL), o al publicar desde el menú (el texto lo devuelve la API, `angelitozzz_cursos_aviso_publicado()`).
