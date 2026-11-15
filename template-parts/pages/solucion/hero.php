@@ -7,7 +7,7 @@
  * de compra (imagen, precio, botones, nota y cupón). Fondo: la misma imagen al 45 % con el degradado
  * beige encima (decorativa). Móvil: una columna, la tarjeta bajo el texto y sin la foto de fondo.
  *
- * $args: campos de solucion_hero (etiqueta, titular, subtitulo, descripcion, datos, imagen, boton,
+ * $args: campos de solucion_hero (etiqueta, etiqueta_icono, titular, subtitulo, descripcion, datos, imagen, boton,
  * nota, regalo, whatsapp) + contexto (precio, modal_compra…).
  */
 
@@ -15,6 +15,7 @@ defined('ABSPATH') || exit;
 
 $contexto    = (array) ($args['contexto'] ?? []);
 $etiqueta    = (string) ($args['etiqueta'] ?? '');
+$icono       = in_array($args['etiqueta_icono'] ?? '', ['destellos', 'estrella'], true) ? $args['etiqueta_icono'] : 'ninguno';
 $titular     = (string) ($args['titular'] ?? '');
 $subtitulo   = (string) ($args['subtitulo'] ?? '');
 $descripcion = (string) ($args['descripcion'] ?? '');
@@ -69,12 +70,14 @@ if ($titular === '') {
         <div class="flex w-[651px] flex-col items-start gap-[23px] max-lg:w-full">
             <?php get_template_part('template-parts/components/etiqueta', null, [
                 'texto'  => $etiqueta,
-                'estilo' => 'hero',
+                // Con ícono, la etiqueta es salvia (estilo tarjeta), como "Nuevo" de Angelita Pro.
+                'estilo' => $icono === 'ninguno' ? 'hero' : 'tarjeta',
+                'icono'  => $icono,
             ]); ?>
 
             <div class="flex w-full flex-col gap-[28px]">
                 <div class="flex flex-col gap-[10px]">
-                    <h1 id="<?= esc_attr($id_titulo) ?>" class="text-h1 text-marca max-md:text-h3"><?= angelitozzz_highlight($titular) ?></h1>
+                    <h1 id="<?= esc_attr($id_titulo) ?>" class="text-h1 text-marca max-md:text-h3 [&_.italic]:font-normal"><?= angelitozzz_highlight($titular) ?></h1>
                     <?php if ($subtitulo !== '') : ?>
                         <p class="w-fit min-w-[345px] border-b border-contorno pb-2 text-cuerpo-xl text-tinta max-md:min-w-0 max-md:text-cuerpo-l"><?= esc_html($subtitulo) ?></p>
                     <?php endif; ?>
