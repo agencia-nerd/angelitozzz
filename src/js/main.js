@@ -46,3 +46,11 @@ if (document.querySelector('[data-video-play]')) {
 if (document.querySelector('[data-solucion-agregar]')) {
     import('./modules/solucion-compra.js').then(({ initSolucionCompra }) => initSolucionCompra()).catch(console.error);
 }
+
+if (document.querySelector('[data-reglas-contrasena]')) {
+    import('./modules/reglas-contrasena.js').then(({ initReglasContrasena }) => initReglasContrasena()).catch(console.error);
+}
+
+if (document.querySelector('[data-copiar-codigo]')) {
+    import('./modules/copiar-codigo.js').then(({ initCopiarCodigo }) => initCopiarCodigo()).catch(console.error);
+}

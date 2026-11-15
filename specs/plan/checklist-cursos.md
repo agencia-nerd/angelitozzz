@@ -32,7 +32,7 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
     - API REST `angelitozzz/v1` del constructor.
     - Canje de regalos.
 - **Tema `angelitozzz`:** solo presentación (plantillas de los specs, componentes, CSS y JS). Lee el plugin por sus funciones públicas `angelitozzz_cursos_*`; nunca hace consultas propias a las tablas del plugin.
-- **Ajustes a WooCommerce** que son del tema (plantillas de carrito y checkout, campos de facturación, bloque de Mundo en el correo): `woocommerce/` e `inc/woocommerce/`.
+- **Ajustes a WooCommerce** que son del tema (plantillas de carrito, checkout y gracias; bloque de Mundo en el correo): `woocommerce/` e `inc/woocommerce/`. Los campos de facturación del checkout son lógica: van en el plugin `angelitozzz-cursos` (regla de wp-woocommerce, 2026-11-14).
 
 ## Seguridad y buenas prácticas (todas las fases)
 
@@ -141,7 +141,7 @@ Una rama por bloque (decisión del usuario, 2026-11-14): 1) soluciones, 2) carri
 - [x] Mover el listado a `archive-solucion.php` reutilizando `shop.php` y `producto-card` (bloque 1, 2026-11-14)
 - [x] `single-solucion.php` + un archivo por layout en `template-parts/pages/solucion/` (bloque 1)
 - [x] Modales con wp-modal (drawer del carrito, etapas, selector de edad) y preguntas frecuentes con wp-accordion (bloque 1)
-- [ ] Carrito, checkout y gracias en `woocommerce/`
+- [x] Carrito, checkout y gracias en `woocommerce/` (bloque 2, 2026-11-14; vista previa con `?vista_previa=carrito|carrito-vacio|checkout|gracias&estado=…`)
 - [ ] Regalo: pantallas de compra, canje y canjeado
 - [ ] Iniciar sesión, crear cuenta y recuperar contraseña
 - [ ] Cuenta de la alumna (4 vistas) con `cuenta-menu`, `cuenta-pestanas` y `curso-progreso-card`
@@ -156,6 +156,9 @@ Una rama por bloque (decisión del usuario, 2026-11-14): 1) soluciones, 2) carri
 - [ ] wp-woocommerce: soporte del tema, sobrescrituras con `@version`, CSS clásico de Woo quitado, mini-carrito que se actualiza solo
 - [ ] Borrar `wp-content/mu-plugins/angelitozzz-preview-woo.php` (también registra el tipo `solucion` de vista previa)
 - [ ] Borrar la muestra `inc/solucion-muestra.php` e `inc/solucion-muestra/` (y su `require_once`): las vistas pasan a `get_field()`, precios de Woo y wp-query
+- [ ] Borrar la muestra `inc/compra-muestra.php` (y su `require_once`) y la ruta `?vista_previa=` del mu-plugin: carrito, checkout y gracias leen `WC()->cart` y `WC_Order`
+- [ ] Páginas Carrito y Finalizar compra con el shortcode clásico (hoy tienen los bloques de Woo) y productos de prueba ligados a los cursos
+- [ ] Campos de facturación del checkout (`checkout.md`, con `billing_phone_prefijo`) en el plugin `angelitozzz-cursos`, y el login del checkout con el límite de intentos de la F3
 - [ ] Constructor: API REST con permisos, nonce y validación; al publicar crea o actualiza el producto de Woo del curso
 - [ ] Cerrar `wp-admin` para la instructora cuando el constructor funcione (va al administrador de cursos; `cursos-datos.md` → `roles`)
 - [ ] Precio de la landing leído del producto de Woo (precio de lanzamiento = precio rebajado)

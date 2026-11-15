@@ -19,7 +19,7 @@
     - Fondo: crema `--color-fondo`, sin nubes.
     - Cintillo, header y footer salen de `header.php` y `footer.php`.
     - Sin frame móvil en Figma: el comportamiento en móvil es una propuesta en `Comportamiento`.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 ## Sección: carrito-de-compras
 
@@ -31,7 +31,7 @@
 - **Indicaciones del diseño:**
     - nota: Esta es la seccion donde se alojara todo lo seleccionado https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4151-10179&t=lySNWh2dFHTQgiTC-4
     - nota: resumen es https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4151-10157&t=lySNWh2dFHTQgiTC-4
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -42,10 +42,10 @@ Contenido del diseño (de Woo, no campos): un curso "Recién Nacidos Go (0 a 12 
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] `cart.php` conserva todos los `do_action()` del original de Woo, en el mismo orden (anotado en `specs/plan/sobrescrituras.md`)
-- [ ] Cada fila tiene la papelera con nombre accesible y quita el curso; no hay selector de cantidad
-- [ ] La fila "Descuento" solo aparece con un cupón aplicado
-- [ ] El resumen usa el componente `resumen-compra`, el mismo del checkout
-- [ ] Con el carrito vacío se ve el mensaje y el botón a Soluciones de sueño
-- [ ] En móvil el resumen queda bajo la lista, sin scroll horizontal
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] `cart.php` y `cart-empty.php` conservan, como comentarios `// woo:`, todos los `do_action()` del original de Woo en el mismo orden (wp-woocommerce los activa en la F5; anotados en `specs/plan/sobrescrituras.md`)
+- [x] Cada fila tiene la papelera con nombre accesible y quita el curso; no hay selector de cantidad
+- [x] La fila "Descuento" solo aparece con un cupón aplicado
+- [x] El resumen usa el componente `resumen-compra`, el mismo del checkout
+- [x] Con el carrito vacío se ve el mensaje y el botón a Soluciones de sueño
+- [x] En móvil el resumen queda bajo la lista, sin scroll horizontal

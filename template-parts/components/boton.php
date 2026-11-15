@@ -6,7 +6,7 @@
  * $args:
  * - enlace      (array campo link | string URL, requerido salvo con `modal` + `texto`)
  * - texto       (string, opcional: reemplaza el texto del enlace)
- * - variante    ('frambuesa' | 'verde' | 'secundario', por defecto 'frambuesa')
+ * - variante    ('frambuesa' | 'verde' | 'secundario' | 'claro', por defecto 'frambuesa'; 'claro' va sobre fondos oscuros)
  * - flecha      (bool, por defecto true)
  * - desactivado (bool, por defecto false; también se activa si el enlace es '#' o está vacío)
  * - clase       (string, opcional)
@@ -35,13 +35,14 @@ if ($texto === '') {
 $link['title'] = $texto;
 
 $variantes = [
-    'frambuesa'  => 'bg-acento text-blanco',
-    'verde'      => 'bg-marca text-fondo',
-    'secundario' => 'border-[1.5px] border-marca text-marca',
+    'frambuesa'  => 'bg-acento text-blanco focus-visible:outline-marca',
+    'verde'      => 'bg-marca text-fondo focus-visible:outline-marca',
+    'secundario' => 'border-[1.5px] border-marca text-marca focus-visible:outline-marca',
+    'claro'      => 'bg-fondo text-marca focus-visible:outline-fondo',
 ];
 $clases = trim(implode(' ', [
     'inline-flex items-center gap-[10px] rounded-full py-[14px] pl-[28px] pr-[24px] text-rotulo whitespace-nowrap',
-    'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca',
+    'focus-visible:outline-2 focus-visible:outline-offset-2',
     $variantes[$variante] ?? $variantes['frambuesa'],
     $clase,
 ]));
