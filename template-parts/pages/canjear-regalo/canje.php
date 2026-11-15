@@ -48,10 +48,10 @@ get_template_part('template-parts/components/confirmacion-tarjeta', null, [
             <?= $error !== '' ? 'aria-invalid="true" aria-describedby="' . esc_attr($id_error) . '"' : '' ?>>
     </div>
 
-    <button class="inline-flex cursor-pointer items-center gap-[10px] whitespace-nowrap rounded-full bg-acento py-[14px] pl-[28px] pr-[24px] text-rotulo text-blanco focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca disabled:cursor-default disabled:opacity-50" type="submit">
-        <span><?= esc_html__('Canjear código', 'angelitozzz') ?></span>
-        <svg class="size-[18px] shrink-0" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.75 9h10.5M9 3.75 14.25 9 9 14.25" /></svg>
-    </button>
+    <?php get_template_part('template-parts/components/boton', null, [
+        'texto'  => __('Canjear código', 'angelitozzz'),
+        'enviar' => true,
+    ]); ?>
 </form>
 <?php
 get_template_part('template-parts/components/confirmacion-tarjeta-fin', null, [

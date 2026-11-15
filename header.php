@@ -20,9 +20,18 @@ $menu_principal = [
 $menu_derecha = [
     ['texto' => 'Contacto', 'url' => '/contacto/'],
 ];
-// La cuenta apunta a '#' hasta la F4 (bloque de acceso). El carrito abre el drawer (template-parts/modals/carrito.php)
-// y, sin JS, lleva a la página del carrito. woo: contador del carrito (hoy el del diseño, wp-woocommerce en la F5).
-$cuenta           = ['url' => '#', 'title' => 'Iniciar sesión', 'target' => ''];
+// Cuenta: sin sesión, "Iniciar sesión" con vuelta a esta página; con sesión, "Mi cuenta" (URLs del plugin
+// angelitozzz-cursos). El carrito abre el drawer (template-parts/modals/carrito.php) y, sin JS, lleva a la
+// página del carrito. woo: contador del carrito (hoy el del diseño, wp-woocommerce en la F5).
+$con_sesion = is_user_logged_in();
+if (function_exists('angelitozzz_cursos_url_pagina')) {
+    $url_cuenta = $con_sesion
+        ? angelitozzz_cursos_url_pagina('cuenta')
+        : add_query_arg('redirect_to', rawurlencode(home_url(add_query_arg([]))), angelitozzz_cursos_url_pagina('iniciar-sesion'));
+} else {
+    $url_cuenta = $con_sesion ? home_url('/cuenta/') : wp_login_url();
+}
+$cuenta           = ['url' => $url_cuenta, 'title' => $con_sesion ? __('Mi cuenta', 'angelitozzz') : __('Iniciar sesión', 'angelitozzz'), 'target' => ''];
 $carrito          = ['url' => home_url('/carrito/'), 'title' => 'Carrito', 'target' => ''];
 $carrito_cantidad = 1;
 

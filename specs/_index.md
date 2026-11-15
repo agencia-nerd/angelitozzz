@@ -23,9 +23,9 @@ Antes de las páginas, revisa y aprueba [\_shared.md](_shared.md): tokens, compo
 | Ajustes del sitio                    | [opciones.md](opciones.md)                                 | `header.php`                              | aprobado  |
 | Carrito                              | [carrito.md](carrito.md)                                   | `woocommerce/cart/cart.php`               | aplicado  |
 | Checkout                             | [checkout.md](checkout.md)                                 | `woocommerce/checkout/form-checkout.php`  | aplicado  |
-| Iniciar sesión                       | [iniciar-sesion.md](iniciar-sesion.md)                     | `pages/template-iniciar-sesion.php`       | aprobado  |
-| Crear cuenta                         | [crear-cuenta.md](crear-cuenta.md)                         | `pages/template-crear-cuenta.php`         | aprobado  |
-| Recuperar contraseña                 | [recuperar-contrasena.md](recuperar-contrasena.md)         | `pages/template-recuperar-contrasena.php` | aprobado  |
+| Iniciar sesión                       | [iniciar-sesion.md](iniciar-sesion.md)                     | `pages/template-iniciar-sesion.php`       | aplicado  |
+| Crear cuenta                         | [crear-cuenta.md](crear-cuenta.md)                         | `pages/template-crear-cuenta.php`         | aplicado  |
+| Recuperar contraseña                 | [recuperar-contrasena.md](recuperar-contrasena.md)         | `pages/template-recuperar-contrasena.php` | aplicado  |
 | Cuenta: escritorio                   | [usuario-escritorio.md](usuario-escritorio.md)             | `pages/template-cuenta.php`               | aprobado  |
 | Cuenta: mi perfil                    | [usuario-mi-perfil.md](usuario-mi-perfil.md)               | `pages/template-cuenta.php`               | aprobado  |
 | Cuenta: cursos inscritos             | [usuario-cursos.md](usuario-cursos.md)                     | `pages/template-cuenta.php`               | aprobado  |

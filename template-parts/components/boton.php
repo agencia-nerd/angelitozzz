@@ -11,7 +11,8 @@
  * - desactivado (bool, por defecto false; también se activa si el enlace es '#' o está vacío)
  * - clase       (string, opcional)
  * - modal       (string, opcional: id de un modal de wp-modal; imprime un <button> que lo abre en vez de un enlace)
- * - datos       (array, opcional: atributos data-* extra del <button> con `modal`, p. ej. ['data-etapa' => '1'])
+ * - datos       (array, opcional: atributos data-* extra del <button> con `modal` o `enviar`, p. ej. ['data-etapa' => '1'])
+ * - enviar      (bool, por defecto false: imprime un <button type="submit"> que envía su formulario, con `texto`)
  */
 
 defined('ABSPATH') || exit;
@@ -24,6 +25,7 @@ $desactivado = (bool) ($args['desactivado'] ?? false);
 $clase       = (string) ($args['clase'] ?? '');
 $modal       = trim((string) ($args['modal'] ?? ''));
 $datos       = (array) ($args['datos'] ?? []);
+$enviar      = (bool) ($args['enviar'] ?? false);
 
 $link = is_array($enlace) ? $enlace : ['url' => (string) $enlace];
 if ($texto === '') {
@@ -49,10 +51,14 @@ $clases = trim(implode(' ', [
 
 $flecha_svg = '<svg class="size-[18px] shrink-0" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.75 9h10.5M9 3.75 14.25 9 9 14.25" /></svg>';
 
-// Con `modal`: un <button> que abre ese modal (es una acción, no una navegación).
-if ($modal !== '') : ?>
+// Con `modal` o `enviar`: un <button> (es una acción, no una navegación): abre el modal o envía su formulario.
+if ($modal !== '' || $enviar) : ?>
     <button class="<?= esc_attr($clases . ' cursor-pointer disabled:cursor-default disabled:opacity-50') ?>"<?php
-        angelitozzz_modal_trigger_attrs($modal);
+        if ($modal !== '') {
+            angelitozzz_modal_trigger_attrs($modal);
+        } else {
+            echo ' type="submit"';
+        }
         foreach ($datos as $nombre => $valor) {
             if (str_starts_with((string) $nombre, 'data-')) {
                 echo ' ', esc_attr((string) $nombre), '="', esc_attr((string) $valor), '"';
