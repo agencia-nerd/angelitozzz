@@ -19,7 +19,7 @@
     - Toda compra tiene cuenta (`checkout.md`), así que la alumna llega con su sesión iniciada; Woo además comprueba la clave del pedido en la URL.
     - Sin campos ACF propios: los textos son fijos del tema (text domain `angelitozzz`); el banner usa `opciones.md` → `mes-gratis-mundo`.
     - Fondo crema `--color-fondo`, tarjetas centradas con 32 px entre ellas. Cintillo, header y footer salen de `header.php` y `footer.php`. Sin frame móvil: el móvil es una propuesta.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 ## Sección: confirmacion
 
@@ -34,7 +34,7 @@
     - El acceso real lo da el plugin con el pedido pagado (`cursos-datos.md` → `puente-woo`); la página solo lo muestra. Si la inscripción aún no existe al cargar (la pasarela avisa unos segundos después), se muestra igual el estado pagado: el botón lleva a la lección y la lección comprueba el acceso.
     - Los hooks de Woo quedan como comentarios `// woo:` en su lugar (`woocommerce_before_thankyou`, `woocommerce_thankyou`) hasta wp-woocommerce, que los conserva.
     - Valores sueltos: tarjeta de 720 px, padding 56/64, radio 24, 24 px entre bloques. Móvil (propuesta): la tarjeta ocupa el ancho con 16 px de margen y padding 32/24; el título baja a `--text-h3`.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -43,12 +43,15 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Con un pedido pagado de un curso, muestra el curso, su duración y "Empezar el curso" a la primera lección
-- [ ] Con varios cursos, una caja por curso y el botón "Ir a Mis cursos"
-- [ ] Con pago pendiente o fallido no dice "Compra exitosa"; el fallido ofrece "Intentar de nuevo"
-- [ ] La plantilla conserva `woocommerce_before_thankyou` y `woocommerce_thankyou`
-- [ ] Un pedido de otra persona no se puede ver cambiando el número en la URL (lo controla la clave del pedido de Woo)
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Con un pedido pagado de un curso, muestra el curso, su duración y "Empezar el curso" a la primera lección
+- [x] Con varios cursos, una caja por curso y el botón "Ir a Mis cursos"
+- [x] Con pago pendiente o fallido no dice "Compra exitosa"; el fallido ofrece "Intentar de nuevo"
+- [x] La plantilla conserva, como comentarios `// woo:`, `woocommerce_before_thankyou`, `woocommerce_thankyou` y los demás hooks del original (wp-woocommerce los activa en la F5)
+
+Se verifica en la F5, con WooCommerce conectado:
+
+- Un pedido de otra persona no se puede ver cambiando el número en la URL (lo controla la clave del pedido de Woo)
 
 ## Sección: regalo-listo
 
@@ -67,7 +70,7 @@
     - Móvil (propuesta): como `confirmacion`; el código baja a 28 px si no cabe en una línea, sin partirse.
 - **Indicaciones del diseño:**
     - nota: cuando alguien regala el curso.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -76,11 +79,14 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Un pedido pagado con un regalo muestra su código; con dos regalos, dos tarjetas con códigos distintos
-- [ ] "Copiar código" copia el código y lo anuncia a lectores de pantalla
-- [ ] Un pedido solo de regalos no muestra el bloque de Mundo
-- [ ] El código de la página es el mismo del correo
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Un pedido pagado con un regalo muestra su código; con dos regalos, dos tarjetas con códigos distintos
+- [x] "Copiar código" copia el código y lo anuncia a lectores de pantalla
+- [x] Un pedido solo de regalos no muestra el bloque de Mundo
+
+Se verifica en la F5, con el correo de pedido:
+
+- El código de la página es el mismo del correo
 
 ## Sección: mes-gratis-mundo
 
@@ -89,7 +95,7 @@
 - **Grupo:** ninguno
 - **Skill:** wp-helper
 - **Comportamiento:** componente `banner-mundo` con `variante` `confirmacion` y el título "Espera — hay algo más esperándote" (`h2`); el texto, el pie, el botón y el enlace salen de `opciones_mes_gratis_mundo` (`opciones.md`), y el enlace abre en pestaña nueva con `angelitozzz_link`. Se muestra solo si el pedido está pagado y tiene al menos un curso que no es regalo (quien recibe un regalo ve el banner en su primera lección, `leccion.md`). Sin enlace en Ajustes del sitio no se imprime. Ancho igual al de las tarjetas (720 px). Móvil: el del componente.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -98,6 +104,6 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Aparece con un curso propio pagado y no aparece con un pedido solo de regalos ni con pago pendiente
-- [ ] Sin enlace en Ajustes del sitio no se imprime nada
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Aparece con un curso propio pagado y no aparece con un pedido solo de regalos ni con pago pendiente
+- [x] Sin enlace en Ajustes del sitio no se imprime nada

@@ -21,8 +21,8 @@ Antes de las páginas, revisa y aprueba [\_shared.md](_shared.md): tokens, compo
 | Testimonios                          | [testimonios.md](testimonios.md)                           | `archive-testimonio.php`                  | aplicado  |
 | Testimonio                           | [testimonio.md](testimonio.md)                             | ninguna                                   | aplicado  |
 | Ajustes del sitio                    | [opciones.md](opciones.md)                                 | `header.php`                              | aprobado  |
-| Carrito                              | [carrito.md](carrito.md)                                   | `woocommerce/cart/cart.php`               | aprobado  |
-| Checkout                             | [checkout.md](checkout.md)                                 | `woocommerce/checkout/form-checkout.php`  | aprobado  |
+| Carrito                              | [carrito.md](carrito.md)                                   | `woocommerce/cart/cart.php`               | aplicado  |
+| Checkout                             | [checkout.md](checkout.md)                                 | `woocommerce/checkout/form-checkout.php`  | aplicado  |
 | Iniciar sesión                       | [iniciar-sesion.md](iniciar-sesion.md)                     | `pages/template-iniciar-sesion.php`       | aprobado  |
 | Crear cuenta                         | [crear-cuenta.md](crear-cuenta.md)                         | `pages/template-crear-cuenta.php`         | aprobado  |
 | Recuperar contraseña                 | [recuperar-contrasena.md](recuperar-contrasena.md)         | `pages/template-recuperar-contrasena.php` | aprobado  |
@@ -36,6 +36,6 @@ Antes de las páginas, revisa y aprueba [\_shared.md](_shared.md): tokens, compo
 | Administrador: cursos                | [admin-cursos.md](admin-cursos.md)                         | `pages/template-administrador.php`        | aprobado  |
 | Administrador: constructor de cursos | [admin-constructor.md](admin-constructor.md)               | `pages/template-administrador.php`        | aprobado  |
 | Canjear regalo                       | [canjear-regalo.md](canjear-regalo.md)                     | `pages/template-canjear-regalo.php`       | aprobado  |
-| Gracias por tu compra                | [gracias.md](gracias.md)                                   | `woocommerce/checkout/thankyou.php`       | aprobado  |
+| Gracias por tu compra                | [gracias.md](gracias.md)                                   | `woocommerce/checkout/thankyou.php`       | aplicado  |
 
 <!-- design-import:paginas:fin -->
