@@ -1,11 +1,10 @@
 <?php
 
 /**
- * Tienda: página Soluciones de sueño (specs/soluciones-de-sueno.md).
+ * Listado de soluciones de sueño (specs/soluciones-de-sueno.md): /soluciones-de-sueno/.
  *
- * Por ahora solo diseño: sin funciones ni hooks de WooCommerce (cada lugar está marcado con `// woo:`).
- * Los textos son fijos hasta el paso ACF; el número de WhatsApp sale de Ajustes del sitio.
- * Los archivos de categoría de producto también usan esta plantilla.
+ * F4, solo maquetación: textos fijos hasta el paso ACF y tarjetas de muestra (inc/solucion-muestra.php);
+ * wp-query cambia la muestra por el bucle de `solucion`. El número de WhatsApp sale de Ajustes del sitio.
  */
 
 defined('ABSPATH') || exit;
@@ -30,11 +29,7 @@ if ($whatsapp !== '') {
 
 <main id="main-content" class="fondo-nubes">
     <?php
-    // woo: woocommerce_before_main_content
-
     get_template_part('template-parts/pages/soluciones-de-sueno/shop');
-
-    // woo: woocommerce_after_main_content
 
     // Cierre: componente compartido cta-final.
     get_template_part('template-parts/components/cta-final', null, [

@@ -154,8 +154,8 @@ Cada componente vive en `template-parts/components/<nombre>.php` y recibe sus da
 
 - **Origen:** componente Figma "Botón" (29 usos en 8 páginas; variantes Frambuesa, Verde, Secundario)
 - **Destino:** `template-parts/components/boton.php`
-- **Argumentos:** `enlace` (array de campo link o string URL, requerido), `texto` (string, opcional: reemplaza el texto del enlace), `variante` (`frambuesa` | `verde` | `secundario`, por defecto `frambuesa`), `flecha` (bool, por defecto `true`), `desactivado` (bool, por defecto `false`: también se activa solo cuando el enlace es `#` o está vacío), `clase` (string, opcional)
-- **Se usa en:** casi todas las secciones con botón; el `<a>` pasa por `angelitozzz_link_attrs()`
+- **Argumentos:** `enlace` (array de campo link o string URL, requerido), `texto` (string, opcional: reemplaza el texto del enlace), `variante` (`frambuesa` | `verde` | `secundario`, por defecto `frambuesa`), `flecha` (bool, por defecto `true`), `desactivado` (bool, por defecto `false`: también se activa solo cuando el enlace es `#` o está vacío), `clase` (string, opcional), `modal` (string, opcional: id de un modal de wp-modal; en vez del `<a>` imprime un `<button>` con `angelitozzz_modal_trigger_attrs()` que lo abre, con el texto de `texto` o del `title` de `enlace`), `datos` (array, opcional: atributos `data-*` extra de ese `<button>`)
+- **Se usa en:** casi todas las secciones con botón; el `<a>` pasa por `angelitozzz_link_attrs()`. Con `modal`: los botones de compra de las landings (abren el drawer del carrito o el selector de edad) y "Más información" de las etapas
 
 ### etiqueta
 
@@ -190,7 +190,7 @@ Cada componente vive en `template-parts/components/<nombre>.php` y recibe sus da
 - **Origen:** tarjetas de soluciones-de-sueno/shop y home/como-ayudarte (imagen 346 × 374, etiqueta de esquina, nombre y edad, descripción, viñetas, botón)
 - **Destino:** `template-parts/components/producto-card.php`
 - **Argumentos:** `imagen` (array imagen/ID o vacío: sin imagen usa la imagen por defecto "not found", `assets/img/ayudarte-imagen-not-found.webp`), `etiqueta` (string, opcional), `etiqueta_icono` (`ninguno` | `destellos` | `estrella`), `titulo` (string, requerido), `edad` (string, opcional), `descripcion` (string, opcional: se oculta si viene vacía; los relacionados de las landings no la llevan), `beneficios` (array de strings, opcional), `boton` (array link, requerido), `loading` (`lazy` | `eager`, por defecto `lazy`: `eager` para las tarjetas de la primera pantalla)
-- **Se usa en:** home/como-ayudarte, soluciones-de-sueno/shop (`archive-solucion.php`; hoy, provisional, `woocommerce/content-product.php`), solucion/relacionados
+- **Se usa en:** home/como-ayudarte, soluciones-de-sueno/shop (`archive-solucion.php`), solucion/relacionados
 
 ### resumen-compra
 
@@ -265,9 +265,18 @@ Cada componente vive en `template-parts/components/<nombre>.php` y recibe sus da
 ### testimonio-destacado
 
 - **Origen:** componente Figma "Testimonio · Destacado" (testimonios de las 4 landings de soluciones: curso-angelita-pro 4013:14078, curso-a-dormir-por-fin 4013:15586, curso-horarios-ideales 4013:19383, curso-recien-nacidos-go 4013:18105)
-- **Destino:** `template-parts/components/testimonio-destacado.php` y `src/js/modules/testimonio-destacado.js` (Swiper, un testimonio a la vez, no automático)
+- **Destino:** `template-parts/components/testimonio-destacado.php`
+- **JS:** `src/js/modules/testimonio-destacado.js` (Swiper, un testimonio a la vez, no automático)
 - **Argumentos:** `titulo` (string, requerido), `testimonios` (array de `texto` y `autora`; requerido), `fondo` (`crema` | `rosa` | `beige` | `salvia` | `blanco`, por defecto `beige`)
 - **Se usa en:** solucion/secciones (layout `testimonios`). Distinto de `testimonios-slider` (tarjetas con estrellas de Inicio y Mundo): aquí es una cita grande en itálica con la autora, flechas blancas a los lados y puntos debajo; con un solo testimonio no hay flechas ni puntos. Decoración fija: fila de "Z" y nubes.
+
+### video-portada
+
+- **Origen:** portada con botón play de la galería de las landings (curso-angelita-pro/conoce-angelito-pro-por-dentro 4013:14037, curso-recien-nacidos-go/resumen-breve 4013:18035) y del modal de etapa (curso-horarios-ideales/modal-etapas 3752:5964)
+- **Destino:** `template-parts/components/video-portada.php`
+- **JS:** `src/js/modules/video-portada.js`
+- **Argumentos:** `imagen` (array imagen/ID/URL, requerido: la portada), `video` (string, opcional: enlace de Vimeo), `titulo` (string, requerido: `alt` de la portada y nombre del botón play "Reproducir video: …"), `clase` (string, opcional: tamaño y radio del contenedor), `loading` (`lazy` | `eager`, por defecto `lazy`). Sin video (o con un enlace que no es de Vimeo) es solo la imagen. El iframe no está en el HTML: el JS lo crea al pulsar play y lo quita al cerrar el modal o al cambiar de diapositiva. El enlace se lee con `angelitozzz_cursos_vimeo_partes()` del plugin (con `function_exists`).
+- **Se usa en:** solucion/secciones (layout `galeria`), `template-parts/modals/etapa.php`
 
 ### testimonios-slider
 

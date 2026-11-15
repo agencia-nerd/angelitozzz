@@ -129,6 +129,8 @@ $aviso     = esc_html__('se abre en una pestaña nueva', 'angelitozzz');
     </footer>
 
     <?php get_template_part('template-parts/modals/modal-coach'); ?>
+    <?php // Drawer del carrito (specs/solucion.md → drawer-carrito): una vez en todo el sitio; lo abre el ícono del header. ?>
+    <?php get_template_part('template-parts/modals/carrito'); ?>
     <?php wp_footer(); ?>
 </body>
 

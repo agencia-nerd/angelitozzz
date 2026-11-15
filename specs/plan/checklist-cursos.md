@@ -135,24 +135,27 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 
 ## F4 · Maquetación
 
-- [x] Listado de Soluciones de sueño maquetado (provisional en `woocommerce/archive-product.php`)
-- [ ] Mover el listado a `archive-solucion.php` reutilizando `shop.php` y `producto-card`
-- [ ] `single-solucion.php` + un archivo por layout en `template-parts/pages/solucion/`
-- [ ] Modales con wp-modal (drawer del carrito, etapas, selector de edad) y preguntas frecuentes con wp-accordion
+Una rama por bloque (decisión del usuario, 2026-11-14): 1) soluciones, 2) carrito, checkout y gracias, 3) regalo, 4) acceso, 5) cuenta y lección, 6) administrador. Solo maquetación: los datos de muestra viven en `inc/solucion-muestra.php` y `inc/solucion-muestra/` hasta la F5. El tipo `solucion` lo registra temporalmente el mu-plugin de vista previa.
+
+- [x] Listado de Soluciones de sueño maquetado (era provisional en `woocommerce/archive-product.php`)
+- [x] Mover el listado a `archive-solucion.php` reutilizando `shop.php` y `producto-card` (bloque 1, 2026-11-14)
+- [x] `single-solucion.php` + un archivo por layout en `template-parts/pages/solucion/` (bloque 1)
+- [x] Modales con wp-modal (drawer del carrito, etapas, selector de edad) y preguntas frecuentes con wp-accordion (bloque 1)
 - [ ] Carrito, checkout y gracias en `woocommerce/`
 - [ ] Regalo: pantallas de compra, canje y canjeado
 - [ ] Iniciar sesión, crear cuenta y recuperar contraseña
 - [ ] Cuenta de la alumna (4 vistas) con `cuenta-menu`, `cuenta-pestanas` y `curso-progreso-card`
 - [ ] Lección
 - [ ] Escritorio, lista de cursos y constructor de Bárbara
-- [ ] Imágenes pesadas de Figma a WebP (img-webp) antes de las plantillas
+- [ ] Imágenes pesadas de Figma a WebP (img-webp) antes de las plantillas (soluciones hechas en el bloque 1; falta en cada bloque siguiente)
 
 ## F5 · Administrable y conexión
 
 - [ ] wp-acf: `solucion` (tarjeta, compra, flexible de secciones) y ajustes del sitio (mes gratis en Mundo, textos del regalo); contenido inicial de las 4 soluciones
 - [ ] wp-query: listado de soluciones (12 por página, "Ver más") y relacionados automáticos
 - [ ] wp-woocommerce: soporte del tema, sobrescrituras con `@version`, CSS clásico de Woo quitado, mini-carrito que se actualiza solo
-- [ ] Borrar `wp-content/mu-plugins/angelitozzz-preview-woo.php`
+- [ ] Borrar `wp-content/mu-plugins/angelitozzz-preview-woo.php` (también registra el tipo `solucion` de vista previa)
+- [ ] Borrar la muestra `inc/solucion-muestra.php` e `inc/solucion-muestra/` (y su `require_once`): las vistas pasan a `get_field()`, precios de Woo y wp-query
 - [ ] Constructor: API REST con permisos, nonce y validación; al publicar crea o actualiza el producto de Woo del curso
 - [ ] Cerrar `wp-admin` para la instructora cuando el constructor funcione (va al administrador de cursos; `cursos-datos.md` → `roles`)
 - [ ] Precio de la landing leído del producto de Woo (precio de lanzamiento = precio rebajado)

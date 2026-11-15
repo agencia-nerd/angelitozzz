@@ -30,3 +30,19 @@ if (document.querySelector('[data-pastillas]')) {
 if (document.querySelector('[data-ver-mas]')) {
     import('./modules/ver-mas.js').then(({ initVerMas }) => initVerMas()).catch(console.error);
 }
+
+if (document.querySelector('[data-testimonio-destacado-slider]')) {
+    import('./modules/testimonio-destacado.js').then(({ initTestimonioDestacado }) => initTestimonioDestacado()).catch(console.error);
+}
+
+if (document.querySelector('[data-solucion-galeria]')) {
+    import('./modules/solucion-galeria.js').then(({ initSolucionGaleria }) => initSolucionGaleria()).catch(console.error);
+}
+
+if (document.querySelector('[data-video-play]')) {
+    import('./modules/video-portada.js').then(({ initVideoPortada }) => initVideoPortada()).catch(console.error);
+}
+
+if (document.querySelector('[data-solucion-agregar]')) {
+    import('./modules/solucion-compra.js').then(({ initSolucionCompra }) => initSolucionCompra()).catch(console.error);
+}
