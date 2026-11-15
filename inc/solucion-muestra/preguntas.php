@@ -24,13 +24,14 @@ return [
         'fondo'  => 'crema',
         'titulo' => '¡Respondemos a tus preguntas!',
         'items'  => [
-            ['pregunta' => '¿Cómo funciona el proceso?', 'respuesta' => ''],
-            ['pregunta' => '¿En cuánto tiempo veo resultados?', 'respuesta' => ''],
-            ['pregunta' => '¿Cómo se agenda la videollamada?', 'respuesta' => ''],
-            ['pregunta' => '¿Funciona con lactancia y colecho?', 'respuesta' => ''],
-            ['pregunta' => '¿Qué pasa si mi bebé se enferma?', 'respuesta' => ''],
-            ['pregunta' => '¿Esta asesoría es para niños mayores de 2 años?', 'respuesta' => ''],
-            ['pregunta' => '¿Cuántos cupos hay?', 'respuesta' => ''],
+            // Respuestas de muestra (el diseño no trae ninguna): salen de lo que dice la landing y la clienta las confirma.
+            ['pregunta' => '¿Cómo funciona el proceso?', 'respuesta' => 'Empezamos con una videollamada de 1 hora para conocernos y crear el plan de sueño ideal para ti y tu bebé. Después recibes tu plan personalizado y te acompaño por WhatsApp durante 3 semanas.'],
+            ['pregunta' => '¿En cuánto tiempo veo resultados?', 'respuesta' => 'El acompañamiento dura 3 semanas. En ese tiempo ajustamos el plan cada día según la respuesta de tu bebé.'],
+            ['pregunta' => '¿Cómo se agenda la videollamada?', 'respuesta' => 'Después de tu compra te escribo por WhatsApp para coordinar el día y la hora.'],
+            ['pregunta' => '¿Funciona con lactancia y colecho?', 'respuesta' => 'Sí. El plan se diseña de acuerdo a tu estilo y a la forma en que duerme hoy tu bebé.'],
+            ['pregunta' => '¿Qué pasa si mi bebé se enferma?', 'respuesta' => 'Me lo cuentas por WhatsApp y ajustamos el plan mientras se recupera.'],
+            ['pregunta' => '¿Esta asesoría es para niños mayores de 2 años?', 'respuesta' => 'Sí. Es para bebés y niños de hasta 4 años, incluyendo mayores de 2 años y niños que duermen en su propia cama.'],
+            ['pregunta' => '¿Cuántos cupos hay?', 'respuesta' => 'Los cupos son limitados: trabajo con un número reducido de familias a la vez para darle toda mi atención a cada caso.'],
         ],
     ],
     'horarios-ideales' => [

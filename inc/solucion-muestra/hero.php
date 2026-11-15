@@ -22,7 +22,8 @@ $whatsapp = static fn(string $texto): ?array => $numero === '' ? null : [
 
 return [
     'angelita-pro' => [
-        'etiqueta'    => 'Nuevo',
+        'etiqueta'       => 'Nuevo',
+        'etiqueta_icono' => 'destellos',
         'titular'     => 'Angelita Pro',
         'subtitulo'   => 'Coach de sueño con IA · 4 a 24 meses',
         'descripcion' => 'Conoce a Angelita: la coach de sueño que nunca duerme — para que tú y tu bebé por fin puedan hacerlo. Entrenada con 10 años de experiencia real y más de 8.000 familias acompañadas. Disponible a cualquier hora, por WhatsApp. Sin citas. Sin esperas.',
