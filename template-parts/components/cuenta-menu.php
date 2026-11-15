@@ -44,7 +44,7 @@ $ancho = $menu === 'instructora' ? 'lg:w-[458px]' : 'lg:w-[377px]';
         </h1>
     </div>
 
-    <nav class="-mx-4 overflow-x-auto px-4 lg:mx-0 lg:overflow-visible lg:px-0" aria-label="<?= esc_attr__('Mi cuenta', 'angelitozzz') ?>">
+    <nav class="-mx-4 overflow-x-auto px-4 lg:mx-0 lg:overflow-visible lg:px-0" aria-label="<?= esc_attr($menu === 'instructora' ? __('Administrador de cursos', 'angelitozzz') : __('Mi cuenta', 'angelitozzz')) ?>">
         <ul class="flex gap-[14px] lg:flex-col max-lg:w-max">
             <?php foreach ($items as $clave => $item) :
                 $es_activo = $clave === $activo;
