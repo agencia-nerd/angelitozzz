@@ -18,5 +18,5 @@ Reglas:
 
 | Archivo del tema | Original | Versión del original | Motivo | Estado |
 | --- | --- | --- | --- | --- |
-| `woocommerce/archive-product.php` | `woocommerce/templates/archive-product.php` | — | Listado provisional de Soluciones de sueño (solo maquetación, sin hooks). Se reemplaza por `archive-solucion.php` en la F4 | provisional |
-| `woocommerce/content-product.php` | `woocommerce/templates/content-product.php` | — | Tarjeta provisional del listado. Se reemplaza en la F4 | provisional |
+
+Ninguna por ahora. Las provisionales `woocommerce/archive-product.php` y `content-product.php` se borraron en la F4 (2026-11-14): el listado es `archive-solucion.php`. Las de carrito, checkout y gracias se anotan aquí cuando se creen (F4, bloque 2).

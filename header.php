@@ -20,9 +20,10 @@ $menu_principal = [
 $menu_derecha = [
     ['texto' => 'Contacto', 'url' => '/contacto/'],
 ];
-// WooCommerce aún no está definido (_shared.md): cuenta y carrito apuntan a '#' y el contador es el del diseño.
+// La cuenta apunta a '#' hasta la F4 (bloque de acceso). El carrito abre el drawer (template-parts/modals/carrito.php)
+// y, sin JS, lleva a la página del carrito. woo: contador del carrito (hoy el del diseño, wp-woocommerce en la F5).
 $cuenta           = ['url' => '#', 'title' => 'Iniciar sesión', 'target' => ''];
-$carrito          = ['url' => '#', 'title' => 'Carrito', 'target' => ''];
+$carrito          = ['url' => home_url('/carrito/'), 'title' => 'Carrito', 'target' => ''];
 $carrito_cantidad = 1;
 
 $clase_cuenta  = 'flex h-[46px] items-center gap-2 rounded-full border border-neutro bg-blanco pl-[14px] pr-[18px] text-rotulo-s text-marca focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca';
@@ -79,7 +80,7 @@ $cuenta_html = '<a' . ($attrs_cuenta !== '' ? $attrs_cuenta : ' class="' . esc_a
                 <div class="flex items-center gap-3">
                     <div class="max-lg:hidden"><?= $cuenta_html ?></div>
 
-                    <a<?= $attrs_carrito !== '' ? $attrs_carrito : ' class="' . esc_attr($clase_carrito) . '" aria-disabled="true"' ?>>
+                    <a<?= $attrs_carrito !== '' ? $attrs_carrito : ' class="' . esc_attr($clase_carrito) . '" aria-disabled="true"' ?><?php angelitozzz_modal_trigger_attrs('carrito', ['link' => true]); ?>>
                         <span class="sr-only"><?= esc_html(sprintf(_n('Carrito (%d producto)', 'Carrito (%d productos)', $carrito_cantidad, 'angelitozzz'), $carrito_cantidad)) ?></span>
                         <svg class="h-5 w-[23px]" viewBox="0 0 22.67 20.23" fill="none" stroke="currentColor" stroke-width="1.29" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M.65.65h2.7l4.03 13.39c.22.73.89 1.23 1.65 1.23h9.23c.75 0 1.42-.49 1.65-1.21l2.04-6.48c.35-1.12-.48-2.25-1.65-2.25H5.19" /><circle cx="17.82" cy="18.39" r="1.2" /><circle cx="9.87" cy="18.39" r="1.2" /></svg>
                         <?php if ($carrito_cantidad > 0) : ?>

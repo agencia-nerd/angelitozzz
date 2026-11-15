@@ -21,3 +21,5 @@ require_once get_theme_file_path('/inc/acf/fotos-destacadas.php');
 require_once get_theme_file_path('/inc/testimonios.php');
 require_once get_theme_file_path('/inc/query/motor.php');
 require_once get_theme_file_path('/inc/accordions.php');
+require_once get_theme_file_path('/inc/solucion.php');
+require_once get_theme_file_path('/inc/solucion-muestra.php');

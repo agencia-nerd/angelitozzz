@@ -172,6 +172,13 @@
         background-position: center;
     }
 
+    /* Lunas rosadas de solucion/relacionados (decorativas, no editables), sobre bg-fondo-rosa. */
+    .fondo-lunas-rosa {
+        background-image: url("../img/relacionado-fondo-lunas.webp");
+        background-size: cover;
+        background-position: center;
+    }
+
     /* Preguntas frecuentes: el check del diseño es el indicador (no cambia al abrir); decorativo, sin marcado. */
     .faq-check::before {
         content: "";
