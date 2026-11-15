@@ -154,8 +154,8 @@ Cada componente vive en `template-parts/components/<nombre>.php` y recibe sus da
 
 - **Origen:** componente Figma "Botón" (29 usos en 8 páginas; variantes Frambuesa, Verde, Secundario)
 - **Destino:** `template-parts/components/boton.php`
-- **Argumentos:** `enlace` (array de campo link o string URL, requerido), `texto` (string, opcional: reemplaza el texto del enlace), `variante` (`frambuesa` | `verde` | `secundario` | `claro`, por defecto `frambuesa`; `claro`: fondo crema y texto verde, sobre fondos oscuros como el banner de Mundo), `flecha` (bool, por defecto `true`), `desactivado` (bool, por defecto `false`: también se activa solo cuando el enlace es `#` o está vacío), `clase` (string, opcional), `modal` (string, opcional: id de un modal de wp-modal; en vez del `<a>` imprime un `<button>` con `angelitozzz_modal_trigger_attrs()` que lo abre, con el texto de `texto` o del `title` de `enlace`), `datos` (array, opcional: atributos `data-*` extra de ese `<button>`)
-- **Se usa en:** casi todas las secciones con botón; el `<a>` pasa por `angelitozzz_link_attrs()`. Con `modal`: los botones de compra de las landings (abren el drawer del carrito o el selector de edad) y "Más información" de las etapas
+- **Argumentos:** `enlace` (array de campo link o string URL, requerido), `texto` (string, opcional: reemplaza el texto del enlace), `variante` (`frambuesa` | `verde` | `secundario` | `claro`, por defecto `frambuesa`; `claro`: fondo crema y texto verde, sobre fondos oscuros como el banner de Mundo), `flecha` (bool, por defecto `true`), `desactivado` (bool, por defecto `false`: también se activa solo cuando el enlace es `#` o está vacío), `clase` (string, opcional), `modal` (string, opcional: id de un modal de wp-modal; en vez del `<a>` imprime un `<button>` con `angelitozzz_modal_trigger_attrs()` que lo abre, con el texto de `texto` o del `title` de `enlace`), `datos` (array, opcional: atributos `data-*` extra de ese `<button>`), `enviar` (bool, por defecto `false`: imprime un `<button type="submit">` que envía su formulario, con el texto de `texto`)
+- **Se usa en:** casi todas las secciones con botón; el `<a>` pasa por `angelitozzz_link_attrs()`. Con `modal`: los botones de compra de las landings (abren el drawer del carrito o el selector de edad) y "Más información" de las etapas. Con `enviar`: los formularios de acceso y el canje de regalo
 
 ### etiqueta
 
@@ -202,16 +202,24 @@ Cada componente vive en `template-parts/components/<nombre>.php` y recibe sus da
 ### acceso-tarjeta
 
 - **Origen:** "Tarjeta" y "Decoración acceso" de iniciar-sesion (4156:23796), crear-cuenta (4156:23743) y recuperar-contrasena (4156:24625)
-- **Destino:** `template-parts/components/acceso-tarjeta.php` y `template-parts/components/acceso-tarjeta-fin.php`
-- **Argumentos:** `titulo` (string, requerido: el `h1`), `bajada` (string, opcional). Imprime el fondo crema con la decoración (nube dormida, destellos, luna; `aria-hidden`), la tarjeta blanca (560 px, padding 56, radio 28, sombra `0 12px 40px #24454a14`, separación 32 px) con el logo de Mundo Angelitozzz (asset fijo del tema, `alt` "Mundo Angelitozzz"), el título y la bajada. El formulario de cada pantalla va debajo, dentro de la tarjeta: el componente se abre con `acceso-tarjeta` y se cierra con `acceso-tarjeta-fin`.
+- **Destino:** `template-parts/components/acceso-tarjeta.php`, `template-parts/components/acceso-tarjeta-fin.php`
+- **Argumentos:** `titulo` (string, requerido: el `h1`), `bajada` (string, opcional). Imprime el fondo crema con la decoración (nube dormida, destellos, luna; `aria-hidden`), la tarjeta blanca (560 px, padding 56, radio 28, sombra `0 12px 40px #24454a14`, separación 32 px) con el logo de Mundo Angelitozzz (asset fijo del tema, `assets/img/compra/banner-logo-mundo.webp`, el mismo del banner de Mundo; `alt` "Mundo Angelitozzz"), el título y la bajada. El formulario de cada pantalla va debajo, dentro de la tarjeta: el componente se abre con `acceso-tarjeta` y se cierra con `acceso-tarjeta-fin`.
 - **Se usa en:** iniciar-sesion, crear-cuenta, recuperar-contrasena (`template-parts/pages/<pantalla>/formulario.php`)
 
 ### campo-acceso
 
 - **Origen:** campos de las pantallas de acceso: caja crema con borde `#d7d0b5` (`--color-neutro`), radio 12, padding 14/16, ícono de 18 px a la izquierda, etiqueta verde encima (`--text-rotulo`), placeholder en `--color-tinta-suave`
-- **Destino:** `template-parts/components/campo-acceso.php` y `src/js/modules/ver-contrasena.js`
-- **Argumentos:** `id` (string, requerido), `name` (string, requerido), `etiqueta` (string, requerido), `tipo` (`text` | `email` | `password`, por defecto `text`), `placeholder` (string), `icono` (`correo` | `candado` | `ninguno`, por defecto `ninguno`), `autocomplete` (string), `requerido` (bool, por defecto `true`), `valor` (string: lo que ya escribió, al volver con error). Con `tipo` `password` agrega el botón ojo (ver u ocultar, `aria-pressed`, nombre accesible "Mostrar contraseña").
+- **Destino:** `template-parts/components/campo-acceso.php`
+- **JS:** `src/js/modules/ver-contrasena.js`
+- **Argumentos:** `id` (string, requerido), `name` (string, requerido), `etiqueta` (string, requerido), `tipo` (`text` | `email` | `password`, por defecto `text`), `placeholder` (string), `icono` (`correo` | `candado` | `ninguno`, por defecto `ninguno`), `autocomplete` (string), `requerido` (bool, por defecto `true`), `valor` (string: lo que ya escribió, al volver con error; nunca en contraseñas), `error` (bool, por defecto `false`: borde frambuesa y `aria-invalid`), `describe` (string, opcional: id del mensaje de error, para `aria-describedby`), `asterisco` (bool, por defecto `false`: " *" en la etiqueta de un campo requerido; lo usa crear cuenta). Con `tipo` `password` agrega el botón ojo (ver u ocultar, `aria-pressed`, nombre accesible "Mostrar contraseña"); el botón aparece solo con JS.
 - **Se usa en:** iniciar-sesion, crear-cuenta, recuperar-contrasena. No en el checkout: allí los campos son subrayados, como su diseño (decisión del usuario, 2026-11-13).
+
+### aviso-formulario
+
+- **Origen:** propuesta de los specs de acceso (el diseño no dibuja errores): recuadro arriba del formulario
+- **Destino:** `template-parts/components/aviso-formulario.php`
+- **Argumentos:** `texto` (string, requerido), `tipo` (`error` | `aviso`, por defecto `error`: el error lleva `role="alert"`, borde frambuesa y fondo rosa; el aviso, `role="status"`, borde salvia y fondo crema), `id` (string, opcional: para que los campos apunten al mensaje con `aria-describedby`). Sin texto no imprime nada.
+- **Se usa en:** iniciar-sesion, crear-cuenta, recuperar-contrasena (el mensaje de un solo uso del plugin, `angelitozzz_cursos_mensaje()`)
 
 ### cuenta-menu
 

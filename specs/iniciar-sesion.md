@@ -18,7 +18,7 @@
     - `h1`: "Inicia sesión". Título SEO "Iniciar sesión | Angelitozzz", con `noindex`.
     - El checkout dice "Iniciar sesión" y "Regístrate"; esta pantalla, "Inicia sesión" y "Crea una aquí": se respeta cada diseño.
     - Cintillo, header y footer salen de `header.php` y `footer.php`. Sin frame móvil: el móvil es una propuesta.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 ## Sección: formulario
 
@@ -26,10 +26,10 @@
 - **Destino:** `pages/template-iniciar-sesion.php`, `template-parts/pages/iniciar-sesion/formulario.php`, `template-parts/components/acceso-tarjeta.php`, `template-parts/components/campo-acceso.php`
 - **Grupo:** ninguno
 - **Skill:** wp-helper
-- **Comportamiento:** fondo crema `--color-fondo` con la decoración de acceso (nube dormida abajo a la izquierda, destellos rosa y beige, luna salvia; decorativa, `aria-hidden`) y la tarjeta blanca centrada del componente `acceso-tarjeta`: logo de Mundo Angelitozzz, `h1` "Inicia sesión" y bajada "Entra para ver tus cursos, tu historial y tus regalos.". Formulario (`<form method="post">` con nonce) con `campo-acceso`: "Correo electrónico" (ícono sobre, placeholder "tucorreo@ejemplo.com", `type="email"`, `autocomplete="username"`) y "Contraseña" (ícono candado, botón ojo para ver u ocultar con `aria-pressed` y nombre accesible, `autocomplete="current-password"`). Sin "Recordarme" en el diseño: se envía marcado por defecto (campo oculto `rememberme`). Debajo, "¿Olvidaste tu contraseña?" (enlace subrayado verde a `/recuperar-contrasena/`), el `boton` frambuesa "Iniciar sesión" (un `<button type="submit">` con el aspecto del componente) y "¿No tienes cuenta? Crea una aquí" (enlace a `/crear-cuenta/`). **Errores** (propuesta): el mensaje "Correo o contraseña incorrectos" (el mismo en los dos casos) o "Demasiados intentos. Prueba de nuevo en unos minutos." arriba del formulario, en un recuadro con `role="alert"`, y el campo con borde frambuesa. Mientras envía, el botón se desactiva. Valores sueltos: borde de campo `#d7d0b5` (= `--color-neutro`), tarjeta 560 px, padding 56, radio 28, sombra `0 12px 40px #24454a14`, separación 32 px. Móvil (propuesta): la tarjeta ocupa el ancho con 16 px de margen y padding 32 px; la decoración se reduce y no tapa la tarjeta.
+- **Comportamiento:** fondo crema `--color-fondo` con la decoración de acceso (nube dormida abajo a la izquierda, destellos rosa y beige, luna salvia; decorativa, `aria-hidden`) y la tarjeta blanca centrada del componente `acceso-tarjeta`: logo de Mundo Angelitozzz, `h1` "Inicia sesión" y bajada "Entra para ver tus cursos, tu historial y tus regalos.". Formulario (`<form method="post">` a `admin-post.php`, acción `angelitozzz_iniciar_sesion` del plugin, con nonce y `redirect_to` por `angelitozzz_cursos_campos_ocultos()`) con `campo-acceso`: "Correo electrónico" (ícono sobre, placeholder "tucorreo@ejemplo.com", `type="email"`, `name="correo"`, `autocomplete="username"`) y "Contraseña" (ícono candado, botón ojo para ver u ocultar con `aria-pressed` y nombre accesible, `name="clave"`, `autocomplete="current-password"`). Sin "Recordarme" en el diseño: el plugin siempre abre la sesión recordada, así que no hay campo `rememberme`. Debajo, "¿Olvidaste tu contraseña?" (enlace subrayado verde a `/recuperar-contrasena/`), el `boton` frambuesa "Iniciar sesión" (`boton` con `enviar`: un `<button type="submit">`) y "¿No tienes cuenta? Crea una aquí" (enlace a `/crear-cuenta/`). **Errores** (propuesta): el mensaje "Correo o contraseña incorrectos" (el mismo en los dos casos) o "Demasiados intentos. Prueba de nuevo en unos minutos." arriba del formulario, en un recuadro con `role="alert"` (componente `aviso-formulario`), y el campo con borde frambuesa y `aria-invalid`; el texto es el del plugin ("Correo o contraseña incorrectos."). Un aviso (por ejemplo "Tu contraseña se cambió. Ya puedes iniciar sesión.") va en el mismo lugar con `role="status"`. Sin el plugin activo, la tarjeta muestra un aviso en vez del formulario. Mientras envía, el botón se desactiva. Valores sueltos: borde de campo `#d7d0b5` (= `--color-neutro`), tarjeta 560 px, padding 56, radio 28, sombra `0 12px 40px #24454a14`, separación 32 px. Móvil (propuesta): la tarjeta ocupa el ancho con 16 px de margen y padding 32 px; la decoración se reduce y no tapa la tarjeta.
 - **Indicaciones del diseño:**
     - nota: te paso link de la secccion especifica: https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4156-23796&t=lySNWh2dFHTQgiTC-4
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -38,12 +38,15 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] El formulario lleva nonce; tras varios intentos fallidos se bloquea un rato y el mensaje no revela si el correo existe
-- [ ] `redirect_to` solo acepta URL del propio sitio
-- [ ] Cada campo tiene `<label>` asociado y el `autocomplete` correcto
-- [ ] El ojo muestra y oculta la contraseña, con nombre accesible y `aria-pressed`
-- [ ] Al entrar vuelve a la página de origen; sin origen, al escritorio de la alumna
-- [ ] Un error de acceso se muestra con `role="alert"` sin perder el correo escrito
-- [ ] `/mi-cuenta/` de Woo lleva a esta pantalla sin sesión (o al escritorio con sesión)
-- [ ] En móvil la tarjeta no tiene scroll horizontal y la decoración no tapa los campos
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] El formulario lleva nonce; tras varios intentos fallidos se bloquea un rato y el mensaje no revela si el correo existe (probado en el navegador: el 5.º fallo de la IP bloquea; y en las pruebas del plugin)
+- [x] `redirect_to` solo acepta URL del propio sitio (una URL externa cae en la cuenta)
+- [x] Cada campo tiene `<label>` asociado y el `autocomplete` correcto
+- [x] El ojo muestra y oculta la contraseña, con nombre accesible y `aria-pressed`
+- [x] Al entrar vuelve a la página de origen; sin origen, a `/cuenta/` (el escritorio de la alumna llega en la F4, bloque 5)
+- [x] Un error de acceso se muestra con `role="alert"` sin perder el correo escrito
+- [x] En móvil la tarjeta no tiene scroll horizontal y la decoración no tapa los campos (se oculta bajo 1024 px)
+
+Se verifica en la F4, bloque 5 (cuando exista `/cuenta/`):
+
+- `/mi-cuenta/` de Woo lleva a esta pantalla sin sesión (o al escritorio con sesión)

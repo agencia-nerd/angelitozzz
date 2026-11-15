@@ -17,7 +17,7 @@
     - Sin campos ACF: textos fijos del tema (text domain `angelitozzz`).
     - `h1`: "Crea tu cuenta". Título SEO "Crear cuenta | Angelitozzz", con `noindex`.
     - Cintillo, header y footer salen de `header.php` y `footer.php`. Sin frame móvil: el móvil es una propuesta.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 ## Sección: formulario
 
@@ -25,10 +25,10 @@
 - **Destino:** `pages/template-crear-cuenta.php`, `template-parts/pages/crear-cuenta/formulario.php`, `template-parts/components/acceso-tarjeta.php`, `template-parts/components/campo-acceso.php`
 - **Grupo:** ninguno
 - **Skill:** wp-helper
-- **Comportamiento:** mismo fondo, decoración y tarjeta que iniciar sesión (`acceso-tarjeta`): logo, `h1` "Crea tu cuenta" y bajada "Con tu cuenta accedes a tus cursos desde cualquier dispositivo.". Campos con `campo-acceso`: "Nombre" (placeholder "Ej. Ana Lucía", `first_name`, `autocomplete="given-name"`) y "Apellidos" ("Ej. León", `last_name`, `autocomplete="family-name"`) en dos columnas; "Correo electrónico" (ícono sobre, "tucorreo@ejemplo.com", `email`, `autocomplete="email"`); "Contraseña" (ícono candado, "Mínimo 8 caracteres", ojo para ver u ocultar, `password`, `autocomplete="new-password"`; debajo, la lista `reglas-contrasena`; las reglas se validan también en el servidor (plugin, F3) y el error se avisa con su mensaje). Todos requeridos (`required` y `*` en la etiqueta, que el diseño no dibuja). Casilla verde "Acepto los términos y condiciones y la política de privacidad" (requerida, con los dos enlaces). `boton` frambuesa "Crear cuenta" (submit) y "¿Ya tienes cuenta? Inicia sesión" (enlace a iniciar sesión). El formulario lleva nonce y `redirect_to` (validado como URL del propio sitio). **Errores** (propuesta): correo ya registrado ("Ya existe una cuenta con este correo. Inicia sesión o recupera tu contraseña.") y contraseña que no cumple las reglas en un recuadro `role="alert"` arriba del formulario, conservando lo escrito. Móvil (propuesta): Nombre y Apellidos en una columna; tarjeta con 16 px de margen y padding 32 px.
+- **Comportamiento:** mismo fondo, decoración y tarjeta que iniciar sesión (`acceso-tarjeta`): logo, `h1` "Crea tu cuenta" y bajada "Con tu cuenta accedes a tus cursos desde cualquier dispositivo.". Campos con `campo-acceso`: "Nombre" (placeholder "Ej. Ana Lucía", `name="nombre"`, `autocomplete="given-name"`) y "Apellidos" ("Ej. León", `name="apellidos"`, `autocomplete="family-name"`) en dos columnas; "Correo electrónico" (ícono sobre, "tucorreo@ejemplo.com", `name="correo"`, `autocomplete="email"`); "Contraseña" (ícono candado, "Mínimo 8 caracteres", ojo para ver u ocultar, `name="clave"`, `autocomplete="new-password"`; debajo, la lista `reglas-contrasena`; las reglas se validan también en el servidor (plugin, F3) y el error se avisa con su mensaje). Todos requeridos (`required` y `*` en la etiqueta, que el diseño no dibuja). Casilla verde "Acepto los términos y condiciones y la política de privacidad" (`name="terminos"`, requerida; los enlaces van a la página de términos de Woo y a la de privacidad de WordPress, en pestaña nueva, y sin página configurada el texto queda sin enlace). `boton` frambuesa "Crear cuenta" (`boton` con `enviar`) y "¿Ya tienes cuenta? Inicia sesión" (enlace a iniciar sesión). El formulario va a `admin-post.php`, acción `angelitozzz_crear_cuenta` del plugin, con nonce y `redirect_to` (validado como URL del propio sitio) por `angelitozzz_cursos_campos_ocultos()`. **Errores** (propuesta): correo ya registrado ("Ya existe una cuenta con ese correo. Inicia sesión o recupera tu contraseña.", texto del plugin) y contraseña que no cumple las reglas en un recuadro `role="alert"` arriba del formulario, conservando lo escrito. Móvil (propuesta): Nombre y Apellidos en una columna; tarjeta con 16 px de margen y padding 32 px.
 - **Indicaciones del diseño:**
     - nota: te paso link de la secccion especifica: https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4156-23743&t=lySNWh2dFHTQgiTC-4
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -37,11 +37,11 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] El formulario lleva nonce; el servidor valida todos los campos (no confía en el navegador) y crea la usuaria con el rol `customer`
-- [ ] Solo se ven Nombre, Apellidos, Correo, Contraseña y la casilla; el usuario se arma del correo
-- [ ] La casilla empieza sin marcar, es requerida y enlaza a términos y privacidad
-- [ ] La contraseña muestra las 4 reglas en vivo y el servidor rechaza una que no las cumpla
-- [ ] Con un correo ya registrado se ve el error y no se pierde lo escrito
-- [ ] Al crear la cuenta vuelve a la página de origen; sin origen, al escritorio de la alumna
-- [ ] En móvil los campos van en una columna, sin scroll horizontal
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] El formulario lleva nonce; el servidor valida todos los campos (no confía en el navegador) y crea la usuaria con el rol `customer` (probado en el navegador; el rol, en las pruebas del plugin)
+- [x] Solo se ven Nombre, Apellidos, Correo, Contraseña y la casilla; el usuario se arma del correo
+- [x] La casilla empieza sin marcar, es requerida y enlaza a términos y privacidad
+- [x] La contraseña muestra las 4 reglas en vivo y el servidor rechaza una que no las cumpla
+- [x] Con un correo ya registrado se ve el error y no se pierde lo escrito
+- [x] Al crear la cuenta vuelve a la página de origen; sin origen, a `/cuenta/` (el escritorio llega en la F4, bloque 5), con la sesión iniciada
+- [x] En móvil los campos van en una columna, sin scroll horizontal
