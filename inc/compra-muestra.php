@@ -113,3 +113,34 @@ function angelitozzz_compra_muestra_mes_gratis(): array
         'boton'  => 'Activar mi mes gratis',
     ];
 }
+
+/**
+ * Estado de muestra de /canjear-regalo/ (specs/canjear-regalo.md), elegido con
+ * ?vista_previa=canjear-regalo&estado=canje|error|bloqueado|canjeado|canjeado-ilimitado.
+ * f5: el plugin angelitozzz-cursos da el error del envío o el último canje (dato de un solo uso).
+ */
+function angelitozzz_compra_muestra_canje(): array
+{
+    $estado = isset($_GET['estado']) ? sanitize_key(wp_unslash($_GET['estado'])) : 'canje';
+
+    $canjeado = [
+        'estado'          => 'canjeado',
+        'curso'           => 'Recién Nacidos Go',
+        'meses'           => 4,
+        'primera_leccion' => home_url('/soluciones-de-sueno/recien-nacidos-go/'), // f5: URL de la primera lección
+        'cursos_url'      => home_url('/cuenta/cursos/'),
+    ];
+
+    switch ($estado) {
+        case 'error':
+            return ['estado' => 'canje', 'valor' => 'ANGZ-4K7Q', 'error' => __('Este código no es válido o ya fue usado. Revisa que esté bien escrito.', 'angelitozzz')];
+        case 'bloqueado':
+            return ['estado' => 'canje', 'valor' => 'ANGZ-4K7Q', 'error' => __('Demasiados intentos. Prueba de nuevo en unos minutos.', 'angelitozzz')];
+        case 'canjeado':
+            return $canjeado;
+        case 'canjeado-ilimitado':
+            return ['meses' => 0, 'curso' => 'A Dormir Por Fin'] + $canjeado;
+        default:
+            return ['estado' => 'canje', 'valor' => '', 'error' => ''];
+    }
+}
