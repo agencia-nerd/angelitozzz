@@ -13,12 +13,16 @@ $mensaje = $plugin ? angelitozzz_cursos_mensaje() : null;
 $campos  = (array) ($mensaje['campos'] ?? []);
 $error   = ($mensaje['tipo'] ?? '') === 'error';
 
-// Vuelta tras entrar: la página de origen (solo del propio sitio); sin origen, la cuenta.
+// Vuelta tras entrar: la página de origen (solo del propio sitio y nunca otra página de acceso). Sin
+// origen va vacía y el plugin elige el inicio de cada rol (alumna: /cuenta/; instructora: /administrador/).
 $pedida = isset($_GET['redirect_to']) ? wp_unslash($_GET['redirect_to']) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput -- lo valida angelitozzz_cursos_redirect_seguro().
-$volver = $plugin ? angelitozzz_cursos_redirect_seguro($pedida, angelitozzz_cursos_url_pagina('cuenta')) : '';
+$volver = $plugin ? angelitozzz_cursos_redirect_seguro($pedida, '') : '';
+if ($volver !== '' && function_exists('angelitozzz_cursos_es_pagina_acceso') && angelitozzz_cursos_es_pagina_acceso($volver)) {
+    $volver = '';
+}
 
 $crear_cuenta = $plugin ? angelitozzz_cursos_url_pagina('crear-cuenta') : home_url('/crear-cuenta/');
-if ($plugin && $pedida !== '') {
+if ($plugin && $volver !== '') {
     $crear_cuenta = add_query_arg('redirect_to', rawurlencode($volver), $crear_cuenta);
 }
 $recuperar = $plugin ? angelitozzz_cursos_url_pagina('recuperar-contrasena') : home_url('/recuperar-contrasena/');

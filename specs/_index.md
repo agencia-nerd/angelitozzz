@@ -34,7 +34,7 @@ Antes de las páginas, revisa y aprueba [\_shared.md](_shared.md): tokens, compo
 | Lección                              | [leccion.md](leccion.md)                                   | `single-leccion.php`                      | aplicado  |
 | Administrador: escritorio            | [admin-escritorio.md](admin-escritorio.md)                 | `pages/template-administrador.php`        | aplicado  |
 | Administrador: cursos                | [admin-cursos.md](admin-cursos.md)                         | `pages/template-administrador.php`        | aplicado  |
-| Administrador: constructor de cursos | [admin-constructor.md](admin-constructor.md)               | `pages/template-administrador.php`        | aprobado  |
+| Administrador: constructor de cursos | [admin-constructor.md](admin-constructor.md)               | `pages/template-administrador.php`        | aplicado  |
 | Canjear regalo                       | [canjear-regalo.md](canjear-regalo.md)                     | `pages/template-canjear-regalo.php`       | aplicado  |
 | Gracias por tu compra                | [gracias.md](gracias.md)                                   | `woocommerce/checkout/thankyou.php`       | aplicado  |
 

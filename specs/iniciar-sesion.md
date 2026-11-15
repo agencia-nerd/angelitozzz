@@ -11,7 +11,7 @@
 - **Ubicación:** ninguna
 - **Padre:** ninguno
 - **Notas de página:**
-    - Página propia `/iniciar-sesion/` (sin Tutor LMS desde 2026-11-13; `_shared.md` → WooCommerce: `cuenta` = `no aplica` porque la cuenta es propia). El formulario se envía a una acción del plugin `angelitozzz-cursos`, que usa `wp_signon()` con nonce, límite de intentos por IP y por correo, y un mensaje que no revela si el correo existe. "Mi cuenta" de Woo (`/mi-cuenta/`), `wp-login.php` para alumnas y cualquier página de la cuenta sin sesión redirigen aquí, con `redirect_to` validado con `wp_validate_redirect` (solo URL del propio sitio).
+    - Página propia `/iniciar-sesion/` (sin Tutor LMS desde 2026-11-13; `_shared.md` → WooCommerce: `cuenta` = `no aplica` porque la cuenta es propia). El formulario se envía a una acción del plugin `angelitozzz-cursos`, que usa `wp_signon()` con nonce, límite de intentos por IP y por correo, y un mensaje que no revela si el correo existe. "Mi cuenta" de Woo (`/mi-cuenta/`), `wp-login.php` para alumnas y cualquier página de la cuenta sin sesión redirigen aquí, con `redirect_to` validado con `wp_validate_redirect` (solo URL del propio sitio). El `redirect_to` nunca es otra página de acceso: si lo es, se usa la vuelta que esa página traía o ninguna, para que la URL no crezca con cada clic (F4, bloque 6b). `/wp-admin/` sin sesión usa la pantalla de WordPress (`wp-login.php`, con sus propios enlaces de registro y contraseña): es la entrada del equipo; las cuentas son las mismas.
     - Sin campos ACF: los textos son fijos del tema (text domain `angelitozzz`).
     - Decisiones del usuario (2026-11-13): "Iniciar sesión" del header lleva a esta página (sin modal). Al entrar bien, vuelve a la página de la que venía (checkout, landing, lección; `redirect_to`), y si entró directo, va al escritorio de la alumna.
     - Los campos de estas pantallas son cajas (estilo de `campo-acceso`), distintos de los subrayados del checkout: se respeta cada diseño (decisión del usuario, 2026-11-13).
@@ -43,7 +43,7 @@
 - [x] `redirect_to` solo acepta URL del propio sitio (una URL externa cae en la cuenta)
 - [x] Cada campo tiene `<label>` asociado y el `autocomplete` correcto
 - [x] El ojo muestra y oculta la contraseña, con nombre accesible y `aria-pressed`
-- [x] Al entrar vuelve a la página de origen; sin origen, a `/cuenta/` (el escritorio de la alumna llega en la F4, bloque 5)
+- [x] Al entrar vuelve a la página de origen; sin origen (o si el origen es otra página de acceso), a la página de inicio de su rol: `/cuenta/` para la alumna y `/administrador/` para quien gestiona cursos (instructora o administradora)
 - [x] Un error de acceso se muestra con `role="alert"` sin perder el correo escrito
 - [x] En móvil la tarjeta no tiene scroll horizontal y la decoración no tapa los campos (se oculta bajo 1024 px)
 

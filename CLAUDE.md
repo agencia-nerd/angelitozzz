@@ -108,7 +108,7 @@ Stack: WordPress (Local WP) + Vite + Tailwind + pnpm.
 <!-- wp-accordion:end -->
 ## Cursos (plugin angelitozzz-cursos)
 - Los cursos son a medida, sin Tutor LMS. El plan, las decisiones y el avance están en `specs/plan/checklist-cursos.md`.
-- La lógica de negocio va en el plugin propio `angelitozzz-cursos` (`wp-content/plugins/angelitozzz-cursos/`, fuera del repo del tema y sin repo propio por ahora): tipos `curso` y `leccion`, inscripciones, avance, vencimiento, acceso, descargas protegidas, puente con WooCommerce, cuentas, roles y la API REST `angelitozzz/v1` del constructor. El tema solo pinta: plantillas, componentes, CSS y JS.
+- La lógica de negocio va en el plugin propio `angelitozzz-cursos` (`wp-content/plugins/angelitozzz-cursos/`, fuera del repo del tema, con su propio repo git local y sin remoto por ahora): tipos `curso` y `leccion`, inscripciones, avance, vencimiento, acceso, descargas protegidas, puente con WooCommerce, cuentas, roles y la API REST `angelitozzz/v1` del constructor. El tema solo pinta: plantillas, componentes, CSS y JS.
 - El tema lee el plugin solo por sus funciones públicas `angelitozzz_cursos_*`. Nunca consulta sus tablas ni repite su lógica.
 - El cobro es de WooCommerce + Niubiz (plugin oficial). El plugin no toca la tarjeta: solo inscribe cuando el pedido está pagado y quita el acceso si se reembolsa o se cancela.
 - Seguridad en todo código a medida:

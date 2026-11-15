@@ -3,7 +3,8 @@
 /**
  * Administrador · cursos (specs/admin-cursos.md, Figma 4184:29718): todos los cursos (publicados y
  * borradores) en tarjetas curso-admin-card, más recientes primero, 12 por página. Las acciones de
- * cada tarjeta (publicar, borrador, eliminar) van por la API REST del plugin con admin-cursos.js.
+ * cada tarjeta (publicar, borrador, eliminar) van por la API REST del plugin con admin-cursos.js; la
+ * base de la API la arma rest_url() (data-api) y el JS le agrega la ruta sin suponer enlaces permanentes.
  * Aviso "¡Curso publicado!" al volver del constructor (?publicado=<id>) o al publicar desde el menú.
  *
  * $args: los de angelitozzz_cursos_vista_admin() (usa 'pagina').
@@ -24,7 +25,7 @@ if ($publicado && get_post_type($publicado) === 'curso' && get_post_status($publ
 ?>
 <section class="mt-[37px] flex flex-col gap-8 max-md:mt-0" aria-labelledby="admin-cursos-titulo"
     data-admin-cursos
-    data-api="<?= esc_url(rest_url('angelitozzz/v1/cursos/')) ?>"
+    data-api="<?= esc_url(rest_url('angelitozzz/v1/')) ?>"
     data-nonce="<?= esc_attr(wp_create_nonce('wp_rest')) ?>"
     data-error-generico="<?= esc_attr__('No pudimos guardar el cambio. Revisa tu conexión y vuelve a intentarlo.', 'angelitozzz') ?>">
     <h2 id="admin-cursos-titulo" class="sr-only"><?= esc_html__('Cursos', 'angelitozzz') ?></h2>

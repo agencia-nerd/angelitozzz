@@ -37,14 +37,20 @@
     - **Acceso y seguridad:**
         - Solo la capacidad `angelitozzz_gestionar_cursos`, como en `admin-escritorio.md`.
         - Todo se guarda por la API REST `angelitozzz/v1`, con nonce `wp_rest`, `permission_callback` con la capacidad y validación de cada campo en el servidor; la validación del navegador es solo ayuda.
+        - **Rutas** (plugin `includes/rest-constructor.php`, lógica en `includes/constructor.php`): `POST /cursos` y `POST /cursos/<id>` (paso 1), `POST|DELETE /cursos/<id>/portada`, `POST /cursos/<id>/modulos`, `POST|DELETE /cursos/<id>/modulos/<modulo>`, `POST /cursos/<id>/lecciones`, `POST|DELETE /lecciones/<id>`, `POST /cursos/<id>/materiales` (PDF de un módulo), `DELETE /cursos/<id>/materiales/<adjunto>`, `POST /lecciones/<id>/materiales`, `DELETE /lecciones/<id>/materiales/<adjunto>`, `POST /cursos/<id>/orden` y `GET /video?url=`. Publicar y pasar a borrador usan `POST /cursos/<id>/estado` de `admin-cursos.md`. Los errores de validación responden 400 con el mensaje de cada campo (`data.campos`).
+        - Cada lección, módulo y PDF se comprueba que sea del curso: un ID de otro curso responde 400 o 404 y no cambia nada.
         - Las respuestas devuelven solo lo que la pantalla necesita.
     - **Cambios sin guardar:** si quedan cambios sin guardar al salir, el navegador pregunta antes (`beforeunload`).
     - **Página:**
-        - El marco y el menú son los de `admin-escritorio.md` (`cuenta-menu` con `menu` `instructora`, "Cursos" activo).
-        - `h1`: el título del paso ("Crear nuevo curso", "Contenido del curso", "Publicar curso").
+        - El marco y el menú son los de `admin-escritorio.md` (`cuenta-menu` con `menu` `instructora`, "Cursos" activo y `saludo` `p`: el nombre no es el `h1`).
+        - `h1`: el título del paso ("Crear nuevo curso" en un curso nuevo y "Editar curso" al editar uno que ya existe, "Contenido del curso", "Publicar curso"). Lo da `angelitozzz_titulo_paso_constructor()` (`inc/administrador.php`), que también arma el título SEO.
+        - El JS se divide por paso (`constructor-basico.js`, `constructor-contenido.js`, `constructor-publicar.js`, con `editor-texto.js` para Tiptap) y comparte `admin-comun.js` con la lista de cursos (cliente de la API, `pedirConfirmacion()` y el aviso de cambios sin guardar), en vez de un solo `constructor.js`.
+        - Las URL de la API no se escriben en el JS: PHP pasa la base con `rest_url( 'angelitozzz/v1/' )` en `data-api` y `urlApi()` de `admin-comun.js` le agrega cada ruta y sus parámetros. Así funciona con enlaces permanentes "bonitos" (`/wp-json/…`) y con los simples (`?rest_route=…`).
+        - Pendiente para la F5 (checklist): el enlace del editor y el aviso de descartar cambios usan hoy `window.prompt` y `window.confirm`; pasan a modales de wp-modal.
+        - Sin JavaScript, el constructor muestra un aviso (`<noscript>`): guarda todo por la API.
         - Título SEO del paso, con `noindex`.
         - Sin frame móvil: el móvil es una propuesta.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 ## Sección: pasos
 
@@ -62,7 +68,7 @@
         - secundario, contorno verde (`boton` `secundario`);
         - principal, frambuesa con flecha.
     - **Móvil (propuesta):** las pastillas con scroll propio, las tarjetas a todo el ancho y los botones apilados (el principal primero).
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -71,14 +77,14 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] El paso activo lleva `aria-current="step"` y los pasos no disponibles no son enlaces
-- [ ] Sin la capacidad, la página y la API no responden (redirección o 403)
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] El paso activo lleva `aria-current="step"` y los pasos no disponibles no son enlaces
+- [x] Sin la capacidad, la página y la API no responden (redirección o 403)
 
 ## Sección: paso-basico
 
 - **Origen:** `specs/figma/lectura/admin-cursos/constructor-basico-formulario.png` (4185:30609)
-- **Destino:** `template-parts/pages/administrador/constructor-basico.php`, `src/js/modules/constructor.js`, plugin `includes/rest-constructor.php`
+- **Destino:** `template-parts/pages/administrador/constructor-basico.php`, `src/js/modules/constructor-basico.js`
 - **Grupo:** ninguno
 - **Skill:** wp-helper
 - **Comportamiento:** dos tarjetas.
@@ -104,7 +110,7 @@
 - **Indicaciones del diseño:**
     - (Las notas de "paso uno" de la página aplican aquí: la duración del acceso y el formulario.)
     - **Móvil (propuesta):** las dos tarjetas en una columna (información arriba, portada debajo); los campos que van en fila se apilan; la portada ocupa el ancho con su proporción; botones apilados como en `pasos`.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -115,16 +121,16 @@ Datos que guarda (del plugin, no ACF; `cursos-datos.md` → `curso`): título, e
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] El servidor rechaza título vacío, precios negativos, un precio de lanzamiento mayor o igual al precio, y valores de select fuera de la lista
-- [ ] Una portada que no es jpg, png o webp (por su contenido, no por la extensión) o que supera el tamaño no se sube
-- [ ] Guardar crea o actualiza el producto de Woo oculto con los precios
-- [ ] Los errores se anuncian y quedan asociados a su campo
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] El servidor rechaza título vacío, precios negativos, un precio de lanzamiento mayor o igual al precio, y valores de select fuera de la lista
+- [x] Una portada que no es jpg, png o webp (por su contenido, no por la extensión) o que supera el tamaño no se sube
+- [x] Guardar crea o actualiza el producto de Woo oculto con los precios
+- [x] Los errores se anuncian y quedan asociados a su campo
 
 ## Sección: paso-contenido
 
 - **Origen:** `specs/figma/lectura/admin-cursos/constructor-contenido-carga.png` (4186:31108)
-- **Destino:** `template-parts/pages/administrador/constructor-contenido.php`, `src/js/modules/constructor.js`, plugin `includes/rest-constructor.php`
+- **Destino:** `template-parts/pages/administrador/constructor-contenido.php`, `src/js/modules/constructor-contenido.js`, `template-parts/modals/editar-modulo.php`
 - **Grupo:** ninguno
 - **Skill:** ninguna
 - **Comportamiento:** tarjeta "Módulos y lecciones" con la ayuda "Arrastra para ordenar. Cada lección tiene su video de Vimeo, un texto corto y sus descargables.".
@@ -153,7 +159,7 @@ Datos que guarda (del plugin, no ACF; `cursos-datos.md` → `curso`): título, e
 - **Indicaciones del diseño:**
     - (Las notas de "paso dos" de la página aplican aquí: la carga de contenido y el modal de eliminar.)
     - **Móvil (propuesta):** módulos e ítems a todo el ancho; en cada ítem, editar, subir, bajar y eliminar quedan visibles como botones de ícono de 44 px, así se ordena sin arrastrar; el título largo se corta con puntos suspensivos.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -164,15 +170,15 @@ Contenido del diseño (ejemplo): "Módulo 1 · Bienvenida" con "Conoce a Bárbar
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Módulos e ítems se ordenan arrastrando y también con "Subir" y "Bajar" desde el teclado; el orden se guarda y se anuncia
-- [ ] Cada acción usa la API con nonce y capacidad; un fallo revierte el cambio en pantalla
-- [ ] Los módulos son plegables y sus botones tienen nombre accesible con el título del módulo
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Módulos e ítems se ordenan arrastrando y también con "Subir" y "Bajar" desde el teclado; el orden se guarda y se anuncia
+- [x] Cada acción usa la API con nonce y capacidad; un fallo revierte el cambio en pantalla
+- [x] Los módulos son plegables y sus botones tienen nombre accesible con el título del módulo
 
 ## Sección: modal-leccion
 
 - **Origen:** `specs/figma/lectura/admin-cursos/constructor-modal-editar-modulo.png` (3773:5409)
-- **Destino:** `template-parts/modals/editar-leccion.php`, `src/js/modules/constructor.js`, plugin `includes/rest-constructor.php`, `includes/video.php`
+- **Destino:** `template-parts/modals/editar-leccion.php`, `src/js/modules/constructor-contenido.js`, `src/js/modules/editor-texto.js`
 - **Grupo:** ninguno
 - **Skill:** wp-modal
 - **Comportamiento:** modal de 860 px.
@@ -197,7 +203,7 @@ Contenido del diseño (ejemplo): "Módulo 1 · Bienvenida" con "Conoce a Bárbar
 - **Indicaciones del diseño:**
     - (La nota de la página "Para editar un modulo, curso es un modal asi" muestra este modal de lección; editar un módulo usa un modal chico con el mismo estilo.)
     - **Móvil (propuesta):** ocupa la pantalla con 16 px de margen y scroll interno; la cabecera y el pie quedan fijos; los campos en una columna.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -208,16 +214,16 @@ Datos que guarda (del plugin, no ACF; `cursos-datos.md` → `leccion`): título,
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Es un modal de wp-modal con `title`, foco atrapado y vuelta del foco al cerrar
-- [ ] Un enlace que no es de Vimeo no se guarda y muestra el error; uno válido muestra la miniatura y la duración
-- [ ] El HTML del editor se filtra en el servidor: `<script>`, atributos `on*` y estilos no se guardan
-- [ ] Un archivo que no es PDF, o de más de 20 MB, no se sube; los PDF no quedan en una URL pública
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Es un modal de wp-modal con `title`, foco atrapado y vuelta del foco al cerrar
+- [x] Un enlace que no es de Vimeo no se guarda y muestra el error; uno válido muestra la miniatura y la duración
+- [x] El HTML del editor se filtra en el servidor: `<script>`, atributos `on*` y estilos no se guardan
+- [x] Un archivo que no es PDF, o de más de 20 MB, no se sube; los PDF no quedan en una URL pública
 
 ## Sección: modal-eliminar
 
 - **Origen:** `specs/figma/lectura/admin-cursos/constructor-modal-eliminar-modulo.png` (3687:4560)
-- **Destino:** `template-parts/modals/eliminar.php`
+- **Destino:** `template-parts/modals/eliminar.php`, `src/js/modules/admin-comun.js`
 - **Grupo:** ninguno
 - **Skill:** wp-modal
 - **Comportamiento:** un solo modal de confirmación para lecciones, descargables y módulos (y para cursos, `admin-cursos.md`).
@@ -232,7 +238,7 @@ Datos que guarda (del plugin, no ACF; `cursos-datos.md` → `leccion`): título,
 - **Indicaciones del diseño:**
     - (Nota de la página: "eliminar un modulo y lecciones modal". El diseño solo dibuja el de lección; los demás textos son propuesta.)
     - **Móvil (propuesta):** ancho completo con 16 px de margen; los dos botones a todo el ancho, uno debajo del otro ("Eliminar" arriba, "Cancelar" abajo).
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -241,15 +247,15 @@ Datos que guarda (del plugin, no ACF; `cursos-datos.md` → `leccion`): título,
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Es un modal de wp-modal; el foco empieza en "Cancelar"
-- [ ] Eliminar va a la papelera y no borra el video de Vimeo
-- [ ] El texto nombra exactamente lo que se elimina
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Es un modal de wp-modal; el foco empieza en "Cancelar"
+- [x] Eliminar va a la papelera y no borra el video de Vimeo
+- [x] El texto nombra exactamente lo que se elimina
 
 ## Sección: paso-publicar
 
 - **Origen:** `specs/figma/lectura/admin-cursos/constructor-adicional-listo.png` (4186:31920), con la decisión del usuario sobre el paso 3
-- **Destino:** `template-parts/pages/administrador/constructor-publicar.php`, plugin `includes/rest-constructor.php`
+- **Destino:** `template-parts/pages/administrador/constructor-publicar.php`, `src/js/modules/constructor-publicar.js`
 - **Grupo:** ninguno
 - **Skill:** ninguna
 - **Comportamiento:** paso 3 "Publicar curso".
@@ -277,7 +283,7 @@ Datos que guarda (del plugin, no ACF; `cursos-datos.md` → `leccion`): título,
 - **Indicaciones del diseño:**
     - (Las notas de "paso tres" de la página aplican aquí; sus 4 campos de texto se quitan por decisión del usuario.)
     - **Móvil (propuesta):** tarjetas en una columna, a todo el ancho; la lista "Antes de publicar" debajo del resumen; botones apilados como en `pasos`.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -286,7 +292,7 @@ Datos que guarda (del plugin, no ACF; `cursos-datos.md` → `leccion`): título,
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] El servidor no publica un curso sin título, portada, precio o al menos una lección con video
-- [ ] Publicar deja el curso, sus lecciones y su producto de Woo publicados, y el producto sigue oculto del catálogo
-- [ ] La visibilidad es un `<fieldset>` con `<legend>` y el botón cambia de texto según la opción
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] El servidor no publica un curso sin título, portada, precio o al menos una lección con video
+- [x] Publicar deja el curso, sus lecciones y su producto de Woo publicados, y el producto sigue oculto del catálogo
+- [x] La visibilidad es un `<fieldset>` con `<legend>` y el botón cambia de texto según la opción
