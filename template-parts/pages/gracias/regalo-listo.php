@@ -31,7 +31,7 @@ if ($codigo === '') {
         'texto'    => sprintf(__('Regalaste %s. Te enviamos este código por correo: compártelo con quien quieras y podrá entrar al curso con él.', 'angelitozzz'), $curso),
     ]);
     ?>
-    <p class="w-full rounded-xl border-2 border-dashed border-[#c4704a] bg-fondo px-6 py-[18px] text-[34px] font-semibold leading-[1.2] tracking-[2.72px] whitespace-nowrap text-marca select-all max-md:text-[28px]">
+    <p class="w-full rounded-xl border-2 border-dashed border-terracota bg-fondo px-6 py-[18px] text-[34px] font-semibold leading-[1.2] tracking-[2.72px] whitespace-nowrap text-marca select-all max-md:text-[28px]">
         <span class="sr-only"><?= esc_html__('Código de regalo:', 'angelitozzz') ?></span>
         <?= esc_html($codigo) ?>
     </p>

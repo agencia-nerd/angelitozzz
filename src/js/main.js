@@ -78,3 +78,7 @@ if (document.querySelector('[data-leccion-completar]')) {
 if (document.querySelector('[data-video-leccion]')) {
     import('./modules/video-leccion.js').then(({ initVideoLeccion }) => initVideoLeccion()).catch(console.error);
 }
+
+if (document.querySelector('[data-admin-cursos]')) {
+    import('./modules/admin-cursos.js').then(({ initAdminCursos }) => initAdminCursos()).catch(console.error);
+}

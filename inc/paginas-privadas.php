@@ -3,7 +3,7 @@
 defined('ABSPATH') || exit;
 
 /*
- * Páginas que no deben aparecer en buscadores (lo piden sus specs): acceso, cuenta y canje de regalo.
+ * Páginas que no deben aparecer en buscadores (lo piden sus specs): acceso, cuenta, canje de regalo y administrador de cursos.
  * El carrito, el checkout y "Mi cuenta" de WooCommerce ya salen con noindex por WooCommerce.
  */
 
@@ -18,6 +18,7 @@ function angelitozzz_plantillas_privadas(): array
         'pages/template-recuperar-contrasena.php',
         'pages/template-canjear-regalo.php',
         'pages/template-cuenta.php',
+        'pages/template-administrador.php',
     ];
 }
 

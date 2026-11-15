@@ -146,7 +146,8 @@ Una rama por bloque (decisión del usuario, 2026-11-14): 1) soluciones, 2) carri
 - [x] Iniciar sesión, crear cuenta y recuperar contraseña (bloque 4, 2026-11-14): conectadas de verdad al plugin (sin muestra) y probadas de punta a punta en el Local. Las 3 páginas existen en el Local; `/cuenta/` todavía no (bloque 5), así que entrar sin origen lleva a una página que aún no existe
 - [x] Cuenta de la alumna (4 vistas) con `cuenta-menu`, `cuenta-pestanas` y `curso-progreso-card` (bloque 5, 2026-11-14): conectada al plugin y a WooCommerce, probada con datos de prueba (borrados al terminar). La página `/cuenta/` existe en el Local
 - [x] Lección (bloque 5, 2026-11-14): conectada al plugin (acceso, temario, avance por REST, video, materiales, banner de Mundo y mensaje de Angelita Pro)
-- [ ] Escritorio, lista de cursos y constructor de Bárbara
+- [x] Administrador de Bárbara, bloque 6a (2026-11-14): escritorio (resumen y tabla) y lista de cursos (tarjetas, menú "Más opciones", publicar, pasar a borrador, eliminar y aviso de publicado), conectados al plugin 0.4.0 (`includes/admin.php`, `includes/rest-admin.php`, 90 pruebas en verde; un curso en borrador conserva el acceso de sus inscritas) y probados en el Local con una instructora de prueba. La página `/administrador/` existe en el Local (creada a mano); el token `--color-terracota` entra en `_shared.md`
+- [ ] Administrador de Bárbara, bloque 6b: constructor de 3 pasos (Básico, Contenido y Publicar), con su API REST en el plugin y Tiptap para la descripción de la lección
 - [ ] Imágenes pesadas de Figma a WebP (img-webp) antes de las plantillas (soluciones hechas en el bloque 1; falta en cada bloque siguiente)
 
 ## F5 · Administrable y conexión
@@ -164,7 +165,7 @@ Una rama por bloque (decisión del usuario, 2026-11-14): 1) soluciones, 2) carri
 - [ ] Precio de la landing leído del producto de Woo (precio de lanzamiento = precio rebajado)
 - [ ] "Agregar al carrito" sin recargar y abre el drawer; selector de etapas; descuento por cantidad leído de ACF; cupón en el hero
 - [ ] Regalo: comprar como regalo genera el cupón; canje con sesión o creando la cuenta; el acceso empieza ese día
-- [ ] Páginas `/iniciar-sesion/`, `/crear-cuenta/`, `/recuperar-contrasena/` y `/cuenta/` en `inc/acf/paginas.php` con su plantilla (en el Local se crearon a mano en la F4)
+- [ ] Páginas `/iniciar-sesion/`, `/crear-cuenta/`, `/recuperar-contrasena/`, `/cuenta/` y `/administrador/` en `inc/acf/paginas.php` con su plantilla (en el Local se crearon a mano en la F4)
 - [ ] Plugin: acción `admin-post` para "Marcar como completo" sin JS (`leccion.md`) y el nombre de los materiales (hoy sale "Privado: <archivo-saneado>" porque toma el título del adjunto privado)
 - [ ] Acción de canje en el plugin (`canjear-regalo.md`): nonce, límite de intentos, código de un solo uso marcado en la misma operación que inscribe, dato de un solo uso para la confirmación y flujo sin sesión por crear cuenta; la página `/canjear-regalo/` en `inc/acf/paginas.php`
 - [ ] Bloque de Mundo en gracias y en el correo de pedido, excepto en regalos

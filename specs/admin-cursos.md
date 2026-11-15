@@ -31,12 +31,12 @@
     - Las notas de "paso uno / dos / tres" y los modales de editar y eliminar son del constructor: se aplican en `admin-constructor.md` (capturas en `specs/figma/lectura/admin-cursos/constructor-*.png`), no en esta lista.
     - Vista `/administrador/cursos/` de `pages/template-administrador.php`, con el mismo acceso que `admin-escritorio.md` (capacidad `angelitozzz_gestionar_cursos`; si no, `/iniciar-sesion/` o `/cuenta/`).
     - Sin campos ACF. `h1`: el nombre en el menú. Título SEO "Cursos | Administrador | Angelitozzz", con `noindex`. Sin frame móvil: el móvil es una propuesta.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 ## Sección: seccion
 
 - **Origen:** `specs/figma/lectura/admin-cursos/seccion.ref.txt` (nodo 4184:29688: menú 4184:29690, contenido 4184:29718, aviso 3687:4671 en "PARTE" final; capturas `seccion.png` y `seccion.notificacion.png`)
-- **Destino:** `template-parts/pages/administrador/cursos.php`, `template-parts/components/curso-admin-card.php`, `template-parts/modals/eliminar-curso.php`, `template-parts/components/cuenta-menu.php`, `src/js/modules/admin-cursos.js`
+- **Destino:** `template-parts/pages/administrador/cursos.php`, `template-parts/components/curso-admin-card.php`, `template-parts/modals/eliminar.php` (el mismo modal de confirmación del constructor), `template-parts/components/cuenta-menu.php`, `src/js/modules/admin-cursos.js`, `pages/template-administrador.php` ("Crear nuevo curso"), plugin `includes/admin.php` e `includes/rest-admin.php`
 - **Grupo:** ninguno
 - **Skill:** wp-modal
 - **Comportamiento:** lista de cursos con sus acciones, en el marco del administrador.
@@ -48,7 +48,7 @@
         - **Contenido:**
             - portada 190 px (`object-cover`, imagen destacada; sin imagen, la "not found");
             - título (`h3`, `--text-h5`);
-            - ícono de estudiantes con "N estudiantes" (inscripciones activas);
+            - ícono de estudiantes con "N estudiantes" (alumnas con acceso hoy o encadenado para más adelante);
             - ícono de calendario con la fecha de publicación (`d/m/Y`; en borrador, la de creación);
             - "Precio" y el precio de su producto de Woo (`--text-h4`, verde). Con precio rebajado se ve el rebajado (propuesta).
         - **Botón "Más opciones":** circular de 40 px (⋯), con nombre accesible "Más opciones de <curso>". Abre un menú (propuesta, el diseño no lo dibuja; `aria-expanded`; se cierra con Esc o al hacer clic fuera) con:
@@ -58,11 +58,11 @@
             - "Eliminar".
     - **Eliminar** (propuesta):
         - **Confirmación:** abre un modal de wp-modal, con el mismo estilo que "¿Eliminar esta lección?" del constructor, "¿Eliminar este curso?".
-        - **Con estudiantes inscritas:** el curso no se elimina. El modal explica que se puede pasar a borrador y solo ofrece esa acción, para no dejar sin acceso a quien pagó.
+        - **Con estudiantes inscritas** (alumnas con acceso hoy o encadenado): el curso no se elimina (la API responde 409). El modal "Este curso no se puede eliminar" lo explica y, si el curso está publicado, solo ofrece "Pasar a borrador": sale del sitio y de la venta, y las alumnas inscritas conservan su acceso (`cursos-datos.md` → `acceso`).
         - **Sin estudiantes:** se envía a la papelera de WordPress con sus lecciones; su producto de Woo pasa a borrador.
-    - **Acciones** (publicar, borrador, eliminar): `POST` a la API REST `angelitozzz/v1/cursos/<id>` con nonce `wp_rest` y la capacidad. Si fallan, el aviso va con `role="alert"`.
+    - **Acciones** (publicar, borrador, eliminar): API REST `angelitozzz/v1` con nonce `wp_rest` y la capacidad (sin sesión 401, sin la capacidad 403): `POST /cursos/<id>/estado` con `estado` `publicado` o `borrador`, y `DELETE /cursos/<id>`. Publicar exige lo mismo que el paso 3 del constructor (título, portada, precio y una lección con video; si falta algo, 422 con la lista) y deja publicados el curso, sus lecciones y su producto (oculto del catálogo); pasar a borrador pasa a borrador el curso y su producto. La tarjeta se actualiza sin recargar. Si fallan, el mensaje va con `role="alert"` (con la lista de lo que falta).
     - **Aviso "¡Curso publicado! Ya está visible en Soluciones de Sueño.":**
-        - **Cuándo:** al volver del constructor tras publicar, o al publicar desde el menú.
+        - **Cuándo:** al volver del constructor tras publicar (`/administrador/cursos/?publicado=<id>`; el JS quita el parámetro de la URL), o al publicar desde el menú (el texto lo devuelve la API, `angelitozzz_cursos_aviso_publicado()`).
         - **Aspecto:** tarjeta verde arriba a la derecha (radio 14, sombra `0 12px 32px #00000024`) con check, texto crema y botón ✕ "Cerrar aviso". Es `role="status"`, se cierra solo a los 6 s (propuesta) o con ✕, y no tapa el foco.
         - **Texto:** si el curso no está en ninguna solución, dice "¡Curso publicado! Agrégalo a una solución para que se vea en Soluciones de Sueño." (propuesta).
     - **Móvil (propuesta):** menú arriba, "Crear nuevo curso" a todo el ancho, tarjetas en 1 columna (2 en tablet) y el aviso a todo el ancho abajo.
@@ -70,7 +70,7 @@
     - nota: drawer https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4184-29690&t=lySNWh2dFHTQgiTC-4
     - nota: contenido https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4184-29718&t=lySNWh2dFHTQgiTC-4
     - nota: la notificacion al publicar un curso es asi https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=3687-4671&t=lySNWh2dFHTQgiTC-4
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -81,9 +81,9 @@ Contenido del diseño (del plugin y de Woo, no campos): 4 tarjetas (Angelita Pro
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Solo quien tiene `angelitozzz_gestionar_cursos` ve la lista y usa sus acciones; la API responde 403 a los demás
-- [ ] El menú "Más opciones" se usa con teclado y se cierra con Esc
-- [ ] Un curso con estudiantes no se puede eliminar, solo pasar a borrador
-- [ ] El aviso de publicado se anuncia (`role="status"`) y se puede cerrar
-- [ ] En móvil no hay scroll horizontal
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Solo quien tiene `angelitozzz_gestionar_cursos` ve la lista y usa sus acciones; la API responde 403 a los demás
+- [x] El menú "Más opciones" se usa con teclado y se cierra con Esc
+- [x] Un curso con estudiantes no se puede eliminar, solo pasar a borrador
+- [x] El aviso de publicado se anuncia (`role="status"`) y se puede cerrar
+- [x] En móvil no hay scroll horizontal

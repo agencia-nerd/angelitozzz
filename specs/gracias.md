@@ -62,7 +62,7 @@ Se verifica en la F5, con WooCommerce conectado:
 - **Comportamiento:** una tarjeta `confirmacion-tarjeta` por cada curso comprado como regalo en un pedido pagado (el código lo genera el plugin al pagarse el pedido, `cursos-datos.md` → `regalo`):
     - Ícono de regalo (56 px, decorativo), pastilla verde "✓ Compra exitosa", título "¡Tu regalo está listo!" (`h1` si es la primera tarjeta de la página, `h2` si va después de `confirmacion`).
     - Texto: "Regalaste <curso>. Te enviamos este código por correo: compártelo con quien quieras y podrá entrar al curso con él.".
-    - Caja del código: fondo `--color-fondo`, borde punteado de 2 px `#c4704a` (terracota, valor suelto), radio 12, padding 18/24; el código centrado en `2026/Code` (Barlow Condensed 600, 34 px, interlineado 1.2, espaciado 2.72 px; valor suelto de esta sección), `--color-marca`, seleccionable.
+    - Caja del código: fondo `--color-fondo`, borde punteado de 2 px `--color-terracota`, radio 12, padding 18/24; el código centrado en `2026/Code` (Barlow Condensed 600, 34 px, interlineado 1.2, espaciado 2.72 px; valor suelto de esta sección), `--color-marca`, seleccionable.
     - `boton` frambuesa con flecha "Copiar código" (`<button type="button">`): copia el código al portapapeles y avisa "Código copiado" en una región `aria-live="polite"`; el texto del botón vuelve a "Copiar código" a los 2 segundos. Sin JavaScript o sin permiso de portapapeles, el código se puede seleccionar a mano.
     - Nota (`--text-nota`, `--color-tinta-suave`): "El código es válido por 6 meses desde la compra. El acceso al curso empieza el día del canje.".
     - Pago pendiente o fallido: no se muestra (el código aún no existe).

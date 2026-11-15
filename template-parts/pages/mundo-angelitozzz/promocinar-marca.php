@@ -25,7 +25,7 @@ $perfiles           = (array) ($grupo['perfiles'] ?? []);
                 <?php endforeach; ?>
             </ul>
             <?php if ($situaciones_nota !== '') : ?>
-                <p class="text-nota italic text-[#c4704a]"><?= angelitozzz_highlight($situaciones_nota) ?></p>
+                <p class="text-nota italic text-terracota"><?= angelitozzz_highlight($situaciones_nota) ?></p>
             <?php endif; ?>
         </div>
         <div class="mt-6 flex flex-col gap-6 border-t border-neutro pt-6 lg:mt-0 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">

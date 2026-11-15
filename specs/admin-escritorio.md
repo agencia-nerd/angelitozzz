@@ -24,7 +24,7 @@
     - Por ahora solo Bárbara (decisión del usuario, 2026-11-13). Los datos son de todos los cursos del sitio, no "de cada instructora".
     - Sin campos ACF: textos fijos del tema y datos del plugin. `h1`: el nombre en el menú ("Hola, / Bárbara"). Título SEO "Administrador | Angelitozzz", con `noindex`.
     - Cintillo, header y footer salen de `header.php` y `footer.php`, como en el diseño. Sin frame móvil: el móvil es una propuesta.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 ## Sección: seccion
 
@@ -47,12 +47,12 @@
         - el nombre del curso enlaza a su edición (propuesta; en el diseño no es enlace);
         - ordenada por nombre.
     - **Sin cursos** (propuesta): "Aún no tienes cursos" y el enlace a crear uno.
-    - **Datos:** de `angelitozzz_cursos_admin_resumen()` y `angelitozzz_cursos_admin_lista()`.
+    - **Datos:** de `angelitozzz_cursos_admin_resumen()` y `angelitozzz_cursos_admin_lista( [ 'estado' => 'publicados', 'orden' => 'titulo' ] )` (`cursos-datos.md` → `funciones-publicas`). "Estudiantes inscritos" son las alumnas con acceso hoy (o encadenado para más adelante).
     - **Móvil (propuesta):** menú arriba como en la cuenta, "Crear nuevo curso" a todo el ancho, tarjetas de resumen en una columna y la tabla pasa a tarjetas, sin scroll horizontal.
 - **Indicaciones del diseño:**
     - nota: drawer https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4184-29058&t=lySNWh2dFHTQgiTC-4
     - nota: contenido https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4184-29180&t=lySNWh2dFHTQgiTC-4
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -63,8 +63,8 @@ Contenido del diseño (del plugin, no campos): 683 estudiantes, 6 cursos, gananc
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Sin sesión lleva a iniciar sesión; una alumna con sesión va a `/cuenta/` y nunca ve los datos
-- [ ] Las ganancias descuentan los reembolsos y salen con el formato de moneda de Woo
-- [ ] La tabla es una `<table>` con encabezados y `caption`
-- [ ] En móvil no hay scroll horizontal
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Sin sesión lleva a iniciar sesión; una alumna con sesión va a `/cuenta/` y nunca ve los datos
+- [x] Las ganancias descuentan los reembolsos y salen con el formato de moneda de Woo
+- [x] La tabla es una `<table>` con encabezados y `caption`
+- [x] En móvil no hay scroll horizontal

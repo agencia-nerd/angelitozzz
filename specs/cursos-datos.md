@@ -173,11 +173,12 @@
 - **Grupo:** ninguno
 - **Skill:** ninguna
 - **Comportamiento:** una sola función decide si una usuaria puede ver una lección: `angelitozzz_cursos_puede_ver( $leccion_id, $usuario_id )`.
-    - **Es sí cuando:** la lección está publicada y además es vista previa, o la usuaria tiene una inscripción `activa` del curso con `vence` nulo o futuro, o la usuaria tiene `angelitozzz_gestionar_cursos`.
+    - **Es sí cuando:** la lección está publicada y además es vista previa (con el curso publicado), o la usuaria tiene una inscripción `activa` del curso con `vence` nulo o futuro (con el curso publicado o en borrador), o la usuaria tiene `angelitozzz_gestionar_cursos`.
+    - **Curso en borrador** (decisión del usuario, F4 bloque 6a): sale del sitio y de la venta, pero las alumnas con inscripción vigente conservan su acceso (lecciones, avance, materiales y su cuenta). La vista previa deja de verse. En la papelera, nadie entra.
     - **Al abrir una lección sin acceso** (`template_redirect`, antes de imprimir nada):
         - sin sesión → `/iniciar-sesion/?redirect_to=<lección>`;
         - con sesión → la solución del curso, con el aviso "Este curso no está en tu cuenta" (propuesta);
-        - curso o lección en borrador → 404, salvo para quien gestiona cursos.
+        - lección en borrador, o curso en borrador sin inscripción vigente → 404, salvo para quien gestiona cursos.
     - **Solución de un curso:** la `solucion` publicada que lo tiene en `solucion_compra_cursos` (o en una etapa). Si no hay, `/soluciones-de-sueno/`.
     - **Descargas de materiales:**
         - URL `/cursos/descargar/<id>/?_wpnonce=…`.
@@ -331,8 +332,13 @@
         - `angelitozzz_cursos_estado_acceso( $pedido_id, $item_id )`: Activo, Por expirar, Vencido, Cancelado o Pendiente, para el historial.
         - `angelitozzz_cursos_es_primera_leccion( $leccion_id )`.
         - `angelitozzz_cursos_solucion_de( $curso_id )`.
-        - `angelitozzz_cursos_admin_resumen()`: estudiantes, cursos y ganancias del escritorio de Bárbara; las ganancias son la suma de los pedidos pagados de sus productos, menos los reembolsos.
-        - `angelitozzz_cursos_admin_lista()`: los cursos con su número de estudiantes.
+        - **Administrador (F4, bloque 6; `includes/admin.php`):** exigen la capacidad `angelitozzz_gestionar_cursos`; sin ella devuelven datos vacíos.
+            - `angelitozzz_cursos_admin_resumen()`: `estudiantes` (alumnas distintas con al menos una inscripción, de cualquier estado), `cursos` (publicados), `ganancias` y `ganancias_texto` (con el formato de moneda de Woo, en texto plano). Las ganancias son la suma de las líneas de productos de cursos en pedidos pagados (procesando o completados), menos lo reembolsado de cada línea; incluyen los regalos.
+            - `angelitozzz_cursos_admin_lista( $opciones )`: `estado` (`publicados` o `todos`, por defecto `todos`), `orden` (`titulo` o `reciente`, por defecto `reciente`) y `pagina` (12 por página; 0 = todos). Devuelve `cursos`, `total`, `paginas` y `pagina`. Cada curso trae `id`, `titulo`, `estado` (`publicado` o `borrador`), `imagen_id`, `estudiantes` (alumnas con acceso hoy o encadenado), `fecha` (`d/m/Y`), `precio` (el rebajado si lo hay, en texto plano), `url_editar` y `url_sitio` (su solución, o vacío si no está en ninguna).
+            - `angelitozzz_cursos_vista_admin()`: la vista de `/administrador/` (`escritorio`, `cursos` o `constructor`), con `curso_id`, `paso` (1, 2 o 3) y `pagina`.
+            - `angelitozzz_cursos_url_admin( $vista, $curso_id, $paso )`: URL de `escritorio`, `cursos`, `nuevo` o `editar`.
+            - `angelitozzz_cursos_aviso_publicado( $curso_id )`: el texto del aviso "¡Curso publicado!", que cambia si el curso no está en ninguna solución.
+            - `angelitozzz_cursos_pendientes_publicar( $curso_id )`: lo que falta para publicar (`clave`, `texto`, `bloquea`), para "Antes de publicar" del constructor.
         - **Cuentas (F3):**
             - `angelitozzz_cursos_url_envio()` y `angelitozzz_cursos_campos_ocultos( $accion, $volver_a )`: a dónde se envía un formulario y sus campos ocultos (acción, nonce, `redirect_to`). Acciones: `angelitozzz_iniciar_sesion`, `angelitozzz_crear_cuenta`, `angelitozzz_recuperar`, `angelitozzz_nueva_contrasena`, `angelitozzz_perfil_datos`, `angelitozzz_perfil_contrasena`.
             - `angelitozzz_cursos_mensaje()`: el resultado del último envío (tipo `error` o `aviso`, texto y lo ya escrito, nunca contraseñas), una sola vez.
