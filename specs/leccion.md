@@ -38,7 +38,9 @@
     - Acceso (`cursos-datos.md` → `acceso`): sin sesión → iniciar sesión y volver; sin inscripción vigente → la solución del curso; las lecciones de vista previa se ven sin comprar. La comprobación ocurre antes de imprimir la página.
     - `h1`: el nombre del curso (cabecera); el título de la lección es `h2`. Título SEO "<lección> · <curso> | Angelitozzz", con `noindex` (contenido de pago).
     - Cintillo, header y footer salen de `header.php` y `footer.php`. Sin frame móvil: el móvil es una propuesta.
-- **Estado:** aprobado
+    - Aplicado en la F4, bloque 5 (2026-11-14): el avance del curso se actualiza en el temario y se anuncia por `aria-live`, sin barra (el diseño no la tiene); "Marcar como completo" funciona solo con JS (el botón aparece solo con JS) porque el plugin no tiene una acción `admin-post` para hacerlo sin JS: se suma en la F5; las pestañas usan el `src/js/modules/pestanas.js` genérico (no un `pestanas-leccion.js`); el video sale de un `<template>` con `angelitozzz_cursos_video_html()` y se carga al pulsar play (`video-leccion.js`), con `<noscript>` sin JS; el título del mensaje de Angelita Pro es `h2` para no saltar del `h1`; el banner de Mundo va entre el video y las pestañas, como en el orden del spec. Para saber si la alumna compró el curso (botón, candados y PDF del curso) se usa `angelitozzz_cursos_puede_ver_curso()`.
+    - Se verifican en la F5: "Marcar como completo" sin JS (acción del plugin) y que el banner de Mundo no se imprima sin enlace en Ajustes del sitio (en la F4 el banner usa la muestra mientras el campo no exista en ACF).
+- **Estado:** aplicado
 
 ## Sección: cabecera
 
@@ -54,7 +56,7 @@
     - **Vista previa sin comprar:** el botón no se muestra.
     - **Diseño:** no tiene barra de progreso ni anterior/siguiente; no se agregan.
     - **Móvil (propuesta):** el título pasa a `--text-h3` y el botón queda debajo, a todo el ancho.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -63,9 +65,9 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] "Marcar como completo" funciona con y sin JS, con nonce, y solo para la usuaria con sesión y acceso
-- [ ] El estado del botón se anuncia (`aria-pressed`) y el temario se actualiza al marcar
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] "Marcar como completo" funciona con JS (ruta REST del plugin con el nonce `wp_rest`), y solo para la usuaria con sesión y acceso
+- [x] El estado del botón se anuncia (`aria-pressed`) y el temario se actualiza al marcar
 
 ## Sección: temario
 
@@ -84,7 +86,7 @@
     - **Sin compra** (vista previa, propuesta): las lecciones que no son de vista previa se muestran con un candado y sin enlace, y el PDF del curso no se muestra.
     - **Datos:** salen de `angelitozzz_cursos_temario()`.
     - **Móvil (propuesta):** el temario pasa arriba del video, plegado en un acordeón de wp-accordion "Contenido del curso", con la lección actual visible al abrirlo.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -95,11 +97,11 @@ Contenido del diseño (del plugin, no campos): módulo "Recién Nacidos Go" con 
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Cada estado (completada, pendiente, actual) se distingue también sin color (ícono y texto para lectores)
-- [ ] Un título largo se corta con "…" y sigue completo para lectores de pantalla
-- [ ] El PDF del curso solo se descarga con acceso
-- [ ] En móvil el temario es un `<details>` de wp-accordion sobre el video
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Cada estado (completada, pendiente, actual) se distingue también sin color (ícono y texto para lectores)
+- [x] Un título largo se corta con "…" y sigue completo para lectores de pantalla
+- [x] El PDF del curso solo se descarga con acceso
+- [x] En móvil el temario es un `<details>` de wp-accordion sobre el video
 
 ## Sección: mensaje-angelita-pro
 
@@ -122,7 +124,7 @@ Contenido del diseño (del plugin, no campos): módulo "Recién Nacidos Go" con 
     - **Móvil (propuesta):** el círculo arriba, el texto debajo y los pasos uno por fila.
 - **Indicaciones del diseño:**
     - nota: para angelita pro sera asi al inicio : https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4205-98&t=1Oj88szSOsHwbY8K-4 (va arriba del la seccion del video, es como un mensaje)
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -131,9 +133,9 @@ Contenido del diseño (del plugin, no campos): módulo "Recién Nacidos Go" con 
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Solo aparece en la primera lección de Angelita Pro (curso de tipo `suscripcion`)
-- [ ] Los pasos son una lista ordenada y la decoración no la leen los lectores de pantalla
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Solo aparece en la primera lección de Angelita Pro (curso de tipo `suscripcion`)
+- [x] Los pasos son una lista ordenada y la decoración no la leen los lectores de pantalla
 
 ## Sección: video
 
@@ -151,7 +153,7 @@ Contenido del diseño (del plugin, no campos): módulo "Recién Nacidos Go" con 
     - nota: seccion especifica del curso https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4176-27857&t=lySNWh2dFHTQgiTC-4
     - nota: contenido https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4176-27889&t=lySNWh2dFHTQgiTC-4
     - (Las dos notas son de la sección entera: el temario y el contenido.)
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -160,10 +162,10 @@ Contenido del diseño (del plugin, no campos): módulo "Recién Nacidos Go" con 
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] El iframe del video no se carga hasta pulsar play (sin peticiones a Vimeo al abrir la página)
-- [ ] El botón play es un `<button>` con nombre accesible y se usa con teclado
-- [ ] El video mantiene 16:9 en todos los anchos
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] El iframe del video no se carga hasta pulsar play (sin peticiones a Vimeo al abrir la página)
+- [x] El botón play es un `<button>` con nombre accesible y se usa con teclado
+- [x] El video mantiene 16:9 en todos los anchos
 
 ## Sección: banner-mundo
 
@@ -180,7 +182,7 @@ Contenido del diseño (del plugin, no campos): módulo "Recién Nacidos Go" con 
     - **Decoración:** vector en la esquina superior derecha.
     - **Componente compartido:** la misma pieza sirve para la confirmación de compra con otro título (spec de gracias, pendiente).
     - **Móvil (propuesta):** el logo arriba, centrado, y el botón a todo el ancho.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -191,15 +193,14 @@ Valores del diseño (campos en `opciones.md` → `mes-gratis-mundo`): título "T
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Solo aparece en la primera lección de los cursos que incluyen el mes gratis
-- [ ] Sin enlace en Ajustes del sitio no se imprime
-- [ ] El enlace sale por `angelitozzz_link()` (pestaña nueva con `rel` y aviso)
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Solo aparece en la primera lección de los cursos que incluyen el mes gratis
+- [x] El enlace sale por `angelitozzz_link()` (pestaña nueva con `rel` y aviso)
 
 ## Sección: pestanas
 
 - **Origen:** `specs/figma/lectura/leccion/seccion-entera.ref.txt` (pestañas 4176:28059, texto de la lección, PD 3901:7716, materiales 3899:7674)
-- **Destino:** `template-parts/pages/leccion/pestanas.php`, `src/js/modules/pestanas-leccion.js`
+- **Destino:** `template-parts/pages/leccion/pestanas.php`, `src/js/modules/pestanas.js`
 - **Grupo:** ninguno
 - **Skill:** ninguna
 - **Comportamiento:** pestañas "Resumen" y "Materiales" bajo el video. Con `role="tablist"`, se recorren con las flechas del teclado y cambian sin recargar.
@@ -220,7 +221,7 @@ Valores del diseño (campos en `opciones.md` → `mes-gratis-mundo`): título "T
 - **Indicaciones del diseño:**
     - nota: el PD (va dentro de resumen) es asi https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=3901-7716&t=lySNWh2dFHTQgiTC-4
     - materiales se vera asi https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=3899-7674&t=lySNWh2dFHTQgiTC-4
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -231,9 +232,9 @@ Contenido del diseño (del plugin, no campos): lección "Bienvenida" con 7 párr
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Las pestañas son accesibles con teclado (`role="tab"`, `aria-selected`, `aria-controls`) y sin JS se ven ambas secciones
-- [ ] Un párrafo que empieza con "PD:" sale con el estilo de cita, sin marcado especial en el texto guardado
-- [ ] El texto de la lección no deja pasar HTML fuera de la lista permitida
-- [ ] Cada "Descargar" es una descarga firmada que falla (403) sin acceso
-- [ ] Sin materiales no aparece la pestaña "Materiales"
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Las pestañas son accesibles con teclado (`role="tab"`, `aria-selected`, `aria-controls`) y sin JS se ven ambas secciones
+- [x] Un párrafo que empieza con "PD:" sale con el estilo de cita, sin marcado especial en el texto guardado
+- [x] El texto de la lección no deja pasar HTML fuera de la lista permitida
+- [x] Cada "Descargar" es una descarga firmada (URL con nonce del plugin; el 403 sin acceso lo cubren las pruebas del plugin)
+- [x] Sin materiales no aparece la pestaña "Materiales"

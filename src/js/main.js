@@ -62,3 +62,19 @@ if (document.querySelector('form[data-enviar-una-vez]')) {
 if (document.querySelector('[data-ver-contrasena]')) {
     import('./modules/ver-contrasena.js').then(({ initVerContrasena }) => initVerContrasena()).catch(console.error);
 }
+
+if (document.querySelector('[data-pestanas]')) {
+    import('./modules/pestanas.js').then(({ initPestanas }) => initPestanas()).catch(console.error);
+}
+
+if (document.querySelector('[data-perfil]')) {
+    import('./modules/perfil.js').then(({ initPerfil }) => initPerfil()).catch(console.error);
+}
+
+if (document.querySelector('[data-leccion-completar]')) {
+    import('./modules/leccion-completar.js').then(({ initLeccionCompletar }) => initLeccionCompletar()).catch(console.error);
+}
+
+if (document.querySelector('[data-video-leccion]')) {
+    import('./modules/video-leccion.js').then(({ initVideoLeccion }) => initVideoLeccion()).catch(console.error);
+}

@@ -341,6 +341,7 @@
             - `angelitozzz_cursos_datos_perfil()`: nombre, apellidos, correo, teléfono y el correo pendiente de confirmar.
         - `angelitozzz_cursos_pedido_cursos( $pedido_id )`: los cursos de un pedido de la usuaria (no regalo), con duración y primera lección, para la página de gracias.
         - `angelitozzz_cursos_pedido_regalos( $pedido_id )`: los regalos de un pedido de la usuaria, con curso y código.
+        - `angelitozzz_cursos_puede_ver_curso( $curso_id, $usuario_id )`: si la usuaria compró el curso (lo usa la lección para el botón de completar, los candados del temario y el PDF del curso).
         - `angelitozzz_cursos_ultimo_canje()`: el canje que la usuaria acaba de hacer (curso, duración, primera lección); se lee una sola vez.
     - **Los datos ya vienen saneados, pero no escapados.** El tema escapa siempre al imprimir.
 - **Estado:** aprobado

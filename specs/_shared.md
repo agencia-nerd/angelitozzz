@@ -161,7 +161,7 @@ Cada componente vive en `template-parts/components/<nombre>.php` y recibe sus da
 
 - **Origen:** componente Figma "Etiqueta" (16 usos; estilos Tarjeta, Hero, Esquina; íconos Ninguno, Destellos, Estrella)
 - **Destino:** `template-parts/components/etiqueta.php`
-- **Argumentos:** `texto` (string, requerido), `estilo` (`tarjeta` | `hero` | `esquina`, por defecto `tarjeta`), `icono` (`ninguno` | `destellos` | `estrella`, por defecto `ninguno`)
+- **Argumentos:** `texto` (string, requerido), `estilo` (`tarjeta` | `hero` | `esquina`, por defecto `tarjeta`), `icono` (`ninguno` | `destellos` | `estrella`, por defecto `ninguno`), `color` (`salvia` | `estrella` | `suave` | `neutro`, por defecto `salvia`: fondo del estilo `tarjeta`; lo usan los estados del historial de pedidos)
 - **Se usa en:** post-card, producto-card, testimonio-card, articulo-blog/cabecera-del-articulo
 
 ### post-card
@@ -225,21 +225,22 @@ Cada componente vive en `template-parts/components/<nombre>.php` y recibe sus da
 
 - **Origen:** "drawer" de las 4 vistas de la cuenta (usuario-escritorio 4164:25044, usuario-mi-perfil 4164:26839, usuario-cursos 4164:25448, usuario-historial-pedido 4164:25910)
 - **Destino:** `template-parts/components/cuenta-menu.php`
-- **Argumentos:** `menu` (`alumna` | `instructora`, por defecto `alumna`), `activo` (con `alumna`: `escritorio` | `perfil` | `cursos` | `pedidos`; con `instructora`: `escritorio` | `cursos`; requerido). Con `instructora` (`admin-escritorio.md`, `admin-cursos.md`) los ítems son "Escritorio" y "Cursos" del administrador (`/administrador/`, `/administrador/cursos/`) y la columna mide 458 px. Imprime "Hola," y el nombre de la alumna (`h1`, `--text-h1`, verde), un `<nav aria-label="Mi cuenta">` con los 4 ítems (321 × 50, radio 15, ícono en círculo de 36 px; activo con fondo verde, texto blanco `--text-h5` y `aria-current="page"`; inactivo con texto `--text-cuerpo-l` y círculo salvia) y al pie `boton` variante claro "Cerrar sesión" (`wp_logout_url`). Columna de 377 px con borde derecho negro de 1 px. Los enlaces son las vistas de `/cuenta/` (`/cuenta/`, `/cuenta/perfil/`, `/cuenta/cursos/`, `/cuenta/pedidos/`).
+- **Argumentos:** `menu` (`alumna` | `instructora`, por defecto `alumna`), `activo` (con `alumna`: `escritorio` | `perfil` | `cursos` | `pedidos`; con `instructora`: `escritorio` | `cursos`; requerido). Con `instructora` (`admin-escritorio.md`, `admin-cursos.md`) los ítems son "Escritorio" y "Cursos" del administrador (`/administrador/`, `/administrador/cursos/`) y la columna mide 458 px. Imprime "Hola," y el nombre de la alumna (`h1`, `--text-h1`, verde), un `<nav aria-label="Mi cuenta">` con los 4 ítems (321 × 50, radio 15, ícono en círculo de 36 px; activo con fondo verde, texto blanco `--text-h5` y `aria-current="page"`; inactivo con texto `--text-cuerpo-l` y círculo salvia) y al pie el enlace "Cerrar sesión" con flecha (`wp_logout_url`; un enlace de texto, como en el diseño; en móvil queda bajo los ítems). Columna de 377 px con borde derecho negro de 1 px. Los enlaces son las vistas de `/cuenta/` (`/cuenta/`, `/cuenta/perfil/`, `/cuenta/cursos/`, `/cuenta/pedidos/`).
 - **Se usa en:** `pages/template-cuenta.php` (todas las vistas de la cuenta) y `pages/template-administrador.php` (con `menu` `instructora`). En móvil (propuesta): saludo arriba y los ítems como fila de pestañas con scroll propio.
 
 ### cuenta-pestanas
 
 - **Origen:** tarjetas de pestaña de usuario-mi-perfil, usuario-cursos y usuario-historial-pedido (173 × 94, radio 15, ícono de 35 px sobre el texto)
 - **Destino:** `template-parts/components/cuenta-pestanas.php`
-- **Argumentos:** `pestanas` (array de `id`, `texto`, `icono`, `url` o `panel`, `numero` opcional; requerido), `activa` (string, requerido), `modo` (`enlaces` | `tabs`, por defecto `enlaces`: con `tabs` usa `role="tablist"` y cambia de panel sin recargar). Activa: fondo `#fafeff`, borde de 2 px `#492343`, texto verde; inactiva: fondo blanco, sin borde, texto negro.
+- **JS:** `src/js/modules/pestanas.js` (modo `tabs`; genérico, también lo usan las pestañas de la lección)
+- **Argumentos:** `pestanas` (array de `id`, `texto`, `icono`, `url` o `panel`, `numero` opcional; requerido), `activa` (string, requerido), `modo` (`enlaces` | `tabs`, por defecto `enlaces`: con `tabs` usa `role="tablist"` y cambia de panel sin recargar, con flechas, Inicio y Fin; cada panel lo imprime la vista con `id="<id>-panel"`), `etiqueta` (string, opcional: nombre accesible del grupo). Los íconos son SVG del tema en `assets/img/cuenta/` con `currentColor`, impresos con `angelitozzz_svg()` (`inc/iconos.php`). Activa: fondo `#fafeff`, borde de 2 px `#492343`, texto verde; inactiva: fondo blanco, sin borde, texto negro.
 - **Se usa en:** usuario-mi-perfil (`tabs`), usuario-cursos (`enlaces`, con número), usuario-historial-pedido (una sola, como título)
 
 ### curso-progreso-card
 
 - **Origen:** tarjetas de curso de usuario-escritorio (horizontal, 1212 × 238) y usuario-cursos (vertical, 355 × 467)
 - **Destino:** `template-parts/components/curso-progreso-card.php`
-- **Argumentos:** `curso_id` (int, requerido: de él salen imagen, título y extracto; lecciones y progreso, de `angelitozzz_cursos_*`), `variante` (`horizontal` | `vertical`, por defecto `vertical`), `lecciones` (bool: muestra "N de M lecciones", por defecto `true` en vertical). El pie cambia con el avance: 0 % "Empezar curso", en progreso "Continuar curso", 100 % etiqueta "Completado" y `boton` secundario "Volver a ver". Barra de 8 px (fondo crema con borde beige, relleno frambuesa, radio 100) con `role="progressbar"` y su valor.
+- **Argumentos:** `datos` (array, requerido: una tarjeta de `angelitozzz_cursos_de_usuaria()` del plugin, ya calculada para la usuaria de la sesión: título, extracto, imagen, URL de continuar o empezar, porcentaje, lecciones completadas y total; cambio de la F4, bloque 5: antes era `curso_id`, pero así la tarjeta no repite la lógica del avance ni del vencimiento), `variante` (`horizontal` | `vertical`, por defecto `vertical`), `lecciones` (bool: muestra "N de M lecciones", por defecto `true` en vertical), `nivel` (`h2` | `h3`, por defecto `h3`). El pie cambia con el avance: 0 % "Empezar curso", en progreso "Continuar curso", 100 % etiqueta "Completado" y `boton` secundario "Volver a ver". Barra de 8 px (fondo crema con borde beige, relleno frambuesa, radio 100): un `<progress>` nativo con la clase `.barra-progreso` de `input.css` (rol progressbar implícito, sin estilos inline).
 - **Se usa en:** usuario-escritorio (horizontal), usuario-cursos (vertical)
 
 ### reglas-contrasena

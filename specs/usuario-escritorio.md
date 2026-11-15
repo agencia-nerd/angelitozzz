@@ -16,7 +16,8 @@
     - Sin campos ACF: los textos son fijos del tema y los datos, del plugin.
     - `h1`: el nombre de la alumna en el menú ("Hola, / Ana Lucía"). Título SEO "Mi cuenta | Angelitozzz", con `noindex`.
     - Cintillo, header y footer salen de `header.php` y `footer.php`. Sin frame móvil: el móvil es una propuesta.
-- **Estado:** aprobado
+    - Aplicado en la F4, bloque 5 (2026-11-14): "Mis cursos" muestra los 3 primeros de `angelitozzz_cursos_de_usuaria('activos')` (incluye los cursos en 0 %, como los conteos del plugin; el orden es el del plugin). La página `/cuenta/` se creó en el Local; en producción la crea wp-acf en la F5.
+- **Estado:** aplicado
 
 ## Sección: escritorio-del-alumno
 
@@ -28,7 +29,7 @@
 - **Indicaciones del diseño:**
     - nota: drawer https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4164-25044&t=lySNWh2dFHTQgiTC-4
     - nota: resumen y cursos https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4164-25045&t=lySNWh2dFHTQgiTC-4
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -39,10 +40,10 @@ Contenido del diseño (del plugin, no campos): resumen 5 inscritos, 2 completado
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Sin sesión redirige a `/iniciar-sesion/`; solo se ven los datos de la usuaria con sesión
-- [ ] El menú tiene solo los 4 ítems del diseño y marca el activo con `aria-current="page"`
-- [ ] Los números del resumen son los del plugin para la alumna
-- [ ] La barra de progreso es accesible (`role="progressbar"` con su valor) y su ancho es el porcentaje real
-- [ ] Sin cursos se ve el estado vacío con el botón a Soluciones de sueño
-- [ ] En móvil el menú no causa scroll horizontal de la página
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Sin sesión redirige a `/iniciar-sesion/`; solo se ven los datos de la usuaria con sesión
+- [x] El menú tiene solo los 4 ítems del diseño y marca el activo con `aria-current="page"`
+- [x] Los números del resumen son los del plugin para la alumna
+- [x] La barra de progreso es accesible (`<progress>` nativo, con rol progressbar implícito y su valor) y su ancho es el porcentaje real
+- [x] Sin cursos se ve el estado vacío con el botón a Soluciones de sueño
+- [x] En móvil el menú no causa scroll horizontal de la página
