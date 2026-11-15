@@ -18,7 +18,8 @@
     - Decisión del usuario (2026-11-13): la contraseña tiene en todo el sitio las 4 reglas de Seguridad (8 caracteres, 1 minúscula, 1 mayúscula, 1 número), con la lista que se marca en vivo (componente `reglas-contrasena`).
     - Sin campos ACF. `h1`: el nombre de la alumna en el menú. Título SEO "Mi perfil | Angelitozzz", con `noindex`.
     - Cintillo, header y footer salen de `header.php` y `footer.php`. Sin frame móvil: el móvil es una propuesta.
-- **Estado:** aprobado
+    - Aplicado en la F4, bloque 5 (2026-11-14): la pestaña abierta queda en la URL (`?pestana=seguridad`) para volver a ella tras un envío; "Contraseña actual" de Datos personales aparece solo al cambiar el correo (sin JS se ve siempre) y, si hay un correo pendiente de confirmar, se avisa bajo el campo; "Cancelar" es un enlace que recarga la vista (vuelve a lo guardado o deja vacíos los campos de Seguridad). JS en `src/js/modules/perfil.js`.
+- **Estado:** aplicado
 
 ## Sección: seccion-perfil
 
@@ -31,7 +32,7 @@
     - nota: drawer https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4164-26839&t=lySNWh2dFHTQgiTC-4
     - nota: datos personales es https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4164-26871&t=lySNWh2dFHTQgiTC-4
     - seguridad: https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4164-27124&t=lySNWh2dFHTQgiTC-4
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -40,10 +41,10 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Cada formulario lleva nonce y solo cambia los datos de la usuaria con sesión; cambiar el correo o la contraseña pide la contraseña actual
-- [ ] Las pestañas son accesibles con teclado (`role="tab"`, `aria-selected`) y cambian sin recargar
-- [ ] No se ven Nombre de usuario ni Biografía
-- [ ] Cambiar el correo pide la contraseña actual
-- [ ] Las 4 reglas se marcan en vivo y "Guardar contraseña" no se activa hasta cumplirlas; el servidor valida lo mismo
-- [ ] En móvil los campos van en una columna, sin scroll horizontal
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Cada formulario lleva nonce y solo cambia los datos de la usuaria con sesión; cambiar el correo o la contraseña pide la contraseña actual
+- [x] Las pestañas son accesibles con teclado (`role="tab"`, `aria-selected`) y cambian sin recargar
+- [x] No se ven Nombre de usuario ni Biografía
+- [x] Cambiar el correo pide la contraseña actual
+- [x] Las 4 reglas se marcan en vivo y "Guardar contraseña" no se activa hasta cumplirlas; el servidor valida lo mismo
+- [x] En móvil los campos van en una columna, sin scroll horizontal

@@ -47,6 +47,4 @@
 - [x] Un error de acceso se muestra con `role="alert"` sin perder el correo escrito
 - [x] En móvil la tarjeta no tiene scroll horizontal y la decoración no tapa los campos (se oculta bajo 1024 px)
 
-Se verifica en la F4, bloque 5 (cuando exista `/cuenta/`):
-
-- `/mi-cuenta/` de Woo lleva a esta pantalla sin sesión (o al escritorio con sesión)
+- [x] `/mi-cuenta/` de Woo lleva a esta pantalla sin sesión (o al escritorio con sesión) (probado en la F4, bloque 5)

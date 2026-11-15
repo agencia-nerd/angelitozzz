@@ -17,6 +17,7 @@ function angelitozzz_plantillas_privadas(): array
         'pages/template-crear-cuenta.php',
         'pages/template-recuperar-contrasena.php',
         'pages/template-canjear-regalo.php',
+        'pages/template-cuenta.php',
     ];
 }
 
@@ -27,6 +28,11 @@ add_filter('wp_robots', 'angelitozzz_robots_paginas_privadas');
  */
 function angelitozzz_robots_paginas_privadas(array $robots): array
 {
+    // Las lecciones son contenido de pago (leccion.md): nunca en buscadores.
+    if (is_singular('leccion')) {
+        return wp_robots_no_robots($robots);
+    }
+
     foreach (angelitozzz_plantillas_privadas() as $plantilla) {
         if (is_page_template($plantilla)) {
             return wp_robots_no_robots($robots);

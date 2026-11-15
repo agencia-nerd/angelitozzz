@@ -18,7 +18,8 @@
     - La pestaña única "Historial" del diseño (con ícono de corazón) no cambia nada: se deja como título de la vista con el ícono de historial.
     - Sin campos ACF. `h1`: el nombre de la alumna en el menú. Título SEO "Historial de pedidos | Angelitozzz", con `noindex`.
     - Cintillo, header y footer salen de `header.php` y `footer.php`. Sin frame móvil: el móvil es una propuesta.
-- **Estado:** aprobado
+    - Aplicado en la F4, bloque 5 (2026-11-14): el precio de cada fila es el total de su línea con impuestos; una línea que no es un curso muestra el estado del pedido (`wc_get_order_status_name`). A 1440 px los encabezados "ID del pedido" y "Fecha de compra" bajan a dos líneas, porque la columna de contenido es más angosta que en Figma.
+- **Estado:** aplicado
 
 ## Sección: seccion-entera
 
@@ -30,7 +31,7 @@
 - **Indicaciones del diseño:**
     - nota: drawer https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4164-25910&t=lySNWh2dFHTQgiTC-4
     - nota: historial https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4164-25942&t=lySNWh2dFHTQgiTC-4
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -41,10 +42,10 @@ Contenido del diseño (de Woo y del plugin, no campos): 5 filas de ejemplo (Hora
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Solo se ven los pedidos de la usuaria con sesión
-- [ ] Es una `<table>` con encabezados de columna y `caption`
-- [ ] El estado es el del acceso (Activo, Por expirar, Vencido, Cancelado, Pendiente), cada uno con su color y su texto
-- [ ] Un pedido con varios cursos muestra una fila por curso
-- [ ] Sin pedidos se ve el estado vacío
-- [ ] En móvil las filas pasan a tarjetas, sin scroll horizontal
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Solo se ven los pedidos de la usuaria con sesión
+- [x] Es una `<table>` con encabezados de columna y `caption`
+- [x] El estado es el del acceso (Activo, Por expirar, Vencido, Cancelado, Pendiente), cada uno con su color (argumento `color` de `etiqueta`) y su texto (probados en el navegador: Activo y Pendiente; los demás estados los calcula el plugin, con sus pruebas)
+- [x] Un pedido con varios cursos muestra una fila por curso (una fila por línea del pedido)
+- [x] Sin pedidos se ve el estado vacío
+- [x] En móvil las filas pasan a tarjetas, sin scroll horizontal

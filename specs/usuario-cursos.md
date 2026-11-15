@@ -17,7 +17,8 @@
     - El ítem del menú "Cursos inscritos" abre la pestaña "Cursos activos", como en el diseño.
     - Sin campos ACF. `h1`: el nombre de la alumna en el menú. Título SEO "Mis cursos | Angelitozzz", con `noindex`.
     - Cintillo, header y footer salen de `header.php` y `footer.php`. Sin frame móvil: el móvil es una propuesta.
-- **Estado:** aprobado
+    - Aplicado en la F4, bloque 5 (2026-11-14): sin `?pestana=` (o con un valor que no está en la lista) se abre Cursos activos, como en el diseño; la página del listado va en `?pagina=` (`paginate_links()` con `.paginacion`); la vista lleva un `h2` "Mis cursos" solo para lectores, porque los títulos de las tarjetas son `h3`.
+- **Estado:** aplicado
 
 ## Sección: seccion-entera
 
@@ -30,7 +31,7 @@
     - nota: drawer https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4164-25448&t=lySNWh2dFHTQgiTC-4
     - cursos activos es : https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4164-25480&t=lySNWh2dFHTQgiTC-4
     - nota: falta vista para Cursos inscritos y Completados, tu diseñalo y proponmelo
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -41,10 +42,10 @@ Contenido del diseño (del plugin, no campos): 5 cursos (Horarios 9 a 15 meses 1
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Solo se listan los cursos de la usuaria con sesión; una pestaña desconocida en la URL vuelve a Inscritos
-- [ ] Las 3 pestañas muestran su número y la activa lleva `aria-current="page"`
-- [ ] El botón de cada tarjeta cambia según el avance (Empezar, Continuar, Volver a ver)
-- [ ] La barra es accesible (`role="progressbar"`) y su ancho es el porcentaje real
-- [ ] Cada pestaña sin cursos muestra su estado vacío
-- [ ] En móvil las tarjetas van en 1 columna, sin scroll horizontal
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Solo se listan los cursos de la usuaria con sesión; una pestaña desconocida en la URL vuelve a la de por defecto (Cursos activos, como en el diseño)
+- [x] Las 3 pestañas muestran su número y la activa lleva `aria-current="page"`
+- [x] El botón de cada tarjeta cambia según el avance (Empezar, Continuar, Volver a ver)
+- [x] La barra es accesible (`<progress>` nativo, rol progressbar implícito) y su ancho es el porcentaje real
+- [x] Cada pestaña sin cursos muestra su estado vacío
+- [x] En móvil las tarjetas van en 1 columna, sin scroll horizontal

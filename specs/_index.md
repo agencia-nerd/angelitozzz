@@ -26,12 +26,12 @@ Antes de las páginas, revisa y aprueba [\_shared.md](_shared.md): tokens, compo
 | Iniciar sesión                       | [iniciar-sesion.md](iniciar-sesion.md)                     | `pages/template-iniciar-sesion.php`       | aplicado  |
 | Crear cuenta                         | [crear-cuenta.md](crear-cuenta.md)                         | `pages/template-crear-cuenta.php`         | aplicado  |
 | Recuperar contraseña                 | [recuperar-contrasena.md](recuperar-contrasena.md)         | `pages/template-recuperar-contrasena.php` | aplicado  |
-| Cuenta: escritorio                   | [usuario-escritorio.md](usuario-escritorio.md)             | `pages/template-cuenta.php`               | aprobado  |
-| Cuenta: mi perfil                    | [usuario-mi-perfil.md](usuario-mi-perfil.md)               | `pages/template-cuenta.php`               | aprobado  |
-| Cuenta: cursos inscritos             | [usuario-cursos.md](usuario-cursos.md)                     | `pages/template-cuenta.php`               | aprobado  |
-| Cuenta: historial de pedidos         | [usuario-historial-pedido.md](usuario-historial-pedido.md) | `pages/template-cuenta.php`               | aprobado  |
+| Cuenta: escritorio                   | [usuario-escritorio.md](usuario-escritorio.md)             | `pages/template-cuenta.php`               | aplicado  |
+| Cuenta: mi perfil                    | [usuario-mi-perfil.md](usuario-mi-perfil.md)               | `pages/template-cuenta.php`               | aplicado  |
+| Cuenta: cursos inscritos             | [usuario-cursos.md](usuario-cursos.md)                     | `pages/template-cuenta.php`               | aplicado  |
+| Cuenta: historial de pedidos         | [usuario-historial-pedido.md](usuario-historial-pedido.md) | `pages/template-cuenta.php`               | aplicado  |
 | Cursos: modelo de datos              | [cursos-datos.md](cursos-datos.md)                         | ninguna                                   | aprobado  |
-| Lección                              | [leccion.md](leccion.md)                                   | `single-leccion.php`                      | aprobado  |
+| Lección                              | [leccion.md](leccion.md)                                   | `single-leccion.php`                      | aplicado  |
 | Administrador: escritorio            | [admin-escritorio.md](admin-escritorio.md)                 | `pages/template-administrador.php`        | aprobado  |
 | Administrador: cursos                | [admin-cursos.md](admin-cursos.md)                         | `pages/template-administrador.php`        | aprobado  |
 | Administrador: constructor de cursos | [admin-constructor.md](admin-constructor.md)               | `pages/template-administrador.php`        | aprobado  |
