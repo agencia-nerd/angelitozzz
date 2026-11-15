@@ -54,3 +54,7 @@ if (document.querySelector('[data-reglas-contrasena]')) {
 if (document.querySelector('[data-copiar-codigo]')) {
     import('./modules/copiar-codigo.js').then(({ initCopiarCodigo }) => initCopiarCodigo()).catch(console.error);
 }
+
+if (document.querySelector('form[data-enviar-una-vez]')) {
+    import('./modules/enviar-una-vez.js').then(({ initEnviarUnaVez }) => initEnviarUnaVez()).catch(console.error);
+}

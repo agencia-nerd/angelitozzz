@@ -18,7 +18,7 @@
     - `h1`: el título de la tarjeta visible ("¿Te regalaron un curso?" o "¡Listo, ya tienes tu curso!"). Título SEO "Canjear regalo | Angelitozzz", con `noindex`.
     - Fondo crema `--color-fondo`; la tarjeta blanca centrada (componente `confirmacion-tarjeta`). Cintillo, header y footer salen de `header.php` y `footer.php`.
     - Sin frame móvil en Figma: el comportamiento en móvil es una propuesta.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 ## Sección: canje
 
@@ -33,10 +33,10 @@
     - **Errores** (propuesta, el diseño no los muestra): un solo mensaje para código inexistente, usado o vencido, "Este código no es válido o ya fue usado. Revisa que esté bien escrito.", y por exceso de intentos, "Demasiados intentos. Prueba de nuevo en unos minutos.". Van arriba del campo, en un recuadro con `role="alert"`; el campo toma borde `--color-acento` y conserva lo escrito.
     - **Seguridad** (plugin, F5): nonce; límite de intentos por IP y por usuaria (5 cada 15 minutos, propuesta); el código es de un solo uso y se marca usado en la misma operación que inscribe, para que dos envíos a la vez no lo canjeen dos veces.
     - **Si ya tiene ese curso activo:** el acceso del canje empieza cuando vence el vigente (se encadena, misma regla que volver a comprar, `cursos-datos.md` → `inscripcion`).
-    - Valores sueltos: tarjeta de 720 px, padding 56/64, radio 24 (`--radius-tarjeta`), separación 24 px entre bloques. Móvil (propuesta): la tarjeta ocupa el ancho con 16 px de margen y padding 32/24; el título baja a `--text-h3`; el botón queda centrado con su ancho natural.
+    - Valores sueltos: tarjeta de 720 px, padding 56/64, radio 24 (`--radius-tarjeta`), separación 24 px entre bloques. Móvil (propuesta): la tarjeta ocupa el ancho con 16 px de margen y padding 32/24; el título baja a `--text-h3`; el botón queda centrado con su ancho natural. En la F4 la página se ve con `?vista_previa=canjear-regalo&estado=canje|error|bloqueado|canjeado|canjeado-ilimitado` (mu-plugin) y el estado sale de la muestra `angelitozzz_compra_muestra_canje()`; el botón se desactiva al enviar con `src/js/modules/enviar-una-vez.js`.
 - **Indicaciones del diseño:**
     - nota: cuando alguien quiere canjear el curso.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -45,15 +45,22 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] El formulario lleva nonce y el campo tiene `<label>` (oculto) asociado
-- [ ] Un código válido inscribe a la usuaria en su curso, con `origen` `regalo` y el inicio el día del canje
-- [ ] El mismo código no se puede canjear dos veces, ni con dos envíos a la vez
-- [ ] Código inexistente, usado o vencido muestran el mismo mensaje con `role="alert"`, sin perder lo escrito
-- [ ] Tras varios intentos fallidos se bloquea un rato
-- [ ] Sin sesión, un código válido lleva a crear cuenta; al volver con sesión el canje termina solo y el código nunca viaja en la URL
-- [ ] Recargar después de canjear no vuelve a enviar el formulario
-- [ ] En móvil la tarjeta no tiene scroll horizontal
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] El campo tiene `<label>` (oculto) asociado, `autocomplete="off"`, `autocapitalize="characters"` y `spellcheck="false"`
+- [x] Código inexistente, usado o vencido muestran el mismo mensaje con `role="alert"`, sin perder lo escrito; el campo queda con `aria-invalid` y apunta al mensaje
+- [x] El exceso de intentos muestra su propio mensaje con `role="alert"`
+- [x] El botón se desactiva al enviar (`enviar-una-vez.js`) y no se desactiva si el campo está vacío
+- [x] La nota de crear cuenta solo se ve sin sesión
+- [x] En móvil la tarjeta no tiene scroll horizontal
+
+Se verifica en la F5, con la acción del plugin:
+
+- El formulario lleva nonce
+- Un código válido inscribe a la usuaria en su curso, con `origen` `regalo` y el inicio el día del canje
+- El mismo código no se puede canjear dos veces, ni con dos envíos a la vez
+- Tras varios intentos fallidos se bloquea un rato
+- Sin sesión, un código válido lleva a crear cuenta; al volver con sesión el canje termina solo y el código nunca viaja en la URL
+- Recargar después de canjear no vuelve a enviar el formulario
 
 ## Sección: canjeado
 
@@ -70,7 +77,7 @@
     - Móvil (propuesta): igual que `canje`; el texto largo se parte en varias líneas y la caja de acceso puede ocupar dos.
 - **Indicaciones del diseño:**
     - nota: curso canjeado.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -79,8 +86,13 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Muestra el nombre del curso canjeado y su duración real (o "ilimitado")
-- [ ] "Empezar el curso" abre la primera lección y la lección se puede ver (inscripción activa)
-- [ ] "Ir a Mis cursos" lleva a `/cuenta/cursos/` y el curso aparece ahí
-- [ ] Entrar a `/canjear-regalo/` otra vez muestra el formulario, no la confirmación
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Muestra el nombre del curso canjeado y la duración del acceso ("de 4 meses") o "ilimitado"
+- [x] "Ir a Mis cursos" lleva a `/cuenta/cursos/`
+
+Se verifica en la F5, con el plugin y la cuenta:
+
+- La duración es la real del curso
+- "Empezar el curso" abre la primera lección y la lección se puede ver (inscripción activa)
+- El curso aparece en Mis cursos
+- Entrar a `/canjear-regalo/` otra vez muestra el formulario, no la confirmación
