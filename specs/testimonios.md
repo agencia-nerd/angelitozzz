@@ -77,7 +77,7 @@ La indicación se aplica así: las tarjetas son elementos del tipo de contenido 
 - **Destino:** `archive-testimonio.php`, `template-parts/components/cta-final.php`
 - **Grupo:** `testimonios_cta_final`
 - **Skill:** ninguna
-- **Comportamiento:** usa el componente compartido `cta-final` (`_shared.md`), llamado desde `archive-testimonio.php` con `get_template_part('template-parts/components/cta-final', null, $args)` y los argumentos `titulo`, `descripcion` (aquí sí la usa: "Encuentra la solución de sueño ideal para tu bebé.") y `boton`. Fondo `--color-fondo-rosa`, título `h2` centrado (`--text-h2`, `--color-marca`), descripción `--text-cuerpo-l` en `--color-tinta`, botón `boton` variante `frambuesa` con flecha, y los destellos y trazos blancos decorativos del componente (`cta-final-*.svg`, `aria-hidden`; el destello grande sobresale por debajo y se recorta con `overflow-hidden`). El botón "Encuentra tu solución" lleva a la página shop/tienda/cursos, que aún no existe: queda con `#` (pendiente, como en Inicio). Descripción opcional: si queda vacía el componente no la imprime. Móvil: el del componente compartido (`px-4`, título en `--text-h3`, decoraciones reducidas u ocultas). Sin valores sueltos propios.
+- **Comportamiento:** usa el componente compartido `cta-final` (`_shared.md`), llamado desde `archive-testimonio.php` con `get_template_part('template-parts/components/cta-final', null, $args)` y los argumentos `titulo`, `descripcion` (aquí sí la usa: "Encuentra la solución de sueño ideal para tu bebé.") y `boton`. Fondo `--color-fondo-rosa`, título `h2` centrado (`--text-h2`, `--color-marca`), descripción `--text-cuerpo-l` en `--color-tinta`, botón `boton` variante `frambuesa` con flecha, y los destellos y trazos blancos decorativos del componente (`cta-final-*.svg`, `aria-hidden`; el destello grande sobresale por debajo y se recorta con `overflow-hidden`). El botón "Encuentra tu solución" lleva a `/soluciones-de-sueno/`, como en Inicio. Descripción opcional: si queda vacía el componente no la imprime. Móvil: el del componente compartido (`px-4`, título en `--text-h3`, decoraciones reducidas u ocultas). Sin valores sueltos propios.
 - **Estado:** aplicado
 - **ACF:** conectado
 
@@ -87,10 +87,10 @@ La indicación se aplica así: las tarjetas son elementos del tipo de contenido 
 | ----------------------------------- | -------- | ---------------------------------------------------------------------------- | -------------------------------------------------- | --------- |
 | `testimonios_cta_final_titulo`      | textarea | Título del bloque de cierre de la página.                                    | Tu historia puede ser la próxima.                  | sí        |
 | `testimonios_cta_final_descripcion` | textarea | Texto opcional bajo el título. Si se deja vacío no se muestra.               | Encuentra la solución de sueño ideal para tu bebé. | no        |
-| `testimonios_cta_final_boton`       | link     | Botón del bloque de cierre: texto y destino (la tienda de cursos, pendiente) | Encuentra tu solución                              | sí        |
+| `testimonios_cta_final_boton`       | link     | Botón del bloque de cierre: texto y destino (`/soluciones-de-sueno/`)         | Encuentra tu solución                              | sí        |
 
 **Criterios de aceptación**
 
 - [x] Cumple los criterios comunes de `_shared.md`
 - [x] La sección es una llamada al componente `cta-final` con `$args`, sin markup propio en la plantilla
-- [x] La descripción se muestra y el botón queda con `#` hasta que exista la tienda
+- [x] La descripción se muestra y el botón lleva a `/soluciones-de-sueno/`

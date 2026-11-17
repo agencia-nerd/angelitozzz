@@ -94,7 +94,7 @@ En este sitio:
 | `cabecera-derecha` | Header, a la derecha, junto a "Iniciar sesión" (texto más grande) | Contacto                                                                              |
 | `pie-navegacion`   | Footer, columnas 1 y 2                                            | Soluciones de Sueño, Mundo Angelitozzz, Conoce a Bárbara, Testimonios, Blog, Contacto |
 | `pie-legal`        | Footer, columna 3                                                 | Políticas de privacidad, Términos y condiciones                                       |
-| `pie-ayuda`        | Footer, columna 4                                                 | Preguntas frecuentes, Soporte                                                         |
+| `pie-ayuda`        | Footer, columna 4                                                 | Preguntas frecuentes (Soporte quitado el 2026-11-17, por ahora)                      |
 
 ## Tokens
 
