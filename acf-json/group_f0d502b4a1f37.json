@@ -1,0 +1,2562 @@
+{
+    "key": "group_f0d502b4a1f37",
+    "title": "Solución (landing)",
+    "fields": [
+        {
+            "key": "field_12b6b8fa05328",
+            "label": "Hero",
+            "name": "solucion_hero",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_1ee056e522c36",
+                    "label": "Etiqueta",
+                    "name": "etiqueta",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Etiqueta blanca sobre el título (tipo de solución).",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_4b681056d0c26",
+                    "label": "Etiqueta icono",
+                    "name": "etiqueta_icono",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Ícono de la etiqueta. Con ícono, la etiqueta pasa a fondo salvia, como \"Nuevo\" de Angelita Pro. Opciones: ninguno, destellos, estrella",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "ninguno": "ninguno",
+                        "destellos": "destellos",
+                        "estrella": "estrella"
+                    },
+                    "default_value": false,
+                    "return_format": "value",
+                    "allow_in_bindings": 0,
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_362a6b0baeb18",
+                    "label": "Titular",
+                    "name": "titular",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Frase principal del hero (`h1`); el nombre de la solución es el título de la entrada. Para poner una parte en itálica, enciérrala con el marcador del estilo itálica. Usa Enter para pasar a otra línea.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "rows": 4,
+                    "new_lines": ""
+                },
+                {
+                    "key": "field_f7de51a80dc41",
+                    "label": "Subtitulo",
+                    "name": "subtitulo",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Línea subrayada bajo el título: formato y edades.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_4a3757aac2243",
+                    "label": "Descripción",
+                    "name": "descripcion",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Texto bajo el subtítulo.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "rows": 4,
+                    "new_lines": ""
+                },
+                {
+                    "key": "field_7340b2856f48f",
+                    "label": "Datos",
+                    "name": "datos",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Cajas con un dato corto (duración, con quién, canal). El diseño tiene 2.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Añadir fila",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_d6f28be1fb089",
+                            "label": "Icono",
+                            "name": "icono",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "Ícono de la caja. Opciones: reloj, barbara, whatsapp",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "reloj": "reloj",
+                                "barbara": "barbara",
+                                "whatsapp": "whatsapp"
+                            },
+                            "default_value": false,
+                            "return_format": "value",
+                            "allow_in_bindings": 0,
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_61d090cc72e1a",
+                            "label": "Texto",
+                            "name": "texto",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Texto de la caja.",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        }
+                    ]
+                },
+                {
+                    "key": "field_5a5dd910d4e1a",
+                    "label": "Imagen",
+                    "name": "imagen",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Foto de la tarjeta de compra; también se usa, suave, de fondo del hero. Recomendado: hasta 2000 px en el lado más largo, horizontal.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "allow_in_bindings": 0,
+                    "preview_size": "medium"
+                },
+                {
+                    "key": "field_80ab5e5ba5cab",
+                    "label": "Botón",
+                    "name": "boton",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Texto del botón de compra (agrega al carrito, o abre el selector de edad en Horarios Ideales).",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_5f8352c3e13c6",
+                    "label": "Nota",
+                    "name": "nota",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Línea bajo los botones. Si el producto tiene precio rebajado, delante se agrega solo \"Precio de lanzamiento (antes $…) ·\".",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_6d3010958d497",
+                    "label": "Regalo",
+                    "name": "regalo",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "Muestra el botón \"Regalar este curso\" y el enlace \"¿Te regalaron este curso? Canjea tu código\".",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "allow_in_bindings": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "ui": 1
+                },
+                {
+                    "key": "field_c56938e162ec9",
+                    "label": "Whatsapp",
+                    "name": "whatsapp",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "Muestra el enlace de WhatsApp bajo el canje. El número y el mensaje salen de Ajustes del sitio (`opciones_contacto`); sin número no se muestra.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "allow_in_bindings": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "ui": 1
+                },
+                {
+                    "key": "field_2fb620b3600d3",
+                    "label": "Whatsapp texto",
+                    "name": "whatsapp_texto",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Texto del enlace de WhatsApp.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                }
+            ]
+        },
+        {
+            "key": "field_d44ae5ea1e56e",
+            "label": "Tarjeta",
+            "name": "solucion_tarjeta",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_d2345cee7ec5f",
+                    "label": "Etiqueta",
+                    "name": "etiqueta",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Etiqueta de la esquina de la tarjeta (puede incluir el precio como texto).",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_81bde1c5885bb",
+                    "label": "Etiqueta icono",
+                    "name": "etiqueta_icono",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Ícono de la etiqueta. Opciones: ninguno, destellos, estrella",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "ninguno": "ninguno",
+                        "destellos": "destellos",
+                        "estrella": "estrella"
+                    },
+                    "default_value": false,
+                    "return_format": "value",
+                    "allow_in_bindings": 0,
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_1235f29206bf7",
+                    "label": "Edad",
+                    "name": "edad",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Edades, bajo el nombre.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_76ff823400104",
+                    "label": "Descripción",
+                    "name": "descripcion",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Descripción corta de la tarjeta.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "rows": 4,
+                    "new_lines": ""
+                },
+                {
+                    "key": "field_97a93c712c33c",
+                    "label": "Beneficios",
+                    "name": "beneficios",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Viñetas de la tarjeta. El diseño tiene 4.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Añadir fila",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_0294cd7a8656a",
+                            "label": "Texto",
+                            "name": "texto",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Una viñeta.",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        }
+                    ]
+                },
+                {
+                    "key": "field_0c19dd49a6628",
+                    "label": "Botón",
+                    "name": "boton",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Texto del botón de la tarjeta (el destino es siempre esta landing).",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                }
+            ]
+        },
+        {
+            "key": "field_2c40887c4be10",
+            "label": "Compra",
+            "name": "solucion_compra",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_32eaf715576b2",
+                    "label": "Cursos",
+                    "name": "cursos",
+                    "aria-label": "",
+                    "type": "relationship",
+                    "instructions": "Cursos que vende esta solución. Con etapas, van aquí los cursos de todas las etapas (el plugin busca la solución de un curso solo en este campo). Contenido: curso. Mínimo: 1",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "curso"
+                    ],
+                    "post_status": [
+                        "publish"
+                    ],
+                    "taxonomy": "",
+                    "filters": [
+                        "search"
+                    ],
+                    "elements": [
+                        "featured_image"
+                    ],
+                    "min": 1,
+                    "max": 0,
+                    "return_format": "id",
+                    "allow_in_bindings": 0,
+                    "bidirectional": 0,
+                    "bidirectional_target": []
+                },
+                {
+                    "key": "field_ffef02b7bb3ae",
+                    "label": "Tipo",
+                    "name": "tipo",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Cómo se compra. Opciones: directa, etapas, suscripcion",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "directa": "directa",
+                        "etapas": "etapas",
+                        "suscripcion": "suscripcion"
+                    },
+                    "default_value": false,
+                    "return_format": "value",
+                    "allow_in_bindings": 0,
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_ecac409c4bb75",
+                    "label": "Descuentos",
+                    "name": "descuentos",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Precio total al comprar varios cursos juntos (solo con etapas). El diseño tiene 2.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Añadir fila",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_d14dbca324024",
+                            "label": "Cantidad",
+                            "name": "cantidad",
+                            "aria-label": "",
+                            "type": "number",
+                            "instructions": "Cantidad de cursos.",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "min": "",
+                            "max": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "step": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_4540c8fd0b0a0",
+                            "label": "Total",
+                            "name": "total",
+                            "aria-label": "",
+                            "type": "number",
+                            "instructions": "Precio total en USD por esa cantidad.",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "min": "",
+                            "max": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "step": "",
+                            "prepend": "",
+                            "append": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_783bf429c2ed3",
+            "label": "Secciones",
+            "name": "solucion_secciones",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_6f7f3fec69a31",
+                    "label": "Bloques",
+                    "name": "bloques",
+                    "aria-label": "",
+                    "type": "flexible_content",
+                    "instructions": "Bloques del cuerpo de la landing, en el orden en que se muestran. Botón \"Añadir bloque\".",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layouts": {
+                        "layout_f5595b4955d3e": {
+                            "key": "layout_f5595b4955d3e",
+                            "name": "comparacion",
+                            "label": "Comparacion",
+                            "display": "block",
+                            "min": "",
+                            "max": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_cb461824d8512",
+                                    "label": "Fondo",
+                                    "name": "fondo",
+                                    "aria-label": "",
+                                    "type": "select",
+                                    "instructions": "Color de fondo. Opciones: crema, rosa, beige, salvia, blanco",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "crema": "crema",
+                                        "rosa": "rosa",
+                                        "beige": "beige",
+                                        "salvia": "salvia",
+                                        "blanco": "blanco"
+                                    },
+                                    "default_value": false,
+                                    "return_format": "value",
+                                    "allow_in_bindings": 0,
+                                    "multiple": 0,
+                                    "allow_null": 0,
+                                    "ui": 0,
+                                    "ajax": 0,
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_5877811c87f9e",
+                                    "label": "Título izquierda",
+                                    "name": "titulo_izquierda",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "Título de la columna izquierda.",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_3d8a586eb5a4b",
+                                    "label": "Texto izquierda",
+                                    "name": "texto_izquierda",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "Texto de la columna izquierda. Una línea por viñeta (el punto se pone solo). Usa Enter para pasar a otra línea.",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "rows": 4,
+                                    "new_lines": ""
+                                },
+                                {
+                                    "key": "field_f1e6dbfe40dc8",
+                                    "label": "Título derecha",
+                                    "name": "titulo_derecha",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "Título de la columna derecha.",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_626b52c466c31",
+                                    "label": "Texto derecha",
+                                    "name": "texto_derecha",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "Texto de la columna derecha. Usa Enter para pasar a otra línea.",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "rows": 4,
+                                    "new_lines": ""
+                                }
+                            ]
+                        },
+                        "layout_4fe9d2b0b0192": {
+                            "key": "layout_4fe9d2b0b0192",
+                            "name": "iconos",
+                            "label": "Iconos",
+                            "display": "block",
+                            "min": "",
+                            "max": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_cc4b81903c946",
+                                    "label": "Fondo",
+                                    "name": "fondo",
+                                    "aria-label": "",
+                                    "type": "select",
+                                    "instructions": "Color de fondo. Opciones: crema, rosa, beige, salvia, blanco",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "crema": "crema",
+                                        "rosa": "rosa",
+                                        "beige": "beige",
+                                        "salvia": "salvia",
+                                        "blanco": "blanco"
+                                    },
+                                    "default_value": false,
+                                    "return_format": "value",
+                                    "allow_in_bindings": 0,
+                                    "multiple": 0,
+                                    "allow_null": 0,
+                                    "ui": 0,
+                                    "ajax": 0,
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_df6c97a564edc",
+                                    "label": "Corazon",
+                                    "name": "corazon",
+                                    "aria-label": "",
+                                    "type": "true_false",
+                                    "instructions": "Muestra el corazón decorativo detrás del título.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "message": "",
+                                    "default_value": 0,
+                                    "allow_in_bindings": 0,
+                                    "ui_on_text": "",
+                                    "ui_off_text": "",
+                                    "ui": 1
+                                },
+                                {
+                                    "key": "field_ab0b711c1d4a8",
+                                    "label": "Título",
+                                    "name": "titulo",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "Título del bloque.",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_3a53e7fe3ccb6",
+                                    "label": "Bajada",
+                                    "name": "bajada",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "Texto bajo el título.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "rows": 4,
+                                    "new_lines": ""
+                                },
+                                {
+                                    "key": "field_6beb96089bae0",
+                                    "label": "Items",
+                                    "name": "items",
+                                    "aria-label": "",
+                                    "type": "repeater",
+                                    "instructions": "Ítems de la grilla, de izquierda a derecha. El diseño tiene 7.",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "layout": "block",
+                                    "pagination": 0,
+                                    "min": 0,
+                                    "max": 0,
+                                    "collapsed": "",
+                                    "button_label": "Añadir fila",
+                                    "rows_per_page": 20,
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_7e77775866a14",
+                                            "label": "Icono",
+                                            "name": "icono",
+                                            "aria-label": "",
+                                            "type": "select",
+                                            "instructions": "Ícono. Opciones: reloj-de-arena, bebe-luna, bebe-sol, cuna, bebe-envuelto, biberon, documento, reloj",
+                                            "required": 1,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "choices": {
+                                                "reloj_de_arena": "reloj-de-arena",
+                                                "bebe_luna": "bebe-luna",
+                                                "bebe_sol": "bebe-sol",
+                                                "cuna": "cuna",
+                                                "bebe_envuelto": "bebe-envuelto",
+                                                "biberon": "biberon",
+                                                "documento": "documento",
+                                                "reloj": "reloj"
+                                            },
+                                            "default_value": false,
+                                            "return_format": "value",
+                                            "allow_in_bindings": 0,
+                                            "multiple": 0,
+                                            "allow_null": 0,
+                                            "ui": 0,
+                                            "ajax": 0,
+                                            "placeholder": ""
+                                        },
+                                        {
+                                            "key": "field_66bec6222f88a",
+                                            "label": "Título",
+                                            "name": "titulo",
+                                            "aria-label": "",
+                                            "type": "text",
+                                            "instructions": "Título del ítem (opcional).",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "allow_in_bindings": 0,
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": ""
+                                        },
+                                        {
+                                            "key": "field_fed23b373193f",
+                                            "label": "Texto",
+                                            "name": "texto",
+                                            "aria-label": "",
+                                            "type": "textarea",
+                                            "instructions": "Texto del ítem.",
+                                            "required": 1,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "allow_in_bindings": 0,
+                                            "placeholder": "",
+                                            "rows": 4,
+                                            "new_lines": ""
+                                        }
+                                    ]
+                                },
+                                {
+                                    "key": "field_30664986bae3f",
+                                    "label": "No título",
+                                    "name": "no_titulo",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "Subtítulo del bloque \"NO es para ti\" (vacío: no se muestra).",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_6b8e25ab2c456",
+                                    "label": "No items",
+                                    "name": "no_items",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "Lista del bloque \"NO es para ti\", una línea por ítem (el ✕ se pone solo). Usa Enter para pasar a otra línea.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "rows": 4,
+                                    "new_lines": ""
+                                }
+                            ]
+                        },
+                        "layout_653c67dcc4555": {
+                            "key": "layout_653c67dcc4555",
+                            "name": "lista",
+                            "label": "Lista",
+                            "display": "block",
+                            "min": "",
+                            "max": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_cbb0a28ac3def",
+                                    "label": "Fondo",
+                                    "name": "fondo",
+                                    "aria-label": "",
+                                    "type": "select",
+                                    "instructions": "Color de fondo. Opciones: crema, rosa, beige, salvia, blanco",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "crema": "crema",
+                                        "rosa": "rosa",
+                                        "beige": "beige",
+                                        "salvia": "salvia",
+                                        "blanco": "blanco"
+                                    },
+                                    "default_value": false,
+                                    "return_format": "value",
+                                    "allow_in_bindings": 0,
+                                    "multiple": 0,
+                                    "allow_null": 0,
+                                    "ui": 0,
+                                    "ajax": 0,
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_7b026e61684c0",
+                                    "label": "Título",
+                                    "name": "titulo",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "Título del bloque.",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_603c260cc24bb",
+                                    "label": "Imagen",
+                                    "name": "imagen",
+                                    "aria-label": "",
+                                    "type": "image",
+                                    "instructions": "Foto a la izquierda (sin foto, la lista se centra). Recomendado: hasta 2000 px en el lado más largo, vertical.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": "",
+                                    "allow_in_bindings": 0,
+                                    "preview_size": "medium"
+                                },
+                                {
+                                    "key": "field_f275d35a1c335",
+                                    "label": "Items",
+                                    "name": "items",
+                                    "aria-label": "",
+                                    "type": "repeater",
+                                    "instructions": "Ítems de la lista. Con más de 5 aparece \"Ver más\". El diseño tiene 5.",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "layout": "block",
+                                    "pagination": 0,
+                                    "min": 0,
+                                    "max": 0,
+                                    "collapsed": "",
+                                    "button_label": "Añadir fila",
+                                    "rows_per_page": 20,
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_a79c313f9fd7e",
+                                            "label": "Texto",
+                                            "name": "texto",
+                                            "aria-label": "",
+                                            "type": "textarea",
+                                            "instructions": "Texto del ítem.",
+                                            "required": 1,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "allow_in_bindings": 0,
+                                            "placeholder": "",
+                                            "rows": 4,
+                                            "new_lines": ""
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "layout_03e938c9f46a2": {
+                            "key": "layout_03e938c9f46a2",
+                            "name": "beneficios",
+                            "label": "Beneficios",
+                            "display": "block",
+                            "min": "",
+                            "max": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_8a858ba09789a",
+                                    "label": "Fondo",
+                                    "name": "fondo",
+                                    "aria-label": "",
+                                    "type": "select",
+                                    "instructions": "Color de fondo de la sección (la caja es beige sobre crema y crema sobre rosa). Opciones: crema, rosa",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "crema": "crema",
+                                        "rosa": "rosa"
+                                    },
+                                    "default_value": false,
+                                    "return_format": "value",
+                                    "allow_in_bindings": 0,
+                                    "multiple": 0,
+                                    "allow_null": 0,
+                                    "ui": 0,
+                                    "ajax": 0,
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_b2e072e62dfbf",
+                                    "label": "Título",
+                                    "name": "titulo",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "Título de la caja.",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_41a51b873286e",
+                                    "label": "Bajada",
+                                    "name": "bajada",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "Texto bajo el título.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "rows": 4,
+                                    "new_lines": ""
+                                },
+                                {
+                                    "key": "field_e1f54a738bf0d",
+                                    "label": "Items",
+                                    "name": "items",
+                                    "aria-label": "",
+                                    "type": "repeater",
+                                    "instructions": "Columnas de la caja. El diseño tiene 2. Máximo: 3",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "layout": "block",
+                                    "pagination": 0,
+                                    "min": 0,
+                                    "max": 3,
+                                    "collapsed": "",
+                                    "button_label": "Añadir fila",
+                                    "rows_per_page": 20,
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_ef4e0a84feed8",
+                                            "label": "Icono",
+                                            "name": "icono",
+                                            "aria-label": "",
+                                            "type": "select",
+                                            "instructions": "Ícono. Opciones: libro, diamante, video",
+                                            "required": 1,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "choices": {
+                                                "libro": "libro",
+                                                "diamante": "diamante",
+                                                "video": "video"
+                                            },
+                                            "default_value": false,
+                                            "return_format": "value",
+                                            "allow_in_bindings": 0,
+                                            "multiple": 0,
+                                            "allow_null": 0,
+                                            "ui": 0,
+                                            "ajax": 0,
+                                            "placeholder": ""
+                                        },
+                                        {
+                                            "key": "field_87162c4c3a899",
+                                            "label": "Texto",
+                                            "name": "texto",
+                                            "aria-label": "",
+                                            "type": "textarea",
+                                            "instructions": "Texto de la columna.",
+                                            "required": 1,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "allow_in_bindings": 0,
+                                            "placeholder": "",
+                                            "rows": 4,
+                                            "new_lines": ""
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "layout_712016bc81024": {
+                            "key": "layout_712016bc81024",
+                            "name": "experiencia",
+                            "label": "Experiencia",
+                            "display": "block",
+                            "min": "",
+                            "max": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_03cb41f25c5da",
+                                    "label": "Fondo",
+                                    "name": "fondo",
+                                    "aria-label": "",
+                                    "type": "select",
+                                    "instructions": "Color de fondo. Opciones: crema, rosa, beige, salvia, blanco",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "crema": "crema",
+                                        "rosa": "rosa",
+                                        "beige": "beige",
+                                        "salvia": "salvia",
+                                        "blanco": "blanco"
+                                    },
+                                    "default_value": false,
+                                    "return_format": "value",
+                                    "allow_in_bindings": 0,
+                                    "multiple": 0,
+                                    "allow_null": 0,
+                                    "ui": 0,
+                                    "ajax": 0,
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_fddc63932d170",
+                                    "label": "Título",
+                                    "name": "titulo",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "Título del bloque.",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_b59f76f12585c",
+                                    "label": "Texto",
+                                    "name": "texto",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "Texto. Para poner una parte en negrita, enciérrala con el marcador de negrita (`^`). Una línea en blanco separa párrafos. Usa Enter para pasar a otra línea.",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "rows": 4,
+                                    "new_lines": ""
+                                },
+                                {
+                                    "key": "field_b6ec85ee0f7b9",
+                                    "label": "Imagen",
+                                    "name": "imagen",
+                                    "aria-label": "",
+                                    "type": "image",
+                                    "instructions": "Foto bajo el texto. Recomendado: hasta 2000 px en el lado más largo, horizontal.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": "",
+                                    "allow_in_bindings": 0,
+                                    "preview_size": "medium"
+                                },
+                                {
+                                    "key": "field_9cf1e1fad859e",
+                                    "label": "Whatsapp",
+                                    "name": "whatsapp",
+                                    "aria-label": "",
+                                    "type": "true_false",
+                                    "instructions": "Muestra el botón de WhatsApp bajo la foto. El número y el mensaje salen de Ajustes del sitio (`opciones_contacto`); sin número no se muestra.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "message": "",
+                                    "default_value": 0,
+                                    "allow_in_bindings": 0,
+                                    "ui_on_text": "",
+                                    "ui_off_text": "",
+                                    "ui": 1
+                                },
+                                {
+                                    "key": "field_4c59e0a38fd0a",
+                                    "label": "Whatsapp texto",
+                                    "name": "whatsapp_texto",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "Texto del botón de WhatsApp.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                }
+                            ]
+                        },
+                        "layout_86936bb1dc32e": {
+                            "key": "layout_86936bb1dc32e",
+                            "name": "pasos",
+                            "label": "Pasos",
+                            "display": "block",
+                            "min": "",
+                            "max": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_dfffb7da3618c",
+                                    "label": "Fondo",
+                                    "name": "fondo",
+                                    "aria-label": "",
+                                    "type": "select",
+                                    "instructions": "Color de fondo. Opciones: crema, rosa, beige, salvia, blanco",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "crema": "crema",
+                                        "rosa": "rosa",
+                                        "beige": "beige",
+                                        "salvia": "salvia",
+                                        "blanco": "blanco"
+                                    },
+                                    "default_value": false,
+                                    "return_format": "value",
+                                    "allow_in_bindings": 0,
+                                    "multiple": 0,
+                                    "allow_null": 0,
+                                    "ui": 0,
+                                    "ajax": 0,
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_afa2cf64a3b7b",
+                                    "label": "Antetitulo",
+                                    "name": "antetitulo",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "Texto chico sobre el título.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_d7d6c1e1eec89",
+                                    "label": "Título",
+                                    "name": "titulo",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "Título del bloque.",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_7b4be4a543f1d",
+                                    "label": "Bajada",
+                                    "name": "bajada",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "Texto bajo el título.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "rows": 4,
+                                    "new_lines": ""
+                                },
+                                {
+                                    "key": "field_fb4b8da48f0eb",
+                                    "label": "Items",
+                                    "name": "items",
+                                    "aria-label": "",
+                                    "type": "repeater",
+                                    "instructions": "Tarjetas, en orden (\"Paso 1\", \"Paso 2\"… se numeran solos). El diseño tiene 3.",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "layout": "block",
+                                    "pagination": 0,
+                                    "min": 0,
+                                    "max": 0,
+                                    "collapsed": "",
+                                    "button_label": "Añadir fila",
+                                    "rows_per_page": 20,
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_abb04a700cbe8",
+                                            "label": "Imagen",
+                                            "name": "imagen",
+                                            "aria-label": "",
+                                            "type": "image",
+                                            "instructions": "Foto de la tarjeta. Recomendado: hasta 2000 px en el lado más largo, horizontal.",
+                                            "required": 1,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "return_format": "array",
+                                            "library": "all",
+                                            "min_width": "",
+                                            "min_height": "",
+                                            "min_size": "",
+                                            "max_width": "",
+                                            "max_height": "",
+                                            "max_size": "",
+                                            "mime_types": "",
+                                            "allow_in_bindings": 0,
+                                            "preview_size": "medium"
+                                        },
+                                        {
+                                            "key": "field_84692ce38d293",
+                                            "label": "Título",
+                                            "name": "titulo",
+                                            "aria-label": "",
+                                            "type": "text",
+                                            "instructions": "Título de la tarjeta.",
+                                            "required": 1,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "allow_in_bindings": 0,
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": ""
+                                        },
+                                        {
+                                            "key": "field_c357f3f1d0fdc",
+                                            "label": "Texto",
+                                            "name": "texto",
+                                            "aria-label": "",
+                                            "type": "textarea",
+                                            "instructions": "Texto de la tarjeta.",
+                                            "required": 1,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "allow_in_bindings": 0,
+                                            "placeholder": "",
+                                            "rows": 4,
+                                            "new_lines": ""
+                                        },
+                                        {
+                                            "key": "field_f2e995cec8a5f",
+                                            "label": "Etiqueta",
+                                            "name": "etiqueta",
+                                            "aria-label": "",
+                                            "type": "text",
+                                            "instructions": "Etiqueta crema al pie de la tarjeta.",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "allow_in_bindings": 0,
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": ""
+                                        }
+                                    ]
+                                },
+                                {
+                                    "key": "field_95049e86f10af",
+                                    "label": "Whatsapp",
+                                    "name": "whatsapp",
+                                    "aria-label": "",
+                                    "type": "true_false",
+                                    "instructions": "Muestra el botón verde de WhatsApp bajo las tarjetas. El número y el mensaje salen de Ajustes del sitio (`opciones_contacto`); sin número no se muestra.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "message": "",
+                                    "default_value": 0,
+                                    "allow_in_bindings": 0,
+                                    "ui_on_text": "",
+                                    "ui_off_text": "",
+                                    "ui": 1
+                                },
+                                {
+                                    "key": "field_b00a5038b2b97",
+                                    "label": "Whatsapp texto",
+                                    "name": "whatsapp_texto",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "Texto del botón de WhatsApp.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                }
+                            ]
+                        },
+                        "layout_4720e6bbcad56": {
+                            "key": "layout_4720e6bbcad56",
+                            "name": "galeria",
+                            "label": "Galeria",
+                            "display": "block",
+                            "min": "",
+                            "max": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_8b970d43b506b",
+                                    "label": "Fondo",
+                                    "name": "fondo",
+                                    "aria-label": "",
+                                    "type": "select",
+                                    "instructions": "Color de fondo. Opciones: crema, rosa, beige, salvia, blanco",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "crema": "crema",
+                                        "rosa": "rosa",
+                                        "beige": "beige",
+                                        "salvia": "salvia",
+                                        "blanco": "blanco"
+                                    },
+                                    "default_value": false,
+                                    "return_format": "value",
+                                    "allow_in_bindings": 0,
+                                    "multiple": 0,
+                                    "allow_null": 0,
+                                    "ui": 0,
+                                    "ajax": 0,
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_99bc5441bc314",
+                                    "label": "Título",
+                                    "name": "titulo",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "Título del bloque.",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_ef8c5561ee347",
+                                    "label": "Bajada",
+                                    "name": "bajada",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "Texto bajo el título.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "rows": 4,
+                                    "new_lines": ""
+                                },
+                                {
+                                    "key": "field_08fb41441064b",
+                                    "label": "Diapositivas",
+                                    "name": "diapositivas",
+                                    "aria-label": "",
+                                    "type": "repeater",
+                                    "instructions": "Diapositivas del slider. El diseño tiene 1.",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "layout": "block",
+                                    "pagination": 0,
+                                    "min": 0,
+                                    "max": 0,
+                                    "collapsed": "",
+                                    "button_label": "Añadir fila",
+                                    "rows_per_page": 20,
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_3f77a6fdb5e34",
+                                            "label": "Imagen",
+                                            "name": "imagen",
+                                            "aria-label": "",
+                                            "type": "image",
+                                            "instructions": "Imagen o portada del video. Recomendado: hasta 2000 px en el lado más largo, horizontal.",
+                                            "required": 1,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "return_format": "array",
+                                            "library": "all",
+                                            "min_width": "",
+                                            "min_height": "",
+                                            "min_size": "",
+                                            "max_width": "",
+                                            "max_height": "",
+                                            "max_size": "",
+                                            "mime_types": "",
+                                            "allow_in_bindings": 0,
+                                            "preview_size": "medium"
+                                        },
+                                        {
+                                            "key": "field_bb0977541cebe",
+                                            "label": "Video",
+                                            "name": "video",
+                                            "aria-label": "",
+                                            "type": "oembed",
+                                            "instructions": "Video de Vimeo (opcional). Si lo tiene, la imagen muestra el botón play.",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "width": "",
+                                            "height": "",
+                                            "allow_in_bindings": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "key": "field_c952354accc0c",
+                                    "label": "Texto",
+                                    "name": "texto",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "Línea bajo las flechas.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_761c427c7fb18",
+                                    "label": "Botón",
+                                    "name": "boton",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "Texto del botón de compra (vacío: sin botón). Hace lo mismo que el botón del hero.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_c9f52cba8993f",
+                                    "label": "Botón precio",
+                                    "name": "boton_precio",
+                                    "aria-label": "",
+                                    "type": "true_false",
+                                    "instructions": "Agrega el precio al botón (\"— $97 USD\").",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "message": "",
+                                    "default_value": 0,
+                                    "allow_in_bindings": 0,
+                                    "ui_on_text": "",
+                                    "ui_off_text": "",
+                                    "ui": 1
+                                }
+                            ]
+                        },
+                        "layout_36fb04d40a7ef": {
+                            "key": "layout_36fb04d40a7ef",
+                            "name": "etapas",
+                            "label": "Etapas",
+                            "display": "block",
+                            "min": "",
+                            "max": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_8026d480d2f6a",
+                                    "label": "Fondo",
+                                    "name": "fondo",
+                                    "aria-label": "",
+                                    "type": "select",
+                                    "instructions": "Color de fondo. Opciones: crema, rosa, beige, salvia, blanco",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "crema": "crema",
+                                        "rosa": "rosa",
+                                        "beige": "beige",
+                                        "salvia": "salvia",
+                                        "blanco": "blanco"
+                                    },
+                                    "default_value": false,
+                                    "return_format": "value",
+                                    "allow_in_bindings": 0,
+                                    "multiple": 0,
+                                    "allow_null": 0,
+                                    "ui": 0,
+                                    "ajax": 0,
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_d0e5ad37d3752",
+                                    "label": "Título",
+                                    "name": "titulo",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "Título del bloque.",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_5331aae81039e",
+                                    "label": "Items",
+                                    "name": "items",
+                                    "aria-label": "",
+                                    "type": "repeater",
+                                    "instructions": "Etapas, de menor a mayor edad. El diseño tiene 3.",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "layout": "block",
+                                    "pagination": 0,
+                                    "min": 0,
+                                    "max": 0,
+                                    "collapsed": "",
+                                    "button_label": "Añadir fila",
+                                    "rows_per_page": 20,
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_c5b870eb40130",
+                                            "label": "Curso",
+                                            "name": "curso",
+                                            "aria-label": "",
+                                            "type": "post_object",
+                                            "instructions": "Curso de esta etapa (de su producto de Woo sale el precio). Contenido: curso",
+                                            "required": 1,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "post_type": [
+                                                "curso"
+                                            ],
+                                            "post_status": [
+                                                "publish"
+                                            ],
+                                            "taxonomy": [],
+                                            "return_format": "id",
+                                            "multiple": 0,
+                                            "allow_null": 0,
+                                            "bidirectional": 0,
+                                            "ui": 1,
+                                            "bidirectional_target": [],
+                                            "allow_in_bindings": 0
+                                        },
+                                        {
+                                            "key": "field_85be272c7fdb8",
+                                            "label": "Edad",
+                                            "name": "edad",
+                                            "aria-label": "",
+                                            "type": "text",
+                                            "instructions": "Edad corta, para el selector de edad.",
+                                            "required": 1,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "allow_in_bindings": 0,
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": ""
+                                        },
+                                        {
+                                            "key": "field_81b408f0e9546",
+                                            "label": "Imagen",
+                                            "name": "imagen",
+                                            "aria-label": "",
+                                            "type": "image",
+                                            "instructions": "Foto de la tarjeta y del selector de edad. Recomendado: hasta 2000 px en el lado más largo, cuadrada.",
+                                            "required": 1,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "return_format": "array",
+                                            "library": "all",
+                                            "min_width": "",
+                                            "min_height": "",
+                                            "min_size": "",
+                                            "max_width": "",
+                                            "max_height": "",
+                                            "max_size": "",
+                                            "mime_types": "",
+                                            "allow_in_bindings": 0,
+                                            "preview_size": "medium"
+                                        },
+                                        {
+                                            "key": "field_62d72790df0ef",
+                                            "label": "Título",
+                                            "name": "titulo",
+                                            "aria-label": "",
+                                            "type": "text",
+                                            "instructions": "Título de la tarjeta.",
+                                            "required": 1,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "allow_in_bindings": 0,
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": ""
+                                        },
+                                        {
+                                            "key": "field_ab684268544c2",
+                                            "label": "Texto",
+                                            "name": "texto",
+                                            "aria-label": "",
+                                            "type": "textarea",
+                                            "instructions": "Texto de la tarjeta.",
+                                            "required": 1,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "allow_in_bindings": 0,
+                                            "placeholder": "",
+                                            "rows": 4,
+                                            "new_lines": ""
+                                        },
+                                        {
+                                            "key": "field_9933552418410",
+                                            "label": "Modal título",
+                                            "name": "modal_titulo",
+                                            "aria-label": "",
+                                            "type": "text",
+                                            "instructions": "Título del modal \"Más información\".",
+                                            "required": 1,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "allow_in_bindings": 0,
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": ""
+                                        },
+                                        {
+                                            "key": "field_2b12128a228fc",
+                                            "label": "Modal texto",
+                                            "name": "modal_texto",
+                                            "aria-label": "",
+                                            "type": "textarea",
+                                            "instructions": "Texto del modal. Si se deja vacío, el modal muestra solo el título y el video.",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "allow_in_bindings": 0,
+                                            "placeholder": "",
+                                            "rows": 4,
+                                            "new_lines": ""
+                                        },
+                                        {
+                                            "key": "field_6907aca118e16",
+                                            "label": "Modal video",
+                                            "name": "modal_video",
+                                            "aria-label": "",
+                                            "type": "oembed",
+                                            "instructions": "Video de presentación de Vimeo del modal.",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "width": "",
+                                            "height": "",
+                                            "allow_in_bindings": 0
+                                        },
+                                        {
+                                            "key": "field_ed02b672d5ae1",
+                                            "label": "Modal portada",
+                                            "name": "modal_portada",
+                                            "aria-label": "",
+                                            "type": "image",
+                                            "instructions": "Portada del video del modal. Recomendado: hasta 2000 px en el lado más largo, horizontal.",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "return_format": "array",
+                                            "library": "all",
+                                            "min_width": "",
+                                            "min_height": "",
+                                            "min_size": "",
+                                            "max_width": "",
+                                            "max_height": "",
+                                            "max_size": "",
+                                            "mime_types": "",
+                                            "allow_in_bindings": 0,
+                                            "preview_size": "medium"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "key": "field_de0164dd0f443",
+                                    "label": "Modal antetitulo",
+                                    "name": "modal_antetitulo",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "Texto chico sobre el título de cada modal.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                }
+                            ]
+                        },
+                        "layout_58bdb7210e4a9": {
+                            "key": "layout_58bdb7210e4a9",
+                            "name": "testimonios",
+                            "label": "Testimonios",
+                            "display": "block",
+                            "min": "",
+                            "max": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_c2d02ad01e2d5",
+                                    "label": "Fondo",
+                                    "name": "fondo",
+                                    "aria-label": "",
+                                    "type": "select",
+                                    "instructions": "Color de fondo. Opciones: crema, rosa, beige, salvia, blanco",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "crema": "crema",
+                                        "rosa": "rosa",
+                                        "beige": "beige",
+                                        "salvia": "salvia",
+                                        "blanco": "blanco"
+                                    },
+                                    "default_value": false,
+                                    "return_format": "value",
+                                    "allow_in_bindings": 0,
+                                    "multiple": 0,
+                                    "allow_null": 0,
+                                    "ui": 0,
+                                    "ajax": 0,
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_ac647214f86b3",
+                                    "label": "Título",
+                                    "name": "titulo",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "Título del bloque.",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_1ee689d41f414",
+                                    "label": "Items",
+                                    "name": "items",
+                                    "aria-label": "",
+                                    "type": "repeater",
+                                    "instructions": "Testimonios, uno por diapositiva. El diseño tiene 4.",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "layout": "block",
+                                    "pagination": 0,
+                                    "min": 0,
+                                    "max": 0,
+                                    "collapsed": "",
+                                    "button_label": "Añadir fila",
+                                    "rows_per_page": 20,
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_8eb14d75479a4",
+                                            "label": "Texto",
+                                            "name": "texto",
+                                            "aria-label": "",
+                                            "type": "textarea",
+                                            "instructions": "Testimonio (sin comillas: se ponen solas).",
+                                            "required": 1,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "allow_in_bindings": 0,
+                                            "placeholder": "",
+                                            "rows": 4,
+                                            "new_lines": ""
+                                        },
+                                        {
+                                            "key": "field_171911a88bd04",
+                                            "label": "Autora",
+                                            "name": "autora",
+                                            "aria-label": "",
+                                            "type": "text",
+                                            "instructions": "Quién lo dice.",
+                                            "required": 1,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "allow_in_bindings": 0,
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": ""
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "layout_b4eae8a9ea18f": {
+                            "key": "layout_b4eae8a9ea18f",
+                            "name": "preguntas",
+                            "label": "Preguntas",
+                            "display": "block",
+                            "min": "",
+                            "max": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_936d32fb9130a",
+                                    "label": "Fondo",
+                                    "name": "fondo",
+                                    "aria-label": "",
+                                    "type": "select",
+                                    "instructions": "Color de fondo. Opciones: crema, rosa, beige, salvia, blanco",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "crema": "crema",
+                                        "rosa": "rosa",
+                                        "beige": "beige",
+                                        "salvia": "salvia",
+                                        "blanco": "blanco"
+                                    },
+                                    "default_value": false,
+                                    "return_format": "value",
+                                    "allow_in_bindings": 0,
+                                    "multiple": 0,
+                                    "allow_null": 0,
+                                    "ui": 0,
+                                    "ajax": 0,
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_d0cb2f7127366",
+                                    "label": "Título",
+                                    "name": "titulo",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "Título del bloque.",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_f6bcd7937aa5b",
+                                    "label": "Items",
+                                    "name": "items",
+                                    "aria-label": "",
+                                    "type": "repeater",
+                                    "instructions": "Preguntas. Con más de 5 aparece \"Ver más\". El diseño tiene 7.",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "layout": "block",
+                                    "pagination": 0,
+                                    "min": 0,
+                                    "max": 0,
+                                    "collapsed": "",
+                                    "button_label": "Añadir fila",
+                                    "rows_per_page": 20,
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_9bd7cdb7cdd05",
+                                            "label": "Pregunta",
+                                            "name": "pregunta",
+                                            "aria-label": "",
+                                            "type": "text",
+                                            "instructions": "Pregunta.",
+                                            "required": 1,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "allow_in_bindings": 0,
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": ""
+                                        },
+                                        {
+                                            "key": "field_7aded3ac00921",
+                                            "label": "Respuesta",
+                                            "name": "respuesta",
+                                            "aria-label": "",
+                                            "type": "textarea",
+                                            "instructions": "Respuesta (vacía: la pregunta no se muestra).",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "maxlength": "",
+                                            "allow_in_bindings": 0,
+                                            "placeholder": "",
+                                            "rows": 4,
+                                            "new_lines": ""
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "button_label": "Añadir bloque",
+                    "min": 0,
+                    "max": 0
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "solucion"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1794955221
+}

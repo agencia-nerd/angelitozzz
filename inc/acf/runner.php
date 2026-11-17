@@ -3,7 +3,7 @@ defined('ABSPATH') || exit;
 
 /*
  * Sincronización de ACF y carga inicial de contenido (skill wp-acf).
- * Versión del motor: 1.12.2
+ * Versión del motor: 1.13.0
  *
  * Genérico: no se edita por proyecto. Los datos del proyecto viven en:
  *   inc/acf/paginas.php   páginas de WordPress (lo genera wp-acf desde los specs)
@@ -38,11 +38,13 @@ function angelitozzz_acf_setup_site()
         register_nav_menus($locations);
     }
 
-    if (!empty($site['logo'])) {
+    // Si el tema ya declaró custom-logo (con sus medidas, en inc/setup.php) no se vuelve a declarar: lo pisaría.
+    if (!empty($site['logo']) && !current_theme_supports('custom-logo')) {
         add_theme_support('custom-logo');
     }
 }
-add_action('after_setup_theme', 'angelitozzz_acf_setup_site');
+// Prioridad 20: corre después del setup del tema (10), así ve su custom-logo.
+add_action('after_setup_theme', 'angelitozzz_acf_setup_site', 20);
 
 // ---------- Utilidades ----------
 

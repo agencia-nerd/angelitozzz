@@ -18,7 +18,7 @@
     - Las tres notas anteriores son de las páginas (fondo de nubes, testimonios, cta-final): se aplican en sus specs, no en esta.
     - Se leen con `get_field('opciones_…', 'option')`; ninguna página repite el header ni el footer.
     - El logo principal viene de Personalizar > Identidad del sitio; los menús son las ubicaciones de "Menús" en `_shared.md`.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 ## Sección: cintillo-promociones
 
@@ -200,11 +200,12 @@
 ## Sección: mes-gratis-mundo
 
 - **Origen:** `specs/figma/lectura/leccion/seccion-entera.ref.txt` (componente "Banner Mundo" 3586:1518) y las notas de página de `specs/figma/enlaces/leccion.md`
-- **Destino:** `template-parts/components/banner-mundo.php` (lo usan la primera lección, la confirmación de compra y el correo de pedido)
+- **Destino:** `template-parts/components/banner-mundo.php`
 - **Grupo:** `opciones_mes_gratis_mundo`
 - **Skill:** wp-helper
-- **Comportamiento:** el enlace y los textos del mes gratis en Mundo Angelitozzz, en un solo lugar para los tres usos ("Mismo enlace en los tres lugares … editable desde el panel", nota de `leccion.md`). El banner de la lección y el bloque de la confirmación y del correo leen este grupo; sin enlace no se muestran. Agregada el 2026-11-13 con `leccion.md`: se conecta con wp-acf en la F5.
-- **Estado:** aprobado
+- **Comportamiento:** el enlace y los textos del mes gratis en Mundo Angelitozzz, en un solo lugar para los tres usos ("Mismo enlace en los tres lugares … editable desde el panel", nota de `leccion.md`). El banner (`banner-mundo.php`) lo usan la primera lección y la confirmación de compra; el bloque del correo de pedido (F5-c) leerá este mismo grupo. Sin enlace no se muestran. Agregada el 2026-11-13 con `leccion.md`: se conecta con wp-acf en la F5.
+- **Estado:** aplicado
+- **ACF:** conectado
 
 **Campos ACF**
 
@@ -218,6 +219,8 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Cambiar el enlace aquí cambia el de la lección, la confirmación y el correo
-- [ ] Sin enlace, el bloque no aparece en ningún lugar
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Cambiar el enlace aquí cambia el de la lección y el de la confirmación (las dos usan `banner-mundo.php`)
+- [x] Sin enlace, el bloque no aparece en ningún lugar
+
+Se verifica en la F5-c: el bloque del correo de pedido usa este mismo enlace.

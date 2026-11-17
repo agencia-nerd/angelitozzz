@@ -7,7 +7,9 @@
  * crema) y botón verde. Decoración fija: dos destellos arriba y una nube abajo a la derecha.
  * Móvil: tarjetas apiladas (2 en tablet).
  *
- * $args: fondo, antetitulo, titulo, bajada, items (imagen, titulo, texto, etiqueta), boton (+ contexto, indice).
+ * $args: fondo, antetitulo, titulo, bajada, items (imagen, titulo, texto, etiqueta), whatsapp, whatsapp_texto
+ * (+ contexto, indice). El botón abre WhatsApp con el número de Ajustes del sitio (angelitozzz_solucion_whatsapp);
+ * sin número no se muestra.
  */
 
 defined('ABSPATH') || exit;
@@ -15,7 +17,7 @@ defined('ABSPATH') || exit;
 $antetitulo = (string) ($args['antetitulo'] ?? '');
 $titulo     = (string) ($args['titulo'] ?? '');
 $bajada     = (string) ($args['bajada'] ?? '');
-$boton      = $args['boton'] ?? null;
+$boton      = !empty($args['whatsapp']) ? angelitozzz_solucion_whatsapp((string) ($args['whatsapp_texto'] ?? '')) : null;
 $items      = array_values(array_filter(
     (array) ($args['items'] ?? []),
     static fn($item): bool => is_array($item) && trim((string) ($item['titulo'] ?? '')) !== ''

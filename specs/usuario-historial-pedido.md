@@ -10,6 +10,7 @@
 - **Grupo ACF:** ninguno
 - **Ubicación:** ninguna
 - **Padre:** ninguno
+- **Página WP:** ninguna
 - **Notas de página:**
     - Cuenta propia (sin Tutor LMS desde 2026-11-13): página `/cuenta/` con la plantilla `pages/template-cuenta.php`, que comparte el marco y el menú lateral `cuenta-menu` (`_shared.md`) y carga la vista de la URL (`/cuenta/`, `/cuenta/perfil/`, `/cuenta/cursos/`, `/cuenta/pedidos/`, endpoints que registra el plugin `angelitozzz-cursos`). Sin sesión, redirige a `/iniciar-sesion/` con `redirect_to`. "Mi cuenta" de Woo (`/mi-cuenta/`) redirige aquí. Los datos los da el plugin con sus funciones públicas `angelitozzz_cursos_*`, siempre de la usuaria con sesión (nunca de un ID recibido en la URL).
     - Vista `/cuenta/pedidos/`. Los pedidos se leen con `wc_get_orders()` filtrados por la usuaria con sesión (`customer_id`), solo con `WC_Order` (compatible con HPOS); el estado de cada fila sale de la inscripción del plugin.

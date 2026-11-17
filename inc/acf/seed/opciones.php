@@ -38,5 +38,13 @@ return [
         'opciones_footer' => [
             'newsletter_texto'  => 'Te enviaremos consejos gratuitos para que tu Angelito aprenda a dormir',
         ],
+        // Sin enlace (el de la prueba gratuita en nas.io lo pone la clienta) el banner no se muestra.
+        'opciones_mes_gratis_mundo' => [
+            'enlace' => '',
+            'titulo' => 'Tu mes gratis en Mundo Angelitozzz',
+            'texto'  => 'Incluido con tu curso: sesiones grupales en vivo con Bárbara todos los miércoles a las 10:00am (Perú/Colombia) y la videoteca de talleres.',
+            'pie'    => 'Si ya lo activaste, puedes ignorar este mensaje.',
+            'boton'  => 'Activar mi mes gratis',
+        ],
     ],
 ];

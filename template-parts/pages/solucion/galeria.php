@@ -26,7 +26,7 @@ if ($titulo === '' && !$diapositivas) {
     return;
 }
 
-// woo: el precio sale del producto del curso ("Comprar ahora — $97 USD"; con etapas, "desde").
+// woo: el precio sale del producto del curso y se suma al texto del botón ("<botón> — $97 USD"; con etapas, "desde").
 $precio = (array) ($contexto['precio'] ?? []);
 if ($boton !== '' && $boton_precio && !empty($precio['actual'])) {
     $boton .= ' — ' . (!empty($precio['desde']) ? __('desde', 'angelitozzz') . ' ' : '') . $precio['actual'] . ' USD';

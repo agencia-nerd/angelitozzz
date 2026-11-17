@@ -1,0 +1,26 @@
+{
+    "key": "ui_options_page_b1124617185b3",
+    "title": "Archivo de solucion",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Archivo de solucion",
+    "menu_slug": "archivo-de-solucion",
+    "parent_slug": "ajustes-del-sitio",
+    "advanced_configuration": false,
+    "icon_url": "",
+    "menu_title": "Archivo de solucion",
+    "position": "",
+    "redirect": false,
+    "description": "",
+    "menu_icon": {
+        "type": "dashicons",
+        "value": "dashicons-admin-generic"
+    },
+    "update_button": "Guardar cambios",
+    "updated_message": "Cambios guardados",
+    "capability": "edit_posts",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": false,
+    "modified": 1794955221
+}

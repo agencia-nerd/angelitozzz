@@ -10,6 +10,7 @@
 - **Grupo ACF:** ninguno
 - **Ubicación:** ninguna
 - **Padre:** ninguno
+- **Página WP:** ninguna
 - **Notas de página:**
     - las dos notas son lo que va dentro de seccion
     - al momento de agregar un nuevo curso es asi (paso uno: 1 Básico)

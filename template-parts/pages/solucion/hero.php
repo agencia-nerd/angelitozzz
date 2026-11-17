@@ -8,7 +8,8 @@
  * beige encima (decorativa). Móvil: una columna, la tarjeta bajo el texto y sin la foto de fondo.
  *
  * $args: campos de solucion_hero (etiqueta, etiqueta_icono, titular, subtitulo, descripcion, datos, imagen, boton,
- * nota, regalo, whatsapp) + contexto (precio, modal_compra…).
+ * nota, regalo, whatsapp, whatsapp_texto) + contexto (precio, modal_compra…). El enlace de WhatsApp se arma con
+ * el número de Ajustes del sitio (angelitozzz_solucion_whatsapp); sin número no se muestra.
  */
 
 defined('ABSPATH') || exit;
@@ -23,7 +24,7 @@ $imagen      = $args['imagen'] ?? '';
 $boton       = (string) ($args['boton'] ?? '');
 $nota        = trim((string) ($args['nota'] ?? ''));
 $regalo      = !empty($args['regalo']);
-$whatsapp    = $args['whatsapp'] ?? null;
+$whatsapp    = !empty($args['whatsapp']) ? angelitozzz_solucion_whatsapp((string) ($args['whatsapp_texto'] ?? '')) : null;
 $datos       = array_values(array_filter(
     (array) ($args['datos'] ?? []),
     static fn($dato): bool => is_array($dato) && trim((string) ($dato['texto'] ?? '')) !== ''

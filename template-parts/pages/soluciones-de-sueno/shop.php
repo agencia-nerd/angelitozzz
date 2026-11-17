@@ -3,56 +3,55 @@
 /**
  * Soluciones de sueño · shop (specs/soluciones-de-sueno.md, grupo soluciones_de_sueno_shop).
  *
- * F4, solo maquetación: el encabezado es texto fijo (pasa a ACF después) y las tarjetas son las 4
- * soluciones de muestra (inc/solucion-muestra.php). wp-query cambia la muestra por el bucle de
- * `solucion` y convierte el "Ver más" en "cargar más". Sin filtros, orden ni contador (nota del usuario).
+ * Encabezado de la página de opciones "Archivo de solucion" y tarjetas del bucle principal de `solucion`
+ * (wp-query: 12 por página y "Ver más" que carga las siguientes sin recargar; sin JS, lleva a /page/2/).
+ * Sin filtros, orden ni contador visible (nota del usuario): el total queda solo para lectores de pantalla.
  */
 
 defined('ABSPATH') || exit;
 
-$por_pagina = 12;
-$tarjetas   = array_values(angelitozzz_solucion_muestra_tarjetas()); // f5: bucle de wp-query
+$shop   = get_field('soluciones_de_sueno_shop', 'option') ?: [];
+$titulo = (string) ($shop['titulo'] ?? '');
+$bajada = (string) ($shop['bajada'] ?? '');
+
+// Primera pantalla: las 3 primeras tarjetas de la primera página se cargan de inmediato.
+$inmediatas = is_paged() ? 0 : 3;
 ?>
 <section class="px-4 py-22 max-md:py-14" aria-labelledby="soluciones-de-sueno-shop-titulo">
     <div class="mx-auto flex max-w-[451px] flex-col gap-6 text-center max-md:max-w-none">
-        <h1 id="soluciones-de-sueno-shop-titulo" class="text-h1 text-marca max-md:text-h3">Soluciones de sueño</h1>
-        <p class="text-cuerpo-l text-tinta">Encuentra la solución perfecta para ti — según la edad de tu bebé y lo que necesitas hoy.</p>
+        <h1 id="soluciones-de-sueno-shop-titulo" class="text-h1 text-marca max-md:text-h3"><?= esc_html($titulo) ?></h1>
+        <?php if (trim($bajada) !== '') : ?>
+            <p class="text-cuerpo-l text-tinta"><?= angelitozzz_highlight($bajada) ?></p>
+        <?php endif; ?>
     </div>
 
     <div class="mx-auto mt-18 max-w-[1103px]">
-        <h2 class="sr-only">Todos los cursos</h2>
+        <h2 class="sr-only"><?= esc_html__('Todos los cursos', 'angelitozzz') ?></h2>
+        <p class="sr-only" data-query="total" aria-live="polite"><?= esc_html(angelitozzz_query_total()['texto']) ?></p>
 
-        <?php if ($tarjetas) : ?>
-            <ul class="grid grid-cols-1 justify-items-center gap-y-14 md:grid-cols-2 md:gap-x-8 md:gap-y-20 lg:grid-cols-[repeat(3,346px)] lg:justify-between [&>li]:w-full [&>li]:max-w-[346px]" data-query="resultados">
-                <?php foreach ($tarjetas as $i => $tarjeta) : ?>
-                    <li class="flex">
-                        <?php get_template_part('template-parts/components/producto-card', null, [
-                            'imagen'         => $tarjeta['imagen'],
-                            'etiqueta'       => $tarjeta['etiqueta'],
-                            'etiqueta_icono' => $tarjeta['etiqueta_icono'],
-                            'titulo'         => $tarjeta['titulo'],
-                            'edad'           => $tarjeta['edad'],
-                            'descripcion'    => $tarjeta['descripcion'],
-                            'beneficios'     => $tarjeta['beneficios'],
-                            'boton'          => ['title' => $tarjeta['boton_texto'], 'url' => $tarjeta['url']],
-                            // Primera pantalla: las 3 primeras tarjetas se cargan de inmediato.
-                            'loading'        => $i < 3 ? 'eager' : 'lazy',
-                        ]); ?>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-        <?php else : ?>
-            <p class="text-center text-cuerpo-l text-tinta" data-query="resultados">Pronto tendremos nuevas soluciones.</p>
-        <?php endif; ?>
+        <div data-query="resultados">
+            <?php if (have_posts()) : ?>
+                <ul class="grid grid-cols-1 justify-items-center gap-y-14 md:grid-cols-2 md:gap-x-8 md:gap-y-20 lg:grid-cols-[repeat(3,346px)] lg:justify-between [&>li]:w-full [&>li]:max-w-[346px]" data-query-items>
+                    <?php $i = 0; ?>
+                    <?php while (have_posts()) : the_post(); ?>
+                        <li class="flex">
+                            <?php get_template_part('template-parts/components/producto-card', null, angelitozzz_solucion_tarjeta_args(get_the_ID()) + [
+                                'loading' => $i++ < $inmediatas ? 'eager' : 'lazy',
+                            ]); ?>
+                        </li>
+                    <?php endwhile; ?>
+                </ul>
+            <?php else : ?>
+                <p class="text-center text-cuerpo-l text-tinta"><?= esc_html__('Pronto tendremos nuevas soluciones.', 'angelitozzz') ?></p>
+            <?php endif; ?>
+        </div>
 
-        <?php if (count($tarjetas) > $por_pagina) : ?>
-            <nav class="mt-20 flex justify-center" aria-label="<?= esc_attr__('Paginación', 'angelitozzz') ?>" data-query="paginacion">
-                <?php get_template_part('template-parts/components/boton', null, [
-                    'enlace'   => ['title' => 'Ver más', 'url' => get_pagenum_link(2)],
-                    'variante' => 'secundario',
-                    'flecha'   => false,
-                ]); ?>
-            </nav>
-        <?php endif; ?>
+        <div data-query="paginacion">
+            <?php angelitozzz_query_pagination([
+                'more_text' => __('Ver más', 'angelitozzz'),
+                // El enlace del motor con el aspecto del botón `boton` variante secundario, sin flecha.
+                'class'     => 'mt-20 flex justify-center [&>a]:inline-flex [&>a]:items-center [&>a]:gap-[10px] [&>a]:rounded-full [&>a]:border-[1.5px] [&>a]:border-marca [&>a]:py-[14px] [&>a]:px-[28px] [&>a]:text-rotulo [&>a]:whitespace-nowrap [&>a]:text-marca [&>a]:focus-visible:outline-2 [&>a]:focus-visible:outline-offset-2 [&>a]:focus-visible:outline-marca',
+            ]); ?>
+        </div>
     </div>
 </section>
