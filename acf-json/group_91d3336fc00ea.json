@@ -66,7 +66,7 @@
                     "name": "boton",
                     "aria-label": "",
                     "type": "link",
-                    "instructions": "Botón del bloque de cierre: texto y destino (la tienda de cursos, pendiente).",
+                    "instructions": "Botón del bloque de cierre: texto y destino (`/soluciones-de-sueno/`).",
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -101,5 +101,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1794180768
+    "modified": 1794957517
 }

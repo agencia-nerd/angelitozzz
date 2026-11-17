@@ -14,10 +14,6 @@
 defined('ABSPATH') || exit;
 
 $opciones = get_field('opciones_mes_gratis_mundo', 'option') ?: [];
-// f5: quitar la muestra cuando wp-acf cree el grupo opciones_mes_gratis_mundo.
-if (empty($opciones['enlace']) && function_exists('angelitozzz_compra_muestra_mes_gratis')) {
-    $opciones = angelitozzz_compra_muestra_mes_gratis();
-}
 
 $enlace   = trim((string) ($opciones['enlace'] ?? ''));
 $titulo   = trim((string) ($args['titulo'] ?? '')) ?: trim((string) ($opciones['titulo'] ?? ''));

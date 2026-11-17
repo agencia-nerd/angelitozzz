@@ -2,7 +2,7 @@
 defined('ABSPATH') || exit;
 
 /*
- * Imagen destacada de los elementos de ejemplo (testimonios y entradas del blog).
+ * Imagen destacada de los elementos de ejemplo (testimonios, entradas del blog y soluciones).
  * El motor inc/acf/runner.php crea los elementos de inc/acf/seed/<contenido>.php pero no carga su 'imagen':
  * este archivo la pone una sola vez por elemento, con el mismo método del motor (angelitozzz_acf_attachment).
  * Si el cliente cambia o quita la foto, no se vuelve a pisar.
@@ -13,6 +13,7 @@ defined('ABSPATH') || exit;
 const ANGELITOZZZ_FOTOS_DESTACADAS = [
     'testimonio.php' => 'angelitozzz_testimonios_fotos_cargadas',
     'entrada.php'    => 'angelitozzz_entradas_fotos_cargadas',
+    'solucion.php'   => 'angelitozzz_soluciones_fotos_cargadas',
 ];
 
 function angelitozzz_fotos_destacadas_cargar(): void

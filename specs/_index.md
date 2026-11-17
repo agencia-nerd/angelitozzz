@@ -20,19 +20,19 @@ Antes de las páginas, revisa y aprueba [\_shared.md](_shared.md): tokens, compo
 | Solución (landing)                   | [solucion.md](solucion.md)                                 | `single-solucion.php`                     | aplicado  |
 | Testimonios                          | [testimonios.md](testimonios.md)                           | `archive-testimonio.php`                  | aplicado  |
 | Testimonio                           | [testimonio.md](testimonio.md)                             | ninguna                                   | aplicado  |
-| Ajustes del sitio                    | [opciones.md](opciones.md)                                 | `header.php`                              | aprobado  |
+| Ajustes del sitio                    | [opciones.md](opciones.md)                                 | `header.php`                              | aplicado  |
 | Carrito                              | [carrito.md](carrito.md)                                   | `woocommerce/cart/cart.php`               | aplicado  |
 | Checkout                             | [checkout.md](checkout.md)                                 | `woocommerce/checkout/form-checkout.php`  | aplicado  |
 | Iniciar sesión                       | [iniciar-sesion.md](iniciar-sesion.md)                     | `pages/template-iniciar-sesion.php`       | aplicado  |
 | Crear cuenta                         | [crear-cuenta.md](crear-cuenta.md)                         | `pages/template-crear-cuenta.php`         | aplicado  |
 | Recuperar contraseña                 | [recuperar-contrasena.md](recuperar-contrasena.md)         | `pages/template-recuperar-contrasena.php` | aplicado  |
-| Cuenta: escritorio                   | [usuario-escritorio.md](usuario-escritorio.md)             | `pages/template-cuenta.php`               | aplicado  |
+| Mi cuenta                            | [usuario-escritorio.md](usuario-escritorio.md)             | `pages/template-cuenta.php`               | aplicado  |
 | Cuenta: mi perfil                    | [usuario-mi-perfil.md](usuario-mi-perfil.md)               | `pages/template-cuenta.php`               | aplicado  |
 | Cuenta: cursos inscritos             | [usuario-cursos.md](usuario-cursos.md)                     | `pages/template-cuenta.php`               | aplicado  |
 | Cuenta: historial de pedidos         | [usuario-historial-pedido.md](usuario-historial-pedido.md) | `pages/template-cuenta.php`               | aplicado  |
 | Cursos: modelo de datos              | [cursos-datos.md](cursos-datos.md)                         | ninguna                                   | aprobado  |
 | Lección                              | [leccion.md](leccion.md)                                   | `single-leccion.php`                      | aplicado  |
-| Administrador: escritorio            | [admin-escritorio.md](admin-escritorio.md)                 | `pages/template-administrador.php`        | aplicado  |
+| Administrador                        | [admin-escritorio.md](admin-escritorio.md)                 | `pages/template-administrador.php`        | aplicado  |
 | Administrador: cursos                | [admin-cursos.md](admin-cursos.md)                         | `pages/template-administrador.php`        | aplicado  |
 | Administrador: constructor de cursos | [admin-constructor.md](admin-constructor.md)               | `pages/template-administrador.php`        | aplicado  |
 | Canjear regalo                       | [canjear-regalo.md](canjear-regalo.md)                     | `pages/template-canjear-regalo.php`       | aplicado  |

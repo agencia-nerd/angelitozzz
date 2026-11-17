@@ -10,6 +10,7 @@
 - **Grupo ACF:** Testimonios
 - **Ubicación:** página de opciones: archivo de testimonio
 - **Padre:** ninguno
+- **URL:** /testimonios/
 - **Notas de página:**
     - incluye las skills necesarias.
     - Esta pagina no deberia de tener internas.

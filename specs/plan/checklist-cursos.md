@@ -154,11 +154,11 @@ Una rama por bloque (decisión del usuario, 2026-11-14): 1) soluciones, 2) carri
 
 **Entorno de pruebas en cada PC:** el sitio se importó a una segunda PC el 2026-11-17 y ahí se rearmó el entorno (`~/bin/`, `wp-tests/`, base `local_tests` en el puerto `10222` y la regla de Nginx de los PDF privados): `composer test` 105 pruebas en verde y `composer lint` sin errores. En otra PC, seguir `specs/pruebas/LEEME.md` → "Entorno en otra PC" antes de tocar el plugin.
 
-- [ ] wp-acf: `solucion` (tarjeta, compra, flexible de secciones) y ajustes del sitio (mes gratis en Mundo, textos del regalo); contenido inicial de las 4 soluciones
-- [ ] wp-query: listado de soluciones (12 por página, "Ver más") y relacionados automáticos
+- [x] wp-acf: `solucion` (tarjeta, compra, flexible de secciones), "Archivo de solucion" y mes gratis en Mundo; contenido inicial de las 4 soluciones y los 5 menús (F5-a, 2026-11-17). El tipo lo registra ACF con sus URL (`URL:` en los specs, wp-acf 1.13.0). Los botones de WhatsApp de las landings usan el número de Ajustes del sitio. Los textos del regalo quedan para la F5-c, con el regalo
+- [x] wp-query: listado de soluciones (12 por página, "Ver más" sin recargar) y relacionados automáticos (F5-a, 2026-11-17)
 - [ ] wp-woocommerce: soporte del tema, sobrescrituras con `@version`, CSS clásico de Woo quitado, mini-carrito que se actualiza solo
-- [ ] Borrar `wp-content/mu-plugins/angelitozzz-preview-woo.php` (también registra el tipo `solucion` de vista previa)
-- [ ] Borrar la muestra `inc/solucion-muestra.php` e `inc/solucion-muestra/` (y su `require_once`): las vistas pasan a `get_field()`, precios de Woo y wp-query
+- [ ] Borrar `wp-content/mu-plugins/angelitozzz-preview-woo.php` (F5-b). Ya no registra el tipo `solucion` (F5-a); le quedan el soporte de Woo, el CSS de Woo quitado, el modo "próximamente" y la vista previa `?vista_previa=`
+- [ ] Borrar la muestra `inc/solucion-muestra.php` e `inc/solucion-muestra/carrito.php` (y su `require_once`). Desde la F5-a solo quedan los precios de muestra (landing, etapas y relacionados) y el drawer del carrito: pasan a los precios de Woo y al carrito real en la F5-b
 - [ ] Borrar la muestra `inc/compra-muestra.php` (y su `require_once`) y la ruta `?vista_previa=` del mu-plugin: carrito, checkout y gracias leen `WC()->cart` y `WC_Order`
 - [ ] Páginas Carrito y Finalizar compra con el shortcode clásico (hoy tienen los bloques de Woo) y productos de prueba ligados a los cursos
 - [ ] Campos de facturación del checkout (`checkout.md`, con `billing_phone_prefijo`) en el plugin `angelitozzz-cursos`, y el login del checkout con el límite de intentos de la F3
@@ -167,7 +167,7 @@ Una rama por bloque (decisión del usuario, 2026-11-14): 1) soluciones, 2) carri
 - [ ] Precio de la landing leído del producto de Woo (precio de lanzamiento = precio rebajado)
 - [ ] "Agregar al carrito" sin recargar y abre el drawer; selector de etapas; descuento por cantidad leído de ACF; cupón en el hero
 - [ ] Regalo: comprar como regalo genera el cupón; canje con sesión o creando la cuenta; el acceso empieza ese día
-- [ ] Páginas `/iniciar-sesion/`, `/crear-cuenta/`, `/recuperar-contrasena/`, `/cuenta/` y `/administrador/` en `inc/acf/paginas.php` con su plantilla (en el Local se crearon a mano en la F4)
+- [x] Páginas `/iniciar-sesion/`, `/crear-cuenta/`, `/recuperar-contrasena/`, `/cuenta/`, `/administrador/` y `/canjear-regalo/` en `inc/acf/paginas.php` con su plantilla (2026-11-17, wp-acf 1.13.0: `Página WP` en los specs de cuenta y administrador, `Origen: plugin` para `curso` y `leccion`). En el Local se conservaron las que ya existían y se creó `/canjear-regalo/`
 - [ ] Plugin: acción `admin-post` para "Marcar como completo" sin JS (`leccion.md`). El nombre de los materiales ya se arregló en la F4, bloque 6b: se guarda el nombre legible del archivo y se lee sin el "Privado:" (los PDF subidos antes conservan el título saneado)
 - [ ] Constructor: cambiar los diálogos nativos del navegador por modales de wp-modal con el estilo del modal `eliminar` (pedido del usuario, 2026-11-14: no siguen el diseño y son pobres en accesibilidad). Son el `window.prompt` que pide la URL del enlace en el editor de la lección (`src/js/modules/editor-texto.js`) y el `window.confirm` de "descartar cambios" al cerrar el modal de la lección (`src/js/modules/constructor-contenido.js`). El enlace necesita un campo URL con su validación (solo http, https o mailto) y "Quitar enlace"; el descarte, "Seguir editando" y "Descartar cambios". Spec: `admin-constructor.md` → `modal-leccion`
 - [ ] Decidir (pendiente del usuario, 2026-11-15): aceptar el nombre de usuario en `/iniciar-sesion/`. El servidor ya lo acepta (`wp_authenticate()`); solo hay que cambiar el campo de tipo `email` a texto, la etiqueta "Correo electrónico" por "Correo o nombre de usuario" (se aparta de Figma) y el error a "Correo, usuario o contraseña incorrectos". Sirve sobre todo al equipo: el usuario de las alumnas se genera del correo. Spec: `iniciar-sesion.md`
@@ -194,6 +194,8 @@ Una rama por bloque (decisión del usuario, 2026-11-14): 1) soluciones, 2) carri
 - [ ] Revisión de seguridad final (`/security-review` de todo el plugin y las plantillas)
 - [ ] Manual de la clienta con wp-manual (incluye el administrador de cursos)
 - [ ] Cuenta de Bárbara en producción: usuaria propia con su correo y rol administradora (no la de la agencia). Con ella entra a `/wp-admin/` (contenido) y a `/administrador/` (cursos)
+- [ ] Logo del sitio en Apariencia → Personalizar → Identidad del sitio (decisión del usuario, 2026-11-17: no se carga desde `inc/acf/sitio.php`)
+- [ ] Ajustes del sitio: enlace del mes gratis en Mundo (nas.io), número de WhatsApp y URLs de las redes de la clienta; cursos de cada solución en `solucion_compra_cursos` (en las etapas, también el de cada etapa)
 - [ ] Deploy:
     - [ ] Enlaces permanentes en "Nombre de la entrada" (Ajustes → Enlaces permanentes). Las URL del plugin (`/administrador/…`, `/cuenta/perfil/`, `/cursos/<curso>/<leccion>/`, `/cursos/descargar/<id>/`) usan reglas de reescritura y no funcionan con los enlaces simples. El JS del administrador ya no depende de esto: arma las URL de la API sobre la base de `rest_url()` (F4, bloque 6b).
     - [ ] Tema: `pnpm build` y subir el tema con `dist/`, sin `hot`, `node_modules/`, `src/`, `specs/` ni configs.

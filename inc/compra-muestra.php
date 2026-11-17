@@ -3,8 +3,8 @@
 /**
  * TEMPORAL (F4, solo maquetación): datos de muestra del carrito, el checkout y la página de gracias
  * (specs/carrito.md, checkout.md, gracias.md). Imitan lo que en la F5 darán WooCommerce
- * (WC()->cart, WC_Order), el plugin angelitozzz-cursos (duración, primera lección, códigos de regalo)
- * y ACF (opciones_mes_gratis_mundo). Se borra en la F5 junto con la vista previa del mu-plugin.
+ * (WC()->cart, WC_Order) y el plugin angelitozzz-cursos (duración, primera lección, códigos de regalo).
+ * Se borra en la F5 junto con la vista previa del mu-plugin.
  */
 
 defined('ABSPATH') || exit;
@@ -97,21 +97,6 @@ function angelitozzz_compra_muestra_pedido(string $estado): array
     }
 
     return $pedido;
-}
-
-/**
- * Grupo opciones_mes_gratis_mundo de muestra (specs/opciones.md), mientras el campo no exista en ACF.
- * El enlace de muestra lleva a la página de Mundo Angelitozzz del sitio.
- */
-function angelitozzz_compra_muestra_mes_gratis(): array
-{
-    return [
-        'enlace' => home_url('/mundo-angelitozzz/'),
-        'titulo' => 'Tu mes gratis en Mundo Angelitozzz',
-        'texto'  => 'Incluido con tu curso: sesiones grupales en vivo con Bárbara todos los miércoles a las 10:00am (Perú/Colombia) y la videoteca de talleres.',
-        'pie'    => 'Si ya lo activaste, puedes ignorar este mensaje.',
-        'boton'  => 'Activar mi mes gratis',
-    ];
 }
 
 /**

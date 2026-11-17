@@ -10,6 +10,7 @@
 - **Grupo ACF:** Soluciones de sueño
 - **Ubicación:** página de opciones: archivo de solucion
 - **Padre:** ninguno
+- **URL:** /soluciones-de-sueno/
 - **Notas de página:**
     - Aun no se realizaran las internas de cada producto. eso quedara pendiente
     - `h1`: el título de la sección shop ("Soluciones de sueño", `soluciones_de_sueno_shop_titulo`). El título del CTA final es `h2`; los nombres de las tarjetas son `h3` (dentro de un `h2` solo para lectores de pantalla, ver la sección shop).
@@ -36,7 +37,7 @@ Sin filtros: nota del usuario en la sección shop ("No llevara filtros, ni nada.
 ## Sección: shop
 
 - **Origen:** `specs/figma/lectura/soluciones-de-sueno/shop.ref.txt` (nodo 4011:11093)
-- **Destino:** `archive-solucion.php`, `template-parts/pages/soluciones-de-sueno/shop.php`, `template-parts/components/producto-card.php`
+- **Destino:** `archive-solucion.php`, `template-parts/pages/soluciones-de-sueno/shop.php`, `template-parts/components/producto-card.php`, `inc/soluciones.php`, `inc/query/solucion.php`
 - **Grupo:** `soluciones_de_sueno_shop`
 - **Skill:** wp-helper
 - **Comportamiento:** `archive-solucion.php` llama a `shop.php`, que imprime el encabezado y la grilla; cada tarjeta llama directo al componente `producto-card` con los datos de su solución (título, imagen destacada, campos `solucion_tarjeta_*`, enlace a la landing). En la F4 las 4 tarjetas del diseño salen de la muestra `angelitozzz_solucion_muestra_tarjetas()` (`inc/solucion-muestra.php`); wp-query las cambia por el bucle de `solucion`. Sin hooks ni funciones de WooCommerce. Sin resultados: el mensaje "Pronto tendremos nuevas soluciones." (propuesta; el diseño no lo tiene). **Encabezado:** título `h1` con `--text-h1` en `--color-marca` y bajada `--text-cuerpo-l` en `--color-tinta`, centrados en una columna de 451 px, separados 24 px. **Grilla:** `data-query="resultados"`, 3 columnas de 346 px con separación de 32 px entre columnas y 80 px entre filas, ancho total 1103 px (dentro de `--container-sitio`); las tarjetas de una fila tienen la misma altura y el botón queda abajo (`mt-auto`, el "Empuje" del diseño). Antes de la grilla, un `h2` solo para lectores de pantalla (`sr-only`, "Todos los cursos") para que los nombres de las tarjetas (`h3` en `producto-card`, igual que en Inicio) no salten de nivel. **Tarjeta:** componente `producto-card` con `imagen`, `etiqueta`, `etiqueta_icono`, `titulo`, `edad`, `descripcion`, `beneficios` y `boton` (aquí sí lleva `beneficios`, a diferencia de home/como-ayudarte): imagen 346 × 374 con `--radius-tarjeta` y `object-cover`; etiqueta de esquina con el componente `etiqueta` estilo `esquina` (fondo `--color-etiqueta`, `--radius-etiqueta` abajo a la derecha, `--text-rotulo-s` blanco); nombre y edad centrados en `--text-cuerpo`; descripción `--text-cuerpo-s` centrada (314 px); beneficios como `<ul>` en `--text-cuerpo-s` alineada a la izquierda (314 px), con la viñeta "•" por CSS, no escrita en el texto; botón `boton` variante `frambuesa` con flecha. Los íconos de etiqueta: Angelita Pro `destellos`, A Dormir Por Fin `estrella`, las otras dos `ninguno`. Nombre e imagen son nativos de la solución (título e imagen destacada); etiqueta, ícono, edad, descripción, beneficios y botón son sus campos `solucion_tarjeta_*`. La imagen de la primera tarjeta (Angelita Pro) va vacía a propósito: el componente muestra la imagen por defecto "not found" (`ayudarte-imagen-not-found.webp`, el mismo archivo que `shop-angelita-pro-placeholder.png` del diseño; no se duplica). Las otras tres son imágenes de muestra del diseño (`shop-a-dormir-por-fin.webp`, `shop-recien-nacidos-go.webp`, `shop-horarios-ideales.webp`) guardadas como assets del tema hasta que sean la imagen destacada de cada solución; `alt` = nombre del curso. Las tres primeras con `loading="eager"` (primera pantalla), la cuarta `lazy`. Cada botón es un enlace a la landing de su solución (`/soluciones-de-sueno/<slug>/`). **Ver más (nota del usuario, no dibujado en el diseño):** debajo de la grilla, centrado, a 80 px, un `<nav aria-label="Paginación" data-query="paginacion">` con un solo enlace real a la página siguiente (`/page/2/`, ahora `#`) dibujado con el componente `boton` variante `secundario`, texto "Ver más", sin flecha. Se imprime solo cuando hay más de 12 cursos (`Por página: 12`); con las 4 tarjetas de muestra no se ve. wp-query lo convierte en "cargar más" (agrega las tarjetas siguientes sin recargar). Valores sueltos: padding de sección 88 px, separación encabezado-grilla 72 px, ancho del encabezado 451 px, ancho de la grilla 1103 px, columnas de 346 px, textos de 314 px, separaciones 80, 32, 24, 20 y 16 px, tarjeta de 756 px de alto en el diseño (no se fija: la altura la da el contenido). Móvil (propuesta): 2 columnas en tablet (`md`) y 1 columna en móvil con la tarjeta a todo el ancho (máximo 346 px, centrada); padding 56 px vertical y 16 px lateral; el título baja a `--text-h3` y el encabezado ocupa todo el ancho; separación entre filas 56 px.
@@ -46,6 +47,8 @@ Sin filtros: nota del usuario en la sección shop ("No llevara filtros, ni nada.
     - Cuando sobre pase 12 cursos que muestre un boton de ver mas.
     - cada boton es un enlace a la interna de cada curso.
 - **Estado:** aplicado
+- **ACF:** conectado
+- **Query:** conectado
 
 **Campos ACF**
 
@@ -77,6 +80,7 @@ Tarjetas del diseño (son las 4 soluciones; sus textos son el contenido inicial 
 - **Indicaciones del diseño:**
     - es ese apartado especifico, pide que se redireccione al whatsapp, o sea usar el campo de configuracion del sitio correspondiente.
 - **Estado:** aplicado
+- **ACF:** conectado
 
 **Campos ACF**
 

@@ -10,6 +10,7 @@
 - **Grupo ACF:** ninguno
 - **Ubicación:** ninguna
 - **Padre:** ninguno
+- **Página WP:** administrador
 - **Notas de página:**
     - las dos notas son lo que va dentro de seccion
     - **Página propia `/administrador/`:**

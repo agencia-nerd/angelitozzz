@@ -10,6 +10,7 @@
 - **Grupo ACF:** Solución (landing)
 - **Ubicación:** tipo de contenido = solucion
 - **Padre:** ninguno
+- **URL:** /soluciones-de-sueno/<slug>/
 - **Notas de página:**
     - Fuentes: las 4 landings de Figma (`specs/figma/enlaces/curso-angelita-pro.md`, `curso-a-dormir-por-fin.md`, `curso-horarios-ideales.md`, `curso-recien-nacidos-go.md`). `Fuente` nombra la más completa; cada sección dice de qué landing sale su `Origen`.
     - Para todo los cursos, al momento de guardar en el carrito sale este tipo drawer: https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=3752-5054&t=C9Q9IWqYULHocJi2-4
@@ -33,7 +34,7 @@
 ## Sección: hero
 
 - **Origen:** `specs/figma/lectura/curso-a-dormir-por-fin/hero.ref.txt` (nodo 4013:15172); variantes en `curso-angelita-pro/hero.ref.txt` (4012:13687), `curso-horarios-ideales/hero.ref.txt` (4013:19109) y `curso-recien-nacidos-go/hero.ref.txt` (4013:17861)
-- **Destino:** `template-parts/pages/solucion/hero.php`, `inc/solucion-muestra/hero.php`
+- **Destino:** `template-parts/pages/solucion/hero.php`, `single-solucion.php`, `inc/soluciones.php`
 - **Grupo:** `solucion_hero`
 - **Skill:** wp-helper
 - **Comportamiento:** dos columnas: a la izquierda etiqueta (componente `etiqueta`: estilo `hero`, blanca, sin ícono; con `etiqueta_icono` estilo `tarjeta`, salvia, con su ícono, como Angelita Pro), título `h1`, subtítulo subrayado, descripción, datos (cajas con borde: ícono + texto), enlace "¿Te regalaron este curso? Canjea tu código" (con ícono de regalo; lleva a `/canjear-regalo/`, `canjear-regalo.md`) y el enlace opcional de WhatsApp. A la derecha, la tarjeta de compra: imagen, precio (de Woo, ver notas), botón principal (`boton` frambuesa: con `tipo_compra` directa o suscripción agrega al carrito y abre el drawer; con etapas abre `modal-selecciona-edad`), botón "Regalar este curso" (`boton` secundario; agrega el curso al carrito marcado como regalo, `cursos-datos.md` → `regalo`; hasta la F5 abre el drawer del carrito con los datos de muestra), la nota y el campo de cupón (un `<form>` con `<label>` "Código de cupón de descuento" visualmente oculto y botón circular de enviar; se conecta en la F5). Fondo: la misma imagen al 45 % de opacidad a la izquierda con el degradado beige encima (decorativa, `alt=""`). Parte del título en itálica (A Dormir Por Fin: "*para ti*") con el estilo `italica` de wp-helper; en el `h1` la parte en itálica va en peso normal, como en Figma (clase del `h1`, sin tocar el estilo). En móvil (propuesta): una columna, la tarjeta de compra bajo el texto, la imagen de fondo se oculta y queda el degradado.
@@ -41,6 +42,7 @@
     - nota: tiene 7 dias de prueba gratuita completa.
     - (Nota de A Dormir Por Fin.)
 - **Estado:** aplicado
+- **ACF:** conectado
 
 **Campos ACF**
 
@@ -58,7 +60,8 @@
 | `solucion_hero_boton`        | text     | Texto del botón de compra (agrega al carrito, o abre el selector de edad en Horarios Ideales).                                                                                                          | Comprar ahora                                                                                                                                                        | sí        |
 | `solucion_hero_nota`         | text     | Línea bajo los botones. Si el producto tiene precio rebajado, delante se agrega solo "Precio de lanzamiento (antes $…) ·".                                                                             | 7 días de prueba completa                                                                                                                                            | no        |
 | `solucion_hero_regalo`       | true_false | Muestra el botón "Regalar este curso" y el enlace "¿Te regalaron este curso? Canjea tu código".                                                                                                       | sí                                                                                                                                                                   | no        |
-| `solucion_hero_whatsapp`     | link     | Enlace opcional bajo el canje (Recién Nacidos Go: "¿Tienes preguntas? Escríbeme por WhatsApp").                                                                                                         | —                                                                                                                                                                    | no        |
+| `solucion_hero_whatsapp`     | true_false | Muestra el enlace de WhatsApp bajo el canje. El número y el mensaje salen de Ajustes del sitio (`opciones_contacto`); sin número no se muestra. | no | no |
+| `solucion_hero_whatsapp_texto` | text   | Texto del enlace de WhatsApp. | ¿Tienes preguntas? Escríbeme por WhatsApp | no |
 
 Valores de las otras landings (para el contenido inicial): ver "Orden de cada landing".
 
@@ -76,11 +79,12 @@ Valores de las otras landings (para el contenido inicial): ver "Orden de cada la
 ## Sección: tarjeta
 
 - **Origen:** `specs/figma/lectura/soluciones-de-sueno/shop.ref.txt` (tarjetas del listado, nodo 4011:11093)
-- **Destino:** `template-parts/components/producto-card.php`, `inc/solucion-muestra.php`
+- **Destino:** `template-parts/components/producto-card.php`, `inc/soluciones.php`
 - **Grupo:** `solucion_tarjeta`
 - **Skill:** ninguna
 - **Comportamiento:** la llaman `archive-solucion.php`, la sección `relacionados` y el bloque de Inicio; en la F4 los datos son la muestra `angelitozzz_solucion_muestra_tarjetas()`. No se imprime en la landing: son los datos de la tarjeta de esta solución en el listado `/soluciones-de-sueno/`, en los relacionados y en el drawer. Nombre = título de la entrada; foto = imagen destacada (sin imagen, la tarjeta usa la imagen "not found"). El botón lleva a la landing de la solución.
 - **Estado:** aplicado
+- **ACF:** conectado
 
 **Campos ACF**
 
@@ -102,17 +106,18 @@ Valores de las otras landings (para el contenido inicial): ver "Orden de cada la
 ## Sección: compra
 
 - **Origen:** notas de Horarios Ideales y `specs/figma/lectura/curso-horarios-ideales/modal-etapas.ref.txt` (escala "2 cursos $67 · 3 cursos $97")
-- **Destino:** `inc/solucion-muestra.php`
+- **Destino:** `single-solucion.php`
 - **Grupo:** `solucion_compra`
 - **Skill:** ninguna
 - **Comportamiento:** en la F4 el tipo y los descuentos son la muestra `angelitozzz_solucion_muestra_compra()`; en la F5 la lógica va en `inc/woocommerce/` (carrito, etapas, descuento) y en el plugin `angelitozzz-cursos` (curso ↔ producto), sin marcado propio. Define qué vende la solución y cómo. `directa`: el botón del hero agrega el producto de Woo de su curso. `etapas`: abre `modal-selecciona-edad` con los cursos del bloque `etapas` y aplica el descuento por cantidad. `suscripcion` (Angelita Pro): la renovación cada 4 meses con 7 días de prueba se define en la F5 (depende de Niubiz). El precio de cada curso es el de su producto de Woo.
 - **Estado:** aplicado
+- **ACF:** conectado
 
 **Campos ACF**
 
 | Campo                                  | Tipo         | Descripción                                                                                                         | Valor actual     | Requerido |
 | -------------------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------- | ---------------- | --------- |
-| `solucion_compra_cursos`               | relationship | Cursos que vende esta solución (con etapas, uno por etapa). Contenido: curso. Mínimo: 1                    | A Dormir Por Fin | sí        |
+| `solucion_compra_cursos`               | relationship | Cursos que vende esta solución. Con etapas, van aquí los cursos de todas las etapas (el plugin busca la solución de un curso solo en este campo). Contenido: curso. Mínimo: 1                    | A Dormir Por Fin | sí        |
 | `solucion_compra_tipo`                 | select       | Cómo se compra. Opciones: directa, etapas, suscripcion                                                              | directa          | sí        |
 | `solucion_compra_descuentos`           | repeater     | Precio total al comprar varios cursos juntos (solo con etapas). El diseño tiene 2.                                 | —                | no        |
 | `solucion_compra_descuentos.cantidad`  | number       | Cantidad de cursos.                                                                                                 | 2                | sí        |
@@ -126,7 +131,7 @@ Valores de las otras landings (para el contenido inicial): ver "Orden de cada la
 ## Sección: secciones
 
 - **Origen:** ver cada layout abajo
-- **Destino:** `single-solucion.php`, `inc/solucion.php`, `inc/solucion-muestra/comparacion.php`, `inc/solucion-muestra/iconos.php`, `inc/solucion-muestra/lista.php`, `inc/solucion-muestra/beneficios.php`, `inc/solucion-muestra/experiencia.php`, `inc/solucion-muestra/pasos.php`, `inc/solucion-muestra/galeria.php`, `inc/solucion-muestra/etapas.php`, `inc/solucion-muestra/testimonios.php`, `inc/solucion-muestra/preguntas.php`, `template-parts/components/testimonio-destacado.php`, `template-parts/components/video-portada.php`, `template-parts/pages/solucion/comparacion.php`, `template-parts/pages/solucion/iconos.php`, `template-parts/pages/solucion/lista.php`, `template-parts/pages/solucion/beneficios.php`, `template-parts/pages/solucion/experiencia.php`, `template-parts/pages/solucion/pasos.php`, `template-parts/pages/solucion/galeria.php`, `template-parts/pages/solucion/etapas.php`, `template-parts/pages/solucion/testimonios.php`, `template-parts/pages/solucion/preguntas.php`, `template-parts/accordions/solucion-preguntas.php`, `src/js/modules/solucion-galeria.js`, `src/js/modules/ver-mas.js`
+- **Destino:** `single-solucion.php`, `inc/solucion.php`, `inc/soluciones.php`, `template-parts/components/testimonio-destacado.php`, `template-parts/components/video-portada.php`, `template-parts/pages/solucion/comparacion.php`, `template-parts/pages/solucion/iconos.php`, `template-parts/pages/solucion/lista.php`, `template-parts/pages/solucion/beneficios.php`, `template-parts/pages/solucion/experiencia.php`, `template-parts/pages/solucion/pasos.php`, `template-parts/pages/solucion/galeria.php`, `template-parts/pages/solucion/etapas.php`, `template-parts/pages/solucion/testimonios.php`, `template-parts/pages/solucion/preguntas.php`, `template-parts/accordions/solucion-preguntas.php`, `src/js/modules/solucion-galeria.js`, `src/js/modules/ver-mas.js`
 - **Grupo:** `solucion_secciones`
 - **Skill:** wp-accordion (layout `preguntas`), wp-helper
 - **Comportamiento:** contenido flexible: un archivo por layout, cada uno recibe su fila por `$args`. Todos tienen `fondo` (crema `--color-fondo`, rosa `--color-fondo-rosa`, beige `--color-neutro`, salvia `--color-etiqueta`, blanco) y su decoración fija (nubes, destellos, corazón, "Z"): no es campo. Títulos de bloque en `h2`.
@@ -147,6 +152,7 @@ Valores de las otras landings (para el contenido inicial): ver "Orden de cada la
     - nota: las preguntas frecuentes tambien son independientes en este curso.
     - (La primera nota es de "Conoce Angelita Pro por dentro" → layout `galeria`, diapositivas en repetidor. Las de testimonios, de Angelita Pro y A Dormir Por Fin; la de preguntas, de las 4 landings.)
 - **Estado:** aplicado
+- **ACF:** conectado
 
 **Campos ACF**
 
@@ -188,7 +194,8 @@ Valores de las otras landings (para el contenido inicial): ver "Orden de cada la
 | `solucion_secciones_bloques.experiencia.titulo` | text | Título del bloque. | La experiencia más exclusiva de Angelitozzz. | sí |
 | `solucion_secciones_bloques.experiencia.texto` | textarea | Texto. Para poner una parte en negrita, enciérrala con el marcador de negrita (`^`). Una línea en blanco separa párrafos. | ^Acceso directo a Bárbara. Sin intermediarios. Sin sistemas.^<br><br>Angelita fue entrenada con mi método y puede acompañar a miles de familias simultáneamente. Yo no puedo — y eso es exactamente lo que hace esta asesoría especial. Recibo una cantidad limitada de familias al mismo tiempo para garantizar mi total atención a cada caso.<br><br>Esta asesoría es para quien quiere trabajar con la persona detrás del método. Para casos complejos que necesitan una mirada experta. Para mamás que prefieren un ser humano de su lado. Y para bebés y niños de hasta 4 años — incluyendo mayores de 2 años y niños que duermen en su propia cama.<br><br>^El resultado: tu bebé durmiendo 10 a 12 horas de corrido por las noches, con siestas largas y sin batalla, en los horarios perfectos para su edad.^ | sí |
 | `solucion_secciones_bloques.experiencia.imagen` | image | Foto bajo el texto. Recomendado: hasta 2000 px en el lado más largo, horizontal. | — | no |
-| `solucion_secciones_bloques.experiencia.boton` | link | Botón bajo la foto. | Escríbeme por WhatsApp | no |
+| `solucion_secciones_bloques.experiencia.whatsapp` | true_false | Muestra el botón de WhatsApp bajo la foto. El número y el mensaje salen de Ajustes del sitio (`opciones_contacto`); sin número no se muestra. | sí | no |
+| `solucion_secciones_bloques.experiencia.whatsapp_texto` | text | Texto del botón de WhatsApp. | Escríbeme por WhatsApp | no |
 | `solucion_secciones_bloques.pasos` | group | Tarjetas numeradas del proceso. | — | no |
 | `solucion_secciones_bloques.pasos.fondo` | select | Color de fondo. Opciones: crema, rosa, beige, salvia, blanco | salvia | sí |
 | `solucion_secciones_bloques.pasos.antetitulo` | text | Texto chico sobre el título. | Cómo funciona la asesoría | no |
@@ -199,7 +206,8 @@ Valores de las otras landings (para el contenido inicial): ver "Orden de cada la
 | `solucion_secciones_bloques.pasos.items.titulo` | text | Título de la tarjeta. | Videollamada inicial | sí |
 | `solucion_secciones_bloques.pasos.items.texto` | textarea | Texto de la tarjeta. | Una sesión de 1 hora para conocernos y crear el plan de sueño ideal para ti y tu bebé, de acuerdo a tu estilo. | sí |
 | `solucion_secciones_bloques.pasos.items.etiqueta` | text | Etiqueta crema al pie de la tarjeta. | 1 hora · por videollamada | no |
-| `solucion_secciones_bloques.pasos.boton` | link | Botón verde bajo las tarjetas. | Escríbeme por WhatsApp para empezar | no |
+| `solucion_secciones_bloques.pasos.whatsapp` | true_false | Muestra el botón verde de WhatsApp bajo las tarjetas. El número y el mensaje salen de Ajustes del sitio (`opciones_contacto`); sin número no se muestra. | sí | no |
+| `solucion_secciones_bloques.pasos.whatsapp_texto` | text | Texto del botón de WhatsApp. | Escríbeme por WhatsApp para empezar | no |
 | `solucion_secciones_bloques.galeria` | group | Slider de imágenes o videos ("por dentro"). | — | no |
 | `solucion_secciones_bloques.galeria.fondo` | select | Color de fondo. Opciones: crema, rosa, beige, salvia, blanco | rosa | sí |
 | `solucion_secciones_bloques.galeria.titulo` | text | Título del bloque. | Así se ve el curso por dentro. | sí |
@@ -220,7 +228,7 @@ Valores de las otras landings (para el contenido inicial): ver "Orden de cada la
 | `solucion_secciones_bloques.etapas.items.titulo` | text | Título de la tarjeta. | Curso Para bebés de 4 a 9 meses | sí |
 | `solucion_secciones_bloques.etapas.items.texto` | textarea | Texto de la tarjeta. | ¿Sientes que tu bebé parece tener sueño todo el día pero duerme poco? Esta etapa es un laberinto de señales confusas. Aprenderás a identificar las ventanas de vigilia correctas, evitar el círculo vicioso de siestas cortas y descubrir el secreto de la última ventana del día para que las tres siestas funcionen como relojito. Todo lo que necesitas para descifrar el horario ideal — sin adivinar. | sí |
 | `solucion_secciones_bloques.etapas.items.modal_titulo` | text | Título del modal "Más información". | Para bebés de 4 a 9 meses | sí |
-| `solucion_secciones_bloques.etapas.items.modal_texto` | textarea | Texto del modal. | ¿Sientes que tu bebé parece tener sueño todo el día pero igual duerme poco? En este curso aprenderás a priorizar las ventanas de vigilia y a evitar el círculo de siestas cortas y horarios caóticos. Descubre cómo lograr que las tres siestas funcionen como un reloj. | sí |
+| `solucion_secciones_bloques.etapas.items.modal_texto` | textarea | Texto del modal. Si se deja vacío, el modal muestra solo el título y el video. | ¿Sientes que tu bebé parece tener sueño todo el día pero igual duerme poco? En este curso aprenderás a priorizar las ventanas de vigilia y a evitar el círculo de siestas cortas y horarios caóticos. Descubre cómo lograr que las tres siestas funcionen como un reloj. | no |
 | `solucion_secciones_bloques.etapas.items.modal_video` | oembed | Video de presentación de Vimeo del modal. | — | no |
 | `solucion_secciones_bloques.etapas.items.modal_portada` | image | Portada del video del modal. Recomendado: hasta 2000 px en el lado más largo, horizontal. | — | no |
 | `solucion_secciones_bloques.etapas.modal_antetitulo` | text | Texto chico sobre el título de cada modal. | Introducción al curso de Horarios | no |
