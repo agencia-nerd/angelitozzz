@@ -9,7 +9,7 @@
  * - etiqueta_icono ('ninguno' | 'destellos' | 'estrella')
  * - titulo         (string, requerido)
  * - edad           (string, opcional)
- * - descripcion    (string, requerido; una línea en blanco separa párrafos)
+ * - descripcion    (string, opcional: se oculta si viene vacía; una línea en blanco separa párrafos)
  * - beneficios     (array de strings, opcional)
  * - boton          (array link, requerido)
  * - loading        ('lazy' | 'eager', por defecto 'lazy')

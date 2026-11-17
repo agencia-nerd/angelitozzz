@@ -34,9 +34,9 @@ $terminos   = function_exists('wc_terms_and_conditions_page_id') && wc_terms_and
 $privacidad = (string) get_privacy_policy_url();
 $enlace     = 'text-rotulo text-marca underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca';
 $enlace_s   = 'text-marca underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca';
-$ligar      = static fn(string $texto, string $url): string => $url !== ''
-    ? '<a class="' . esc_attr($enlace_s) . '" href="' . esc_url($url) . '" target="_blank" rel="noopener">' . esc_html($texto) . '<span class="sr-only"> (' . esc_html__('se abre en una pestaña nueva', 'angelitozzz') . ')</span></a>'
-    : esc_html($texto);
+$ligar      = static fn(string $texto, string $url): string => ($url !== ''
+    ? angelitozzz_link(['url' => $url, 'target' => '_blank'], ['class' => $enlace_s, 'text' => $texto])
+    : '') ?: esc_html($texto);
 
 $comun = static fn(array $campo): array => $campo + [
     'error'     => $error,

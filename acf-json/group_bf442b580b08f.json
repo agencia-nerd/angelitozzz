@@ -343,8 +343,7 @@
                             "allow_in_bindings": 0,
                             "placeholder": "",
                             "prepend": "",
-                            "append": "",
-                            "parent_repeater": "field_896d71d09ef3d"
+                            "append": ""
                         }
                     ]
                 },
@@ -388,8 +387,7 @@
                             "allow_in_bindings": 0,
                             "placeholder": "",
                             "prepend": "",
-                            "append": "",
-                            "parent_repeater": "field_55ba04a098f74"
+                            "append": ""
                         }
                     ]
                 },
@@ -433,8 +431,7 @@
                             "allow_in_bindings": 0,
                             "placeholder": "",
                             "prepend": "",
-                            "append": "",
-                            "parent_repeater": "field_cb972c223ae49"
+                            "append": ""
                         }
                     ]
                 }
@@ -505,10 +502,7 @@
                             "allow_null": 0,
                             "ui": 0,
                             "ajax": 0,
-                            "placeholder": "",
-                            "create_options": 0,
-                            "save_options": 0,
-                            "parent_repeater": "field_86c562d81a9e1"
+                            "placeholder": ""
                         },
                         {
                             "key": "field_63df400996e5f",
@@ -516,8 +510,8 @@
                             "name": "enlace",
                             "aria-label": "",
                             "type": "url",
-                            "instructions": "Dirección del perfil en esa red",
-                            "required": 1,
+                            "instructions": "Dirección del perfil en esa red. Si se deja vacía, esa red no se muestra",
+                            "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
                                 "width": "",
@@ -526,8 +520,7 @@
                             },
                             "default_value": "",
                             "allow_in_bindings": 0,
-                            "placeholder": "",
-                            "parent_repeater": "field_86c562d81a9e1"
+                            "placeholder": ""
                         }
                     ]
                 }
@@ -571,6 +564,126 @@
                     "new_lines": ""
                 }
             ]
+        },
+        {
+            "key": "field_5c3cf247ca2c2",
+            "label": "Mes-gratis-mundo",
+            "name": "opciones_mes_gratis_mundo",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_c5882735d1a25",
+                    "label": "Enlace",
+                    "name": "enlace",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "Enlace de la prueba gratuita de Mundo Angelitozzz (nas.io). Se usa en la primera lección, la confirmación de compra y el correo de pedido. Si está vacío, no se muestra el bloque",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_fb38daee72dab",
+                    "label": "Título",
+                    "name": "titulo",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Título del banner en la primera lección del curso",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_eb24de93495ea",
+                    "label": "Texto",
+                    "name": "texto",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Texto del banner",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "rows": 4,
+                    "new_lines": ""
+                },
+                {
+                    "key": "field_92336fc20c1a2",
+                    "label": "Pie",
+                    "name": "pie",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Línea en cursiva bajo el texto",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_aa3694dbcd057",
+                    "label": "Botón",
+                    "name": "boton",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Texto del botón del banner",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -594,5 +707,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1794168122
+    "modified": 1794953573
 }

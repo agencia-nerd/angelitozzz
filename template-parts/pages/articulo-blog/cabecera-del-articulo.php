@@ -18,18 +18,13 @@ $autor_id   = (int) get_post_field('post_author', $post_id);
 $minutos    = angelitozzz_tiempo_lectura($post_id);
 
 // Imagen destacada: alt del adjunto o, si está vacío, el título de la entrada.
-$imagen_id = (int) get_post_thumbnail_id($post_id);
-$imagen    = '';
-if ($imagen_id) {
-    $alt    = trim((string) get_post_meta($imagen_id, '_wp_attachment_image_alt', true));
-    $imagen = wp_get_attachment_image($imagen_id, 'full', false, [
-        'class'         => 'size-full object-cover',
-        'alt'           => $alt !== '' ? $alt : get_the_title($post_id),
-        'loading'       => 'eager',
-        'fetchpriority' => 'high',
-        'sizes'         => '(min-width: 1392px) 1360px, calc(100vw - 32px)',
-    ]);
-}
+$imagen = angelitozzz_image((int) get_post_thumbnail_id($post_id), [
+    'class'         => 'size-full object-cover',
+    'alt_fallback'  => get_the_title($post_id),
+    'loading'       => 'eager',
+    'fetchpriority' => 'high',
+    'sizes'         => '(min-width: 1392px) 1360px, calc(100vw - 32px)',
+]);
 ?>
 <header class="px-4 pt-18 pb-12 max-md:pt-10 max-md:pb-8">
     <div class="mx-auto flex max-w-[1360px] flex-col items-start gap-4.5">

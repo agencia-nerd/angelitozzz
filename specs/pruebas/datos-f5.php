@@ -5,6 +5,11 @@
  * plugin inscribe) y uno pendiente. Guarda los IDs en la opción angelitozzz_prueba_f5 para borrarlos.
  * Uso: php -d mysqli.default_port=10090 zz-datos-f5.php crear|borrar
  */
+// Solo por línea de comandos: copiado en la raíz pública, no se ejecuta por URL.
+if (PHP_SAPI !== 'cli') {
+    exit(1);
+}
+
 $_SERVER['HTTP_HOST'] = 'angelitozzz.local';
 define('WP_USE_THEMES', false);
 require __DIR__ . '/wp-load.php';

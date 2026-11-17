@@ -106,7 +106,7 @@
 - **Destino:** `header.php`
 - **Grupo:** ninguno
 - **Skill:** wp-helper
-- **Comportamiento:** el logo viene de Identidad del sitio (`the_custom_logo()`, 87 × 63 px) y enlaza al inicio. El menú central es la ubicación `principal` y "Contacto" es la ubicación `cabecera-derecha`, al lado del botón "Iniciar sesión". "Iniciar sesión" (ícono de persona) y el carrito (con contador `--color-acento`, texto de 12 px suelto) son enlaces: WooCommerce aún no está definido (`_shared.md`), así que apuntan a `#` y el contador muestra el valor del diseño. Fondo `--color-fondo` (crema, como el frame de Figma) con `--shadow-header`. Mientras el tema no tenga logo en Identidad del sitio, se muestra el nombre del sitio como texto. Los menús se imprimen con `angelitozzz_menu()` (`inc/menus.php`): mientras una ubicación no tenga menú asignado, muestra los enlaces del diseño. Móvil: logo a la izquierda, carrito y un botón de menú (hamburguesa) a la derecha; el botón abre un panel con los dos menús y "Iniciar sesión" (`<button aria-expanded>`, JS en `src/js/modules/menu.js`).
+- **Comportamiento:** el logo viene de Identidad del sitio (`the_custom_logo()`, 87 × 63 px) y enlaza al inicio. El menú central es la ubicación `principal` y "Contacto" es la ubicación `cabecera-derecha`, al lado del botón "Iniciar sesión". "Iniciar sesión" (ícono de persona) y el carrito (con contador `--color-acento`, texto de 12 px suelto) son enlaces: sin sesión, "Iniciar sesión" lleva al inicio de sesión del plugin `angelitozzz-cursos` con vuelta a la página actual; con sesión dice "Mi cuenta" y lleva al inicio de cada rol (alumna: `/cuenta/`; quien gestiona cursos: `/administrador/`). El carrito abre el drawer del carrito y, sin JS, lleva a `/carrito/`. El contador muestra el valor del diseño hasta la F5 (wp-woocommerce). Fondo `--color-fondo` (crema, como el frame de Figma) con `--shadow-header`. Mientras el tema no tenga logo en Identidad del sitio, se muestra el nombre del sitio como texto. Los menús se imprimen con `angelitozzz_menu()` (`inc/menus.php`): mientras una ubicación no tenga menú asignado, muestra los enlaces del diseño. Móvil: logo a la izquierda, carrito y un botón de menú (hamburguesa) a la derecha; el botón abre un panel con los dos menús y "Iniciar sesión" (`<button aria-expanded>`, JS en `src/js/modules/menu.js`).
 - **Estado:** aplicado
 
 **Campos ACF**
@@ -165,7 +165,7 @@
 | ----------------------------- | -------- | ---------------------------------------------------------------------------- | ------------ | --------- |
 | `opciones_redes_items`        | repeater | Redes sociales del footer, en el orden en que se muestran. El diseño tiene 3 | —            | no        |
 | `opciones_redes_items.red`    | select   | Red social; define el ícono. Opciones: Instagram, TikTok, Facebook, YouTube            | Instagram    | sí        |
-| `opciones_redes_items.enlace` | url      | Dirección del perfil en esa red                                              | —            | sí        |
+| `opciones_redes_items.enlace` | url      | Dirección del perfil en esa red. Si se deja vacía, esa red no se muestra     | —            | no        |
 
 **Criterios de aceptación**
 
