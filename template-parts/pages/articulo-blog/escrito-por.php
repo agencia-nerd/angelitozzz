@@ -4,7 +4,7 @@
  * Artículo del blog · escrito por (specs/articulo-blog.md, escrito-por).
  * Avatar, nombre e "Información biográfica" del autor de la entrada (perfil de usuario de WordPress).
  * Los textos son fijos e iguales en todos los artículos. "Conoce a Bárbara" lleva a su página; "Ver soluciones de
- * sueño", a la tienda de WooCommerce (sin WooCommerce queda en "#" y el componente boton lo muestra desactivado).
+ * sueño", al listado /soluciones-de-sueno/ (inc/tienda.php).
  */
 
 defined('ABSPATH') || exit;
@@ -13,7 +13,7 @@ $autor_id  = (int) get_post_field('post_author', get_the_ID());
 $nombre    = (string) get_the_author_meta('display_name', $autor_id);
 $biografia = trim((string) get_the_author_meta('description', $autor_id));
 $conoce    = get_page_by_path('conoce-a-barbara');
-$tienda    = function_exists('wc_get_page_permalink') ? (string) wc_get_page_permalink('shop') : '';
+$tienda    = angelitozzz_tienda_destino();
 ?>
 <aside class="px-4 py-5" aria-label="<?= esc_attr__('Sobre la autora', 'angelitozzz') ?>">
     <div class="mx-auto flex max-w-[1040px] items-center gap-7 rounded-tarjeta bg-blanco p-8 max-md:flex-col max-md:items-start max-md:gap-5 max-md:p-6">
@@ -35,7 +35,7 @@ $tienda    = function_exists('wc_get_page_permalink') ? (string) wc_get_page_per
                     'clase'    => 'max-md:justify-center',
                 ]);
                 get_template_part('template-parts/components/boton', null, [
-                    'enlace'   => ['url' => $tienda !== '' ? $tienda : '#', 'title' => __('Ver soluciones de sueño', 'angelitozzz')],
+                    'enlace'   => ['url' => $tienda, 'title' => __('Ver soluciones de sueño', 'angelitozzz')],
                     'variante' => 'frambuesa',
                     'clase'    => 'max-md:justify-center',
                 ]);

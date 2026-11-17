@@ -4,7 +4,6 @@ defined('ABSPATH') || exit;
 /*
  * Contenido inicial de Conoce a Bárbara (specs/conoce-a-barbara.md, "valor actual" de cada campo).
  * Lo carga inc/acf/runner.php una sola vez por grupo: lo que se edite en el admin no se pisa.
- * Los botones con '#' llevan a páginas que aún no existen (la tienda y el blog): pendiente en el spec.
  */
 return [
     'page'   => 'conoce-a-barbara',
@@ -24,15 +23,15 @@ return [
             'cierre'  => "Tu derecho a descansar. Tu derecho a disfrutar. Tu derecho a ser tú, entera.\nAquí empieza tu transformación. Y yo estoy aquí para caminarla contigo.",
             'firma'   => 'Con cariño infinito, Balli',
             'cargo'   => 'Tu Coach de Sueño Pediátrico',
-            'boton'   => ['title' => 'Conoce mis soluciones de sueño', 'url' => '#'],
+            'boton'   => ['title' => 'Conoce mis soluciones de sueño', 'url' => '/soluciones-de-sueno/'],
         ],
         'conoce_a_barbara_seccion_blog' => [
             'titulo' => 'Últimos artículos de nuestro blog',
-            'boton'  => ['title' => 'Ver más artículos', 'url' => '#'],
+            'boton'  => ['title' => 'Ver más artículos', 'url' => ['_page' => 'blog']],
         ],
         'conoce_a_barbara_cta_final' => [
             'titulo' => 'La maternidad ya tiene suficientes sacrificios. El sueño no tiene que ser uno de ellos.',
-            'boton'  => ['title' => 'Encuentra tu solución', 'url' => '#'],
+            'boton'  => ['title' => 'Encuentra tu solución', 'url' => '/soluciones-de-sueno/'],
         ],
     ],
 ];

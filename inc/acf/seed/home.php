@@ -4,7 +4,7 @@ defined('ABSPATH') || exit;
 /*
  * Contenido inicial de Inicio (specs/home.md, "valor actual" de cada campo).
  * Lo carga inc/acf/runner.php una sola vez por grupo: lo que se edite en el admin no se pisa.
- * Los botones con '#' llevan a páginas o cursos que aún no existen (pendiente en el spec).
+ * "Síguenos" queda con '#' hasta conectar los posts de Instagram (pendiente en el spec).
  */
 return [
     'page'   => 'home',
@@ -18,7 +18,7 @@ return [
                 ['texto' => '10 años de experiencia'],
                 ['texto' => '12+ países'],
             ],
-            'boton'  => ['title' => 'Encuentra tu curso ideal', 'url' => '#'],
+            'boton'  => ['title' => 'Encuentra tu curso ideal', 'url' => '/soluciones-de-sueno/'],
             'imagen' => ['_file' => 'assets/img/home/hero-foto-madre-bebe.webp'],
         ],
         'home_como_ayudarte' => [
@@ -32,7 +32,7 @@ return [
                     'titulo'         => 'Angelita Pro',
                     'edad'           => '(4 a 24 meses)',
                     'descripcion'    => "Tu coach de sueño con IA, disponible 24/7 por WhatsApp.\n\nPlan integral de sueño, respuestas inmediatas, sin turnos ni horarios.",
-                    'boton'          => ['title' => 'Quiero conocer a Angelita', 'url' => '#'],
+                    'boton'          => ['title' => 'Quiero conocer a Angelita', 'url' => '/soluciones-de-sueno/angelita-pro/'],
                 ],
                 [
                     'imagen'         => ['_file' => 'assets/img/home/ayudarte-asesoria-barbara.webp'],
@@ -41,7 +41,7 @@ return [
                     'titulo'         => 'A Dormir Por Fin',
                     'edad'           => '(4 meses a 4 años)',
                     'descripcion'    => "Bárbara diseña el plan para tu bebé y te acompaña durante 3 semanas.\n\nPara quien quiere la mano de Bárbara directamente.",
-                    'boton'          => ['title' => 'Quiero mi asesoría personal', 'url' => '#'],
+                    'boton'          => ['title' => 'Quiero mi asesoría personal', 'url' => '/soluciones-de-sueno/a-dormir-por-fin/'],
                 ],
                 [
                     'imagen'         => ['_file' => 'assets/img/home/ayudarte-recien-nacidos-go.webp'],
@@ -50,7 +50,7 @@ return [
                     'titulo'         => 'Recién Nacidos Go',
                     'edad'           => '(0 a 12 semanas)',
                     'descripcion'    => "Entiende el sueño de tu recién nacido desde el día uno.\n\nVideos cortos, guías prácticas y bases sólidas para toda la etapa.",
-                    'boton'          => ['title' => 'Ver curso', 'url' => '#'],
+                    'boton'          => ['title' => 'Ver curso', 'url' => '/soluciones-de-sueno/recien-nacidos-go/'],
                 ],
                 [
                     'imagen'         => ['_file' => 'assets/img/home/ayudarte-horarios-ideales.webp'],
@@ -59,7 +59,7 @@ return [
                     'titulo'         => 'Cursos de Horarios Ideales',
                     'edad'           => '(4 meses a 3 años)',
                     'descripcion'    => "Aprende a crear el horario perfecto para tu bebé según su edad.\n\nDisponible para 4–9, 9–15 y 15–36 meses.",
-                    'boton'          => ['title' => 'Ver cursos', 'url' => '#'],
+                    'boton'          => ['title' => 'Ver cursos', 'url' => '/soluciones-de-sueno/horarios-ideales/'],
                 ],
             ],
         ],
@@ -139,7 +139,7 @@ return [
         ],
         'home_cta_final' => [
             'titulo' => 'La maternidad ya tiene suficientes sacrificios. El sueño no tiene que ser uno de ellos.',
-            'boton'  => ['title' => 'Encuentra tu solución', 'url' => '#'],
+            'boton'  => ['title' => 'Encuentra tu solución', 'url' => '/soluciones-de-sueno/'],
         ],
     ],
 ];

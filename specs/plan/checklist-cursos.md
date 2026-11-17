@@ -65,14 +65,6 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 - El plugin propio versiona su esquema: cada cambio de tablas es una migración, y la desinstalación (`uninstall.php`) borra lo suyo.
 - Antes de actualizar Woo o Niubiz en producción: actualizar en el Local, revisar Woo → Estado → plantillas y `specs/plan/sobrescrituras.md`, y repetir las compras de prueba.
 
-## Pendientes inmediatos (temporal)
-
-Salieron de la revisión del 2026-11-17 y van antes de seguir con el resto. Esta sección se borra cuando estén los 3.
-
-- [x] Repo del plugin `angelitozzz-cursos`: el `.git` local estaba incompleto (sin `objects/` ni `refs/`) y se perdió el historial. Rehecho el 2026-11-17: commit inicial `e75b61a` (plugin 0.5.0) en `github.com/agencia-nerd/angelitozzz-cursos`, rama `main`
-- [ ] Redirigir `/tienda/` de Woo a `/soluciones-de-sueno/`: ya existe `archive-solucion.php` (es el punto de la F0)
-- [ ] `specs/_index.md`: revisar si `opciones.md` (ya conectado en header, footer y banner de Mundo) y `cursos-datos.md` (ya implementado en el plugin) pasan de `aprobado` a `aplicado`, del todo o en parte
-
 ## F0 · Limpieza y base
 
 - [x] Pasarela elegida por la clienta: **Niubiz**
@@ -89,7 +81,7 @@ Salieron de la revisión del 2026-11-17 y van antes de seguir con el resto. Esta
 - [x] Esqueleto del plugin `angelitozzz-cursos` en `wp-content/plugins/` (2026-11-13): cabecera, activación, migraciones versionadas, desinstalación, compatibilidad con HPOS, config de PHPCS y PHPUnit. Sin activar.
 - [x] Repo del plugin: no se crea por decisión del usuario (2026-11-13). El plugin queda solo en `wp-content/plugins/angelitozzz-cursos/`; su respaldo son los del sitio. Se puede hacer `git init` local o subirlo a GitHub más adelante
 - [x] `composer install` en el plugin y suite de pruebas de WordPress con una base de datos de pruebas (2026-11-14): PHP 8.4 de Local, suite de WP 7.1.4 en `~/Local Sites/angelitozzz/wp-tests/` y base `local_tests`; `composer test` en verde (detalle en el README del plugin)
-- [ ] Ocultar `/tienda/` de Woo y redirigirla a `/soluciones-de-sueno/` (cuando exista `archive-solucion.php`).
+- [x] Ocultar `/tienda/` de Woo y redirigirla a `/soluciones-de-sueno/` (2026-11-17, `inc/tienda.php`).
 - [x] Mensaje a la clienta enviado (respuesta pendiente): afiliación de Niubiz en USD, credenciales de prueba y consulta por cobros recurrentes.
 - [ ] Credenciales de comercio de Niubiz: código de comercio, usuario y contraseña de **prueba (Sandbox)** y de producción.
 - [ ] Respuesta de Niubiz: ¿la cuenta puede tener cobros automáticos con tarjeta guardada en USD ("Pago programado" / tokenización)? Define cómo se renueva Angelita Pro.
@@ -160,6 +152,8 @@ Una rama por bloque (decisión del usuario, 2026-11-14): 1) soluciones, 2) carri
 
 ## F5 · Administrable y conexión
 
+**Entorno de pruebas en cada PC:** el sitio se importó a una segunda PC el 2026-11-17 y ahí se rearmó el entorno (`~/bin/`, `wp-tests/`, base `local_tests` en el puerto `10222` y la regla de Nginx de los PDF privados): `composer test` 105 pruebas en verde y `composer lint` sin errores. En otra PC, seguir `specs/pruebas/LEEME.md` → "Entorno en otra PC" antes de tocar el plugin.
+
 - [ ] wp-acf: `solucion` (tarjeta, compra, flexible de secciones) y ajustes del sitio (mes gratis en Mundo, textos del regalo); contenido inicial de las 4 soluciones
 - [ ] wp-query: listado de soluciones (12 por página, "Ver más") y relacionados automáticos
 - [ ] wp-woocommerce: soporte del tema, sobrescrituras con `@version`, CSS clásico de Woo quitado, mini-carrito que se actualiza solo
@@ -181,6 +175,11 @@ Una rama por bloque (decisión del usuario, 2026-11-14): 1) soluciones, 2) carri
 - [ ] Bloque de Mundo en gracias y en el correo de pedido, excepto en regalos
 - [ ] Banner de Mundo solo en la primera lección de cada curso (no en Angelita Pro); mensaje inicial de Angelita Pro
 - [ ] `specs/plan/sobrescrituras.md` al día
+- [ ] Hallazgos de la verificación de `cursos-datos.md` (2026-11-17):
+    - [ ] El producto del curso (oculto del catálogo) sale en el mapa del sitio (`wp-sitemap-posts-product-1.xml`, también `product_cat`) y en la búsqueda de la Store API de Woo (`/wp-json/wc/store/v1/products?search=`). Su ficha ya redirige a `/soluciones-de-sueno/`; falta sacarlo de los sitemaps
+    - [ ] Aviso "Este curso no está en tu cuenta" (`cursos-datos.md` → `acceso`): el plugin manda a `/soluciones-de-sueno/?aviso=sin-acceso`, pero el tema no lo muestra
+    - [x] Criterio de `leccion` sobre el proveedor de video: se reescribe (la lógica está en `includes/video.php`; los textos pueden nombrar a Vimeo). Pendiente aparte: `template-parts/components/video-portada.php` arma por su cuenta la URL del reproductor de Vimeo; en la F5 debería pedírsela al plugin
+    - [x] Rol al desactivar (decisión del usuario): la desactivación quita el rol `instructora` y la capacidad, y la activación los vuelve a crear (plugin 0.5.1, `angelitozzz-cursos.php`, con su prueba; 106 pruebas en verde)
 - [ ] `/security-review` y `/code-review` de la fase
 
 ## F6 · Pagos y Angelita Pro

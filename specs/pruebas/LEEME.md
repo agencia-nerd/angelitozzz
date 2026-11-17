@@ -24,9 +24,9 @@ Son usuarias que solo existen en el Local mientras dura la prueba; no son claves
 ```powershell
 cd "~/Local Sites/angelitozzz/app/public"
 cp wp-content/themes/angelitozzz/specs/pruebas/datos-f5.php zz-datos-f5.php
-php -d mysqli.default_port=10090 zz-datos-f5.php crear
+php -d mysqli.default_port=<puerto> zz-datos-f5.php crear
 # ... probar ...
-php -d mysqli.default_port=10090 zz-datos-f5.php borrar
+php -d mysqli.default_port=<puerto> zz-datos-f5.php borrar
 Remove-Item zz-datos-f5.php
 ```
 
@@ -53,14 +53,14 @@ Chrome sin ventana, por el protocolo de depuración. Se corren desde esta carpet
 
 ## Base de datos del Local
 
-MySQL de Local: `127.0.0.1:10090`, `root` / `root`, base `local`, prefijo `wp_` (`mysql.exe` en `%APPDATA%/Local/lightning-services/mysql-8.4.0+2/bin/win64/bin/`). Los scripts PHP usan `-d mysqli.default_port=10090` porque `DB_HOST` es `localhost`.
+MySQL de Local: `127.0.0.1:<puerto>`, `root` / `root`, base `local`, prefijo `wp_`. El puerto y la versión de MySQL cambian en cada PC: están en Local → el sitio → Database (por ejemplo, `10090` con `mysql-8.4.0+2` o `10222` con `mysql-8.0.35+4`); `mysql.exe` está en `%APPDATA%/Local/lightning-services/mysql-<versión>/bin/win64/bin/`. Los scripts PHP usan `-d mysqli.default_port=<puerto>` porque `DB_HOST` es `localhost`.
 
 ## Entorno en otra PC
 
 1. **Sitio:** importarlo con All-in-One WP Migration (trae el tema, el plugin `angelitozzz-cursos`, las subidas y la base).
 2. **PHP por línea de comandos** (archivos en `entorno/`; cambiar `<USUARIO>` y la versión de PHP de Local):
     - `php-cli.ini` → `~/Local Sites/angelitozzz/wp-tests/php-cli.ini`;
-    - `php` y `composer` (Git Bash) y `php.bat` y `composer.bat` (PowerShell) → `~/bin/`, con `~/bin` en el `PATH`;
+    - `php` y `composer` (Git Bash) y `php.bat` y `composer.bat` (PowerShell) → `~/bin/`, con `~/bin` en el `PATH`; los `.bat` tienen que quedar con finales de línea CRLF (con LF, cmd los lee mal y avisa `"m" no se reconoce…`);
     - `composer.phar` (Composer 2.x de getcomposer.org, verificando su SHA-256) → `~/bin/`.
 3. **Pruebas PHPUnit del plugin:** la suite de WordPress, el núcleo de pruebas, la base `local_tests` y el `phpunit.xml` local se arman como dice el README del plugin (`wp-content/plugins/angelitozzz-cursos/README.md` → "Entorno de pruebas en el Local"). Después: `composer install`, `composer test` y `composer lint` desde la carpeta del plugin.
 4. **Nginx:** pegar `entorno/nginx-angelitozzz-privado.conf` en `~/Local Sites/angelitozzz/conf/nginx/site.conf.hbs` (protege los PDF privados; comprobar el 403).

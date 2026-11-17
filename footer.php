@@ -37,7 +37,6 @@ $menu_legal = [
 ];
 $menu_ayuda = [
     ['texto' => 'Preguntas frecuentes', 'url' => '/preguntas-frecuentes/'],
-    ['texto' => 'Soporte', 'url' => '#'],
 ];
 
 // Ícono de cada red (SVG del tema, no se sube). El círculo lo dibuja el borde del enlace.

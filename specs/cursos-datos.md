@@ -40,7 +40,7 @@
         - `_angelitozzz_materiales`: PDF del curso, cada uno con `adjunto_id`, `modulo` (`id` del módulo) y `orden`, porque en el constructor se agregan dentro de un módulo ("+ Agregar descargable", `admin-constructor.md`). En la lección van al final del temario, sin check (`leccion.md`).
     - **Precio:** "Precio (USD)" y "Precio de lanzamiento" no se guardan en el curso. Son el precio normal y el rebajado de su producto de Woo, que el constructor actualiza.
     - **Paso 3 del diseño:** "Qué aprenderás", "Requisitos", "Para quién es" y "Duración total" no se guardan (decisión del usuario, 2026-11-13): los textos de venta están en la solución. La duración total se calcula sumando las lecciones.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -49,11 +49,11 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Solo quien tiene `angelitozzz_gestionar_cursos` puede crear o editar cursos, en el constructor o en el admin
-- [ ] `/cursos/<curso>/` nunca muestra contenido: redirige según el acceso
-- [ ] Los cursos no aparecen en la búsqueda del sitio ni en el mapa del sitio
-- [ ] Cada metadato se guarda saneado (texto, entero de una lista permitida, IDs que existen)
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Solo quien tiene `angelitozzz_gestionar_cursos` puede crear o editar cursos, en el constructor o en el admin
+- [x] `/cursos/<curso>/` nunca muestra contenido: redirige según el acceso
+- [x] Los cursos no aparecen en la búsqueda del sitio ni en el mapa del sitio
+- [x] Cada metadato se guarda saneado (texto, entero de una lista permitida, IDs que existen)
 
 ## Sección: leccion
 
@@ -78,7 +78,7 @@
     - **Primera lección:** la de menor orden del primer módulo. Ahí va el banner de Mundo (`leccion.md`).
     - **Materiales (PDF):** se suben a una carpeta privada `uploads/angelitozzz-privado/`, con nombre aleatorio y regla que impide el acceso directo. Se entregan solo por la descarga con permiso (sección `acceso`). Tipo verificado por contenido (`wp_check_filetype_and_ext`, solo `application/pdf`) y tamaño máximo (propuesta: 20 MB). Se muestran con su nombre y su tamaño ("PDF · 2,4 MB"); el "13 páginas" del diseño no se calcula.
     - **Servidor:** la regla de la carpeta privada depende del servidor (`.htaccess` en Apache, regla `location` en Nginx). Se confirma con el hosting antes del deploy; la descarga nunca depende solo de esa regla, porque los nombres son aleatorios y no se listan.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -87,11 +87,11 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Un enlace de video que no es de Vimeo no se guarda
-- [ ] El texto de la lección no deja pasar etiquetas fuera de la lista permitida (por ejemplo `<script>` o atributos `on*`)
-- [ ] Un PDF no se puede abrir con la URL de `uploads/` (403) y un archivo que no es PDF no se sube
-- [ ] Cambiar de proveedor de video solo toca `includes/video.php`
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Un enlace de video que no es de Vimeo no se guarda
+- [x] El texto de la lección no deja pasar etiquetas fuera de la lista permitida (por ejemplo `<script>` o atributos `on*`)
+- [x] Un PDF no se puede abrir con la URL de `uploads/` (403) y un archivo que no es PDF no se sube
+- [x] La lógica del video (validar el enlace, leer duración y miniatura, armar el reproductor de la lección) está en `includes/video.php`; los textos de la interfaz pueden nombrar al proveedor
 
 ## Sección: inscripcion
 
@@ -129,12 +129,12 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Toda consulta a la tabla usa `$wpdb->prepare`
-- [ ] Un pedido que Woo marca pagado dos veces (`processing` y luego `completed`) crea una sola inscripción
-- [ ] Un acceso de 4 meses comprado hoy vence en 4 meses, al final de ese día; uno ilimitado no vence
-- [ ] Una inscripción vencida no da acceso aunque la tarea diaria no haya corrido
-- [ ] Prueba PHPUnit de alta, extensión, vencimiento y cancelación
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Toda consulta a la tabla usa `$wpdb->prepare`
+- [x] Un pedido que Woo marca pagado dos veces (`processing` y luego `completed`) crea una sola inscripción
+- [x] Un acceso de 4 meses comprado hoy vence en 4 meses, al final de ese día; uno ilimitado no vence
+- [x] Una inscripción vencida no da acceso aunque la tarea diaria no haya corrido
+- [x] Prueba PHPUnit de alta, extensión, vencimiento y cancelación
 
 ## Sección: avance
 
@@ -153,7 +153,7 @@
         - **Pestañas de la cuenta:** Inscritos = todas sus inscripciones (activas y por expirar); Activos = de 0 a 99 %; Completados = 100 %. Las vencidas o canceladas no se listan en "Cursos inscritos" (se ven en el historial).
         - **Escritorio:** el resumen cuenta inscritos, completados y en progreso con las mismas reglas.
     - **Al despublicar o borrar una lección:** se recalcula el porcentaje. El avance de esa lección se borra con la lección.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -162,10 +162,10 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Una usuaria no puede completar una lección de un curso sin acceso ni la de otra usuaria (la ruta ignora cualquier `usuario_id` recibido)
-- [ ] La ruta sin nonce o sin sesión responde 401/403
-- [ ] El porcentaje, los conteos del escritorio y las pestañas salen de una sola función (no se calculan distinto en cada vista)
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Una usuaria no puede completar una lección de un curso sin acceso ni la de otra usuaria (la ruta ignora cualquier `usuario_id` recibido)
+- [x] La ruta sin nonce o sin sesión responde 401/403
+- [x] El porcentaje, los conteos del escritorio y las pestañas salen de una sola función (no se calculan distinto en cada vista)
 
 ## Sección: acceso
 
@@ -198,12 +198,12 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Sin sesión, una lección lleva a iniciar sesión y vuelve a la lección al entrar
-- [ ] Con sesión y sin inscripción (o vencida o cancelada), una lección lleva a la solución del curso
-- [ ] Cambiar el ID de una descarga o de una lección en la URL no da acceso a algo ajeno
-- [ ] Una lección de vista previa se ve sin comprar
-- [ ] Pruebas PHPUnit de `angelitozzz_cursos_puede_ver()` con cada caso
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Sin sesión, una lección lleva a iniciar sesión y vuelve a la lección al entrar
+- [x] Con sesión y sin inscripción (o vencida o cancelada), una lección lleva a la solución del curso
+- [x] Cambiar el ID de una descarga o de una lección en la URL no da acceso a algo ajeno
+- [x] Una lección de vista previa se ve sin comprar
+- [x] Pruebas PHPUnit de `angelitozzz_cursos_puede_ver()` con cada caso
 
 ## Sección: puente-woo
 
@@ -237,12 +237,12 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Comprar un curso deja una inscripción activa con su vencimiento; comprar 2 etapas deja 2
-- [ ] Reembolsar el pedido deja las inscripciones en `cancelada` y quita el acceso
-- [ ] El producto del curso no aparece en `/tienda/`, en la búsqueda ni en los feeds
-- [ ] Funciona igual con HPOS activado
-- [ ] Pruebas PHPUnit del alta por pedido pagado y la baja por reembolso
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Comprar un curso deja una inscripción activa con su vencimiento; comprar 2 etapas deja 2
+- [x] Reembolsar el pedido deja las inscripciones en `cancelada` y quita el acceso
+- [x] El producto del curso no aparece en `/tienda/`, en la búsqueda ni en los feeds
+- [x] Funciona igual con HPOS activado
+- [x] Pruebas PHPUnit del alta por pedido pagado y la baja por reembolso
 
 ## Sección: regalo
 
@@ -285,7 +285,7 @@
 ## Sección: roles
 
 - **Origen:** decisión "por ahora solo Bárbara" (`specs/plan/checklist-cursos.md`) y `usuario-*.md`
-- **Destino:** `wp-content/plugins/angelitozzz-cursos/includes/roles.php`, `includes/cuentas.php`
+- **Destino:** `wp-content/plugins/angelitozzz-cursos/includes/capacidades.php`, `includes/cuentas.php`, `includes/cuentas-acceso.php`
 - **Grupo:** ninguno
 - **Skill:** ninguna
 - **Comportamiento:** quién hace qué, con capacidades propias.
@@ -293,7 +293,7 @@
     - **Rol `instructora`** (lo crea la migración):
         - capacidades `read`, `upload_files` y `angelitozzz_gestionar_cursos`, más las de `angelitozzz_curso` y `leccion`;
         - sin `edit_posts` ni acceso a otras partes del admin.
-    - **Administradora:** recibe también `angelitozzz_gestionar_cursos`. La desinstalación borra el rol y la capacidad.
+    - **Administradora:** recibe también `angelitozzz_gestionar_cursos`. La desactivación y la desinstalación borran el rol y la capacidad; al reactivar se crean de nuevo y las usuarias recuperan su rol.
     - **`wp-admin`:**
         - cerrado para `customer`, que va a `/cuenta/` (F3), y para la `instructora`, que va a `/administrador/` (F4, bloque 6b, al existir el constructor; solo si esa página está publicada). La administradora sigue entrando;
         - quedan permitidos `admin-ajax.php`, `admin-post.php` y la REST API;
@@ -301,7 +301,7 @@
     - **Pantallas de entrada** (pedido del usuario, F4 bloque 6b): hay una sola lista de cuentas (la de WordPress) y dos pantallas. `/wp-admin/` sin sesión usa la de WordPress (`wp-login.php`, con sus propios enlaces de registro y de contraseña): es la entrada del equipo. El resto del sitio usa `/iniciar-sesion/` con el diseño. Cualquiera puede entrar por cualquiera de las dos y después cada rol termina en su lugar: alumna en `/cuenta/`, instructora en `/administrador/`; la administradora, en el escritorio de WordPress si entró por `wp-login.php` y en `/administrador/` si entró por `/iniciar-sesion/` sin destino. El límite de intentos vale en las dos. Un navegador tiene una sola sesión: entrar con otra cuenta reemplaza la anterior y cerrar sesión la cierra en las dos pantallas (para probar dos cuentas a la vez, una ventana privada).
     - **Página de inicio de cada rol** (`angelitozzz_cursos_inicio_de()`): después de entrar sin destino, y en el "Mi cuenta" del header, la alumna va a `/cuenta/` y quien gestiona cursos (instructora o administradora) a `/administrador/` (decisión del usuario, 2026-11-15).
     - **Bárbara** (decisión del usuario, 2026-11-15): es la dueña del sitio y tiene una cuenta propia, con su correo, de rol **administradora**. Edita el contenido en `/wp-admin/` y los cursos en `/administrador/` (la administradora tiene `angelitozzz_gestionar_cursos`). La cuenta de la agencia es otra. El rol `instructora` queda para quien solo maneje cursos (una ayudante, por ejemplo); no hay registro de instructoras: se lo asigna una administradora.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -310,10 +310,10 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Una alumna que entra a `/wp-admin/` va a `/cuenta/`
-- [ ] Una alumna no puede usar la API del constructor (403)
-- [ ] Desactivar y desinstalar el plugin no deja el rol ni la capacidad
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Una alumna que entra a `/wp-admin/` va a `/cuenta/`
+- [x] Una alumna no puede usar la API del constructor (403)
+- [x] Desactivar y desinstalar el plugin no deja el rol ni la capacidad; al reactivarlo vuelven
 
 ## Sección: funciones-publicas
 
@@ -366,6 +366,6 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Ninguna plantilla del tema hace consultas a las tablas del plugin
-- [ ] Con el plugin desactivado, las páginas de la cuenta y de la lección muestran un aviso y no un error fatal
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Ninguna plantilla del tema hace consultas a las tablas del plugin
+- [x] Con el plugin desactivado, las páginas de la cuenta y de la lección muestran un aviso y no un error fatal

@@ -83,7 +83,7 @@
 - **Destino:** `template-parts/pages/articulo-blog/escrito-por.php`
 - **Grupo:** ninguno
 - **Skill:** wp-helper
-- **Comportamiento:** `<aside aria-label="Sobre la autora">` sobre fondo `--color-fondo` (`py-5`), con una tarjeta blanca de 1040 px (`--radius-tarjeta`, relleno 32 px, 28 px entre avatar y texto, sin alto fijo). Avatar: el de WordPress (`get_avatar()` del autor de la entrada, 120 px, circular, `alt=""`). La foto sale de Gravatar o de un plugin de avatar local (los dos se enganchan a `get_avatar()`): la imagen tiene que verse, así que el autor debe tener una configurada. "Escrito por" fijo (Caption `--color-tinta-suave`); nombre del autor (`get_the_author()`) como `h2` con el aspecto de `--text-h4` `--color-marca`; descripción: la "Información biográfica" del usuario (`get_the_author_meta('description')`, `--text-cuerpo-s`), que se oculta si está vacía. Dos botones con el componente `boton` (12 px entre ellos): "Conoce a Bárbara" (`variante: secundario`, `flecha: false`) a la página Conoce a Bárbara (`/conoce-a-barbara/`, enlace a la página por su slug, no URL escrita a mano) y "Ver soluciones de sueño" (`variante: frambuesa`, con flecha) a la tienda de WooCommerce (`wc_get_page_permalink('shop')`); mientras WooCommerce no esté activo el destino es `#` y el componente `boton` lo muestra desactivado. "Escrito por" y los textos de los dos botones son fijos en la plantilla (iguales en todos los artículos); el nombre, el avatar y la biografía salen del perfil del autor. Móvil (propuesto): la tarjeta pasa a una columna con relleno 24 px, avatar de 88 px arriba a la izquierda, y los botones uno debajo del otro a todo el ancho.
+- **Comportamiento:** `<aside aria-label="Sobre la autora">` sobre fondo `--color-fondo` (`py-5`), con una tarjeta blanca de 1040 px (`--radius-tarjeta`, relleno 32 px, 28 px entre avatar y texto, sin alto fijo). Avatar: el de WordPress (`get_avatar()` del autor de la entrada, 120 px, circular, `alt=""`). La foto sale de Gravatar o de un plugin de avatar local (los dos se enganchan a `get_avatar()`): la imagen tiene que verse, así que el autor debe tener una configurada. "Escrito por" fijo (Caption `--color-tinta-suave`); nombre del autor (`get_the_author()`) como `h2` con el aspecto de `--text-h4` `--color-marca`; descripción: la "Información biográfica" del usuario (`get_the_author_meta('description')`, `--text-cuerpo-s`), que se oculta si está vacía. Dos botones con el componente `boton` (12 px entre ellos): "Conoce a Bárbara" (`variante: secundario`, `flecha: false`) a la página Conoce a Bárbara (`/conoce-a-barbara/`, enlace a la página por su slug, no URL escrita a mano) y "Ver soluciones de sueño" (`variante: frambuesa`, con flecha) al listado `/soluciones-de-sueno/` (`angelitozzz_tienda_destino()`, en `inc/tienda.php`). "Escrito por" y los textos de los dos botones son fijos en la plantilla (iguales en todos los artículos); el nombre, el avatar y la biografía salen del perfil del autor. Móvil (propuesto): la tarjeta pasa a una columna con relleno 24 px, avatar de 88 px arriba a la izquierda, y los botones uno debajo del otro a todo el ancho.
 - **Indicaciones del diseño:**
     - Usar la misma imagen que usar el avatar de wordpress.
     - Sobre la descripcion usar Información biográfica que viene por defecto en wordpress.
@@ -101,7 +101,7 @@
 
 - [x] Cumple los criterios comunes de `_shared.md`
 - [x] El avatar y la biografía cambian al editar el perfil del usuario en WordPress; sin biografía, el párrafo no se imprime
-- [x] "Conoce a Bárbara" lleva a `/conoce-a-barbara/`; "Ver soluciones de sueño" queda en `#` (pendiente)
+- [x] "Conoce a Bárbara" lleva a `/conoce-a-barbara/`; "Ver soluciones de sueño" lleva a `/soluciones-de-sueno/`
 - [x] La tarjeta no tiene alto fijo: una biografía larga la hace crecer sin cortar el texto
 
 ## Sección: te-puede-interesar
@@ -136,7 +136,7 @@
 - **Destino:** `single.php`, `template-parts/components/cta-final.php`
 - **Grupo:** `articulo_blog_cta_final`
 - **Skill:** wp-helper
-- **Comportamiento:** `single.php` llama al componente compartido `cta-final` con `titulo` "¿Quieres un plan para tu bebé?", `descripcion` "Encuentra la solución de sueño ideal según su edad." y `boton` "Encuentra tu solución" con destino pendiente `#` (nota de Inicio: el enlace de los CTA finales de las demás páginas queda pendiente). Los textos y el botón salen de la página de opciones (`articulo_blog_cta_final`), iguales en todos los artículos. Fondo, destellos y móvil son los del componente.
+- **Comportamiento:** `single.php` llama al componente compartido `cta-final` con `titulo` "¿Quieres un plan para tu bebé?", `descripcion` "Encuentra la solución de sueño ideal según su edad." y `boton` "Encuentra tu solución" que lleva a `/soluciones-de-sueno/`. Los textos y el botón salen de la página de opciones (`articulo_blog_cta_final`), iguales en todos los artículos. Fondo, destellos y móvil son los del componente.
 - **Estado:** aplicado
 - **ACF:** conectado
 
@@ -146,10 +146,10 @@
 | ----- | ---- | ----------- | ------------ | --------- |
 | `articulo_blog_cta_final_titulo` | textarea | Título del bloque de cierre de cada artículo. | ¿Quieres un plan para tu bebé? | sí |
 | `articulo_blog_cta_final_descripcion` | textarea | Texto opcional bajo el título. Si se deja vacío no se muestra. | Encuentra la solución de sueño ideal según su edad. | no |
-| `articulo_blog_cta_final_boton` | link | Botón del bloque de cierre: texto y destino (la tienda de cursos, pendiente). | Encuentra tu solución | sí |
+| `articulo_blog_cta_final_boton` | link | Botón del bloque de cierre: texto y destino (`/soluciones-de-sueno/`). | Encuentra tu solución | sí |
 
 **Criterios de aceptación**
 
 - [x] Cumple los criterios comunes de `_shared.md`
 - [x] Usa `template-parts/components/cta-final.php` con `$args`, sin copiar su HTML en la página
-- [x] El botón queda en `#` y está anotado como pendiente
+- [x] El botón lleva a `/soluciones-de-sueno/`
