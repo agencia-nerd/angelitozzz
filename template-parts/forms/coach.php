@@ -84,11 +84,13 @@ $ayuda_class = 'text-caption text-tinta-suave';
             <input class="mt-[2px] size-[22px] shrink-0 accent-marca" <?php angelitozzz_field_attrs($form_id, 'consent'); ?>>
             <label class="text-cuerpo-s" for="<?php echo esc_attr(angelitozzz_field_id($form_id, 'consent')); ?>">
                 <?php echo esc_html($aceptacion); ?>
-                <?php if ($privacy_url) : ?>
-                    <a class="text-acento underline" href="<?php echo esc_url($privacy_url); ?>" target="_blank" rel="noopener">Ver Políticas de privacidad<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
-                <?php else : ?>
-                    Políticas de privacidad
-                <?php endif; ?>
+                <?php
+                // Sin página de privacidad (o con una URL no válida), el texto va sin enlace.
+                $privacidad = $privacy_url
+                    ? angelitozzz_link(['url' => $privacy_url, 'target' => '_blank'], ['class' => 'text-acento underline', 'text' => __('Ver Políticas de privacidad', 'angelitozzz')])
+                    : '';
+                echo $privacidad !== '' ? $privacidad : esc_html__('Políticas de privacidad', 'angelitozzz'); // phpcs:ignore WordPress.Security.EscapeOutput -- angelitozzz_link() ya escapa.
+                ?>
                 <span aria-hidden="true">*</span>
             </label>
         </div>

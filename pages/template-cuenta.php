@@ -13,6 +13,7 @@ defined('ABSPATH') || exit;
 
 $plugin = function_exists('angelitozzz_cursos_activo');
 $vista  = $plugin ? angelitozzz_cursos_vista_cuenta() : 'escritorio';
+$vista  = in_array($vista, ['escritorio', 'perfil', 'cursos', 'pedidos'], true) ? $vista : 'escritorio';
 
 get_header();
 ?>
