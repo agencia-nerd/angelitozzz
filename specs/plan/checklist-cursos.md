@@ -24,7 +24,7 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 
 ## Arquitectura
 
-- **Plugin `angelitozzz-cursos`** (carpeta `wp-content/plugins/angelitozzz-cursos/`, con repo git local propio desde el 2026-11-14, sin remoto por ahora): toda la lógica de negocio.
+- **Plugin `angelitozzz-cursos`** (carpeta `wp-content/plugins/angelitozzz-cursos/`, con repo propio en GitHub, `agencia-nerd/angelitozzz-cursos`, desde el 2026-11-17): toda la lógica de negocio.
     - Tipos `curso` y `leccion` (con curso, módulo, orden, video, duración, texto y materiales).
     - Tablas `wp_angelitozzz_inscripciones` (alumna, curso, pedido, inicio, vencimiento, estado) y `wp_angelitozzz_progreso` (alumna, lección, completada, última vista), creadas con `dbDelta` y una versión de esquema guardada en una opción.
     - Acceso a lecciones y descargas protegidas.
@@ -64,6 +64,14 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 - Con Woo, solo `WC_Order` y `WC_Product` (compatibles con HPOS).
 - El plugin propio versiona su esquema: cada cambio de tablas es una migración, y la desinstalación (`uninstall.php`) borra lo suyo.
 - Antes de actualizar Woo o Niubiz en producción: actualizar en el Local, revisar Woo → Estado → plantillas y `specs/plan/sobrescrituras.md`, y repetir las compras de prueba.
+
+## Pendientes inmediatos (temporal)
+
+Salieron de la revisión del 2026-11-17 y van antes de seguir con el resto. Esta sección se borra cuando estén los 3.
+
+- [x] Repo del plugin `angelitozzz-cursos`: el `.git` local estaba incompleto (sin `objects/` ni `refs/`) y se perdió el historial. Rehecho el 2026-11-17: commit inicial `e75b61a` (plugin 0.5.0) en `github.com/agencia-nerd/angelitozzz-cursos`, rama `main`
+- [ ] Redirigir `/tienda/` de Woo a `/soluciones-de-sueno/`: ya existe `archive-solucion.php` (es el punto de la F0)
+- [ ] `specs/_index.md`: revisar si `opciones.md` (ya conectado en header, footer y banner de Mundo) y `cursos-datos.md` (ya implementado en el plugin) pasan de `aprobado` a `aplicado`, del todo o en parte
 
 ## F0 · Limpieza y base
 
