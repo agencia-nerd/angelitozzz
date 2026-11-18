@@ -79,7 +79,7 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 - [x] Borrar los 6 productos de prueba (`_angelitozzz_prueba`); se rehacen ligados a los cursos propios.
 - [x] Borrar `inc/tutor/estilos.php` y su `require_once` de `functions.php`.
 - [x] Esqueleto del plugin `angelitozzz-cursos` en `wp-content/plugins/` (2026-11-13): cabecera, activación, migraciones versionadas, desinstalación, compatibilidad con HPOS, config de PHPCS y PHPUnit. Sin activar.
-- [x] Repo del plugin: no se crea por decisión del usuario (2026-11-13). El plugin queda solo en `wp-content/plugins/angelitozzz-cursos/`; su respaldo son los del sitio. Se puede hacer `git init` local o subirlo a GitHub más adelante
+- [x] Repo del plugin: en GitHub, `agencia-nerd/angelitozzz-cursos` (2026-11-17). Al principio no se creó (decisión del usuario, 2026-11-13); el 2026-11-14 se hizo un `git init` local, y su historial se perdió al importar el sitio a otra PC, porque All-in-One no lleva `.git`.
 - [x] `composer install` en el plugin y suite de pruebas de WordPress con una base de datos de pruebas (2026-11-14): PHP 8.4 de Local, suite de WP 7.1.4 en `~/Local Sites/angelitozzz/wp-tests/` y base `local_tests`; `composer test` en verde (detalle en el README del plugin)
 - [x] Ocultar `/tienda/` de Woo y redirigirla a `/soluciones-de-sueno/` (2026-11-17, `inc/tienda.php`).
 - [x] Mensaje a la clienta enviado (respuesta pendiente): afiliación de Niubiz en USD, credenciales de prueba y consulta por cobros recurrentes.
@@ -121,7 +121,7 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 - [x] Puente con Woo: pedido pagado → inscribe (sin duplicar); reembolsado o cancelado → quita el acceso; registro en `wc_get_logger`
 - [x] Reproductor de video en una sola función (Vimeo hoy)
 - [x] Pruebas PHPUnit de inscripción, vencimiento, acceso y puente (2026-11-14: plugin 0.2.0)
-- [x] Revisión de seguridad y correctitud de la fase (2026-11-14): como el plugin no tiene repo, `/security-review` y `/code-review` no aplican (revisan un diff de git); se hizo una revisión independiente del plugin completo. Sus 10 hallazgos se corrigieron con su prueba (57 pruebas en verde)
+- [x] Revisión de seguridad y correctitud de la fase (2026-11-14): como en ese momento el plugin no tenía repo, `/security-review` y `/code-review` no aplicaban (revisan un diff de git); se hizo una revisión independiente del plugin completo. Desde el 2026-11-17 el plugin está en GitHub y ya se pueden usar. Sus 10 hallazgos se corrigieron con su prueba (57 pruebas en verde)
 
 ## F3 · Cuentas
 
@@ -135,7 +135,7 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 
 ## F4 · Maquetación
 
-Una rama por bloque (decisión del usuario, 2026-11-14): 1) soluciones, 2) carrito, checkout y gracias, 3) regalo, 4) acceso, 5) cuenta y lección, 6) administrador. Solo maquetación: los datos de muestra viven en `inc/solucion-muestra.php` y `inc/solucion-muestra/` hasta la F5. El tipo `solucion` lo registra temporalmente el mu-plugin de vista previa.
+Una rama por bloque (decisión del usuario, 2026-11-14): 1) soluciones, 2) carrito, checkout y gracias, 3) regalo, 4) acceso, 5) cuenta y lección, 6) administrador. Solo maquetación: los datos de muestra viven en `inc/solucion-muestra.php` y `inc/solucion-muestra/` hasta la F5. El tipo `solucion` lo registraba temporalmente el mu-plugin de vista previa; desde la F5-a lo registra ACF (`acf-json/post_type_*.json`).
 
 - [x] Listado de Soluciones de sueño maquetado (era provisional en `woocommerce/archive-product.php`)
 - [x] Mover el listado a `archive-solucion.php` reutilizando `shop.php` y `producto-card` (bloque 1, 2026-11-14)
@@ -152,7 +152,14 @@ Una rama por bloque (decisión del usuario, 2026-11-14): 1) soluciones, 2) carri
 
 ## F5 · Administrable y conexión
 
-**Entorno de pruebas en cada PC:** el sitio se importó a una segunda PC el 2026-11-17 y ahí se rearmó el entorno (`~/bin/`, `wp-tests/`, base `local_tests` en el puerto `10222` y la regla de Nginx de los PDF privados): `composer test` 105 pruebas en verde y `composer lint` sin errores. En otra PC, seguir `specs/pruebas/LEEME.md` → "Entorno en otra PC" antes de tocar el plugin.
+**Entorno de pruebas en cada PC:** hay dos PC, la de casa (MySQL de Local en el `10090`) y la del trabajo (en el `10222`). El 2026-11-17 el sitio se importó a la del trabajo y el entorno se rearmó a mano. All-in-One no lleva `~/bin/`, `wp-tests/`, `conf/nginx/` ni `.git`, y el `phpunit.xml` que sí lleva queda con las rutas de la otra PC.
+
+Desde el 2026-11-17 el entorno ya no se arma a mano:
+- El plugin calcula sus rutas y lee el puerto del `sites.json` de Local (`tests/bootstrap.php` y `tests/wp-tests-config.php`), sin `phpunit.xml`.
+- El resto lo revisa o lo arma `node specs/pruebas/entorno/instalar.mjs [--instalar]`.
+- `composer test`: 106 pruebas en verde.
+
+En otra PC, seguir `specs/pruebas/LEEME.md` → "Entorno en otra PC" antes de tocar el plugin.
 
 **Orden de la F5 (decisión del usuario, 2026-11-17, tras la auditoría completa del proyecto):** F5-a (ACF y wp-query) → F5-b (WooCommerce) → auditoría de seguridad de la F3 y deuda de la F2 → F5-c (plugin: regalo, Mundo, lección) → cierre. Una rama por subfase y el plan aprobado antes de cada una.
 
@@ -201,7 +208,7 @@ La auditoría pendiente de la F3 (arriba) va aquí, antes de la F5-c: el canje y
 ### F5-c · Plugin: regalo, Mundo y lección
 
 - [ ] Regalo: comprar como regalo genera el cupón; canje con sesión o creando la cuenta; el acceso empieza ese día
-- [ ] Acción de canje en el plugin (`canjear-regalo.md`): nonce, límite de intentos, código de un solo uso marcado en la misma operación que inscribe, dato de un solo uso para la confirmación y flujo sin sesión por crear cuenta; la página `/canjear-regalo/` en `inc/acf/paginas.php`
+- [ ] Acción de canje en el plugin (`canjear-regalo.md`): nonce, límite de intentos, código de un solo uso marcado en la misma operación que inscribe, dato de un solo uso para la confirmación y flujo sin sesión por crear cuenta (la página `/canjear-regalo/` ya está en `inc/acf/paginas.php`, F5-a)
 - [ ] Funciones públicas del regalo que pide `cursos-datos.md` y no existen: `angelitozzz_cursos_pedido_regalos()` y `angelitozzz_cursos_ultimo_canje()`; textos del regalo en Ajustes del sitio
 - [ ] Bloque de Mundo en gracias y en el correo de pedido, excepto en regalos
 - [ ] Banner de Mundo solo en la primera lección de cada curso (no en Angelita Pro); mensaje inicial de Angelita Pro
@@ -235,6 +242,11 @@ La auditoría pendiente de la F3 (arriba) va aquí, antes de la F5-c: el canje y
 - [ ] Cuenta de Bárbara en producción: usuaria propia con su correo y rol administradora (no la de la agencia). Con ella entra a `/wp-admin/` (contenido) y a `/administrador/` (cursos)
 - [ ] Logo del sitio en Apariencia → Personalizar → Identidad del sitio (decisión del usuario, 2026-11-17: no se carga desde `inc/acf/sitio.php`)
 - [ ] Ajustes del sitio: enlace del mes gratis en Mundo (nas.io), número de WhatsApp y URLs de las redes de la clienta; cursos de cada solución en `solucion_compra_cursos` (en las etapas, también el de cada etapa)
+- [ ] Decidir dónde se guardan los PDF privados de materiales (pendiente desde el 2026-11-17). Hoy van en `wp-content/uploads/angelitozzz-privado/` y dependen de una regla `deny` de Nginx, o de su equivalente en Apache, en Local y en producción. Si la regla falta, los PDF quedan públicos.
+    - **Opción preferida:** una carpeta fuera de la raíz pública, que no necesita regla en el servidor.
+    - **Toca el plugin:** `includes/descargas.php` (dónde se guardan y cómo se entregan), `uninstall.php`, una migración que mueva los PDF que ya existan y sus pruebas.
+    - **Antes de decidir,** confirmar que el hosting de producción deja escribir fuera de `public_html`.
+    - **Si no deja,** se mantiene la regla y se comprueba el 403 en producción.
 - [ ] Deploy:
     - [ ] Enlaces permanentes en "Nombre de la entrada" (Ajustes → Enlaces permanentes). Las URL del plugin (`/administrador/…`, `/cuenta/perfil/`, `/cursos/<curso>/<leccion>/`, `/cursos/descargar/<id>/`) usan reglas de reescritura y no funcionan con los enlaces simples. El JS del administrador ya no depende de esto: arma las URL de la API sobre la base de `rest_url()` (F4, bloque 6b).
     - [ ] Tema: `pnpm build` y subir el tema con `dist/`, sin `hot`, `node_modules/`, `src/`, `specs/` ni configs.
