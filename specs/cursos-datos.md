@@ -15,7 +15,7 @@
     - Los datos de cursos y lecciones los escribe el constructor de Bárbara (`admin-constructor.md`), no el admin de WordPress ni ACF. Las capturas del constructor están en `specs/figma/lectura/admin-cursos/constructor-*.png`; de ahí salen los campos de `curso` y `leccion`.
     - Todo en el plugin: prefijo `angelitozzz_` en funciones, opciones, hooks, metadatos (`_angelitozzz_*`) y tablas (`{prefix}angelitozzz_*`); text domain `angelitozzz-cursos`; las tablas se crean con migraciones versionadas (`includes/esquema.php`).
     - Fechas guardadas en UTC (`DATETIME`); se muestran en la zona horaria del sitio (`wp_date`).
-    - Privacidad: al borrar una usuaria se borran sus inscripciones y su avance (`delete_user`), y el plugin registra el exportador y el borrador de datos personales de WordPress (Herramientas → Exportar / Borrar datos personales).
+    - Privacidad: al borrar una usuaria se borran sus inscripciones y su avance (`delete_user`), y el plugin registra el exportador y el borrador de datos personales de WordPress (Herramientas → Exportar / Borrar datos personales). **Pendiente:** el exportador y el borrador aún no existen (`checklist-cursos.md` → "Antes de la F5-c").
     - Desinstalar el plugin borra sus tablas y opciones; los cursos y lecciones (posts) se conservan, salvo que esté definida la constante `ANGELITOZZZ_CURSOS_BORRAR_TODO` (propuesta, para no perder contenido por un clic).
 - **Estado:** aprobado
 
@@ -240,8 +240,8 @@
 - [x] Cumple los criterios comunes de `_shared.md`
 - [x] Comprar un curso deja una inscripción activa con su vencimiento; comprar 2 etapas deja 2
 - [x] Reembolsar el pedido deja las inscripciones en `cancelada` y quita el acceso
-- [x] El producto del curso no aparece en `/tienda/`, en la búsqueda ni en los feeds
-- [x] Funciona igual con HPOS activado
+- [ ] El producto del curso no aparece en `/tienda/`, en la búsqueda ni en los feeds (2026-11-18: no sale en `/tienda/`, pero sí en el mapa del sitio y en la búsqueda de la Store API; ver `checklist-cursos.md` → F5-c)
+- [ ] Funciona igual con HPOS activado (2026-11-18: declarado compatible, pero sin prueba; ver `checklist-cursos.md` → "Cierre de la F5")
 - [x] Pruebas PHPUnit del alta por pedido pagado y la baja por reembolso
 
 ## Sección: regalo
@@ -313,7 +313,8 @@
 - [x] Cumple los criterios comunes de `_shared.md`
 - [x] Una alumna que entra a `/wp-admin/` va a `/cuenta/`
 - [x] Una alumna no puede usar la API del constructor (403)
-- [x] Desactivar y desinstalar el plugin no deja el rol ni la capacidad; al reactivarlo vuelven
+- [x] Desactivar el plugin no deja el rol ni la capacidad; al reactivarlo vuelven (0.5.1, con su prueba)
+- [ ] Desinstalar el plugin no deja el rol ni la capacidad (`uninstall.php` los borra, pero no hay prueba de la desinstalación)
 
 ## Sección: funciones-publicas
 
@@ -322,7 +323,8 @@
 - **Grupo:** ninguno
 - **Skill:** ninguna
 - **Comportamiento:** el tema solo usa estas funciones y nunca consulta las tablas. Todas trabajan con la usuaria de la sesión, salvo las del administrador, que exigen la capacidad.
-    - **Comprobar que el plugin existe:** el tema verifica `function_exists( 'angelitozzz_cursos_activo' )` y, si no existe, muestra un aviso en vez de romper la página.
+    - **Dónde viven (2026-11-18):** `includes/api.php` reúne solo una parte. Las demás están en el archivo de su tema: `acceso.php`, `video.php`, `cuentas*.php`, `admin.php`, `rest-admin.php` y `constructor.php`. Lo público es esta lista, no el archivo. Las diferencias entre la lista, el código y lo que llama el tema están anotadas en `checklist-cursos.md` → "Antes de la F5-c".
+    - **Comprobar que el plugin existe:** el tema verifica que exista la función del plugin que va a usar (`function_exists`) y, si no existe, muestra un aviso en vez de romper la página.
     - **Funciones:**
         - `angelitozzz_cursos_activo()`: el plugin está cargado.
         - `angelitozzz_cursos_de_usuaria( $pestana )`: cursos con avance. `$pestana` es `inscritos`, `activos` o `completados`.

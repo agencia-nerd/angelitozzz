@@ -39,3 +39,14 @@ Antes de las páginas, revisa y aprueba [\_shared.md](_shared.md): tokens, compo
 | Gracias por tu compra                | [gracias.md](gracias.md)                                   | `woocommerce/checkout/thankyou.php`       | aplicado  |
 
 <!-- design-import:paginas:fin -->
+
+**Nota (2026-11-18).** `aplicado` quiere decir que el diseño ya está en el tema. No quiere decir que la página funcione de punta a punta.
+
+Estas páginas están maquetadas, pero todavía usan datos de muestra o les falta la lógica:
+
+| Página | Qué le falta | Cuándo |
+| --- | --- | --- |
+| Carrito, Checkout y Gracias | Datos de muestra (`inc/compra-muestra.php`) y marcadores `// woo:` | F5-b, WooCommerce |
+| Canjear regalo | La acción de canje no existe | F5-c |
+
+El avance real está en `plan/checklist-cursos.md`. La línea "Generado con design-import 1.14.0" es la versión con la que se crearon los specs; hoy el proyecto usa design-import 1.17.0 (`CLAUDE.md`).

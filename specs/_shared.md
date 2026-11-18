@@ -34,9 +34,9 @@ Una fila por tipo de contenido que se repite o se filtra (entradas, productos, p
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
 | post       | post   | `category` jerárquica: Especiales, Bebés 0–4 meses, Bebés 4–24 meses, Bebés 24 meses–4 años, Bases del sueño, Siestas | Nativos de WordPress: título, extracto, contenido (editor), fecha, autor (avatar e Información biográfica del usuario), imagen destacada. Tiempo de lectura calculado del contenido, sin campo           | categoría (pastillas del hero), búsqueda `q` | `home.php` (listado: una sección por categoría elegida por el admin), `category.php` ("Ver todos" de cada categoría, reutiliza hero y tarjeta), `single.php` (artículo) | "Leer artículo": enlace al artículo                              |
 | solucion   | cpt    | ninguna                                                                                                               | Tipo de contenido nuevo: la landing de venta de un curso. Nombre (título), foto de la tarjeta (imagen destacada), etiqueta de esquina, ícono, edad, beneficios, cursos que vende (1 o más), tipo de compra (directa, selector de etapas, suscripción), precios por cantidad y secciones (contenido flexible). El precio no es campo: sale del producto de Woo de su curso | ninguno                                      | `archive-solucion.php` (página Soluciones de sueño, `/soluciones-de-sueno/`), `single-solucion.php` (landing, `/soluciones-de-sueno/<slug>/`)                            | Botón de la tarjeta: enlace a la landing de la solución          |
-| curso      | plugin | ninguna | Tipo de contenido del plugin `angelitozzz-cursos` (no se registra con ACF). Título, extracto, portada (imagen destacada), duración del acceso (4, 6, 12 meses o ilimitado), información adicional (qué aprenderás, requisitos, para quién es) y su producto de Woo. Se edita en el constructor de Bárbara (`admin-constructor.md`), no en el admin de WordPress | ninguno | No tiene listado ni ficha pública: la URL del curso sin comprar redirige a su solución; con inscripción vigente, a su última lección vista | Comprar: lo hace la landing de la solución |
+| curso      | plugin | ninguna | Tipo de contenido del plugin `angelitozzz-cursos` (no se registra con ACF). Título, extracto, portada (imagen destacada), duración del acceso (4, 6, 12 meses o ilimitado) y su producto de Woo. La información adicional (qué aprenderás, requisitos, para quién es) no se guarda en el curso: la muestra la landing de la solución (decisión del 2026-11-13, `cursos-datos.md`). Se edita en el constructor de Bárbara (`admin-constructor.md`), no en el admin de WordPress | ninguno | No tiene listado ni ficha pública: la URL del curso sin comprar redirige a su solución; con inscripción vigente, a su última lección vista | Comprar: lo hace la landing de la solución |
 | leccion    | plugin | ninguna | Tipo de contenido del plugin, hijo de un `curso`: módulo, orden, video (enlace de Vimeo; la duración se lee sola), texto (con la cita "PD"), materiales (PDF protegidos) y vista previa gratuita sí/no. Se edita en el constructor. El acceso y el avance son de las tablas del plugin | ninguno | `single-leccion.php` (`/cursos/<curso>/<leccion>/`, solo con inscripción vigente) | Marcar como completa (avance del plugin) |
-| producto   | woo    | ninguna                                                                                                               | Solo para cobrar: un producto Simple + Virtual por curso, que el constructor crea y actualiza al publicar el curso (el plugin guarda la relación). Nativos de Woo: precio, precio rebajado (precio de lanzamiento), cupones. Oculto del catálogo         | ninguno                                      | No tiene listado ni ficha: `/tienda/` redirige a `/soluciones-de-sueno/`                                                                                                 | Agregar al carrito de Woo (desde la landing)                     |
+| producto   | woo    | ninguna                                                                                                               | Solo para cobrar: un producto Simple + Virtual por curso, que el constructor crea al guardar el paso 1 del curso y actualiza en cada guardado (el plugin guarda la relación). Nativos de Woo: precio, precio rebajado (precio de lanzamiento), cupones. Oculto del catálogo         | ninguno                                      | No tiene listado ni ficha: `/tienda/` redirige a `/soluciones-de-sueno/`                                                                                                 | Agregar al carrito de Woo (desde la landing)                     |
 | testimonio | cpt    | `categoria_testimonio` no jerárquica: Soluciones de Sueño, Mundo Angelitozzz                                          | Tipo de contenido nuevo. Nombre (título), foto (imagen destacada), testimonio (contenido), estrellas (1–5), edad del bebé (texto: "Bebé de 5 meses")                                                     | categoría (pastillas)                        | `archive-testimonio.php` (página Testimonios, `/testimonios/`)                                                                                                          | ninguna                                                          |
 
 - `Contenido`: nombre en singular, snake_case, sin tildes (`producto`, `proyecto`, `post`).
@@ -203,9 +203,16 @@ Cada componente vive en `template-parts/components/<nombre>.php` y recibe sus da
 ### acceso-tarjeta
 
 - **Origen:** "Tarjeta" y "Decoración acceso" de iniciar-sesion (4156:23796), crear-cuenta (4156:23743) y recuperar-contrasena (4156:24625)
-- **Destino:** `template-parts/components/acceso-tarjeta.php`, `template-parts/components/acceso-tarjeta-fin.php`
+- **Destino:** `template-parts/components/acceso-tarjeta.php`
 - **Argumentos:** `titulo` (string, requerido: el `h1`), `bajada` (string, opcional). Imprime el fondo crema con la decoración (nube dormida, destellos, luna; `aria-hidden`), la tarjeta blanca (560 px, padding 56, radio 28, sombra `0 12px 40px #24454a14`, separación 32 px) con el logo de Mundo Angelitozzz (asset fijo del tema, `assets/img/compra/banner-logo-mundo.webp`, el mismo del banner de Mundo; `alt` "Mundo Angelitozzz"), el título y la bajada. El formulario de cada pantalla va debajo, dentro de la tarjeta: el componente se abre con `acceso-tarjeta` y se cierra con `acceso-tarjeta-fin`.
 - **Se usa en:** iniciar-sesion, crear-cuenta, recuperar-contrasena (`template-parts/pages/<pantalla>/formulario.php`)
+
+### acceso-tarjeta-fin
+
+- **Origen:** el mismo de `acceso-tarjeta`: es su cierre
+- **Destino:** `template-parts/components/acceso-tarjeta-fin.php`
+- **Argumentos:** ninguno. Cierra la tarjeta y la sección que abre `acceso-tarjeta`.
+- **Se usa en:** las mismas pantallas que `acceso-tarjeta`, al final del formulario
 
 ### campo-acceso
 
@@ -262,9 +269,16 @@ Cada componente vive en `template-parts/components/<nombre>.php` y recibe sus da
 ### confirmacion-tarjeta
 
 - **Origen:** tarjetas de regalo de Figma: "Regalo listo" (3649:1702), "Canje de regalo" (3640:1593) y "Canje exitoso" (3677:1971). Blanca, 720 px, padding 56/64, radio 24 (`--radius-tarjeta`), bloques centrados con 24 px entre ellos
-- **Destino:** `template-parts/components/confirmacion-tarjeta.php`, `template-parts/components/confirmacion-tarjeta-fin.php`
-- **Argumentos:** `titulo` (string, requerido), `nivel` (`h1` | `h2`, por defecto `h1`), `icono` (`regalo` | `check` | `ninguno`, por defecto `ninguno`: SVG de 56 px, fijo del tema y decorativo), `pastilla` (string, opcional: "✓ Compra exitosa", "✓ Regalo canjeado"), `pastilla_estilo` (`verde` | `neutro`, por defecto `verde`: verde = fondo `--color-marca` y texto `--color-fondo`; neutro = fondo `--color-neutro` y texto `--color-marca`; radio 100, padding 6/14, `--text-rotulo`), `texto` (string, opcional: `--text-cuerpo-l`, `--color-tinta`, centrado). Título en `--text-h2` `--color-marca`, centrado. El contenido de cada pantalla (campo, caja del código, caja de acceso, botones) va entre `confirmacion-tarjeta` y `confirmacion-tarjeta-fin`; `confirmacion-tarjeta-fin` recibe `nota` (string, opcional: `--text-nota`, `--color-tinta-suave`, en itálica como en Figma) y cierra la tarjeta.
+- **Destino:** `template-parts/components/confirmacion-tarjeta.php`
+- **Argumentos:** `titulo` (string, requerido), `nivel` (`h1` | `h2`, por defecto `h1`), `icono` (`regalo` | `check` | `ninguno`, por defecto `ninguno`: SVG de 56 px, fijo del tema y decorativo), `pastilla` (string, opcional: "✓ Compra exitosa", "✓ Regalo canjeado"), `pastilla_estilo` (`verde` | `neutro`, por defecto `verde`: verde = fondo `--color-marca` y texto `--color-fondo`; neutro = fondo `--color-neutro` y texto `--color-marca`; radio 100, padding 6/14, `--text-rotulo`), `texto` (string, opcional: `--text-cuerpo-l`, `--color-tinta`, centrado). Título en `--text-h2` `--color-marca`, centrado. El contenido de cada pantalla (campo, caja del código, caja de acceso, botones) va entre `confirmacion-tarjeta` y `confirmacion-tarjeta-fin`.
 - **Se usa en:** canjear-regalo/canje, canjear-regalo/canjeado, gracias/confirmacion, gracias/regalo-listo
+
+### confirmacion-tarjeta-fin
+
+- **Origen:** el mismo de `confirmacion-tarjeta`: es su cierre
+- **Destino:** `template-parts/components/confirmacion-tarjeta-fin.php`
+- **Argumentos:** `nota` (string, opcional: `--text-nota`, `--color-tinta-suave`, en itálica como en Figma). Imprime la nota, si la hay, y cierra la tarjeta.
+- **Se usa en:** las mismas pantallas que `confirmacion-tarjeta`, al final de su contenido
 
 ### curso-admin-card
 
@@ -292,8 +306,8 @@ Cada componente vive en `template-parts/components/<nombre>.php` y recibe sus da
 ### testimonios-slider
 
 - **Origen:** componente Figma "Testimonios · Tarjetas" (home/testimonios y mundo-angelitozzz/testimonios)
-- **Destino:** `template-parts/components/testimonios-slider.php` y `src/js/modules/testimonios-slider.js` (Swiper, no automático)
-- **Argumentos:** `titulo` (string, requerido), `testimonios` (array de `autora`, `detalle`, `estrellas`, `texto`; requerido), `boton` (array link, lleva a la página Testimonios)
+- **Destino:** `template-parts/components/testimonios-slider.php`
+- **Argumentos:** `titulo` (string, requerido), `testimonios` (array de `autora`, `detalle`, `estrellas`, `texto`; requerido), `boton` (array link, lleva a la página Testimonios). El movimiento es de `src/js/modules/testimonios-slider.js` (Swiper, no automático)
 - **Se usa en:** home/testimonios, mundo-angelitozzz/testimonios (cada página con su propio repetidor)
 
 ### testimonio-card
