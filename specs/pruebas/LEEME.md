@@ -24,11 +24,13 @@ Son usuarias que solo existen en el Local mientras dura la prueba; no son claves
 ```powershell
 cd "~/Local Sites/angelitozzz/app/public"
 cp wp-content/themes/angelitozzz/specs/pruebas/datos-f5.php zz-datos-f5.php
-php -d mysqli.default_port=<puerto> zz-datos-f5.php crear
+php zz-datos-f5.php crear
 # ... probar ...
-php -d mysqli.default_port=<puerto> zz-datos-f5.php borrar
+php zz-datos-f5.php borrar
 Remove-Item zz-datos-f5.php
 ```
+
+- El puerto de MySQL lo toma solo del `sites.json` de Local. Para forzarlo: `ANGELITOZZZ_DB_PUERTO=<puerto>` o `php -d mysqli.default_port=<puerto>`.
 
 - Guarda los IDs en la opción `angelitozzz_prueba_f5`; `borrar` solo borra lo que creó `crear`.
 - Los avisos `material: No tienes permiso…` son normales: el script corre sin usuaria y no puede subir los PDF. Los materiales se prueban desde el constructor.
@@ -53,15 +55,35 @@ Chrome sin ventana, por el protocolo de depuración. Se corren desde esta carpet
 
 ## Base de datos del Local
 
-MySQL de Local: `127.0.0.1:<puerto>`, `root` / `root`, base `local`, prefijo `wp_`. El puerto y la versión de MySQL cambian en cada PC: están en Local → el sitio → Database (por ejemplo, `10090` con `mysql-8.4.0+2` o `10222` con `mysql-8.0.35+4`); `mysql.exe` está en `%APPDATA%/Local/lightning-services/mysql-<versión>/bin/win64/bin/`. Los scripts PHP usan `-d mysqli.default_port=<puerto>` porque `DB_HOST` es `localhost`.
+MySQL de Local: `127.0.0.1:<puerto>`, `root` / `root`, base `local`, prefijo `wp_`. El puerto y la versión de MySQL cambian en cada PC: están en Local → el sitio → Database (por ejemplo, `10090` con `mysql-8.4.0+2` o `10222` con `mysql-8.0.35+4`); `mysql.exe` está en `%APPDATA%/Local/lightning-services/mysql-<versión>/bin/win64/bin/`. `DB_HOST` es `localhost` sin puerto: los scripts y las pruebas leen el puerto del `sites.json` de Local (`%APPDATA%/Local/sites.json`).
 
 ## Entorno en otra PC
 
-1. **Sitio:** importarlo con All-in-One WP Migration (trae el tema, el plugin `angelitozzz-cursos`, las subidas y la base).
-2. **PHP por línea de comandos** (archivos en `entorno/`; cambiar `<USUARIO>` y la versión de PHP de Local):
-    - `php-cli.ini` → `~/Local Sites/angelitozzz/wp-tests/php-cli.ini`;
-    - `php` y `composer` (Git Bash) y `php.bat` y `composer.bat` (PowerShell) → `~/bin/`, con `~/bin` en el `PATH`; los `.bat` tienen que quedar con finales de línea CRLF (con LF, cmd los lee mal y avisa `"m" no se reconoce…`);
-    - `composer.phar` (Composer 2.x de getcomposer.org, verificando su SHA-256) → `~/bin/`.
-3. **Pruebas PHPUnit del plugin:** la suite de WordPress, el núcleo de pruebas, la base `local_tests` y el `phpunit.xml` local se arman como dice el README del plugin (`wp-content/plugins/angelitozzz-cursos/README.md` → "Entorno de pruebas en el Local"). Después: `composer install`, `composer test` y `composer lint` desde la carpeta del plugin.
-4. **Nginx:** pegar `entorno/nginx-angelitozzz-privado.conf` en `~/Local Sites/angelitozzz/conf/nginx/site.conf.hbs` (protege los PDF privados; comprobar el 403).
+All-in-One WP Migration solo lleva `app/public/` y la base: **no** lleva `.git`, `~/bin`, `~/Local Sites/angelitozzz/wp-tests/` ni `conf/nginx/`. Por eso:
+
+1. **Base y subidas:** importar el sitio con All-in-One WP Migration en Local, y encender el sitio.
+2. **Código, siempre por git**, porque la copia importada no trae `.git`:
+    - **Tema:** `git clone` de `agencia-nerd/angelitozzz` en `wp-content/themes/angelitozzz`. Si ya había una copia, se aparta antes.
+    - **Plugin:** `git clone` de `agencia-nerd/angelitozzz-cursos` en `wp-content/plugins/angelitozzz-cursos`.
+    - En una PC que ya los tiene clonados, basta con `git pull` en los dos.
+3. **Entorno**, desde el tema:
+    ```bash
+    node specs/pruebas/entorno/instalar.mjs             # revisa (no cambia nada)
+    node specs/pruebas/entorno/instalar.mjs --instalar  # arma lo que falte
+    ```
+    El script lee de Local el usuario, la versión de PHP y de MySQL y el puerto, y arma:
+    - `~/bin`: `php`, `php.bat`, `composer`, `composer.bat` y `composer.phar` con su SHA-256 verificado. Los `.bat` quedan con CRLF.
+    - `wp-tests/php-cli.ini`.
+    - La suite de WordPress en el tag del sitio.
+    - El núcleo de pruebas.
+    - La base `local_tests`.
+    - La regla de Nginx de los PDF privados.
+    - `vendor/` del plugin.
+
+    Lo que reemplaza lo deja al lado como `.viejo-<fecha>`: nunca borra. Solo avisa si `~/bin` no está en el `PATH`, y de paso te da el comando para agregarlo. Si agregó la regla de Nginx, reinicia el sitio en Local y vuelve a correrlo para comprobar el 403.
+4. **Comprobar:** `composer test` y `composer lint` desde la carpeta del plugin.
 5. **Revisor de specs:** `node ~/.claude/plugins/cache/carlitos-skills/carlitos-skills/<versión>/skills/design-import/scripts/check.mjs` desde el tema (necesita las skills de carlitos-skills instaladas).
+
+Si algo falla después de una importación (por ejemplo, el puerto de MySQL cambió), basta con volver a correr el script sin `--instalar`: dice qué está mal.
+
+Las plantillas de `entorno/` (`php`, `php.bat`, `composer`, `composer.bat`, `php-cli.ini` y `nginx-angelitozzz-privado.conf`) las usa el script. No hace falta copiarlas a mano.

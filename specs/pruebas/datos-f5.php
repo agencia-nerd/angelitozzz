@@ -3,11 +3,33 @@
  * Datos de prueba del bloque 5 (F4) en el Local: crea la página /cuenta/, una alumna, 3 cursos con
  * lecciones, un material PDF, un producto de Woo ligado al curso A, un pedido pagado (el puente del
  * plugin inscribe) y uno pendiente. Guarda los IDs en la opción angelitozzz_prueba_f5 para borrarlos.
- * Uso: php -d mysqli.default_port=10090 zz-datos-f5.php crear|borrar
+ * Uso: php zz-datos-f5.php crear|borrar
+ * El puerto de MySQL se lee del sites.json de Local (cambia en cada PC). Para forzarlo:
+ * ANGELITOZZZ_DB_PUERTO=<puerto> o php -d mysqli.default_port=<puerto>.
  */
 // Solo por línea de comandos: copiado en la raíz pública, no se ejecuta por URL.
 if (PHP_SAPI !== 'cli') {
     exit(1);
+}
+
+// DB_HOST es "localhost" (sin puerto): el puerto va por mysqli.default_port.
+if (getenv('ANGELITOZZZ_DB_PUERTO')) {
+    ini_set('mysqli.default_port', getenv('ANGELITOZZZ_DB_PUERTO'));
+} elseif ((int) ini_get('mysqli.default_port') === 3306 || !ini_get('mysqli.default_port')) {
+    $sitio   = strtolower(str_replace('\\', '/', dirname(__DIR__, 2))); // zz-datos-f5.php está en app/public
+    $casa    = (string) (getenv('USERPROFILE') ?: getenv('HOME'));
+    $locales = json_decode((string) @file_get_contents(getenv('APPDATA') . '/Local/sites.json'), true) ?: [];
+    foreach ($locales as $local) {
+        $ruta = (string) ($local['path'] ?? '');
+        $ruta = strtolower(rtrim(str_replace('\\', '/', str_starts_with($ruta, '~') ? $casa . substr($ruta, 1) : $ruta), '/'));
+        if ($ruta === $sitio && !empty($local['services']['mysql']['ports']['MYSQL'][0])) {
+            ini_set('mysqli.default_port', (string) $local['services']['mysql']['ports']['MYSQL'][0]);
+        }
+    }
+    if ((int) ini_get('mysqli.default_port') === 3306) {
+        fwrite(STDERR, "No encontré el puerto de MySQL del sitio en sites.json de Local: usa ANGELITOZZZ_DB_PUERTO=<puerto>.\n");
+        exit(1);
+    }
 }
 
 $_SERVER['HTTP_HOST'] = 'angelitozzz.local';
