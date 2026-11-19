@@ -1,0 +1,27 @@
+/*
+ * Defensa contra el CSS que el plugin de Openpay ("Openpay Cards") imprime en línea en el checkout
+ * (templates/payment.php): reglas globales con !important pensadas para el checkout por defecto de Woo.
+ * No se edita el plugin de Openpay; aquí se devuelve el aspecto del diseño a lo nuestro y sus campos de
+ * tarjeta (#openpay_cards) quedan como él los pide.
+ * Sin @layer a propósito: las reglas en línea del plugin tampoco usan capas.
+ */
+
+/* `.form-row { margin: 0 0 6px !important; padding: 3px !important }` y `.form-row select { width: 100% !important }`:
+ * los campos de facturación necesitan la clase form-row (validación de Woo), pero no ese margen ni el ancho del
+ * selector de prefijo del celular (specs/checkout.md). */
+.woocommerce-checkout .woocommerce-billing-fields .form-row,
+.woocommerce-checkout .woocommerce-account-fields .form-row {
+    margin: 0 !important;
+    padding: 0 0 2px !important;
+}
+
+.woocommerce-checkout .woocommerce-billing-fields .form-row select,
+.woocommerce-checkout .woocommerce-account-fields .form-row select {
+    width: auto !important;
+}
+
+/* `.hidden { visibility: hidden }`: con Tailwind, `hidden lg:flex` quedaría invisible en escritorio (menú del
+ * header, por ejemplo). Fuera de los campos de Openpay, `hidden` solo oculta con display, como en el resto del sitio. */
+.hidden:not(#openpay_cards .hidden) {
+    visibility: visible;
+}

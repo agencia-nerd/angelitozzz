@@ -30,16 +30,25 @@ $datos       = array_values(array_filter(
     static fn($dato): bool => is_array($dato) && trim((string) ($dato['texto'] ?? '')) !== ''
 ));
 
-// woo: precio del producto de WooCommerce del curso (rebajado = precio de lanzamiento).
+// Precio del producto de WooCommerce del curso (rebajado = precio de lanzamiento; inc/woocommerce/precios.php).
 $precio       = (array) ($contexto['precio'] ?? []);
 $precio_texto = '';
 if (($precio['actual'] ?? '') !== '') {
-    $precio_texto = (!empty($precio['desde']) ? 'Desde ' : '') . $precio['actual'] . ' USD';
+    $precio_texto = !empty($precio['desde'])
+        /* translators: %s: precio más bajo, p. ej. "$37". */
+        ? sprintf(__('Desde %s USD', 'angelitozzz'), $precio['actual'])
+        /* translators: %s: precio, p. ej. "$67". */
+        : sprintf(__('%s USD', 'angelitozzz'), $precio['actual']);
 }
 $antes = empty($precio['desde']) ? (string) ($precio['antes'] ?? '') : '';
 if ($antes !== '') {
-    $nota = trim('Precio de lanzamiento (antes ' . $antes . ')' . ($nota !== '' ? ' · ' . $nota : ''));
+    /* translators: %s: precio normal, p. ej. "$97". */
+    $lanzamiento = sprintf(__('Precio de lanzamiento (antes %s)', 'angelitozzz'), $antes);
+    $nota        = trim($lanzamiento . ($nota !== '' ? ' · ' . $nota : ''));
 }
+$datos_compra = (array) ($contexto['datos_compra'] ?? []);
+$datos_regalo = (array) ($contexto['datos_regalo'] ?? []);
+$con_carrito  = function_exists('wc_get_cart_url');
 
 $no_encontrada = get_theme_file_uri('assets/img/ayudarte-imagen-not-found.webp');
 $id_titulo     = wp_unique_id('solucion-hero-titulo-');
@@ -135,15 +144,17 @@ if ($titular === '') {
                 <?php get_template_part('template-parts/components/boton', null, [
                     'texto'    => $boton,
                     'variante' => 'frambuesa',
-                    'modal'    => (string) ($contexto['modal_compra'] ?? 'carrito'), // f5: agrega al carrito y abre el drawer.
+                    'modal'    => (string) ($contexto['modal_compra'] ?? 'carrito'),
+                    'datos'    => $datos_compra, // Venta directa: agrega al carrito y abre el drawer (carrito.js).
                 ]); ?>
 
-                <?php if ($regalo) {
+                <?php if ($regalo && $datos_regalo) {
                     get_template_part('template-parts/components/boton', null, [
                         'texto'    => __('Regalar este curso', 'angelitozzz'),
                         'variante' => 'secundario',
                         'flecha'   => false,
-                        'modal'    => 'carrito', // f5: agrega el curso marcado como regalo (cursos-datos.md → regalo).
+                        'modal'    => 'carrito',
+                        'datos'    => $datos_regalo, // El curso marcado como regalo (cursos-datos.md → regalo).
                     ]);
                 } ?>
 
@@ -151,15 +162,22 @@ if ($titular === '') {
                     <p class="w-full px-2 text-cuerpo-s text-tinta"><?= esc_html($nota) ?></p>
                 <?php endif; ?>
 
-                <?php // woo: aplicar cupón (WC()->cart->apply_coupon), en la F5. ?>
-                <form class="relative w-full px-2" method="post" action="">
+                <?php
+                // Cupón: sin JS, el formulario va al carrito y Woo lo aplica (WC_Form_Handler, nonce del carrito);
+                // con JS, carrito.js lo aplica con ?wc-ajax=apply_coupon y muestra el aviso aquí, sin salir.
+                if ($con_carrito) : ?>
+                <form class="relative w-full px-2" method="post" action="<?= esc_url(wc_get_cart_url()) ?>" data-cupon-hero data-seguridad="<?= esc_attr(wp_create_nonce('apply-coupon')) ?>">
+                    <?php wp_nonce_field('woocommerce-cart', 'woocommerce-cart-nonce', false); ?>
+                    <input type="hidden" name="apply_coupon" value="1">
                     <label class="sr-only" for="<?= esc_attr($id_cupon) ?>"><?= esc_html__('Código de cupón de descuento', 'angelitozzz') ?></label>
                     <input class="w-full border-b border-contorno bg-transparent py-1 pr-9 pl-[3px] text-cuerpo-s text-tinta placeholder:text-tinta focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca" id="<?= esc_attr($id_cupon) ?>" type="text" name="coupon_code" placeholder="<?= esc_attr__('Código de cupón de descuento', 'angelitozzz') ?>" autocomplete="off">
                     <button class="absolute right-[13px] top-0 flex size-6 cursor-pointer items-center justify-center rounded-full bg-marca text-blanco focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca" type="submit">
                         <span class="sr-only"><?= esc_html__('Aplicar cupón', 'angelitozzz') ?></span>
                         <svg class="size-[9px]" viewBox="0 0 8.27 8.16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.04 7.66 7.27 4.08 4.04.5M6.73 4.08H.5" /></svg>
                     </button>
+                    <p class="mt-2 text-cuerpo-s text-tinta empty:hidden" role="status" data-cupon-mensaje></p>
                 </form>
+                <?php endif; ?>
             </div>
         </div>
     </div>

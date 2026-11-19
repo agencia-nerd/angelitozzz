@@ -110,7 +110,7 @@ Stack: WordPress (Local WP) + Vite + Tailwind + pnpm.
 - Los cursos son a medida, sin Tutor LMS. El plan, las decisiones y el avance están en `specs/plan/checklist-cursos.md`.
 - La lógica de negocio va en el plugin propio `angelitozzz-cursos` (`wp-content/plugins/angelitozzz-cursos/`, fuera del repo del tema, con su propio repo en GitHub, `agencia-nerd/angelitozzz-cursos`): tipos `curso` y `leccion`, inscripciones, avance, vencimiento, acceso, descargas protegidas, puente con WooCommerce, cuentas, roles y la API REST `angelitozzz/v1` del constructor. El tema solo pinta: plantillas, componentes, CSS y JS.
 - El tema lee el plugin solo por sus funciones públicas `angelitozzz_cursos_*`. Nunca consulta sus tablas ni repite su lógica.
-- El cobro es de WooCommerce + Niubiz (plugin oficial). El plugin no toca la tarjeta: solo inscribe cuando el pedido está pagado y quita el acceso si se reembolsa o se cancela.
+- El cobro es de WooCommerce + Openpay (plugin oficial "Openpay Cards"; antes Niubiz). El plugin no toca la tarjeta: solo inscribe cuando el pedido está pagado y quita el acceso si se reembolsa o se cancela.
 - Seguridad en todo código a medida:
   - Sanea lo que entra y escapa lo que sale. SQL solo con `$wpdb->prepare`.
   - Nonce y capacidad en cada formulario, AJAX o REST (`permission_callback`).
@@ -121,3 +121,12 @@ Stack: WordPress (Local WP) + Vite + Tailwind + pnpm.
   - No guardes claves en el repo.
 - El plugin usa el prefijo `angelitozzz_` (funciones, hooks, opciones, tablas) y el text domain `angelitozzz-cursos`. Versiona su esquema con migraciones y borra lo suyo en `uninstall.php`. Pasa `php -l`, PHPCS (WordPress Coding Standards) y PHPUnit.
 - Solo plugins oficiales y con actualizaciones. No uses plugins de GPLVault para pagos, cuentas ni seguridad.
+
+<!-- wp-woocommerce:start -->
+## WooCommerce (1.1.0)
+- `inc/woocommerce/base.php` (y `fragments.php` si hay mini-carrito clásico) declara el soporte de WooCommerce: no lo edites, se actualiza desde la skill `wp-woocommerce`. Pedidos, pagos, envíos y campos de negocio van en un plugin, nunca en el tema.
+- Las plantillas de `woocommerce/` conservan **todos** los `do_action()` y `apply_filters()` de la plantilla original de WooCommerce: solo cambia el marcado alrededor. Cada una lleva el `@version` de la original (se copia después de comparar el código, nunca se edita solo para quitar el aviso de WooCommerce → Estado).
+- La base quita lo que WooCommerce imprime por defecto en esos ganchos (título, precio, botón, imagen…): la plantilla del tema imprime cada pieza una sola vez, donde el diseño la pone. Si algo no aparece, falta su llamada en la plantilla; para recuperar uno por defecto, usa el filtro `angelitozzz_woo_default_callbacks`.
+- La tabla "WooCommerce" de `specs/_shared.md` dice si carrito, checkout, mini-carrito y cuenta son `clásico` (plantilla PHP) o `bloques` (sin plantilla: solo CSS en `src/css/woocommerce.css`, sin `@layer` y acotado al bloque).
+- Si el plugin de WooCommerce se actualiza, mira WooCommerce → Estado → plantillas desactualizadas y pide `check.mjs` de `wp-woocommerce`.
+<!-- wp-woocommerce:end -->

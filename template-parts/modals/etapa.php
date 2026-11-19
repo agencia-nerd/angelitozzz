@@ -4,7 +4,7 @@
  * Modal "Más información" de una etapa (specs/solucion.md → modal-etapa; Figma 3752:5964).
  * Uno por etapa (id etapa-<n>): portada del video con play (el iframe de Vimeo se carga al pulsar y se
  * quita al cerrar: video-portada.js), antetítulo, título, texto, precio del curso con la escala de
- * descuento y "Agregar al carrito" (cierra este modal y abre el drawer; woo: en la F5 agrega el curso).
+ * descuento y "Agregar al carrito" (agrega el curso de la etapa, cierra este modal y abre el drawer: carrito.js).
  *
  * El diseño no tiene encabezado: el título del modal (nombre accesible) se imprime oculto y se repite
  * visible bajo la portada; el botón de cerrar flota sobre la portada.
@@ -23,7 +23,8 @@ $titulo  = trim((string) ($etapa['modal_titulo'] ?? ''));
 $texto   = (string) ($etapa['modal_texto'] ?? '');
 $portada = $etapa['modal_portada'] ?? '';
 $video   = (string) ($etapa['modal_video'] ?? '');
-$precio  = (string) ($etapa['precio'] ?? ''); // woo: precio del producto del curso.
+$precio  = (string) ($etapa['precio'] ?? ''); // Del producto de Woo del curso (single-solucion.php).
+$producto = (int) ($etapa['producto_id'] ?? 0);
 
 if ($id === '' || $titulo === '') {
     return;
@@ -75,13 +76,14 @@ angelitozzz_modal_start($id, [
     <div class="flex items-center justify-between gap-4 pt-2 max-md:flex-col max-md:items-start">
         <div class="flex flex-col gap-0.5">
             <?php if ($precio !== '') : ?>
-                <p class="text-h4 text-marca"><?= esc_html($precio . ' USD') ?></p>
+                <?php /* translators: %s: precio, p. ej. "$37". */ ?>
+                <p class="text-h4 text-marca"><?= esc_html(sprintf(__('%s USD', 'angelitozzz'), $precio)) ?></p>
             <?php endif; ?>
             <?php if ($escala) : ?>
                 <p class="text-caption text-tinta-suave"><?= esc_html(implode(' · ', $escala)) ?></p>
             <?php endif; ?>
         </div>
-        <button type="button" class="inline-flex shrink-0 cursor-pointer items-center gap-[10px] whitespace-nowrap rounded-full bg-acento py-[14px] pl-[28px] pr-[24px] text-rotulo text-blanco focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca" data-solucion-agregar>
+        <button type="button" class="inline-flex shrink-0 cursor-pointer items-center gap-[10px] whitespace-nowrap rounded-full bg-acento py-[14px] pl-[28px] pr-[24px] text-rotulo text-blanco focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca disabled:cursor-default disabled:opacity-50" data-solucion-agregar data-productos="<?= esc_attr($producto ? (string) $producto : '') ?>"<?= $producto ? '' : ' disabled' ?>>
             <span><?= esc_html__('Agregar al carrito', 'angelitozzz') ?></span>
             <svg class="size-[18px] shrink-0" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.75 9h10.5M9 3.75 14.25 9 9 14.25" /></svg>
         </button>

@@ -42,11 +42,12 @@ Antes de las páginas, revisa y aprueba [\_shared.md](_shared.md): tokens, compo
 
 **Nota (2026-11-18).** `aplicado` quiere decir que el diseño ya está en el tema. No quiere decir que la página funcione de punta a punta.
 
-Estas páginas están maquetadas, pero todavía usan datos de muestra o les falta la lógica:
+Estas páginas están maquetadas, pero les falta parte de la lógica (desde la F5-b ninguna usa datos de muestra):
 
 | Página | Qué le falta | Cuándo |
 | --- | --- | --- |
-| Carrito, Checkout y Gracias | Datos de muestra (`inc/compra-muestra.php`) y marcadores `// woo:` | F5-b, WooCommerce |
+| Checkout y Gracias | El pago real con Openpay en sandbox (ya están conectados a WooCommerce) | F5-b, cuando estén cargadas las credenciales |
+| Gracias | Los códigos de regalo | F5-c |
 | Canjear regalo | La acción de canje no existe | F5-c |
 
 El avance real está en `plan/checklist-cursos.md`. La línea "Generado con design-import 1.14.0" es la versión con la que se crearon los specs; hoy el proyecto usa design-import 1.17.0 (`CLAUDE.md`).

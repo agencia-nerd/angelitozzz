@@ -3,7 +3,7 @@
 /**
  * Canjear regalo · canjeado (specs/canjear-regalo.md, Figma 3677:1971): confirmación del canje.
  *
- * $args (F4: muestra de inc/compra-muestra.php; f5: último canje de la usuaria, dato de un solo uso del plugin):
+ * $args (último canje de la usuaria, dato de un solo uso del plugin angelitozzz-cursos, F5-c):
  * - curso           (string, requerido: nombre del curso)
  * - meses           (int: 4, 6 o 12; 0 = acceso ilimitado)
  * - primera_leccion (string: URL de la primera lección)

@@ -43,6 +43,14 @@ if (document.querySelector('[data-video-play]')) {
     import('./modules/video-portada.js').then(({ initVideoPortada }) => initVideoPortada()).catch(console.error);
 }
 
+if (document.querySelector('[data-carrito-contenido], form[data-cupon-hero]')) {
+    import('./modules/carrito.js').then(({ initCarrito }) => initCarrito()).catch(console.error);
+}
+
+if (document.getElementById('place_order')) {
+    import('./modules/checkout-boton.js').then(({ initCheckoutBoton }) => initCheckoutBoton()).catch(console.error);
+}
+
 if (document.querySelector('[data-solucion-agregar]')) {
     import('./modules/solucion-compra.js').then(({ initSolucionCompra }) => initSolucionCompra()).catch(console.error);
 }

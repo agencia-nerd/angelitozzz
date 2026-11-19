@@ -26,10 +26,15 @@ if ($titulo === '' && !$diapositivas) {
     return;
 }
 
-// woo: el precio sale del producto del curso y se suma al texto del botón ("<botón> — $97 USD"; con etapas, "desde").
+// El precio sale del producto del curso (inc/woocommerce/precios.php) y se suma al texto del botón
+// ("<botón> — $97 USD"; con etapas, "desde").
 $precio = (array) ($contexto['precio'] ?? []);
 if ($boton !== '' && $boton_precio && !empty($precio['actual'])) {
-    $boton .= ' — ' . (!empty($precio['desde']) ? __('desde', 'angelitozzz') . ' ' : '') . $precio['actual'] . ' USD';
+    $boton .= ' — ' . (!empty($precio['desde'])
+        /* translators: %s: precio más bajo, p. ej. "$37". */
+        ? sprintf(__('desde %s USD', 'angelitozzz'), $precio['actual'])
+        /* translators: %s: precio, p. ej. "$97". */
+        : sprintf(__('%s USD', 'angelitozzz'), $precio['actual']));
 }
 
 $varias = count($diapositivas) > 1;
@@ -93,6 +98,7 @@ $destello = static fn(string $nombre): string => get_theme_file_uri('assets/img/
                 <?php get_template_part('template-parts/components/boton', null, [
                     'texto' => $boton,
                     'modal' => (string) ($contexto['modal_compra'] ?? 'carrito'),
+                    'datos' => (array) ($contexto['datos_compra'] ?? []),
                 ]); ?>
             </div>
         <?php endif; ?>

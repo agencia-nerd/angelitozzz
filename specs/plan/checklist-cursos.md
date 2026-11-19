@@ -1,6 +1,6 @@
 # Checklist: cursos, compra y cuentas
 
-Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con cobro por WooCommerce + Niubiz y contenido administrable con ACF. Una rama y un PR por fase. Se marca `- [x]` al terminar y verificar cada punto. Es documentación del tema: no se sube al servidor.
+Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con cobro por WooCommerce + Openpay (Niubiz hasta el 2026-11-18) y contenido administrable con ACF. Una rama y un PR por fase. Se marca `- [x]` al terminar y verificar cada punto. Es documentación del tema: no se sube al servidor.
 
 **Cambio de rumbo (2026-11-13):** se deja Tutor LMS (gratis y Pro). Los cursos, la cuenta de la alumna, la lección y el administrador de Bárbara se construyen a medida, iguales a Figma y a los specs. Lo hecho con Tutor en la F0 anterior era de prueba y se limpia en la nueva F0.
 
@@ -10,11 +10,11 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 | --- | --- |
 | Cursos y lecciones | A medida, en el plugin propio `angelitozzz-cursos` (tipos `curso` y `leccion`, tablas de inscripciones y de avance). Sin Tutor LMS |
 | Alcance de la lección | Video, texto (con cita "PD"), materiales descargables, avance y banner de Mundo. Sin cuestionarios, certificados ni comentarios |
-| Cobro | WooCommerce es el motor (carrito, checkout, cupones, pedidos, correos, reembolsos). Pasarela Niubiz con su plugin oficial para WooCommerce, en USD. El plugin propio solo hace el puente pedido → inscripción |
+| Cobro | WooCommerce es el motor (carrito, checkout, cupones, pedidos, correos, reembolsos). Pasarela Openpay (Perú) con su plugin oficial para WooCommerce, "Openpay Cards", en USD (decisión de la clienta, 2026-11-18; antes Niubiz). El plugin propio solo hace el puente pedido → inscripción |
 | Videos | Vimeo gratis, videos ocultos (no listados), sin restricción de dominio: riesgo aceptado por el usuario (quien tenga el enlace puede verlo). El código no se ata a Vimeo: una sola función arma el reproductor y se cambia de proveedor ahí |
 | Landing de venta | Tipo de contenido `solucion` con secciones ACF flexibles, unida a 1 o más cursos |
 | URL del listado | `/soluciones-de-sueno/` (y cada solución en `/soluciones-de-sueno/<slug>/`) |
-| Angelita Pro | Suscripción cada 4 meses con 7 días de prueba: WooCommerce Subscriptions (licencia oficial) si Niubiz permite cobros con tarjeta guardada; si no, renovación manual con enlace de pago |
+| Angelita Pro | Suscripción cada 4 meses con 7 días de prueba: por definir en la F6. El plugin de Openpay guarda tarjetas pero no muestra soporte de WooCommerce Subscriptions (revisión de su código, 2026-11-18): renovación manual con enlace de pago, o un desarrollo propio con la tarjeta guardada o las suscripciones de la API de Openpay. Mientras tanto se vende como un curso directo |
 | Duración del acceso | 4, 6, 12 meses o ilimitado, por curso (lo elige Bárbara en el constructor). En el regalo, el acceso empieza el día del canje |
 | Garantía de 7 días | Devolución: se paga al momento; si se reembolsa el pedido, se quita el acceso |
 | Regalo | Código de regalo (cupón de Woo de 100 %, un solo uso, 6 meses) que se canjea en la web |
@@ -49,10 +49,10 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
     - `wp-admin` queda cerrado para las alumnas.
 - **Subidas de archivos:** se comprueba el tipo real del archivo (`wp_check_filetype_and_ext`) y su tamaño máximo. Los PDF de materiales quedan fuera del acceso público y se entregan por una descarga con permiso.
 - **Pagos:**
-    - La tarjeta solo la maneja el plugin de Niubiz.
+    - La tarjeta solo la maneja el plugin de Openpay (se tokeniza en el navegador con su JS).
     - La inscripción se crea una sola vez aunque Woo avise dos veces.
     - Cada alta o baja de acceso queda en el registro de Woo (`wc_get_logger`).
-- **Claves:** no se guardan en el repo. Las credenciales de Niubiz se cargan en sus ajustes, distintas para prueba y producción.
+- **Claves:** no se guardan en el repo. Las credenciales de Openpay (ID de comercio, llave privada `sk_` y pública `pk_`) se cargan en sus ajustes de WooCommerce, distintas para prueba (sandbox) y producción; nunca en el chat ni en el repo.
 - **Calidad del código:**
     - En el plugin: `php -l`, PHPCS con WordPress Coding Standards y PHPUnit (con las pruebas de WordPress) para inscripción, vencimiento, acceso y puente con Woo.
     - `/security-review` y `/code-review` al cerrar cada fase.
@@ -63,11 +63,11 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 - Cada plantilla sobrescrita de `woocommerce/` conserva todos sus `do_action()` y se anota en `specs/plan/sobrescrituras.md`.
 - Con Woo, solo `WC_Order` y `WC_Product` (compatibles con HPOS).
 - El plugin propio versiona su esquema: cada cambio de tablas es una migración, y la desinstalación (`uninstall.php`) borra lo suyo.
-- Antes de actualizar Woo o Niubiz en producción: actualizar en el Local, revisar Woo → Estado → plantillas y `specs/plan/sobrescrituras.md`, y repetir las compras de prueba.
+- Antes de actualizar Woo u Openpay en producción: actualizar en el Local, revisar Woo → Estado → plantillas y `specs/plan/sobrescrituras.md`, y repetir las compras de prueba.
 
 ## F0 · Limpieza y base
 
-- [x] Pasarela elegida por la clienta: **Niubiz**
+- [x] Pasarela elegida por la clienta: **Openpay** (2026-11-18; antes Niubiz, que no llegó a mandar credenciales)
 - [x] Precio de A Dormir Por Fin confirmado: **$399**
 - [x] `specs/_shared.md`: "Contenido dinámico" y tabla WooCommerce (carrito, checkout y mini-carrito clásicos)
 - [x] Crear `specs/plan/sobrescrituras.md`
@@ -82,15 +82,19 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 - [x] Repo del plugin: en GitHub, `agencia-nerd/angelitozzz-cursos` (2026-11-17). Al principio no se creó (decisión del usuario, 2026-11-13); el 2026-11-14 se hizo un `git init` local, y su historial se perdió al importar el sitio a otra PC, porque All-in-One no lleva `.git`.
 - [x] `composer install` en el plugin y suite de pruebas de WordPress con una base de datos de pruebas (2026-11-14): PHP 8.4 de Local, suite de WP 7.1.4 en `~/Local Sites/angelitozzz/wp-tests/` y base `local_tests`; `composer test` en verde (detalle en el README del plugin)
 - [x] Ocultar `/tienda/` de Woo y redirigirla a `/soluciones-de-sueno/` (2026-11-17, `inc/tienda.php`).
-- [x] Mensaje a la clienta enviado (respuesta pendiente): afiliación de Niubiz en USD, credenciales de prueba y consulta por cobros recurrentes.
-- [ ] Credenciales de comercio de Niubiz: código de comercio, usuario y contraseña de **prueba (Sandbox)** y de producción.
-- [ ] Respuesta de Niubiz: ¿la cuenta puede tener cobros automáticos con tarjeta guardada en USD ("Pago programado" / tokenización)? Define cómo se renueva Angelita Pro.
-- [ ] Plugin **oficial** de Niubiz para WooCommerce (portal de desarrolladores: `desarrolladores.niubiz.com.pe/docs/plugins`) instalado y probado en Sandbox:
-    - [ ] Cobra en USD
-    - [ ] Pago de prueba aprobado y rechazado
-    - [ ] Funciona con el checkout clásico
-    - [ ] Compatible con HPOS
-    - [ ] Verificar si exige nombre y apellido por separado o el país (afecta a `checkout.md`)
+- [x] Credenciales de comercio de Openpay de **prueba (sandbox)** y de producción, en USD (comercio "Angelitozzz SAC"; las tiene el usuario, 2026-11-18).
+- [x] Plugin **oficial** de Openpay para WooCommerce, "Openpay Cards" 3.2.0 (wordpress.org/plugins/openpay-cards), revisado antes de instalar (2026-11-18): acepta PEN y USD en Perú, declara compatibilidad con HPOS y con el checkout clásico y de bloques; la captura pide capacidad y nonce; el webhook (`/wc-api/openpay_cards`) usa autenticación básica y confirma cada cobro contra la API; probado por el autor hasta WooCommerce 11.0.1. Instalado y activo en el Local.
+- [x] Openpay probado en sandbox (F5-b, 2026-11-18, compra a mano del usuario en Chrome):
+    - [x] Credenciales de sandbox cargadas por el usuario en WooCommerce → Ajustes → Pagos → Openpay (país Perú, cargo Directo). Ojo: el asistente de bienvenida de Woo había cambiado la moneda a PEN; se volvió a USD
+    - [x] Cobra en USD
+    - [x] Pago aprobado (tarjeta 4111 1111 1111 1111): pedido pagado ("Procesando"), cuenta creada al pagar, campos propios guardados en el pedido y la cuenta, inscripción de 4 meses y página de gracias
+    - [x] Rechazo del banco (2026-11-18, tarjetas de prueba de Openpay Perú en `specs/pruebas/LEEME.md`): 4444 4444 4444 4448 y 4222 2222 2222 2220 (pedidos 696 y 697): pedido "Fallido", aviso de error en el checkout, cuenta creada y sin inscripción. El error 1001 de antes era de datos (p. ej. Amex con CVV de 3 dígitos), no un rechazo
+    - [x] Reintento sin recargar tras un rechazo: Openpay respondía 1003 (token ya usado; pedidos 696 y 697) porque nuestro "Pagar ahora" vive fuera del `<form>` y su `openpay.js` no borraba el token viejo. Corregido en `src/js/modules/checkout-boton.js` (2026-11-18) y probado: rechazo con 4222… y, sin recargar, 4111… → POST /tokens 201 con token nuevo, cargo 200 y el pedido 697 pasó a "Procesando" con su inscripción
+    - [x] La prueba automática (`cdp-pago.mjs`) no puede pagar: el sandbox de Openpay responde 403 sin CORS al Chrome sin ventana. El pago se prueba a mano en un navegador normal
+    - [x] Funciona con el checkout clásico (la pasarela aparece en el checkout del tema)
+    - [x] Compatible con HPOS (lo declara)
+    - [x] No exige apellido ni país: cobró con "Nombres y Apellidos" en un solo campo y sin dirección; `checkout.md` queda como está
+- [ ] Preguntar a Openpay si la cuenta exige 3D Secure. El 3D Secure y el webhook necesitan una URL pública: en el Local, un Live Link de Local; si no, se prueban en la F6.
 - [ ] Vimeo: confirmar con la clienta que su cuenta gratis permite videos ocultos y que el espacio le alcanza.
 
 ## F1 · Specs
@@ -141,8 +145,8 @@ Una rama por bloque (decisión del usuario, 2026-11-14): 1) soluciones, 2) carri
 - [x] Mover el listado a `archive-solucion.php` reutilizando `shop.php` y `producto-card` (bloque 1, 2026-11-14)
 - [x] `single-solucion.php` + un archivo por layout en `template-parts/pages/solucion/` (bloque 1)
 - [x] Modales con wp-modal (drawer del carrito, etapas, selector de edad) y preguntas frecuentes con wp-accordion (bloque 1)
-- [x] Carrito, checkout y gracias en `woocommerce/` (bloque 2, 2026-11-14; vista previa con `?vista_previa=carrito|carrito-vacio|checkout|gracias&estado=…`)
-- [x] Regalo: pantallas de compra, canje y canjeado (bloque 3, 2026-11-14: compra en los bloques 1 y 2; canje y canjeado en `/canjear-regalo/`, vista previa `?vista_previa=canjear-regalo&estado=…`)
+- [x] Carrito, checkout y gracias en `woocommerce/` (bloque 2, 2026-11-14; vista previa con `?vista_previa=carrito|carrito-vacio|checkout|gracias&estado=…`, quitada en la F5-b junto con el mu-plugin)
+- [x] Regalo: pantallas de compra, canje y canjeado (bloque 3, 2026-11-14: compra en los bloques 1 y 2; canje y canjeado en `/canjear-regalo/`, vista previa `?vista_previa=canjear-regalo&estado=…`, quitada en la F5-b)
 - [x] Iniciar sesión, crear cuenta y recuperar contraseña (bloque 4, 2026-11-14): conectadas de verdad al plugin (sin muestra) y probadas de punta a punta en el Local. Las 3 páginas existen en el Local (`/cuenta/`, a donde lleva entrar sin origen, llegó en el bloque 5)
 - [x] Cuenta de la alumna (4 vistas) con `cuenta-menu`, `cuenta-pestanas` y `curso-progreso-card` (bloque 5, 2026-11-14): conectada al plugin y a WooCommerce, probada con datos de prueba (borrados al terminar). La página `/cuenta/` existe en el Local
 - [x] Lección (bloque 5, 2026-11-14): conectada al plugin (acceso, temario, avance por REST, video, materiales, banner de Mundo y mensaje de Angelita Pro)
@@ -173,21 +177,28 @@ En otra PC, seguir `specs/pruebas/LEEME.md` → "Entorno en otra PC" antes de to
 
 ### F5-b · WooCommerce
 
-- [ ] wp-woocommerce: soporte del tema, sobrescrituras con `@version`, CSS clásico de Woo quitado, mini-carrito que se actualiza solo
-- [ ] `page.php` (o `singular.php`): hoy no existe, así que Carrito, Finalizar compra, Privacidad, Términos y cualquier página sin plantilla caen en `index.php`, que solo imprime el extracto (auditoría 2026-11-17)
-- [ ] Plantillas de `woocommerce/`: cambiar los `// woo:` por los `do_action()` y filtros reales (hoy todos están comentados), los nonces del carrito, del pago y del login (`cart.php:76`, `payment.php:46`, `form-login.php:46`), el bucle de pasarelas (`payment.php:34-35`, sin él Niubiz no aparece) y los campos con `woocommerce_form_field()` (`form-billing.php:54`, `:106`)
-- [ ] `@version` de cada sobrescritura según el original instalado: WooCommerce está en **11.3.0** y `sobrescrituras.md` dice 11.2.2 (`cart/cart.php` ya subió a 11.3.0)
-- [ ] Probar `#order_review` y `#place_order`, que quedan fuera del `<form name="checkout">` (`form-checkout.php:71`, `:81`, con `form=`): el JS de Woo que actualiza el resumen podría no funcionar igual
-- [ ] Contador del carrito del header: hoy es fijo (`header.php:37`, `$carrito_cantidad = 1`)
-- [ ] Borrar `wp-content/mu-plugins/angelitozzz-preview-woo.php` (F5-b). Ya no registra el tipo `solucion` (F5-a); le quedan el soporte de Woo, el CSS de Woo quitado, el modo "próximamente" y la vista previa `?vista_previa=`
-- [ ] Borrar la muestra `inc/solucion-muestra.php` e `inc/solucion-muestra/carrito.php` (y su `require_once`). Desde la F5-a solo quedan los precios de muestra (landing, etapas y relacionados) y el drawer del carrito: pasan a los precios de Woo y al carrito real en la F5-b
-- [ ] Borrar la muestra `inc/compra-muestra.php` (y su `require_once`) y la ruta `?vista_previa=` del mu-plugin: carrito, checkout y gracias leen `WC()->cart` y `WC_Order`
-- [ ] Al borrar la muestra, conectar antes las 3 vistas que la llaman sin `function_exists` (darían error fatal): `woocommerce/cart/cart.php:17`, `woocommerce/checkout/review-order.php:14` y `pages/template-canjear-regalo.php:16`. Además, `inc/compra-muestra.php` hoy se carga también en producción
-- [ ] Páginas Carrito y Finalizar compra con el shortcode clásico (hoy tienen los bloques de Woo) y productos de prueba ligados a los cursos
-- [ ] Campos de facturación del checkout (`checkout.md`, con `billing_phone_prefijo`) en el plugin `angelitozzz-cursos`, y el login del checkout con el límite de intentos de la F3
-- [ ] Precio de la landing leído del producto de Woo (precio de lanzamiento = precio rebajado)
-- [ ] "Agregar al carrito" sin recargar y abre el drawer; selector de etapas; descuento por cantidad leído de ACF; cupón en el hero
-- [ ] `specs/plan/sobrescrituras.md` al día
+Plan aprobado el 2026-11-18. Tema y plugin 0.6.0 (119 pruebas en verde, PHPCS en 0). Probado en Chrome con `specs/pruebas/cdp-compra.mjs` y los datos de `datos-f5.php tienda`.
+
+- [x] wp-woocommerce 1.41.0 (motor 1.1.0): `inc/woocommerce/base.php` (soporte, CSS clásico de Woo quitado), `fragments.php` y bloque en `CLAUDE.md`; `check.mjs` en `ok`
+- [x] `page.php`: Privacidad, Términos y cualquier página sin plantilla con el estilo de los artículos; Carrito y Finalizar compra sin envoltorio (sus plantillas traen el diseño)
+- [x] Plantillas de `woocommerce/` conectadas (subagentes por grupo): todos los `do_action()` y filtros del original, nonces del carrito, del pago y del login, bucle de pasarelas, campos con los args del plugin (y `woocommerce_form_field()` para los que el diseño no conoce). Lo que Woo imprime por defecto y el diseño reemplaza se quita en `inc/woocommerce/plantillas.php`
+- [x] `@version` de cada sobrescritura igual al original de WooCommerce 11.3.0 (`sobrescrituras.md`)
+- [x] `#order_review` y `#place_order` fuera del `<form name="checkout">` con `form=`: probado (el resumen se actualiza por AJAX y el envío dispara el submit del checkout). El JS de Woo borra la flecha del botón al cambiar su texto: `src/js/modules/checkout-boton.js` la repone. Ese módulo también hace lo que el clic de `openpay.js` no ve con el botón fuera del form: quita el token del intento anterior y valida el nombre del titular (2026-11-18; las dos probadas a mano por el usuario). Queda la API `wc.customPlaceOrderButton` de Woo, que busca el botón dentro del form: Openpay no la usa
+- [x] Contador del carrito del header y contenido del drawer por fragmentos de Woo (`template-parts/components/carrito-cuenta.php` y `carrito-contenido.php`, `inc/woocommerce/carrito.php`)
+- [x] Borrados el mu-plugin `angelitozzz-preview-woo.php` (copia en el scratchpad de la sesión), `inc/solucion-muestra.php`, `inc/solucion-muestra/` e `inc/compra-muestra.php` con sus `require_once`, después de conectar las vistas que los usaban. El modo "próximamente" de Woo se apagó en el Local (`woocommerce_coming_soon` = no): en producción se apaga al publicar
+- [x] Páginas Carrito y Finalizar compra con el shortcode clásico, una sola vez y solo si tenían el bloque de Woo (`inc/woocommerce/paginas.php`); productos de prueba ligados a los cursos (`datos-f5.php tienda`)
+- [x] Campos de facturación en el plugin (`includes/checkout.php`: definición, validación del prefijo, celular y documento, correo de la cuenta con sesión) y prueba de que el límite de intentos frena el login del checkout (`wp_signon`)
+- [x] Precio de la landing, de cada etapa y de los relacionados leído del producto de Woo (`inc/woocommerce/precios.php`; rebajado = lanzamiento, "antes" = normal; sin ".00" en todo el HTML de precios de Woo)
+- [x] "Agregar al carrito" sin recargar y abre el drawer (`src/js/modules/carrito.js`, `?wc-ajax=add_to_cart`); selector de etapas con los productos; descuento por cantidad de ACF como cargo negativo (`inc/woocommerce/descuentos.php`: 2 etapas $67, 3 $97); cupón del hero (`?wc-ajax=apply_coupon`, sin JS va al carrito); quitar y la sugerida en el drawer
+- [x] Marca de regalo ("Regalar este curso") del carrito al pedido en el plugin; el código y el canje son de la F5-c
+- [x] Producto del curso virtual y "Vender individualmente" en cada guardado, y migración 2 para los que ya existían (era un hallazgo de "Antes de la F5-c")
+- [x] Scripts de Openpay solo en el checkout (`includes/pagos.php` del plugin) y su CSS en línea neutralizado para lo nuestro (`src/css/pasarela.css`)
+- [x] `specs/plan/sobrescrituras.md` al día
+- [x] Pago con Openpay en sandbox de punta a punta (ver F0): aprobado → gracias pagado e inscripción; rechazado → pedido fallido sin inscripción (2026-11-18)
+- [x] Páginas `/terminos-y-condiciones/` y `/politicas-de-privacidad/` (las del menú "Pie: legal") creadas en el Local con texto de relleno (decisión del usuario, 2026-11-18) y elegidas en Woo (página de términos) y en Ajustes → Privacidad: el checkout ya muestra la casilla de términos con su enlace. El texto real lo pone el usuario (ver F7)
+- [x] Datos de prueba de la F5-b borrados (2026-11-18, con respaldo de la base en el scratchpad): `datos-f5.php tienda-borrar` (cursos, lecciones, productos, inscripciones y pedidos 692, 696 y 697) y las usuarias de prueba 21, 22 y 23
+- [x] Gracias con un pedido `cancelled` o `refunded`: tarjeta "Pedido sin efecto" (decisión del usuario, 2026-11-18; `gracias.md` → confirmacion): "Este pedido fue cancelado/reembolsado", acceso ya no activo, WhatsApp y "Ver mi pedido", sin Mundo ni regalos. Probado con pedidos temporales
+- [ ] Quitar un curso desde la página `/carrito/` recarga la página (desde el drawer no recarga). Aceptado (usuario, 2026-11-18): en el diseño no hay enlace a `/carrito/`, que queda de respaldo (el carrito del header sin JS, el cupón del hero sin JS y los avisos o redirecciones de Woo)
 
 ### Antes de la F5-c · Auditoría de la F3 y deuda de la F2
 
@@ -196,7 +207,7 @@ La auditoría pendiente de la F3 (arriba) va aquí, antes de la F5-c: el canje y
 - [ ] Seguridad: mensajes que revelan si un correo está registrado (contra la regla de "Cuentas"): crear cuenta, "Ya existe una cuenta con ese correo" (`cuentas-formularios.php:181`, y la prueba lo da por bueno, `test-cuentas.php:186`); el error de Woo en el checkout; `wp-login.php` y el login del checkout sin filtro `login_errors`; "Ese correo ya está en uso" en el perfil
 - [ ] Seguridad: el límite de intentos usa transitorios no atómicos (`cuentas.php:122-127`) y `wp_login_failed` suma también estando bloqueado, así que la ventana se alarga (`cuentas-formularios.php:37`, `:88-94`)
 - [ ] Seguridad: los enlaces del texto de la lección admiten `target` sin forzar `rel` (`tipos.php:158-163`); el tema imprime la lección con `the_content` sin la lista permitida de `wp_kses` (`template-parts/pages/leccion/pestanas.php`)
-- [ ] Plugin: producto del curso con "Vender individualmente" y virtual, como pide `cursos-datos.md` → `puente-woo`. `set_sold_individually` no se llama en ningún lado (revisión del 2026-11-18) y `set_virtual` solo se llama al crear el producto (`constructor.php:187`): los dos tienen que aplicarse también al actualizar
+- [x] Plugin: producto del curso con "Vender individualmente" y virtual, como pide `cursos-datos.md` → `puente-woo` (hecho en la F5-b, plugin 0.6.0: en cada guardado y con la migración 2)
 - [ ] Plugin: exportador y borrador de datos personales de WordPress (`wp_privacy_personal_data_*`; nota de página de `cursos-datos.md`)
 - [ ] Plugin: una inscripción `cancelada` que se reactiva no recalcula `inicio` ni `vence` ni reencadena (`inscripciones.php:53-56`)
 - [ ] Plugin: no se comprueba el resultado de `GET_LOCK` (`inscripciones.php:63`); el registro del cambio de estado no lleva la usuaria ni el curso (`inscripciones.php:191-197`)
@@ -237,7 +248,7 @@ La auditoría pendiente de la F3 (arriba) va aquí, antes de la F5-c: el canje y
     - 1 es `cursos-datos.md` → `roles`, con un criterio sin marcar: la desinstalación no tiene prueba (2026-11-18). Se cierra con la prueba de la desinstalación (más abajo, en esta misma sección).
 
   Los 5 componentes sin documentar ya están en `_shared.md` (2026-11-18). Los avisos de "Argumentos" que quedan vienen de valores entre comillas invertidas que el revisor toma como argumentos. El aviso de wp-acf sobre "Escríbenos" en Contacto no aplica: el título ya sale del campo, y lo único fijo es el texto del botón "Escríbenos por WhatsApp", que el spec deja fijo.
-- [ ] Pruebas en Chrome (`specs/pruebas/`): no cubren soluciones, carrito, checkout, gracias, canje, formularios, modales ni filtros. `cdp-vacios.mjs:36` usa una usuaria que ningún script crea; falta el script de limpieza que nombra `cdp-bloque4.mjs:2`; `cdp-vacios.mjs` y `cdp-bloque6.mjs` usan el mismo puerto (9339)
+- [ ] Pruebas en Chrome (`specs/pruebas/`): desde la F5-b, `cdp-compra.mjs` cubre las landings, el drawer, las etapas, el carrito y el checkout sin pagar; faltan gracias, canje, formularios, modales y filtros. `cdp-vacios.mjs:36` usa una usuaria que ningún script crea; falta el script de limpieza que nombra `cdp-bloque4.mjs:2`; `cdp-vacios.mjs` y `cdp-bloque6.mjs` usan el mismo puerto (9339)
 - [ ] Plugin: prueba con HPOS activado y prueba del registro `wc_get_logger` (hoy ninguna); prueba de la desinstalación (`cursos-datos.md` → `roles`)
 - [ ] Plugin: al desactivarlo, `flush_rewrite_rules()` (`angelitozzz-cursos.php:72`) corre en la misma petición en que el plugin ya registró sus reglas, así que `/cursos/…`, `/cuenta/…` y `/administrador/…` quedan guardadas. Hay que quitarlas antes de vaciar (revisión del 2026-11-18)
 - [ ] Tema: el enlace de WhatsApp se arma igual en 4 lugares. Se pasa todo a un solo helper: ya existe `angelitozzz_solucion_whatsapp()` (`inc/soluciones.php:25`). Los lugares son:
@@ -245,7 +256,7 @@ La auditoría pendiente de la F3 (arriba) va aquí, antes de la F5-c: el canje y
     - `template-parts/pages/contacto/seccion-de-cta.php:20-25`
     - `template-parts/pages/mundo-angelitozzz/hero.php:22-26`, que además lee `opciones_contacto_whatsapp` como campo suelto, distinto del resto del tema (revisión del 2026-11-18)
 - [ ] Tema: detalles de la revisión del 2026-11-18:
-    - **Textos sin `__()`:** `footer.php:118` "Made with", `header.php:36` "Carrito", `template-parts/pages/solucion/hero.php:41` "Precio de lanzamiento (antes…" y `solucion/galeria.php:32` " USD".
+    - **Textos sin `__()`:** `footer.php:118` "Made with". Los de `header.php` ("Carrito"), `solucion/hero.php` ("Precio de lanzamiento (antes…", "Desde") y `solucion/galeria.php` (" USD") se arreglaron en la F5-b.
     - **Modal coach:** el título es un textarea, pero `template-parts/modals/modal-coach.php:17,29` lo pasa como `title` del modal sin `angelitozzz_highlight`, así que pierde los saltos de línea y los colores.
     - **Enlace de WhatsApp del modal coach:** `src/js/modules/modal-coach.js:39-40` escribe `target` y `rel` a mano; el aviso `sr-only` sí está.
     - **Motor de wp-query:** `inc/query/motor.php:1072` usa `_n()` sin text domain. Es un archivo del motor: se avisa en la skill wp-query, no se edita.
@@ -253,9 +264,9 @@ La auditoría pendiente de la F3 (arriba) va aquí, antes de la F5-c: el canje y
 
 ## F6 · Pagos y Angelita Pro
 
-- [ ] Niubiz en modo prueba con las compras de la verificación
-- [ ] Angelita Pro: WooCommerce Subscriptions (licencia oficial) cada 4 meses con 7 días de prueba, o renovación manual según la respuesta de Niubiz
-- [ ] Niubiz en producción
+- [ ] Openpay en modo prueba con las compras de la verificación (con 3D Secure y webhook, que necesitan URL pública)
+- [ ] Angelita Pro cada 4 meses con 7 días de prueba: el plugin de Openpay no soporta WooCommerce Subscriptions; decidir entre renovación manual con enlace de pago o un desarrollo propio con la tarjeta guardada (o las suscripciones de la API de Openpay)
+- [ ] Openpay en producción: credenciales de producción cargadas por el usuario y webhook registrado con la URL del sitio
 
 ## F7 · Cierre
 
@@ -263,6 +274,7 @@ La auditoría pendiente de la F3 (arriba) va aquí, antes de la F5-c: el canje y
 - [ ] Revisión de seguridad final (`/security-review` de todo el plugin y las plantillas)
 - [ ] Manual de la clienta con wp-manual (incluye el administrador de cursos)
 - [ ] Cuenta de Bárbara en producción: usuaria propia con su correo y rol administradora (no la de la agencia). Con ella entra a `/wp-admin/` (contenido) y a `/administrador/` (cursos)
+- [ ] Texto real de Términos y condiciones y de Políticas de privacidad (hoy con relleno; lo pone el usuario). En producción, crear las dos páginas y elegirlas en WooCommerce → Ajustes → Avanzado y en Ajustes → Privacidad
 - [ ] Logo del sitio en Apariencia → Personalizar → Identidad del sitio (decisión del usuario, 2026-11-17: no se carga desde `inc/acf/sitio.php`)
 - [ ] Ajustes del sitio: enlace del mes gratis en Mundo (nas.io), número de WhatsApp y URLs de las redes de la clienta; cursos de cada solución en `solucion_compra_cursos` (en las etapas, también el de cada etapa)
 - [ ] Decidir dónde se guardan los PDF privados de materiales (pendiente desde el 2026-11-17). Hoy van en `wp-content/uploads/angelitozzz-privado/` y dependen de una regla `deny` de Nginx, o de su equivalente en Apache, en Local y en producción. Si la regla falta, los PDF quedan públicos.
@@ -292,4 +304,4 @@ Las herramientas para probar en el Local (datos de prueba, pruebas en Chrome y c
 - [ ] Constructor: una alumna no puede usar la API ni ver el administrador
 - [ ] Avance y materiales en la lección; banner de Mundo solo en la primera lección
 - [ ] Correo de pedido con el bloque de Mundo y sin él (regalo)
-- [ ] Prueba de actualización: Woo y Niubiz actualizados en el Local, plantillas al día en Woo → Estado y en `specs/plan/sobrescrituras.md`
+- [ ] Prueba de actualización: Woo y Openpay actualizados en el Local, plantillas al día en Woo → Estado y en `specs/plan/sobrescrituras.md`
