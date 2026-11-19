@@ -42,11 +42,6 @@ Antes de las páginas, revisa y aprueba [\_shared.md](_shared.md): tokens, compo
 
 **Nota (2026-11-18).** `aplicado` quiere decir que el diseño ya está en el tema. No quiere decir que la página funcione de punta a punta.
 
-Estas páginas están maquetadas, pero les falta parte de la lógica (desde la F5-b ninguna usa datos de muestra):
-
-| Página         | Qué le falta                 | Cuándo |
-| -------------- | ---------------------------- | ------ |
-| Gracias        | Los códigos de regalo        | F5-c   |
-| Canjear regalo | La acción de canje no existe | F5-c   |
+Desde la F5-c (2026-11-19) ninguna página aplicada espera lógica pendiente del plugin: gracias muestra los códigos de regalo y canjear regalo tiene su acción.
 
 El avance real está en `plan/checklist-cursos.md`. La línea "Generado con design-import 1.14.0" es la versión con la que se crearon los specs; hoy el proyecto usa design-import 1.17.0 (`CLAUDE.md`).

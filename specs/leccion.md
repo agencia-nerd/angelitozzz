@@ -22,7 +22,7 @@
     - Mes gratis en Mundo: banner solo en la primera lección del curso (siempre visible), más el bloque en la confirmación de compra y en el correo de pedido. Detalle en la nota “Banner del mes gratis en Mundo”.
     - Nota Banner del mes gratis en Mundo (para desarrollo) a continuacion
     - Aplica a Recién Nacidos Go y a los 3 cursos de Horarios (Angelita Pro no incluye el mes gratis). Versión simple, según lo pedido por Bárbara en la Reunión 3 (reducir costos).
-    - Correo de pedido de WooCommerce (el que llega por defecto o como sea lo conveniendo, en el proceso se decide si es woo u otro): se le agrega el bloque del mes gratis con el botón “Activar mi mes gratis en Mundo Angelitozzz”, basado en el “Email 1 — Confirmación inmediata” del Web Copy. Sin secuencia de recordatorios.
+    - Correo de pedido de WooCommerce (F5-c: el correo "Procesando"/"Completado" de Woo a la clienta, con el bloque que imprime `inc/woocommerce/correos.php`; textos y enlace de `opciones_mes_gratis_mundo`): se le agrega el bloque del mes gratis con el botón “Activar mi mes gratis en Mundo Angelitozzz”, basado en el “Email 1 — Confirmación inmediata” del Web Copy. Sin secuencia de recordatorios.
     - Página de confirmación de compra: bloque verde “Espera — hay algo más esperándote” con el mismo botón.
     - Dentro del curso: el banner de Mundo va solo en la primera lección de cada curso, siempre visible. Sin estados, sin “Ya lo activé” y sin guardar clics. En el resto de lecciones, el recordatorio es el texto de Bárbara (“Revisa tu correo…”).
     - No va en “Mi cuenta”.

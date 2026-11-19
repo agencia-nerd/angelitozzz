@@ -64,7 +64,7 @@ Se verifica en la F5, con WooCommerce conectado:
     - Ícono de regalo (56 px, decorativo), pastilla verde "✓ Compra exitosa", título "¡Tu regalo está listo!" (`h1` si es la primera tarjeta de la página, `h2` si va después de `confirmacion`).
     - Texto: "Regalaste <curso>. Te enviamos este código por correo: compártelo con quien quieras y podrá entrar al curso con él.".
     - Caja del código: fondo `--color-fondo`, borde punteado de 2 px `--color-terracota`, radio 12, padding 18/24; el código centrado en `2026/Code` (Barlow Condensed 600, 34 px, interlineado 1.2, espaciado 2.72 px; valor suelto de esta sección), `--color-marca`, seleccionable.
-    - `boton` frambuesa con flecha "Copiar código" (`<button type="button">`): copia el código al portapapeles y avisa "Código copiado" en una región `aria-live="polite"`; el texto del botón vuelve a "Copiar código" a los 2 segundos. Sin JavaScript o sin permiso de portapapeles, el código se puede seleccionar a mano.
+    - `boton` frambuesa con flecha "Copiar código" (`<button type="button">`): copia el código al portapapeles y avisa "Código copiado" en una región `aria-live="polite"`; el texto del botón vuelve a "Copiar código" a los 2 segundos. Sin la API del portapapeles (sitio sin https, como el Local) copia con el método clásico del navegador (F5-c); sin JavaScript, el código se puede seleccionar a mano.
     - Nota (`--text-nota`, `--color-tinta-suave`): "El código es válido por 6 meses desde la compra. El acceso al curso empieza el día del canje.".
     - Pago pendiente o fallido: no se muestra (el código aún no existe).
     - El mismo código llega en el correo del pedido (F5).
@@ -85,9 +85,9 @@ Se verifica en la F5, con WooCommerce conectado:
 - [x] "Copiar código" copia el código y lo anuncia a lectores de pantalla
 - [x] Un pedido solo de regalos no muestra el bloque de Mundo
 
-Se verifica en la F5, con el correo de pedido:
+Verificado en la F5-c (2026-11-19, en el Local):
 
-- El código de la página es el mismo del correo
+- [x] El código de la página es el mismo del correo
 
 ## Sección: mes-gratis-mundo
 
@@ -95,7 +95,7 @@ Se verifica en la F5, con el correo de pedido:
 - **Destino:** `template-parts/components/banner-mundo.php`
 - **Grupo:** ninguno
 - **Skill:** wp-helper
-- **Comportamiento:** componente `banner-mundo` con `variante` `confirmacion` y el título "Espera — hay algo más esperándote" (`h2`); el texto, el pie, el botón y el enlace salen de `opciones_mes_gratis_mundo` (`opciones.md`), y el enlace abre en pestaña nueva con `angelitozzz_link`. Se muestra solo si el pedido está pagado y tiene al menos un curso que no es regalo (quien recibe un regalo ve el banner en su primera lección, `leccion.md`). Sin enlace en Ajustes del sitio no se imprime. Ancho igual al de las tarjetas (720 px). Móvil: el del componente.
+- **Comportamiento:** componente `banner-mundo` con `variante` `confirmacion` y el título "Espera — hay algo más esperándote" (`h2`); el texto, el pie, el botón y el enlace salen de `opciones_mes_gratis_mundo` (`opciones.md`), y el enlace abre en pestaña nueva con `angelitozzz_link`. Se muestra solo si el pedido está pagado y tiene al menos un curso que no es regalo y que incluye el mes gratis (el interruptor `mes_mundo` del constructor, que decide Bárbara; decisión del usuario, 2026-11-19, con `angelitozzz_cursos_pedido_con_mundo()`). Quien recibe un regalo ve el banner en su primera lección (`leccion.md`). El correo del pedido lleva el mismo bloque con la misma regla (`inc/woocommerce/correos.php`). Sin enlace en Ajustes del sitio no se imprime. Ancho igual al de las tarjetas (720 px). Móvil: el del componente.
 - **Estado:** aplicado
 
 **Campos ACF**
@@ -107,4 +107,5 @@ Se verifica en la F5, con el correo de pedido:
 
 - [x] Cumple los criterios comunes de `_shared.md`
 - [x] Aparece con un curso propio pagado y no aparece con un pedido solo de regalos ni con pago pendiente
+- [x] No aparece si ningún curso propio del pedido tiene el mes gratis marcado (F5-c)
 - [x] Sin enlace en Ajustes del sitio no se imprime nada

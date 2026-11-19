@@ -132,15 +132,30 @@ $campo_html = static function (string $nombre, string $texto, string $control, s
             ?>
         </div>
 
-        <?php // Interruptor (role="switch"): el input real queda accesible; la pista es decorativa. ?>
-        <label class="flex cursor-pointer items-center gap-4 self-start" for="constructor-mes-mundo">
-            <span class="relative inline-flex shrink-0">
-                <input class="peer sr-only" id="constructor-mes-mundo" name="mes_mundo" type="checkbox" role="switch" value="1"<?= checked(!empty($curso['mes_mundo']), true, false) ?>>
-                <span class="h-7 w-12 rounded-full bg-neutro transition-colors peer-checked:bg-marca peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-marca motion-reduce:transition-none" aria-hidden="true"></span>
-                <span class="absolute left-1 top-1 size-5 rounded-full bg-blanco shadow transition-transform peer-checked:translate-x-5 motion-reduce:transition-none" aria-hidden="true"></span>
-            </span>
-            <span class="text-cuerpo text-tinta"><?= esc_html__('Incluye mes gratis en Mundo Angelitozzz', 'angelitozzz') ?></span>
-        </label>
+        <?php
+        // Interruptor (role="switch"): el input real queda accesible; la pista es decorativa. Lo decide Bárbara,
+        // también en una suscripción: ahí solo se avisa (constructor-basico.js muestra u oculta el aviso al
+        // cambiar el tipo o el interruptor; sin JS se ve si los dos ya venían así).
+        $mundo_activo = !empty($curso['mes_mundo']);
+        $mundo_aviso  = $tipo === 'suscripcion' && $mundo_activo;
+        ?>
+        <div class="flex flex-col gap-2 self-start">
+            <label class="flex cursor-pointer items-center gap-4 self-start" for="constructor-mes-mundo">
+                <span class="relative inline-flex shrink-0">
+                    <input class="peer sr-only" id="constructor-mes-mundo" name="mes_mundo" type="checkbox" role="switch" value="1" aria-describedby="constructor-mes-mundo-ayuda constructor-mes-mundo-aviso"<?= checked($mundo_activo, true, false) ?>>
+                    <span class="h-7 w-12 rounded-full bg-neutro transition-colors peer-checked:bg-marca peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-marca motion-reduce:transition-none" aria-hidden="true"></span>
+                    <span class="absolute left-1 top-1 size-5 rounded-full bg-blanco shadow transition-transform peer-checked:translate-x-5 motion-reduce:transition-none" aria-hidden="true"></span>
+                </span>
+                <span class="text-cuerpo text-tinta"><?= esc_html__('Incluye mes gratis en Mundo Angelitozzz', 'angelitozzz') ?></span>
+            </label>
+            <p id="constructor-mes-mundo-ayuda" class="<?= esc_attr($ayuda) ?>"><?= esc_html__('Muestra el banner del mes gratis en la primera lección del curso y el bloque en la página de gracias y en el correo de la compra.', 'angelitozzz') ?></p>
+            <div id="constructor-mes-mundo-aviso" role="status" data-mundo-aviso>
+                <p class="<?= esc_attr('flex items-start gap-2 text-caption text-acento' . ($mundo_aviso ? '' : ' hidden')) ?>" data-mundo-aviso-texto>
+                    <svg class="mt-px size-4 shrink-0" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="7" /><path d="M8 4.5v4.25M8 11.25v.25" /></svg>
+                    <span><?= esc_html__('Este curso es de suscripción. Las suscripciones normalmente no incluyen el mes gratis en Mundo: te recomendamos no activarlo.', 'angelitozzz') ?></span>
+                </p>
+            </div>
+        </div>
     </section>
 
     <section class="<?= esc_attr($tarjeta) ?>" aria-labelledby="constructor-portada-titulo" data-portada data-portada-url="<?= esc_url($portada_url) ?>">

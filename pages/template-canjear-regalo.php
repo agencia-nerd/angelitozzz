@@ -15,8 +15,8 @@ defined('ABSPATH') || exit;
 // Formulario vacío: el código nunca viaja en la URL (specs/canjear-regalo.md), así que no se lee de $_GET.
 $canje = ['estado' => 'canje', 'valor' => '', 'error' => ''];
 
-// F5-c: el plugin da el último canje (dato de un solo uso) o el error del envío anterior. Se espera
-// ['estado' => 'canjeado', 'curso', 'meses' (0 = ilimitado), 'primera_leccion', 'cursos_url'] o
+// El plugin da el último canje (dato de un solo uso) o el error del envío anterior:
+// ['estado' => 'canjeado', 'curso', 'meses' (0 = ilimitado), 'primera_leccion', 'cursos_url', 'empieza'] o
 // ['estado' => 'canje', 'valor', 'error']; la acción y el nonce del formulario van en canje.php.
 if (function_exists('angelitozzz_cursos_ultimo_canje')) {
     $ultimo = angelitozzz_cursos_ultimo_canje();

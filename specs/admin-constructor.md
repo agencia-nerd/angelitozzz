@@ -96,7 +96,7 @@
             - "Categoría (edad)" (placeholder "Ej. 0 a 12 semanas") y "Tipo" (select: Curso online, Asesoría personalizada, Suscripción);
             - "Precio (USD)" (número con 2 decimales, mayor o igual a 0, requerido) y "Precio de lanzamiento (opcional)" (menor que el precio, o vacío);
             - "Duración del acceso" (select: 4 meses, 6 meses, 12 meses, Acceso ilimitado; nota "Duracion del accesos son de 4,6,12 meses y acceso ilimitado").
-        - Interruptor "Incluye mes gratis en Mundo Angelitozzz" (propuesta: el dato de `cursos-datos.md` → `_angelitozzz_mes_mundo`; muestra el banner en la primera lección).
+        - Interruptor "Incluye mes gratis en Mundo Angelitozzz" (propuesta: el dato de `cursos-datos.md` → `_angelitozzz_mes_mundo`; muestra el banner en la primera lección). Debajo, la ayuda (unida con `aria-describedby`): "Muestra el banner del mes gratis en la primera lección del curso y el bloque en la página de gracias y en el correo de la compra." Con Tipo = Suscripción y el interruptor encendido aparece un aviso en rojo (`--color-acento`) con un ícono "!" (`role="status"`): "Este curso es de suscripción. Las suscripciones normalmente no incluyen el mes gratis en Mundo: te recomendamos no activarlo." No se bloquea: lo decide Bárbara (F5-c, decisión del usuario, 2026-11-19).
         - **Sin "Estado":** el diseño lo tiene, pero se quita porque es el mismo dato que la "Visibilidad" del paso 3. Mientras no se publique, el curso queda en borrador.
     - **"Imagen de portada":**
         - Zona para soltar o elegir la imagen (borde punteado terracota, ícono de subir, "Arrastra una imagen o haz clic para subirla"). Es un `<input type="file">` real con su `<label>`, usable con teclado.

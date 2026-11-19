@@ -31,6 +31,19 @@ export function initConstructorBasico() {
     const estado = form.querySelector('[data-estado]');
     const botones = [...form.querySelectorAll('button')];
 
+    // ---------- Mes gratis en Mundo: aviso si el curso es de suscripción (no se bloquea) ----------
+
+    const mundo = form.elements.mes_mundo;
+    const avisoMundo = form.querySelector('[data-mundo-aviso-texto]');
+    const tipoCurso = form.elements.tipo;
+    const sincronizarMundo = () => {
+        if (!mundo || !tipoCurso || !avisoMundo) return;
+        avisoMundo.classList.toggle('hidden', !(tipoCurso.value === 'suscripcion' && mundo.checked));
+    };
+    tipoCurso?.addEventListener('change', sincronizarMundo);
+    mundo?.addEventListener('change', sincronizarMundo);
+    sincronizarMundo();
+
     // ---------- Cambios sin guardar ----------
 
     let sucio = false;
