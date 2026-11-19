@@ -78,7 +78,7 @@ Errores de datos o de integración vistos:
 | 422  | 1003       | This source_id was already used    | Botón fuera del form → se reenviaba el token. Corregido en `checkout-boton.js` (18/11/26) |
 
 - **Entrar siempre con la contraseña correcta:** con 5 fallos en 15 minutos el plugin bloquea la IP (también a la administradora).
-- **Para desbloquear:** borrar los transitorios `_transient_angelitozzz_lim_%` y `_transient_timeout_angelitozzz_lim_%` de `wp_options`.
+- **Para desbloquear:** vaciar la tabla de contadores, `DELETE FROM wp_angelitozzz_intentos;` (desde el plugin 0.6.1 los intentos viven ahí, no en transitorios). Los contadores vencen solos: 15 minutos el login, 1 hora crear cuenta y 15 minutos el canje.
 - **Un navegador tiene una sola sesión.** Para probar dos cuentas a la vez, una ventana normal y otra privada.
 
 ## Base de datos del Local
@@ -121,7 +121,7 @@ All-in-One WP Migration solo lleva `app/public/` y la base: **no** lleva `.git`,
 - Ajustes de Woo: moneda USD con el símbolo a la izquierda, "próximamente" apagado, Carrito y Finalizar compra con shortcode (opción `angelitozzz_woo_paginas`), página de términos.
 - Páginas `/terminos-y-condiciones/` y `/politicas-de-privacidad/` (texto de relleno) y la página de privacidad en Ajustes → Privacidad.
 - Contenido de ACF (soluciones, Ajustes del sitio) y las páginas del tema.
-- Datos de prueba: ninguno (borrados el 2026-11-18). Para probar compras, `datos-f5.php tienda`.
+- Datos de prueba: ninguno (borrados el 2026-11-19, al cerrar la F5-c). Para probar compras, `datos-f5.php tienda`.
 
 Si algo falla después de una importación (por ejemplo, el puerto de MySQL cambió), basta con volver a correr el script sin `--instalar`: dice qué está mal.
 
