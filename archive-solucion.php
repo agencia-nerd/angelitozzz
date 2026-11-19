@@ -19,6 +19,14 @@ $boton = angelitozzz_solucion_whatsapp((string) ($cta['boton_texto'] ?? ''));
 
 <main id="main-content" class="fondo-nubes">
     <?php
+    // Llegó desde un curso o una lección que no tiene y que no está en ninguna solución (?aviso=sin-acceso).
+    $aviso_acceso = function_exists('angelitozzz_cursos_aviso_acceso') ? angelitozzz_cursos_aviso_acceso() : '';
+    if ($aviso_acceso !== '') : ?>
+        <div class="mx-auto max-w-[1150px] px-4 pt-6">
+            <?php get_template_part('template-parts/components/aviso-formulario', null, ['texto' => $aviso_acceso, 'tipo' => 'aviso']); ?>
+        </div>
+    <?php endif;
+
     get_template_part('template-parts/pages/soluciones-de-sueno/shop');
 
     // Cierre: componente compartido cta-final.

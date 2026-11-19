@@ -551,26 +551,63 @@ export function initConstructorContenido() {
 
         pintarMateriales();
         firmaInicial = firma();
+        mostrarDescartar(false);
         openModal(dialogLeccion, opener);
         formLeccion.titulo.focus();
     };
 
-    const intentarCerrarLeccion = () => {
-        // eslint-disable-next-line no-alert -- Confirmación simple antes de descartar lo escrito.
-        if (hayCambios() && !window.confirm(formLeccion.dataset.descartar)) return false;
+    // ¿Descartar los cambios? Es una vista del mismo modal (sin window.confirm ni otro modal encima):
+    // reemplaza el contenido y el pie; Escape o la ✕ con la vista abierta cuentan como "Seguir editando".
+    function mostrarDescartar(mostrar) {
+        const vista = formLeccion?.querySelector('[data-leccion-descartar]');
+        if (!vista) return;
+        vista.hidden = !mostrar;
+        formLeccion.querySelector('[data-leccion-contenido]')?.toggleAttribute('hidden', mostrar);
+        formLeccion.querySelector('[data-leccion-pie]')?.toggleAttribute('hidden', mostrar);
+    }
+    const descartando = () => Boolean(formLeccion?.querySelector('[data-leccion-descartar]:not([hidden])'));
+
+    const cerrarLeccion = () => {
         actual = null;
+        mostrarDescartar(false);
         closeModal(dialogLeccion);
+    };
+
+    const seguirEditando = () => {
+        mostrarDescartar(false);
+        formLeccion?.querySelector('[data-leccion-cancelar]')?.focus();
+    };
+
+    const intentarCerrarLeccion = () => {
+        if (hayCambios()) {
+            mostrarDescartar(true);
+            formLeccion?.querySelector('[data-leccion-seguir]')?.focus();
+            return false;
+        }
+        cerrarLeccion();
         return true;
     };
 
     formLeccion?.querySelector('[data-leccion-cancelar]')?.addEventListener('click', intentarCerrarLeccion);
+    formLeccion?.querySelector('[data-leccion-seguir]')?.addEventListener('click', seguirEditando);
+    formLeccion?.querySelector('[data-leccion-descartar-confirmar]')?.addEventListener('click', cerrarLeccion);
     // Esc y la ✕ del motor también preguntan si hay cambios.
     dialogLeccion?.addEventListener('cancel', (event) => {
+        if (descartando()) {
+            event.preventDefault();
+            seguirEditando();
+            return;
+        }
         if (!hayCambios()) return;
         event.preventDefault();
         intentarCerrarLeccion();
     });
     dialogLeccion?.querySelector('.modal__close')?.addEventListener('click', (event) => {
+        if (descartando()) {
+            event.preventDefault();
+            seguirEditando();
+            return;
+        }
         if (!hayCambios()) return;
         event.preventDefault();
         intentarCerrarLeccion();

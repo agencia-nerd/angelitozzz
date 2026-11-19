@@ -2,9 +2,9 @@
 
 /**
  * Lección · cabecera (specs/leccion.md, Figma 4176:28045): volver a mis cursos, el nombre del curso
- * (h1) y "Marcar como completo". El botón llama a la ruta REST angelitozzz/v1/lecciones/<id>/completar
- * del plugin (src/js/modules/leccion-completar.js): aparece solo con JS y solo con el curso comprado
- * (una vista previa no guarda avance).
+ * (h1) y "Marcar como completo", solo con el curso comprado (una vista previa no guarda avance). Sin JS
+ * es un formulario a la acción angelitozzz_completar_leccion del plugin (marca o desmarca y vuelve aquí);
+ * con JS, src/js/modules/leccion-completar.js lo envía por la ruta REST angelitozzz/v1 sin recargar.
  *
  * $args:
  * - leccion_id (int), curso_id (int)
@@ -18,6 +18,11 @@ $leccion_id = (int) ($args['leccion_id'] ?? 0);
 $curso_id   = (int) ($args['curso_id'] ?? 0);
 $con_acceso = (bool) ($args['con_acceso'] ?? false);
 $completada = (bool) ($args['completada'] ?? false);
+
+// Error del envío sin JS (el plugin vuelve aquí con un mensaje de un solo uso).
+$mensaje      = $con_acceso && function_exists('angelitozzz_cursos_mensaje') ? angelitozzz_cursos_mensaje() : null;
+$error_previo = ($mensaje['tipo'] ?? '') === 'error' ? (string) $mensaje['texto'] : '';
+$con_form     = function_exists('angelitozzz_cursos_campos_ocultos');
 
 $mis_cursos = function_exists('angelitozzz_cursos_url_pagina')
     ? angelitozzz_cursos_url_pagina('cuenta', 'cursos')
@@ -33,12 +38,25 @@ $mis_cursos = function_exists('angelitozzz_cursos_url_pagina')
     </div>
 
     <?php if ($con_acceso) : ?>
-        <div class="flex shrink-0 flex-col items-end gap-2 max-md:items-stretch" data-leccion-completar-raiz>
-            <button class="group flex h-[50px] w-[260px] cursor-pointer items-center justify-center gap-[14px] rounded-[15px] border border-[#9ec0c0] bg-blanco text-cuerpo text-tinta focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca disabled:cursor-progress disabled:opacity-60 max-md:w-full" type="button" hidden
+        <form class="flex shrink-0 flex-col items-end gap-2 max-md:items-stretch" method="post" action="<?= esc_url($con_form ? angelitozzz_cursos_url_envio() : '') ?>" data-leccion-completar-raiz>
+            <?php
+            if ($con_form) {
+                angelitozzz_cursos_campos_ocultos('angelitozzz_completar_leccion');
+            }
+            ?>
+            <input type="hidden" name="leccion_id" value="<?= esc_attr((string) $leccion_id) ?>">
+            <input type="hidden" name="marcar" value="<?= $completada ? '0' : '1' ?>" data-leccion-completar-marcar>
+            <button class="group flex h-[50px] w-[260px] cursor-pointer items-center justify-center gap-[14px] rounded-[15px] border border-[#9ec0c0] bg-blanco text-cuerpo text-tinta focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca disabled:cursor-progress disabled:opacity-60 max-md:w-full" type="submit"
                 aria-pressed="<?= $completada ? 'true' : 'false' ?>"
                 data-leccion-completar="<?= esc_attr((string) $leccion_id) ?>"
                 data-url="<?= esc_url(rest_url('angelitozzz/v1/lecciones/' . $leccion_id . '/completar')) ?>"
-                data-nonce="<?= esc_attr(wp_create_nonce('wp_rest')) ?>">
+                data-nonce="<?= esc_attr(wp_create_nonce('wp_rest')) ?>"
+                data-texto-completada="<?= esc_attr__('(completada)', 'angelitozzz') ?>"
+                data-texto-pendiente="<?= esc_attr__('(pendiente)', 'angelitozzz') ?>"
+                data-aviso-completada="<?= esc_attr__('Lección completada.', 'angelitozzz') ?>"
+                data-aviso-pendiente="<?= esc_attr__('Lección marcada como pendiente.', 'angelitozzz') ?>"
+                data-aviso-avance="<?= esc_attr__('Avance del curso: %1$s%% (%2$s de %3$s lecciones).', 'angelitozzz') ?>"
+                data-error="<?= esc_attr__('No se pudo guardar el avance. Inténtalo de nuevo.', 'angelitozzz') ?>">
                 <span class="flex size-6 items-center justify-center rounded-full border border-[#9ec0c0] text-[#9ec0c0] group-aria-pressed:border-[#9cb09d] group-aria-pressed:bg-[#9cb09d] group-aria-pressed:text-blanco">
                     <?= angelitozzz_svg('leccion/check', 'h-3 w-[14px]') // SVG fijo del tema. ?>
                 </span>
@@ -46,7 +64,7 @@ $mis_cursos = function_exists('angelitozzz_cursos_url_pagina')
                 <span class="hidden group-aria-pressed:inline"><?= esc_html__('Completada', 'angelitozzz') ?></span>
             </button>
             <p class="sr-only" aria-live="polite" data-leccion-completar-aviso></p>
-            <p class="max-w-[260px] text-cuerpo-s text-acento" role="alert" data-leccion-completar-error hidden></p>
-        </div>
+            <p class="max-w-[260px] text-cuerpo-s text-acento" role="alert" data-leccion-completar-error<?= $error_previo === '' ? ' hidden' : '' ?>><?= esc_html($error_previo) ?></p>
+        </form>
     <?php endif; ?>
 </div>

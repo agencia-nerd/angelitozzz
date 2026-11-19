@@ -179,11 +179,11 @@
     - **Curso en borrador** (decisión del usuario, F4 bloque 6a): sale del sitio y de la venta, pero las alumnas con inscripción vigente conservan su acceso (lecciones, avance, materiales y su cuenta). La vista previa deja de verse. En la papelera, nadie entra.
     - **Al abrir una lección sin acceso** (`template_redirect`, antes de imprimir nada):
         - sin sesión → `/iniciar-sesion/?redirect_to=<lección>`;
-        - con sesión → la solución del curso, con el aviso "Este curso no está en tu cuenta" (propuesta);
+        - con sesión → la solución del curso, con el aviso "Este curso no está en tu cuenta. Puedes comprarlo aquí o canjear un código de regalo." (F5-c: `?aviso=sin-acceso` desde una lección o desde un curso; la landing y `/soluciones-de-sueno/` lo muestran con `aviso-formulario` y `angelitozzz_cursos_aviso_acceso()`);
         - lección en borrador, o curso en borrador sin inscripción vigente → 404, salvo para quien gestiona cursos.
     - **Solución de un curso:** la `solucion` publicada que lo tiene en `solucion_compra_cursos` (o en una etapa). Si no hay, `/soluciones-de-sueno/`.
     - **Descargas de materiales:**
-        - URL `/cursos/descargar/<id>/?_wpnonce=…`.
+        - URL `/cursos/descargar/<id>/?_wpnonce=…`. El archivo se descarga con el título del PDF saneado, sin el "Privado:" que WordPress antepone a los adjuntos privados (`angelitozzz_cursos_nombre_descarga()`, F5-c).
         - Comprueba sesión, nonce y que el PDF pertenezca a una lección o curso que la usuaria puede ver.
         - Entrega el archivo con `Content-Type: application/pdf`, `Content-Disposition: attachment`, `X-Content-Type-Options: nosniff` y sin caché pública.
         - Si algo falla, 403, sin revelar si el archivo existe.
@@ -341,6 +341,10 @@
         - `angelitozzz_cursos_temario( $curso_id )`: módulos y lecciones con su estado (completada, actual).
         - `angelitozzz_cursos_puede_ver( $leccion_id )`: si la usuaria puede ver la lección.
         - `angelitozzz_cursos_video_html( $leccion_id )`: el reproductor.
+        - `angelitozzz_cursos_video_url( $url, $opciones )` (F5-c): la dirección del reproductor para un enlace de video (opción `autoplay`), o vacío. Es lo único que sabe del proveedor (hoy Vimeo); la usa `video-portada`.
+        - `angelitozzz_cursos_puede_completar( $leccion_id, $usuario_id )` (F5-c): si puede guardar avance (ve la lección y tiene el curso, o gestiona cursos). Acción de formulario `angelitozzz_completar_leccion` (`leccion_id`, `marcar`) para "Marcar como completo" sin JS.
+        - `angelitozzz_cursos_aviso_acceso()` (F5-c): el texto del aviso "Este curso no está en tu cuenta…" si la página llegó con `?aviso=sin-acceso`; si no, vacío.
+        - `angelitozzz_cursos_nombre_descarga( $adjunto_id )` (F5-c): el nombre del archivo descargado.
         - `angelitozzz_cursos_materiales( $id )`: nombre, tamaño y URL de descarga firmada.
         - `angelitozzz_cursos_estado_linea( $pedido_id, $item_id )` (F5-c): el estado de una línea para el historial, `clave` y `texto`. Línea propia: `activo`, `por_expirar`, `vencido`, `cancelado` o `pendiente`. Línea de regalo: `regalo_sin_canjear`, `regalo_canjeado`, `regalo_vencido`, `cancelado` o `pendiente`. El tema elige el color por la clave.
         - `angelitozzz_cursos_estado_acceso( $pedido_id, $item_id )`: solo el texto de `estado_linea()`.
