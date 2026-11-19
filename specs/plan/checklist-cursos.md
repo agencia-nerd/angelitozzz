@@ -43,7 +43,7 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 - **Formularios y peticiones:** cada formulario y cada petición AJAX o REST lleva nonce y comprobación de capacidad. Cada lección, descarga o inscripción comprueba que pertenece a la usuaria, para que nadie acceda a lo de otra cambiando un ID en la URL o en la petición.
 - **Cuentas:**
     - Límite de intentos de inicio de sesión por IP y por correo.
-    - Los mensajes no revelan si un correo está registrado.
+    - Los mensajes no revelan si un correo está registrado. Excepción aceptada (usuario, 2026-11-19, opción A): "Crear cuenta" y el checkout avisan si el correo ya tiene cuenta, con límite de 10 por hora por IP (`crear-cuenta.md`, `checkout.md`).
     - Las 4 reglas de contraseña se validan en el servidor.
     - Cambiar el correo pide la contraseña actual.
     - `wp-admin` queda cerrado para las alumnas.
@@ -206,10 +206,12 @@ Plan aprobado el 2026-11-18. Tema y plugin 0.6.0 (119 pruebas en verde, PHPCS en
 
 Decisión del usuario (2026-11-19): la auditoría completa pasa a la F7. Antes de la F5-c solo se arregla lo que el canje usa (límite de intentos, cuentas e inscripciones), para no copiar el problema al regalo. Una rama corta, cada arreglo con su prueba:
 
-- [ ] Seguridad: mensajes que revelan si un correo está registrado (contra la regla de "Cuentas"): crear cuenta, "Ya existe una cuenta con ese correo" (`cuentas-formularios.php:182`, y la prueba lo da por bueno, `test-cuentas.php:186`); el error de Woo en el checkout; `wp-login.php` y el login del checkout sin filtro `login_errors`; "Ese correo ya está en uso" en el perfil (`cuentas-formularios.php:445`, `:541`)
-- [ ] Seguridad: el límite de intentos usa transitorios no atómicos (`cuentas.php:122-127`) y `wp_login_failed` suma también estando bloqueado, así que la ventana se alarga (`cuentas-formularios.php:37`, `:88-94`)
-- [ ] Plugin: una inscripción `cancelada` que se reactiva no recalcula `inicio` ni `vence` ni reencadena (`inscripciones.php:53-56`)
-- [ ] Plugin: no se comprueba el resultado de `GET_LOCK` (`inscripciones.php:63`); el registro del cambio de estado no lleva la usuaria ni el curso (`inscripciones.php:191-197`)
+- [x] Seguridad: mensajes que revelan si un correo está registrado (plugin 0.6.1, 2026-11-19, opción A). Login de `wp-login.php`, de Woo y XML-RPC con un solo mensaje ("Correo o contraseña incorrectos."); recuperar en `wp-login.php` con un correo inexistente lleva a la misma confirmación; el perfil responde igual si el correo nuevo ya es de otra cuenta y no envía nada. "Crear cuenta" y el checkout conservan su aviso (excepción de la regla de "Cuentas"), y el checkout suma al límite de 10 por hora por IP cada vez que sale. Probado también en vivo en `wp-login.php`
+- [x] Seguridad: límite de intentos atómico (plugin 0.6.1): tabla `angelitozzz_intentos` (migración 3, borra los transitorios viejos), suma en una sola consulta, ventana fija desde el primer intento, un intento bloqueado no suma y la tarea diaria borra los contadores vencidos
+- [x] Plugin: una inscripción `cancelada` que se reactiva (pedido pagado de nuevo) empieza hoy, o al terminar el acceso vigente, con sus propios meses (plugin 0.6.1)
+- [x] Plugin: sin `GET_LOCK` no inscribe (error `angelitozzz_bloqueo`; espera con el filtro `angelitozzz_cursos_espera_bloqueo`); la búsqueda de la línea ya inscrita va dentro del bloqueo; el puente deja nota en el pedido y reintenta una vez a los 5 minutos; el registro del cambio de estado lleva la usuaria y el curso (plugin 0.6.1)
+
+Plugin 0.6.1: 133 pruebas en verde (14 nuevas) y PHPCS en 0. La migración 3 corrió en el Local.
 
 ### Deuda de la F2 y del tema (va en el cierre de la F5)
 
