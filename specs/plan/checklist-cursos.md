@@ -135,7 +135,7 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 - [x] Mi perfil: datos personales (cambiar el correo pide la contraseña) y seguridad
 - [x] Rol `instructora` y capacidades; `wp-admin` cerrado para alumnas; `/mi-cuenta/` → escritorio (2026-11-14: la instructora conservó `wp-admin` hasta que existió el constructor; desde la F4, bloque 6b, va a `/administrador/`)
 - [x] Cuenta creada al pagar en el checkout (Woo) con las mismas reglas (plugin 0.3.0, 78 pruebas en verde; las pantallas son de la F4)
-- [ ] Auditoría de seguridad al cerrar la F3 (decisión del usuario, 2026-11-14): plugin completo (F2 + F3) y plantillas de cuentas, con la skill `cloudflare/security-audit-skill` (https://github.com/cloudflare/security-audit-skill; leer su código antes de instalarla). Si no sirve para PHP/WordPress, otra equivalente. Antes de correrla, preguntar al usuario el perfil y el tope de agentes (usa muchos subagentes). Cada hallazgo se corrige con su prueba
+- [ ] ~~Auditoría de seguridad al cerrar la F3~~ → se mueve a la F7 (decisión del usuario, 2026-11-19): se corre una sola vez, con todo integrado (regalo, canje, Angelita Pro). Ver F7 → "Auditoría de seguridad completa"
 
 ## F4 · Maquetación
 
@@ -163,9 +163,11 @@ Desde el 2026-11-17 el entorno ya no se arma a mano:
 - El resto lo revisa o lo arma `node specs/pruebas/entorno/instalar.mjs [--instalar]`.
 - `composer test`: 106 pruebas en verde.
 
+El 2026-11-19, en la PC del trabajo (tras un `git clone` del tema y del plugin), `instalar.mjs --instalar` volvió a armar la suite, la base `local_tests`, la regla de Nginx y `vendor/`: `composer test` con 119 pruebas en verde y `composer lint` en 0.
+
 En otra PC, seguir `specs/pruebas/LEEME.md` → "Entorno en otra PC" antes de tocar el plugin.
 
-**Orden de la F5 (decisión del usuario, 2026-11-17, tras la auditoría completa del proyecto):** F5-a (ACF y wp-query) → F5-b (WooCommerce) → auditoría de seguridad de la F3 y deuda de la F2 → F5-c (plugin: regalo, Mundo, lección) → cierre. Una rama por subfase y el plan aprobado antes de cada una.
+**Orden de la F5 (decisión del usuario, 2026-11-17, tras la auditoría completa del proyecto; ajustado el 2026-11-19):** F5-a (ACF y wp-query) → F5-b (WooCommerce) → arreglos previos a la F5-c (lo que el canje reutiliza) → F5-c (plugin: regalo, Mundo, lección) → cierre (con el resto de la deuda). La auditoría de seguridad completa pasa a la F7. Una rama por subfase y el plan aprobado antes de cada una.
 
 ### F5-a · Soluciones administrables (hecha)
 
@@ -200,20 +202,25 @@ Plan aprobado el 2026-11-18. Tema y plugin 0.6.0 (119 pruebas en verde, PHPCS en
 - [x] Gracias con un pedido `cancelled` o `refunded`: tarjeta "Pedido sin efecto" (decisión del usuario, 2026-11-18; `gracias.md` → confirmacion): "Este pedido fue cancelado/reembolsado", acceso ya no activo, WhatsApp y "Ver mi pedido", sin Mundo ni regalos. Probado con pedidos temporales
 - [ ] Quitar un curso desde la página `/carrito/` recarga la página (desde el drawer no recarga). Aceptado (usuario, 2026-11-18): en el diseño no hay enlace a `/carrito/`, que queda de respaldo (el carrito del header sin JS, el cupón del hero sin JS y los avisos o redirecciones de Woo)
 
-### Antes de la F5-c · Auditoría de la F3 y deuda de la F2
+### Antes de la F5-c · Arreglos que el canje reutiliza
 
-La auditoría pendiente de la F3 (arriba) va aquí, antes de la F5-c: el canje y el login del checkout reutilizan el límite de intentos y las cuentas. Hallazgos ya encontrados en la auditoría del 2026-11-17, cada uno con su prueba:
+Decisión del usuario (2026-11-19): la auditoría completa pasa a la F7. Antes de la F5-c solo se arregla lo que el canje usa (límite de intentos, cuentas e inscripciones), para no copiar el problema al regalo. Una rama corta, cada arreglo con su prueba:
 
-- [ ] Seguridad: mensajes que revelan si un correo está registrado (contra la regla de "Cuentas"): crear cuenta, "Ya existe una cuenta con ese correo" (`cuentas-formularios.php:181`, y la prueba lo da por bueno, `test-cuentas.php:186`); el error de Woo en el checkout; `wp-login.php` y el login del checkout sin filtro `login_errors`; "Ese correo ya está en uso" en el perfil
+- [ ] Seguridad: mensajes que revelan si un correo está registrado (contra la regla de "Cuentas"): crear cuenta, "Ya existe una cuenta con ese correo" (`cuentas-formularios.php:182`, y la prueba lo da por bueno, `test-cuentas.php:186`); el error de Woo en el checkout; `wp-login.php` y el login del checkout sin filtro `login_errors`; "Ese correo ya está en uso" en el perfil (`cuentas-formularios.php:445`, `:541`)
 - [ ] Seguridad: el límite de intentos usa transitorios no atómicos (`cuentas.php:122-127`) y `wp_login_failed` suma también estando bloqueado, así que la ventana se alarga (`cuentas-formularios.php:37`, `:88-94`)
+- [ ] Plugin: una inscripción `cancelada` que se reactiva no recalcula `inicio` ni `vence` ni reencadena (`inscripciones.php:53-56`)
+- [ ] Plugin: no se comprueba el resultado de `GET_LOCK` (`inscripciones.php:63`); el registro del cambio de estado no lleva la usuaria ni el curso (`inscripciones.php:191-197`)
+
+### Deuda de la F2 y del tema (va en el cierre de la F5)
+
+Hallazgos de la auditoría del 2026-11-17 y de la revisión del 2026-11-18 que no bloquean la F5-c. Cada uno con su prueba:
+
 - [ ] Seguridad: los enlaces del texto de la lección admiten `target` sin forzar `rel` (`tipos.php:158-163`); el tema imprime la lección con `the_content` sin la lista permitida de `wp_kses` (`template-parts/pages/leccion/pestanas.php`)
 - [x] Plugin: producto del curso con "Vender individualmente" y virtual, como pide `cursos-datos.md` → `puente-woo` (hecho en la F5-b, plugin 0.6.0: en cada guardado y con la migración 2)
 - [ ] Plugin: exportador y borrador de datos personales de WordPress (`wp_privacy_personal_data_*`; nota de página de `cursos-datos.md`)
-- [ ] Plugin: una inscripción `cancelada` que se reactiva no recalcula `inicio` ni `vence` ni reencadena (`inscripciones.php:53-56`)
-- [ ] Plugin: no se comprueba el resultado de `GET_LOCK` (`inscripciones.php:63`); el registro del cambio de estado no lleva la usuaria ni el curso (`inscripciones.php:191-197`)
 - [ ] Plugin: `angelitozzz_cursos_puede_ver()` exige `$usuario_id` aunque el spec lo da como opcional (`acceso.php:43`); `angelitozzz_cursos_pendientes_publicar()` no exige la capacidad (`admin.php:425`); `_angelitozzz_producto_id` no comprueba que el producto exista (`tipos.php:204`)
 - [ ] Plugin: `uninstall.php` no borra la meta `_angelitozzz_correo_pendiente`, los transitorios `angelitozzz_lim_*` y `angelitozzz_msg_*` ni la meta `_angelitozzz_curso_id` de los productos. Con `ANGELITOZZZ_CURSOS_BORRAR_TODO` tampoco borra los productos de Woo ni las portadas que crea el constructor (`constructor.php:183-199`, `:241-253`); su cabecera dice "borra todo lo que el plugin creó" (revisión del 2026-11-18)
-- [ ] Plugin: el PDF descargado sale con el nombre "Privado-…". `descargas.php:229` arma el nombre con `get_the_title()`, que antepone "Privado:" a los adjuntos privados. Hay que leer el título crudo, como ya hace `angelitozzz_cursos_datos_material()` (`:257`). Con su prueba (revisión del 2026-11-18)
+- [ ] Plugin (se hace de paso en la F5-c, que toca materiales): el PDF descargado sale con el nombre "Privado-…". `descargas.php:231` arma el nombre con `get_the_title()`, que antepone "Privado:" a los adjuntos privados. Hay que leer el título crudo, como ya hace `angelitozzz_cursos_datos_material()` (`:257`). Con su prueba (revisión del 2026-11-18)
 - [ ] Plugin: alta manual de una inscripción (existe el origen `manual`, sin pantalla ni ruta). Decidir si entra o se saca del spec
 - [ ] Tema y plugin: el tema lee el plugin solo por sus funciones públicas (regla de `CLAUDE.md`). Hoy `single-leccion.php:27-28` lee `_angelitozzz_tipo` y `_angelitozzz_mes_mundo` con `get_post_meta` (falta una función pública, que también sirve para el bloque de Mundo del correo), y el tema llama a funciones que no están en la lista pública del spec: `angelitozzz_cursos_puede_gestionar()`, `angelitozzz_cursos_vimeo_partes()` y `angelitozzz_cursos_redirect_seguro()`
 - [ ] Tema y plugin: más diferencias entre la lista pública de `cursos-datos.md` → `funciones-publicas` y el código (revisión del 2026-11-18). Se corrige el spec o el código, uno por uno:
@@ -230,8 +237,8 @@ La auditoría pendiente de la F3 (arriba) va aquí, antes de la F5-c: el canje y
 - [ ] Acción de canje en el plugin (`canjear-regalo.md`): nonce, límite de intentos, código de un solo uso marcado en la misma operación que inscribe, dato de un solo uso para la confirmación y flujo sin sesión por crear cuenta (la página `/canjear-regalo/` ya está en `inc/acf/paginas.php`, F5-a)
 - [ ] Funciones públicas del regalo que pide `cursos-datos.md` y no existen: `angelitozzz_cursos_pedido_regalos()` y `angelitozzz_cursos_ultimo_canje()`; textos del regalo en Ajustes del sitio
 - [ ] Bloque de Mundo en gracias y en el correo de pedido, excepto en regalos
-- [ ] Banner de Mundo solo en la primera lección de cada curso (no en Angelita Pro); mensaje inicial de Angelita Pro
-- [ ] Plugin: acción `admin-post` para "Marcar como completo" sin JS (`leccion.md`). El nombre de los materiales se arregló en la F4, bloque 6b, para la lista de la lección: se guarda el nombre legible del archivo y se lee sin el "Privado:" (los PDF subidos antes conservan el título saneado). El archivo descargado todavía sale con "Privado" (ver "Antes de la F5-c")
+- [ ] Banner de Mundo solo en la primera lección de cada curso (no en Angelita Pro); mensaje inicial de Angelita Pro. Ya maquetados y condicionados en `single-leccion.php:57-67` (F4, bloque 5); falta la función pública que reemplace los `get_post_meta` (ver "Deuda de la F2 y del tema") y probarlos
+- [ ] Plugin: acción `admin-post` para "Marcar como completo" sin JS (`leccion.md`). El nombre de los materiales se arregló en la F4, bloque 6b, para la lista de la lección: se guarda el nombre legible del archivo y se lee sin el "Privado:" (los PDF subidos antes conservan el título saneado). El archivo descargado todavía sale con "Privado" (ver "Deuda de la F2 y del tema")
 - [ ] Constructor: cambiar los diálogos nativos del navegador por modales de wp-modal con el estilo del modal `eliminar` (pedido del usuario, 2026-11-14: no siguen el diseño y son pobres en accesibilidad). Son el `window.prompt` que pide la URL del enlace en el editor de la lección (`src/js/modules/editor-texto.js`) el `window.alert` de enlace no válido (`editor-texto.js:97`, sumado en la auditoría del 2026-11-17) y el `window.confirm` de "descartar cambios" al cerrar el modal de la lección (`src/js/modules/constructor-contenido.js`). El enlace necesita un campo URL con su validación (solo http, https o mailto) y "Quitar enlace"; el descarte, "Seguir editando" y "Descartar cambios". Spec: `admin-constructor.md` → `modal-leccion`
 - [ ] Hallazgos de la verificación de `cursos-datos.md` (2026-11-17):
     - [ ] El producto del curso (oculto del catálogo) sale en el mapa del sitio (`wp-sitemap-posts-product-1.xml`, también `product_cat`) y en la búsqueda de la Store API de Woo (`/wp-json/wc/store/v1/products?search=`). Su ficha ya redirige a `/soluciones-de-sueno/`; falta sacarlo de los sitemaps
@@ -271,6 +278,7 @@ La auditoría pendiente de la F3 (arriba) va aquí, antes de la F5-c: el canje y
 ## F7 · Cierre
 
 - [ ] QA en escritorio, tablet y móvil
+- [ ] Auditoría de seguridad completa (movida desde la F3, decisión del usuario, 2026-11-19): plugin completo y plantillas del tema, con todo ya integrado (cuentas, compra, regalo y canje, lección, administrador, Angelita Pro). Con la skill `cloudflare/security-audit-skill` (https://github.com/cloudflare/security-audit-skill; leer su código antes de instalarla); si no sirve para PHP/WordPress, otra equivalente. Antes de correrla, preguntar al usuario el perfil y el tope de agentes (usa muchos subagentes). Cada hallazgo se corrige con su prueba
 - [ ] Revisión de seguridad final (`/security-review` de todo el plugin y las plantillas)
 - [ ] Manual de la clienta con wp-manual (incluye el administrador de cursos)
 - [ ] Cuenta de Bárbara en producción: usuaria propia con su correo y rol administradora (no la de la agencia). Con ella entra a `/wp-admin/` (contenido) y a `/administrador/` (cursos)

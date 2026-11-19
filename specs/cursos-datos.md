@@ -15,7 +15,7 @@
     - Los datos de cursos y lecciones los escribe el constructor de Bárbara (`admin-constructor.md`), no el admin de WordPress ni ACF. Las capturas del constructor están en `specs/figma/lectura/admin-cursos/constructor-*.png`; de ahí salen los campos de `curso` y `leccion`.
     - Todo en el plugin: prefijo `angelitozzz_` en funciones, opciones, hooks, metadatos (`_angelitozzz_*`) y tablas (`{prefix}angelitozzz_*`); text domain `angelitozzz-cursos`; las tablas se crean con migraciones versionadas (`includes/esquema.php`).
     - Fechas guardadas en UTC (`DATETIME`); se muestran en la zona horaria del sitio (`wp_date`).
-    - Privacidad: al borrar una usuaria se borran sus inscripciones y su avance (`delete_user`), y el plugin registra el exportador y el borrador de datos personales de WordPress (Herramientas → Exportar / Borrar datos personales). **Pendiente:** el exportador y el borrador aún no existen (`checklist-cursos.md` → "Antes de la F5-c").
+    - Privacidad: al borrar una usuaria se borran sus inscripciones y su avance (`delete_user`), y el plugin registra el exportador y el borrador de datos personales de WordPress (Herramientas → Exportar / Borrar datos personales). **Pendiente:** el exportador y el borrador aún no existen (`checklist-cursos.md` → "Deuda de la F2 y del tema").
     - Desinstalar el plugin borra sus tablas y opciones; los cursos y lecciones (posts) se conservan, salvo que esté definida la constante `ANGELITOZZZ_CURSOS_BORRAR_TODO` (propuesta, para no perder contenido por un clic).
 - **Estado:** aprobado
 
@@ -324,7 +324,7 @@
 - **Grupo:** ninguno
 - **Skill:** ninguna
 - **Comportamiento:** el tema solo usa estas funciones y nunca consulta las tablas. Todas trabajan con la usuaria de la sesión, salvo las del administrador, que exigen la capacidad.
-    - **Dónde viven (2026-11-18):** `includes/api.php` reúne solo una parte. Las demás están en el archivo de su tema: `acceso.php`, `video.php`, `cuentas*.php`, `admin.php`, `rest-admin.php` y `constructor.php`. Lo público es esta lista, no el archivo. Las diferencias entre la lista, el código y lo que llama el tema están anotadas en `checklist-cursos.md` → "Antes de la F5-c".
+    - **Dónde viven (2026-11-18):** `includes/api.php` reúne solo una parte. Las demás están en el archivo de su tema: `acceso.php`, `video.php`, `cuentas*.php`, `admin.php`, `rest-admin.php` y `constructor.php`. Lo público es esta lista, no el archivo. Las diferencias entre la lista, el código y lo que llama el tema están anotadas en `checklist-cursos.md` → "Deuda de la F2 y del tema".
     - **Comprobar que el plugin existe:** el tema verifica que exista la función del plugin que va a usar (`function_exists`) y, si no existe, muestra un aviso en vez de romper la página.
     - **Funciones:**
         - `angelitozzz_cursos_activo()`: el plugin está cargado.
