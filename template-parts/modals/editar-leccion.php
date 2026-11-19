@@ -8,6 +8,10 @@
  *
  * Lo maneja src/js/modules/constructor-contenido.js: cambia el título, el antetítulo ("Módulo N ·
  * Lección N", que es la descripción del modal) y los valores al abrir, y guarda por la API.
+ *
+ * Sin ventanas nativas del navegador ni modales encima de este (regla de wp-modal): el enlace del editor
+ * es una fila bajo la barra de formato ([data-editor-enlace]) y "¿Descartar los cambios?" es una vista
+ * que reemplaza el contenido del mismo modal ([data-leccion-descartar], con el estilo del modal eliminar).
  */
 
 defined('ABSPATH') || exit;
@@ -16,6 +20,7 @@ $campo    = 'w-full rounded-[12px] border border-neutro bg-fondo px-6 py-4 text-
 $etiqueta = 'text-rotulo text-marca';
 $ayuda    = 'text-caption text-tinta-suave';
 $error    = 'text-caption text-acento empty:hidden';
+$chico    = 'inline-flex cursor-pointer items-center justify-center whitespace-nowrap rounded-full border-[1.5px] border-marca px-4 py-2 text-cuerpo-s text-marca focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca';
 $barra    = 'flex size-8 cursor-pointer items-center justify-center rounded-[8px] border border-neutro bg-blanco text-marca hover:border-marca aria-pressed:bg-marca aria-pressed:text-blanco focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca';
 
 angelitozzz_modal_start('editar-leccion', [
@@ -39,7 +44,6 @@ angelitozzz_modal_start('editar-leccion', [
     data-titulo-nueva="<?= esc_attr__('Nueva lección', 'angelitozzz') ?>"
     data-titulo-editar="<?= esc_attr__('Editar lección', 'angelitozzz') ?>"
     data-antetitulo="<?= esc_attr__('Módulo %1$d · Lección %2$d', 'angelitozzz') ?>"
-    data-descartar="<?= esc_attr__('Tienes cambios sin guardar en esta lección. ¿Quieres descartarlos?', 'angelitozzz') ?>"
     data-video-conectado="<?= esc_attr__('Video conectado', 'angelitozzz') ?>"
     data-video-duracion="<?= esc_attr__('Duración: %s · se detecta sola', 'angelitozzz') ?>"
     data-video-leyendo="<?= esc_attr__('Leyendo el video…', 'angelitozzz') ?>"
@@ -49,7 +53,7 @@ angelitozzz_modal_start('editar-leccion', [
     data-solo-pdf="<?= esc_attr__('Solo se aceptan archivos PDF de hasta 20 MB.', 'angelitozzz') ?>"
     data-guardando="<?= esc_attr__('Guardando…', 'angelitozzz') ?>">
 
-    <div class="flex min-h-0 flex-1 flex-col gap-7 overflow-y-auto overscroll-contain px-8 py-6 max-sm:gap-6 max-sm:px-4">
+    <div class="flex min-h-0 flex-1 flex-col gap-7 overflow-y-auto overscroll-contain px-8 py-6 max-sm:gap-6 max-sm:px-4" data-leccion-contenido>
         <div class="rounded-[12px] border border-acento p-4 text-cuerpo-s text-acento empty:hidden" role="alert" data-leccion-error></div>
 
         <div class="flex flex-col gap-2">
@@ -82,7 +86,6 @@ angelitozzz_modal_start('editar-leccion', [
                 data-editor
                 data-etiqueta-id="leccion-descripcion-etiqueta"
                 data-ayuda-id="leccion-descripcion-ayuda"
-                data-pedir-enlace="<?= esc_attr__('Pega el enlace (https://…). Déjalo vacío para quitarlo.', 'angelitozzz') ?>"
                 data-enlace-invalido="<?= esc_attr__('Ese enlace no es válido: tiene que empezar con https://, http:// o mailto:.', 'angelitozzz') ?>">
                 <div class="flex gap-2 border-b border-neutro bg-fondo px-4 py-3" role="toolbar" aria-label="<?= esc_attr__('Formato del texto', 'angelitozzz') ?>" aria-controls="leccion-descripcion">
                     <button class="<?= esc_attr($barra) ?>" type="button" aria-pressed="false" data-editor-accion="negrita" aria-label="<?= esc_attr__('Negrita', 'angelitozzz') ?>">
@@ -94,9 +97,22 @@ angelitozzz_modal_start('editar-leccion', [
                     <button class="<?= esc_attr($barra) ?>" type="button" aria-pressed="false" data-editor-accion="lista" aria-label="<?= esc_attr__('Lista', 'angelitozzz') ?>">
                         <?= angelitozzz_svg('administrador/editor-lista', 'size-4') // SVG fijo del tema. ?>
                     </button>
-                    <button class="<?= esc_attr($barra) ?>" type="button" aria-pressed="false" data-editor-accion="enlace" aria-label="<?= esc_attr__('Enlace', 'angelitozzz') ?>">
+                    <button class="<?= esc_attr($barra) ?>" type="button" aria-pressed="false" aria-expanded="false" aria-controls="leccion-enlace-panel" data-editor-accion="enlace" aria-label="<?= esc_attr__('Enlace', 'angelitozzz') ?>">
                         <?= angelitozzz_svg('administrador/editor-enlace', 'size-4') // SVG fijo del tema. ?>
                     </button>
+                </div>
+                <?php // Enlace del texto seleccionado (en vez de window.prompt): Enter aplica, Escape cierra solo esta fila. ?>
+                <div class="flex flex-col gap-2 border-b border-neutro bg-blanco px-4 py-3" id="leccion-enlace-panel" hidden data-editor-enlace>
+                    <label class="<?= esc_attr($etiqueta) ?>" for="leccion-enlace"><?= esc_html__('Enlace', 'angelitozzz') ?></label>
+                    <div class="flex flex-wrap items-center gap-2">
+                        <input class="<?= esc_attr($campo . ' min-w-[200px] flex-1 py-3') ?>" id="leccion-enlace" type="url" inputmode="url" autocomplete="off"
+                            placeholder="https://…" aria-describedby="leccion-enlace-ayuda leccion-enlace-error" data-editor-enlace-campo>
+                        <button class="<?= esc_attr($chico . ' border-acento bg-acento text-blanco') ?>" type="button" data-editor-enlace-aplicar><?= esc_html__('Aplicar', 'angelitozzz') ?></button>
+                        <button class="<?= esc_attr($chico) ?>" type="button" hidden data-editor-enlace-quitar><?= esc_html__('Quitar enlace', 'angelitozzz') ?></button>
+                        <button class="<?= esc_attr($chico) ?>" type="button" data-editor-enlace-cancelar><?= esc_html__('Cancelar', 'angelitozzz') ?></button>
+                    </div>
+                    <p class="<?= esc_attr($ayuda) ?>" id="leccion-enlace-ayuda"><?= esc_html__('Selecciona el texto y pega el enlace. Tiene que empezar con https://, http:// o mailto:.', 'angelitozzz') ?></p>
+                    <p class="<?= esc_attr($error) ?>" id="leccion-enlace-error" role="alert" data-editor-enlace-error></p>
                 </div>
                 <div id="leccion-descripcion" data-editor-area></div>
             </div>
@@ -125,7 +141,24 @@ angelitozzz_modal_start('editar-leccion', [
         </label>
     </div>
 
-    <div class="flex flex-none justify-end gap-4 border-t border-neutro px-8 py-5 max-sm:flex-col-reverse max-sm:px-4">
+    <?php // ¿Descartar los cambios? (en vez de window.confirm): reemplaza el contenido y el pie del mismo modal. ?>
+    <div class="flex flex-col items-center gap-4 px-10 pb-10 pt-8 text-center max-sm:px-5 max-sm:pb-6" hidden role="group" aria-labelledby="leccion-descartar-titulo" aria-describedby="leccion-descartar-texto" data-leccion-descartar>
+        <div class="flex size-12 items-center justify-center rounded-full border-2 border-terracota text-h4 text-terracota" aria-hidden="true">!</div>
+        <h3 class="text-h3 text-marca" id="leccion-descartar-titulo"><?= esc_html__('¿Descartar los cambios?', 'angelitozzz') ?></h3>
+        <p class="max-w-[440px] text-cuerpo text-tinta" id="leccion-descartar-texto"><?= esc_html__('Tienes cambios sin guardar en esta lección. Si los descartas, se pierden.', 'angelitozzz') ?></p>
+        <div class="mt-2 flex justify-center gap-4 max-sm:w-full max-sm:flex-col-reverse">
+            <button class="inline-flex cursor-pointer items-center justify-center gap-[10px] whitespace-nowrap rounded-full border-[1.5px] border-marca px-[28px] py-[14px] text-rotulo text-marca focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca"
+                type="button" data-leccion-seguir><?= esc_html__('Seguir editando', 'angelitozzz') ?></button>
+            <?php // Mismo aspecto que el componente boton frambuesa con flecha (que no imprime un <button type="button"> suelto). ?>
+            <button class="inline-flex cursor-pointer items-center justify-center gap-[10px] whitespace-nowrap rounded-full bg-acento py-[14px] pl-[28px] pr-[24px] text-rotulo text-blanco focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca"
+                type="button" data-leccion-descartar-confirmar>
+                <span><?= esc_html__('Descartar cambios', 'angelitozzz') ?></span>
+                <svg class="size-[18px] shrink-0" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.75 9h10.5M9 3.75 14.25 9 9 14.25" /></svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="flex flex-none justify-end gap-4 border-t border-neutro px-8 py-5 max-sm:flex-col-reverse max-sm:px-4" data-leccion-pie>
         <button class="inline-flex cursor-pointer items-center justify-center gap-[10px] whitespace-nowrap rounded-full border-[1.5px] border-marca px-[28px] py-[14px] text-rotulo text-marca focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca"
             type="button" data-leccion-cancelar><?= esc_html__('Cancelar', 'angelitozzz') ?></button>
         <?php get_template_part('template-parts/components/boton', null, [

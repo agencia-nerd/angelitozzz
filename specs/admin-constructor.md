@@ -47,7 +47,7 @@
         - `h1`: el título del paso ("Crear nuevo curso" en un curso nuevo y "Editar curso" al editar uno que ya existe, "Contenido del curso", "Publicar curso"). Lo da `angelitozzz_titulo_paso_constructor()` (`inc/administrador.php`), que también arma el título SEO.
         - El JS se divide por paso (`constructor-basico.js`, `constructor-contenido.js`, `constructor-publicar.js`, con `editor-texto.js` para Tiptap) y comparte `admin-comun.js` con la lista de cursos (cliente de la API, `pedirConfirmacion()` y el aviso de cambios sin guardar), en vez de un solo `constructor.js`.
         - Las URL de la API no se escriben en el JS: PHP pasa la base con `rest_url( 'angelitozzz/v1/' )` en `data-api` y `urlApi()` de `admin-comun.js` le agrega cada ruta y sus parámetros. Así funciona con enlaces permanentes "bonitos" (`/wp-json/…`) y con los simples (`?rest_route=…`).
-        - Pendiente para la F5 (checklist): el enlace del editor y el aviso de descartar cambios usan hoy `window.prompt` y `window.confirm`; pasan a modales de wp-modal.
+        - Desde la F5-c (2026-11-19) no hay ventanas nativas del navegador: el enlace del editor y "¿Descartar los cambios?" son paneles del mismo modal (sin modales apilados, regla de wp-modal; decisión del usuario). Ver `modal-leccion`.
         - Sin JavaScript, el constructor muestra un aviso (`<noscript>`): guarda todo por la API.
         - Título SEO del paso, con `noindex`.
         - Sin frame móvil: el móvil es una propuesta.
@@ -192,6 +192,7 @@ Contenido del diseño (ejemplo): "Módulo 1 · Bienvenida" con "Conoce a Bárbar
             - Con videos ocultos de Vimeo vale el enlace completo, con su código privado.
         - **"Descripción de la lección":** ayuda "Es el texto que la mamá ve debajo del video. Se edita como un documento.".
             - Editor liviano con solo Negrita, Cursiva, Lista y Enlace (propuesta: Tiptap con esas 4 extensiones, instalado con pnpm), con barra crema.
+            - Enlace (F5-c): el botón abre una fila bajo la barra (`aria-expanded`) con la etiqueta "Enlace", un campo URL, la ayuda "Selecciona el texto y pega el enlace. Tiene que empezar con https://, http:// o mailto:." y los botones "Aplicar", "Quitar enlace" (solo si el texto ya tenía enlace) y "Cancelar". Un enlace que no empieza con http, https o mailto muestra "Ese enlace no es válido: tiene que empezar con https://, http:// o mailto:." (`role="alert"`, campo con `aria-invalid`). Enter aplica (no envía el formulario); Escape cierra solo la fila. Al aplicar, el foco vuelve al editor.
             - Al guardar, el servidor filtra el HTML con `wp_kses` y la lista permitida de `cursos-datos.md`.
             - Un párrafo que empieza con "PD:" se verá como cita en la lección.
         - **"Descargables (opcional)":** ayuda "PDFs que la mamá puede descargar desde esta lección.".
@@ -199,7 +200,7 @@ Contenido del diseño (ejemplo): "Módulo 1 · Bienvenida" con "Conoce a Bárbar
             - El servidor valida que sea PDF por su contenido y que no pase de 20 MB, y lo guarda en la carpeta privada.
         - **Interruptor frambuesa "Lección de vista previa gratuita (se puede ver sin comprar)":** un `<input type="checkbox" role="switch">`.
     - **Pie:**
-        - "Cancelar": cierra sin guardar, y pregunta si hay cambios.
+        - "Cancelar": cierra sin guardar, y pregunta si hay cambios. La pregunta es una vista del mismo modal (F5-c) con el estilo del modal `eliminar`: ícono "!" terracota, título "¿Descartar los cambios?", texto "Tienes cambios sin guardar en esta lección. Si los descartas, se pierden." y los botones "Seguir editando" (secundario, recibe el foco) y "Descartar cambios" (frambuesa con flecha). Esc y la ✕ también la muestran; con la vista abierta, Esc o la ✕ vuelven a editar.
         - "Guardar lección": guarda por la API, cierra y actualiza la fila.
 - **Indicaciones del diseño:**
     - (La nota de la página "Para editar un modulo, curso es un modal asi" muestra este modal de lección; editar un módulo usa un modal chico con el mismo estilo.)

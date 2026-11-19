@@ -22,18 +22,10 @@ $titulo  = trim((string) ($args['titulo'] ?? ''));
 $clase   = (string) ($args['clase'] ?? '');
 $loading = ($args['loading'] ?? 'lazy') === 'eager' ? 'eager' : 'lazy';
 
-// Reproductor de Vimeo con la misma lectura del enlace que el plugin de cursos (id y hash privado).
-$src = '';
-if ($video !== '' && function_exists('angelitozzz_cursos_vimeo_partes')) {
-    $partes = angelitozzz_cursos_vimeo_partes($video);
-    if ($partes) {
-        $parametros = ['dnt' => '1', 'autoplay' => '1'];
-        if ($partes['hash'] !== '') {
-            $parametros['h'] = $partes['hash'];
-        }
-        $src = add_query_arg($parametros, 'https://player.vimeo.com/video/' . $partes['id']);
-    }
-}
+// Dirección del reproductor: la arma el plugin de cursos (el único que sabe del proveedor de video).
+$src = $video !== '' && function_exists('angelitozzz_cursos_video_url')
+    ? angelitozzz_cursos_video_url($video, ['autoplay' => true])
+    : '';
 
 $portada = angelitozzz_image($imagen, [
     'class'        => 'absolute inset-0 size-full object-cover',

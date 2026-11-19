@@ -1,6 +1,8 @@
 // Recorrido del constructor (bloque 6b) por CDP con la instructora de prueba (datos-f5.php crear):
 // crea un curso de cero (paso 1 con error del servidor y portada), agrega módulo, lecciones con video de
 // Vimeo, texto y PDF, ordena con teclado, elimina, y lo publica (paso 3). Contraseña siempre correcta.
+// F5-c: el enlace del editor y "¿Descartar los cambios?" son paneles del mismo modal. Si aparece una ventana
+// nativa del navegador (alert, confirm o prompt), se cierra sin aceptar y queda en out.dialogosNativos (falla).
 // Uso: node cdp-constructor.mjs <carpeta temporal para el PNG y el PDF>
 import { spawn } from 'node:child_process';
 import fs from 'node:fs';
@@ -28,6 +30,10 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 let ws, id = 0, cargo = null;
 const pending = new Map();
 const errores = [];
+const dialogosNativos = [];
+const tecla = async (key, code, keyCode) => { // Tecla real (Enter, Escape) en el elemento con foco.
+    for (const type of ['keyDown', 'keyUp']) await send('Input.dispatchKeyEvent', { type, key, code, windowsVirtualKeyCode: keyCode, nativeVirtualKeyCode: keyCode });
+};
 const send = (method, params = {}) => new Promise((r) => { const n = ++id; pending.set(n, r); ws.send(JSON.stringify({ id: n, method, params })); });
 const ev = async (expr) => {
     const r = await send('Runtime.evaluate', { expression: `(async () => { ${expr} })()`, awaitPromise: true, returnByValue: true });
@@ -61,7 +67,7 @@ try {
                     if (m.id && pending.has(m.id)) { pending.get(m.id)(m); pending.delete(m.id); }
                     if (m.method === 'Page.loadEventFired' && cargo) { const c = cargo; cargo = null; c(); }
                     if (m.method === 'Runtime.exceptionThrown') errores.push(m.params.exceptionDetails.exception?.description?.slice(0, 200));
-                    if (m.method === 'Page.javascriptDialogOpening') send('Page.handleJavaScriptDialog', { accept: true });
+                    if (m.method === 'Page.javascriptDialogOpening') { dialogosNativos.push(`${m.params.type}: ${m.params.message}`); send('Page.handleJavaScriptDialog', { accept: false }); }
                 });
             }
         } catch {}
@@ -120,6 +126,30 @@ try {
             await ev(`document.querySelector('[data-editor-area] [contenteditable]')?.focus() ?? document.querySelector('[data-editor-area]').focus(); return 1;`);
             await send('Input.insertText', { text: 'Bienvenida al curso. PD: escríbeme si tienes dudas.' });
             await ev(`document.querySelector('[data-editor-accion="negrita"], [data-editor-accion="bold"]')?.click(); return 1;`);
+
+            // Enlace: fila del editor (sin prompt). Enlace inválido → error; válido → enlace; Escape cierra solo la fila.
+            // Seleccionar todo el texto con el teclado (como una persona), y abrir la fila del enlace.
+            await ev(`document.querySelector('[data-editor-area] [contenteditable]').focus(); return 1;`);
+            for (const type of ['keyDown', 'keyUp']) await send('Input.dispatchKeyEvent', { type, key: 'a', code: 'KeyA', windowsVirtualKeyCode: 65, modifiers: 2, commands: type === 'keyDown' ? ['selectAll'] : [] });
+            await sleep(300);
+            await ev(`document.querySelector('[data-editor-accion="enlace"]').click(); return 1;`);
+            await sleep(300);
+            out.enlaceAbierto = await ev(`const p = document.querySelector('[data-editor-enlace]'); return { visible: !p.hidden, foco: document.activeElement === p.querySelector('[data-editor-enlace-campo]'), expandido: document.querySelector('[data-editor-accion="enlace"]').getAttribute('aria-expanded') };`);
+            await send('Input.insertText', { text: 'javascript:alert(1)' });
+            await tecla('Enter', 'Enter', 13);
+            await sleep(300);
+            out.enlaceInvalido = await ev(`const p = document.querySelector('[data-editor-enlace]'); return { error: p.querySelector('[data-editor-enlace-error]').textContent.trim(), invalido: p.querySelector('[data-editor-enlace-campo]').getAttribute('aria-invalid'), modalAbierto: document.getElementById('editar-leccion').open, enlaces: document.querySelectorAll('[data-editor-area] a').length };`);
+            await ev(`const c = document.querySelector('[data-editor-enlace-campo]'); c.focus(); c.select(); return 1;`);
+            await send('Input.insertText', { text: 'https://angelitozzz.com/' });
+            await tecla('Enter', 'Enter', 13);
+            await sleep(300);
+            out.enlaceValido = await ev(`return { href: document.querySelector('[data-editor-area] a')?.getAttribute('href'), filaOculta: document.querySelector('[data-editor-enlace]').hidden, modalAbierto: document.getElementById('editar-leccion').open };`);
+            await ev(`document.querySelector('[data-editor-area] a').click(); document.querySelector('[data-editor-accion="enlace"]').click(); return 1;`);
+            await sleep(300);
+            out.enlaceQuitarVisible = await ev(`return !document.querySelector('[data-editor-enlace-quitar]').hidden;`);
+            await tecla('Escape', 'Escape', 27);
+            await sleep(300);
+            out.enlaceEscape = await ev(`return { filaOculta: document.querySelector('[data-editor-enlace]').hidden, modalAbierto: document.getElementById('editar-leccion').open };`);
             await subir('[data-leccion-form] input[type=file]', rutaPdf);
             await sleep(500);
             out.chips = await texto('[data-materiales]');
@@ -130,6 +160,21 @@ try {
     await nuevaLeccion('Conoce a Bárbara', true);
     out.modalCerrado = await ev(`return !document.getElementById('editar-leccion').open;`);
     await nuevaLeccion('Objetivos del curso', false);
+
+    // ¿Descartar los cambios? (sin confirm): Cancelar con cambios muestra la vista; Escape = seguir editando.
+    await ev(`const m = document.querySelector('li[data-modulo]'); m.querySelector('[data-agregar-leccion]').click(); return 1;`);
+    await sleep(800);
+    await ev(`const f = document.querySelector('[data-leccion-form]'); f.titulo.value = 'Lección que se descarta'; f.titulo.dispatchEvent(new Event('input', { bubbles: true })); f.querySelector('[data-leccion-cancelar]').click(); return 1;`);
+    await sleep(300);
+    out.descartarVista = await ev(`const v = document.querySelector('[data-leccion-descartar]'); return { visible: !v.hidden, contenidoOculto: document.querySelector('[data-leccion-contenido]').hidden, foco: document.activeElement?.innerText.trim(), modalAbierto: document.getElementById('editar-leccion').open };`);
+    await tecla('Escape', 'Escape', 27);
+    await sleep(300);
+    out.descartarEscape = await ev(`return { vistaOculta: document.querySelector('[data-leccion-descartar]').hidden, modalAbierto: document.getElementById('editar-leccion').open, titulo: document.querySelector('[data-leccion-form]').titulo.value };`);
+    await ev(`document.querySelector('[data-leccion-cancelar]').click(); return 1;`);
+    await sleep(300);
+    await ev(`document.querySelector('[data-leccion-descartar-confirmar]').click(); return 1;`);
+    await sleep(500);
+    out.descartarCerrado = await ev(`return { modalAbierto: document.getElementById('editar-leccion').open, creada: !![...document.querySelectorAll('li[data-item]')].find(i => i.dataset.titulo === 'Lección que se descarta') };`);
     out.items = await ev(`return [...document.querySelectorAll('li[data-modulo] li[data-item]')].map(i => i.innerText.replace(/\\s+/g, ' ').trim().slice(0, 120));`);
 
     // Descargable del módulo.
@@ -189,6 +234,7 @@ try {
     out.fallo = String(e?.stack || e);
 } finally {
     out.erroresJs = errores;
+    out.dialogosNativos = dialogosNativos;
     console.log(JSON.stringify(out, null, 1));
     proc.kill();
     process.exit(0);

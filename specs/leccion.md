@@ -22,7 +22,8 @@
     - Mes gratis en Mundo: banner solo en la primera lección del curso (siempre visible), más el bloque en la confirmación de compra y en el correo de pedido. Detalle en la nota “Banner del mes gratis en Mundo”.
     - Nota Banner del mes gratis en Mundo (para desarrollo) a continuacion
     - Aplica a Recién Nacidos Go y a los 3 cursos de Horarios (Angelita Pro no incluye el mes gratis). Versión simple, según lo pedido por Bárbara en la Reunión 3 (reducir costos).
-    - Correo de pedido de WooCommerce (F5-c: el correo "Procesando"/"Completado" de Woo a la clienta, con el bloque que imprime `inc/woocommerce/correos.php`; textos y enlace de `opciones_mes_gratis_mundo`): se le agrega el bloque del mes gratis con el botón “Activar mi mes gratis en Mundo Angelitozzz”, basado en el “Email 1 — Confirmación inmediata” del Web Copy. Sin secuencia de recordatorios.
+    - Correo de pedido de WooCommerce (el que llega por defecto o como sea lo conveniendo, en el proceso se decide si es woo u otro): se le agrega el bloque del mes gratis con el botón “Activar mi mes gratis en Mundo Angelitozzz”, basado en el “Email 1 — Confirmación inmediata” del Web Copy. Sin secuencia de recordatorios.
+    - Decidido en la F5-c (2026-11-19): es el correo "Procesando"/"Completado" de WooCommerce a la clienta, con el bloque que imprime `inc/woocommerce/correos.php` (textos y enlace de `opciones_mes_gratis_mundo`).
     - Página de confirmación de compra: bloque verde “Espera — hay algo más esperándote” con el mismo botón.
     - Dentro del curso: el banner de Mundo va solo en la primera lección de cada curso, siempre visible. Sin estados, sin “Ya lo activé” y sin guardar clics. En el resto de lecciones, el recordatorio es el texto de Bárbara (“Revisa tu correo…”).
     - No va en “Mi cuenta”.
@@ -38,8 +39,8 @@
     - Acceso (`cursos-datos.md` → `acceso`): sin sesión → iniciar sesión y volver; sin inscripción vigente → la solución del curso; las lecciones de vista previa se ven sin comprar. La comprobación ocurre antes de imprimir la página.
     - `h1`: el nombre del curso (cabecera); el título de la lección es `h2`. Título SEO "<lección> · <curso> | Angelitozzz", con `noindex` (contenido de pago).
     - Cintillo, header y footer salen de `header.php` y `footer.php`. Sin frame móvil: el móvil es una propuesta.
-    - Aplicado en la F4, bloque 5 (2026-11-14): el avance del curso se actualiza en el temario y se anuncia por `aria-live`, sin barra (el diseño no la tiene); "Marcar como completo" funciona solo con JS (el botón aparece solo con JS) porque el plugin no tiene una acción `admin-post` para hacerlo sin JS: se suma en la F5; las pestañas usan el `src/js/modules/pestanas.js` genérico (no un `pestanas-leccion.js`); el video sale de un `<template>` con `angelitozzz_cursos_video_html()` y se carga al pulsar play (`video-leccion.js`), con `<noscript>` sin JS; el título del mensaje de Angelita Pro es `h2` para no saltar del `h1`; el banner de Mundo va entre el video y las pestañas, como en el orden del spec. Para saber si la alumna compró el curso (botón, candados y PDF del curso) se usa `angelitozzz_cursos_puede_ver_curso()`.
-    - Se verifican en la F5: "Marcar como completo" sin JS (acción del plugin) y que el banner de Mundo no se imprima sin enlace en Ajustes del sitio (en la F4 el banner usa la muestra mientras el campo no exista en ACF).
+    - Aplicado en la F4, bloque 5 (2026-11-14): el avance del curso se actualiza en el temario y se anuncia por `aria-live`, sin barra (el diseño no la tiene); "Marcar como completo" funcionaba solo con JS; desde la F5-c (plugin 0.7.1) es un formulario a la acción `angelitozzz_completar_leccion` (mismo permiso que la ruta REST, `angelitozzz_cursos_puede_completar()`) que el JS envía por la REST sin recargar; las pestañas usan el `src/js/modules/pestanas.js` genérico (no un `pestanas-leccion.js`); el video sale de un `<template>` con `angelitozzz_cursos_video_html()` y se carga al pulsar play (`video-leccion.js`), con `<noscript>` sin JS; el título del mensaje de Angelita Pro es `h2` para no saltar del `h1`; el banner de Mundo va entre el video y las pestañas, como en el orden del spec. Para saber si la alumna compró el curso (botón, candados y PDF del curso) se usa `angelitozzz_cursos_puede_ver_curso()`.
+    - Verificado en la F5-c (2026-11-19, en el Local): "Marcar como completo" sin JS marca, desmarca y vuelve a la lección; el banner de Mundo no se imprime sin enlace en Ajustes del sitio.
 - **Estado:** aplicado
 
 ## Sección: cabecera
@@ -68,6 +69,7 @@
 - [x] Cumple los criterios comunes de `_shared.md`
 - [x] "Marcar como completo" funciona con JS (ruta REST del plugin con el nonce `wp_rest`), y solo para la usuaria con sesión y acceso
 - [x] El estado del botón se anuncia (`aria-pressed`) y el temario se actualiza al marcar
+- [x] Sin JS, "Marcar como completo" envía un formulario con nonce a `admin-post.php` y vuelve a la lección (F5-c; una vista previa sin compra no guarda avance)
 
 ## Sección: temario
 
