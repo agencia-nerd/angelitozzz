@@ -71,11 +71,11 @@ Con un rechazo, Woo se queda en el checkout con el aviso de error y el pedido qu
 
 Errores de datos o de integración vistos:
 
-| HTTP | error_code | Descripción | Causa |
-| --- | --- | --- | --- |
-| 400 | 1001 | cvv2 length must be 4 digits | Amex con CVV de 3 dígitos |
-| 422 | 2004 | Dígito verificador inválido (Luhn) | Número mal escrito (un dígito de más) |
-| 422 | 1003 | This source_id was already used | Botón fuera del form → se reenviaba el token. Corregido en `checkout-boton.js` (18/11/26) |
+| HTTP | error_code | Descripción                        | Causa                                                                                     |
+| ---- | ---------- | ---------------------------------- | ----------------------------------------------------------------------------------------- |
+| 400  | 1001       | cvv2 length must be 4 digits       | Amex con CVV de 3 dígitos                                                                 |
+| 422  | 2004       | Dígito verificador inválido (Luhn) | Número mal escrito (un dígito de más)                                                     |
+| 422  | 1003       | This source_id was already used    | Botón fuera del form → se reenviaba el token. Corregido en `checkout-boton.js` (18/11/26) |
 
 - **Entrar siempre con la contraseña correcta:** con 5 fallos en 15 minutos el plugin bloquea la IP (también a la administradora).
 - **Para desbloquear:** borrar los transitorios `_transient_angelitozzz_lim_%` y `_transient_timeout_angelitozzz_lim_%` de `wp_options`.

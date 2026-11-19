@@ -1,0 +1,4 @@
+# Markdown de documentación: VS Code (formatOnSave con Prettier) realinea las tablas al guardar
+# y deja los specs como modificados sin cambios reales. Los specs los leen los check.mjs de las skills.
+specs/
+CLAUDE.md
