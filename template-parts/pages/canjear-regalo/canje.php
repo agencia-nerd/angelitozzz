@@ -3,7 +3,10 @@
 /**
  * Canjear regalo · canje (specs/canjear-regalo.md, Figma 3640:1593): formulario del código.
  *
- * $args (de pages/template-canjear-regalo.php; el plugin angelitozzz-cursos los da en la F5-c):
+ * Se envía a la acción angelitozzz_canjear_regalo del plugin angelitozzz-cursos (nonce, límite de
+ * intentos, código de un solo uso). Sin sesión, el plugin guarda el código y lleva a crear la cuenta.
+ *
+ * $args (de pages/template-canjear-regalo.php, con angelitozzz_cursos_ultimo_canje()):
  * - error (string, opcional: mensaje del envío anterior; código no válido o demasiados intentos)
  * - valor (string, opcional: lo que escribió, para no perderlo al volver con error)
  */
@@ -14,6 +17,12 @@ $error    = trim((string) ($args['error'] ?? ''));
 $valor    = (string) ($args['valor'] ?? '');
 $id_campo = 'canjear-regalo-codigo';
 $id_error = 'canjear-regalo-error';
+$plugin   = function_exists('angelitozzz_cursos_campos_ocultos');
+
+// Sin el plugin no hay a dónde enviar el código: se avisa en vez de mostrar un formulario que no funciona.
+if (!$plugin && $error === '') {
+    $error = __('El canje no está disponible en este momento. Escríbenos por WhatsApp y te ayudamos.', 'angelitozzz');
+}
 
 get_template_part('template-parts/components/confirmacion-tarjeta', null, [
     'titulo' => __('¿Te regalaron un curso?', 'angelitozzz'),
@@ -21,9 +30,11 @@ get_template_part('template-parts/components/confirmacion-tarjeta', null, [
     'texto'  => __('Ingresa el código que recibiste por correo y empieza cuando quieras.', 'angelitozzz'),
 ]);
 ?>
-<form class="flex w-full flex-col items-center gap-6" method="post" action="" data-enviar-una-vez>
+<form class="flex w-full flex-col items-center gap-6" method="post" action="<?= esc_url($plugin ? angelitozzz_cursos_url_envio() : '') ?>" data-enviar-una-vez>
     <?php
-    // F5-c: action del plugin (angelitozzz_cursos_url_envio(), admin-post.php) con su input "action" y wp_nonce_field() del canje.
+    if ($plugin) {
+        angelitozzz_cursos_campos_ocultos('angelitozzz_canjear_regalo');
+    }
     ?>
 
     <?php if ($error !== '') : ?>

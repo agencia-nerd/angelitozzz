@@ -224,26 +224,41 @@ Hallazgos de la auditoría del 2026-11-17 y de la revisión del 2026-11-18 que n
 - [ ] Plugin: `uninstall.php` no borra la meta `_angelitozzz_correo_pendiente`, los transitorios `angelitozzz_lim_*` y `angelitozzz_msg_*` ni la meta `_angelitozzz_curso_id` de los productos. Con `ANGELITOZZZ_CURSOS_BORRAR_TODO` tampoco borra los productos de Woo ni las portadas que crea el constructor (`constructor.php:183-199`, `:241-253`); su cabecera dice "borra todo lo que el plugin creó" (revisión del 2026-11-18)
 - [ ] Plugin (se hace de paso en la F5-c, que toca materiales): el PDF descargado sale con el nombre "Privado-…". `descargas.php:231` arma el nombre con `get_the_title()`, que antepone "Privado:" a los adjuntos privados. Hay que leer el título crudo, como ya hace `angelitozzz_cursos_datos_material()` (`:257`). Con su prueba (revisión del 2026-11-18)
 - [ ] Plugin: alta manual de una inscripción (existe el origen `manual`, sin pantalla ni ruta). Decidir si entra o se saca del spec
-- [ ] Tema y plugin: el tema lee el plugin solo por sus funciones públicas (regla de `CLAUDE.md`). Hoy `single-leccion.php:27-28` lee `_angelitozzz_tipo` y `_angelitozzz_mes_mundo` con `get_post_meta` (falta una función pública, que también sirve para el bloque de Mundo del correo), y el tema llama a funciones que no están en la lista pública del spec: `angelitozzz_cursos_puede_gestionar()`, `angelitozzz_cursos_vimeo_partes()` y `angelitozzz_cursos_redirect_seguro()`
+- [ ] Tema y plugin: el tema lee el plugin solo por sus funciones públicas (regla de `CLAUDE.md`). La lectura de `_angelitozzz_tipo` y `_angelitozzz_mes_mundo` con `get_post_meta` en `single-leccion.php` ya se cambió por `angelitozzz_cursos_datos_curso()` (F5-c, bloque 1). Queda que el tema llama a funciones que no están en la lista pública del spec: `angelitozzz_cursos_puede_gestionar()`, `angelitozzz_cursos_vimeo_partes()` y `angelitozzz_cursos_redirect_seguro()`
 - [ ] Tema y plugin: más diferencias entre la lista pública de `cursos-datos.md` → `funciones-publicas` y el código (revisión del 2026-11-18). Se corrige el spec o el código, uno por uno:
     - `angelitozzz_cursos_temario()` recibe un segundo argumento, `$actual_id`, que el spec no nombra.
     - `angelitozzz_cursos_datos_tarjeta()` está en `api.php` pero no en el spec.
     - `puede_ver_curso()` e `inicio_de()` piden `$usuario_id`, aunque el spec dice que todas trabajan con la usuaria de la sesión.
     - `angelitozzz_cursos_aviso_publicado()` no exige la capacidad, aunque el spec dice que las del administrador sí la exigen.
-- [ ] Tema: `template-parts/pages/cuenta/pedidos.php:59-64` elige el color de cada estado comparando con el texto traducido que devuelve el plugin ("Vencido", "Por expirar"…). Si cambia la traducción, se rompe. El plugin tiene que devolver también una clave del estado (revisión del 2026-11-18)
+- [x] (F5-c, 2026-11-19: el plugin da `angelitozzz_cursos_estado_linea()` con clave y texto, y `pedidos.php` elige el color por la clave) Tema: `template-parts/pages/cuenta/pedidos.php:59-64` elige el color de cada estado comparando con el texto traducido que devuelve el plugin ("Vencido", "Por expirar"…). Si cambia la traducción, se rompe. El plugin tiene que devolver también una clave del estado (revisión del 2026-11-18)
 - [ ] Tema: las 4 reglas de contraseña están repetidas en el tema (`template-parts/components/reglas-contrasena.php:23-28` y `src/js/modules/reglas-contrasena.js`) en vez de leerse de `angelitozzz_cursos_reglas_contrasena()`. Solo ayudan al escribir (el servidor valida), pero si cambian en el plugin quedan distintas (revisión del 2026-11-18)
 
 ### F5-c · Plugin: regalo, Mundo y lección
 
-- [ ] Regalo: comprar como regalo genera el cupón; canje con sesión o creando la cuenta; el acceso empieza ese día
-- [ ] Acción de canje en el plugin (`canjear-regalo.md`): nonce, límite de intentos, código de un solo uso marcado en la misma operación que inscribe, dato de un solo uso para la confirmación y flujo sin sesión por crear cuenta (la página `/canjear-regalo/` ya está en `inc/acf/paginas.php`, F5-a)
-- [ ] Funciones públicas del regalo que pide `cursos-datos.md` y no existen: `angelitozzz_cursos_pedido_regalos()` y `angelitozzz_cursos_ultimo_canje()`; textos del regalo en Ajustes del sitio
-- [ ] Bloque de Mundo en gracias y en el correo de pedido, excepto en regalos
-- [ ] Banner de Mundo solo en la primera lección de cada curso (no en Angelita Pro); mensaje inicial de Angelita Pro. Ya maquetados y condicionados en `single-leccion.php:57-67` (F4, bloque 5); falta la función pública que reemplace los `get_post_meta` (ver "Deuda de la F2 y del tema") y probarlos
+Plan aprobado el 2026-11-19, en 2 bloques. Decisiones del usuario: avisos del constructor como panel dentro del modal (no modales apilados), textos del regalo fijos en el tema (no en Ajustes del sitio), el código llega solo a quien compra y Mundo según el `mes_mundo` de cada curso.
+
+**Bloque 1 (plugin 0.7.0, 152 pruebas en verde, PHPCS en 0; probado en el Local el 2026-11-19):**
+
+- [x] Regalo: comprar como regalo genera el cupón (`includes/regalos.php`); canje con sesión o creando la cuenta; el acceso empieza ese día (o se encadena al vigente). El código no sirve en el carrito ni en el checkout. Reembolsar o cancelar anula el código o la inscripción del canje
+- [x] Acción de canje en el plugin (`angelitozzz_canjear_regalo`): nonce, límite de intentos (5 cada 15 minutos por IP y por usuaria), código de un solo uso marcado en la misma operación que inscribe (bloqueo por cupón), dato de un solo uso para la confirmación y flujo sin sesión por crear cuenta (cookie `angelitozzz_canje`)
+- [x] Funciones públicas del regalo: `angelitozzz_cursos_pedido_regalos()`, `angelitozzz_cursos_regalos_de_pedido()` y `angelitozzz_cursos_ultimo_canje()`. Los textos del regalo quedan fijos en el tema (decisión del usuario, 2026-11-19)
+- [x] Bloque de Mundo en gracias y en el correo de pedido (`inc/woocommerce/correos.php`), excepto en regalos y solo si algún curso propio lo incluye (`angelitozzz_cursos_pedido_con_mundo()`). El correo lleva también el código de cada regalo
+- [x] Banner de Mundo solo en la primera lección de cada curso con `mes_mundo`; mensaje inicial de Angelita Pro. `single-leccion.php` lee el tipo y `mes_mundo` con `angelitozzz_cursos_datos_curso()` (ya sin `get_post_meta`)
+
+**Prueba a mano del bloque 1 (usuario, 2026-11-19): todo bien.** Ajustes que salieron de ella, hechos en las mismas ramas:
+
+- [x] Código de regalo en el cupón: cualquier error de Woo con ese código dice que se canjea en "Canjear regalo" (antes, con otro curso en el carrito, salía el error de productos de Woo)
+- [x] "Regalar este curso" en Horarios Ideales (etapas): abre el selector de edad en modo regalo, sin descuento por cantidad
+- [x] "Copiar código" sin https (el Local): método clásico del navegador
+- [x] "Mis pedidos": una línea de regalo muestra el estado de su código ("Regalo · sin canjear", "canjeado", "vencido") en vez del estado del pedido de Woo ("Procesando"). Los pedidos de Woo conservan su estado nativo (decisión del usuario): "Procesando" ya quiere decir pagado
+- [x] Constructor: ayuda genérica bajo "Incluye mes gratis en Mundo" y, con Tipo = Suscripción y el interruptor encendido, un aviso en rojo que recomienda no activarlo. Sin bloqueo: el interruptor decide en todos los cursos (decisión del usuario, 2026-11-19)
+
+**Bloque 2 (pendiente):**
+
 - [ ] Plugin: acción `admin-post` para "Marcar como completo" sin JS (`leccion.md`). El nombre de los materiales se arregló en la F4, bloque 6b, para la lista de la lección: se guarda el nombre legible del archivo y se lee sin el "Privado:" (los PDF subidos antes conservan el título saneado). El archivo descargado todavía sale con "Privado" (ver "Deuda de la F2 y del tema")
 - [ ] Constructor: cambiar los diálogos nativos del navegador por modales de wp-modal con el estilo del modal `eliminar` (pedido del usuario, 2026-11-14: no siguen el diseño y son pobres en accesibilidad). Son el `window.prompt` que pide la URL del enlace en el editor de la lección (`src/js/modules/editor-texto.js`) el `window.alert` de enlace no válido (`editor-texto.js:97`, sumado en la auditoría del 2026-11-17) y el `window.confirm` de "descartar cambios" al cerrar el modal de la lección (`src/js/modules/constructor-contenido.js`). El enlace necesita un campo URL con su validación (solo http, https o mailto) y "Quitar enlace"; el descarte, "Seguir editando" y "Descartar cambios". Spec: `admin-constructor.md` → `modal-leccion`
 - [ ] Hallazgos de la verificación de `cursos-datos.md` (2026-11-17):
-    - [ ] El producto del curso (oculto del catálogo) sale en el mapa del sitio (`wp-sitemap-posts-product-1.xml`, también `product_cat`) y en la búsqueda de la Store API de Woo (`/wp-json/wc/store/v1/products?search=`). Su ficha ya redirige a `/soluciones-de-sueno/`; falta sacarlo de los sitemaps
+    - [x] El producto del curso (oculto del catálogo) ya no sale en el mapa del sitio (ni `product_cat` ni `product_tag`) ni en las consultas de productos por la REST API, como la búsqueda de la Store API (plugin 0.7.0, bloque 1)
     - [ ] Aviso "Este curso no está en tu cuenta" (`cursos-datos.md` → `acceso`): el plugin manda a la landing de la solución del curso con `?aviso=sin-acceso` (`acceso.php:230`; a `/soluciones-de-sueno/` solo si el curso no tiene solución), pero el tema no lo muestra
     - [x] Criterio de `leccion` sobre el proveedor de video: se reescribe (la lógica está en `includes/video.php`; los textos pueden nombrar a Vimeo). Pendiente aparte: `template-parts/components/video-portada.php` arma por su cuenta la URL del reproductor de Vimeo; en la F5 debería pedírsela al plugin
     - [x] Rol al desactivar (decisión del usuario): la desactivación quita el rol `instructora` y la capacidad, y la activación los vuelve a crear (plugin 0.5.1, `angelitozzz-cursos.php`, con su prueba; 106 pruebas en verde)
@@ -305,7 +320,7 @@ Las herramientas para probar en el Local (datos de prueba, pruebas en Chrome y c
 - [ ] Compra de 1 curso → inscripción con su vencimiento
 - [ ] Horarios Ideales con 2 y con 3 etapas, con el descuento correcto
 - [ ] Compra con cupón
-- [ ] Regalo: genera el código, el canje inscribe y el acceso empieza ese día
+- [ ] Regalo: genera el código, el canje inscribe y el acceso empieza ese día (2026-11-19 en el Local: ok)
 - [ ] Angelita Pro: prueba de 7 días y renovación
 - [ ] Reembolso: el pedido reembolsado quita el acceso
 - [ ] Vencimiento: un acceso vencido no abre la lección y figura "Vencido" en el historial
@@ -313,5 +328,5 @@ Las herramientas para probar en el Local (datos de prueba, pruebas en Chrome y c
 - [ ] Inicio de sesión: se bloquea tras varios intentos y no revela si el correo existe
 - [ ] Constructor: una alumna no puede usar la API ni ver el administrador
 - [ ] Avance y materiales en la lección; banner de Mundo solo en la primera lección
-- [ ] Correo de pedido con el bloque de Mundo y sin él (regalo)
+- [ ] Correo de pedido con el bloque de Mundo y sin él (regalo) (2026-11-19 en el Local: ok)
 - [ ] Prueba de actualización: Woo y Openpay actualizados en el Local, plantillas al día en Woo → Estado y en `specs/plan/sobrescrituras.md`

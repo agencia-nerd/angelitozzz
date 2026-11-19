@@ -23,9 +23,10 @@ $temario    = $plugin ? angelitozzz_cursos_temario($curso_id, $leccion_id) : [];
 $con_acceso = $plugin && is_user_logged_in() && angelitozzz_cursos_puede_ver_curso($curso_id, get_current_user_id());
 $primera    = $plugin && angelitozzz_cursos_es_primera_leccion($leccion_id);
 
-// Datos del curso (metadatos que guarda el constructor; el tema solo los lee).
-$tipo_curso = (string) get_post_meta($curso_id, '_angelitozzz_tipo', true);
-$mes_mundo  = (bool) get_post_meta($curso_id, '_angelitozzz_mes_mundo', true);
+// Datos del curso que guarda el constructor (tipo y "Mes gratis en Mundo"), leídos del plugin.
+$datos_curso = $plugin && function_exists('angelitozzz_cursos_datos_curso') ? angelitozzz_cursos_datos_curso($curso_id) : [];
+$tipo_curso  = (string) ($datos_curso['tipo'] ?? '');
+$mes_mundo   = !empty($datos_curso['mes_mundo']);
 
 $completada = false;
 foreach ($temario as $modulo) {

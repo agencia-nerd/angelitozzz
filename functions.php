@@ -33,3 +33,4 @@ require_once get_theme_file_path('/inc/woocommerce/carrito.php');
 require_once get_theme_file_path('/inc/woocommerce/descuentos.php');
 require_once get_theme_file_path('/inc/woocommerce/paginas.php');
 require_once get_theme_file_path('/inc/woocommerce/plantillas.php');
+require_once get_theme_file_path('/inc/woocommerce/correos.php');

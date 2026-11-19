@@ -223,4 +223,4 @@
 - [x] Cambiar el enlace aquí cambia el de la lección y el de la confirmación (las dos usan `banner-mundo.php`)
 - [x] Sin enlace, el bloque no aparece en ningún lugar
 
-Se verifica en la F5-c: el bloque del correo de pedido usa este mismo enlace.
+- [x] El bloque del correo de pedido usa este mismo enlace (F5-c, `inc/woocommerce/correos.php`; verificado en el Local el 2026-11-19)

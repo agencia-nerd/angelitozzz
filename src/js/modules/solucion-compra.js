@@ -7,6 +7,9 @@
  * - "Agregar al carrito" ([data-solucion-agregar]): en el hero y la galería (data-productos, y data-regalo en
  *   "Regalar este curso"), en cada modal de etapa (su producto) y en el selector (las casillas marcadas, cuyo
  *   value es el ID del producto). Cierra su modal, abre el drawer y agrega los cursos (carrito.js).
+ * - "Regalar este curso" con etapas ([data-regalo-etapas]): abre el mismo selector en modo regalo. Las etapas
+ *   marcadas van al carrito como regalo y el total no lleva el descuento por cantidad (no aplica a regalos).
+ *   Cualquier otro botón que abra el selector lo deja en modo compra.
  */
 import { openModal, closeModal } from './modal.js';
 import { agregarAlCarrito } from './carrito.js';
@@ -29,7 +32,8 @@ function iniciarSelector(raiz) {
     const recalcular = () => {
         const marcadas = casillas.filter((casilla) => casilla.checked);
         const suma = marcadas.reduce((acumulado, casilla) => acumulado + Number(casilla.dataset.precio || 0), 0);
-        const especial = Number(descuentos[marcadas.length] || 0);
+        // El descuento por cantidad no aplica a los regalos (inc/woocommerce/descuentos.php).
+        const especial = raiz.dataset.regalo === '1' ? 0 : Number(descuentos[marcadas.length] || 0);
         const pagar = especial > 0 && especial < suma ? especial : suma;
         const ahorra = suma - pagar;
 
@@ -43,6 +47,20 @@ function iniciarSelector(raiz) {
 
     casillas.forEach((casilla) => casilla.addEventListener('change', recalcular));
     recalcular();
+
+    // Modo regalo o compra según el botón que abrió el selector.
+    const dialogo = raiz.closest('dialog');
+    document.addEventListener('click', (evento) => {
+        const abre = evento.target.closest('[data-modal-open]');
+        if (!abre || !dialogo || abre.getAttribute('commandfor') !== dialogo.id) return;
+        const regalo = abre.dataset.regaloEtapas === '1';
+        raiz.dataset.regalo = regalo ? '1' : '';
+        if (boton) {
+            if (regalo) boton.dataset.regalo = '1';
+            else delete boton.dataset.regalo;
+        }
+        recalcular();
+    });
 }
 
 function productosDe(boton) {

@@ -123,8 +123,10 @@ defined('ABSPATH') || exit;
             wc_get_template('checkout/order-received.php', ['order' => $order]);
         }
 
-        // Mes gratis en Mundo: pedido pagado con al menos un curso propio.
-        if ($pagado && $cursos) {
+        // Mes gratis en Mundo: pedido pagado con al menos un curso propio que lo incluye ("Mes gratis en
+        // Mundo" del constructor; Angelita Pro no). Los regalos no lo llevan: quien lo recibe lo ve en su
+        // primera lección.
+        if ($pagado && $cursos && function_exists('angelitozzz_cursos_pedido_con_mundo') && angelitozzz_cursos_pedido_con_mundo($order)) {
             get_template_part('template-parts/components/banner-mundo', null, [
                 'titulo'   => __('Espera — hay algo más esperándote', 'angelitozzz'),
                 'variante' => 'confirmacion',

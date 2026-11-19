@@ -8,6 +8,7 @@
  * - meses           (int: 4, 6 o 12; 0 = acceso ilimitado)
  * - primera_leccion (string: URL de la primera lección)
  * - cursos_url      (string: Mis cursos)
+ * - empieza         (string: fecha en que empieza el acceso si quedó encadenado a uno vigente; vacío = hoy)
  */
 
 defined('ABSPATH') || exit;
@@ -16,15 +17,25 @@ $curso  = trim((string) ($args['curso'] ?? ''));
 $meses  = (int) ($args['meses'] ?? 0);
 $leccion = (string) ($args['primera_leccion'] ?? '');
 $cursos = (string) ($args['cursos_url'] ?? home_url('/cuenta/cursos/'));
+$empieza = trim((string) ($args['empieza'] ?? ''));
 
 if ($curso === '') {
     return;
 }
 
-$acceso = $meses > 0
-    /* translators: %d: meses de acceso al curso */
-    ? sprintf(_n('Tu acceso de %d mes empieza hoy.', 'Tu acceso de %d meses empieza hoy.', $meses, 'angelitozzz'), $meses)
-    : __('Tu acceso ilimitado empieza hoy.', 'angelitozzz');
+if ($empieza === '') {
+    $acceso = $meses > 0
+        /* translators: %d: meses de acceso al curso */
+        ? sprintf(_n('Tu acceso de %d mes empieza hoy.', 'Tu acceso de %d meses empieza hoy.', $meses, 'angelitozzz'), $meses)
+        : __('Tu acceso ilimitado empieza hoy.', 'angelitozzz');
+} else {
+    // Ya tenía el curso vigente: el acceso del regalo empieza cuando termina el actual.
+    $acceso = $meses > 0
+        /* translators: 1: meses de acceso al curso, 2: fecha */
+        ? sprintf(_n('Ya tenías este curso: tu acceso de %1$d mes más empieza el %2$s.', 'Ya tenías este curso: tus %1$d meses más empiezan el %2$s.', $meses, 'angelitozzz'), $meses, $empieza)
+        /* translators: %s: fecha */
+        : sprintf(__('Ya tenías este curso: tu acceso ilimitado empieza el %s.', 'angelitozzz'), $empieza);
+}
 
 get_template_part('template-parts/components/confirmacion-tarjeta', null, [
     'titulo'   => __('¡Listo, ya tienes tu curso!', 'angelitozzz'),

@@ -153,7 +153,8 @@ if ($titular === '') {
                         'texto'    => __('Regalar este curso', 'angelitozzz'),
                         'variante' => 'secundario',
                         'flecha'   => false,
-                        'modal'    => 'carrito',
+                        // Venta directa: el drawer; con etapas, el selector de edad en modo regalo.
+                        'modal'    => (string) ($contexto['modal_compra'] ?? 'carrito'),
                         'datos'    => $datos_regalo, // El curso marcado como regalo (cursos-datos.md → regalo).
                     ]);
                 } ?>

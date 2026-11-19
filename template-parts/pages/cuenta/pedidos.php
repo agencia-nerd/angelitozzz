@@ -3,8 +3,9 @@
 /**
  * Cuenta · Historial de pedidos (specs/usuario-historial-pedido.md, Figma 4164:25942).
  * Pedidos de WooCommerce de la usuaria de la sesión (wc_get_orders con customer_id, solo WC_Order,
- * compatible con HPOS), una fila por línea, los más recientes primero. El estado es el del acceso al
- * curso (angelitozzz_cursos_estado_acceso() del plugin); en una línea que no es curso, el del pedido.
+ * compatible con HPOS), una fila por línea, los más recientes primero. El estado es el de cada línea
+ * (angelitozzz_cursos_estado_linea() del plugin: el acceso al curso, o el código si es un regalo); en una
+ * línea que no es curso, el del pedido de Woo. El color se elige por la clave, no por el texto traducido.
  * En móvil cada fila pasa a una tarjeta con sus etiquetas.
  */
 
@@ -31,9 +32,11 @@ if (function_exists('wc_get_orders') && is_user_logged_in()) {
             if (!$item instanceof WC_Order_Item_Product) {
                 continue;
             }
-            $estado = function_exists('angelitozzz_cursos_estado_acceso')
-                ? angelitozzz_cursos_estado_acceso($pedido->get_id(), (int) $item_id)
-                : '';
+            $linea  = function_exists('angelitozzz_cursos_estado_linea')
+                ? angelitozzz_cursos_estado_linea($pedido->get_id(), (int) $item_id)
+                : [];
+            $estado = (string) ($linea['texto'] ?? '');
+            $clave  = (string) ($linea['clave'] ?? '');
             if ($estado === '') {
                 $estado = wc_get_order_status_name($pedido->get_status());
             }
@@ -43,6 +46,7 @@ if (function_exists('wc_get_orders') && is_user_logged_in()) {
                 'fecha'  => $fecha ? date_i18n('j \d\e F, Y', $fecha->getTimestamp()) : '',
                 'precio' => wc_price((float) $pedido->get_line_total($item, true), ['currency' => $pedido->get_currency()]),
                 'estado' => $estado,
+                'clave'  => $clave,
             ];
         }
     }
@@ -57,10 +61,12 @@ $visibles = array_slice($filas, ($actual - 1) * $por_pagina, $por_pagina);
 
 // Color del estado (propuesta del spec; en el diseño todos son salvia): argumento `color` de etiqueta.
 $colores = [
-    'Por expirar' => 'estrella',
-    'Vencido'     => 'suave',
-    'Cancelado'   => 'suave',
-    'Pendiente'   => 'neutro',
+    'por_expirar'        => 'estrella',
+    'vencido'            => 'suave',
+    'cancelado'          => 'suave',
+    'pendiente'          => 'neutro',
+    'regalo_sin_canjear' => 'estrella', // Falta compartir el código.
+    'regalo_vencido'     => 'suave',
 ];
 $columnas = [
     'numero' => __('ID del pedido', 'angelitozzz'),
@@ -113,7 +119,7 @@ $columnas = [
                                     <?php get_template_part('template-parts/components/etiqueta', null, [
                                         'texto'  => $fila['estado'],
                                         'estilo' => 'tarjeta',
-                                        'color'  => $colores[$fila['estado']] ?? 'salvia',
+                                        'color'  => $colores[$fila['clave']] ?? 'salvia',
                                     ]); ?>
                                 <?php else : ?>
                                     <span><?= esc_html($fila[$clave]) ?></span>

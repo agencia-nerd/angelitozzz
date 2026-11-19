@@ -36,8 +36,11 @@ $contexto = [
     'modal_compra' => angelitozzz_solucion_modal_compra($tipo),
     'boton_compra' => (string) ($hero['boton'] ?? ''),
     'datos_compra' => $datos_compra,
-    // "Regalar este curso": los mismos productos, marcados como regalo (plugin angelitozzz-cursos).
-    'datos_regalo' => $datos_compra ? $datos_compra + ['data-regalo' => '1'] : [],
+    // "Regalar este curso": los mismos productos, marcados como regalo (plugin angelitozzz-cursos). Con etapas
+    // abre el selector de edad en modo regalo (solucion-compra.js): las etapas marcadas van como regalo.
+    'datos_regalo' => $datos_compra
+        ? $datos_compra + ['data-regalo' => '1']
+        : ($tipo === 'etapas' ? ['data-regalo-etapas' => '1'] : []),
 ];
 
 $layouts = angelitozzz_solucion_layouts();

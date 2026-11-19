@@ -36,7 +36,7 @@
         - `_angelitozzz_duracion_acceso`: meses, 4, 6, 12 o 0 = ilimitado.
         - `_angelitozzz_producto_id`: su producto de Woo (sección `puente-woo`).
         - `_angelitozzz_modulos`: lista ordenada de módulos `[{id, titulo}]`; `id` es un identificador estable que no cambia al renombrar o reordenar.
-        - `_angelitozzz_mes_mundo`: sí/no, "Incluye mes gratis en Mundo" (lo marca Bárbara en el constructor): muestra el banner de Mundo en la primera lección del curso (`leccion.md`).
+        - `_angelitozzz_mes_mundo`: sí/no, "Incluye mes gratis en Mundo" (lo marca Bárbara en el constructor): muestra el banner de Mundo en la primera lección del curso (`leccion.md`) y el bloque en gracias y en el correo. Lo decide solo este interruptor, también en una suscripción (`_angelitozzz_tipo` = `suscripcion`): el constructor solo avisa que las suscripciones normalmente no lo incluyen (decisión del usuario, 2026-11-19). Se lee con `angelitozzz_cursos_incluye_mundo()`.
         - `_angelitozzz_materiales`: PDF del curso, cada uno con `adjunto_id`, `modulo` (`id` del módulo) y `orden`, porque en el constructor se agregan dentro de un módulo ("+ Agregar descargable", `admin-constructor.md`). En la lección van al final del temario, sin check (`leccion.md`).
     - **Precio:** "Precio (USD)" y "Precio de lanzamiento" no se guardan en el curso. Son el precio normal y el rebajado de su producto de Woo, que el constructor actualiza.
     - **Paso 3 del diseño:** "Qué aprenderás", "Requisitos", "Para quién es" y "Duración total" no se guardan (decisión del usuario, 2026-11-13): los textos de venta están en la solución. La duración total se calcula sumando las lecciones.
@@ -243,7 +243,7 @@
 - [x] Cumple los criterios comunes de `_shared.md`
 - [x] Comprar un curso deja una inscripción activa con su vencimiento; comprar 2 etapas deja 2
 - [x] Reembolsar el pedido deja las inscripciones en `cancelada` y quita el acceso
-- [ ] El producto del curso no aparece en `/tienda/`, en la búsqueda ni en los feeds (2026-11-18: no sale en `/tienda/`, pero sí en el mapa del sitio y en la búsqueda de la Store API; ver `checklist-cursos.md` → F5-c)
+- [x] El producto del curso no aparece en `/tienda/`, en la búsqueda ni en los feeds (plugin 0.7.0: fuera del mapa del sitio, que tampoco lista categorías ni etiquetas de producto, y de las consultas de productos por la REST API, como la búsqueda de la Store API; probado en el Local el 2026-11-19)
 - [ ] Funciona igual con HPOS activado (2026-11-18: declarado compatible, pero sin prueba; ver `checklist-cursos.md` → "Cierre de la F5")
 - [x] Pruebas PHPUnit del alta por pedido pagado y la baja por reembolso
 
@@ -258,16 +258,20 @@
     - **Código:**
         - Se crea al quedar pagado el pedido (mismos hooks que `puente-woo`), uno por línea de regalo, sin duplicar si Woo avisa dos veces.
         - Es un cupón de Woo (`WC_Coupon`): 100 % de descuento, un solo uso, limitado al producto del curso y con vencimiento a 6 meses de la compra. Así se ve y se puede anular desde Marketing → Cupones.
-        - Metadatos del cupón: `_angelitozzz_regalo_curso_id`, `_angelitozzz_regalo_pedido_id` y `_angelitozzz_regalo_item_id`. La línea del pedido guarda el código (`_angelitozzz_regalo_codigo`).
+        - Metadatos del cupón: `_angelitozzz_regalo_curso_id`, `_angelitozzz_regalo_pedido_id` y `_angelitozzz_regalo_item_id`; al canjearse, `_angelitozzz_regalo_inscripcion_id` y `_angelitozzz_regalo_usuaria_id` (así el reembolso encuentra la inscripción del canje). La línea del pedido guarda el código (`_angelitozzz_regalo_codigo`) y el ID del cupón (`_angelitozzz_regalo_cupon_id`).
+        - Una línea ya reembolsada del todo no genera código. El vencimiento es a 6 meses de la fecha de pago, al final de ese día en la zona del sitio (misma regla que `inscripcion`).
+        - **No sirve en el checkout** (plugin 0.7.0): aplicarlo en el carrito, el checkout o el cupón del hero da "Este código es un regalo: canjéalo en la página "Canjear regalo"." (filtro `woocommerce_coupon_is_valid`, y `woocommerce_coupon_error` para que cualquier otro error de Woo con ese código, como "no se puede aplicar a los productos seleccionados", muestre el mismo aviso).
         - Formato del diseño: `ANGZ-` y 4 caracteres en mayúscula sin los que se confunden (sin 0, O, 1, I), generados con `random_int`; se reintenta si ya existe.
-        - El código se muestra en la página de gracias (`gracias.md` → `regalo-listo`) y llega en el correo del pedido (F5).
+        - El código se muestra en la página de gracias (`gracias.md` → `regalo-listo`) y llega en el correo del pedido a quien compra (decisión del usuario, 2026-11-19: no hay correo a quien recibe; quien compra lo comparte). El bloque del correo lo imprime el tema (`inc/woocommerce/correos.php`) con `angelitozzz_cursos_regalos_de_pedido()`.
     - **Canje** (`canjear-regalo.md`):
         - No pasa por el checkout: el plugin valida el cupón (existe, es de regalo, no usado, no vencido) e inscribe a la usuaria de la sesión en `_angelitozzz_regalo_curso_id` con `origen` `regalo`, sin `pedido_id` ni `item_id`, y el inicio el día del canje.
         - En la misma operación marca el cupón como usado (por esa usuaria), con un bloqueo para que dos envíos a la vez no lo canjeen dos veces.
         - Si ya tiene ese curso activo, el acceso del canje se encadena después del vigente (regla de `inscripcion`).
-        - Límite de intentos por IP y por usuaria; un solo mensaje de error para inexistente, usado o vencido.
-        - Sin sesión, el código válido se guarda en un dato temporal del servidor unido a una cookie de un solo uso, y se completa al volver con sesión.
-    - **Reembolso del pedido de regalo:** si el código no se usó, el cupón se anula (pasa a borrador); si ya se canjeó, la inscripción de quien lo recibió pasa a `cancelada`.
+        - Límite de intentos fallidos: 5 cada 15 minutos por IP y, con sesión, por usuaria (acción `canje` de la tabla `angelitozzz_intentos`); un solo mensaje de error para inexistente, usado, vencido o anulado.
+        - La duración es la del curso en el momento del canje.
+        - Sin sesión, el código válido se guarda en un dato temporal del servidor (1 hora) unido a una cookie propia `angelitozzz_canje` (HttpOnly, de un solo uso), y lleva a `/crear-cuenta/` con el aviso "Tu código es válido. Crea tu cuenta (o inicia sesión) para terminar el canje." Al volver a `/canjear-regalo/` con sesión, el canje se completa solo (se vuelve a validar el código).
+        - El resultado queda como dato de un solo uso de la usuaria (10 minutos) que lee `angelitozzz_cursos_ultimo_canje()`; los errores, como mensaje de un solo uso con lo escrito.
+    - **Reembolso o cancelación del pedido de regalo** (todo el pedido o solo esa línea): si el código no se usó, el cupón se anula (pasa a borrador); si ya se canjeó, la inscripción de quien lo recibió pasa a `cancelada` (y se reencadena lo que venía detrás). Si el pedido se vuelve a pagar, el cupón anulado vuelve a publicarse, o la inscripción del canje se reactiva con fechas nuevas.
     - **Registro:** creación, canje y anulación quedan en `wc_get_logger` (fuente `angelitozzz-cursos`).
 - **Estado:** aprobado
 
@@ -278,12 +282,12 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Un pedido pagado con una línea de regalo crea un cupón y no inscribe a quien compró
-- [ ] El canje inscribe a quien lo usa, con inicio el día del canje, y el cupón queda usado
-- [ ] Un código usado, vencido o inexistente no inscribe
-- [ ] Reembolsar el pedido anula el código o cancela la inscripción del regalo
-- [ ] Pruebas PHPUnit de la creación del código, el canje, el doble canje y el reembolso
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Un pedido pagado con una línea de regalo crea un cupón y no inscribe a quien compró
+- [x] El canje inscribe a quien lo usa, con inicio el día del canje, y el cupón queda usado
+- [x] Un código usado, vencido o inexistente no inscribe
+- [x] Reembolsar el pedido anula el código o cancela la inscripción del regalo
+- [x] Pruebas PHPUnit de la creación del código, el canje, el doble canje y el reembolso (plugin 0.7.0, `tests/test-regalos.php`; probado también en el Local el 2026-11-19: compra mixta, correo, gracias, canje con y sin sesión, código en el carrito, reembolso y cancelación)
 
 ## Sección: roles
 
@@ -338,7 +342,8 @@
         - `angelitozzz_cursos_puede_ver( $leccion_id )`: si la usuaria puede ver la lección.
         - `angelitozzz_cursos_video_html( $leccion_id )`: el reproductor.
         - `angelitozzz_cursos_materiales( $id )`: nombre, tamaño y URL de descarga firmada.
-        - `angelitozzz_cursos_estado_acceso( $pedido_id, $item_id )`: Activo, Por expirar, Vencido, Cancelado o Pendiente, para el historial.
+        - `angelitozzz_cursos_estado_linea( $pedido_id, $item_id )` (F5-c): el estado de una línea para el historial, `clave` y `texto`. Línea propia: `activo`, `por_expirar`, `vencido`, `cancelado` o `pendiente`. Línea de regalo: `regalo_sin_canjear`, `regalo_canjeado`, `regalo_vencido`, `cancelado` o `pendiente`. El tema elige el color por la clave.
+        - `angelitozzz_cursos_estado_acceso( $pedido_id, $item_id )`: solo el texto de `estado_linea()`.
         - `angelitozzz_cursos_es_primera_leccion( $leccion_id )`.
         - `angelitozzz_cursos_solucion_de( $curso_id )`.
         - **Administrador (F4, bloque 6; `includes/admin.php`):** exigen la capacidad `angelitozzz_gestionar_cursos`; sin ella devuelven datos vacíos.
@@ -362,10 +367,14 @@
             - `angelitozzz_cursos_producto_de( $curso_id )`: el ID del producto de Woo del curso (0 si no tiene). El tema lee de ahí el precio con `wc_get_product()`.
             - `angelitozzz_cursos_linea_carrito_es_regalo( $linea )`: si una línea de `WC()->cart->get_cart()` es un regalo (`includes/woocommerce.php`).
             - `angelitozzz_cursos_datos_producto( $producto_id )`: `curso_id` (0 si el producto no es de un curso), `meses` (0 = ilimitado) y `acceso_texto` ("Acceso por 6 meses" o "Acceso ilimitado"), para el drawer, el carrito, el checkout y gracias.
-        - `angelitozzz_cursos_pedido_cursos( $pedido_id )`: los cursos de un pedido de la usuaria (no regalo), con duración y primera lección, para la página de gracias.
-        - `angelitozzz_cursos_pedido_regalos( $pedido_id )`: los regalos de un pedido de la usuaria, con curso y código.
+        - `angelitozzz_cursos_pedido_cursos( $pedido_id )`: los cursos de un pedido de la usuaria (no regalo), con duración, primera lección y `mes_mundo`, para la página de gracias.
+        - `angelitozzz_cursos_pedido_regalos( $pedido_id )`: los regalos de un pedido de la usuaria (`curso_id`, `titulo`, `codigo`), para la página de gracias.
+        - `angelitozzz_cursos_regalos_de_pedido( $pedido )` (F5-c): lo mismo, pero recibe el `WC_Order` que entrega WooCommerce, para el correo del pedido (sin sesión).
+        - `angelitozzz_cursos_pedido_con_mundo( $pedido )` (F5-c): si el pedido (`WC_Order`) lleva el bloque del mes gratis en Mundo: al menos un curso propio (no regalo, no devuelto) con `mes_mundo`. La usan gracias y el correo.
+        - `angelitozzz_cursos_datos_curso( $curso_id )` (F5-c): `titulo`, `tipo`, `mes_mundo` y `meses` de un curso, para la lección (mensaje de Angelita Pro y banner de Mundo).
+        - Acción de formulario `angelitozzz_canjear_regalo` (F5-c, con o sin sesión; campo `codigo`), con `angelitozzz_cursos_campos_ocultos()`.
         - `angelitozzz_cursos_puede_ver_curso( $curso_id, $usuario_id )`: si la usuaria compró el curso (lo usa la lección para el botón de completar, los candados del temario y el PDF del curso).
-        - `angelitozzz_cursos_ultimo_canje()`: el canje que la usuaria acaba de hacer (curso, duración, primera lección); se lee una sola vez.
+        - `angelitozzz_cursos_ultimo_canje()`: lo que muestra `/canjear-regalo/`, una sola vez. Justo después de canjear, `estado` `canjeado` con `curso`, `meses` (0 = ilimitado), `primera_leccion`, `cursos_url` y `empieza` (la fecha si el acceso quedó encadenado a uno vigente; vacío si empieza hoy); tras un envío con error, `estado` `canje` con `valor` (lo escrito) y `error`; si no, vacío.
     - **Los datos ya vienen saneados, pero no escapados.** El tema escapa siempre al imprimir.
 - **Estado:** aprobado
 
