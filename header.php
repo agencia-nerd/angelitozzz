@@ -23,7 +23,8 @@ $menu_derecha = [
 // Cuenta: sin sesión, "Iniciar sesión" con vuelta a esta página (el plugin no la anida si ya estás en una
 // página de acceso); con sesión, "Mi cuenta" lleva a la página de inicio de cada rol (alumna: /cuenta/;
 // quien gestiona cursos, instructora o administradora como Bárbara: /administrador/). El carrito abre el drawer (template-parts/modals/carrito.php) y, sin JS,
-// lleva a la página del carrito. woo: contador del carrito (hoy el del diseño, wp-woocommerce en la F5).
+// lleva a la página del carrito. La cantidad es template-parts/components/carrito-cuenta.php, que Woo cambia sin
+// recargar con sus fragmentos (inc/woocommerce/carrito.php).
 $con_sesion = is_user_logged_in();
 if (function_exists('angelitozzz_cursos_url_login') && function_exists('angelitozzz_cursos_inicio_de')) {
     $url_cuenta = $con_sesion
@@ -33,8 +34,7 @@ if (function_exists('angelitozzz_cursos_url_login') && function_exists('angelito
     $url_cuenta = $con_sesion ? home_url('/cuenta/') : wp_login_url();
 }
 $cuenta           = ['url' => $url_cuenta, 'title' => $con_sesion ? __('Mi cuenta', 'angelitozzz') : __('Iniciar sesión', 'angelitozzz'), 'target' => ''];
-$carrito          = ['url' => home_url('/carrito/'), 'title' => 'Carrito', 'target' => ''];
-$carrito_cantidad = 1;
+$carrito          = ['url' => function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/carrito/'), 'title' => __('Carrito', 'angelitozzz'), 'target' => ''];
 
 $clase_cuenta  = 'flex h-[46px] items-center gap-2 rounded-full border border-neutro bg-blanco pl-[14px] pr-[18px] text-rotulo-s text-marca focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca';
 $clase_carrito = 'relative flex size-[46px] items-center justify-center rounded-full border border-neutro bg-blanco text-marca focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca';
@@ -91,11 +91,8 @@ $cuenta_html = '<a' . ($attrs_cuenta !== '' ? $attrs_cuenta : ' class="' . esc_a
                     <div class="max-lg:hidden"><?= $cuenta_html ?></div>
 
                     <a<?= $attrs_carrito !== '' ? $attrs_carrito : ' class="' . esc_attr($clase_carrito) . '" aria-disabled="true"' ?><?php angelitozzz_modal_trigger_attrs('carrito', ['link' => true]); ?>>
-                        <span class="sr-only"><?= esc_html(sprintf(_n('Carrito (%d producto)', 'Carrito (%d productos)', $carrito_cantidad, 'angelitozzz'), $carrito_cantidad)) ?></span>
                         <svg class="h-5 w-[23px]" viewBox="0 0 22.67 20.23" fill="none" stroke="currentColor" stroke-width="1.29" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M.65.65h2.7l4.03 13.39c.22.73.89 1.23 1.65 1.23h9.23c.75 0 1.42-.49 1.65-1.21l2.04-6.48c.35-1.12-.48-2.25-1.65-2.25H5.19" /><circle cx="17.82" cy="18.39" r="1.2" /><circle cx="9.87" cy="18.39" r="1.2" /></svg>
-                        <?php if ($carrito_cantidad > 0) : ?>
-                            <span class="absolute -top-[5px] left-[29px] flex size-5 items-center justify-center rounded-full bg-acento text-[12px] leading-[1.4] text-blanco" aria-hidden="true"><?= esc_html($carrito_cantidad) ?></span>
-                        <?php endif; ?>
+                        <?php get_template_part('template-parts/components/carrito-cuenta'); ?>
                     </a>
 
                     <button type="button" class="flex size-[46px] items-center justify-center rounded-full border border-neutro bg-blanco text-marca focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca lg:hidden" aria-expanded="false" aria-controls="menu-movil" data-menu-toggle>

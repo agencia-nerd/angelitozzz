@@ -6,7 +6,7 @@
 - **Tipo:** estática
 - **Contenido:** ninguno
 - **Secciones (en orden):** carrito-de-compras
-- **Skills usadas:** wp-helper (imágenes). Después: wp-woocommerce (funciones y hooks de Woo en los `// woo:`)
+- **Skills usadas:** wp-helper (imágenes) y wp-woocommerce (funciones y hooks de Woo, F5-b)
 - **Grupo ACF:** ninguno
 - **Ubicación:** ninguna
 - **Padre:** ninguno
@@ -27,7 +27,7 @@
 - **Destino:** `woocommerce/cart/cart.php`, `woocommerce/cart/cart-empty.php`, `template-parts/components/resumen-compra.php`
 - **Grupo:** ninguno
 - **Skill:** wp-helper
-- **Comportamiento:** título `h1` "Carrito de compras" (`--text-h1`, `--color-marca`) y dos columnas (lista de 607 px y resumen de 345 px, separadas 145 px, dentro de `--container-sitio`). **Lista:** un `<form>` de Woo con una fila por curso, sin encabezados de tabla: miniatura 68 × 68 (radio 12, `object-cover`, imagen destacada de la solución del curso), ícono de regalo + "Curso · Acceso por <duración>" (`--text-cuerpo-s`, `--color-marca`; la duración sale del curso, en el plugin `angelitozzz-cursos`), nombre del curso y precio de la fila a la derecha, papelera con nombre accesible "Quitar <curso>" (enlace de Woo `wc_get_cart_remove_url`), y una línea `#bcb28a` bajo cada fila. El precio no se repite bajo el nombre (en el diseño aparece dos veces). Sin cantidad ni botón "Actualizar carrito". **Resumen:** componente `resumen-compra` (`_shared.md`) con los cursos, Subtotal, Descuento (solo con cupón) y Total; debajo, centrado, `boton` frambuesa "Ir a pagar" al checkout. **Vacío** (propuesta): "Tu carrito está vacío" y `boton` "Ver soluciones de sueño" a `/soluciones-de-sueno/`. Los hooks de Woo quedan como comentarios `// woo:` en su lugar (`woocommerce_before_cart`, `woocommerce_before_cart_table`, `woocommerce_cart_contents`, `woocommerce_after_cart_table`, `woocommerce_cart_collaterals`, `woocommerce_after_cart`, avisos `woocommerce_output_all_notices`) hasta el paso wp-woocommerce, que los conserva todos. Valores sueltos: color de bordes `#bcb28a`, radio 12, padding vertical 120 px. Móvil (propuesta): una columna, el resumen bajo la lista y el botón a todo el ancho; padding 56 px vertical y 16 px lateral.
+- **Comportamiento:** título `h1` "Carrito de compras" (`--text-h1`, `--color-marca`) y dos columnas (lista de 607 px y resumen de 345 px, separadas 145 px, dentro de `--container-sitio`). **Lista:** un `<form>` de Woo con una fila por curso, sin encabezados de tabla: miniatura 68 × 68 (radio 12, `object-cover`, portada (imagen destacada) del curso), ícono de regalo + "Curso · Acceso por <duración>" (`--text-cuerpo-s`, `--color-marca`; la duración sale del curso, en el plugin `angelitozzz-cursos`), nombre del curso y precio de la fila a la derecha, papelera con nombre accesible "Quitar <curso>" (enlace de Woo `wc_get_cart_remove_url`), y una línea `#bcb28a` bajo cada fila. El precio no se repite bajo el nombre (en el diseño aparece dos veces). Sin cantidad ni botón "Actualizar carrito". **Resumen:** componente `resumen-compra` (`_shared.md`) con los cursos, Subtotal, Descuento (solo con cupón) y Total; debajo, centrado, `boton` frambuesa "Ir a pagar" al checkout. **Vacío** (propuesta): "Tu carrito está vacío" y `boton` "Ver soluciones de sueño" a `/soluciones-de-sueno/`. Los hooks de Woo están en su lugar (`woocommerce_before_cart`, `woocommerce_before_cart_table`, `woocommerce_cart_contents`, `woocommerce_after_cart_table`, `woocommerce_cart_collaterals`, `woocommerce_after_cart`, avisos `woocommerce_output_all_notices`); el tema quita de ellos el resumen y las ventas cruzadas por defecto de Woo (`inc/woocommerce/plantillas.php`, F5-b). Quitar un curso recarga la página con la URL de Woo (el drawer lo hace sin recargar). Valores sueltos: color de bordes `#bcb28a`, radio 12, padding vertical 120 px. Móvil (propuesta): una columna, el resumen bajo la lista y el botón a todo el ancho; padding 56 px vertical y 16 px lateral.
 - **Indicaciones del diseño:**
     - nota: Esta es la seccion donde se alojara todo lo seleccionado https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4151-10179&t=lySNWh2dFHTQgiTC-4
     - nota: resumen es https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4151-10157&t=lySNWh2dFHTQgiTC-4
@@ -43,7 +43,7 @@ Contenido del diseño (de Woo, no campos): un curso "Recién Nacidos Go (0 a 12 
 **Criterios de aceptación**
 
 - [x] Cumple los criterios comunes de `_shared.md`
-- [x] `cart.php` y `cart-empty.php` conservan, como comentarios `// woo:`, todos los `do_action()` del original de Woo en el mismo orden (wp-woocommerce los activa en la F5; anotados en `specs/plan/sobrescrituras.md`)
+- [x] `cart.php` y `cart-empty.php` conservan todos los `do_action()` del original de Woo en el mismo orden y llevan su `@version` (F5-b, wp-woocommerce; anotados en `specs/plan/sobrescrituras.md`)
 - [x] Cada fila tiene la papelera con nombre accesible y quita el curso; no hay selector de cantidad
 - [x] La fila "Descuento" solo aparece con un cupón aplicado
 - [x] El resumen usa el componente `resumen-compra`, el mismo del checkout

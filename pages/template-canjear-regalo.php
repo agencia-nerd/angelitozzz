@@ -6,14 +6,24 @@
  * Canje de un curso regalado (specs/canjear-regalo.md): el formulario (canje) o, justo después de
  * canjear, la confirmación (canjeado). Nunca se ven juntas.
  *
- * F4, solo maquetación: el estado sale de la muestra angelitozzz_compra_muestra_canje()
- * (f5: el plugin angelitozzz-cursos procesa el formulario y deja el último canje como dato de un
- * solo uso; sin ese dato se ve el formulario).
+ * El formulario lo procesa el plugin angelitozzz-cursos (POST → redirección → GET). Tras canjear, el plugin
+ * deja el último canje de la usuaria como dato de un solo uso; sin ese dato se ve el formulario vacío.
  */
 
 defined('ABSPATH') || exit;
 
-$canje = angelitozzz_compra_muestra_canje(); // f5: angelitozzz_cursos_* (último canje de la usuaria o error del envío)
+// Formulario vacío: el código nunca viaja en la URL (specs/canjear-regalo.md), así que no se lee de $_GET.
+$canje = ['estado' => 'canje', 'valor' => '', 'error' => ''];
+
+// F5-c: el plugin da el último canje (dato de un solo uso) o el error del envío anterior. Se espera
+// ['estado' => 'canjeado', 'curso', 'meses' (0 = ilimitado), 'primera_leccion', 'cursos_url'] o
+// ['estado' => 'canje', 'valor', 'error']; la acción y el nonce del formulario van en canje.php.
+if (function_exists('angelitozzz_cursos_ultimo_canje')) {
+    $ultimo = angelitozzz_cursos_ultimo_canje();
+    if (is_array($ultimo) && $ultimo) {
+        $canje = $ultimo + $canje;
+    }
+}
 
 get_header();
 ?>

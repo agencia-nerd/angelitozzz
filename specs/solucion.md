@@ -69,7 +69,7 @@ Valores de las otras landings (para el contenido inicial): ver "Orden de cada la
 
 - [x] Cumple los criterios comunes de `_shared.md`
 - [x] El título es el único `h1` de la página
-- [x] El precio no está escrito en la plantilla: sale del producto de Woo (en la F2, un valor fijo marcado `// woo:`)
+- [x] El precio no está escrito en la plantilla: sale del producto de Woo (`inc/woocommerce/precios.php`, F5-b)
 - [x] Con `tipo_compra` = etapas el botón abre `modal-selecciona-edad` y el precio dice "Desde $<mínimo> USD" sin "antes"
 - [x] El campo de cupón tiene `<label>` accesible y el botón de enviar tiene nombre accesible
 - [x] Sin `solucion_hero_regalo` no se imprimen ni el botón de regalo ni el enlace de canje
@@ -82,7 +82,7 @@ Valores de las otras landings (para el contenido inicial): ver "Orden de cada la
 - **Destino:** `template-parts/components/producto-card.php`, `inc/soluciones.php`
 - **Grupo:** `solucion_tarjeta`
 - **Skill:** ninguna
-- **Comportamiento:** la llaman `archive-solucion.php`, la sección `relacionados` y el bloque de Inicio; en la F4 los datos son la muestra `angelitozzz_solucion_muestra_tarjetas()`. No se imprime en la landing: son los datos de la tarjeta de esta solución en el listado `/soluciones-de-sueno/`, en los relacionados y en el drawer. Nombre = título de la entrada; foto = imagen destacada (sin imagen, la tarjeta usa la imagen "not found"). El botón lleva a la landing de la solución.
+- **Comportamiento:** la llaman `archive-solucion.php`, la sección `relacionados` y el bloque de Inicio; los datos salen de estos campos (`angelitozzz_solucion_tarjeta_args()`, `inc/soluciones.php`) y el precio de los relacionados, del producto de Woo (`inc/woocommerce/precios.php`). No se imprime en la landing: son los datos de la tarjeta de esta solución en el listado `/soluciones-de-sueno/`, en los relacionados y en el drawer. Nombre = título de la entrada; foto = imagen destacada (sin imagen, la tarjeta usa la imagen "not found"). El botón lleva a la landing de la solución.
 - **Estado:** aplicado
 - **ACF:** conectado
 
@@ -109,7 +109,7 @@ Valores de las otras landings (para el contenido inicial): ver "Orden de cada la
 - **Destino:** `single-solucion.php`
 - **Grupo:** `solucion_compra`
 - **Skill:** ninguna
-- **Comportamiento:** en la F4 el tipo y los descuentos son la muestra `angelitozzz_solucion_muestra_compra()`; en la F5 la lógica va en `inc/woocommerce/` (carrito, etapas, descuento) y en el plugin `angelitozzz-cursos` (curso ↔ producto), sin marcado propio. Define qué vende la solución y cómo. `directa`: el botón del hero agrega el producto de Woo de su curso. `etapas`: abre `modal-selecciona-edad` con los cursos del bloque `etapas` y aplica el descuento por cantidad. `suscripcion` (Angelita Pro): la renovación cada 4 meses con 7 días de prueba se define en la F5 (depende de Niubiz). El precio de cada curso es el de su producto de Woo.
+- **Comportamiento:** la lógica va en `inc/woocommerce/` del tema (`precios.php`: precio de cada curso desde su producto; `carrito.php`: drawer y agregar; `descuentos.php`: descuento por cantidad con `woocommerce_cart_calculate_fees`, decisión del usuario 2026-11-18) y en el plugin `angelitozzz-cursos` (curso ↔ producto, marca de regalo), sin marcado propio. El descuento se aplica cuando el carrito tiene N cursos (no regalo) de las etapas de la solución y `descuentos` tiene una fila con esa `cantidad`: una línea "Descuento <solución>" igual a `total` menos la suma de sus precios (solo si es menor). Define qué vende la solución y cómo. `directa`: el botón del hero agrega el producto de Woo de su curso. `etapas`: abre `modal-selecciona-edad` con los cursos del bloque `etapas` y aplica el descuento por cantidad. `suscripcion` (Angelita Pro): la renovación cada 4 meses con 7 días de prueba se define en la F6 (depende de Openpay; mientras tanto se vende como un curso directo). El precio de cada curso es el de su producto de Woo.
 - **Estado:** aplicado
 - **ACF:** conectado
 
@@ -286,7 +286,7 @@ Valores de las otras landings (para el contenido inicial): ver "Orden de cada la
 - **Destino:** `template-parts/modals/selecciona-edad.php`
 - **Grupo:** ninguno
 - **Skill:** wp-modal
-- **Comportamiento:** solo con `solucion_compra_tipo` = etapas; lo abre el botón de compra del hero y el de `galeria`. Modal de 568 px: título "Selecciona la edad de tu bebé", bajada "Por la compra de dos o tres cursos, consigue un precio especial." (textos fijos del tema), una casilla por etapa del bloque `etapas` (foto, `edad`), y al pie "Total:" con el precio calculado (precio de Woo de cada curso, o el total de `solucion_compra_descuentos` si coincide la cantidad) y la franja "Estás ahorrando $…" (solo si hay ahorro). Empieza sin casillas marcadas (total $0, botón desactivado). "Agregar al carrito" es un `<button>` propio (no `boton` con `modal`, porque wp-modal no apila modales): agrega los cursos marcados, cierra el modal y abre el drawer (`src/js/modules/solucion-compra.js`). Las casillas son `<input type="checkbox">` reales con `<label>` (no un formulario de wp-form: no envía correo). En móvil (propuesta): ocupa el ancho con 16 px de margen.
+- **Comportamiento:** solo con `solucion_compra_tipo` = etapas; lo abre el botón de compra del hero y el de `galeria`. Modal de 568 px: título "Selecciona la edad de tu bebé", bajada "Por la compra de dos o tres cursos, consigue un precio especial." (textos fijos del tema), una casilla por etapa del bloque `etapas` (foto, `edad`), y al pie "Total:" con el precio calculado (precio de Woo de cada curso, o el total de `solucion_compra_descuentos` si coincide la cantidad) y la franja "Estás ahorrando $…" (solo si hay ahorro). Empieza sin casillas marcadas (total $0, botón desactivado). "Agregar al carrito" es un `<button>` propio (no `boton` con `modal`, porque wp-modal no apila modales): agrega los cursos marcados, cierra el modal y abre el drawer (`src/js/modules/solucion-compra.js`). Las casillas son `<input type="checkbox">` reales con `<label>`, con el ID del producto de Woo de cada etapa como `value` (F5-b) (no un formulario de wp-form: no envía correo). En móvil (propuesta): ocupa el ancho con 16 px de margen.
 - **Estado:** aplicado
 
 **Campos ACF**
@@ -325,7 +325,7 @@ Valores de las otras landings (para el contenido inicial): ver "Orden de cada la
 ## Sección: drawer-carrito
 
 - **Origen:** `specs/figma/lectura/curso-a-dormir-por-fin/drawer-carrito.ref.txt` (nodo 3752:5054)
-- **Destino:** `template-parts/modals/carrito.php`, `inc/solucion-muestra/carrito.php`, `footer.php`
+- **Destino:** `template-parts/modals/carrito.php`, `template-parts/components/carrito-contenido.php`, `inc/woocommerce/carrito.php`, `src/js/modules/carrito.js`, `footer.php`
 - **Grupo:** ninguno
 - **Skill:** wp-modal
 - **Comportamiento:** se imprime una vez en `footer.php`, en todo el sitio. Panel lateral derecho de 480 px y alto completo (`drawer` de wp-modal). Se abre al agregar un curso al carrito (desde cualquier landing) y desde el ícono del carrito del header. Contenido: título "Resumen de compra", los cursos del carrito (miniatura, "Curso", nombre, duración del acceso, precio, botón eliminar con nombre accesible), "Te puede interesar también" con una solución sugerida (su tarjeta en versión chica, con "Agregar") y al pie, fijo, "Subtotal" con el monto, "Ir a pagar" (`boton` frambuesa, al checkout) y "Seguir comprando" (cierra el drawer). Carrito vacío: "Tu carrito está vacío." y "Seguir comprando". "Ir a pagar" lleva a `/finalizar-compra/`. Los textos son fijos del tema; los datos, del carrito de Woo. En la F4 se maqueta con los datos del diseño fijos; se conecta con wp-woocommerce (mini carrito que se actualiza solo). La sugerida se elige igual que los relacionados (una solución que no esté en el carrito). En móvil (propuesta): pantalla completa (`mobile` `fullscreen`).

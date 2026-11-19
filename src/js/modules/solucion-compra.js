@@ -1,12 +1,15 @@
 /*
- * Compra en las landings de soluciones (maquetación F4):
+ * Compra en las landings de soluciones:
  * - Selector de edad (template-parts/modals/selecciona-edad.php): recalcula el total y el ahorro al
  *   marcar o desmarcar (la zona tiene aria-live) y activa "Agregar al carrito" con al menos una etapa.
- *   Total: suma de los precios, o el total de la escala de descuento si coincide la cantidad.
- * - "Agregar al carrito" ([data-solucion-agregar], en el selector y en cada modal de etapa): cierra su
- *   modal y abre el drawer del carrito. En la F5 (wp-woocommerce) antes agrega los cursos al carrito.
+ *   Total: suma de los precios, o el total de la escala de descuento si coincide la cantidad (el carrito aplica
+ *   el mismo descuento: inc/woocommerce/descuentos.php).
+ * - "Agregar al carrito" ([data-solucion-agregar]): en el hero y la galería (data-productos, y data-regalo en
+ *   "Regalar este curso"), en cada modal de etapa (su producto) y en el selector (las casillas marcadas, cuyo
+ *   value es el ID del producto). Cierra su modal, abre el drawer y agrega los cursos (carrito.js).
  */
 import { openModal, closeModal } from './modal.js';
+import { agregarAlCarrito } from './carrito.js';
 
 const dinero = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
 
@@ -42,6 +45,14 @@ function iniciarSelector(raiz) {
     recalcular();
 }
 
+function productosDe(boton) {
+    const selector = boton.closest('[data-solucion-edades]');
+    if (selector) {
+        return [...selector.querySelectorAll('input[type="checkbox"]:checked')].map((casilla) => casilla.value);
+    }
+    return (boton.dataset.productos || '').split(',').filter(Boolean);
+}
+
 export function initSolucionCompra() {
     document.querySelectorAll('[data-solucion-edades]').forEach(iniciarSelector);
 
@@ -49,9 +60,12 @@ export function initSolucionCompra() {
         const boton = evento.target.closest('[data-solucion-agregar]');
         if (!boton || boton.disabled) return;
 
-        // woo: agregar al carrito (F5). Se cambia un modal por otro, sin apilarlos.
+        const productos = productosDe(boton);
+        // Se cambia un modal por otro, sin apilarlos. En el hero y la galería el botón ya abre el drawer
+        // (data-modal-open): openModal no lo abre dos veces.
         const carrito = document.getElementById('carrito');
         closeModal(boton.closest('dialog'));
         if (carrito) openModal(carrito, document.querySelector('[data-modal-open="carrito"]'));
+        if (productos.length) agregarAlCarrito(productos, { regalo: boton.dataset.regalo === '1' });
     });
 }

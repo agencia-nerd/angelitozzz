@@ -4,6 +4,13 @@
  * lecciones, un material PDF, un producto de Woo ligado al curso A, un pedido pagado (el puente del
  * plugin inscribe) y uno pendiente. Guarda los IDs en la opción angelitozzz_prueba_f5 para borrarlos.
  * Uso: php zz-datos-f5.php crear|borrar
+ *
+ * F5-b, compra: "tienda" crea un curso con su producto (por el constructor del plugin: virtual y vender
+ * individualmente) para cada solución de venta directa y uno por etapa de Horarios Ideales, y los liga a las
+ * soluciones (solucion_compra_cursos y el curso de cada etapa). Guarda los metadatos que tenían las soluciones en la
+ * opción angelitozzz_prueba_tienda; "tienda-borrar" los devuelve y borra los cursos, sus lecciones y productos, y
+ * los pedidos de esos productos. Lista los IDs antes de borrar.
+ * Uso: php zz-datos-f5.php tienda|tienda-borrar
  * El puerto de MySQL se lee del sites.json de Local (cambia en cada PC). Para forzarlo:
  * ANGELITOZZZ_DB_PUERTO=<puerto> o php -d mysqli.default_port=<puerto>.
  */
@@ -41,7 +48,95 @@ require_once ABSPATH . 'wp-admin/includes/media.php';
 require_once ABSPATH . 'wp-admin/includes/image.php';
 
 $accion = $argv[1] ?? 'crear';
-$ids    = get_option('angelitozzz_prueba_f5', []);
+
+if ($accion === 'tienda' || $accion === 'tienda-borrar') {
+    $tienda = get_option('angelitozzz_prueba_tienda', []);
+
+    if ($accion === 'tienda-borrar') {
+        if (!$tienda) { echo "no hay datos de la tienda\n"; exit; }
+        echo "se borran: ", wp_json_encode(['cursos' => $tienda['cursos'], 'lecciones' => $tienda['lecciones'], 'productos' => $tienda['productos']]), "\n";
+        // Pedidos de los productos de prueba (las compras hechas en el navegador).
+        foreach (wc_get_orders(['limit' => -1, 'return' => 'ids', 'status' => array_keys(wc_get_order_statuses())]) as $pedido_id) {
+            $pedido = wc_get_order($pedido_id);
+            foreach ($pedido->get_items() as $item) {
+                if (in_array((int) $item->get_product_id(), $tienda['productos'], true)) {
+                    echo "pedido ", $pedido_id, "\n";
+                    $pedido->delete(true);
+                    continue 2;
+                }
+            }
+        }
+        global $wpdb;
+        foreach ($tienda['cursos'] as $curso_id) {
+            $wpdb->delete($wpdb->prefix . 'angelitozzz_inscripciones', ['curso_id' => (int) $curso_id]);
+            $wpdb->delete($wpdb->prefix . 'angelitozzz_progreso', ['curso_id' => (int) $curso_id]);
+        }
+        foreach (array_merge($tienda['productos'], $tienda['lecciones'], $tienda['cursos']) as $id) { wp_delete_post((int) $id, true); }
+        // Metadatos de las soluciones como estaban (null = no existía).
+        foreach ($tienda['meta'] as $post_id => $metas) {
+            foreach ($metas as $clave => $valor) {
+                $valor === null ? delete_post_meta((int) $post_id, $clave) : update_post_meta((int) $post_id, $clave, $valor);
+            }
+        }
+        delete_option('angelitozzz_prueba_tienda');
+        echo "borrado\n";
+        exit;
+    }
+
+    if ($tienda) { echo "ya hay datos de la tienda: ", wp_json_encode($tienda['cursos']), "\n"; exit; }
+    $tienda = ['cursos' => [], 'lecciones' => [], 'productos' => [], 'meta' => []];
+
+    // Guarda el valor actual de un metadato de una solución (una sola vez) y lo cambia.
+    $poner = static function (int $post_id, string $clave, $valor) use (&$tienda): void {
+        if (!isset($tienda['meta'][$post_id]) || !array_key_exists($clave, $tienda['meta'][$post_id])) {
+            $tienda['meta'][$post_id][$clave] = metadata_exists('post', $post_id, $clave) ? get_post_meta($post_id, $clave, true) : null;
+        }
+        update_post_meta($post_id, $clave, $valor);
+    };
+    // Curso publicado con una lección y su producto (precio normal y de lanzamiento).
+    $curso = static function (string $titulo, int $meses, string $precio, string $lanzamiento) use (&$tienda): int {
+        $id = wp_insert_post(['post_type' => 'curso', 'post_status' => 'publish', 'post_title' => $titulo, 'post_excerpt' => 'Curso de prueba de la F5-b.']);
+        update_post_meta($id, '_angelitozzz_tipo', 'curso_online');
+        update_post_meta($id, '_angelitozzz_duracion_acceso', $meses);
+        update_post_meta($id, '_angelitozzz_modulos', [['id' => 'm1', 'titulo' => 'Módulo 1']]);
+        $leccion = wp_insert_post(['post_type' => 'leccion', 'post_status' => 'publish', 'post_parent' => $id, 'post_title' => 'Bienvenida', 'post_content' => '<p>Primera lección.</p>', 'menu_order' => 1]);
+        update_post_meta($leccion, '_angelitozzz_modulo', 'm1');
+        $producto = angelitozzz_cursos_guardar_producto($id, $titulo, $precio, $lanzamiento);
+        $tienda['cursos'][]    = $id;
+        $tienda['lecciones'][] = $leccion;
+        $tienda['productos'][] = $producto;
+        return $id;
+    };
+
+    $precios = [
+        'a-dormir-por-fin'  => ['A Dormir Por Fin (prueba)', 12, '399', ''],
+        'recien-nacidos-go' => ['Recién Nacidos Go (prueba)', 4, '97', '67'],
+        'angelita-pro'      => ['Angelita Pro (prueba)', 4, '97', '67'],
+    ];
+    foreach (get_posts(['post_type' => 'solucion', 'post_status' => 'publish', 'posts_per_page' => -1]) as $solucion) {
+        $tipo = (string) get_post_meta($solucion->ID, 'solucion_compra_tipo', true);
+        if ($tipo !== 'etapas' && isset($precios[$solucion->post_name])) {
+            [$titulo, $meses, $precio, $lanzamiento] = $precios[$solucion->post_name];
+            $poner($solucion->ID, 'solucion_compra_cursos', [(string) $curso($titulo, $meses, $precio, $lanzamiento)]);
+        }
+        if ($tipo === 'etapas') {
+            // El bloque `etapas` del flexible solucion_secciones_bloques: un curso de $37 por etapa.
+            $bloques = (array) get_post_meta($solucion->ID, 'solucion_secciones_bloques', true);
+            $indice  = array_search('etapas', $bloques, true);
+            if ($indice === false) { continue; }
+            $items = (int) get_post_meta($solucion->ID, "solucion_secciones_bloques_{$indice}_items", true);
+            for ($i = 0; $i < $items; $i++) {
+                $poner($solucion->ID, "solucion_secciones_bloques_{$indice}_items_{$i}_curso", $curso('Horarios Ideales etapa ' . ($i + 1) . ' (prueba)', 6, '37', ''));
+            }
+        }
+    }
+
+    update_option('angelitozzz_prueba_tienda', $tienda, false);
+    echo "creado: ", wp_json_encode(['cursos' => $tienda['cursos'], 'productos' => $tienda['productos']]), "\n";
+    exit;
+}
+
+$ids = get_option('angelitozzz_prueba_f5', []);
 
 if ($accion === 'borrar') {
     foreach ((array) ($ids['pedidos'] ?? []) as $id) {

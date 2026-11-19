@@ -3,7 +3,7 @@
 /**
  * Canjear regalo · canje (specs/canjear-regalo.md, Figma 3640:1593): formulario del código.
  *
- * $args (F4: muestra de inc/compra-muestra.php; f5: el plugin angelitozzz-cursos):
+ * $args (de pages/template-canjear-regalo.php; el plugin angelitozzz-cursos los da en la F5-c):
  * - error (string, opcional: mensaje del envío anterior; código no válido o demasiados intentos)
  * - valor (string, opcional: lo que escribió, para no perderlo al volver con error)
  */
@@ -23,7 +23,7 @@ get_template_part('template-parts/components/confirmacion-tarjeta', null, [
 ?>
 <form class="flex w-full flex-col items-center gap-6" method="post" action="" data-enviar-una-vez>
     <?php
-    // f5: action del plugin (admin-post.php con su acción) y wp_nonce_field() del canje.
+    // F5-c: action del plugin (angelitozzz_cursos_url_envio(), admin-post.php) con su input "action" y wp_nonce_field() del canje.
     ?>
 
     <?php if ($error !== '') : ?>

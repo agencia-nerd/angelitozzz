@@ -5,7 +5,8 @@
  * con su código para compartir y el botón "Copiar código" (src/js/modules/copiar-codigo.js).
  *
  * $args:
- * - regalo (array: curso, codigo). F4: muestra de inc/compra-muestra.php (f5: código del plugin).
+ * - regalo (array: curso, codigo). Lo arma woocommerce/checkout/thankyou.php con el código que genera
+ *           el plugin angelitozzz-cursos al pagarse el pedido (angelitozzz_cursos_pedido_regalos, F5-c).
  * - nivel  ('h1' | 'h2': h1 si es la primera tarjeta de la página)
  */
 

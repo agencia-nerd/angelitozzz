@@ -58,9 +58,9 @@ function angelitozzz_solucion_tarjeta_args(int $post_id, string $variante = 'com
     if ($variante === 'corta') {
         $hero   = get_field('solucion_hero', $post_id) ?: [];
         $edad   = trim((string) ($tarjeta['edad'] ?? ''), '() ');
-        // woo: precio del producto del curso (F5-b); hasta entonces, el de la muestra.
-        $precio = function_exists('angelitozzz_solucion_muestra_precio')
-            ? angelitozzz_solucion_muestra_precio((string) get_post_field('post_name', $post_id))
+        // Precio del producto de Woo de sus cursos (inc/woocommerce/precios.php).
+        $precio = function_exists('angelitozzz_solucion_precio')
+            ? angelitozzz_solucion_precio($post_id)
             : ['actual' => '', 'desde' => false];
         if ($precio['actual'] !== '') {
             $edad .= ($edad !== '' ? ' · ' : '') . ($precio['desde'] ? __('Desde', 'angelitozzz') . ' ' : '') . $precio['actual'];

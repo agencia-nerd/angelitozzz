@@ -5,7 +5,8 @@
  * Solo con solucion_compra_tipo = etapas: lo abren el botón de compra del hero y el de la galería.
  * Una casilla por etapa del bloque `etapas`; src/js/modules/solucion-compra.js calcula el total
  * (precio de cada curso, o el total de solucion_compra_descuentos si coincide la cantidad) y el ahorro.
- * "Agregar al carrito" cierra este modal y abre el drawer (woo: en la F5 agrega los cursos marcados).
+ * Cada casilla lleva el ID del producto de Woo de su etapa: "Agregar al carrito" agrega los marcados, cierra este
+ * modal y abre el drawer (carrito.js); el descuento lo aplica el carrito (inc/woocommerce/descuentos.php).
  *
  * $args: etapas (items del bloque `etapas`), compra (grupo solucion_compra), contexto.
  */
@@ -29,8 +30,11 @@ foreach ((array) ($compra['descuentos'] ?? []) as $fila) {
     }
 }
 
-// woo: el precio sale del producto de cada curso; aquí se lee del texto de muestra ("$37").
-$precio_numero = static fn($precio): float => (float) preg_replace('/[^\d.]/', '', (string) $precio);
+// Solo las etapas con un curso a la venta: el precio y el producto los pone single-solucion.php desde Woo.
+$etapas = array_values(array_filter($etapas, static fn($etapa): bool => !empty($etapa['producto_id'])));
+if (!$etapas) {
+    return;
+}
 
 $estrellas = get_theme_file_uri('assets/img/solucion/selecciona-edad-estrellas.svg');
 
@@ -58,7 +62,7 @@ angelitozzz_modal_start('selecciona-edad', [
                 <li>
                     <label class="flex cursor-pointer items-center gap-[19px]" for="<?= esc_attr($id_casilla) ?>">
                         <span class="relative grid size-6 shrink-0 place-items-center">
-                            <input class="peer size-6 cursor-pointer appearance-none rounded-lg border border-tinta bg-blanco focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca" type="checkbox" id="<?= esc_attr($id_casilla) ?>" name="etapas[]" value="<?= esc_attr((string) ($n + 1)) ?>" data-precio="<?= esc_attr((string) $precio_numero($etapa['precio'] ?? '')) ?>">
+                            <input class="peer size-6 cursor-pointer appearance-none rounded-lg border border-tinta bg-blanco focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca" type="checkbox" id="<?= esc_attr($id_casilla) ?>" name="etapas[]" value="<?= esc_attr((string) (int) $etapa['producto_id']) ?>" data-precio="<?= esc_attr((string) (float) ($etapa['precio_numero'] ?? 0)) ?>">
                             <svg class="pointer-events-none absolute hidden h-[13px] w-[14px] text-tinta peer-checked:block" viewBox="0 0 13.75 12.92" fill="currentColor" aria-hidden="true" focusable="false"><path d="M13.28.17c.48.31.62.96.3 1.44L6.5 12.44a1.04 1.04 0 0 1-1.6.17L.31 8.03a1.04 1.04 0 1 1 1.47-1.47l3.68 3.68L11.84.47a1.04 1.04 0 0 1 1.44-.3" /></svg>
                         </span>
                         <span class="relative h-[74px] w-[90px] shrink-0 overflow-hidden rounded-xl" aria-hidden="true">

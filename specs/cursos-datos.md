@@ -11,7 +11,7 @@
 - **Ubicación:** tipo de contenido = curso
 - **Padre:** ninguno
 - **Notas de página:**
-    - Decisiones de `specs/plan/checklist-cursos.md` (2026-11-13): LMS a medida, sin Tutor; cobro con WooCommerce + Niubiz; videos en Vimeo (ocultos, sin restricción de dominio); sin cuestionarios, certificados ni comentarios; por ahora solo Bárbara administra.
+    - Decisiones de `specs/plan/checklist-cursos.md` (2026-11-13): LMS a medida, sin Tutor; cobro con WooCommerce + Openpay (era Niubiz hasta el 2026-11-18); videos en Vimeo (ocultos, sin restricción de dominio); sin cuestionarios, certificados ni comentarios; por ahora solo Bárbara administra.
     - Los datos de cursos y lecciones los escribe el constructor de Bárbara (`admin-constructor.md`), no el admin de WordPress ni ACF. Las capturas del constructor están en `specs/figma/lectura/admin-cursos/constructor-*.png`; de ahí salen los campos de `curso` y `leccion`.
     - Todo en el plugin: prefijo `angelitozzz_` en funciones, opciones, hooks, metadatos (`_angelitozzz_*`) y tablas (`{prefix}angelitozzz_*`); text domain `angelitozzz-cursos`; las tablas se crean con migraciones versionadas (`includes/esquema.php`).
     - Fechas guardadas en UTC (`DATETIME`); se muestran en la zona horaria del sitio (`wp_date`).
@@ -215,7 +215,8 @@
     - **Curso ↔ producto:**
         - Cada curso tiene un producto Simple, Virtual, "Vender individualmente", oculto del catálogo y de la búsqueda.
         - Los une `_angelitozzz_producto_id` en el curso y `_angelitozzz_curso_id` en el producto.
-        - El constructor crea o actualiza el producto al guardar: nombre, precio normal y precio rebajado (precio de lanzamiento), estado igual al del curso.
+        - El constructor crea o actualiza el producto al guardar: nombre, precio normal y precio rebajado (precio de lanzamiento), estado igual al del curso. Virtual y "Vender individualmente" se aplican en cada guardado, no solo al crearlo, y una migración los aplica a los productos que ya existen (F5-b).
+    - **Marca de regalo** (sección `regalo`): el carrito recibe `angelitozzz_regalo=1` al agregar (`woocommerce_add_cart_item_data`), la línea muestra "Regalo" (`woocommerce_get_item_data`) y al crear el pedido se guarda `_angelitozzz_regalo` en la línea (`woocommerce_checkout_create_order_line_item`). Destino: `includes/woocommerce.php` (F5-b; el código del regalo es de la F5-c).
         - Solo con `WC_Product` (nunca escribe tablas de Woo directamente).
     - **Pedido pagado:**
         - Con `woocommerce_order_status_processing` y `woocommerce_order_status_completed`, por cada línea cuyo producto tiene `_angelitozzz_curso_id`, se inscribe a la clienta del pedido (`customer_id`).
@@ -354,6 +355,10 @@
             - `angelitozzz_cursos_inicio_de( $usuario_id )`: la página de inicio de cada rol (alumna: `/cuenta/`; quien gestiona cursos, instructora o administradora: `/administrador/`). La usa "Mi cuenta" del header.
             - `angelitozzz_cursos_es_pagina_acceso( $url )`: si una URL es de iniciar sesión, crear cuenta o recuperar contraseña (no sirven como vuelta).
             - `angelitozzz_cursos_datos_perfil()`: nombre, apellidos, correo, teléfono y el correo pendiente de confirmar.
+        - **Compra (F5-b):**
+            - `angelitozzz_cursos_producto_de( $curso_id )`: el ID del producto de Woo del curso (0 si no tiene). El tema lee de ahí el precio con `wc_get_product()`.
+            - `angelitozzz_cursos_linea_carrito_es_regalo( $linea )`: si una línea de `WC()->cart->get_cart()` es un regalo (`includes/woocommerce.php`).
+            - `angelitozzz_cursos_datos_producto( $producto_id )`: `curso_id` (0 si el producto no es de un curso), `meses` (0 = ilimitado) y `acceso_texto` ("Acceso por 6 meses" o "Acceso ilimitado"), para el drawer, el carrito, el checkout y gracias.
         - `angelitozzz_cursos_pedido_cursos( $pedido_id )`: los cursos de un pedido de la usuaria (no regalo), con duración y primera lección, para la página de gracias.
         - `angelitozzz_cursos_pedido_regalos( $pedido_id )`: los regalos de un pedido de la usuaria, con curso y código.
         - `angelitozzz_cursos_puede_ver_curso( $curso_id, $usuario_id )`: si la usuaria compró el curso (lo usa la lección para el botón de completar, los candados del temario y el PDF del curso).

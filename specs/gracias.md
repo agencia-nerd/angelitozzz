@@ -6,15 +6,15 @@
 - **Tipo:** estática
 - **Contenido:** ninguno
 - **Secciones (en orden):** confirmacion, regalo-listo, mes-gratis-mundo
-- **Skills usadas:** wp-helper (enlaces del banner). Después: wp-woocommerce (funciones y hooks de Woo en los `// woo:`)
+- **Skills usadas:** wp-helper (enlaces del banner) y wp-woocommerce (funciones y hooks de Woo, F5-b)
 - **Grupo ACF:** ninguno
 - **Ubicación:** ninguna
 - **Padre:** ninguno
 - **Notas de página:**
     - Sobre lo de gracias tu me lo púedes proponer por favor.
     - Solo `regalo-listo` tiene diseño en Figma (nodo 3649:1702). `confirmacion` y los estados de pago son una propuesta que reutiliza la misma tarjeta (`confirmacion-tarjeta`); `mes-gratis-mundo` reutiliza `banner-mundo`.
-    - No es una página de WordPress: es el endpoint `order-received` del checkout de Woo. Plantilla sobrescrita `woocommerce/checkout/thankyou.php` (anotada en `specs/plan/sobrescrituras.md`), que conserva `woocommerce_before_thankyou` y `woocommerce_thankyou` (este último imprime el detalle del pedido de Woo y lo que agregue la pasarela; el tema oculta el detalle con un filtro solo si la pasarela no lo necesita, a revisar con Niubiz en la F0).
-    - Qué secciones se ven según el pedido: solo cursos para ella → `confirmacion` y `mes-gratis-mundo`; solo regalos → `regalo-listo` (una tarjeta por regalo) sin `mes-gratis-mundo`; pedido mixto → las tres, en ese orden. Pago pendiente o fallido → solo `confirmacion` en su estado de pago.
+    - No es una página de WordPress: es el endpoint `order-received` del checkout de Woo. Plantilla sobrescrita `woocommerce/checkout/thankyou.php` (anotada en `specs/plan/sobrescrituras.md`), que conserva `woocommerce_before_thankyou` y `woocommerce_thankyou` (este último imprime el detalle del pedido de Woo y lo que agregue la pasarela; el tema oculta el detalle con un filtro solo si la pasarela no lo necesita, a revisar con Openpay en la F5-b).
+    - Qué secciones se ven según el pedido: solo cursos para ella → `confirmacion` y `mes-gratis-mundo`; solo regalos → `regalo-listo` (una tarjeta por regalo) sin `mes-gratis-mundo`; pedido mixto → las tres, en ese orden. Pago pendiente o fallido, o pedido cancelado o reembolsado → solo `confirmacion` en su estado.
     - El primer título visible es el `h1` de la página (el de `confirmacion` o, si no hay, el de la primera tarjeta de regalo); los siguientes son `h2`. Título SEO "Gracias por tu compra | Angelitozzz", con `noindex` (lo pone Woo).
     - Toda compra tiene cuenta (`checkout.md`), así que la alumna llega con su sesión iniciada; Woo además comprueba la clave del pedido en la URL.
     - Sin campos ACF propios: los textos son fijos del tema (text domain `angelitozzz`); el banner usa `opciones.md` → `mes-gratis-mundo`.
@@ -29,10 +29,11 @@
 - **Skill:** ninguna
 - **Comportamiento:** componente `confirmacion-tarjeta`, con los cursos del pedido que no son regalo (líneas con `_angelitozzz_curso_id`, datos del plugin):
     - **Pagado** (`processing` o `completed`): ícono check, pastilla verde "✓ Compra exitosa", `h1` "¡Gracias por tu compra, <nombre>!" (nombre de la facturación), texto "Ya tienes acceso a tu curso. Te enviamos el detalle de tu pedido por correo." (en plural si son varios: "a tus cursos"). Una caja crema por curso (igual a la caja de acceso de `canjeado`): "<curso> · Acceso por <duración>" (o "Acceso ilimitado"). Con un curso, `boton` frambuesa "Empezar el curso" a su primera lección; con varios, "Ir a Mis cursos" (`/cuenta/cursos/`). Debajo, el enlace subrayado "Ver mi pedido" al historial de la cuenta (`/cuenta/pedidos/`).
-    - **Pago pendiente** (`pending` u `on-hold`, por ejemplo mientras Niubiz confirma): sin ícono, pastilla neutra "Pago en revisión" (fondo `--color-neutro`, texto `--color-marca`), `h1` "Estamos confirmando tu pago", texto "Te avisaremos por correo apenas se confirme y tu curso aparecerá en tu cuenta." y el enlace "Ver mi pedido".
+    - **Pago pendiente** (`pending` u `on-hold`, por ejemplo mientras Openpay confirma un pago con 3D Secure): sin ícono, pastilla neutra "Pago en revisión" (fondo `--color-neutro`, texto `--color-marca`), `h1` "Estamos confirmando tu pago", texto "Te avisaremos por correo apenas se confirme y tu curso aparecerá en tu cuenta." y el enlace "Ver mi pedido".
     - **Pago fallido** (`failed`): sin ícono, pastilla neutra "Pago no realizado", `h1` "No pudimos procesar tu pago", texto "No se hizo ningún cobro. Puedes intentarlo de nuevo con otra tarjeta." y `boton` frambuesa "Intentar de nuevo" (`$order->get_checkout_payment_url()`).
+    - **Pedido sin efecto** (`cancelled` o `refunded`; decisión del usuario, 2026-11-18): por ejemplo, alguien vuelve a abrir este enlace después de una devolución por la garantía de 7 días. Sin ícono, pastilla neutra "Pedido cancelado" o "Pedido reembolsado", `h1` "Este pedido fue cancelado" o "Este pedido fue reembolsado", texto "El acceso a sus cursos ya no está activo. Si tienes dudas, escríbenos.", enlace "Ver mi pedido" y el botón de WhatsApp de Ajustes del sitio (`angelitozzz_solucion_whatsapp()`, sin número no se muestra). Sin banner de Mundo ni códigos de regalo.
     - El acceso real lo da el plugin con el pedido pagado (`cursos-datos.md` → `puente-woo`); la página solo lo muestra. Si la inscripción aún no existe al cargar (la pasarela avisa unos segundos después), se muestra igual el estado pagado: el botón lleva a la lección y la lección comprueba el acceso.
-    - Los hooks de Woo quedan como comentarios `// woo:` en su lugar (`woocommerce_before_thankyou`, `woocommerce_thankyou`) hasta wp-woocommerce, que los conserva.
+    - Los hooks de Woo están en su lugar (`woocommerce_before_thankyou`, `woocommerce_thankyou_<método>`, `woocommerce_thankyou`); el tema quita de `woocommerce_thankyou` la tabla de detalle de Woo (`inc/woocommerce/plantillas.php`) y deja lo que agregue la pasarela (F5-b).
     - Valores sueltos: tarjeta de 720 px, padding 56/64, radio 24, 24 px entre bloques. Móvil (propuesta): la tarjeta ocupa el ancho con 16 px de margen y padding 32/24; el título baja a `--text-h3`.
 - **Estado:** aplicado
 
@@ -47,7 +48,7 @@
 - [x] Con un pedido pagado de un curso, muestra el curso, su duración y "Empezar el curso" a la primera lección
 - [x] Con varios cursos, una caja por curso y el botón "Ir a Mis cursos"
 - [x] Con pago pendiente o fallido no dice "Compra exitosa"; el fallido ofrece "Intentar de nuevo"
-- [x] La plantilla conserva, como comentarios `// woo:`, `woocommerce_before_thankyou`, `woocommerce_thankyou` y los demás hooks del original (wp-woocommerce los activa en la F5)
+- [x] La plantilla conserva `woocommerce_before_thankyou`, `woocommerce_thankyou` y los demás hooks del original (F5-b)
 
 Se verifica en la F5, con WooCommerce conectado:
 

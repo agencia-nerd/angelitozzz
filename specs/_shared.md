@@ -24,7 +24,7 @@ Qué es cada página del diseño. Lo responde el usuario una sola vez; `analyze.
 
 Fuera de esta etapa (el usuario las agrega después): la ficha de cada curso (interna de producto), la página de cursos a la que lleva el hero de Inicio y las demás páginas aún sin diseño.
 
-**Cursos (plan en `specs/plan/checklist-cursos.md`):** desde 2026-11-13 los cursos son a medida, sin Tutor LMS: el plugin propio `angelitozzz-cursos` registra `curso` y `leccion`, guarda inscripciones y avance, controla el acceso y hace el puente con WooCommerce, que cobra (con Niubiz). El tema solo pinta. La página Soluciones de sueño deja de ser la tienda de Woo: lista el tipo de contenido `solucion` (la landing de venta de cada curso), que se une a uno o más cursos. Las landings, la lección, el carrito, el checkout, el regalo y la cuenta tienen diseño (`specs/figma/enlaces/`) y entran a esta tabla en la F1.
+**Cursos (plan en `specs/plan/checklist-cursos.md`):** desde 2026-11-13 los cursos son a medida, sin Tutor LMS: el plugin propio `angelitozzz-cursos` registra `curso` y `leccion`, guarda inscripciones y avance, controla el acceso y hace el puente con WooCommerce, que cobra (con Openpay; antes Niubiz). El tema solo pinta. La página Soluciones de sueño deja de ser la tienda de Woo: lista el tipo de contenido `solucion` (la landing de venta de cada curso), que se une a uno o más cursos. Las landings, la lección, el carrito, el checkout, el regalo y la cuenta tienen diseño (`specs/figma/enlaces/`) y entran a esta tabla en la F1.
 
 ## Contenido dinámico
 
@@ -63,7 +63,7 @@ Solo si algún contenido tiene `Origen: woo`; si no, se deja vacía o se borra. 
 - **Variaciones:** no
 - **Filtros de tienda:** no
 
-Decidido en la F0 (2026-11-10): carrito, checkout y mini-carrito clásicos, porque el diseño es propio y los plugins de pasarela peruanos (Niubiz) no siempre soportan el checkout en bloques. El mini-carrito es un drawer que se abre al agregar un curso. La cuenta no es la de Woo: es propia (página `/cuenta/` del tema, con datos del plugin `angelitozzz-cursos`: escritorio, mi perfil, cursos inscritos e historial de pedidos leído de `WC_Order`), y "Mi cuenta" de Woo redirige ahí. Hasta 2026-11-13 era el panel de Tutor LMS, que se dejó. Las etapas de Horarios Ideales no son variaciones: son 3 cursos con su propio producto.
+Decidido en la F0 (2026-11-10): carrito, checkout y mini-carrito clásicos, porque el diseño es propio y los plugins de pasarela peruanos no siempre soportan el checkout en bloques. La pasarela es Openpay desde el 2026-11-18 (antes Niubiz); su plugin dibuja el pago con `payment_fields()` del checkout clásico. El mini-carrito es un drawer que se abre al agregar un curso. La cuenta no es la de Woo: es propia (página `/cuenta/` del tema, con datos del plugin `angelitozzz-cursos`: escritorio, mi perfil, cursos inscritos e historial de pedidos leído de `WC_Order`), y "Mi cuenta" de Woo redirige ahí. Hasta 2026-11-13 era el panel de Tutor LMS, que se dejó. Las etapas de Horarios Ideales no son variaciones: son 3 cursos con su propio producto.
 
 - `Pieza`: las que WooCommerce puede dibujar como plantilla PHP o como bloque: `carrito`, `checkout`, `mini-carrito` y `cuenta`. Tienda, tarjeta de producto y ficha son siempre plantillas PHP y no se preguntan.
 - `Modo`: `clásico` (plantilla PHP de `woocommerce/`: el HTML sale del diseño), `bloques` (bloque de WooCommerce: no hay plantilla, el diseño se aproxima con CSS) o `no aplica` (el diseño no tiene esa pieza).
@@ -199,6 +199,20 @@ Cada componente vive en `template-parts/components/<nombre>.php` y recibe sus da
 - **Destino:** `template-parts/components/resumen-compra.php`
 - **Argumentos:** `items` (array de `tipo` ("Curso"), `nombre` y `precio` (string ya formateado por Woo); requerido), `subtotal` (string, requerido), `descuento` (string, opcional: sin valor no se imprime la fila), `impuesto` (array `etiqueta` ("IGV") y `monto`, opcional: sin valor no se imprime la fila), `total` (string, requerido)
 - **Se usa en:** carrito/carrito-de-compras (`woocommerce/cart/cart.php`), checkout/hero (`woocommerce/checkout/review-order.php`). Título "Resumen de compra" fijo; cada fila con su etiqueta a la izquierda y el monto a la derecha, separadas por líneas `#bcb28a`. Los datos los arma la plantilla de Woo desde el carrito; el componente no llama a Woo.
+
+### carrito-contenido
+
+- **Origen:** contenido del drawer "Resumen de compra" de las landings (`solucion.md` → `drawer-carrito`): lista con scroll, sugerida, pie fijo con el subtotal y "Ir a pagar"; o el estado vacío
+- **Destino:** `template-parts/components/carrito-contenido.php`
+- **Argumentos:** ninguno. Lee `angelitozzz_carrito_datos()` (`inc/woocommerce/carrito.php`, desde `WC()->cart`). La raíz `div[data-carrito-contenido]` lleva `data-wc-ajax` y `data-en-carrito` para `src/js/modules/carrito.js`
+- **Se usa en:** el modal `carrito` (`template-parts/modals/carrito.php`) y como fragmento de Woo (`woocommerce_add_to_cart_fragments`), que lo reemplaza entero al agregar o quitar sin recargar (F5-b)
+
+### carrito-cuenta
+
+- **Origen:** globo con la cantidad sobre el ícono del carrito del header (`header.php`)
+- **Destino:** `template-parts/components/carrito-cuenta.php`
+- **Argumentos:** ninguno. Lee `angelitozzz_carrito_cantidad()`. Texto `sr-only` "Carrito (N productos)" y el globo solo con 1 curso o más
+- **Se usa en:** `header.php` (dentro del enlace que abre el drawer) y como fragmento de Woo (raíz `span[data-carrito-cuenta]`) (F5-b)
 
 ### acceso-tarjeta
 
