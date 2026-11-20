@@ -66,7 +66,7 @@
     - URL `/cursos/<curso>/<leccion>/`.
     - Mismas capacidades que `curso`; fuera de la búsqueda y del mapa del sitio.
     - **Datos nativos:** título = "Título de la lección"; contenido = "Descripción de la lección".
-    - **Contenido:** solo se permite negrita, cursiva, listas, enlaces y párrafos, filtrado con `wp_kses` y una lista propia al guardar y al mostrar. Un párrafo que empieza con "PD:" se muestra solo como cita (`leccion.md`), sin marcado especial en el texto guardado.
+    - **Contenido:** solo se permite negrita, cursiva, listas, enlaces y párrafos, filtrado con `wp_kses` y una lista propia al guardar y al mostrar. Un enlace con `target` solo abre en pestaña nueva (`_blank`) y siempre lleva `rel="noopener noreferrer"`. El tema imprime el texto con `angelitozzz_cursos_texto_leccion()` (sección `funciones-publicas`), que lo vuelve a filtrar después de `the_content`. Un párrafo que empieza con "PD:" se muestra solo como cita (`leccion.md`), sin marcado especial en el texto guardado.
     - **Metadatos:**
         - `_angelitozzz_modulo`: `id` del módulo del curso.
         - `_angelitozzz_video`: enlace de Vimeo, guardado solo si es una URL `https://vimeo.com/…` o `https://player.vimeo.com/…` válida.
@@ -90,6 +90,7 @@
 - [x] Cumple los criterios comunes de `_shared.md`
 - [x] Un enlace de video que no es de Vimeo no se guarda
 - [x] El texto de la lección no deja pasar etiquetas fuera de la lista permitida (por ejemplo `<script>` o atributos `on*`)
+- [x] Un enlace del texto de la lección con `target` sale con `rel="noopener noreferrer"`, al guardar y al mostrar
 - [x] Un PDF no se puede abrir con la URL de `uploads/` (403) y un archivo que no es PDF no se sube
 - [x] La lógica del video (validar el enlace, leer duración y miniatura, armar el reproductor de la lección) está en `includes/video.php`; los textos de la interfaz pueden nombrar al proveedor
 
@@ -345,6 +346,7 @@
         - `angelitozzz_cursos_puede_completar( $leccion_id, $usuario_id )` (F5-c): si puede guardar avance (ve la lección y tiene el curso, o gestiona cursos). Acción de formulario `angelitozzz_completar_leccion` (`leccion_id`, `marcar`) para "Marcar como completo" sin JS.
         - `angelitozzz_cursos_aviso_acceso()` (F5-c): el texto del aviso "Este curso no está en tu cuenta…" si la página llegó con `?aviso=sin-acceso`; si no, vacío.
         - `angelitozzz_cursos_nombre_descarga( $adjunto_id )` (F5-c): el nombre del archivo descargado.
+        - `angelitozzz_cursos_texto_leccion( $leccion_id )` (0.7.2): el texto de la lección listo para imprimir (`the_content` y después la lista permitida, con `rel` en los enlaces con `target`); vacío si la usuaria no puede ver la lección.
         - `angelitozzz_cursos_materiales( $id )`: nombre, tamaño y URL de descarga firmada.
         - `angelitozzz_cursos_estado_linea( $pedido_id, $item_id )` (F5-c): el estado de una línea para el historial, `clave` y `texto`. Línea propia: `activo`, `por_expirar`, `vencido`, `cancelado` o `pendiente`. Línea de regalo: `regalo_sin_canjear`, `regalo_canjeado`, `regalo_vencido`, `cancelado` o `pendiente`. El tema elige el color por la clave.
         - `angelitozzz_cursos_estado_acceso( $pedido_id, $item_id )`: solo el texto de `estado_linea()`.

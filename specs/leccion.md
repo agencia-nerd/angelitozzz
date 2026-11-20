@@ -211,7 +211,7 @@ Valores del diseño (campos en `opciones.md` → `mes-gratis-mundo`): título "T
     - **Sin JS:** se ven las dos secciones una debajo de la otra.
     - **Resumen:**
         - título de la lección (`h2`, `--text-h3`, verde);
-        - su texto en `--text-cuerpo-l` con 14 px entre párrafos, con negritas, enlaces y emojis tal como vienen; el texto pasa por `wp_kses` con la lista permitida de `cursos-datos.md`.
+        - su texto en `--text-cuerpo-l` con 14 px entre párrafos, con negritas, enlaces y emojis tal como vienen; el texto lo entrega el plugin con `angelitozzz_cursos_texto_leccion()`, ya filtrado con la lista permitida de `cursos-datos.md` y con `rel="noopener noreferrer"` en los enlaces con `target`.
     - **Cita "PD":** un párrafo que empieza con "PD:" se muestra solo como la cita: fondo `--color-fondo-rosa`, borde izquierdo de 4 px frambuesa, radio 12, padding 24/18 y "PD:" en seminegrita. Bárbara no tiene que marcar nada.
     - **Materiales:** una tarjeta por PDF de la lección.
         - **Tarjeta:** blanca, borde beige al 45 %, radio 16.
@@ -237,6 +237,6 @@ Contenido del diseño (del plugin, no campos): lección "Bienvenida" con 7 párr
 - [x] Cumple los criterios comunes de `_shared.md`
 - [x] Las pestañas son accesibles con teclado (`role="tab"`, `aria-selected`, `aria-controls`) y sin JS se ven ambas secciones
 - [x] Un párrafo que empieza con "PD:" sale con el estilo de cita, sin marcado especial en el texto guardado
-- [x] El texto de la lección no deja pasar HTML fuera de la lista permitida
+- [x] El texto de la lección no deja pasar HTML fuera de la lista permitida, tampoco lo que otro plugin agregue con `the_content`
 - [x] Cada "Descargar" es una descarga firmada (URL con nonce del plugin; el 403 sin acceso lo cubren las pruebas del plugin)
 - [x] Sin materiales no aparece la pestaña "Materiales"
