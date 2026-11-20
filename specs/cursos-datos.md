@@ -15,8 +15,8 @@
     - Los datos de cursos y lecciones los escribe el constructor de Bárbara (`admin-constructor.md`), no el admin de WordPress ni ACF. Las capturas del constructor están en `specs/figma/lectura/admin-cursos/constructor-*.png`; de ahí salen los campos de `curso` y `leccion`.
     - Todo en el plugin: prefijo `angelitozzz_` en funciones, opciones, hooks, metadatos (`_angelitozzz_*`) y tablas (`{prefix}angelitozzz_*`); text domain `angelitozzz-cursos`; las tablas se crean con migraciones versionadas (`includes/esquema.php`).
     - Fechas guardadas en UTC (`DATETIME`); se muestran en la zona horaria del sitio (`wp_date`).
-    - Privacidad: al borrar una usuaria se borran sus inscripciones y su avance (`delete_user`), y el plugin registra el exportador y el borrador de datos personales de WordPress (Herramientas → Exportar / Borrar datos personales). **Pendiente:** el exportador y el borrador aún no existen (`checklist-cursos.md` → "Deuda de la F2 y del tema").
-    - Desinstalar el plugin borra sus tablas y opciones; los cursos y lecciones (posts) se conservan, salvo que esté definida la constante `ANGELITOZZZ_CURSOS_BORRAR_TODO` (propuesta, para no perder contenido por un clic).
+    - Privacidad: al borrar una usuaria se borran sus inscripciones y su avance (`delete_user`), y el plugin registra el exportador y el borrador de datos personales de WordPress (Herramientas → Exportar / Borrar datos personales; plugin 0.7.3, `includes/privacidad.php`). El exportador entrega sus inscripciones, su avance y el correo pendiente de confirmar. El borrador quita sus inscripciones (pierde el acceso), su avance, sus metadatos del plugin y su ID en los cupones de regalo que canjeó; los pedidos quedan para el borrador de WooCommerce.
+    - Desinstalar el plugin (`uninstall.php` → `includes/desinstalar.php`, plugin 0.7.3) borra sus tablas, opciones, datos temporales (canje, mensajes, contadores viejos), metadatos de las usuarias, el rol, las capacidades y las tareas programadas. Los cursos, las lecciones y sus productos de Woo (con su meta `_angelitozzz_curso_id`, que el puente necesita al reinstalar) se conservan, salvo que esté definida la constante `ANGELITOZZZ_CURSOS_BORRAR_TODO`: entonces borra también los PDF de materiales, los cupones de regalo, las portadas que subió el constructor, los productos de los cursos, los cursos, las lecciones y la carpeta privada. Los pedidos nunca se tocan.
 - **Estado:** aprobado
 
 ## Sección: curso
@@ -104,8 +104,8 @@
     - **Columnas:**
         - `id`: BIGINT, clave.
         - `usuario_id`, `curso_id`.
-        - `pedido_id` y `item_id`: el pedido y la línea de Woo; nulos en canje o alta manual.
-        - `origen`: `compra` | `regalo` | `manual`.
+        - `pedido_id` y `item_id`: el pedido y la línea de Woo; nulos en un canje.
+        - `origen`: `compra` | `regalo`.
         - `inicio`: `DATETIME` en UTC.
         - `vence`: `DATETIME` en UTC; nulo = ilimitado.
         - `estado`: `activa` | `vencida` | `cancelada`.
@@ -120,7 +120,7 @@
         - **"Por expirar":** no es un estado guardado. Se calcula al leer (activa y vence en 15 días o menos).
         - **"Pendiente" del historial:** sale del pedido de Woo (`pending` o `on-hold`), no de esta tabla.
         - **Vencimiento:** una tarea diaria con Action Scheduler de WooCommerce (`angelitozzz_cursos_vencer`) pasa a `vencida` las activas cuyo `vence` ya pasó. El acceso igual se comprueba con la fecha en cada lectura: no depende de que la tarea haya corrido.
-        - **Alta manual:** solo la administradora o la instructora, desde el administrador (propuesta para F5), con `origen` `manual`.
+        - **Sin alta manual** (decisión del usuario, 2026-11-20): no se inscribe a mano. Para dar un curso sin cobrar se usa un cupón de 100 % y la alumna lo compra.
     - **Registro:** cada alta, extensión o baja queda en el registro de Woo (`wc_get_logger`, fuente `angelitozzz-cursos`) con la usuaria, el curso, el pedido y el motivo.
 - **Estado:** aprobado
 
@@ -323,7 +323,8 @@
 - [x] Una alumna que entra a `/wp-admin/` va a `/cuenta/`
 - [x] Una alumna no puede usar la API del constructor (403)
 - [x] Desactivar el plugin no deja el rol ni la capacidad; al reactivarlo vuelven (0.5.1, con su prueba)
-- [ ] Desinstalar el plugin no deja el rol ni la capacidad (`uninstall.php` los borra, pero no hay prueba de la desinstalación)
+- [x] Desinstalar el plugin no deja el rol ni la capacidad (plugin 0.7.3, `tests/test-desinstalar.php`)
+- [x] Desactivar el plugin no deja guardadas sus URL (`/cursos/…`, `/cuenta/…`, `/administrador/…`)
 
 ## Sección: funciones-publicas
 
@@ -331,7 +332,7 @@
 - **Destino:** `wp-content/plugins/angelitozzz-cursos/includes/api.php`
 - **Grupo:** ninguno
 - **Skill:** ninguna
-- **Comportamiento:** el tema solo usa estas funciones y nunca consulta las tablas. Todas trabajan con la usuaria de la sesión, salvo las del administrador, que exigen la capacidad.
+- **Comportamiento:** el tema solo usa estas funciones y nunca consulta las tablas. Trabajan con la usuaria de la sesión, salvo las que piden `$usuario_id` (así lo dice cada una) y las del administrador, que exigen la capacidad.
     - **Dónde viven (2026-11-18):** `includes/api.php` reúne solo una parte. Las demás están en el archivo de su tema: `acceso.php`, `video.php`, `cuentas*.php`, `admin.php`, `rest-admin.php` y `constructor.php`. Lo público es esta lista, no el archivo. Las diferencias entre la lista, el código y lo que llama el tema están anotadas en `checklist-cursos.md` → "Deuda de la F2 y del tema".
     - **Comprobar que el plugin existe:** el tema verifica que exista la función del plugin que va a usar (`function_exists`) y, si no existe, muestra un aviso en vez de romper la página.
     - **Funciones:**
@@ -339,8 +340,11 @@
         - `angelitozzz_cursos_de_usuaria( $pestana )`: cursos con avance. `$pestana` es `inscritos`, `activos` o `completados`.
         - `angelitozzz_cursos_resumen()`: conteos del escritorio.
         - `angelitozzz_cursos_progreso( $curso_id )`: porcentaje, lecciones completadas y total, y última lección vista.
-        - `angelitozzz_cursos_temario( $curso_id )`: módulos y lecciones con su estado (completada, actual).
-        - `angelitozzz_cursos_puede_ver( $leccion_id )`: si la usuaria puede ver la lección.
+        - `angelitozzz_cursos_temario( $curso_id, $actual_id )`: módulos y lecciones con su estado (completada, actual). `$actual_id` es la lección que se está viendo (0 = ninguna).
+        - `angelitozzz_cursos_puede_ver( $leccion_id, $usuario_id )`: si la usuaria puede ver la lección. Sin `$usuario_id`, la de la sesión; 0 = sin sesión.
+        - `angelitozzz_cursos_datos_tarjeta( $curso_id, $usuario_id, $vence )`: los datos de un curso para `curso-progreso-card` (los arma `de_usuaria()`).
+        - `angelitozzz_cursos_puede_gestionar( $usuario_id )`: si puede gestionar cursos (sin `$usuario_id`, la de la sesión). La usa `/administrador/`.
+        - `angelitozzz_cursos_redirect_seguro( $url, $defecto )`: la vuelta de un `redirect_to`, solo si es de este sitio. La usan iniciar sesión y crear cuenta.
         - `angelitozzz_cursos_video_html( $leccion_id )`: el reproductor.
         - `angelitozzz_cursos_video_url( $url, $opciones )` (F5-c): la dirección del reproductor para un enlace de video (opción `autoplay`), o vacío. Es lo único que sabe del proveedor (hoy Vimeo); la usa `video-portada`.
         - `angelitozzz_cursos_puede_completar( $leccion_id, $usuario_id )` (F5-c): si puede guardar avance (ve la lección y tiene el curso, o gestiona cursos). Acción de formulario `angelitozzz_completar_leccion` (`leccion_id`, `marcar`) para "Marcar como completo" sin JS.
@@ -357,8 +361,8 @@
             - `angelitozzz_cursos_admin_lista( $opciones )`: `estado` (`publicados` o `todos`, por defecto `todos`), `orden` (`titulo` o `reciente`, por defecto `reciente`) y `pagina` (12 por página; 0 = todos). Devuelve `cursos`, `total`, `paginas` y `pagina`. Cada curso trae `id`, `titulo`, `estado` (`publicado` o `borrador`), `imagen_id`, `estudiantes` (alumnas con acceso hoy o encadenado), `fecha` (`d/m/Y`), `precio` (el rebajado si lo hay, en texto plano), `url_editar` y `url_sitio` (su solución, o vacío si no está en ninguna).
             - `angelitozzz_cursos_vista_admin()`: la vista de `/administrador/` (`escritorio`, `cursos` o `constructor`), con `curso_id`, `paso` (1, 2 o 3) y `pagina`.
             - `angelitozzz_cursos_url_admin( $vista, $curso_id, $paso )`: URL de `escritorio`, `cursos`, `nuevo` o `editar`.
-            - `angelitozzz_cursos_aviso_publicado( $curso_id )`: el texto del aviso "¡Curso publicado!", que cambia si el curso no está en ninguna solución.
-            - `angelitozzz_cursos_pendientes_publicar( $curso_id )`: lo que falta para publicar (`clave`, `texto`, `bloquea`), para "Antes de publicar" del constructor.
+            - `angelitozzz_cursos_aviso_publicado( $curso_id )` (`includes/rest-admin.php`): el texto del aviso "¡Curso publicado!", que cambia si el curso no está en ninguna solución.
+            - `angelitozzz_cursos_pendientes_publicar( $curso_id )`: lo que falta para publicar (`clave`, `texto`, `bloquea`), para "Antes de publicar" del constructor. Publicar usa la misma regla sin mirar quién pregunta (`angelitozzz_cursos_faltan_para_publicar()`, interna), así que nunca publica con algo pendiente.
             - `angelitozzz_cursos_admin_curso( $curso_id )` (F4, bloque 6b; `includes/constructor.php`): todo lo que muestra el constructor. Campos del paso 1 (`titulo`, `descripcion`, `edad`, `tipo`, `duracion`, `mes_mundo`, `precio`, `precio_lanzamiento` del producto de Woo), `portada_id` y `portada_url`, `estado`, `estudiantes` (con acceso), `modulos` con sus `items` en orden (lecciones: `id`, `titulo`, `video`, `duracion`, `duracion_texto`, `miniatura`, `contenido`, `extracto`, `vista_previa`, `materiales`; PDF del curso: `id`, `nombre`, `tamano`), `totales` (módulos, lecciones y duración) y `pendientes`. Con 0, los valores de un curso nuevo.
         - **Cuentas (F3):**
             - `angelitozzz_cursos_url_envio()` y `angelitozzz_cursos_campos_ocultos( $accion, $volver_a )`: a dónde se envía un formulario y sus campos ocultos (acción, nonce, `redirect_to`). Acciones: `angelitozzz_iniciar_sesion`, `angelitozzz_crear_cuenta`, `angelitozzz_recuperar`, `angelitozzz_nueva_contrasena`, `angelitozzz_perfil_datos`, `angelitozzz_perfil_contrasena`.
@@ -366,7 +370,7 @@
             - `angelitozzz_cursos_reglas_contrasena( $clave )`: el estado de las 4 reglas, para la lista `reglas-contrasena`.
             - `angelitozzz_cursos_url_pagina( $pagina, $vista )` y `angelitozzz_cursos_vista_cuenta()`: URL de las páginas de cuentas y la vista de `/cuenta/` (escritorio, perfil, cursos o pedidos).
             - `angelitozzz_cursos_url_login( $volver )`: URL de `/iniciar-sesion/` con su vuelta; si la vuelta es otra página de acceso no la anida (F4, bloque 6b). La usa el botón "Iniciar sesión" del header.
-            - `angelitozzz_cursos_inicio_de( $usuario_id )`: la página de inicio de cada rol (alumna: `/cuenta/`; quien gestiona cursos, instructora o administradora: `/administrador/`). La usa "Mi cuenta" del header.
+            - `angelitozzz_cursos_inicio_de( $usuario_id )` (pide la usuaria: el header pasa la de la sesión): la página de inicio de cada rol (alumna: `/cuenta/`; quien gestiona cursos, instructora o administradora: `/administrador/`). La usa "Mi cuenta" del header.
             - `angelitozzz_cursos_es_pagina_acceso( $url )`: si una URL es de iniciar sesión, crear cuenta o recuperar contraseña (no sirven como vuelta).
             - `angelitozzz_cursos_datos_perfil()`: nombre, apellidos, correo, teléfono y el correo pendiente de confirmar.
         - **Compra (F5-b):**
@@ -379,7 +383,7 @@
         - `angelitozzz_cursos_pedido_con_mundo( $pedido )` (F5-c): si el pedido (`WC_Order`) lleva el bloque del mes gratis en Mundo: al menos un curso propio (no regalo, no devuelto) con `mes_mundo`. La usan gracias y el correo.
         - `angelitozzz_cursos_datos_curso( $curso_id )` (F5-c): `titulo`, `tipo`, `mes_mundo` y `meses` de un curso, para la lección (mensaje de Angelita Pro y banner de Mundo).
         - Acción de formulario `angelitozzz_canjear_regalo` (F5-c, con o sin sesión; campo `codigo`), con `angelitozzz_cursos_campos_ocultos()`.
-        - `angelitozzz_cursos_puede_ver_curso( $curso_id, $usuario_id )`: si la usuaria compró el curso (lo usa la lección para el botón de completar, los candados del temario y el PDF del curso).
+        - `angelitozzz_cursos_puede_ver_curso( $curso_id, $usuario_id )` (pide la usuaria): si la usuaria compró el curso (lo usa la lección para el botón de completar, los candados del temario y el PDF del curso).
         - `angelitozzz_cursos_ultimo_canje()`: lo que muestra `/canjear-regalo/`, una sola vez. Justo después de canjear, `estado` `canjeado` con `curso`, `meses` (0 = ilimitado), `primera_leccion`, `cursos_url` y `empieza` (la fecha si el acceso quedó encadenado a uno vigente; vacío si empieza hoy); tras un envío con error, `estado` `canje` con `valor` (lo escrito) y `error`; si no, vacío.
     - **Los datos ya vienen saneados, pero no escapados.** El tema escapa siempre al imprimir.
 - **Estado:** aprobado
