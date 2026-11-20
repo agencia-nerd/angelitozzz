@@ -217,7 +217,7 @@ Plugin 0.6.1: 133 pruebas en verde (14 nuevas) y PHPCS en 0. La migración 3 cor
 
 Hallazgos de la auditoría del 2026-11-17 y de la revisión del 2026-11-18 que no bloquean la F5-c. Cada uno con su prueba:
 
-- [ ] Seguridad: los enlaces del texto de la lección admiten `target` sin forzar `rel` (`tipos.php:158-163`); el tema imprime la lección con `the_content` sin la lista permitida de `wp_kses` (`template-parts/pages/leccion/pestanas.php`)
+- [x] Seguridad: los enlaces del texto de la lección admiten `target` sin forzar `rel` (`tipos.php:158-163`); el tema imprime la lección con `the_content` sin la lista permitida de `wp_kses` (`template-parts/pages/leccion/pestanas.php`). Hecho (plugin 0.7.2, 2026-11-20): `angelitozzz_cursos_limpiar_texto()` fuerza `target="_blank"` y `rel="noopener noreferrer"`, y el tema imprime con `angelitozzz_cursos_texto_leccion()` (filtra después de `the_content`). 166 pruebas en verde, PHPCS en 0
 - [x] Plugin: producto del curso con "Vender individualmente" y virtual, como pide `cursos-datos.md` → `puente-woo` (hecho en la F5-b, plugin 0.6.0: en cada guardado y con la migración 2)
 - [ ] Plugin: exportador y borrador de datos personales de WordPress (`wp_privacy_personal_data_*`; nota de página de `cursos-datos.md`)
 - [ ] Plugin: `angelitozzz_cursos_puede_ver()` exige `$usuario_id` aunque el spec lo da como opcional (`acceso.php:43`); `angelitozzz_cursos_pendientes_publicar()` no exige la capacidad (`admin.php:425`); `_angelitozzz_producto_id` no comprueba que el producto exista (`tipos.php:204`)
