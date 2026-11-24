@@ -307,7 +307,16 @@ Plan aprobado el 2026-11-19, en 2 bloques. Decisiones del usuario: avisos del co
     - **Modal coach:** el título es un textarea, pero `template-parts/modals/modal-coach.php:17,29` lo pasa como `title` del modal sin `angelitozzz_highlight`, así que pierde los saltos de línea y los colores.
     - **Enlace de WhatsApp del modal coach:** `src/js/modules/modal-coach.js:39-40` escribe `target` y `rel` a mano; el aviso `sr-only` sí está.
     - **Motor de wp-query:** `inc/query/motor.php:1072` usa `_n()` sin text domain. Es un archivo del motor: se avisa en la skill wp-query, no se edita.
-- [ ] `/security-review` y `/code-review` de la fase
+- [x] Revisión de seguridad de la fase (`/security-review` de Claude Code, sobre una rama temporal con todos los cambios de la F5). Hecho (2026-11-24).
+    - **Tema** (`2f2e999..main`): sin hallazgos.
+    - **Plugin** (`4065a0b..main`, PR #4 a #9): sin hallazgos sobre el umbral. Revisó el checkout, el canje (un solo uso, con bloqueo), los reembolsos, los nonces y permisos, la privacidad y el SQL.
+    - Por debajo del umbral (confianza 7, media) quedó uno real: el código de regalo (`ANGZ-` y 4 caracteres, unos 10⁶ códigos) se podía adivinar probando cupones por `?wc-ajax=apply_coupon`, que no tiene límite. Corregido en el plugin 0.7.4 (rama `fix/codigo-regalo-largo` en los dos repos):
+        - el código es `ANGZ-XXXX-XXXX-XXXX` (60 bits);
+        - el canje lo acepta con o sin guiones;
+        - un código del formato anterior se sigue canjeando;
+        - 3 pruebas nuevas (185 en verde, PHPCS en 0).
+      En el tema: el placeholder del canje y el código en gracias, que en móvil baja de tamaño para entrar en una línea (probado a 390, 360 y 320 px). `cdp-gracias` pasa con el código nuevo.
+    - `/code-review` queda opcional: la auditoría completa de la F7 lo cubre.
 
 ## F6 · Pagos y Angelita Pro
 
