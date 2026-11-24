@@ -25,7 +25,7 @@ const rutaPdf = path.join(temporal, 'Guía del curso.pdf');
 fs.writeFileSync(rutaPng, png);
 fs.writeFileSync(rutaPdf, '%PDF-1.4\n1 0 obj<<>>endobj\ntrailer<<>>\n%%EOF\n');
 
-const proc = spawn(process.env.CHROME || 'C:/Program Files/Google/Chrome/Application/chrome.exe', ['--headless=new', '--disable-gpu', '--remote-debugging-port=9341', '--window-size=1440,1000', 'about:blank'], { stdio: 'ignore' });
+const proc = spawn(process.env.CHROME || 'C:/Program Files/Google/Chrome/Application/chrome.exe', ['--headless=new', '--disable-gpu', '--remote-debugging-port=9342', '--window-size=1440,1000', 'about:blank'], { stdio: 'ignore' });
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 let ws, id = 0, cargo = null;
 const pending = new Map();
@@ -58,7 +58,7 @@ const out = {};
 try {
     for (let i = 0; i < 40 && !ws; i++) {
         try {
-            const page = (await (await fetch('http://127.0.0.1:9341/json')).json()).find((t) => t.type === 'page');
+            const page = (await (await fetch('http://127.0.0.1:9342/json')).json()).find((t) => t.type === 'page');
             if (page) {
                 ws = new WebSocket(page.webSocketDebuggerUrl);
                 await new Promise((r) => ws.addEventListener('open', r));

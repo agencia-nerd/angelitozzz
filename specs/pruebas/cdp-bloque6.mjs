@@ -60,7 +60,9 @@ try {
 
     await entrar('prueba-f5@angelitozzz.local', '/administrador/');
     out.alumna = (await revisar()).url;
-    out.alumnaApi = await ev(`const r = await fetch('/wp-json/angelitozzz/v1/cursos/1/estado', { method: 'POST' }); return r.status;`);
+    // Con su nonce y un cuerpo válido: sin ellos WordPress responde 400 por los parámetros antes de mirar el
+    // permiso, y eso no prueba nada. Lo esperado es 403 (rest_forbidden).
+    out.alumnaApi = await ev(`const nonce = await (await fetch('/wp-admin/admin-ajax.php?action=rest-nonce')).text(); const r = await fetch('/wp-json/angelitozzz/v1/cursos/1/estado', { method: 'POST', headers: { 'X-WP-Nonce': nonce, 'Content-Type': 'application/json' }, body: JSON.stringify({ estado: 'borrador' }) }); return r.status;`);
 
     await entrar('prueba-instructora@angelitozzz.local', '/administrador/');
     out.instructora = (await revisar()).url;
