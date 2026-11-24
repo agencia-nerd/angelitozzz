@@ -200,7 +200,7 @@ Plan aprobado el 2026-11-18. Tema y plugin 0.6.0 (119 pruebas en verde, PHPCS en
 - [x] Páginas `/terminos-y-condiciones/` y `/politicas-de-privacidad/` (las del menú "Pie: legal") creadas en el Local con texto de relleno (decisión del usuario, 2026-11-18) y elegidas en Woo (página de términos) y en Ajustes → Privacidad: el checkout ya muestra la casilla de términos con su enlace. El texto real lo pone el usuario (ver F7)
 - [x] Datos de prueba de la F5-b borrados (2026-11-18, con respaldo de la base en el scratchpad): `datos-f5.php tienda-borrar` (cursos, lecciones, productos, inscripciones y pedidos 692, 696 y 697) y las usuarias de prueba 21, 22 y 23
 - [x] Gracias con un pedido `cancelled` o `refunded`: tarjeta "Pedido sin efecto" (decisión del usuario, 2026-11-18; `gracias.md` → confirmacion): "Este pedido fue cancelado/reembolsado", acceso ya no activo, WhatsApp y "Ver mi pedido", sin Mundo ni regalos. Probado con pedidos temporales
-- [ ] Quitar un curso desde la página `/carrito/` recarga la página (desde el drawer no recarga). Aceptado (usuario, 2026-11-18): en el diseño no hay enlace a `/carrito/`, que queda de respaldo (el carrito del header sin JS, el cupón del hero sin JS y los avisos o redirecciones de Woo)
+- [x] (Aceptado, no se cambia) Quitar un curso desde la página `/carrito/` recarga la página (desde el drawer no recarga). Aceptado (usuario, 2026-11-18): en el diseño no hay enlace a `/carrito/`, que queda de respaldo (el carrito del header sin JS, el cupón del hero sin JS y los avisos o redirecciones de Woo)
 
 ### Antes de la F5-c · Arreglos que el canje reutiliza
 
