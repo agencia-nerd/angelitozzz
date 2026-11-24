@@ -39,7 +39,8 @@ export function puertoLocal(servicio, nombre) {
 
 export async function abrir({ puerto, ancho = 1440, alto = 1000 }) {
     if (!puerto) throw new Error('Falta el puerto de depuración.');
-    const proc = spawn(process.env.CHROME || 'C:/Program Files/Google/Chrome/Application/chrome.exe', ['--headless=new', '--disable-gpu', `--remote-debugging-port=${puerto}`, `--window-size=${ancho},${alto}`, 'about:blank'], { stdio: 'ignore' });
+    // Chrome sin ventana no baja de 500 px de ancho: los anchos de móvil se emulan más abajo.
+    const proc = spawn(process.env.CHROME || 'C:/Program Files/Google/Chrome/Application/chrome.exe', ['--headless=new', '--disable-gpu', `--remote-debugging-port=${puerto}`, `--window-size=${Math.max(ancho, 500)},${alto}`, 'about:blank'], { stdio: 'ignore' });
 
     let ws;
     let id = 0;
@@ -84,6 +85,10 @@ export async function abrir({ puerto, ancho = 1440, alto = 1000 }) {
     await send('Page.enable');
     await send('Runtime.enable');
     await send('Network.enable');
+    if (ancho < 768) {
+        // Móvil de verdad (390, 360, 320…): sin esto la ventana mide 500 px aunque se pida menos.
+        await send('Emulation.setDeviceMetricsOverride', { width: ancho, height: alto, deviceScaleFactor: 1, mobile: true });
+    }
 
     // Evalúa el cuerpo de una función async en la página y devuelve su valor (o { error } si lanza).
     const ev = async (cuerpo) => {

@@ -51,7 +51,7 @@ get_template_part('template-parts/components/confirmacion-tarjeta', null, [
             id="<?= esc_attr($id_campo) ?>"
             name="codigo"
             value="<?= esc_attr($valor) ?>"
-            placeholder="<?= esc_attr__('Código de regalo (ej. ANGZ-4K7P)', 'angelitozzz') ?>"
+            placeholder="<?= esc_attr__('Código de regalo (ej. ANGZ-4K7P-9QX2-M5HT)', 'angelitozzz') ?>"
             autocomplete="off"
             autocapitalize="characters"
             spellcheck="false"

@@ -68,7 +68,7 @@ Se verifica en la F5, con WooCommerce conectado:
     - Nota (`--text-nota`, `--color-tinta-suave`): "El código es válido por 6 meses desde la compra. El acceso al curso empieza el día del canje.".
     - Pago pendiente o fallido: no se muestra (el código aún no existe).
     - El mismo código llega en el correo del pedido (F5).
-    - Móvil (propuesta): como `confirmacion`; el código baja a 28 px si no cabe en una línea, sin partirse.
+    - Móvil (propuesta): como `confirmacion`; el código va siempre en una línea, sin partirse: con el formato `ANGZ-XXXX-XXXX-XXXX` (plugin 0.7.4) la letra baja con el ancho de la pantalla (`min(28px, 5,2vw)`, unos 20 px a 390 px de ancho) y el padding lateral pasa a 16 px (2026-11-24).
 - **Indicaciones del diseño:**
     - nota: cuando alguien regala el curso.
 - **Estado:** aplicado

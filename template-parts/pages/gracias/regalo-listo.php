@@ -32,7 +32,8 @@ if ($codigo === '') {
         'texto'    => sprintf(__('Regalaste %s. Te enviamos este código por correo: compártelo con quien quieras y podrá entrar al curso con él.', 'angelitozzz'), $curso),
     ]);
     ?>
-    <p class="w-full rounded-xl border-2 border-dashed border-terracota bg-fondo px-6 py-[18px] text-[34px] font-semibold leading-[1.2] tracking-[2.72px] whitespace-nowrap text-marca select-all max-md:text-[28px]">
+    <?php // El código (ANGZ-XXXX-XXXX-XXXX) va en una sola línea: en móvil la letra baja con el ancho de la pantalla, hasta 28 px. ?>
+    <p class="w-full rounded-xl border-2 border-dashed border-terracota bg-fondo px-6 py-[18px] text-[34px] font-semibold leading-[1.2] tracking-[2.72px] whitespace-nowrap text-marca select-all max-md:px-4 max-md:text-[min(28px,5.2vw)] max-md:tracking-[0.06em]">
         <span class="sr-only"><?= esc_html__('Código de regalo:', 'angelitozzz') ?></span>
         <?= esc_html($codigo) ?>
     </p>
