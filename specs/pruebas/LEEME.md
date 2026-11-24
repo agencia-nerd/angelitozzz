@@ -120,7 +120,7 @@ All-in-One WP Migration solo lleva `app/public/` y la base: **no** lleva `.git`,
     Lo que reemplaza lo deja al lado como `.viejo-<fecha>`: nunca borra. Solo avisa si `~/bin` no está en el `PATH`, y de paso te da el comando para agregarlo. Si agregó la regla de Nginx, reinicia el sitio en Local y vuelve a correrlo para comprobar el 403.
 
 4. **Comprobar:** `composer test` y `composer lint` desde la carpeta del plugin.
-5. **Revisor de specs:** `node ~/.claude/plugins/cache/carlitos-skills/carlitos-skills/<versión>/skills/design-import/scripts/check.mjs` desde el tema (necesita las skills de carlitos-skills instaladas).
+5. **Revisor de specs:** `node ~/.claude/plugins/cache/carlitos-skills/carlitos-skills/<versión>/skills/design-import/scripts/check.mjs` desde el tema, con la `<versión>` **instalada** (`installPath` de `carlitos-skills` en `~/.claude/plugins/installed_plugins.json`; en la caché pueden quedar carpetas de versiones viejas que dan errores falsos) (necesita las skills de carlitos-skills instaladas).
 
 **Lo que vive solo en la base o en `app/public/` (no viaja por git, sí con All-in-One):** por eso la exportación de All-in-One se hace **después** del último cambio en el admin.
 
@@ -128,7 +128,7 @@ All-in-One WP Migration solo lleva `app/public/` y la base: **no** lleva `.git`,
 - Ajustes de Woo: moneda USD con el símbolo a la izquierda, "próximamente" apagado, Carrito y Finalizar compra con shortcode (opción `angelitozzz_woo_paginas`), página de términos.
 - Páginas `/terminos-y-condiciones/` y `/politicas-de-privacidad/` (texto de relleno) y la página de privacidad en Ajustes → Privacidad.
 - Contenido de ACF (soluciones, Ajustes del sitio) y las páginas del tema.
-- Datos de prueba: ninguno (borrados el 2026-11-19, al cerrar la F5-c). Para probar compras, `datos-f5.php tienda`.
+- Datos de prueba: ninguno (borrados el 2026-11-24, al cerrar la F5). Para probar, `datos-f5.php crear` y `tienda`.
 
 Si algo falla después de una importación (por ejemplo, el puerto de MySQL cambió), basta con volver a correr el script sin `--instalar`: dice qué está mal.
 
