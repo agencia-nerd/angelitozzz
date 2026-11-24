@@ -20,9 +20,10 @@ add_action('init', 'angelitozzz_solucion_refrescar_reglas', 99);
 
 /**
  * Argumentos de producto-card para una solución.
- * - 'completa' (listado): grupo solucion_tarjeta, con descripción y beneficios.
+ * - 'completa' (listado): grupo solucion_tarjeta, con descripción y beneficios; la etiqueta lleva el precio del producto.
  * - 'corta' (relacionados): etiqueta e ícono del hero, edad con el precio y botón "Más información".
  * Nombre = título, foto = imagen destacada (sin foto, el componente usa la imagen "not found").
+ * Sin ningún curso a la venta, la etiqueta de la esquina dice "En preparación" (sin ícono) en vez de la del cliente.
  */
 function angelitozzz_solucion_tarjeta_args(int $post_id, string $variante = 'completa'): array
 {
@@ -32,19 +33,24 @@ function angelitozzz_solucion_tarjeta_args(int $post_id, string $variante = 'com
         'imagen' => (int) get_post_thumbnail_id($post_id),
         'titulo' => get_the_title($post_id),
     ];
+    // Precio del producto de Woo de sus cursos (inc/woocommerce/precios.php).
+    $precio     = function_exists('angelitozzz_solucion_precio')
+        ? angelitozzz_solucion_precio($post_id)
+        : ['actual' => '', 'desde' => false];
+    $preparando = [
+        'etiqueta'       => __('En preparación', 'angelitozzz'),
+        'etiqueta_icono' => 'ninguno',
+    ];
+    $a_la_venta = function_exists('angelitozzz_solucion_a_la_venta') && angelitozzz_solucion_a_la_venta($post_id, $precio);
 
     if ($variante === 'corta') {
-        $hero   = get_field('solucion_hero', $post_id) ?: [];
-        $edad   = trim((string) ($tarjeta['edad'] ?? ''), '() ');
-        // Precio del producto de Woo de sus cursos (inc/woocommerce/precios.php).
-        $precio = function_exists('angelitozzz_solucion_precio')
-            ? angelitozzz_solucion_precio($post_id)
-            : ['actual' => '', 'desde' => false];
+        $hero = get_field('solucion_hero', $post_id) ?: [];
+        $edad = trim((string) ($tarjeta['edad'] ?? ''), '() ');
         if ($precio['actual'] !== '') {
             $edad .= ($edad !== '' ? ' · ' : '') . ($precio['desde'] ? __('Desde', 'angelitozzz') . ' ' : '') . $precio['actual'];
         }
 
-        return $args + [
+        return ($a_la_venta ? [] : $preparando) + $args + [
             'etiqueta'       => (string) ($hero['etiqueta'] ?? ''),
             'etiqueta_icono' => (string) ($hero['etiqueta_icono'] ?? 'ninguno'),
             'edad'           => $edad,
@@ -57,8 +63,16 @@ function angelitozzz_solucion_tarjeta_args(int $post_id, string $variante = 'com
         (array) ($tarjeta['beneficios'] ?? [])
     )));
 
-    return $args + [
-        'etiqueta'       => (string) ($tarjeta['etiqueta'] ?? ''),
+    // Etiqueta del listado como en el diseño: "<etiqueta> · <precio>" ("Nuevo · $67", "Curso Online · Desde $37").
+    // El precio nunca se escribe en el campo: sale del producto de Woo (precio de lanzamiento si lo hay, sin "antes").
+    $etiqueta = trim((string) ($tarjeta['etiqueta'] ?? ''));
+    if ($precio['actual'] !== '') {
+        $precio_texto = ($precio['desde'] ? __('Desde', 'angelitozzz') . ' ' : '') . $precio['actual'];
+        $etiqueta     = $etiqueta !== '' ? $etiqueta . ' · ' . $precio_texto : $precio_texto;
+    }
+
+    return ($a_la_venta ? [] : $preparando) + $args + [
+        'etiqueta'       => $etiqueta,
         'etiqueta_icono' => (string) ($tarjeta['etiqueta_icono'] ?? 'ninguno'),
         'edad'           => (string) ($tarjeta['edad'] ?? ''),
         'descripcion'    => (string) ($tarjeta['descripcion'] ?? ''),

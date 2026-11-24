@@ -41,7 +41,7 @@ return [
                     'whatsapp' => false,
                 ],
                 'solucion_tarjeta' => [
-                    'etiqueta' => 'Nuevo · Desde $97',
+                    'etiqueta' => 'Nuevo',
                     'etiqueta_icono' => 'destellos',
                     'edad' => '(4 a 24 meses)',
                     'descripcion' => 'Tu coach de sueño con inteligencia artificial, entrenada con el método Angelitozzz. Disponible 24/7 por WhatsApp — sin turnos, sin horarios, sin esperas.',
@@ -253,7 +253,7 @@ return [
                     'whatsapp' => false,
                 ],
                 'solucion_tarjeta' => [
-                    'etiqueta' => 'Asesoría con Bárbara · $399',
+                    'etiqueta' => 'Asesoría con Bárbara',
                     'etiqueta_icono' => 'estrella',
                     'edad' => '(4 meses a 4 años)',
                     'descripcion' => 'Bárbara diseña el plan específico para tu bebé y te acompaña de cerca durante 3 semanas.',
@@ -362,7 +362,7 @@ return [
                             'acf_fc_layout' => 'beneficios',
                             'fondo' => 'crema',
                             'titulo' => 'Además, incluye',
-                            'bajada' => 'Todo por $399 USD · Cupos limitados — trabajo con un número reducido de familias a la vez.',
+                            'bajada' => 'Todo por {precio} USD · Cupos limitados — trabajo con un número reducido de familias a la vez.',
                             'items' => [
                                 [
                                     'icono' => 'libro',
@@ -507,7 +507,7 @@ return [
                     'whatsapp_texto' => '¿Tienes preguntas? Escríbeme por WhatsApp',
                 ],
                 'solucion_tarjeta' => [
-                    'etiqueta' => 'Curso Online · $97',
+                    'etiqueta' => 'Curso Online',
                     'etiqueta_icono' => 'ninguno',
                     'edad' => '(0 a 12 semanas)',
                     'descripcion' => 'Todo lo que necesitas saber para que tu recién nacido duerma mejor — técnicas suaves, rutinas claras y 100% compatible con la lactancia.',
@@ -696,7 +696,7 @@ return [
                     'whatsapp' => false,
                 ],
                 'solucion_tarjeta' => [
-                    'etiqueta' => 'Curso Online · Desde $37',
+                    'etiqueta' => 'Curso Online',
                     'etiqueta_icono' => 'ninguno',
                     'edad' => '(4 meses a 3 años)',
                     'descripcion' => 'Aprende a crear el horario ideal de sueño para tu bebé según su edad. Olvida las tablas genéricas y deja de adivinar.',

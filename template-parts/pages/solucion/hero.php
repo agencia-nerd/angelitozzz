@@ -8,8 +8,10 @@
  * beige encima (decorativa). Móvil: una columna, la tarjeta bajo el texto y sin la foto de fondo.
  *
  * $args: campos de solucion_hero (etiqueta, etiqueta_icono, titular, subtitulo, descripcion, datos, imagen, boton,
- * nota, regalo, whatsapp, whatsapp_texto) + contexto (precio, modal_compra…). El enlace de WhatsApp se arma con
- * el número de Ajustes del sitio (angelitozzz_whatsapp); sin número no se muestra.
+ * nota, regalo, whatsapp, whatsapp_texto) + contexto (precio, a_la_venta, modal_compra…). El enlace de WhatsApp se
+ * arma con el número de Ajustes del sitio (angelitozzz_whatsapp); sin número no se muestra.
+ * Sin ningún curso a la venta (contexto a_la_venta = false): botón "Próximamente" desactivado, sin precio, sin
+ * "Regalar este curso", sin el enlace de canje y sin cupón; la nota del cliente se mantiene.
  */
 
 defined('ABSPATH') || exit;
@@ -23,7 +25,8 @@ $descripcion = (string) ($args['descripcion'] ?? '');
 $imagen      = $args['imagen'] ?? '';
 $boton       = (string) ($args['boton'] ?? '');
 $nota        = trim((string) ($args['nota'] ?? ''));
-$regalo      = !empty($args['regalo']);
+$a_la_venta  = (bool) ($contexto['a_la_venta'] ?? true);
+$regalo      = !empty($args['regalo']) && $a_la_venta;
 $whatsapp    = !empty($args['whatsapp']) ? angelitozzz_whatsapp((string) ($args['whatsapp_texto'] ?? '')) : null;
 $datos       = array_values(array_filter(
     (array) ($args['datos'] ?? []),
@@ -48,7 +51,7 @@ if ($antes !== '') {
 }
 $datos_compra = (array) ($contexto['datos_compra'] ?? []);
 $datos_regalo = (array) ($contexto['datos_regalo'] ?? []);
-$con_carrito  = function_exists('wc_get_cart_url');
+$con_carrito  = function_exists('wc_get_cart_url') && $a_la_venta;
 
 $no_encontrada = get_theme_file_uri('assets/img/ayudarte-imagen-not-found.webp');
 $id_titulo     = wp_unique_id('solucion-hero-titulo-');
@@ -141,12 +144,21 @@ if ($titular === '') {
                     <p class="text-center text-h3 text-marca"><?= esc_html($precio_texto) ?></p>
                 <?php endif; ?>
 
-                <?php get_template_part('template-parts/components/boton', null, [
-                    'texto'    => $boton,
-                    'variante' => 'frambuesa',
-                    'modal'    => (string) ($contexto['modal_compra'] ?? 'carrito'),
-                    'datos'    => $datos_compra, // Venta directa: agrega al carrito y abre el drawer (carrito.js).
-                ]); ?>
+                <?php if ($a_la_venta) {
+                    get_template_part('template-parts/components/boton', null, [
+                        'texto'    => $boton,
+                        'variante' => 'frambuesa',
+                        'modal'    => (string) ($contexto['modal_compra'] ?? 'carrito'),
+                        'datos'    => $datos_compra, // Venta directa: agrega al carrito y abre el drawer (carrito.js).
+                    ]);
+                } else {
+                    get_template_part('template-parts/components/boton', null, [
+                        'texto'       => __('Próximamente', 'angelitozzz'),
+                        'variante'    => 'frambuesa',
+                        'flecha'      => false,
+                        'desactivado' => true,
+                    ]);
+                } ?>
 
                 <?php if ($regalo && $datos_regalo) {
                     get_template_part('template-parts/components/boton', null, [
