@@ -281,7 +281,21 @@ Plan aprobado el 2026-11-19, en 2 bloques. Decisiones del usuario: avisos del co
         - Los 5 nuevos son "texto fijo en el destino": el check lee el código PHP del plugin y de los helpers como si fuera texto.
         - Los de "Argumentos" vienen de valores entre comillas invertidas que el revisor toma como argumentos.
         - El de wp-acf sobre "Escríbenos" en Contacto no aplica: el título sale del campo y solo el texto del botón "Escríbenos por WhatsApp" queda fijo, como dice el spec.
-- [ ] Pruebas en Chrome (`specs/pruebas/`): desde la F5-b, `cdp-compra.mjs` cubre las landings, el drawer, las etapas, el carrito y el checkout sin pagar; faltan gracias, canje, formularios, modales y filtros. `cdp-vacios.mjs:36` usa una usuaria que ningún script crea; falta el script de limpieza que nombra `cdp-bloque4.mjs:2`; `cdp-vacios.mjs` y `cdp-bloque6.mjs` usan el mismo puerto (9339)
+- [x] Pruebas en Chrome (`specs/pruebas/`). Hecho (2026-11-24, rama `chore/pruebas-chrome`). Lo pendiente era: desde la F5-b, `cdp-compra.mjs` cubría las landings, el drawer, las etapas, el carrito y el checkout sin pagar, y faltaban gracias, canje, formularios, modales y filtros. Además `cdp-vacios.mjs:36` usaba una usuaria que ningún script creaba, faltaba el script de limpieza que nombra `cdp-bloque4.mjs:2` y había puertos repetidos (9339 y 9341).
+    - **Scripts nuevos:** `cdp-gracias`, `cdp-formularios`, `cdp-modales` y `cdp-filtros`, sobre la base común `lib/cdp.mjs`. Los 4 pasan en el Local y terminan con código 1 si algo falla.
+        - `cdp-gracias`: pagado, pendiente, regalo con "Copiar código" y cancelado; canje sin sesión, inválido, válido y repetido. El banner de Mundo se probó poniendo un momento un enlace en Ajustes del sitio; hoy ese enlace está vacío (F7) y la prueba lo avisa.
+        - `cdp-formularios`: los 3 formularios con errores, éxito y el correo en Mailpit.
+        - `cdp-modales`: coach, drawer, acordeón (también sin JS) y, con `tienda`, la etapa y el selector.
+        - `cdp-filtros`: blog (pastilla, búsqueda, `noindex`, sin JS) y testimonios. La paginación del blog y el "Ver más" de soluciones no se pudieron probar: ningún listado pasa de 12.
+    - **Datos (`datos-f5.php`):**
+        - `crear` suma los pedidos de gracias (con el código del regalo), las usuarias `vacia-f5` y `canje-f5`, y vacía los contadores de intentos.
+        - Las inscripciones de los cursos B y C usaban el origen `manual`, que el plugin quitó en la 0.7.3: fallaban sin aviso y la alumna quedaba con 1 curso en vez de 3. Ahora usan `compra`.
+        - Nuevas limpiezas: `limpiar-f4` y `limpiar-formularios`.
+    - **Scripts anteriores:**
+        - Puertos únicos: `cdp-vacios` pasa al 9340 y `cdp-constructor` al 9342.
+        - `cdp-bloque6` comprobaba la API con la alumna por un 400 que no probaba el permiso: WordPress valida los parámetros antes. Ahora prueba con su nonce y un cuerpo válido y recibe 403.
+        - `cdp-compra`, `cdp-bloque4`, `cdp-bloque5`, `cdp-bloque6` y `cdp-vacios` corren bien con los datos nuevos.
+    - **Lo que queda en el Local:** los datos de prueba quedaron borrados y comprobados con WP-CLI. Solo quedan los correos de prueba en Mailpit.
 - [x] Plugin: prueba con HPOS activado y prueba del registro `wc_get_logger` (hoy ninguna); prueba de la desinstalación (`cursos-datos.md` → `roles`) Hecho (plugin 0.7.3, 2026-11-20). `test_puente_con_y_sin_hpos` (las tablas de HPOS se crean en `tests/bootstrap.php`), `test_alta_y_baja_de_acceso_quedan_en_el_registro_de_woo` y `tests/test-desinstalar.php`.
 - [x] Plugin: al desactivarlo, `flush_rewrite_rules()` (`angelitozzz-cursos.php:72`) corre en la misma petición en que el plugin ya registró sus reglas, así que `/cursos/…`, `/cuenta/…` y `/administrador/…` quedan guardadas. Hay que quitarlas antes de vaciar (revisión del 2026-11-18) Hecho (plugin 0.7.3, 2026-11-20). `angelitozzz_cursos_quitar_reglas_de_url()` quita los tipos y las reglas propias (también las del tipo curso que WordPress ya hubiera armado en esa petición) antes de vaciar; con su prueba.
 - [x] Tema: el enlace de WhatsApp se arma igual en 4 lugares. Se pasa todo a un solo helper: ya existía `angelitozzz_solucion_whatsapp()` (`inc/soluciones.php:25`). Hecho (2026-11-24, rama `fix/cierre-f5-detalles`). Ahora es `angelitozzz_whatsapp()` en `inc/helpers/whatsapp.php` y lo usan todas las páginas. Solo el modal coach arma su enlace aparte, con otro número (`whatsapp_coach`). Los lugares eran:

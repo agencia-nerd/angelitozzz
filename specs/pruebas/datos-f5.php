@@ -11,6 +11,11 @@
  * opción angelitozzz_prueba_tienda; "tienda-borrar" los devuelve y borra los cursos, sus lecciones y productos, y
  * los pedidos de esos productos. Lista los IDs antes de borrar.
  * Uso: php zz-datos-f5.php tienda|tienda-borrar
+ *
+ * "crear" también hace los pedidos de gracias (pagado, pendiente, regalo con su código y cancelado) y la usuaria
+ * vacia-f5@angelitozzz.local (cuenta vacía y canje); "borrar" los quita junto con el cupón del regalo.
+ * Limpiezas sueltas: "limpiar-f4" (usuarias de cdp-bloque4.mjs y contadores del límite de intentos) y
+ * "limpiar-formularios" (envíos guardados por cdp-formularios.mjs con prueba-formularios@angelitozzz.local).
  * El puerto de MySQL se lee del sites.json de Local (cambia en cada PC). Para forzarlo:
  * ANGELITOZZZ_DB_PUERTO=<puerto> o php -d mysqli.default_port=<puerto>.
  */
@@ -138,10 +143,46 @@ if ($accion === 'tienda' || $accion === 'tienda-borrar') {
 
 $ids = get_option('angelitozzz_prueba_f5', []);
 
+// Limpieza de cdp-bloque4.mjs: sus usuarias (prueba-f4*@angelitozzz.local) y los contadores del límite
+// de intentos (ese script bloquea la IP a propósito). Lista antes de borrar.
+if ($accion === 'limpiar-f4') {
+    global $wpdb;
+    // get_users solo admite el comodín al principio o al final: se busca "prueba-f4*" y se filtra el dominio.
+    $usuarias = array_values(array_map('intval', array_keys(array_filter(
+        array_column(get_users(['search' => 'prueba-f4*', 'search_columns' => ['user_email'], 'fields' => ['ID', 'user_email']]), 'user_email', 'ID'),
+        static fn($correo) => str_ends_with((string) $correo, '@angelitozzz.local')
+    ))));
+    echo "usuarias: ", wp_json_encode($usuarias), "\n";
+    foreach ($usuarias as $id) {
+        $wpdb->delete($wpdb->prefix . 'angelitozzz_inscripciones', ['usuario_id' => (int) $id]);
+        $wpdb->delete($wpdb->prefix . 'angelitozzz_progreso', ['usuario_id' => (int) $id]);
+        wp_delete_user((int) $id);
+    }
+    echo "intentos borrados: ", (int) $wpdb->query("DELETE FROM {$wpdb->prefix}angelitozzz_intentos"), "\n";
+    exit;
+}
+
+// Limpieza de cdp-formularios.mjs: solo los envíos guardados con el correo de prueba.
+if ($accion === 'limpiar-formularios') {
+    $envios = get_posts(['post_type' => ANGELITOZZZ_ENTRY_TYPE, 'post_status' => 'any', 'posts_per_page' => -1, 'fields' => 'ids', 'meta_key' => '_angelitozzz_email', 'meta_value' => 'prueba-formularios@angelitozzz.local']);
+    echo "envíos: ", wp_json_encode($envios), "\n";
+    foreach ($envios as $id) { wp_delete_post((int) $id, true); }
+    exit;
+}
+
 if ($accion === 'borrar') {
     foreach ((array) ($ids['pedidos'] ?? []) as $id) {
         $pedido = wc_get_order($id);
         if ($pedido) { $pedido->delete(true); }
+    }
+    // Cupón del regalo, la usuaria vacía y la del canje (con la inscripción que le deja el canje).
+    foreach ((array) ($ids['cupones'] ?? []) as $id) { wp_delete_post((int) $id, true); }
+    foreach (['vacia', 'canje'] as $clave) {
+        if (empty($ids[$clave])) { continue; }
+        global $wpdb;
+        $wpdb->delete($wpdb->prefix . 'angelitozzz_inscripciones', ['usuario_id' => (int) $ids[$clave]]);
+        $wpdb->delete($wpdb->prefix . 'angelitozzz_progreso', ['usuario_id' => (int) $ids[$clave]]);
+        wp_delete_user((int) $ids[$clave]);
     }
     foreach ((array) ($ids['productos'] ?? []) as $id) { wp_delete_post($id, true); }
     foreach ((array) ($ids['adjuntos'] ?? []) as $id) { wp_delete_attachment($id, true); }
@@ -155,12 +196,17 @@ if ($accion === 'borrar') {
     }
     if (!empty($ids['instructora'])) { wp_delete_user((int) $ids['instructora']); }
     delete_option('angelitozzz_prueba_f5');
+    @unlink(sys_get_temp_dir() . '/angelitozzz-datos-f5.json');
+    $GLOBALS['wpdb']->query("DELETE FROM {$GLOBALS['wpdb']->prefix}angelitozzz_intentos");
     echo "borrado: ", wp_json_encode($ids), "\n";
     exit;
 }
 
 if ($ids) { echo "ya hay datos de prueba: ", wp_json_encode($ids), "\n"; exit; }
 $ids = ['cursos' => [], 'lecciones' => [], 'adjuntos' => [], 'productos' => [], 'pedidos' => []];
+
+// Contadores del límite de intentos en cero (login, crear cuenta y canje), para que las pruebas se puedan repetir.
+$GLOBALS['wpdb']->query("DELETE FROM {$GLOBALS['wpdb']->prefix}angelitozzz_intentos");
 
 // Página /cuenta/ (queda: en producción la crea wp-acf en la F5).
 if (!get_page_by_path('cuenta')) {
@@ -230,20 +276,35 @@ $producto->save();
 $ids['productos'][] = $producto->get_id();
 update_post_meta($a, '_angelitozzz_producto_id', $producto->get_id());
 
-foreach (['completed', 'pending'] as $estado) {
+// Pedidos de la alumna sobre el curso A, para la cuenta y para gracias (cdp-gracias.mjs):
+// pagado (el puente inscribe), pendiente, pagado como regalo (el plugin genera el código) y cancelado.
+$ids['pedidos_por_estado'] = [];
+foreach (['pagado' => 'completed', 'pendiente' => 'pending', 'regalo' => 'processing', 'cancelado' => 'cancelled'] as $clave => $estado) {
     $pedido = wc_create_order(['customer_id' => $alumna]);
-    $pedido->add_product($producto, 1);
+    $item_id = $pedido->add_product($producto, 1);
+    if ($clave === 'regalo') {
+        wc_add_order_item_meta($item_id, '_angelitozzz_regalo', 1, true); // Como "Regalar este curso" en el carrito.
+    }
     $pedido->set_billing_first_name('Ana Lucía');
     $pedido->set_billing_email('prueba-f5@angelitozzz.local');
     $pedido->calculate_totals();
     $pedido->save();
     $pedido->update_status($estado);
     $ids['pedidos'][] = $pedido->get_id();
+    $ids['pedidos_por_estado'][$clave] = $pedido->get_id();
 }
 
-// Inscripciones manuales de B y C, y avance: A con la lección 1 completa y vista; B al 100 %.
-angelitozzz_cursos_inscribir($alumna, $b, 'manual');
-angelitozzz_cursos_inscribir($alumna, $c, 'manual');
+// Usuaria sin cursos ni pedidos (estados vacíos de la cuenta, cdp-vacios.mjs) y otra que canjea el regalo
+// (cdp-gracias.mjs): separadas para que el canje no llene la cuenta vacía.
+$ids['vacia'] = wp_insert_user(['user_login' => 'vacia-f5', 'user_email' => 'vacia-f5@angelitozzz.local', 'user_pass' => 'Prueba123', 'first_name' => 'Vacía', 'last_name' => 'Prueba', 'role' => 'customer']);
+$ids['canje'] = wp_insert_user(['user_login' => 'canje-f5', 'user_email' => 'canje-f5@angelitozzz.local', 'user_pass' => 'Prueba123', 'first_name' => 'Canje', 'last_name' => 'Prueba', 'role' => 'customer']);
+
+// Inscripciones de B y C sin pedido (desde el plugin 0.7.3 el origen es "compra" o "regalo"),
+// y avance: A con la lección 1 completa y vista; B al 100 %.
+foreach ([$b, $c] as $curso_id) {
+    $inscripcion = angelitozzz_cursos_inscribir($alumna, $curso_id, 'compra');
+    if (is_wp_error($inscripcion)) { echo "inscripción {$curso_id}: ", $inscripcion->get_error_message(), "\n"; }
+}
 angelitozzz_cursos_registrar_vista($alumna, $a1);
 angelitozzz_cursos_marcar_completada($alumna, $a1, true);
 angelitozzz_cursos_registrar_vista($alumna, $b2);
@@ -257,8 +318,29 @@ if ($imagen) { set_post_thumbnail($a, (int) $imagen[0]); }
 $d = $curso('Curso borrador F5', 'curso_online', 12, false, [['id' => 'm1', 'titulo' => 'Módulo 1']], 'Curso en borrador para el administrador.');
 wp_update_post(['ID' => $d, 'post_status' => 'draft']);
 
+// El código del regalo y el cupón que lo respalda (para la prueba de canje y para borrarlo después).
+$ids['cupones'] = [];
+foreach (wc_get_order($ids['pedidos_por_estado']['regalo'])->get_items() as $item_id => $item) {
+    $cupon_id = absint(wc_get_order_item_meta($item_id, '_angelitozzz_regalo_cupon_id', true));
+    if ($cupon_id) { $ids['cupones'][] = $cupon_id; }
+}
+
 update_option('angelitozzz_prueba_f5', $ids, false);
 wp_set_current_user($alumna);
 echo "creado: ", wp_json_encode($ids), "\n";
 echo "resumen: ", wp_json_encode(angelitozzz_cursos_resumen()), "\n";
 echo "lecciones A: ", implode(', ', array_map(static fn($id) => get_permalink($id), [$a1, $a2, $a3])), "\n";
+echo "código del regalo: ", wp_json_encode(array_map(static fn($id) => get_the_title($id), $ids['cupones'])), "\n";
+// Lo que leen los cdp-*.mjs (URL de gracias y código del regalo), fuera del tema: carpeta temporal del sistema.
+$para_pruebas = [
+    'gracias'         => [],
+    'codigos'         => array_map(static fn($id) => get_the_title($id), $ids['cupones']),
+    // Sin enlace del mes gratis en Ajustes del sitio, el banner de Mundo no se imprime (banner-mundo.php).
+    'mundo_con_enlace' => trim((string) ((get_field('opciones_mes_gratis_mundo', 'option') ?: [])['enlace'] ?? '')) !== '',
+];
+foreach ($ids['pedidos_por_estado'] as $clave => $pedido_id) {
+    $para_pruebas['gracias'][$clave] = wc_get_order($pedido_id)->get_checkout_order_received_url();
+    echo "gracias {$clave}: ", $para_pruebas['gracias'][$clave], "\n";
+}
+file_put_contents(sys_get_temp_dir() . '/angelitozzz-datos-f5.json', wp_json_encode($para_pruebas));
+echo "datos para las pruebas: ", sys_get_temp_dir() . '/angelitozzz-datos-f5.json', "\n";

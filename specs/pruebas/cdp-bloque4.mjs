@@ -1,5 +1,5 @@
 // Prueba de punta a punta del bloque 4 (acceso) por CDP, contra el Local y el plugin real.
-// Crea usuarias de prueba (@angelitozzz.local); el limpiado lo hace otro script por CLI.
+// Crea usuarias de prueba (prueba-f4*@angelitozzz.local) y bloquea la IP a propósito: al terminar, `php zz-datos-f5.php limpiar-f4`.
 import { spawn } from 'node:child_process';
 
 const sitio = process.env.SITIO || 'http://angelitozzz.local'; // Otra URL: SITIO=http://... node <script>
