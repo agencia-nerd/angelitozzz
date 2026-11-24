@@ -270,18 +270,17 @@ Plan aprobado el 2026-11-19, en 2 bloques. Decisiones del usuario: avisos del co
 ### Cierre de la F5
 
 - [x] Decidir (pendiente del usuario, 2026-11-15): aceptar el nombre de usuario en `/iniciar-sesion/`. El servidor ya lo acepta (`wp_authenticate()`); solo hay que cambiar el campo de tipo `email` a texto, la etiqueta "Correo electrónico" por "Correo o nombre de usuario" (se aparta de Figma) y el error a "Correo, usuario o contraseña incorrectos". Sirve sobre todo al equipo: el usuario de las alumnas se genera del correo. Spec: `iniciar-sesion.md` Decidido (usuario, 2026-11-20): no. `/iniciar-sesion/` sigue solo con correo, como Figma.
-- [ ] JSON de ACF de `solucion` sin regenerar desde el 2026-11-24. El spec ya cambió la ayuda de `solucion_tarjeta_etiqueta` (sin precio) y la de `beneficios.bajada` (`{precio}`), pero `generate.mjs` (wp-acf de carlitos-skills 1.39.0) no se puede correr todavía porque rompería lo que hoy funciona:
-    - cambia la relación de `solucion_compra_cursos` y del curso de cada etapa de `curso` a `post`, porque no entiende `Origen: plugin`;
-    - deja el tipo `solucion` sin su URL `/soluciones-de-sueno/`;
-    - reescribe `inc/acf/paginas.php` con páginas y slugs que no son.
-
-  Se resuelve en la parte 3 (`check.mjs` en 0) y después se regenera. Mientras tanto, la ayuda del admin dice todavía "puede incluir el precio como texto".
-- [ ] `check.mjs` de design-import en 0. Hoy tiene 11 errores:
-    - 9 son los `Destino` de `cursos-datos.md`, que apuntan a archivos del plugin y el revisor los busca dentro del tema;
-    - 1 es una nota de `home.md` que falta pasar a "Indicaciones del diseño";
-    - 1 es `cursos-datos.md` → `roles`, con un criterio sin marcar: la desinstalación no tiene prueba (2026-11-18). Se cierra con la prueba de la desinstalación (más abajo, en esta misma sección).
-
-  Los 5 componentes sin documentar ya están en `_shared.md` (2026-11-18). Los avisos de "Argumentos" que quedan vienen de valores entre comillas invertidas que el revisor toma como argumentos. El aviso de wp-acf sobre "Escríbenos" en Contacto no aplica: el título ya sale del campo, y lo único fijo es el texto del botón "Escríbenos por WhatsApp", que el spec deja fijo.
+- [x] `check.mjs` de design-import y de wp-acf en 0, y JSON de ACF regenerado. Hecho (2026-11-24, rama `docs/checks-en-cero`), con carlitos-skills 1.41.0, la versión instalada (`~/.claude/plugins/installed_plugins.json`).
+    - **Aclaración:** las cuentas viejas (11 o 12 errores en design-import, 16 en wp-acf) y la nota del 2026-11-24 que decía que `generate.mjs` rompía la relación con los cursos, la URL `/soluciones-de-sueno/` e `inc/acf/paginas.php` venían de correr por error los scripts de la 1.39.0, que siguen en la caché de plugins. La 1.41.0 ya entiende `Ubicación: ninguna` y `Origen: plugin`.
+    - **design-import:** pasó de 10 errores a 0.
+        - `cursos-datos.md`: cada `Destino` es una ruta relativa al tema (`../../plugins/angelitozzz-cursos/includes/<archivo>.php`), así el check comprueba que el archivo existe. La nota "(migración 1)" pasó al `Comportamiento`.
+        - `home.md` → cta-final: la nota de Figma está completa en "Indicaciones del diseño".
+    - **wp-acf:** pasó de 1 error a 0. `opciones.md` → contacto: el `Destino` son los archivos que leen el grupo desde la parte 1 (`inc/helpers/whatsapp.php`, `inc/helpers/contacto.php` y `template-parts/modals/modal-coach.php`).
+    - **JSON:** `generate.mjs` cambió solo las 2 ayudas del grupo `solucion` (etiqueta sin precio y `{precio}` en `beneficios.bajada`). Los otros 20 archivos y `inc/acf/paginas.php` quedaron iguales. Se sincronizó en el Local con `wp acf json sync`.
+    - **Avisos que quedan:** 74 en design-import y 1 en wp-acf, ninguno bloquea.
+        - Los 5 nuevos son "texto fijo en el destino": el check lee el código PHP del plugin y de los helpers como si fuera texto.
+        - Los de "Argumentos" vienen de valores entre comillas invertidas que el revisor toma como argumentos.
+        - El de wp-acf sobre "Escríbenos" en Contacto no aplica: el título sale del campo y solo el texto del botón "Escríbenos por WhatsApp" queda fijo, como dice el spec.
 - [ ] Pruebas en Chrome (`specs/pruebas/`): desde la F5-b, `cdp-compra.mjs` cubre las landings, el drawer, las etapas, el carrito y el checkout sin pagar; faltan gracias, canje, formularios, modales y filtros. `cdp-vacios.mjs:36` usa una usuaria que ningún script crea; falta el script de limpieza que nombra `cdp-bloque4.mjs:2`; `cdp-vacios.mjs` y `cdp-bloque6.mjs` usan el mismo puerto (9339)
 - [x] Plugin: prueba con HPOS activado y prueba del registro `wc_get_logger` (hoy ninguna); prueba de la desinstalación (`cursos-datos.md` → `roles`) Hecho (plugin 0.7.3, 2026-11-20). `test_puente_con_y_sin_hpos` (las tablas de HPOS se crean en `tests/bootstrap.php`), `test_alta_y_baja_de_acceso_quedan_en_el_registro_de_woo` y `tests/test-desinstalar.php`.
 - [x] Plugin: al desactivarlo, `flush_rewrite_rules()` (`angelitozzz-cursos.php:72`) corre en la misma petición en que el plugin ya registró sus reglas, así que `/cursos/…`, `/cuenta/…` y `/administrador/…` quedan guardadas. Hay que quitarlas antes de vaciar (revisión del 2026-11-18) Hecho (plugin 0.7.3, 2026-11-20). `angelitozzz_cursos_quitar_reglas_de_url()` quita los tipos y las reglas propias (también las del tipo curso que WordPress ya hubiera armado en esa petición) antes de vaciar; con su prueba.

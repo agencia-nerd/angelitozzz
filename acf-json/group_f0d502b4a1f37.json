@@ -358,7 +358,7 @@
                     "name": "etiqueta",
                     "aria-label": "",
                     "type": "text",
-                    "instructions": "Etiqueta de la esquina de la tarjeta (puede incluir el precio como texto).",
+                    "instructions": "Etiqueta de la esquina de la tarjeta, sin precio: el sitio le suma el precio del curso (\"Asesoría con Bárbara · $399\").",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1254,7 +1254,7 @@
                                     "name": "bajada",
                                     "aria-label": "",
                                     "type": "textarea",
-                                    "instructions": "Texto bajo el título.",
+                                    "instructions": "Texto bajo el título. Escribe {precio} donde vaya el precio del curso: el sitio pone el precio actual.",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -2558,5 +2558,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1794955221
+    "modified": 1795555369
 }

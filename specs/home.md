@@ -253,7 +253,7 @@ Testimonios del diseño (textos completos en `testimonios.ref.txt`), en orden: C
 - **Skill:** wp-helper
 - **Comportamiento:** usa el componente `cta-final` con `titulo` = `home_cta_final_titulo`, `descripcion` vacía (el diseño de Inicio no la tiene, el componente la oculta) y `boton` = `home_cta_final_boton`. Fondo `--color-fondo-rosa`, título `h2` con `--text-h2` en `--color-marca` centrado, botón `boton` variante `frambuesa` con flecha. El botón lleva a `/soluciones-de-sueno/`, igual que los CTA finales de las demás páginas (mismo componente). Decoración: destellos blancos a izquierda y derecha (7 piezas en 4 SVG con `aria-hidden`: grupo de arriba a la izquierda, grupo de abajo a la izquierda, el destello grande y el de la derecha; el grande se sale por abajo y se recorta con `overflow-hidden`). Valores sueltos: padding 104 px vertical y 405 px lateral (`--container-sitio`), separación de 20 px más un espacio de 8 px antes del botón. Móvil (propuesta): padding lateral 16 px, el título baja a `--text-h3`, los destellos se achican y el grande se oculta.
 - **Indicaciones del diseño:**
-    - Eso llevara a la pagina shop/tienda/cursos: es `/soluciones-de-sueno/` (2026-11-17).
+    - Eso llevara a la pagina shop/tienda/cursos (aun falta definir el nombre de la pagina), pero aun estara pendiente. Resuelto: es `/soluciones-de-sueno/` (2026-11-17).
 - **Estado:** aplicado
 - **ACF:** conectado
 

@@ -3,6 +3,7 @@
 - **Resumen:** Qué guarda el plugin `angelitozzz-cursos` y con qué reglas: cursos, lecciones, inscripciones, avance, vencimiento, acceso, descargas, puente con WooCommerce, roles y las funciones que usa el tema. No es una página que se visite: es la base de la F2 y de los specs de la lección, la cuenta y el administrador.
 - **Fuente:** `specs/plan/checklist-cursos.md`
 - **Plantilla:** ninguna
+- **Destinos:** este spec se implementa en el plugin `angelitozzz-cursos`, fuera del tema. Cada `Destino` es una ruta relativa al tema (`../../plugins/angelitozzz-cursos/includes/<archivo>.php`) para que `check.mjs` de design-import compruebe que el archivo existe (2026-11-24).
 - **Tipo:** detalle
 - **Contenido:** curso
 - **Secciones (en orden):** curso, leccion, inscripcion, avance, acceso, puente-woo, regalo, roles, funciones-publicas
@@ -22,7 +23,7 @@
 ## Sección: curso
 
 - **Origen:** pasos 1 y 3 del constructor (`specs/figma/lectura/admin-cursos/constructor-basico-formulario.png`, `constructor-adicional-listo.png`; ver `admin-constructor.md`) y tarjetas de la lista (`admin-cursos/seccion.ref.txt`, nodo 4184:29718)
-- **Destino:** `wp-content/plugins/angelitozzz-cursos/includes/tipos.php`
+- **Destino:** `../../plugins/angelitozzz-cursos/includes/tipos.php`
 - **Grupo:** ninguno
 - **Skill:** ninguna
 - **Comportamiento:** tipo de contenido `curso` registrado en código (`register_post_type`):
@@ -58,7 +59,7 @@
 ## Sección: leccion
 
 - **Origen:** paso 2 del constructor y modal "Editar lección" (`constructor-contenido-carga.png`, `constructor-modal-editar-modulo.png`) y la lección (`specs/figma/lectura/leccion/seccion-entera.ref.txt`)
-- **Destino:** `wp-content/plugins/angelitozzz-cursos/includes/tipos.php`, `includes/video.php`
+- **Destino:** `../../plugins/angelitozzz-cursos/includes/tipos.php`, `../../plugins/angelitozzz-cursos/includes/video.php`
 - **Grupo:** ninguno
 - **Skill:** ninguna
 - **Comportamiento:** tipo de contenido `leccion`, hijo de un `curso`:
@@ -97,10 +98,10 @@
 ## Sección: inscripcion
 
 - **Origen:** decisiones de `specs/plan/checklist-cursos.md` (duración del acceso, garantía, regalo) y estados del historial (`usuario-historial-pedido.md`)
-- **Destino:** `wp-content/plugins/angelitozzz-cursos/includes/esquema.php` (migración 1), `includes/inscripciones.php`, `includes/vencimiento.php`
+- **Destino:** `../../plugins/angelitozzz-cursos/includes/esquema.php`, `../../plugins/angelitozzz-cursos/includes/inscripciones.php`, `../../plugins/angelitozzz-cursos/includes/vencimiento.php`
 - **Grupo:** ninguno
 - **Skill:** ninguna
-- **Comportamiento:** tabla `{prefix}angelitozzz_inscripciones`:
+- **Comportamiento:** tabla `{prefix}angelitozzz_inscripciones` (la crea la migración 1 de `esquema.php`):
     - **Columnas:**
         - `id`: BIGINT, clave.
         - `usuario_id`, `curso_id`.
@@ -141,10 +142,10 @@
 ## Sección: avance
 
 - **Origen:** temario y "Marcar como completo" de la lección (`leccion/seccion-entera.ref.txt`), tarjetas con progreso de `usuario-escritorio.md` y `usuario-cursos.md`
-- **Destino:** `wp-content/plugins/angelitozzz-cursos/includes/esquema.php` (migración 1), `includes/avance.php`, `includes/rest.php`
+- **Destino:** `../../plugins/angelitozzz-cursos/includes/esquema.php`, `../../plugins/angelitozzz-cursos/includes/avance.php`, `../../plugins/angelitozzz-cursos/includes/rest.php`
 - **Grupo:** ninguno
 - **Skill:** ninguna
-- **Comportamiento:** tabla `{prefix}angelitozzz_progreso`:
+- **Comportamiento:** tabla `{prefix}angelitozzz_progreso` (la crea la migración 1 de `esquema.php`):
     - **Columnas:** `usuario_id`, `leccion_id`, `curso_id`, `completada` (`DATETIME` UTC o nulo) y `vista` (`DATETIME` UTC).
     - **Clave e índices:** clave (`usuario_id`, `leccion_id`); índice (`usuario_id`, `curso_id`).
     - **Reglas:**
@@ -172,7 +173,7 @@
 ## Sección: acceso
 
 - **Origen:** decisiones de `specs/plan/checklist-cursos.md` y reglas de seguridad de `CLAUDE.md`
-- **Destino:** `wp-content/plugins/angelitozzz-cursos/includes/acceso.php`, `includes/descargas.php`
+- **Destino:** `../../plugins/angelitozzz-cursos/includes/acceso.php`, `../../plugins/angelitozzz-cursos/includes/descargas.php`
 - **Grupo:** ninguno
 - **Skill:** ninguna
 - **Comportamiento:** una sola función decide si una usuaria puede ver una lección: `angelitozzz_cursos_puede_ver( $leccion_id, $usuario_id )`.
@@ -210,7 +211,7 @@
 ## Sección: puente-woo
 
 - **Origen:** tabla "Contenido dinámico" (`producto`) de `_shared.md`, `checkout.md` y `solucion.md` (sección `compra`)
-- **Destino:** `wp-content/plugins/angelitozzz-cursos/includes/woocommerce.php`
+- **Destino:** `../../plugins/angelitozzz-cursos/includes/woocommerce.php`
 - **Grupo:** ninguno
 - **Skill:** ninguna
 - **Comportamiento:** WooCommerce cobra y el plugin solo convierte pedidos pagados en inscripciones (y reembolsos en bajas).
@@ -251,7 +252,7 @@
 ## Sección: regalo
 
 - **Origen:** decisión "Regalo" de `specs/plan/checklist-cursos.md` (cupón de Woo de 100 %, un solo uso, 6 meses) y las pantallas de `gracias.md` → `regalo-listo` y `canjear-regalo.md`
-- **Destino:** `wp-content/plugins/angelitozzz-cursos/includes/regalos.php`
+- **Destino:** `../../plugins/angelitozzz-cursos/includes/regalos.php`
 - **Grupo:** ninguno
 - **Skill:** ninguna
 - **Comportamiento:** comprar un curso para otra persona genera un código; quien lo recibe lo canjea en `/canjear-regalo/` y queda inscrita desde ese día.
@@ -293,7 +294,7 @@
 ## Sección: roles
 
 - **Origen:** decisión "por ahora solo Bárbara" (`specs/plan/checklist-cursos.md`) y `usuario-*.md`
-- **Destino:** `wp-content/plugins/angelitozzz-cursos/includes/capacidades.php`, `includes/cuentas.php`, `includes/cuentas-acceso.php`
+- **Destino:** `../../plugins/angelitozzz-cursos/includes/capacidades.php`, `../../plugins/angelitozzz-cursos/includes/cuentas.php`, `../../plugins/angelitozzz-cursos/includes/cuentas-acceso.php`
 - **Grupo:** ninguno
 - **Skill:** ninguna
 - **Comportamiento:** quién hace qué, con capacidades propias.
@@ -329,7 +330,7 @@
 ## Sección: funciones-publicas
 
 - **Origen:** las vistas que pinta el tema: `usuario-*.md`, `leccion.md`, `admin-*.md`, `solucion.md`
-- **Destino:** `wp-content/plugins/angelitozzz-cursos/includes/api.php`
+- **Destino:** `../../plugins/angelitozzz-cursos/includes/api.php`
 - **Grupo:** ninguno
 - **Skill:** ninguna
 - **Comportamiento:** el tema solo usa estas funciones y nunca consulta las tablas. Trabajan con la usuaria de la sesión, salvo las que piden `$usuario_id` (así lo dice cada una) y las del administrador, que exigen la capacidad.

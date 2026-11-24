@@ -123,10 +123,10 @@
 ## Sección: contacto
 
 - **Origen:** datos que usan contacto/seccion-de-cta, mundo-angelitozzz/hero, preguntas-frecuentes/cta-final, soluciones-de-sueno/cta-final y modal-coach-gracias
-- **Destino:** `template-parts/components/cta-final.php`, `template-parts/pages/contacto/seccion-de-cta.php`, `template-parts/pages/mundo-angelitozzz/hero.php`
+- **Destino:** `inc/helpers/whatsapp.php`, `inc/helpers/contacto.php`, `template-parts/modals/modal-coach.php`
 - **Grupo:** `opciones_contacto`
 - **Skill:** wp-helper
-- **Comportamiento:** no se muestra por sí sola: las secciones que piden WhatsApp o el correo leen estos campos. **Los destinatarios de cada formulario (Contacto, coach y newsletter) son un campo propio con uno o más correos; ningún correo queda escrito en el código. Si el campo está vacío, el formulario envía al correo del administrador de WordPress (Ajustes → Generales). El correo que se muestra en la tarjeta de la página Contacto es otro: `contacto_seccion_de_cta_email`.** El WhatsApp se guarda solo con dígitos y código de país, y los botones arman `https://wa.me/<número>?text=<mensaje>` con el helper de enlaces. Se aplica junto con las páginas que la usan (Contacto, Mundo Angelitozzz y los CTA finales con WhatsApp).
+- **Comportamiento:** no se muestra por sí sola: las secciones que piden WhatsApp o el correo leen estos campos. Lo leen solo `angelitozzz_whatsapp()` (`inc/helpers/whatsapp.php`: número y mensaje, para Contacto, Mundo, Preguntas frecuentes, Soluciones, las landings y gracias), `angelitozzz_form_recipients()` (`inc/helpers/contacto.php`: destinatarios de los formularios) y el modal coach (`whatsapp_coach`); ninguna plantilla arma el enlace por su cuenta (2026-11-24). **Los destinatarios de cada formulario (Contacto, coach y newsletter) son un campo propio con uno o más correos; ningún correo queda escrito en el código. Si el campo está vacío, el formulario envía al correo del administrador de WordPress (Ajustes → Generales). El correo que se muestra en la tarjeta de la página Contacto es otro: `contacto_seccion_de_cta_email`.** El WhatsApp se guarda solo con dígitos y código de país, y los botones arman `https://wa.me/<número>?text=<mensaje>` con el helper de enlaces. Se aplica junto con las páginas que la usan (Contacto, Mundo Angelitozzz y los CTA finales con WhatsApp).
 - **Estado:** aplicado
 - **ACF:** conectado
 
