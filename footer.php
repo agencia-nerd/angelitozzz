@@ -115,7 +115,7 @@ $aviso     = esc_html__('se abre en una pestaña nueva', 'angelitozzz');
             <div class="mx-auto flex max-w-[1140px] items-center justify-between gap-4 px-4 py-6 max-md:flex-col">
                 <p class="text-cuerpo-s text-marca opacity-50"><?= esc_html($copyright) ?></p>
                 <p class="flex items-center gap-[11px] text-cuerpo-s">
-                    <span>Made with</span>
+                    <span><?= esc_html__('Made with', 'angelitozzz') ?></span>
                     <svg class="h-2.5 w-[11px] text-marca" viewBox="0 0 11 10" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5.5 8.75a.75.75 0 0 1-.39-.11C3.43 7.6 2.69 6.88 2.29 6.44c-.86-.95-1.27-1.93-1.26-2.99C1.05 2.24 2.12 1.25 3.42 1.25c.95 0 1.6.48 1.98.89a.14.14 0 0 0 .2 0c.38-.41 1.04-.89 1.98-.89 1.3 0 2.37.99 2.39 2.2.01 1.06-.4 2.04-1.26 2.99-.4.44-1.13 1.16-2.82 2.2a.75.75 0 0 1-.39.11" /></svg>
                     <span class="sr-only"><?= esc_html__('con amor por', 'angelitozzz') ?></span>
                     <a<?= angelitozzz_link_attrs($nerd, ['class' => 'block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca']) ?>>

@@ -4,7 +4,7 @@ defined('ABSPATH') || exit;
 /*
  * Tipo de contenido `solucion` (specs/soluciones-de-sueno.md y specs/solucion.md).
  * El tipo lo registra ACF desde acf-json/, con sus URL del spec (/soluciones-de-sueno/ y /soluciones-de-sueno/<slug>/).
- * Aquí: la tarjeta de producto-card de una solución (listado y relacionados) y el botón de WhatsApp de las landings.
+ * Aquí: la tarjeta de producto-card de una solución (listado y relacionados). El botón de WhatsApp de las landings es angelitozzz_whatsapp() (inc/helpers/whatsapp.php).
  */
 
 // Las URL del tipo necesitan refrescar las reglas de reescritura una sola vez (también al publicar el tema).
@@ -17,28 +17,6 @@ function angelitozzz_solucion_refrescar_reglas(): void
     }
 }
 add_action('init', 'angelitozzz_solucion_refrescar_reglas', 99);
-
-/**
- * Enlace de WhatsApp de las landings con el número y el mensaje de Ajustes del sitio (opciones_contacto),
- * listo para el helper de enlaces o el componente boton. Sin número o sin texto: null (no se muestra).
- */
-function angelitozzz_solucion_whatsapp(string $texto): ?array
-{
-    $contacto = get_field('opciones_contacto', 'option') ?: [];
-    $numero   = preg_replace('/\D+/', '', (string) ($contacto['whatsapp'] ?? ''));
-    $mensaje  = trim((string) ($contacto['whatsapp_mensaje'] ?? ''));
-    $texto    = trim($texto);
-
-    if ($numero === '' || $texto === '') {
-        return null;
-    }
-
-    return [
-        'url'    => 'https://wa.me/' . $numero . ($mensaje !== '' ? '?text=' . rawurlencode($mensaje) : ''),
-        'title'  => $texto,
-        'target' => '_blank',
-    ];
-}
 
 /**
  * Argumentos de producto-card para una solución.

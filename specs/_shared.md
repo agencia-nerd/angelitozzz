@@ -270,7 +270,7 @@ Cada componente vive en `template-parts/components/<nombre>.php` y recibe sus da
 - **Origen:** lista "Su contraseña debe tener al menos:" de usuario-mi-perfil / Seguridad (4164:27124)
 - **Destino:** `template-parts/components/reglas-contrasena.php`
 - **JS:** `src/js/modules/reglas-contrasena.js`
-- **Argumentos:** `campo` (string, requerido: id del campo de contraseña que vigila). Lista de 4 reglas en 2 × 2 (8 caracteres, 1 letra minúscula, 1 número, 1 letra mayúscula) con ícono de 30 px: cumplida check `#9cb09d`, pendiente ✕ `#f5a8a9`; cada regla dice su estado en texto para lectores ("cumplida" / "pendiente") y la lista se anuncia con `aria-live="polite"`. Las mismas 4 reglas se validan en el servidor (plugin `angelitozzz-cursos`, F3).
+- **Argumentos:** `campo` (string, requerido: id del campo de contraseña que vigila). Lista de 4 reglas en 2 × 2 (8 caracteres, 1 letra minúscula, 1 número, 1 letra mayúscula) con ícono de 30 px: cumplida check `#9cb09d`, pendiente ✕ `#f5a8a9`; cada regla dice su estado en texto para lectores ("cumplida" / "pendiente") y la lista se anuncia con `aria-live="polite"`. Las reglas que se muestran las da el plugin con `angelitozzz_cursos_reglas_contrasena()` (las mismas que valida el servidor, F3); el tema pone el texto de cada una y su comprobación en vivo. Una regla nueva del plugin sin texto en el tema se muestra con su clave y queda pendiente (2026-11-24). Sin el plugin, la lista no se muestra.
 - **Se usa en:** usuario-mi-perfil (Seguridad), crear-cuenta, recuperar-contrasena (nueva contraseña), checkout (contraseña de la cuenta nueva). Regla de todo el sitio (decisión del usuario, 2026-11-13).
 
 ### banner-mundo

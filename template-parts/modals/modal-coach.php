@@ -22,23 +22,31 @@ $gracias_texto   = (string) ($gracias['texto'] ?? '');
 $gracias_boton   = __('Hablar ahora', 'angelitozzz');
 $gracias_mensaje = (string) ($gracias['mensaje'] ?? '');
 $gracias_nota    = __('Se abre WhatsApp con el mensaje:', 'angelitozzz');
-// Sin número del coach, el botón de WhatsApp queda desactivado.
-$whatsapp_coach = (string) ($contacto['whatsapp_coach'] ?? '');
+// Sin número del coach, el botón de WhatsApp queda desactivado. Con número, el helper de enlaces pone
+// target y rel; el JS solo cambia el href para sumar el mensaje con el nombre.
+$whatsapp_coach = preg_replace('/\D+/', '', (string) ($contacto['whatsapp_coach'] ?? ''));
+
+// El título es un textarea (saltos y colores con angelitozzz_highlight). El motor del modal lo imprime
+// con esc_html, así que el <h2> lleva el texto plano (nombre accesible) y oculto, y el título visible
+// va arriba del formulario.
+$titulo_plano = html_entity_decode(wp_strip_all_tags(angelitozzz_highlight($titulo)), ENT_QUOTES, 'UTF-8');
 
 angelitozzz_modal_start('modal-coach', [
-    'title'        => $titulo,
+    'title'        => $titulo_plano,
+    'title_hidden' => true,
     'placement'    => 'center',
     'width'        => '600px',
     'motion'       => 'scale',
     'form_success' => 'keep',
     'class'        => 'rounded-tarjeta shadow-[0_20px_60px_rgba(0,0,0,0.2)]',
-    'header_class' => 'pl-11 pr-4 pt-4 max-md:pl-6 in-data-[estado=gracias]:justify-end',
-    'title_class'  => 'mt-6 text-h4 text-marca in-data-[estado=gracias]:sr-only',
+    'header_class' => 'justify-end pl-11 pr-4 pt-4 max-md:pl-6',
     'close_class'  => 'bg-fondo text-marca hover:bg-neutro',
     'body_class'   => 'px-11 pb-10 pt-5 max-md:px-6 max-md:pb-8',
 ]);
 ?>
 <div class="flex flex-col gap-5" data-coach-paso="formulario">
+    <?php // Misma línea que la X: sube lo que ocupa el encabezado y deja libre el ancho del botón. ?>
+    <p class="-mt-7 pr-5 text-h4 text-balance text-marca max-md:pr-10" aria-hidden="true"><?= angelitozzz_highlight($titulo) ?></p>
     <p class="text-cuerpo"><?= angelitozzz_highlight($texto) ?></p>
     <?php get_template_part('template-parts/forms/coach'); ?>
 </div>
@@ -46,13 +54,21 @@ angelitozzz_modal_start('modal-coach', [
 <div class="flex flex-col items-center gap-5 pb-2 pt-4 text-center" data-coach-paso="gracias" hidden
     data-titulo="<?= esc_attr($gracias_titulo) ?>"
     data-mensaje="<?= esc_attr($gracias_mensaje) ?>"
-    data-whatsapp="<?= esc_attr(preg_replace('/\D/', '', $whatsapp_coach)) ?>">
+    data-whatsapp="<?= esc_attr($whatsapp_coach) ?>">
     <img class="size-[72px]" src="<?= esc_url(get_theme_file_uri('assets/img/modal-gracias-check.svg')) ?>" alt="" aria-hidden="true" width="72" height="72" loading="lazy">
     <p class="text-h3 text-marca" aria-hidden="true" data-coach-titulo></p>
     <p class="text-cuerpo-l"><?= angelitozzz_highlight($gracias_texto) ?></p>
-    <a class="inline-flex items-center gap-[10px] rounded-full bg-acento py-[14px] pl-7 pr-6 text-rotulo text-blanco focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca aria-disabled:cursor-default aria-disabled:opacity-50" aria-disabled="true" data-coach-whatsapp>
+    <?php
+    $clase_whatsapp = 'inline-flex items-center gap-[10px] rounded-full bg-acento py-[14px] pl-7 pr-6 text-rotulo text-blanco focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca aria-disabled:cursor-default aria-disabled:opacity-50';
+    $attrs_whatsapp = $whatsapp_coach !== ''
+        ? angelitozzz_link_attrs(['url' => 'https://wa.me/' . $whatsapp_coach, 'target' => '_blank'], ['class' => $clase_whatsapp])
+        : '';
+    ?>
+    <a<?= $attrs_whatsapp !== '' ? $attrs_whatsapp : ' class="' . esc_attr($clase_whatsapp) . '" aria-disabled="true"' ?> data-coach-whatsapp>
         <span><?= esc_html($gracias_boton) ?></span>
-        <span class="sr-only" hidden data-coach-aviso>(<?= esc_html__('se abre en una pestaña nueva', 'angelitozzz') ?>)</span>
+        <?php if ($attrs_whatsapp !== '') : ?>
+            <span class="sr-only">(<?= esc_html__('se abre en una pestaña nueva', 'angelitozzz') ?>)</span>
+        <?php endif; ?>
         <svg class="size-[18px] shrink-0" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.75 9h10.5M9 3.75 14.25 9 9 14.25" /></svg>
     </a>
     <?php if ($gracias_nota !== '') : ?>

@@ -19,11 +19,8 @@ $img = static fn(string $archivo): string => esc_url(get_theme_file_uri('assets/
 
 $suscripcion = (string) ($hero['enlace_suscripcion'] ?? '');
 
-$whatsapp     = preg_replace('/\D/', '', (string) get_field('opciones_contacto_whatsapp', 'option'));
-$mensaje      = (string) get_field('opciones_contacto_whatsapp_mensaje', 'option');
-$whatsapp_url = $whatsapp !== ''
-    ? 'https://wa.me/' . $whatsapp . ($mensaje !== '' ? '?text=' . rawurlencode($mensaje) : '')
-    : '';
+// El enlace del regalo abre WhatsApp con el número de Ajustes del sitio; sin número no se muestra.
+$whatsapp = angelitozzz_whatsapp($regalo_enlace);
 ?>
 <section class="relative flex min-h-[808px] items-center overflow-hidden bg-fondo px-4 py-12 lg:py-0" aria-labelledby="mundo-angelitozzz-hero-titulo">
     <img class="pointer-events-none absolute right-[8.49%] top-[125px] w-[328px] max-lg:hidden" src="<?= $img('hero-nube-derecha-ojos.svg') ?>" alt="" aria-hidden="true" width="328" height="196">
@@ -57,8 +54,8 @@ $whatsapp_url = $whatsapp !== ''
                 <p class="flex flex-wrap items-center gap-2 text-cuerpo-s text-tinta">
                     <img class="size-[18px]" src="<?= $img('hero-icono-regalo.svg') ?>" alt="" aria-hidden="true" width="18" height="18">
                     <span><?= esc_html($regalo_texto) ?></span>
-                    <?php if ($whatsapp_url !== '' && $regalo_enlace !== '') : ?>
-                        <?= angelitozzz_link(['url' => $whatsapp_url, 'title' => $regalo_enlace, 'target' => '_blank'], [
+                    <?php if ($whatsapp) : ?>
+                        <?= angelitozzz_link($whatsapp, [
                             'class' => 'text-rotulo-s text-marca underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca',
                         ]) ?>
                     <?php endif; ?>

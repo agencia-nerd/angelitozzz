@@ -11,20 +11,9 @@ defined('ABSPATH') || exit;
 get_header();
 
 $cta_final = get_field('preguntas_frecuentes_cta_final') ?: [];
-$contacto  = get_field('opciones_contacto', 'option') ?: [];
 
-// El botón abre WhatsApp con el número de Ajustes del sitio (solo dígitos); sin número no se muestra.
-$whatsapp = preg_replace('/\D+/', '', (string) ($contacto['whatsapp'] ?? ''));
-$mensaje  = trim((string) ($contacto['whatsapp_mensaje'] ?? ''));
-$boton    = null;
-
-if ($whatsapp !== '') {
-    $boton = [
-        'url'    => 'https://wa.me/' . $whatsapp . ($mensaje !== '' ? '?text=' . rawurlencode($mensaje) : ''),
-        'title'  => (string) ($cta_final['boton_texto'] ?? ''),
-        'target' => '_blank',
-    ];
-}
+// El botón abre WhatsApp con el número de Ajustes del sitio; sin número no se muestra.
+$boton = angelitozzz_whatsapp((string) ($cta_final['boton_texto'] ?? ''));
 ?>
 
 <main id="main-content" class="bg-fondo">

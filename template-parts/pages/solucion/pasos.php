@@ -8,7 +8,7 @@
  * Móvil: tarjetas apiladas (2 en tablet).
  *
  * $args: fondo, antetitulo, titulo, bajada, items (imagen, titulo, texto, etiqueta), whatsapp, whatsapp_texto
- * (+ contexto, indice). El botón abre WhatsApp con el número de Ajustes del sitio (angelitozzz_solucion_whatsapp);
+ * (+ contexto, indice). El botón abre WhatsApp con el número de Ajustes del sitio (angelitozzz_whatsapp);
  * sin número no se muestra.
  */
 
@@ -17,7 +17,7 @@ defined('ABSPATH') || exit;
 $antetitulo = (string) ($args['antetitulo'] ?? '');
 $titulo     = (string) ($args['titulo'] ?? '');
 $bajada     = (string) ($args['bajada'] ?? '');
-$boton      = !empty($args['whatsapp']) ? angelitozzz_solucion_whatsapp((string) ($args['whatsapp_texto'] ?? '')) : null;
+$boton      = !empty($args['whatsapp']) ? angelitozzz_whatsapp((string) ($args['whatsapp_texto'] ?? '')) : null;
 $items      = array_values(array_filter(
     (array) ($args['items'] ?? []),
     static fn($item): bool => is_array($item) && trim((string) ($item['titulo'] ?? '')) !== ''

@@ -2,8 +2,9 @@
 
 /**
  * Reglas de contraseña (usuario-mi-perfil / Seguridad, 4164:27124): lista de 4 reglas en 2 × 2 que
- * se marcan al escribir. La vigila src/js/modules/reglas-contrasena.js por el id del campo. Las mismas
- * 4 reglas se validan en el servidor (plugin angelitozzz-cursos); esta lista solo ayuda a escribirla.
+ * se marcan al escribir. La vigila src/js/modules/reglas-contrasena.js por el id del campo. Qué reglas
+ * se muestran sale de angelitozzz_cursos_reglas_contrasena() del plugin, que es el que las valida en el
+ * servidor; esta lista solo ayuda a escribirla. Sin el plugin no se muestra.
  * Sin JS se ve la lista con todas las reglas pendientes.
  *
  * $args:
@@ -13,19 +14,32 @@
 defined('ABSPATH') || exit;
 
 $campo = sanitize_html_class((string) ($args['campo'] ?? ''));
-if ($campo === '') {
+if ($campo === '' || !function_exists('angelitozzz_cursos_reglas_contrasena')) {
     return;
 }
 
 $id_lista = wp_unique_id('reglas-contrasena-');
 
-// Regla => texto visible. La clave es la que el JS sabe comprobar.
-$reglas = [
-    'largo'      => __('8 caracteres', 'angelitozzz'),
-    'minuscula'  => __('1 letra minúscula', 'angelitozzz'),
-    'numero'     => __('1 número', 'angelitozzz'),
-    'mayuscula'  => __('1 letra mayúscula', 'angelitozzz'),
+// Qué reglas hay lo decide el plugin (las mismas que valida el servidor); el tema solo pone el texto.
+$claves = array_keys(angelitozzz_cursos_reglas_contrasena(''));
+
+// Regla => texto visible, en el orden del diseño (2 × 2). La clave es la que el JS sabe comprobar.
+$textos = [
+    'largo'     => __('8 caracteres', 'angelitozzz'),
+    'minuscula' => __('1 letra minúscula', 'angelitozzz'),
+    'numero'    => __('1 número', 'angelitozzz'),
+    'mayuscula' => __('1 letra mayúscula', 'angelitozzz'),
 ];
+
+$reglas = array_intersect_key($textos, array_flip($claves));
+
+// Una regla nueva del plugin sin texto en el tema se muestra igual (con su clave) para no esconderla.
+foreach (array_diff($claves, array_keys($textos)) as $clave) {
+    $reglas[$clave] = (string) $clave;
+    if (defined('WP_DEBUG') && WP_DEBUG) {
+        error_log("[reglas-contrasena] La regla \"{$clave}\" del plugin no tiene texto en el tema.");
+    }
+}
 
 $cumplida  = esc_html__('cumplida', 'angelitozzz');
 $pendiente = esc_html__('pendiente', 'angelitozzz');

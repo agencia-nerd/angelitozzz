@@ -14,7 +14,7 @@ get_header();
 $cta = get_field('soluciones_de_sueno_cta_final', 'option') ?: [];
 
 // El botón del cierre abre WhatsApp con el número de Ajustes del sitio; sin número no se muestra.
-$boton = angelitozzz_solucion_whatsapp((string) ($cta['boton_texto'] ?? ''));
+$boton = angelitozzz_whatsapp((string) ($cta['boton_texto'] ?? ''));
 ?>
 
 <main id="main-content" class="fondo-nubes">
