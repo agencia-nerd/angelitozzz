@@ -1,12 +1,14 @@
 /*
  * Reglas de contraseña (template-parts/components/reglas-contrasena.php): marca cada regla al escribir
- * en el campo cuyo id está en [data-reglas-contrasena]. Las mismas 4 reglas se validan en el servidor
- * (plugin angelitozzz-cursos): esto solo ayuda a la usuaria mientras escribe.
+ * en el campo cuyo id está en [data-reglas-contrasena]. Las reglas de la lista las da el plugin
+ * angelitozzz-cursos (angelitozzz_cursos_reglas_contrasena(), que las valida en el servidor): esto solo
+ * ayuda a la usuaria mientras escribe. Las comprobaciones de abajo copian las del plugin; una regla
+ * nueva sin comprobación aquí se muestra como pendiente y no se marca.
  * La lista tiene aria-live="polite": el lector anuncia el cambio de estado ("cumplida" / "pendiente").
  */
 
 const reglas = {
-    largo: (valor) => valor.length >= 8,
+    largo: (valor) => [...valor].length >= 8, // Cuenta caracteres como mb_strlen del plugin (un emoji es 1).
     minuscula: (valor) => /\p{Ll}/u.test(valor),
     numero: (valor) => /\d/.test(valor),
     mayuscula: (valor) => /\p{Lu}/u.test(valor),

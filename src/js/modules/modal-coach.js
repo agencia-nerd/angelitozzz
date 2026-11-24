@@ -15,7 +15,6 @@ export function initModalCoach() {
     const tituloVisible = pasoGracias.querySelector('[data-coach-titulo]');
     const mensaje = pasoGracias.querySelector('[data-coach-mensaje]');
     const whatsapp = pasoGracias.querySelector('[data-coach-whatsapp]');
-    const aviso = pasoGracias.querySelector('[data-coach-aviso]');
     const numero = (pasoGracias.dataset.whatsapp || '').replace(/\D/g, '');
 
     // form.js limpia el formulario antes de avisar el éxito: el nombre se guarda al enviar.
@@ -34,12 +33,9 @@ export function initModalCoach() {
         if (tituloVisible) tituloVisible.textContent = titulo;
         if (mensaje) mensaje.textContent = texto;
 
-        if (whatsapp && numero) {
+        // target, rel y el aviso de pestaña nueva ya vienen del helper de enlaces (PHP): aquí solo el mensaje.
+        if (whatsapp?.hasAttribute('href') && numero) {
             whatsapp.href = `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
-            whatsapp.target = '_blank';
-            whatsapp.rel = 'noopener noreferrer';
-            whatsapp.removeAttribute('aria-disabled');
-            if (aviso) aviso.hidden = false;
         }
 
         dialog.dataset.estado = 'gracias';

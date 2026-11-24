@@ -12,18 +12,7 @@ $titulo = (string) ($grupo['titulo'] ?? '');
 $texto  = (string) ($grupo['texto'] ?? '');
 $email  = sanitize_email((string) ($grupo['email'] ?? ''));
 
-$contacto = get_field('opciones_contacto', 'option') ?: [];
-$whatsapp = preg_replace('/\D+/', '', (string) ($contacto['whatsapp'] ?? ''));
-$mensaje  = trim((string) ($contacto['whatsapp_mensaje'] ?? ''));
-$boton    = null;
-
-if ($whatsapp !== '') {
-    $boton = [
-        'url'    => 'https://wa.me/' . $whatsapp . ($mensaje !== '' ? '?text=' . rawurlencode($mensaje) : ''),
-        'title'  => __('Escríbenos por WhatsApp', 'angelitozzz'),
-        'target' => '_blank',
-    ];
-}
+$boton = angelitozzz_whatsapp(__('Escríbenos por WhatsApp', 'angelitozzz'));
 
 if ($titulo === '') {
     return;

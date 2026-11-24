@@ -46,9 +46,7 @@ if ($estado === 'cancelado' || $estado === 'reembolsado') {
         'texto'           => __('El acceso a sus cursos ya no está activo. Si tienes dudas, escríbenos.', 'angelitozzz'),
     ]);
     // Número y mensaje de Ajustes del sitio; sin número no se muestra.
-    $whatsapp = function_exists('angelitozzz_solucion_whatsapp')
-        ? angelitozzz_solucion_whatsapp(__('Escríbenos por WhatsApp', 'angelitozzz'))
-        : null;
+    $whatsapp = angelitozzz_whatsapp(__('Escríbenos por WhatsApp', 'angelitozzz'));
     if ($whatsapp) {
         get_template_part('template-parts/components/boton', null, ['enlace' => $whatsapp]);
     }

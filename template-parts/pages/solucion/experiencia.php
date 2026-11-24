@@ -7,7 +7,7 @@
  * redondeada y botón. Móvil: igual, en una columna.
  *
  * $args: fondo, titulo, texto, imagen, whatsapp, whatsapp_texto (+ contexto, indice). El botón abre WhatsApp con
- * el número de Ajustes del sitio (angelitozzz_solucion_whatsapp); sin número no se muestra.
+ * el número de Ajustes del sitio (angelitozzz_whatsapp); sin número no se muestra.
  */
 
 defined('ABSPATH') || exit;
@@ -15,7 +15,7 @@ defined('ABSPATH') || exit;
 $titulo = (string) ($args['titulo'] ?? '');
 $texto  = (string) ($args['texto'] ?? '');
 $imagen = $args['imagen'] ?? '';
-$boton  = !empty($args['whatsapp']) ? angelitozzz_solucion_whatsapp((string) ($args['whatsapp_texto'] ?? '')) : null;
+$boton  = !empty($args['whatsapp']) ? angelitozzz_whatsapp((string) ($args['whatsapp_texto'] ?? '')) : null;
 
 if ($titulo === '') {
     return;
