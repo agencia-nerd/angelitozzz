@@ -5,6 +5,7 @@
  * Uno por etapa (id etapa-<n>): portada del video con play (el iframe de Vimeo se carga al pulsar y se
  * quita al cerrar: video-portada.js), antetítulo, título, texto, precio del curso con la escala de
  * descuento y "Agregar al carrito" (agrega el curso de la etapa, cierra este modal y abre el drawer: carrito.js).
+ * Una etapa sin curso a la venta muestra "En preparación" desactivado, sin precio ni escala.
  *
  * El diseño no tiene encabezado: el título del modal (nombre accesible) se imprime oculto y se repite
  * visible bajo la portada; el botón de cerrar flota sobre la portada.
@@ -30,9 +31,9 @@ if ($id === '' || $titulo === '') {
     return;
 }
 
-// Escala de descuento: "2 cursos $67 · 3 cursos $97" (de solucion_compra_descuentos).
+// Escala de descuento: "2 cursos $67 · 3 cursos $97" (de solucion_compra_descuentos). Solo si la etapa se vende.
 $escala = [];
-foreach ((array) ($compra['descuentos'] ?? []) as $fila) {
+foreach ($producto ? (array) ($compra['descuentos'] ?? []) : [] as $fila) {
     $cantidad = (int) ($fila['cantidad'] ?? 0);
     $total    = (float) ($fila['total'] ?? 0);
     if ($cantidad > 1 && $total > 0) {
@@ -84,8 +85,12 @@ angelitozzz_modal_start($id, [
             <?php endif; ?>
         </div>
         <button type="button" class="inline-flex shrink-0 cursor-pointer items-center gap-[10px] whitespace-nowrap rounded-full bg-acento py-[14px] pl-[28px] pr-[24px] text-rotulo text-blanco focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca disabled:cursor-default disabled:opacity-50" data-solucion-agregar data-productos="<?= esc_attr($producto ? (string) $producto : '') ?>"<?= $producto ? '' : ' disabled' ?>>
-            <span><?= esc_html__('Agregar al carrito', 'angelitozzz') ?></span>
-            <svg class="size-[18px] shrink-0" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.75 9h10.5M9 3.75 14.25 9 9 14.25" /></svg>
+            <?php if ($producto) : ?>
+                <span><?= esc_html__('Agregar al carrito', 'angelitozzz') ?></span>
+                <svg class="size-[18px] shrink-0" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.75 9h10.5M9 3.75 14.25 9 9 14.25" /></svg>
+            <?php else : ?>
+                <span><?= esc_html__('En preparación', 'angelitozzz') ?></span>
+            <?php endif; ?>
         </button>
     </div>
 </div>

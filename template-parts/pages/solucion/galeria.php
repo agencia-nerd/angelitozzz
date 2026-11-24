@@ -3,7 +3,7 @@
 /**
  * Solución · layout `galeria` (specs/solucion.md → secciones): título, bajada, slider de diapositivas
  * (imagen o video de Vimeo; una a la vez, flechas debajo), texto y botón de compra opcional, que hace lo
- * mismo que el del hero. Origen: Angelita Pro 4013:14037, Recién Nacidos Go 4013:18035.
+ * mismo que el del hero (sin ningún curso a la venta: "Próximamente" desactivado, sin precio). Origen: Angelita Pro 4013:14037, Recién Nacidos Go 4013:18035.
  *
  * $args: fila del flexible (fondo, titulo, bajada, diapositivas[imagen, video], texto, boton, boton_precio)
  * + contexto (ver single-solucion.php) + indice.
@@ -17,6 +17,7 @@ $texto        = (string) ($args['texto'] ?? '');
 $boton        = trim((string) ($args['boton'] ?? ''));
 $boton_precio = !empty($args['boton_precio']);
 $contexto     = (array) ($args['contexto'] ?? []);
+$a_la_venta   = (bool) ($contexto['a_la_venta'] ?? true);
 $diapositivas = array_values(array_filter(
     (array) ($args['diapositivas'] ?? []),
     static fn ($fila): bool => is_array($fila) && !empty($fila['imagen'])
@@ -95,10 +96,14 @@ $destello = static fn(string $nombre): string => get_theme_file_uri('assets/img/
 
         <?php if ($boton !== '') : ?>
             <div class="mt-8">
-                <?php get_template_part('template-parts/components/boton', null, [
+                <?php get_template_part('template-parts/components/boton', null, $a_la_venta ? [
                     'texto' => $boton,
                     'modal' => (string) ($contexto['modal_compra'] ?? 'carrito'),
                     'datos' => (array) ($contexto['datos_compra'] ?? []),
+                ] : [
+                    'texto'       => __('Próximamente', 'angelitozzz'),
+                    'flecha'      => false,
+                    'desactivado' => true,
                 ]); ?>
             </div>
         <?php endif; ?>

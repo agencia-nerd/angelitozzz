@@ -124,3 +124,39 @@ function angelitozzz_solucion_precio(int $post_id): array
         'productos' => array_column($precios, 'producto_id'),
     ];
 }
+
+/**
+ * Cambia el marcador {precio} de los textos de la landing (hero y secciones) por el precio del producto: el actual
+ * (el de lanzamiento si lo hay; con etapas, el más bajo). Así ningún precio queda escrito a mano en un campo.
+ * Recorre los arrays de ACF y solo toca los textos. Sin precio (curso aún no a la venta), un texto con el marcador
+ * queda vacío y no se imprime: así no sale "Todo por  USD".
+ *
+ * @param mixed $valor Texto o grupo de campos de ACF.
+ * @return mixed
+ */
+function angelitozzz_solucion_con_precio($valor, string $precio)
+{
+    if (is_string($valor)) {
+        if (!str_contains($valor, '{precio}')) {
+            return $valor;
+        }
+        return $precio !== '' ? str_replace('{precio}', $precio, $valor) : '';
+    }
+    if (is_array($valor)) {
+        foreach ($valor as $clave => $item) {
+            $valor[$clave] = angelitozzz_solucion_con_precio($item, $precio);
+        }
+    }
+    return $valor;
+}
+
+/**
+ * ¿La solución está a la venta? Sí, si al menos uno de sus cursos tiene un producto de Woo que se puede comprar
+ * (el mismo criterio que el precio). Si no, la landing muestra "Próximamente" y las tarjetas "En preparación".
+ * Acepta el resultado de angelitozzz_solucion_precio() para no calcularlo dos veces.
+ */
+function angelitozzz_solucion_a_la_venta(int $post_id, ?array $precio = null): bool
+{
+    $precio ??= angelitozzz_solucion_precio($post_id);
+    return ($precio['actual'] ?? '') !== '';
+}

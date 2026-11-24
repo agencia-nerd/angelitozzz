@@ -22,7 +22,15 @@ $precio  = function_exists('angelitozzz_solucion_precio')
     ? angelitozzz_solucion_precio(get_the_ID())
     : ['actual' => '', 'antes' => '', 'desde' => false, 'productos' => []];
 
+// {precio} en cualquier texto del hero o de las secciones: el precio del producto ("Todo por {precio} USD…").
+if (function_exists('angelitozzz_solucion_con_precio')) {
+    $hero    = angelitozzz_solucion_con_precio($hero, $precio['actual']);
+    $bloques = angelitozzz_solucion_con_precio($bloques, $precio['actual']);
+}
+
 $tipo = (string) ($compra['tipo'] ?? 'directa');
+// Sin ningún curso a la venta: "Próximamente" en el hero y la galería, sin precio, regalo, cupón ni modales de compra.
+$a_la_venta = function_exists('angelitozzz_solucion_a_la_venta') && angelitozzz_solucion_a_la_venta(get_the_ID(), $precio);
 // Venta directa: el botón de compra agrega los productos y abre el drawer; con etapas abre el selector.
 $datos_compra = $tipo !== 'etapas' && $precio['productos']
     ? ['data-solucion-agregar' => '', 'data-productos' => implode(',', $precio['productos'])]
@@ -33,6 +41,7 @@ $contexto = [
     'tipo'         => $tipo,
     'compra'       => $compra,
     'precio'       => $precio,
+    'a_la_venta'   => $a_la_venta,
     'modal_compra' => angelitozzz_solucion_modal_compra($tipo),
     'boton_compra' => (string) ($hero['boton'] ?? ''),
     'datos_compra' => $datos_compra,
@@ -40,7 +49,7 @@ $contexto = [
     // abre el selector de edad en modo regalo (solucion-compra.js): las etapas marcadas van como regalo.
     'datos_regalo' => $datos_compra
         ? $datos_compra + ['data-regalo' => '1']
-        : ($tipo === 'etapas' ? ['data-regalo-etapas' => '1'] : []),
+        : ($tipo === 'etapas' && $a_la_venta ? ['data-regalo-etapas' => '1'] : []),
 ];
 
 $layouts = angelitozzz_solucion_layouts();
@@ -93,7 +102,8 @@ $etapas  = null;
 </main>
 
 <?php
-// Modales de compra por etapas (Horarios Ideales): el selector de edad y uno por etapa.
+// Modales por etapas (Horarios Ideales): el selector de edad (solo si alguna etapa está a la venta) y uno por
+// etapa ("Más información" se ve siempre; sin curso, su botón dice "En preparación").
 if ($tipo === 'etapas' && $etapas) {
     get_template_part('template-parts/modals/selecciona-edad', null, [
         'etapas'   => (array) ($etapas['items'] ?? []),
