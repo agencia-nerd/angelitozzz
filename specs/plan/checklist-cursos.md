@@ -94,8 +94,8 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
     - [x] Funciona con el checkout clásico (la pasarela aparece en el checkout del tema)
     - [x] Compatible con HPOS (lo declara)
     - [x] No exige apellido ni país: cobró con "Nombres y Apellidos" en un solo campo y sin dirección; `checkout.md` queda como está
-- [ ] Preguntar a Openpay si la cuenta exige 3D Secure. El 3D Secure y el webhook necesitan una URL pública: en el Local, un Live Link de Local; si no, se prueban en la F6.
-- [ ] Vimeo: confirmar con la clienta que su cuenta gratis permite videos ocultos y que el espacio le alcanza.
+- [ ] Preguntar a Openpay si la cuenta exige 3D Secure. Es la confirmación extra que pide el banco de la tarjeta (código por SMS o por su app): el pago sale al banco y vuelve, y el pedido queda en "Pago en revisión" (`gracias.md`) hasta que Openpay avisa por el webhook. Se pregunta para saber si ese camino se prueba antes de producción. El 3D Secure y el webhook necesitan una URL pública: en el Local, un Live Link de Local; si no, se prueban en la F6.
+- [ ] Proveedor de video por decidir: Vimeo u otra fuente (el usuario lo analiza, 2026-11-25). Cambiarlo toca solo `includes/video.php` del plugin (el tema pide la dirección con `angelitozzz_cursos_video_url()`). Si sigue Vimeo: confirmar con la clienta que su cuenta gratis permite videos ocultos y que el espacio le alcanza.
 
 ## F1 · Specs
 
@@ -317,6 +317,8 @@ Plan aprobado el 2026-11-19, en 2 bloques. Decisiones del usuario: avisos del co
         - 3 pruebas nuevas (185 en verde, PHPCS en 0).
       En el tema: el placeholder del canje y el código en gracias, que en móvil baja de tamaño para entrar en una línea (probado a 390, 360 y 320 px). `cdp-gracias` pasa con el código nuevo.
     - `/code-review` queda opcional: la auditoría completa de la F7 lo cubre.
+- [x] Página 404 (2026-11-25, propuesta sin Figma, `specs/error-404.md`): `404.php` con la tarjeta `confirmacion-tarjeta`, "Ir al inicio" y "Ver soluciones de sueño". Antes caía en `index.php` sin diseño. Probada en Chrome a 1440, 390 y 320 px
+- [x] Buscador general de WordPress (`/?s=`) redirige con 301 al Blog con `?q=` (2026-11-25, `inc/busqueda.php`, `blog.md`): un solo buscador, el del blog
 
 ## F6 · Pagos y Angelita Pro
 
@@ -333,7 +335,10 @@ Plan aprobado el 2026-11-19, en 2 bloques. Decisiones del usuario: avisos del co
 - [ ] Cuenta de Bárbara en producción: usuaria propia con su correo y rol administradora (no la de la agencia). Con ella entra a `/wp-admin/` (contenido) y a `/administrador/` (cursos)
 - [ ] Texto real de Términos y condiciones y de Políticas de privacidad (hoy con relleno; lo pone el usuario). En producción, crear las dos páginas y elegirlas en WooCommerce → Ajustes → Avanzado y en Ajustes → Privacidad
 - [ ] Logo del sitio en Apariencia → Personalizar → Identidad del sitio (decisión del usuario, 2026-11-17: no se carga desde `inc/acf/sitio.php`)
-- [ ] Ajustes del sitio: enlace del mes gratis en Mundo (nas.io), número de WhatsApp y URLs de las redes de la clienta; cursos de cada solución en `solucion_compra_cursos` (en las etapas, también el de cada etapa)
+- [ ] Ajustes del sitio: enlace del mes gratis en Mundo (nas.io), número de WhatsApp y URLs de las redes de la clienta; cursos de cada solución en `solucion_compra_cursos` (en las etapas, también el de cada etapa). También la URL de Instagram del botón "Síguenos" de Inicio (`home_seccion_instagram_boton`, hoy con `#`, pendiente)
+- [x] Fluent SMTP instalado y activo en el Local (2026-11-25). En el Local los correos los recibe Mailpit
+- [ ] Fluent SMTP en producción: configurar su conexión (las claves van en su pantalla, no en el repo) y mandar un correo de prueba (pedido, regalo, recuperar contraseña y formularios)
+- [ ] Yoast SEO (más adelante, decisión del usuario, 2026-11-25)
 - [ ] Decidir dónde se guardan los PDF privados de materiales (pendiente desde el 2026-11-17). Hoy van en `wp-content/uploads/angelitozzz-privado/` y dependen de una regla `deny` de Nginx, o de su equivalente en Apache, en Local y en producción. Si la regla falta, los PDF quedan públicos.
     - **Opción preferida:** una carpeta fuera de la raíz pública, que no necesita regla en el servidor.
     - **Toca el plugin:** `includes/descargas.php` (dónde se guardan y cómo se entregan), `uninstall.php`, una migración que mueva los PDF que ya existan y sus pruebas.
@@ -343,6 +348,7 @@ Plan aprobado el 2026-11-19, en 2 bloques. Decisiones del usuario: avisos del co
     - [ ] Enlaces permanentes en "Nombre de la entrada" (Ajustes → Enlaces permanentes). Las URL del plugin (`/administrador/…`, `/cuenta/perfil/`, `/cursos/<curso>/<leccion>/`, `/cursos/descargar/<id>/`) usan reglas de reescritura y no funcionan con los enlaces simples. El JS del administrador ya no depende de esto: arma las URL de la API sobre la base de `rest_url()` (F4, bloque 6b).
     - [ ] Tema: `pnpm build` y subir el tema con `dist/`, sin `hot`, `node_modules/`, `src/`, `specs/` ni configs.
     - [ ] Plugin `angelitozzz-cursos`: subirlo sin tests ni configs de desarrollo.
+    - [ ] (Opcional, recomendado) Cron real del hosting: `define('DISABLE_WP_CRON', true)` en `wp-config.php` y una tarea del hosting que llame a `wp-cron.php` cada 5 a 15 minutos. Sin ella, las tareas solo corren cuando alguien visita. El acceso no depende de esto, porque cada lectura compara la fecha (`includes/vencimiento.php`). Lo que se atrasa es la tarea diaria (marcar vencidas y limpiar los contadores de intentos) y el reintento del puente a los 5 minutos.
 
 ## Verificación (repetir antes de cada deploy)
 

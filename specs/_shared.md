@@ -156,7 +156,7 @@ Cada componente vive en `template-parts/components/<nombre>.php` y recibe sus da
 - **Origen:** componente Figma "Botón" (29 usos en 8 páginas; variantes Frambuesa, Verde, Secundario)
 - **Destino:** `template-parts/components/boton.php`
 - **Argumentos:** `enlace` (array de campo link o string URL, requerido), `texto` (string, opcional: reemplaza el texto del enlace), `variante` (`frambuesa` | `verde` | `secundario` | `claro`, por defecto `frambuesa`; `claro`: fondo crema y texto verde, sobre fondos oscuros como el banner de Mundo), `flecha` (bool, por defecto `true`), `desactivado` (bool, por defecto `false`: también se activa solo cuando el enlace es `#` o está vacío), `clase` (string, opcional), `modal` (string, opcional: id de un modal de wp-modal; en vez del `<a>` imprime un `<button>` con `angelitozzz_modal_trigger_attrs()` que lo abre, con el texto de `texto` o del `title` de `enlace`), `datos` (array, opcional: atributos `data-*` extra de ese `<button>`), `enviar` (bool, por defecto `false`: imprime un `<button type="submit">` que envía su formulario, con el texto de `texto`)
-- **Se usa en:** casi todas las secciones con botón; el `<a>` pasa por `angelitozzz_link_attrs()`. Con `modal`: los botones de compra de las landings (abren el drawer del carrito o el selector de edad) y "Más información" de las etapas. Con `enviar`: los formularios de acceso y el canje de regalo
+- **Se usa en:** casi todas las secciones con botón; el `<a>` pasa por `angelitozzz_link_attrs()`. Con `modal`: los botones de compra de las landings (abren el drawer del carrito o el selector de edad) y "Más información" de las etapas. Con `enviar`: los formularios de acceso y el canje de regalo. En la 404 (error-404/aviso): "Ir al inicio" y "Ver soluciones de sueño"
 
 ### etiqueta
 
@@ -285,7 +285,7 @@ Cada componente vive en `template-parts/components/<nombre>.php` y recibe sus da
 - **Origen:** tarjetas de regalo de Figma: "Regalo listo" (3649:1702), "Canje de regalo" (3640:1593) y "Canje exitoso" (3677:1971). Blanca, 720 px, padding 56/64, radio 24 (`--radius-tarjeta`), bloques centrados con 24 px entre ellos
 - **Destino:** `template-parts/components/confirmacion-tarjeta.php`
 - **Argumentos:** `titulo` (string, requerido), `nivel` (`h1` | `h2`, por defecto `h1`), `icono` (`regalo` | `check` | `ninguno`, por defecto `ninguno`: SVG de 56 px, fijo del tema y decorativo), `pastilla` (string, opcional: "✓ Compra exitosa", "✓ Regalo canjeado"), `pastilla_estilo` (`verde` | `neutro`, por defecto `verde`: verde = fondo `--color-marca` y texto `--color-fondo`; neutro = fondo `--color-neutro` y texto `--color-marca`; radio 100, padding 6/14, `--text-rotulo`), `texto` (string, opcional: `--text-cuerpo-l`, `--color-tinta`, centrado). Título en `--text-h2` `--color-marca`, centrado. El contenido de cada pantalla (campo, caja del código, caja de acceso, botones) va entre `confirmacion-tarjeta` y `confirmacion-tarjeta-fin`.
-- **Se usa en:** canjear-regalo/canje, canjear-regalo/canjeado, gracias/confirmacion, gracias/regalo-listo
+- **Se usa en:** canjear-regalo/canje, canjear-regalo/canjeado, gracias/confirmacion, gracias/regalo-listo, error-404/aviso
 
 ### confirmacion-tarjeta-fin
 

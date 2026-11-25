@@ -18,7 +18,7 @@
     - Fechas guardadas en UTC (`DATETIME`); se muestran en la zona horaria del sitio (`wp_date`).
     - Privacidad: al borrar una usuaria se borran sus inscripciones y su avance (`delete_user`), y el plugin registra el exportador y el borrador de datos personales de WordPress (Herramientas → Exportar / Borrar datos personales; plugin 0.7.3, `includes/privacidad.php`). El exportador entrega sus inscripciones, su avance y el correo pendiente de confirmar. El borrador quita sus inscripciones (pierde el acceso), su avance, sus metadatos del plugin y su ID en los cupones de regalo que canjeó; los pedidos quedan para el borrador de WooCommerce.
     - Desinstalar el plugin (`uninstall.php` → `includes/desinstalar.php`, plugin 0.7.3) borra sus tablas, opciones, datos temporales (canje, mensajes, contadores viejos), metadatos de las usuarias, el rol, las capacidades y las tareas programadas. Los cursos, las lecciones y sus productos de Woo (con su meta `_angelitozzz_curso_id`, que el puente necesita al reinstalar) se conservan, salvo que esté definida la constante `ANGELITOZZZ_CURSOS_BORRAR_TODO`: entonces borra también los PDF de materiales, los cupones de regalo, las portadas que subió el constructor, los productos de los cursos, los cursos, las lecciones y la carpeta privada. Los pedidos nunca se tocan.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 ## Sección: curso
 
@@ -123,7 +123,7 @@
         - **Vencimiento:** una tarea diaria con Action Scheduler de WooCommerce (`angelitozzz_cursos_vencer`) pasa a `vencida` las activas cuyo `vence` ya pasó. El acceso igual se comprueba con la fecha en cada lectura: no depende de que la tarea haya corrido.
         - **Sin alta manual** (decisión del usuario, 2026-11-20): no se inscribe a mano. Para dar un curso sin cobrar se usa un cupón de 100 % y la alumna lo compra.
     - **Registro:** cada alta, extensión o baja queda en el registro de Woo (`wc_get_logger`, fuente `angelitozzz-cursos`) con la usuaria, el curso, el pedido y el motivo.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -192,7 +192,7 @@
     - **Sin listados ni feeds:** la consulta principal de `curso` o `leccion` que no es de una sola entrada (`/?post_type=leccion`, su feed) no devuelve nada, así el texto de una lección solo se ve pasando por este control.
     - **Materiales privados:** el adjunto de cada PDF se guarda con estado `private` y su página de adjunto da 404 (salvo para quien gestiona), para que la URL del archivo no se revele recorriendo IDs. La subida exige poder editar el curso o la lección y comprueba, además del tipo, que el archivo empiece con `%PDF-`.
     - **Nunca se confía en IDs recibidos:** la usuaria es siempre la de la sesión (`get_current_user_id()`).
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -232,8 +232,8 @@
     - **Pedido sin clienta** (no debería pasar: el checkout exige cuenta): no inscribe y lo registra como error.
     - **Inscripción fallida** (plugin 0.6.1): cada línea que no se pudo inscribir deja una nota en el pedido y una línea en el registro, con la usuaria y el curso. Si falló porque otra inscripción del mismo curso tenía el bloqueo, se reintenta una vez a los 5 minutos (Action Scheduler, `angelitozzz_cursos_reintentar_pedido`), solo si el pedido sigue pagado.
     - **HPOS:** solo `wc_get_order()` y `WC_Order`. La compatibilidad está declarada en `includes/compatibilidad.php`.
-    - **Angelita Pro (F6):** si se usa WooCommerce Subscriptions, cada renovación pagada extiende la inscripción y la cancelación de la suscripción la deja vencer.
-- **Estado:** aprobado
+    - **Angelita Pro (F6, sin construir):** el plugin de Openpay no soporta WooCommerce Subscriptions, así que la renovación cada 4 meses se define en la F6 (`checklist-cursos.md`). Mientras tanto se vende como un curso directo y el puente lo inscribe igual que a los demás.
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -246,7 +246,7 @@
 - [x] Comprar un curso deja una inscripción activa con su vencimiento; comprar 2 etapas deja 2
 - [x] Reembolsar el pedido deja las inscripciones en `cancelada` y quita el acceso
 - [x] El producto del curso no aparece en `/tienda/`, en la búsqueda ni en los feeds (plugin 0.7.0: fuera del mapa del sitio, que tampoco lista categorías ni etiquetas de producto, y de las consultas de productos por la REST API, como la búsqueda de la Store API; probado en el Local el 2026-11-19)
-- [ ] Funciona igual con HPOS activado (2026-11-18: declarado compatible, pero sin prueba; ver `checklist-cursos.md` → "Cierre de la F5")
+- [x] Funciona igual con HPOS activado (plugin 0.7.3, 2026-11-20: `test_puente_con_y_sin_hpos` en `tests/test-woocommerce.php`)
 - [x] Pruebas PHPUnit del alta por pedido pagado y la baja por reembolso
 
 ## Sección: regalo
@@ -275,7 +275,7 @@
         - El resultado queda como dato de un solo uso de la usuaria (10 minutos) que lee `angelitozzz_cursos_ultimo_canje()`; los errores, como mensaje de un solo uso con lo escrito.
     - **Reembolso o cancelación del pedido de regalo** (todo el pedido o solo esa línea): si el código no se usó, el cupón se anula (pasa a borrador); si ya se canjeó, la inscripción de quien lo recibió pasa a `cancelada` (y se reencadena lo que venía detrás). Si el pedido se vuelve a pagar, el cupón anulado vuelve a publicarse, o la inscripción del canje se reactiva con fechas nuevas.
     - **Registro:** creación, canje y anulación quedan en `wc_get_logger` (fuente `angelitozzz-cursos`).
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -387,7 +387,7 @@
         - `angelitozzz_cursos_puede_ver_curso( $curso_id, $usuario_id )` (pide la usuaria): si la usuaria compró el curso (lo usa la lección para el botón de completar, los candados del temario y el PDF del curso).
         - `angelitozzz_cursos_ultimo_canje()`: lo que muestra `/canjear-regalo/`, una sola vez. Justo después de canjear, `estado` `canjeado` con `curso`, `meses` (0 = ilimitado), `primera_leccion`, `cursos_url` y `empieza` (la fecha si el acceso quedó encadenado a uno vigente; vacío si empieza hoy); tras un envío con error, `estado` `canje` con `valor` (lo escrito) y `error`; si no, vacío.
     - **Los datos ya vienen saneados, pero no escapados.** El tema escapa siempre al imprimir.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 

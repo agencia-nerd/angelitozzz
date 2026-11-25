@@ -21,6 +21,7 @@
     - Las 4 secciones de categoría del diseño son la misma estructura repetida: una sola plantilla (`template-parts/pages/blog/categoria.php`) que `home.php` llama una vez por cada categoría elegida en `blog_categorias_secciones`, en ese orden. El admin decide qué categorías aparecen y en qué orden; el diseño muestra 4 de ejemplo.
     - `category.php` ("Ver todos" de cada categoría) reutiliza el hero (con el `h1` = nombre de la categoría y su pastilla activa) y el componente `blog-listado` (grilla de `post-card` de la consulta principal, con paginación); no necesita spec propio.
     - Con búsqueda (`?q=`), `home.php` cambia las secciones por `blog-listado` con los resultados. Sin búsqueda imprime las mismas zonas (`total`, `resultados`, `paginacion`) para que el JS de wp-query pase de una vista a otra sin recargar.
+    - El buscador general de WordPress (`/?s=palabra`) no tiene plantilla propia: redirige con 301 a la página Blog con `?q=` (`inc/busqueda.php`, decisión del usuario, 2026-11-25). Sin texto, va al Blog sin `q`.
     - Las 3 entradas de cada sección son una lista secundaria (`get_posts`, 3 más recientes de la categoría), no la consulta principal. Los datos de cada tarjeta salen de `angelitozzz_post_card_args()` (`inc/helpers/entradas.php`).
     - La etiqueta de esquina de cada tarjeta muestra la categoría real de la entrada (el diseño pone "Especiales" en todas como relleno).
     - Corrección de texto: "Del cuna a la cama" se escribe "De la cuna a la cama".
