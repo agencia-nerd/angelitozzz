@@ -30,13 +30,14 @@ Antes de las páginas, revisa y aprueba [\_shared.md](_shared.md): tokens, compo
 | Cuenta: mi perfil                    | [usuario-mi-perfil.md](usuario-mi-perfil.md)               | `pages/template-cuenta.php`               | aplicado |
 | Cuenta: cursos inscritos             | [usuario-cursos.md](usuario-cursos.md)                     | `pages/template-cuenta.php`               | aplicado |
 | Cuenta: historial de pedidos         | [usuario-historial-pedido.md](usuario-historial-pedido.md) | `pages/template-cuenta.php`               | aplicado |
-| Cursos: modelo de datos              | [cursos-datos.md](cursos-datos.md)                         | ninguna                                   | aprobado |
+| Cursos: modelo de datos              | [cursos-datos.md](cursos-datos.md)                         | ninguna                                   | aplicado |
 | Lección                              | [leccion.md](leccion.md)                                   | `single-leccion.php`                      | aplicado |
 | Administrador                        | [admin-escritorio.md](admin-escritorio.md)                 | `pages/template-administrador.php`        | aplicado |
 | Administrador: cursos                | [admin-cursos.md](admin-cursos.md)                         | `pages/template-administrador.php`        | aplicado |
 | Administrador: constructor de cursos | [admin-constructor.md](admin-constructor.md)               | `pages/template-administrador.php`        | aplicado |
 | Canjear regalo                       | [canjear-regalo.md](canjear-regalo.md)                     | `pages/template-canjear-regalo.php`       | aplicado |
 | Gracias por tu compra                | [gracias.md](gracias.md)                                   | `woocommerce/checkout/thankyou.php`       | aplicado |
+| Página no encontrada (404)           | [error-404.md](error-404.md)                               | `404.php`                                 | aplicado |
 
 <!-- design-import:paginas:fin -->
 
