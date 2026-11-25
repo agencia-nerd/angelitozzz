@@ -94,7 +94,9 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
     - [x] Funciona con el checkout clásico (la pasarela aparece en el checkout del tema)
     - [x] Compatible con HPOS (lo declara)
     - [x] No exige apellido ni país: cobró con "Nombres y Apellidos" en un solo campo y sin dirección; `checkout.md` queda como está
-- [ ] Preguntar a Openpay si la cuenta exige 3D Secure. Es la confirmación extra que pide el banco de la tarjeta (código por SMS o por su app): el pago sale al banco y vuelve, y el pedido queda en "Pago en revisión" (`gracias.md`) hasta que Openpay avisa por el webhook. Se pregunta para saber si ese camino se prueba antes de producción. El 3D Secure y el webhook necesitan una URL pública: en el Local, un Live Link de Local; si no, se prueban en la F6.
+- [x] Tipo de cargo de Openpay: **Directo** (decisión del usuario, 2026-11-25). Es el ajuste "¿Cómo procesar el cargo?" del plugin (Directo o 3D Secure, `class-wc-openpay-gateway.php:209-220`), y así está desde la F5-b.
+    - **Puede cambiar a 3D Secure** si Openpay o el banco lo exigen al comercio, o si aparecen fraudes o contracargos. Es la confirmación extra que pide el banco a quien paga (sin fricción o con código o app): el pedido queda "En espera" ("Pago en revisión" en `gracias.md`) hasta que vuelve.
+    - El cambio es ese ajuste más una prueba en el Local con el sandbox. Según el código del plugin, el regreso del 3D Secure (`/?wc-api=openpay_confirm`) lo hace el navegador de quien paga, así que no necesita URL pública; el webhook sí.
 - [ ] Proveedor de video por decidir: Vimeo u otra fuente (el usuario lo analiza, 2026-11-25). Cambiarlo toca solo `includes/video.php` del plugin (el tema pide la dirección con `angelitozzz_cursos_video_url()`). Si sigue Vimeo: confirmar con la clienta que su cuenta gratis permite videos ocultos y que el espacio le alcanza.
 
 ## F1 · Specs
@@ -322,9 +324,11 @@ Plan aprobado el 2026-11-19, en 2 bloques. Decisiones del usuario: avisos del co
 
 ## F6 · Pagos y Angelita Pro
 
-- [ ] Openpay en modo prueba con las compras de la verificación (con 3D Secure y webhook, que necesitan URL pública)
+- [ ] Openpay en modo prueba con las compras de la verificación y el webhook (necesita URL pública)
 - [ ] Angelita Pro cada 4 meses con 7 días de prueba: el plugin de Openpay no soporta WooCommerce Subscriptions; decidir entre renovación manual con enlace de pago o un desarrollo propio con la tarjeta guardada (o las suscripciones de la API de Openpay)
 - [ ] Openpay en producción: credenciales de producción cargadas por el usuario y webhook registrado con la URL del sitio
+- [ ] Compra real de prueba en producción: un producto oculto de $1 ligado a un curso de prueba, pagado con una tarjeta real. Comprobar que el cargo se aprueba en Directo (sin rechazo por falta de 3D Secure), la inscripción, el correo y el webhook. Después, reembolsarlo desde el pedido de Woo, que según el código del plugin devuelve el cargo por la API de Openpay (`openpay_cards.php:281-288`): comprobar que llega a la tarjeta y que se quita el acceso. Borrar el producto y el curso de prueba. Preguntar si Openpay cobra comisión por ese cargo aunque se devuelva
+    - (Opcional, en vez del producto de $1) Un cupón de descuento fijo, de un solo uso y limitado a un curso real, que deje el total en $1 (p. ej. $398 sobre A Dormir Por Fin). Así no hay que crear ni borrar productos; después se borra el cupón. Un cupón que deje el total en $0 no sirve para esto: con total $0, WooCommerce no pasa por la pasarela (prueba la inscripción y el correo, pero no Openpay). Confirmar con Openpay si acepta un cargo de $1
 
 ## F7 · Cierre
 
