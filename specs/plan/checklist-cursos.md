@@ -19,9 +19,13 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 - **Entorno de esta PC:** Local con PHP 8.4.28 y el entorno de pruebas armado con `instalar.mjs`. La regla de Nginx de la carpeta privada responde 403.
 
 - **Auditoría de seguridad del plugin: terminada** (corrida 1 y correcciones 0.12.1 y 0.13.0; F7 → "Auditoría de seguridad completa").
+- **Auditoría del tema: corrida 1 terminada** (2026-11-26).
+    - **Resultado:** 0 confirmados y 4 por validar. El 1 y el 2 (páginas de acceso y mini carrito sin `no-store`) ya están corregidos con `inc/sin-cache.php`.
+    - **Pendientes:** el 3 (la cabecera `X-WP-Query`, en la skill `wp-query`) y el 4 (el límite de los formularios detrás de un proxy).
+    - El detalle está en F7 → "Auditoría de seguridad completa".
 - **Lo siguiente, en este orden:**
-    1. **Auditoría del tema**, en su propia corrida: perfil `standard` y tope de 20 agentes, ya acordados con el usuario. Cómo correrla en Windows: F7 → "Cómo se corrió en Windows".
-    2. Los reembolsos de la F6 **desde el 2026-11-27**. Son independientes: se pueden hacer en cualquier momento de ese día.
+    1. Los reembolsos de la F6 **desde el 2026-11-27**. Son independientes: se pueden hacer en cualquier momento de ese día.
+    2. Los puntos 3 y 4 de la auditoría del tema.
 
 - **F6 en curso** (Pagos y Angelita Pro). El detalle está en la sección F6.
     - **Hecho:**
@@ -550,7 +554,20 @@ Decisión del usuario (2026-11-25): los videos de las lecciones dejan Vimeo y se
             - `cdp-compra.mjs` pasa (0 avisos de PHP);
             - `cdp-renovar.mjs` falla igual en `main`, porque la alumna `renovar-f5` ya renovó hoy (pedido 1317). Hay que volver a correrla con `datos-f5.php renovar` después de los reembolsos.
         - **Ya estaba antes (no es de la 0.13.0):** en `cdp-bloque4.mjs`, el enlace de reseteo del correo de Mailpit abre una página de error en Chrome ("No se puede acceder a este sitio"), también en `main`. Hay que revisar el enlace que arma la prueba.
-    - [ ] Tema: su propia corrida (`standard`, tope 20 agentes; si con los candidatos no alcanza, preguntar al usuario antes de subirlo).
+    - [x] Tema, corrida 1 (2026-11-26, skill de Cloudflare `c1c8a8c`, perfil `standard`, tema `b40a6c1`). El tope era de 20 agentes y se subió a 23 por decisión del usuario, para revisar la unidad que pidió el crítico. Se usaron los 23.
+        - **Resultado:** 0 confirmados y 4 por validar, todos dependientes de la caché o el proxy del hosting. Las 26 unidades quedaron cubiertas y el crítico final salió limpio.
+        - **Informe:** fuera del repo, en `~/security-audit-skill/angelitozzz/run-1/` (`REPORT.md`, `NEEDS-VALIDATION.md` y las 30 notas de refuerzo en `_estado/hardening.txt`).
+        - [x] **1. Páginas de acceso con datos de la visitante.** Iniciar sesión, crear cuenta, recuperar contraseña y canjear regalo imprimen correo, nombre, código de regalo y la clave de reseteo, sin `no-store`.
+        - [x] **2. Mini carrito del pie y contador del encabezado.** Llevan el carrito de la sesión en todas las páginas.
+        - **Corrección de 1 y 2:** `inc/sin-cache.php` manda `nocache_headers()` y `DONOTCACHEPAGE` en las plantillas de `angelitozzz_plantillas_privadas()`, en las lecciones y en cualquier página con carrito (`woocommerce_items_in_cart` o un carrito no vacío). Las páginas públicas sin carrito siguen cacheables.
+        - **Comprobado en el Local con curl (2026-11-26):**
+            - las 4 páginas de acceso salen con `no-store`;
+            - `/` y `/blog/` salen sin `no-store` sin cookies y con `no-store` con un producto en el carrito;
+            - al vaciar el carrito, `/` vuelve a salir cacheable.
+        - [ ] **3. La cabecera `X-WP-Query: 1` sola convierte un listado en JSON.** wp-query 1.2.2 todavía la acepta "por compatibilidad" (`inc/query/motor.php:1206`). Se corrige en la skill `wp-query` (requerir `_wpq`), no en el tema.
+        - [ ] **4. El límite de 10 por hora de los formularios.** Pasa a ser uno solo para todas si el hosting usa un proxy que no restaura `REMOTE_ADDR`. Primero ver si producción va detrás de Cloudflare u otro proxy. Si va, restaurar la IP real en el servidor, o registrar el filtro `angelitozzz_form_client_ip` confiando en la IP reenviada solo cuando la petición viene de los rangos del proxy.
+        - **Fuera de alcance, pero operativo:** `specs/pruebas/datos-f5.php` crea `prueba-admin-f5` (administradora), una instructora y alumnas con la contraseña documentada `Prueba123`. Antes de migrar la base, ver F7 → Deploy.
+    - Plan de la corrida del tema (para repetirla):
         - **Objetivo:** el repo del tema, sin `node_modules/`, `dist/`, `vendor/` ni `specs/` como código. El plugin queda fuera: ya se auditó.
         - **Informe:** en `~/security-audit-skill/angelitozzz/run-1/`, fuera del repo.
         - **Superficies:**
@@ -604,6 +621,10 @@ Decisión del usuario (2026-11-25): los videos de las lecciones dejan Vimeo y se
     - [ ] Tema: `pnpm build` y subir el tema con `dist/`, sin `hot`, `node_modules/`, `src/`, `specs/` ni configs.
     - [ ] Después de publicar, **vaciar la caché de páginas** (hosting, CDN o plugin) y hacer la prueba con curl de wp-query ("Page caches" en `references/vista.md` de la skill). Desde wp-query 1.2.2 (2026-11-26) filtrar sin recargar pide `?_wpq=1`: esa respuesta tiene que salir JSON con `Cache-Control: no-store` y `X-Robots-Tag: noindex`, y la URL normal tiene que salir HTML. En el Local ya se comprobó.
     - [ ] Plugin `angelitozzz-cursos`: subirlo sin tests ni configs de desarrollo.
+    - [ ] Antes de migrar la base del Local:
+        - correr los `*-borrar` de `datos-f5.php`;
+        - borrar `app/public/zz-datos-f5.php`;
+        - comprobar que no queden usuarias `@angelitozzz.local`, porque tienen la contraseña `Prueba123` y una es administradora (auditoría del tema, 2026-11-26).
     - [ ] (Opcional, recomendado) Cron real del hosting: `define('DISABLE_WP_CRON', true)` en `wp-config.php` y una tarea del hosting que llame a `wp-cron.php` cada 5 a 15 minutos. Sin ella, las tareas solo corren cuando alguien visita. El acceso no depende de esto, porque cada lectura compara la fecha (`includes/vencimiento.php`). Lo que se atrasa es la tarea diaria (marcar vencidas y limpiar los contadores de intentos) y el reintento del puente a los 5 minutos.
 
 ## Verificación (repetir antes de cada deploy)
@@ -623,6 +644,12 @@ Las herramientas para probar en el Local (datos de prueba, pruebas en Chrome y c
 - [ ] Vencimiento: un acceso vencido no abre la lección y figura "Vencido" en el historial
 - [ ] Sin acceso: la lección y el PDF de materiales no se abren (ni cambiando el ID en la URL)
 - [ ] Inicio de sesión: se bloquea tras varios intentos y no revela si el correo existe
+- [ ] Sin caché para los datos de la visitante:
+    - `curl -sI` de `/iniciar-sesion/`, `/crear-cuenta/`, `/recuperar-contrasena/` y `/canjear-regalo/` da `Cache-Control: ... no-store, private`;
+    - `/` sin cookies no lo da;
+    - `/` con un producto en el carrito sí lo da.
+
+  En producción, además, que la caché del hosting no sirva una de esas páginas desde caché.
 - [ ] Constructor: una alumna no puede usar la API ni ver el administrador
 - [ ] Avance y materiales en la lección; banner de Mundo solo en la primera lección
 - [ ] Correo de pedido con el bloque de Mundo y sin él (regalo) (2026-11-19 en el Local: ok)
