@@ -2,7 +2,8 @@
 
 /**
  * Lección · temario (specs/leccion.md, Figma 4176:27857): los módulos del curso con sus lecciones y,
- * al final de cada módulo, los PDF del curso (descarga firmada del plugin). Se imprime dos veces:
+ * al final de cada módulo, los materiales del curso: archivos privados con la dirección firmada del
+ * plugin y el ícono de su tipo (angelitozzz_icono_material(), inc/leccion.php). Se imprime dos veces:
  * en la columna (escritorio, con encabezado) y dentro del acordeón (móvil, sin encabezado); el JS de
  * "Marcar como completo" actualiza las dos copias por data-leccion-estado.
  *
@@ -89,10 +90,11 @@ $foco = 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:ou
 
                     <?php foreach ($materiales as $material) :
                         $nombre = (string) ($material['nombre'] ?? '');
+                        $icono  = angelitozzz_icono_material($material);
                         ?>
                         <li>
-                            <a class="<?= esc_attr($fila . ' bg-blanco hover:bg-[#fafeff] ' . $foco) ?>" href="<?= esc_url((string) ($material['url'] ?? '')) ?>">
-                                <img class="size-6 shrink-0" src="<?= $img('pdf') ?>" alt="" width="24" height="24" loading="lazy">
+                            <a class="<?= esc_attr($fila . ' bg-blanco hover:bg-[#fafeff] ' . $foco) ?>" href="<?= esc_url((string) ($material['url_descarga'] ?? $material['url'] ?? '')) ?>">
+                                <img class="size-6 shrink-0" src="<?= $img($icono === 'documento' ? 'pdf' : 'tipo-' . $icono) ?>" alt="" width="24" height="24" loading="lazy">
                                 <span class="min-w-0 flex-1 truncate"><span class="sr-only"><?= esc_html__('Descargar', 'angelitozzz') ?> </span><?= esc_html($nombre) ?></span>
                                 <?= angelitozzz_svg('leccion/descargar', 'size-[22px] shrink-0 text-marca') // SVG fijo del tema. ?>
                             </a>

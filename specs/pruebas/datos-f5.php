@@ -1,7 +1,7 @@
 <?php
 /*
  * Datos de prueba del bloque 5 (F4) en el Local: crea la página /cuenta/, una alumna, 3 cursos con
- * lecciones, un material PDF, un producto de Woo ligado al curso A, un pedido pagado (el puente del
+ * lecciones, video y materiales (archivos privados), un producto de Woo ligado al curso A, un pedido pagado (el puente del
  * plugin inscribe) y uno pendiente. Guarda los IDs en la opción angelitozzz_prueba_f5 para borrarlos.
  * Uso: php zz-datos-f5.php crear|borrar
  *
@@ -213,6 +213,11 @@ if ($accion === 'borrar') {
     }
     foreach ((array) ($ids['productos'] ?? []) as $id) { wp_delete_post($id, true); }
     foreach ((array) ($ids['adjuntos'] ?? []) as $id) { wp_delete_attachment($id, true); }
+    // Archivos privados (F5-d): del disco y su registro.
+    foreach ((array) ($ids['archivos'] ?? []) as $id) {
+        angelitozzz_cursos_borrar_archivo_del_disco((int) $id);
+        wp_delete_post((int) $id, true);
+    }
     foreach ((array) ($ids['lecciones'] ?? []) as $id) { wp_delete_post($id, true); }
     foreach ((array) ($ids['cursos'] ?? []) as $id) { wp_delete_post($id, true); }
     if (!empty($ids['alumna'])) {
@@ -230,7 +235,7 @@ if ($accion === 'borrar') {
 }
 
 if ($ids) { echo "ya hay datos de prueba: ", wp_json_encode($ids), "\n"; exit; }
-$ids = ['cursos' => [], 'lecciones' => [], 'adjuntos' => [], 'productos' => [], 'pedidos' => []];
+$ids = ['cursos' => [], 'lecciones' => [], 'archivos' => [], 'productos' => [], 'pedidos' => []];
 
 // Contadores del límite de intentos en cero (login, crear cuenta y canje), para que las pruebas se puedan repetir.
 $GLOBALS['wpdb']->query("DELETE FROM {$GLOBALS['wpdb']->prefix}angelitozzz_intentos");
@@ -264,25 +269,69 @@ $leccion = function (int $curso_id, string $titulo, string $modulo, int $orden, 
 // Curso A: en progreso, con mes gratis en Mundo, video, "PD:" y materiales.
 $a = $curso('Curso de prueba F5', 'curso_online', 4, true, [['id' => 'm1', 'titulo' => 'Primeros pasos'], ['id' => 'm2', 'titulo' => 'Rutinas']], 'Curso de prueba para revisar la cuenta y la lección.');
 $texto = "<p>Bienvenida al curso. En este video te cuento <strong>cómo funciona</strong> todo.</p>\n<p>Revisa tu correo: ahí está el acceso a tu mes gratis.</p>\n<p>PD: si tienes dudas, escríbeme por WhatsApp.</p>";
-$a1 = $leccion($a, 'Video 1: bienvenida', 'm1', 1, $texto, ['_angelitozzz_video' => 'https://vimeo.com/76979871']);
+$a1 = $leccion($a, 'Video 1: bienvenida', 'm1', 1, $texto);
 $a2 = $leccion($a, 'Video 2: el sueño del recién nacido', 'm1', 2, '<p>Lección de vista previa.</p>', ['_angelitozzz_vista_previa' => true]);
 $a3 = $leccion($a, 'Video 3: la rutina de la noche', 'm2', 1, '<p>Tercera lección.</p>');
 $a4 = $leccion($a, 'Video 4: siestas', 'm2', 2, '<p>Cuarta lección.</p>');
 
-// Material PDF (carpeta privada del plugin) en la lección 1 y otro del curso.
-$pdf = wp_tempnam('material.pdf');
-file_put_contents($pdf, "%PDF-1.4\n1 0 obj<</Type/Catalog/Pages 2 0 R>>endobj 2 0 obj<</Type/Pages/Kids[]/Count 0>>endobj\ntrailer<</Root 1 0 R>>\n%%EOF\n");
-foreach ([[$a1, 'Guía de horarios.pdf'], [$a, 'PDF del curso.pdf']] as [$padre, $nombre]) {
-    $copia = wp_tempnam('material.pdf');
-    copy($pdf, $copia);
-    $adjunto = angelitozzz_cursos_subir_material(['name' => $nombre, 'tmp_name' => $copia, 'error' => 0], $padre);
-    if (is_wp_error($adjunto)) { echo "material: ", $adjunto->get_error_message(), "\n"; continue; }
-    $ids['adjuntos'][] = $adjunto;
-    if ($padre === $a1) {
-        update_post_meta($a1, '_angelitozzz_materiales', [$adjunto]);
-    } else {
-        update_post_meta($a, '_angelitozzz_materiales', [['adjunto_id' => $adjunto, 'modulo' => 'm2', 'orden' => 99]]);
+// F5-d: video y materiales como archivos privados del plugin (angelitozzz_cursos_registrar_archivo() revisa
+// el tipo real y los mueve al almacén). "borrar" los quita del disco y de la base.
+$archivo = function (string $bytes, string $nombre, string $uso) use (&$ids): int {
+    $temporal = wp_tempnam($nombre);
+    file_put_contents($temporal, $bytes);
+    $id = angelitozzz_cursos_registrar_archivo($temporal, $nombre, $uso);
+    if (is_wp_error($id)) {
+        echo "archivo $nombre: ", $id->get_error_message(), "\n";
+        @unlink($temporal);
+        return 0;
     }
+    $ids['archivos'][] = $id;
+    return $id;
+};
+$zip = function (array $partes): string {
+    $ruta = wp_tempnam('office.zip');
+    $z    = new ZipArchive();
+    $z->open($ruta, ZipArchive::OVERWRITE);
+    foreach ($partes as $nombre => $contenido) { $z->addFromString($nombre, $contenido); }
+    $z->close();
+    $bytes = (string) file_get_contents($ruta);
+    @unlink($ruta);
+    return $bytes;
+};
+$tipos_ooxml = static fn(string $parte, string $tipo): string => '<?xml version="1.0"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Override PartName="' . $parte . '" ContentType="' . $tipo . '"/></Types>';
+$rels        = '<?xml version="1.0"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"/>';
+$png         = (string) base64_decode('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==');
+$pdf         = "%PDF-1.4\n1 0 obj<</Type/Catalog/Pages 2 0 R>>endobj 2 0 obj<</Type/Pages/Kids[]/Count 0>>endobj\ntrailer<</Root 1 0 R>>\n%%EOF\n";
+
+// Video de A1 y de A2 (vista previa). Con un video real en %TEMP% (lo arma cdp-leccion-video.mjs), se puede
+// reproducir y adelantar; si no, un MP4 mínimo que no se reproduce (la lección muestra igual el reproductor).
+$temp        = rtrim(str_replace('\\', '/', sys_get_temp_dir()), '/');
+$real        = $temp . '/angelitozzz-video-prueba.mp4';
+$portada_png = $temp . '/angelitozzz-video-prueba.png';
+$video       = is_file($real)
+    ? $archivo((string) file_get_contents($real), 'Bienvenida al curso.mp4', 'video')
+    : $archivo("\x00\x00\x00\x18ftypmp42\x00\x00\x00\x00mp42isom" . str_repeat("\x00", 2048), 'Bienvenida al curso.mp4', 'video');
+echo is_file($real) ? "video: el de $real\n" : "video: MP4 mínimo (para uno real, corre antes cdp-leccion-video.mjs video)\n";
+if ($video) {
+    $portada = $archivo(is_file($portada_png) ? (string) file_get_contents($portada_png) : $png, 'Portada.png', 'portada');
+    if ($portada) { update_post_meta($video, '_angelitozzz_portada', $portada); }
+    update_post_meta($a1, '_angelitozzz_video', (string) $video);
+    update_post_meta($a2, '_angelitozzz_video', (string) $video);
+}
+
+// Materiales de A1, uno de cada tipo (el ícono y el audio de la pestaña Materiales), y un PDF del curso.
+$materiales_a1 = array_filter([
+    $archivo($pdf, 'Guía de horarios.pdf', 'material'),
+    $archivo($zip(['[Content_Types].xml' => $tipos_ooxml('/word/document.xml', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml'), '_rels/.rels' => $rels, 'word/document.xml' => '<?xml version="1.0"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body/></w:document>']), 'Plan de siestas.docx', 'material'),
+    $archivo($zip(['[Content_Types].xml' => $tipos_ooxml('/xl/workbook.xml', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml'), '_rels/.rels' => $rels, 'xl/workbook.xml' => '<?xml version="1.0"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"/>']), 'Registro de sueño.xlsx', 'material'),
+    $archivo($zip(['[Content_Types].xml' => $tipos_ooxml('/ppt/presentation.xml', 'application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml'), '_rels/.rels' => $rels, 'ppt/presentation.xml' => '<?xml version="1.0"?><p:presentation xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main"/>']), 'Rutina en diapositivas.pptx', 'material'),
+    $archivo($png, 'Tabla de ventanas.png', 'material'),
+    $archivo("ID3\x03\x00\x00\x00\x00\x00\x00" . str_repeat("\xFF\xFB\x90\x00" . str_repeat("\x00", 413), 20), 'Ruido blanco.mp3', 'material'),
+]);
+update_post_meta($a1, '_angelitozzz_materiales', array_values($materiales_a1));
+$del_curso = $archivo($pdf, 'PDF del curso.pdf', 'material');
+if ($del_curso) {
+    update_post_meta($a, '_angelitozzz_materiales', [['adjunto_id' => $del_curso, 'modulo' => 'm2', 'orden' => 99]]);
 }
 
 // Curso B: completado. Curso C: suscripción (Angelita Pro), sin empezar.

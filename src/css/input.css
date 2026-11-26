@@ -5,6 +5,7 @@
 @import "./accordion.css";
 @import "./articulo-contenido.css";
 @import "./pasarela.css";
+@import "./leccion-video.css";
 
 /* specs/ guarda el código de referencia de Figma (con clases de Tailwind): no se escanea. */
 @source not "../../specs";

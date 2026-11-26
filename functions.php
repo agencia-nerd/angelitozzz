@@ -28,6 +28,7 @@ require_once get_theme_file_path('/inc/tienda.php');
 require_once get_theme_file_path('/inc/busqueda.php');
 require_once get_theme_file_path('/inc/paginas-privadas.php');
 require_once get_theme_file_path('/inc/administrador.php');
+require_once get_theme_file_path('/inc/leccion.php');
 require_once get_theme_file_path('/inc/iconos.php');
 require_once get_theme_file_path('/inc/woocommerce/base.php');
 require_once get_theme_file_path('/inc/woocommerce/precios.php');

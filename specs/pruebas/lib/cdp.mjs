@@ -48,6 +48,7 @@ export async function abrir({ puerto, ancho = 1440, alto = 1000 }) {
     const pendientes = new Map();
     const erroresJs = [];
     const fallos = [];
+    const oyentes = [];
 
     for (let i = 0; i < 40 && !ws; i++) {
         try {
@@ -74,6 +75,7 @@ export async function abrir({ puerto, ancho = 1440, alto = 1000 }) {
             cargo = null;
             c();
         }
+        for (const o of oyentes) if (o.metodo === m.method) o.fn(m.params);
         if (m.method === 'Runtime.exceptionThrown') erroresJs.push(m.params.exceptionDetails.exception?.description || m.params.exceptionDetails.text);
     });
 
@@ -142,6 +144,13 @@ export async function abrir({ puerto, ancho = 1440, alto = 1000 }) {
         return ev(`return document.body.classList.contains('logged-in');`);
     };
 
+    // Escucha un evento de CDP (p. ej. 'Network.responseReceived'); devuelve cómo dejar de escuchar.
+    const escuchar = (metodo, fn) => {
+        const o = { metodo, fn };
+        oyentes.push(o);
+        return () => oyentes.splice(oyentes.indexOf(o), 1);
+    };
+
     const comprobar = (nombre, ok, detalle) => {
         if (!ok) fallos.push({ nombre, detalle });
         return ok;
@@ -158,5 +167,5 @@ export async function abrir({ puerto, ancho = 1440, alto = 1000 }) {
         proc.kill();
     };
 
-    return { send, ev, ir, conNavegacion, tecla, clic, foto, sinJs, borrarCookies, avisosPhp, entrar, comprobar, terminar, cerrar, erroresJs, fallos };
+    return { send, escuchar, ev, ir, conNavegacion, tecla, clic, foto, sinJs, borrarCookies, avisosPhp, entrar, comprobar, terminar, cerrar, erroresJs, fallos };
 }
