@@ -131,6 +131,14 @@ All-in-One WP Migration solo lleva `app/public/` y la base: **no** lleva `.git`,
 
     Lo que reemplaza lo deja al lado como `.viejo-<fecha>`: nunca borra. Solo avisa si `~/bin` no está en el `PATH`, y de paso te da el comando para agregarlo. Si agregó la regla de Nginx, reinicia el sitio en Local y vuelve a correrlo para comprobar el 403.
 
+    - **El sitio de Local tiene que estar en PHP 8.4.** Con 8.2, `composer install` del plugin falla, porque el lock pide `php ^8.4`.
+    - **Si cambias la versión de PHP en Local** (el sitio → PHP):
+        - Local regenera la config de Nginx y **borra la regla** de la carpeta privada.
+        - Hay que volver a correr `instalar.mjs --instalar`, que también actualiza los lanzadores de `~/bin` a la versión nueva.
+        - Después, reiniciar el sitio **otra vez** y comprobar el 403 con `instalar.mjs`.
+        - Así quedó el 2026-11-26, al pasar de 8.2.29 a 8.4.28.
+    - **Scripts propios de PHP en consola** (fuera de `datos-f5.php`): pásale el puerto de MySQL de Local, por ejemplo `php -d mysqli.default_port=<puerto de sites.json> script.php`. Si no, WordPress responde "Error establishing a database connection". `datos-f5.php` lo toma solo.
+
 4. **Comprobar:** `composer test` y `composer lint` desde la carpeta del plugin.
 5. **Revisor de specs:** `node ~/.claude/plugins/cache/carlitos-skills/carlitos-skills/<versión>/skills/design-import/scripts/check.mjs` desde el tema, con la `<versión>` **instalada** (`installPath` de `carlitos-skills` en `~/.claude/plugins/installed_plugins.json`; en la caché pueden quedar carpetas de versiones viejas que dan errores falsos) (necesita las skills de carlitos-skills instaladas).
 
