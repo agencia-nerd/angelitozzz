@@ -1,8 +1,10 @@
 import { initMenu } from './modules/menu.js';
+import { initHeaderScroll } from './modules/header-scroll.js';
 import { initTestimoniosSlider } from './modules/testimonios-slider.js';
 import { initCarruselTarjetas } from './modules/carrusel-tarjetas.js';
 
 initMenu();
+initHeaderScroll();
 initTestimoniosSlider();
 initCarruselTarjetas();
 
