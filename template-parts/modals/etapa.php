@@ -2,8 +2,8 @@
 
 /**
  * Modal "Más información" de una etapa (specs/solucion.md → modal-etapa; Figma 3752:5964).
- * Uno por etapa (id etapa-<n>): portada del video con play (el iframe de Vimeo se carga al pulsar y se
- * quita al cerrar: video-portada.js), antetítulo, título, texto, precio del curso con la escala de
+ * Uno por etapa (id etapa-<n>): portada del video con play (el <video> del archivo de Medios se crea al
+ * pulsar y se quita al cerrar: video-portada.js), antetítulo, título, texto, precio del curso con la escala de
  * descuento y "Agregar al carrito" (agrega el curso de la etapa, cierra este modal y abre el drawer: carrito.js).
  * Una etapa sin curso a la venta muestra "En preparación" desactivado, sin precio ni escala.
  *
@@ -23,7 +23,7 @@ $compra     = (array) ($args['compra'] ?? []);
 $titulo  = trim((string) ($etapa['modal_titulo'] ?? ''));
 $texto   = (string) ($etapa['modal_texto'] ?? '');
 $portada = $etapa['modal_portada'] ?? '';
-$video   = (string) ($etapa['modal_video'] ?? '');
+$video   = $etapa['modal_video'] ?? ''; // Campo file de ACF (array) o vacío.
 $precio  = (string) ($etapa['precio'] ?? ''); // Del producto de Woo del curso (single-solucion.php).
 $producto = (int) ($etapa['producto_id'] ?? 0);
 

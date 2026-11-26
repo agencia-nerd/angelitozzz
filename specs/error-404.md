@@ -10,6 +10,7 @@
 - **Grupo ACF:** ninguno
 - **Ubicación:** ninguna
 - **Padre:** ninguno
+- **Página WP:** ninguna
 - **Notas de página:**
     - Pedido del usuario (2026-11-25): proponer y hacer la página 404 (antes caía en `index.php`, sin diseño).
     - No es una página de WordPress: WordPress elige `404.php` solo para cualquier URL que no existe, con el estado HTTP 404. No lleva `Template Name`.

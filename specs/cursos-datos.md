@@ -428,7 +428,7 @@
         - Ruta `GET angelitozzz/v1/lecciones/<id>/video` (plugin 0.10.0, `includes/rest.php`): `url` y `portada`, las direcciones firmadas nuevas del video y de su portada, sin caché. Permiso: `angelitozzz_cursos_puede_ver()` con la usuaria de la sesión (nonce `wp_rest`); sin sesión, solo en una lección de vista previa. 403 sin permiso y 404 si la lección no tiene video. La usa el reproductor cuando la dirección venció.
         - `angelitozzz_cursos_video_portada( $leccion_id )` (2026-11-25): la dirección firmada de la portada del video, o vacío.
         - `angelitozzz_cursos_url_archivo( $archivo_id, $contexto_id )` (2026-11-25): la dirección firmada de un archivo privado para la usuaria de la sesión. `$contexto_id` es la lección o el curso al que está vinculado. Vacío si no tiene permiso.
-        - `angelitozzz_cursos_video_url( $url, $opciones )` (F5-c): **se quita en el bloque 5** (2026-11-25). Era la dirección del reproductor de Vimeo para `video-portada`; los videos de las landings pasan a ser archivos públicos de ACF (`solucion.md`) y el tema ya no la llama.
+        - `angelitozzz_cursos_video_url( $url, $opciones )` (F5-c): **se quitó en el plugin 0.11.0** (F5-d, bloque 5, 2026-11-26), junto con `angelitozzz_cursos_vimeo_partes()`. Era la dirección del reproductor de Vimeo para `video-portada`; los videos de las landings son archivos públicos de Medios (campos `file` de ACF, `solucion.md`) que el tema reproduce con `<video>`, sin pasar por el plugin.
         - `angelitozzz_cursos_puede_completar( $leccion_id, $usuario_id )` (F5-c): si puede guardar avance (ve la lección y tiene el curso, o gestiona cursos). Acción de formulario `angelitozzz_completar_leccion` (`leccion_id`, `marcar`) para "Marcar como completo" sin JS.
         - `angelitozzz_cursos_aviso_acceso()` (F5-c): el texto del aviso "Este curso no está en tu cuenta…" si la página llegó con `?aviso=sin-acceso`; si no, vacío.
         - `angelitozzz_cursos_texto_leccion( $leccion_id )` (0.7.2): el texto de la lección listo para imprimir (`the_content` y después la lista permitida, con `rel` en los enlaces con `target`); vacío si la usuaria no puede ver la lección.
@@ -468,7 +468,7 @@
         - `angelitozzz_cursos_puede_ver_curso( $curso_id, $usuario_id )` (pide la usuaria): si la usuaria compró el curso (lo usa la lección para el botón de completar, los candados del temario y el PDF del curso).
         - `angelitozzz_cursos_ultimo_canje()`: lo que muestra `/canjear-regalo/`, una sola vez. Justo después de canjear, `estado` `canjeado` con `curso`, `meses` (0 = ilimitado), `primera_leccion`, `cursos_url` y `empieza` (la fecha si el acceso quedó encadenado a uno vigente; vacío si empieza hoy); tras un envío con error, `estado` `canje` con `valor` (lo escrito) y `error`; si no, vacío.
     - **Los datos ya vienen saneados, pero no escapados.** El tema escapa siempre al imprimir.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 

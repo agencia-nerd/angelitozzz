@@ -2,7 +2,7 @@
 
 /**
  * Solución · layout `galeria` (specs/solucion.md → secciones): título, bajada, slider de diapositivas
- * (imagen o video de Vimeo; una a la vez, flechas debajo), texto y botón de compra opcional, que hace lo
+ * (imagen o video MP4/WebM de Medios; una a la vez, flechas debajo), texto y botón de compra opcional, que hace lo
  * mismo que el del hero (sin ningún curso a la venta: "Próximamente" desactivado, sin precio). Origen: Angelita Pro 4013:14037, Recién Nacidos Go 4013:18035.
  *
  * $args: fila del flexible (fondo, titulo, bajada, diapositivas[imagen, video], texto, boton, boton_precio)
@@ -66,7 +66,7 @@ $destello = static fn(string $nombre): string => get_theme_file_uri('assets/img/
                             <li class="swiper-slide">
                                 <?php get_template_part('template-parts/components/video-portada', null, [
                                     'imagen' => $diapositiva['imagen'],
-                                    'video'  => (string) ($diapositiva['video'] ?? ''),
+                                    'video'  => $diapositiva['video'] ?? '', // Campo file de ACF (array) o vacío.
                                     'titulo' => $varias ? sprintf('%s (%d)', wp_strip_all_tags($titulo), $n + 1) : wp_strip_all_tags($titulo),
                                     'clase'  => 'aspect-[614/298] w-full rounded-[10px]',
                                 ]); ?>

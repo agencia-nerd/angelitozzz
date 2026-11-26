@@ -438,7 +438,24 @@ Decisión del usuario (2026-11-25): los videos de las lecciones dejan Vimeo y se
                 - el modal a 390 px.
             - `cdp-leccion-video.mjs` y `cdp-bloque5.mjs` siguen pasando.
         - **Falta comprobar:** la duración con un MP4 real (HandBrake). Con el MP4 de prueba el servidor guarda 0, también con el que crea `datos-f5.php`; el resto del flujo funciona.
-- [ ] **5. Landings:** campos `file` de ACF (`generate.mjs` de wp-acf), `video-portada` con `<video>`, quitar `angelitozzz_cursos_video_url()` del plugin y la vista previa de Vimeo del constructor.
+- [x] **5. Landings** (2026-11-26; tema `feat/landings-video-propio`, plugin 0.11.0 en `feat/sin-vimeo`):
+    - **ACF:** `video` de la galería y `modal_video` de las etapas pasan de `oembed` a `file` (`generate.mjs` de wp-acf, sincronizado con `angelitozzz_acf_sync()`). Las claves de los campos no cambian y los 5 valores del Local estaban vacíos: no hubo nada que migrar. El generador no limita el tipo de archivo de un `file`; el componente solo reproduce `video/mp4` o `video/webm`.
+    - **`error-404.md`:** con `Página WP: ninguna`, así el generador no suma una página a `paginas.php`.
+    - **`video-portada`:**
+        - acepta el array del campo `file`, un ID o una URL;
+        - el JS crea el `<video>` al pulsar play, con controles, autoplay, la portada como `poster` y el foco;
+        - lo detiene y lo quita al cambiar de diapositiva o al cerrar el modal.
+    - **Arreglo:** `galeria.php` y `modals/etapa.php` pasaban el video con `(string)`; con el campo `file` daba "Array to string conversion".
+    - **Plugin 0.11.0:** sin `angelitozzz_cursos_video_url()` ni `angelitozzz_cursos_vimeo_partes()`. 226 pruebas y PHPCS en 0. La vista previa de Vimeo del constructor ya se había quitado en el 4c.
+    - **Pruebas:**
+        - `cdp-landing-video.mjs` es nueva y pasa entera. Usa `datos-f5.php video-landing` / `video-landing-borrar`, que suman una segunda diapositiva para probar el cambio. Comprueba:
+            - que antes de play no se pide el MP4;
+            - que con un clic real suena;
+            - que se quita al cambiar y al cerrar;
+            - que entra a 390 px sin desborde.
+        - `cdp-compra.mjs` y `cdp-leccion-video.mjs` siguen pasando.
+    - **Sin Vimeo:** en el código del tema no queda nada; en el plugin solo las pruebas que rechazan enlaces de Vimeo y los comentarios de la migración 4.
+    - **Falta comprobar a mano con ventana:** el video de una landing en Chrome y Firefox (y Safari en producción).
 - [ ] Manual de la clienta (F7): cómo preparar un video con HandBrake (MP4 H.264, 720p o 1080p, "Web Optimized") y cómo usar "Archivos privados".
 
 ## F6 · Pagos y Angelita Pro
