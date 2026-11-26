@@ -514,7 +514,27 @@ Decisión del usuario (2026-11-25): los videos de las lecciones dejan Vimeo y se
         - El carrito de la Store API sigue respondiendo.
         - `cdp-compra.mjs` pasa: checkout clásico con sus 7 campos, Openpay y 0 avisos de PHP.
         - Anotado en `_shared.md` → WooCommerce.
-    - [ ] Corregir P2 (`/wp/v2/users/me`) y P4 (CSRF de inicio de sesión), y después los otros 5 por validar
+    - [x] P2 a P8 corregidos, más los refuerzos clave (plugin 0.13.0, 2026-11-26). 254 pruebas y PHPCS en 0. Detalle en `cursos-datos.md` → "Cierre de la auditoría del plugin".
+        - **P2:** `/wp/v2/users` de solo lectura para alumnas e instructora. En el Local, el `PUT /users/me` de una alumna responde 403.
+        - **P3:** contraseñas de aplicación solo para administración (crear una como alumna da 403). Recuperar la contraseña o cambiarla en el perfil las borra.
+        - **P4:** los formularios de visitante exigen un envío del mismo sitio. En el Local, el ataque desde `127.0.0.1:8799` ya no inicia sesión, y el formulario real del tema sí.
+        - **P5:** `wp-login.php?action=lostpassword` con el mismo límite de 3 por hora. En el Local, el 4.º pedido da "Demasiados pedidos" y Mailpit recibe 3 correos.
+        - **P6:** bloqueo equilibrado, 5 por IP y 20 por cuenta cada 15 minutos. Recuperar la contraseña borra el bloqueo.
+        - **P7:** límite atómico (se reserva antes de responder). En el Local, 30 intentos simultáneos: 5 "incorrectos" y 25 bloqueados.
+        - **P8:** los códigos `ANGZ-XXXX` ya no se canjean.
+        - **Descartado:** un curso con regalos sin canjear no se elimina, ni desde el administrador ni desde la papelera de wp-admin.
+        - **Refuerzos:**
+            - el reintento de anular un regalo cuando no se consigue el bloqueo;
+            - el token del canje en minúsculas;
+            - las puertas de Woo (editar cuenta, `password_1` y registro de Mi cuenta apagado);
+            - cerrar las demás sesiones al confirmar un correo;
+            - subidas con tope de 4 GB y de 3 abiertas por persona;
+            - portada del video con tope de 8 MB.
+        - Pruebas en Chrome:
+            - `cdp-bloque4.mjs` y `cdp-formularios.mjs` pasan;
+            - `cdp-compra.mjs` pasa (0 avisos de PHP);
+            - `cdp-renovar.mjs` falla igual en `main`, porque la alumna `renovar-f5` ya renovó hoy (pedido 1317). Hay que volver a correrla con `datos-f5.php renovar` después de los reembolsos.
+        - **Ya estaba antes (no es de la 0.13.0):** en `cdp-bloque4.mjs`, el enlace de reseteo del correo de Mailpit abre una página de error en Chrome ("No se puede acceder a este sitio"), también en `main`. Hay que revisar el enlace que arma la prueba.
     - [ ] Tema: su propia corrida (`standard`, tope 20)
 - [ ] Revisión de seguridad final (`/security-review` de todo el plugin y las plantillas)
 - [ ] Manual de la clienta con wp-manual (incluye el administrador de cursos). También cómo preparar un video con HandBrake (MP4 H.264, 720p o 1080p, "Web Optimized"), cómo usar "Archivos privados" y cómo poner el video de una landing (archivo de Medios, público)
