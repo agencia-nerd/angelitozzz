@@ -14,6 +14,8 @@
  *
  * "crear" también hace los pedidos de gracias (pagado, pendiente, regalo con su código y cancelado) y la usuaria
  * vacia-f5@angelitozzz.local (cuenta vacía y canje); "borrar" los quita junto con el cupón del regalo.
+ * F5-d: "archivos" crea la administradora prueba-admin-f5@angelitozzz.local (Prueba123) para cdp-archivos-admin.mjs;
+ * "archivos-borrar" lista y borra los archivos privados que subió y a ella.
  * Limpiezas sueltas: "limpiar-f4" (usuarias de cdp-bloque4.mjs y contadores del límite de intentos) y
  * "limpiar-formularios" (envíos guardados por cdp-formularios.mjs con prueba-formularios@angelitozzz.local).
  * El puerto de MySQL se lee del sites.json de Local (cambia en cada PC). Para forzarlo:
@@ -53,6 +55,31 @@ require_once ABSPATH . 'wp-admin/includes/media.php';
 require_once ABSPATH . 'wp-admin/includes/image.php';
 
 $accion = $argv[1] ?? 'crear';
+
+// F5-d, bloque 3: una administradora de prueba para la pantalla "Archivos privados" (cdp-archivos-admin.mjs).
+// "archivos-borrar" lista y borra los archivos privados que ella subió y después a ella.
+if ($accion === 'archivos' || $accion === 'archivos-borrar') {
+    $admin = get_user_by('email', 'prueba-admin-f5@angelitozzz.local');
+
+    if ($accion === 'archivos-borrar') {
+        if (!$admin) { echo "no hay administradora de prueba\n"; exit; }
+        $archivos = get_posts(['post_type' => 'angelitozzz_archivo', 'post_status' => 'any', 'author' => $admin->ID, 'posts_per_page' => -1, 'fields' => 'ids']);
+        echo "se borran: administradora ", $admin->ID, ", archivos ", wp_json_encode(array_map('intval', $archivos)), "\n";
+        wp_set_current_user($admin->ID);
+        foreach ($archivos as $archivo_id) {
+            angelitozzz_cursos_borrar_archivo_del_disco((int) $archivo_id);
+            wp_delete_post((int) $archivo_id, true);
+        }
+        wp_delete_user($admin->ID);
+        echo "borrado\n";
+        exit;
+    }
+
+    if ($admin) { echo "ya existe la administradora de prueba: ", $admin->ID, "\n"; exit; }
+    $id = wp_insert_user(['user_login' => 'prueba-admin-f5', 'user_email' => 'prueba-admin-f5@angelitozzz.local', 'user_pass' => 'Prueba123', 'first_name' => 'Admin', 'last_name' => 'Prueba', 'role' => 'administrator']);
+    echo is_wp_error($id) ? $id->get_error_message() : "administradora de prueba: " . $id, "\n";
+    exit;
+}
 
 if ($accion === 'tienda' || $accion === 'tienda-borrar') {
     $tienda = get_option('angelitozzz_prueba_tienda', []);
