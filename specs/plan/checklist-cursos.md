@@ -8,7 +8,7 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 
 **Al 2026-11-26 (cierre del día):** F0 a F5 hechas, también la F5-d (archivos privados y videos sin Vimeo).
 
-- **En `main`:** tema PR #78 y plugin PR #21. Plugin 0.13.0 (254 pruebas, PHPCS en 0) y wp-query 1.2.2.
+- **En `main`:** tema PR #78 y plugin PR #21. Plugin 0.13.0 (254 pruebas, PHPCS en 0) y wp-query 1.2.3 (en el Local; todavía no en producción).
 - **`check.mjs`:** design-import 1.41.0 marca 6 avisos en `_shared.md` (componentes como `testimonios-slider`). Ya estaban antes de la auditoría y están por revisar. Con la versión anterior daba 0.
 - **El Local tiene datos de prueba que se usan mañana:**
     - `datos-f5.php tienda` (cursos y productos 1294 a 1311);
@@ -21,11 +21,12 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 - **Auditoría de seguridad del plugin: terminada** (corrida 1 y correcciones 0.12.1 y 0.13.0; F7 → "Auditoría de seguridad completa").
 - **Auditoría del tema: corrida 1 terminada** (2026-11-26).
     - **Resultado:** 0 confirmados y 4 por validar. El 1 y el 2 (páginas de acceso y mini carrito sin `no-store`) ya están corregidos con `inc/sin-cache.php`.
-    - **Pendientes:** el 3 (la cabecera `X-WP-Query`, en la skill `wp-query`) y el 4 (el límite de los formularios detrás de un proxy).
+    - El 3 (la cabecera `X-WP-Query`) quedó corregido con wp-query 1.2.3 en el Local. Falta la prueba en producción.
+    - **Pendiente:** el 4 (el límite de los formularios detrás de un proxy).
     - El detalle está en F7 → "Auditoría de seguridad completa".
 - **Lo siguiente, en este orden:**
     1. Los reembolsos de la F6 **desde el 2026-11-27**. Son independientes: se pueden hacer en cualquier momento de ese día.
-    2. Los puntos 3 y 4 de la auditoría del tema.
+    2. El punto 4 de la auditoría del tema.
 
 - **F6 en curso** (Pagos y Angelita Pro). El detalle está en la sección F6.
     - **Hecho:**
@@ -564,7 +565,12 @@ Decisión del usuario (2026-11-25): los videos de las lecciones dejan Vimeo y se
             - las 4 páginas de acceso salen con `no-store`;
             - `/` y `/blog/` salen sin `no-store` sin cookies y con `no-store` con un producto en el carrito;
             - al vaciar el carrito, `/` vuelve a salir cacheable.
-        - [ ] **3. La cabecera `X-WP-Query: 1` sola convierte un listado en JSON.** wp-query 1.2.2 todavía la acepta "por compatibilidad" (`inc/query/motor.php:1206`). Se corrige en la skill `wp-query` (requerir `_wpq`), no en el tema.
+        - [x] **3. La cabecera `X-WP-Query: 1` sola convertía un listado en JSON.** Lo corrigió wp-query 1.2.3 (carlitos-skills 1.41.2): solo `_wpq` dispara el JSON, y la URL normal responde HTML aunque traiga la cabecera. El motor se actualizó con `install.mjs --overwrite inc/query/motor.php,src/js/modules/query.js`, y `--check` dio 0.
+            - Comprobado en el Local (2026-11-26):
+                - con solo la cabecera, `/blog/` y `/testimonios/` dan HTML;
+                - `/blog/?_wpq=1` da JSON con `no-store` y `noindex`;
+                - `cdp-filtros.mjs` pasa.
+            - [ ] En producción, al publicar: `pnpm build`, vaciar la caché y hacer la prueba con curl de "Page caches" (`references/vista.md`).
         - [ ] **4. El límite de 10 por hora de los formularios.** Pasa a ser uno solo para todas si el hosting usa un proxy que no restaura `REMOTE_ADDR`. Primero ver si producción va detrás de Cloudflare u otro proxy. Si va, restaurar la IP real en el servidor, o registrar el filtro `angelitozzz_form_client_ip` confiando en la IP reenviada solo cuando la petición viene de los rangos del proxy.
         - **Fuera de alcance, pero operativo:** `specs/pruebas/datos-f5.php` crea `prueba-admin-f5` (administradora), una instructora y alumnas con la contraseña documentada `Prueba123`. Antes de migrar la base, ver F7 → Deploy.
     - Plan de la corrida del tema (para repetirla):
@@ -619,7 +625,7 @@ Decisión del usuario (2026-11-25): los videos de las lecciones dejan Vimeo y se
 - [ ] Deploy:
     - [ ] Enlaces permanentes en "Nombre de la entrada" (Ajustes → Enlaces permanentes). Las URL del plugin (`/administrador/…`, `/cuenta/perfil/`, `/cursos/<curso>/<leccion>/`, `/cursos/archivo/<id>/`) usan reglas de reescritura y no funcionan con los enlaces simples. El JS del administrador ya no depende de esto: arma las URL de la API sobre la base de `rest_url()` (F4, bloque 6b).
     - [ ] Tema: `pnpm build` y subir el tema con `dist/`, sin `hot`, `node_modules/`, `src/`, `specs/` ni configs.
-    - [ ] Después de publicar, **vaciar la caché de páginas** (hosting, CDN o plugin) y hacer la prueba con curl de wp-query ("Page caches" en `references/vista.md` de la skill). Desde wp-query 1.2.2 (2026-11-26) filtrar sin recargar pide `?_wpq=1`: esa respuesta tiene que salir JSON con `Cache-Control: no-store` y `X-Robots-Tag: noindex`, y la URL normal tiene que salir HTML. En el Local ya se comprobó.
+    - [ ] Después de publicar, **vaciar la caché de páginas** (hosting, CDN o plugin) y hacer la prueba con curl de wp-query ("Page caches" en `references/vista.md` de la skill). Desde wp-query 1.2.2 (2026-11-26) filtrar sin recargar pide `?_wpq=1`: esa respuesta tiene que salir JSON con `Cache-Control: no-store` y `X-Robots-Tag: noindex`, y la URL normal tiene que salir HTML. Desde wp-query 1.2.3, también con el encabezado `X-WP-Query: 1` solo (sin `_wpq`). En el Local ya se comprobó.
     - [ ] Plugin `angelitozzz-cursos`: subirlo sin tests ni configs de desarrollo.
     - [ ] Antes de migrar la base del Local:
         - correr los `*-borrar` de `datos-f5.php`;
