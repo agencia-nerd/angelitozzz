@@ -373,7 +373,7 @@ Decisión del usuario (2026-11-25): los videos de las lecciones dejan Vimeo y se
     - **Script de subida compartido** (`assets/js/subida.js`, handle `angelitozzz-cursos-subida`), para reutilizar en el constructor del bloque 4: por partes, con reintentos, tiempo máximo por pedido, advertencia de peso, recomendación de calidad y portada del video.
     - **Pruebas:** 221 en verde (6 nuevas en `tests/test-admin-archivos.php`) y PHPCS en 0. En Chrome: `specs/pruebas/cdp-archivos-admin.mjs`, con la administradora de prueba de `datos-f5.php archivos` / `archivos-borrar`. Los datos de prueba quedaron borrados.
     - [ ] **A confirmar en producción:** al eliminar un archivo grande en el Local de Windows, a veces la respuesta no llega aunque el servidor sí lo borra (ver `archivos-privados.md`, último criterio). La pantalla ya tiene un tiempo máximo de 20 s que avisa y recarga la lista.
-- [ ] **4. Constructor y lección** (con la migración de los PDF y de `_angelitozzz_video` del plugin, y los saneadores solo con lo nuevo): "Subir video" y "Elegir de mis archivos" (`modal-archivos`), barra de avance y advertencia, descargables de cualquier tipo, reproductor `<video>` con marca de agua y pantalla completa propia, y materiales con su ícono y el audio. Pruebas en Chrome (`specs/pruebas/`), también adelantar el video. Va en 3 tramos, en la rama `feat/archivos-constructor` de los dos repos:
+- [x] **4. Constructor y lección** (cerrado el 2026-11-25; con la migración de los PDF y de `_angelitozzz_video` del plugin, y los saneadores solo con lo nuevo): "Subir video" y "Elegir de mis archivos" (`modal-archivos`), barra de avance y advertencia, descargables de cualquier tipo, reproductor `<video>` con marca de agua y pantalla completa propia, y materiales con su ícono y el audio. Pruebas en Chrome (`specs/pruebas/`), también adelantar el video. Va en 3 tramos, en la rama `feat/archivos-constructor` de los dos repos:
     - [x] **4a · Plugin 0.10.0** (2026-11-26):
         - **Migración 4** (`includes/esquema.php`): los PDF adjuntos pasan a archivos privados, con su archivo movido al almacén y su nombre, y los IDs cambian en las lecciones y en los cursos, también en la papelera. Además se borran los enlaces de Vimeo, con su duración, y `_angelitozzz_miniatura`. Probada también en el Local por CLI, con los datos de prueba borrados.
         - **Saneadores:** `_angelitozzz_video` y `_angelitozzz_materiales` aceptan solo archivos privados.
@@ -411,11 +411,33 @@ Decisión del usuario (2026-11-25): los videos de las lecciones dejan Vimeo y se
             - en Chrome, el botón propio de pantalla completa sale bloqueado y el menú ⋮ solo tiene la velocidad;
             - en Firefox, que ignora `controlslist`, su botón ponía el `<video>` solo, sin la marca. Ahora el JS lo saca de esa pantalla completa e intenta pasarla al marco; Firefox no lo deja (ya no cuenta como un clic), así que su botón no agranda el video y solo funciona el botón propio. Decisión del usuario: dejarlo así, porque prima la protección; los controles propios quedan como idea para más adelante;
             - en el iPhone, por el Live Link de Local, no cargó ni la portada ni el video. En Chrome de escritorio, por el mismo Live Link, tampoco: es el túnel (`localsite.io` con Basic Auth), no Safari. Por `angelitozzz.local` todo funciona. Decisión del usuario: el iPhone se prueba en producción (F7, verificación).
-    - [ ] **4c · Constructor del tema:**
-        - `angelitozzz-cursos-subida` en `/administrador/`;
-        - subir y elegir el video y los descargables (`modal-archivos`), sin Vimeo;
-        - `clase` en los chips;
-        - `datos-f5.php` y `cdp-constructor.mjs` al día.
+    - [x] **4c · Constructor del tema** (2026-11-25, rama `feat/constructor-archivos` del tema; plugin 0.10.3 en `fix/portadas-fuera-de-materiales`):
+        - **Subida:** `inc/constructor-subida.php` (nuevo) encola `angelitozzz-cursos-subida` solo en el paso 2 y da las URL de los íconos de cada tipo.
+        - **Lección** (`modals/editar-leccion.php`):
+            - video con "Elegir de mis archivos" y "Subir video";
+            - barra, "Cancelar", "Video listo" con portada y nombre, "Cambiar video" y "Quitar video";
+            - advertencia en rojo y recomendación en ámbar;
+            - descargables como chips con el ícono de su tipo;
+            - "Guardar lección" desactivado mientras sube.
+            - "Elegir de mis archivos" es una vista del mismo modal (Escape vuelve a la lección).
+        - **Paso 2:**
+            - "+ Agregar descargable" abre "Subir archivo" y "Elegir de mis archivos";
+            - el modal nuevo `modals/elegir-archivo.php` mide 720 px;
+            - la línea gris dice "Video · 3:59" o "PDF · 2,4 MB".
+        - **Lista:** `pages/administrador/lista-archivos.php` y `src/js/modules/elegir-archivo.js`, con `crearLista()`, `iconoMaterial()` y `crearCola()`. Sube de a un archivo por vez en toda la página; los demás quedan "En espera".
+        - **Otros cambios:** `modals/eliminar.php` sin Vimeo, con "¿Quitar este descargable?". `angelitozzz_icono_material()` lee `clase ?? tipo`.
+        - **Plugin 0.10.3:** `GET /archivos?clase=material` ya no ofrece las portadas de los videos (`angelitozzz_cursos_ids_portadas()`). 226 pruebas y PHPCS en 0.
+        - **Pruebas:**
+            - `cdp-constructor.mjs` pasa entera (código 0). Ahora comprueba:
+                - la subida real del MP4, "Guardar" desactivado y el foco;
+                - elegir y Escape sin perder lo escrito;
+                - el SVG y el video como descargable dan error;
+                - el PDF de 21 MB con su advertencia y cancelar una subida;
+                - el menú y el modal de 720 px sin portadas, con su buscador;
+                - que quitar no borra el archivo;
+                - el modal a 390 px.
+            - `cdp-leccion-video.mjs` y `cdp-bloque5.mjs` siguen pasando.
+        - **Falta comprobar:** la duración con un MP4 real (HandBrake). Con el MP4 de prueba el servidor guarda 0, también con el que crea `datos-f5.php`; el resto del flujo funciona.
 - [ ] **5. Landings:** campos `file` de ACF (`generate.mjs` de wp-acf), `video-portada` con `<video>`, quitar `angelitozzz_cursos_video_url()` del plugin y la vista previa de Vimeo del constructor.
 - [ ] Manual de la clienta (F7): cómo preparar un video con HandBrake (MP4 H.264, 720p o 1080p, "Web Optimized") y cómo usar "Archivos privados".
 

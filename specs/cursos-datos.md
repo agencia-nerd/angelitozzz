@@ -42,7 +42,7 @@
         - `_angelitozzz_materiales`: archivos del curso, cada uno con `adjunto_id`, `modulo` (`id` del módulo) y `orden`, porque en el constructor se agregan dentro de un módulo ("+ Agregar descargable", `admin-constructor.md`). En la lección van al final del temario, sin check (`leccion.md`). Desde el 2026-11-25, `adjunto_id` es el ID de un archivo privado (sección `archivos-privados`) de un tipo de material, no solo PDF.
     - **Precio:** "Precio (USD)" y "Precio de lanzamiento" no se guardan en el curso. Son el precio normal y el rebajado de su producto de Woo, que el constructor actualiza.
     - **Paso 3 del diseño:** "Qué aprenderás", "Requisitos", "Para quién es" y "Duración total" no se guardan (decisión del usuario, 2026-11-13): los textos de venta están en la solución. La duración total se calcula sumando las lecciones.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -56,7 +56,7 @@
 - [x] `/cursos/<curso>/` nunca muestra contenido: redirige según el acceso
 - [x] Los cursos no aparecen en la búsqueda del sitio ni en el mapa del sitio
 - [x] Cada metadato se guarda saneado (texto, entero de una lista permitida, IDs que existen)
-- [ ] `_angelitozzz_materiales` del curso solo guarda IDs de archivos privados que existen y son de un tipo de material
+- [x] `_angelitozzz_materiales` del curso solo guarda IDs de archivos privados que existen y son de un tipo de material
 
 ## Sección: leccion
 
@@ -93,10 +93,10 @@
 - [x] Cumple los criterios comunes de `_shared.md`
 - [x] El texto de la lección no deja pasar etiquetas fuera de la lista permitida (por ejemplo `<script>` o atributos `on*`)
 - [x] Un enlace del texto de la lección con `target` sale con `rel="noopener noreferrer"`, al guardar y al mostrar
-- [ ] `_angelitozzz_video` solo guarda el ID de un archivo privado de tipo video; un ID que no existe o de otro tipo no se guarda
+- [x] `_angelitozzz_video` solo guarda el ID de un archivo privado de tipo video; un ID que no existe o de otro tipo no se guarda
 - [ ] La duración se lee del archivo al subirlo y se ve en el temario y en el constructor
-- [ ] La lógica del video (armar el reproductor de la lección) sigue solo en `includes/video.php`
-- [ ] Un material de un tipo permitido se guarda y se muestra con su tipo y su tamaño
+- [x] La lógica del video (armar el reproductor de la lección) sigue solo en `includes/video.php`
+- [x] Un material de un tipo permitido se guarda y se muestra con su tipo y su tamaño (constructor, 4c: "PDF · 21,0 MB")
 
 ## Sección: inscripcion
 
@@ -277,14 +277,14 @@
 - [x] (0.8.0) Un SVG, un `doc` o cualquier tipo fuera de la lista no se guarda, aunque se le cambie la extensión
 - [x] (0.8.0) Un archivo de la lista con el contenido de otro tipo (por ejemplo, un `.pdf` que no empieza con `%PDF-`) no se guarda
 - [ ] Un video de 1 GB se sube por partes con su barra de avance; si se corta un trozo, se reintenta
-- [ ] Un archivo que pasa el tope de su tipo se sube igual y muestra la advertencia en rojo
-- [ ] Un video de más de 1080p, o de más de 15 MB por minuto, muestra la recomendación de HandBrake y se sube igual
+- [x] Un archivo que pasa el tope de su tipo se sube igual y muestra la advertencia en rojo (PDF de 21 MB en el constructor y en wp-admin)
+- [x] Un video de más de 1080p, o de más de 15 MB por minuto, muestra la recomendación de HandBrake y se sube igual (constructor, 4c: el MP4 de prueba, 540p y 28 MB por minuto)
 - [x] (0.8.0: PHPUnit con la ruta fuera de uploads; 403 con curl en el Local) Con `ANGELITOZZZ_CURSOS_RUTA_PRIVADA`, el archivo queda fuera de la carpeta de la web; sin ella, en `uploads/angelitozzz-privado/` y su URL directa responde 403
 - [x] (0.8.0) Los archivos privados no aparecen en la Biblioteca de medios, en `/wp-json/wp/v2/media` ni en la búsqueda
 - [x] (0.8.0) Un archivo en uso no se puede borrar; quitarlo de una lección no lo borra
 - [x] (0.8.0) Solo quien tiene `angelitozzz_gestionar_cursos` puede subir, listar o borrar (una alumna recibe 403)
-- [ ] La migración pasa los PDF que ya existían y sus lecciones los siguen mostrando
-- [ ] Pruebas PHPUnit de la revisión del tipo, la subida por partes, "dónde se usa", el borrado y la migración
+- [x] La migración pasa los PDF que ya existían y sus lecciones los siguen mostrando (4a: PHPUnit y el Local por CLI)
+- [x] Pruebas PHPUnit de la revisión del tipo, la subida por partes, "dónde se usa", el borrado y la migración
 
 ## Sección: puente-woo
 
@@ -445,7 +445,7 @@
             - `angelitozzz_cursos_aviso_publicado( $curso_id )` (`includes/rest-admin.php`): el texto del aviso "¡Curso publicado!", que cambia si el curso no está en ninguna solución.
             - `angelitozzz_cursos_pendientes_publicar( $curso_id )`: lo que falta para publicar (`clave`, `texto`, `bloquea`), para "Antes de publicar" del constructor. Publicar usa la misma regla sin mirar quién pregunta (`angelitozzz_cursos_faltan_para_publicar()`, interna), así que nunca publica con algo pendiente.
             - `angelitozzz_cursos_admin_curso( $curso_id )` (F4, bloque 6b; `includes/constructor.php`): todo lo que muestra el constructor. Campos del paso 1 (`titulo`, `descripcion`, `edad`, `tipo`, `duracion`, `mes_mundo`, `precio`, `precio_lanzamiento` del producto de Woo), `portada_id` y `portada_url`, `estado`, `estudiantes` (con acceso), `modulos` con sus `items` en orden (lecciones: `id`, `titulo`, `video`, `video_nombre`, `duracion`, `duracion_texto`, `miniatura`, `contenido`, `extracto`, `vista_previa`, `materiales`; descargables del curso: `tipo` = `material`, `id`, `nombre`, `tamano`, `clase` y `tipo_texto`), `totales` (módulos, lecciones y duración) y `pendientes`. Con 0, los valores de un curso nuevo. Desde el 2026-11-25 (plugin 0.10.0), `video` es el ID del archivo privado (0 si no hay) con su nombre en `video_nombre`, y `miniatura` es la dirección firmada de su portada (contexto 0, solo para quien gestiona). Cada material, de la lección o del curso, trae `id`, `nombre`, `tamano` ("PDF · 2,4 MB"), `extension` (0.10.1), `clase` (`pdf`, `office`, `imagen` o `audio`; no se llama `tipo` porque en los ítems del curso `tipo` dice si es una lección o un material) y `tipo_texto`.
-            - `angelitozzz_cursos_admin_archivos( $opciones )` (2026-11-25): la lista de "Archivos privados" para la pantalla de `/wp-admin/` y para "Elegir de mis archivos" del constructor. Filtros `clase` (`video` o `material`), `buscar` y `pagina` (24 por página). Devuelve `archivos`, `total`, `paginas` y `pagina`. Cada archivo trae `id`, `nombre`, `clase`, `extension`, `mime`, `tamano` y `tamano_texto`, `tipo_texto`, `duracion` y `duracion_texto`, `portada` y `portada_url` (firmada), `fecha`, `en_uso` (lecciones y cursos donde está, con su enlace al constructor), `se_puede_borrar` y `url_ver` (dirección firmada de contexto 0, para la vista previa).
+            - `angelitozzz_cursos_admin_archivos( $opciones )` (2026-11-25): la lista de "Archivos privados" para la pantalla de `/wp-admin/` y para "Elegir de mis archivos" del constructor. Filtros `clase` (`video` o `material`), `buscar` y `pagina` (24 por página). Con `material` deja fuera las imágenes que son portada de un video (plugin 0.10.3, 2026-11-25: no se eligen como descargables; en "Archivos privados", sin clase, siguen a la vista). Devuelve `archivos`, `total`, `paginas` y `pagina`. Cada archivo trae `id`, `nombre`, `clase`, `extension`, `mime`, `tamano` y `tamano_texto`, `tipo_texto`, `duracion` y `duracion_texto`, `portada` y `portada_url` (firmada), `fecha`, `en_uso` (lecciones y cursos donde está, con su enlace al constructor), `se_puede_borrar` y `url_ver` (dirección firmada de contexto 0, para la vista previa).
         - **Cuentas (F3):**
             - `angelitozzz_cursos_url_envio()` y `angelitozzz_cursos_campos_ocultos( $accion, $volver_a )`: a dónde se envía un formulario y sus campos ocultos (acción, nonce, `redirect_to`). Acciones: `angelitozzz_iniciar_sesion`, `angelitozzz_crear_cuenta`, `angelitozzz_recuperar`, `angelitozzz_nueva_contrasena`, `angelitozzz_perfil_datos`, `angelitozzz_perfil_contrasena`.
             - `angelitozzz_cursos_mensaje()`: el resultado del último envío (tipo `error` o `aviso`, texto y lo ya escrito, nunca contraseñas), una sola vez.

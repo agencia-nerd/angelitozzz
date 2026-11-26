@@ -42,7 +42,7 @@
     - Cintillo, header y footer salen de `header.php` y `footer.php`. Sin frame móvil: el móvil es una propuesta.
     - Aplicado en la F4, bloque 5 (2026-11-14): el avance del curso se actualiza en el temario y se anuncia por `aria-live`, sin barra (el diseño no la tiene); "Marcar como completo" funcionaba solo con JS; desde la F5-c (plugin 0.7.1) es un formulario a la acción `angelitozzz_completar_leccion` (mismo permiso que la ruta REST, `angelitozzz_cursos_puede_completar()`) que el JS envía por la REST sin recargar; las pestañas usan el `src/js/modules/pestanas.js` genérico (no un `pestanas-leccion.js`); el video sale de un `<template>` con `angelitozzz_cursos_video_html()` y se carga al pulsar play (`video-leccion.js`), con `<noscript>` sin JS; el título del mensaje de Angelita Pro es `h2` para no saltar del `h1`; el banner de Mundo va entre el video y las pestañas, como en el orden del spec. Para saber si la alumna compró el curso (botón, candados y PDF del curso) se usa `angelitozzz_cursos_puede_ver_curso()`.
     - Verificado en la F5-c (2026-11-19, en el Local): "Marcar como completo" sin JS marca, desmarca y vuelve a la lección; el banner de Mundo no se imprime sin enlace en Ajustes del sitio.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 ## Sección: cabecera
 
@@ -89,7 +89,7 @@
     - **Sin compra** (vista previa, propuesta): las lecciones que no son de vista previa se muestran con un candado y sin enlace, y los materiales del curso no se muestran.
     - **Datos:** salen de `angelitozzz_cursos_temario()`.
     - **Móvil (propuesta):** el temario pasa arriba del video, plegado en un acordeón de wp-accordion "Contenido del curso", con la lección actual visible al abrirlo.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -163,7 +163,7 @@ Contenido del diseño (del plugin, no campos): módulo "Recién Nacidos Go" con 
     - nota: seccion especifica del curso https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4176-27857&t=lySNWh2dFHTQgiTC-4
     - nota: contenido https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4176-27889&t=lySNWh2dFHTQgiTC-4
     - (Las dos notas son de la sección entera: el temario y el contenido.)
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -236,7 +236,7 @@ Valores del diseño (campos en `opciones.md` → `mes-gratis-mundo`): título "T
 - **Indicaciones del diseño:**
     - nota: el PD (va dentro de resumen) es asi https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=3901-7716&t=lySNWh2dFHTQgiTC-4
     - materiales se vera asi https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=3899-7674&t=lySNWh2dFHTQgiTC-4
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 

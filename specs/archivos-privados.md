@@ -58,7 +58,7 @@
 - [x] (0.9.0, PHPUnit) Solo entra quien tiene `angelitozzz_gestionar_cursos`; el resto no ve el menú ni puede abrir la pantalla
 - [ ] Se puede subir un video de 1 GB por partes, con su barra de avance, y varios archivos seguidos (probado en Chrome con un PDF de 21 MB en 3 trozos y un MP4, uno detrás de otro; falta un video real de 1 GB)
 - [x] (0.9.0, Chrome) Un archivo que pasa su tope se sube igual con la advertencia en rojo; un SVG o un tipo fuera de la lista no se sube
-- [ ] Lo subido aquí aparece en "Elegir de mis archivos" del constructor (bloque 4) y no aparece en Medios (esto último probado en Chrome)
+- [x] Lo subido aquí aparece en "Elegir de mis archivos" del constructor (bloque 4) y no aparece en Medios (esto último probado en Chrome) (4c: "Elegir de mis archivos" lista los archivos privados, que son los mismos de esta pantalla)
 - [x] (0.9.0, PHPUnit) "Dónde se usa" lista las lecciones y los cursos correctos; un archivo en uso no se puede eliminar
 - [x] (0.9.0, Chrome) "Renombrar" cambia el nombre que ven las alumnas y el de la descarga
 - [ ] **A confirmar en producción:** en el Local de Windows, al eliminar un archivo grande (21 MB), a veces (1 de cada 3 o 4) el servidor lo borra pero la respuesta no llega al navegador. Con archivos chicos no pasó (20 de 20). Causa no confirmada, probablemente del Local (Nginx con `php-cgi`). La pantalla tiene un tiempo máximo de 20 s que avisa y recarga la lista; falta ver esa protección actuar en una falla real. Probar en producción (Apache) eliminando un archivo grande.

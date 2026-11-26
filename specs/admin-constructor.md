@@ -53,7 +53,7 @@
         - Título SEO del paso, con `noindex`.
         - Sin frame móvil: el móvil es una propuesta.
     - **Cambio (decisión del usuario, 2026-11-25):** el video de la lección deja de ser un enlace de Vimeo; se sube un archivo o se elige uno ya subido ("Archivos privados"), y los descargables aceptan más tipos que PDF. Cambian `paso-contenido`, `modal-leccion` y `modal-eliminar`, y se suma `modal-archivos`.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 ## Sección: pasos
 
@@ -133,7 +133,7 @@ Datos que guarda (del plugin, no ACF; `cursos-datos.md` → `curso`): título, e
 ## Sección: paso-contenido
 
 - **Origen:** `specs/figma/lectura/admin-cursos/constructor-contenido-carga.png` (4186:31108)
-- **Destino:** `template-parts/pages/administrador/constructor-contenido.php`, `src/js/modules/constructor-contenido.js`, `template-parts/modals/editar-modulo.php`
+- **Destino:** `template-parts/pages/administrador/constructor-contenido.php`, `src/js/modules/constructor-contenido.js`, `template-parts/modals/editar-modulo.php`, `template-parts/modals/elegir-archivo.php`
 - **Grupo:** ninguno
 - **Skill:** ninguna
 - **Comportamiento:** tarjeta "Módulos y lecciones" con la ayuda "Arrastra para ordenar. Cada lección tiene su video, un texto corto y sus descargables." (2026-11-25: sin "de Vimeo").
@@ -152,7 +152,7 @@ Datos que guarda (del plugin, no ACF; `cursos-datos.md` → `curso`): título, e
         - editar y eliminar.
     - **Agregar:**
         - "+ Agregar lección" (terracota) al pie de cada módulo abre `modal-leccion` vacío.
-        - "+ Agregar descargable" al lado (propuesta) agrega un material del curso al módulo, como el ítem "Guía del curso (PDF)" del diseño. Ese material va al final del temario de la lección, sin check. Desde el 2026-11-25 abre un menú con "Subir archivo" (desde la computadora, a "Archivos privados") y "Elegir de mis archivos" (`modal-archivos`), con cualquier tipo de material.
+        - "+ Agregar descargable" al lado (propuesta) agrega un material del curso al módulo, como el ítem "Guía del curso (PDF)" del diseño. Ese material va al final del temario de la lección, sin check. Desde el 2026-11-25 abre un menú con "Subir archivo" (desde la computadora, a "Archivos privados") y "Elegir de mis archivos" (`modal-archivos`), con cualquier tipo de material. Es un botón con `aria-expanded` que muestra las dos opciones debajo; Escape o un clic afuera las cierran. Mientras sube, el módulo muestra la barra ("Subiendo <archivo>… N %") con "Cancelar", y la advertencia de peso o el error en rojo (`role="alert"`). Al terminar, o al elegir, se vincula al módulo (`POST /cursos/<id>/materiales` con `archivo_id` y `modulo`) y la fila nueva recibe el foco.
     - **"+ Agregar módulo":** botón de borde punteado; crea "Módulo N" y abre su edición de título.
     - **Ordenar:** módulos e ítems se ordenan arrastrando. Para teclado y lectores de pantalla, cada ítem tiene también "Subir" y "Bajar" (botones visibles al tener foco). Al soltar se guarda el orden (`menu_order` y el orden de módulos) y se anuncia "Orden guardado" (`aria-live`).
     - **Botones:**
@@ -162,7 +162,7 @@ Datos que guarda (del plugin, no ACF; `cursos-datos.md` → `curso`): título, e
 - **Indicaciones del diseño:**
     - (Las notas de "paso dos" de la página aplican aquí: la carga de contenido y el modal de eliminar.)
     - **Móvil (propuesta):** módulos e ítems a todo el ancho; en cada ítem, editar, subir, bajar y eliminar quedan visibles como botones de ícono de 44 px, así se ordena sin arrastrar; el título largo se corta con puntos suspensivos.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -177,13 +177,13 @@ Contenido del diseño (ejemplo): "Módulo 1 · Bienvenida" con "Conoce a Bárbar
 - [x] Módulos e ítems se ordenan arrastrando y también con "Subir" y "Bajar" desde el teclado; el orden se guarda y se anuncia
 - [x] Cada acción usa la API con nonce y capacidad; un fallo revierte el cambio en pantalla
 - [x] Los módulos son plegables y sus botones tienen nombre accesible con el título del módulo
-- [ ] La línea gris de cada ítem dice "Video · <duración>" o "<tipo> · <tamaño>", sin "Vimeo"
-- [ ] "+ Agregar descargable" sube un archivo nuevo o elige uno de "Archivos privados", de cualquier tipo de material
+- [x] La línea gris de cada ítem dice "Video · <duración>" o "<tipo> · <tamaño>", sin "Vimeo"
+- [x] "+ Agregar descargable" sube un archivo nuevo o elige uno de "Archivos privados", de cualquier tipo de material
 
 ## Sección: modal-leccion
 
 - **Origen:** `specs/figma/lectura/admin-cursos/constructor-modal-editar-modulo.png` (3773:5409)
-- **Destino:** `template-parts/modals/editar-leccion.php`, `src/js/modules/constructor-contenido.js`, `src/js/modules/editor-texto.js`
+- **Destino:** `template-parts/modals/editar-leccion.php`, `src/js/modules/constructor-contenido.js`, `src/js/modules/editor-texto.js`, `src/js/modules/elegir-archivo.js`, `inc/constructor-subida.php`
 - **Grupo:** ninguno
 - **Skill:** wp-modal
 - **Comportamiento:** modal de 860 px.
@@ -192,7 +192,9 @@ Contenido del diseño (ejemplo): "Módulo 1 · Bienvenida" con "Conoce a Bárbar
         - **"Título de la lección":** ayuda "Se muestra arriba del video.", requerido.
         - **"Video de la lección"** (2026-11-25, reemplaza a "Video (enlace de Vimeo)"): ayuda "Sube el video en MP4 desde tu computadora o elige uno que ya subiste. Solo lo ven las alumnas con acceso al curso.".
             - **Sin video:** un recuadro de 180 × 100 (fondo `--color-neutro`, radio 12, ícono de video) y a su derecha los botones "Elegir de mis archivos" (secundario, abre `modal-archivos` solo con videos) y "Subir video" (terracota, abre el selector de archivos del sistema con `accept="video/mp4,video/webm"`).
-            - **Subiendo:** barra de avance con el nombre del archivo y el porcentaje ("Subiendo mi-video.mp4… 62 %", `role="progressbar"` con `aria-valuenow`) y "Cancelar". El modal no se puede guardar hasta que termine (el botón "Guardar lección" queda desactivado con el texto de ayuda "Espera a que termine de subir el video.").
+            - **Subiendo:** barra de avance con el nombre del archivo y el porcentaje ("Subiendo mi-video.mp4… 62 %", un `<progress>` nativo, que ya es `progressbar` con su valor) y "Cancelar". El modal no se puede guardar hasta que termine (el botón "Guardar lección" queda desactivado con el texto de ayuda "Espera a que termine de subir el video.").
+            - **Archivos:** la lista y la cola de subidas están en `elegir-archivo.js`; `inc/constructor-subida.php` encola la subida del plugin (`angelitozzz-cursos-subida`) solo en el paso 2.
+            - **De a uno por vez** (2026-11-25, por los procesos del hosting): en toda la página sube un archivo a la vez; los demás muestran "En espera: <nombre>" hasta su turno. Cerrar o descartar la lección cancela lo que se estaba subiendo; lo que ya terminó queda sin usar en "Archivos privados".
             - **Con video:** la portada (cuadro tomado del video) en el recuadro, "Video listo" y "<nombre> · Duración: 08:24 · se detecta sola", más "Cambiar video" (vuelve a mostrar los dos botones) y "Quitar video". Quitarlo solo lo desvincula: sigue en "Archivos privados".
             - **Advertencia de peso:** si el video pasa el tope (500 MB), la advertencia en rojo de `cursos-datos.md` → `archivos-privados`, con `role="alert"`, debajo de la barra; la subida sigue.
             - **Recomendación de calidad:** si el video pasa de 1080p o de unos 15 MB por minuto, el aviso en ámbar de `cursos-datos.md` → `archivos-privados` (720p o 1080p con HandBrake), con `role="status"`; la subida sigue.
@@ -203,7 +205,9 @@ Contenido del diseño (ejemplo): "Módulo 1 · Bienvenida" con "Conoce a Bárbar
             - Al guardar, el servidor filtra el HTML con `wp_kses` y la lista permitida de `cursos-datos.md`.
             - Un párrafo que empieza con "PD:" se verá como cita en la lección.
         - **"Descargables (opcional)":** ayuda "Archivos que la mamá puede descargar desde esta lección: PDF, Word, Excel, PowerPoint, imágenes o audio." (2026-11-25: antes solo PDF).
-            - Chips con el nombre del archivo, el ícono de su tipo y un botón para quitar ("Quitar <archivo>"; quitar no lo borra de "Archivos privados"), más "Subir archivo" y "Elegir de mis archivos" (`modal-archivos` solo con materiales).
+            - Chips con el nombre del archivo, el ícono de su tipo y un botón para quitar ("Quitar <archivo>"; quitar no lo borra de "Archivos privados"), más "Subir archivo" y "Elegir de mis archivos" (`modal-archivos` solo con materiales). Mientras sube, el chip dice "Subiendo <archivo>… N %" y su botón es "Cancelar la subida de <archivo>".
+            - Un tipo no permitido: "<archivo>: Ese tipo de archivo no está permitido. Se aceptan PDF, Word, Excel, PowerPoint, JPG, PNG, WebP y MP3." (`role="alert"`); el mismo archivo dos veces: "Ese archivo ya está en esta lección.".
+            - Lo subido o elegido se vincula al pulsar "Guardar lección" (`POST /lecciones/<id>/materiales` con `archivo_id`), y lo quitado se desvincula (`DELETE`).
             - El servidor revisa el tipo por la extensión y el contenido (lista de `cursos-datos.md` → `archivos-privados`, sin SVG ni video) y lo guarda en el almacén privado. Si pasa el tope de su tipo, se sube igual con la advertencia en rojo.
         - **Interruptor frambuesa "Lección de vista previa gratuita (se puede ver sin comprar)":** un `<input type="checkbox" role="switch">`.
     - **Pie:**
@@ -212,7 +216,7 @@ Contenido del diseño (ejemplo): "Módulo 1 · Bienvenida" con "Conoce a Bárbar
 - **Indicaciones del diseño:**
     - (La nota de la página "Para editar un modulo, curso es un modal asi" muestra este modal de lección; editar un módulo usa un modal chico con el mismo estilo.)
     - **Móvil (propuesta):** ocupa la pantalla con 16 px de margen y scroll interno; la cabecera y el pie quedan fijos; los campos en una columna. En "Video de la lección", el recuadro va arriba y los botones debajo, a todo el ancho.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -226,31 +230,31 @@ Datos que guarda (del plugin, no ACF; `cursos-datos.md` → `leccion`): título,
 - [x] Cumple los criterios comunes de `_shared.md`
 - [x] Es un modal de wp-modal con `title`, foco atrapado y vuelta del foco al cerrar
 - [x] El HTML del editor se filtra en el servidor: `<script>`, atributos `on*` y estilos no se guardan
-- [ ] "Subir video" sube un MP4 o WebM por partes con su barra de avance y, al terminar, muestra la portada, el nombre y la duración
-- [ ] "Elegir de mis archivos" abre `modal-archivos` solo con videos y el elegido queda en la lección
-- [ ] Un archivo que no es video en "Video de la lección", o un SVG o un video en "Descargables", no se guarda y muestra el error
-- [ ] Un archivo que pasa su tope muestra la advertencia en rojo y se sube igual
-- [ ] "Guardar lección" queda desactivado mientras sube un archivo
-- [ ] Quitar el video o un descargable no lo borra de "Archivos privados"
+- [x] "Subir video" sube un MP4 o WebM por partes con su barra de avance y, al terminar, muestra la portada, el nombre y la duración (la duración, con un video que la tiene; que el servidor la lea de un MP4 real es `cursos-datos.md` → `leccion`)
+- [x] "Elegir de mis archivos" abre `modal-archivos` solo con videos y el elegido queda en la lección
+- [x] Un archivo que no es video en "Video de la lección", o un SVG o un video en "Descargables", no se guarda y muestra el error
+- [x] Un archivo que pasa su tope muestra la advertencia en rojo y se sube igual
+- [x] "Guardar lección" queda desactivado mientras sube un archivo
+- [x] Quitar el video o un descargable no lo borra de "Archivos privados"
 
 ## Sección: modal-archivos
 
 - **Origen:** propuesta sin Figma (decisión del usuario, 2026-11-25: "Elegir de mis archivos"), con el estilo de `modal-leccion`
-- **Destino:** `template-parts/modals/elegir-archivo.php`, `template-parts/pages/administrador/lista-archivos.php`, `src/js/modules/constructor-contenido.js`
+- **Destino:** `template-parts/modals/elegir-archivo.php`, `template-parts/pages/administrador/lista-archivos.php`, `src/js/modules/elegir-archivo.js`, `src/js/modules/constructor-contenido.js`
 - **Grupo:** ninguno
 - **Skill:** wp-modal
 - **Comportamiento:** la lista de "Archivos privados" para elegir uno sin salir del constructor (la instructora no entra a `/wp-admin/`). Los datos salen de `GET /archivos` (`angelitozzz_cursos_admin_archivos()`).
     - **Dónde se abre:**
         - desde "+ Agregar descargable" del paso 2: es su propio modal de wp-modal (720 px), con `title` "Elegir de mis archivos";
         - desde "Editar lección" (video o descargables): es una vista del mismo modal de la lección, con "← Volver a la lección" en la cabecera, como "¿Descartar los cambios?". Sin modales apilados (regla de la F5-c).
-    - **Filtro fijo:** al elegir el video solo se listan videos; al elegir un descargable, solo materiales.
+    - **Filtro fijo:** al elegir el video solo se listan videos; al elegir un descargable, solo materiales, sin las portadas de los videos (plugin 0.10.3).
     - **Buscador:** campo "Buscar por nombre" (`<input type="search">` con su `<label>`), que filtra sin recargar.
     - **Lista:** una fila por archivo, con la portada o el ícono de su tipo (48 px), el nombre, "<tipo> · <tamaño>" (y la duración en los videos) y "Usado en N lecciones" en gris si está en uso. Cada fila es un `<button>` "Elegir <nombre>". Al elegir, vuelve a la lección (o cierra el modal) con el archivo puesto y el foco en su chip o en "Cambiar video".
     - **Paginación:** "Cargar más" al pie (24 por vez).
     - **Vacío:** "Todavía no subiste archivos de este tipo." y el botón "Subir archivo".
     - **Errores:** si la lista no carga, "No pudimos cargar tus archivos. Inténtalo de nuevo." (`role="alert"`) con "Reintentar".
     - **Móvil (propuesta):** ocupa la pantalla con 16 px de margen y scroll interno; las filas a todo el ancho.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -259,11 +263,11 @@ Datos que guarda (del plugin, no ACF; `cursos-datos.md` → `leccion`): título,
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md`
-- [ ] Desde "Editar lección" es una vista del mismo modal (no se apila otro) y "Volver a la lección" no pierde lo escrito
-- [ ] Al elegir el video solo aparecen videos; al elegir un descargable, solo materiales
-- [ ] El buscador filtra por nombre y cada fila es un botón con nombre accesible
-- [ ] Una alumna no puede pedir la lista (403)
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Desde "Editar lección" es una vista del mismo modal (no se apila otro) y "Volver a la lección" no pierde lo escrito
+- [x] Al elegir el video solo aparecen videos; al elegir un descargable, solo materiales
+- [x] El buscador filtra por nombre y cada fila es un botón con nombre accesible
+- [x] Una alumna no puede pedir la lista (403)
 
 ## Sección: modal-eliminar
 
@@ -283,7 +287,7 @@ Datos que guarda (del plugin, no ACF; `cursos-datos.md` → `leccion`): título,
 - **Indicaciones del diseño:**
     - (Nota de la página: "eliminar un modulo y lecciones modal". El diseño solo dibuja el de lección; los demás textos son propuesta.)
     - **Móvil (propuesta):** ancho completo con 16 px de margen; los dos botones a todo el ancho, uno debajo del otro ("Eliminar" arriba, "Cancelar" abajo).
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -295,7 +299,7 @@ Datos que guarda (del plugin, no ACF; `cursos-datos.md` → `leccion`): título,
 - [x] Cumple los criterios comunes de `_shared.md`
 - [x] Es un modal de wp-modal; el foco empieza en "Cancelar"
 - [x] Eliminar va a la papelera y no borra el video de Vimeo
-- [ ] Eliminar una lección o un módulo, o quitar un descargable, no borra sus archivos de "Archivos privados"
+- [x] Eliminar una lección o un módulo, o quitar un descargable, no borra sus archivos de "Archivos privados"
 - [x] El texto nombra exactamente lo que se elimina
 
 ## Sección: paso-publicar
