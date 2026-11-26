@@ -26,6 +26,10 @@ foreach ((array) ($ayudarte['items'] ?? []) as $fila) {
 }
 
 $flecha_clases = 'absolute top-[160px] z-10 hidden size-[54px] items-center justify-center rounded-full border-2 border-contorno bg-fondo text-contorno focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca md:flex';
+// Desde 1280 px entran 4 tarjetas por vista (carrusel-tarjetas.js): con 4 o menos, sin flechas.
+if (count($items) <= 4) {
+    $flecha_clases .= ' xl:hidden';
+}
 ?>
 <section class="relative overflow-hidden py-22 max-md:py-14" aria-labelledby="home-como-ayudarte-titulo">
     <div class="relative mx-auto flex max-w-[485px] flex-col gap-[15px] px-4 text-center">
@@ -36,7 +40,7 @@ $flecha_clases = 'absolute top-[160px] z-10 hidden size-[54px] items-center just
         <?php endif; ?>
     </div>
 
-    <div class="relative mx-auto mt-[54px] max-w-[1480px] px-4 xl:px-0" data-carrusel-tarjetas>
+    <div class="relative mx-auto mt-[54px] max-w-[1512px] px-4" data-carrusel-tarjetas>
         <button type="button" class="<?= esc_attr($flecha_clases . ' md:left-2 min-[1700px]:-left-[86px]') ?>" data-slider-anterior>
             <span class="sr-only"><?= esc_html__('Anterior', 'angelitozzz') ?></span>
             <svg class="size-[15px]" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14.25 7.5H1.75M7.5 13.5l-6-6 6-6" /></svg>
