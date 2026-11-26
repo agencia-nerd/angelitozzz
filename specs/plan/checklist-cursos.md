@@ -373,7 +373,27 @@ Decisión del usuario (2026-11-25): los videos de las lecciones dejan Vimeo y se
     - **Script de subida compartido** (`assets/js/subida.js`, handle `angelitozzz-cursos-subida`), para reutilizar en el constructor del bloque 4: por partes, con reintentos, tiempo máximo por pedido, advertencia de peso, recomendación de calidad y portada del video.
     - **Pruebas:** 221 en verde (6 nuevas en `tests/test-admin-archivos.php`) y PHPCS en 0. En Chrome: `specs/pruebas/cdp-archivos-admin.mjs`, con la administradora de prueba de `datos-f5.php archivos` / `archivos-borrar`. Los datos de prueba quedaron borrados.
     - [ ] **A confirmar en producción:** al eliminar un archivo grande en el Local de Windows, a veces la respuesta no llega aunque el servidor sí lo borra (ver `archivos-privados.md`, último criterio). La pantalla ya tiene un tiempo máximo de 20 s que avisa y recarga la lista.
-- [ ] **4. Constructor y lección** (con la migración de los PDF y de `_angelitozzz_video` del plugin, y los saneadores solo con lo nuevo): "Subir video" y "Elegir de mis archivos" (`modal-archivos`), barra de avance y advertencia, descargables de cualquier tipo, reproductor `<video>` con marca de agua y pantalla completa propia, y materiales con su ícono y el audio. Pruebas en Chrome (`specs/pruebas/`), también adelantar el video.
+- [ ] **4. Constructor y lección** (con la migración de los PDF y de `_angelitozzz_video` del plugin, y los saneadores solo con lo nuevo): "Subir video" y "Elegir de mis archivos" (`modal-archivos`), barra de avance y advertencia, descargables de cualquier tipo, reproductor `<video>` con marca de agua y pantalla completa propia, y materiales con su ícono y el audio. Pruebas en Chrome (`specs/pruebas/`), también adelantar el video. Va en 3 tramos, en la rama `feat/archivos-constructor` de los dos repos:
+    - [x] **4a · Plugin 0.10.0** (2026-11-26):
+        - **Migración 4** (`includes/esquema.php`): los PDF adjuntos pasan a archivos privados, con su archivo movido al almacén y su nombre, y los IDs cambian en las lecciones y en los cursos, también en la papelera. Además se borran los enlaces de Vimeo, con su duración, y `_angelitozzz_miniatura`. Probada también en el Local por CLI, con los datos de prueba borrados.
+        - **Saneadores:** `_angelitozzz_video` y `_angelitozzz_materiales` aceptan solo archivos privados.
+        - **`angelitozzz_cursos_video_html()`:** da el `<video>` firmado, con la marca de agua (el correo) y el botón "Pantalla completa", por atributos `data-angelitozzz-video*`.
+        - **Ruta nueva** `GET /lecciones/<id>/video`: renueva la dirección con el permiso de la lección. Probada con curl: 200 en vista previa sin sesión, 403 en una lección normal, sin caché.
+        - **Constructor:** los descargables se vinculan por `archivo_id`. Quitarlos, o eliminar su módulo, solo los desvincula. Los ítems traen `video_nombre`, la `miniatura` firmada (contexto 0), `clase` y `tipo_texto`.
+        - **Lo que se quitó:**
+            - el oEmbed de Vimeo y la ruta `GET /video` (404);
+            - `subir_material` y la descarga `/cursos/descargar/<id>/` (404);
+            - `angelitozzz_cursos_nombre_descarga()` (la reemplaza `angelitozzz_cursos_nombre_archivo()`).
+        - **Pruebas:** **224 en verde** (`tests/test-archivos-leccion.php` nuevo; los ayudantes de archivos pasan a `tests/trait-ayudantes-archivos.php`; `test-descargas.php` se borra) y PHPCS en 0.
+        - **Se quedan hasta el bloque 5:** `angelitozzz_cursos_video_url()` y `angelitozzz_cursos_vimeo_partes()`.
+        - **Sin sesión, los materiales no se listan:** antes salían con un enlace que daba 403. Ahora `angelitozzz_cursos_materiales()` y el temario no los muestran, tampoco en una lección de vista previa.
+        - **Hasta el 4c, en esta rama:** el constructor y `datos-f5.php` del tema todavía mandan enlaces de Vimeo y PDF, así que no funcionan. Es esperado.
+    - [ ] **4b · Lección del tema:** `leccion/video.php` y `video-leccion.js` (portada, `<video>`, marca de agua cada 30 s, pantalla completa propia y renovación de la dirección con `GET /lecciones/<id>/video`), ícono por tipo y audio en `pestanas.php` y `temario.php`, y los SVG.
+    - [ ] **4c · Constructor del tema:**
+        - `angelitozzz-cursos-subida` en `/administrador/`;
+        - subir y elegir el video y los descargables (`modal-archivos`), sin Vimeo;
+        - `clase` en los chips;
+        - `datos-f5.php` y `cdp-constructor.mjs` al día.
 - [ ] **5. Landings:** campos `file` de ACF (`generate.mjs` de wp-acf), `video-portada` con `<video>`, quitar `angelitozzz_cursos_video_url()` del plugin y la vista previa de Vimeo del constructor.
 - [ ] Manual de la clienta (F7): cómo preparar un video con HandBrake (MP4 H.264, 720p o 1080p, "Web Optimized") y cómo usar "Archivos privados".
 
