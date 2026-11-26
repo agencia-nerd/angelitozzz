@@ -6,13 +6,18 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 
 ## Dónde vamos (actualizar al cerrar cada fase)
 
-**Al 2026-11-26:** F0 a F5 hechas, también la F5-d (archivos privados y videos sin Vimeo). Plugin 0.12.0 (235 pruebas, PHPCS en 0), wp-query 1.2.2.
+**Al 2026-11-26 (noche):** F0 a F5 hechas, también la F5-d (archivos privados y videos sin Vimeo). Tema y plugin en `main` (tema PR #74, plugin PR #19): plugin 0.12.0 (236 pruebas, PHPCS en 0), wp-query 1.2.2, `check.mjs` de design-import en 0. El Local quedó sin datos de prueba.
 
-- **F6 en curso** (Pagos y Angelita Pro):
-    - Openpay probado en el sandbox (Directo) y el reintento tras un fallo arreglado (0.11.1).
-    - La renovación manual de Angelita Pro está construida (0.12.0).
-    - Falta pagar una renovación en el sandbox y los reembolsos (desde el día siguiente). Lo que solo se puede probar en producción: el webhook, Openpay real y la compra de $1.
-    - 3D Secure espera la respuesta de soporte de Openpay.
+- **F6 en curso** (Pagos y Angelita Pro). El detalle está en la sección F6.
+    - **Hecho:**
+        - Openpay probado en el sandbox, con cargo Directo: compra, etapas, cupón y regalo.
+        - Reintento tras un pago fallido arreglado (0.11.1).
+        - Renovación manual de Angelita Pro construida y pagada en el sandbox, con el estado "Renovado" (0.12.0).
+    - **Lo siguiente, en el Local:**
+        1. Rechazos con las tarjetas correctas, y una rechazada seguida de una aprobada sin cerrar la ventana.
+        2. Reembolsos **desde el día siguiente** a la compra: un curso y una renovación. Hay que crear datos nuevos con `datos-f5.php tienda` y `renovar`.
+    - **Esperando a Openpay:** si su sandbox de Perú tiene 3D Secure (error 1000).
+    - **Solo en producción:** webhook, credenciales reales y la compra de $1.
 - **Después, la F7** (Cierre): QA, auditoría de seguridad, manual, ajustes reales de la clienta y deploy.
 - **Lo que solo se comprueba en producción** (iPhone, un video de 1 GB, la duración de un MP4 de HandBrake, borrar un archivo grande, la caché de páginas) está en "Verificación", al final. Por eso algunas secciones de `cursos-datos.md` y `archivos-privados.md` siguen en `aprobado` (`specs/_index.md`, nota "Archivos privados").
 - Para probar en el Local (datos de prueba, pruebas en Chrome y el entorno en otra PC): `specs/pruebas/LEEME.md`.

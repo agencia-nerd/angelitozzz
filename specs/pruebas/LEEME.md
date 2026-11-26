@@ -33,6 +33,7 @@ php zz-datos-f5.php borrar
 Remove-Item zz-datos-f5.php
 ```
 
+- En el "Open site shell" de Local (cmd, no PowerShell) se usa `copy` y `del` en vez de `cp` y `Remove-Item`, y el `php` ya es el del sitio.
 - El puerto de MySQL lo toma solo del `sites.json` de Local. Para forzarlo: `ANGELITOZZZ_DB_PUERTO=<puerto>` o `php -d mysqli.default_port=<puerto>`.
 
 - Guarda los IDs en la opción `angelitozzz_prueba_f5`; `borrar` solo borra lo que creó `crear` (también el cupón del regalo y la inscripción que deja el canje).
