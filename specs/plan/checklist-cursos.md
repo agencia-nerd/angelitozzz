@@ -6,9 +6,13 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 
 ## Dónde vamos (actualizar al cerrar cada fase)
 
-**Al 2026-11-26:** F0 a F5 hechas, también la F5-d (archivos privados y videos sin Vimeo). Tema y plugin en `main`: plugin 0.11.0 (226 pruebas, PHPCS en 0), wp-query 1.2.2, `check.mjs` de design-import en 0.
+**Al 2026-11-26:** F0 a F5 hechas, también la F5-d (archivos privados y videos sin Vimeo). Plugin 0.12.0 (235 pruebas, PHPCS en 0), wp-query 1.2.2.
 
-- **Lo siguiente es la F6** (Pagos y Angelita Pro): Openpay en modo prueba con su webhook, que necesita una URL pública, y decidir cómo se renueva Angelita Pro (el plugin de Openpay no soporta suscripciones). Plan aprobado antes de empezar.
+- **F6 en curso** (Pagos y Angelita Pro):
+    - Openpay probado en el sandbox (Directo) y el reintento tras un fallo arreglado (0.11.1).
+    - La renovación manual de Angelita Pro está construida (0.12.0).
+    - Falta pagar una renovación en el sandbox y los reembolsos (desde el día siguiente). Lo que solo se puede probar en producción: el webhook, Openpay real y la compra de $1.
+    - 3D Secure espera la respuesta de soporte de Openpay.
 - **Después, la F7** (Cierre): QA, auditoría de seguridad, manual, ajustes reales de la clienta y deploy.
 - **Lo que solo se comprueba en producción** (iPhone, un video de 1 GB, la duración de un MP4 de HandBrake, borrar un archivo grande, la caché de páginas) está en "Verificación", al final. Por eso algunas secciones de `cursos-datos.md` y `archivos-privados.md` siguen en `aprobado` (`specs/_index.md`, nota "Archivos privados").
 - Para probar en el Local (datos de prueba, pruebas en Chrome y el entorno en otra PC): `specs/pruebas/LEEME.md`.
@@ -476,6 +480,18 @@ Decisión del usuario (2026-11-25): los videos de las lecciones dejan Vimeo y se
     - [ ] Reembolso de la línea completa desde el pedido de Woo **desde el día siguiente a la compra**: Openpay Perú responde 1003 "La venta no se podrá reembolsar hasta el día siguiente" (2026-11-26, pedido 1290). Comprobar la nota "Payment was also refunded in Openpay" y que el curso queda Cancelado. Si Openpay lo rechaza, su plugin deja igual el reembolso en Woo (con HPOS no lo puede borrar): se borra a mano en el pedido. Va en el manual (F7)
     - [ ] 3D Secure: el sandbox responde 1000 "Internal server error, contact support" (ID `3cc55a81-1567-4e7c-a63c-f1f6c2c4df76`). Preguntar a soporte de Openpay si el sandbox de Perú tiene 3D Secure activo para el comercio. Mientras tanto, Directo (decisión del usuario, 2026-11-26)
 - [ ] Angelita Pro cada 4 meses. **Decidido (usuario, 2026-11-26):** renovación manual por WooCommerce (aviso por correo y botón "Renovar" que lleva al checkout; la compra nueva se encadena al acceso vigente, como ya hace el plugin). Los "7 días" son la garantía de devolución que ya existe, no una prueba gratis. Sin cobro automático ni suscripciones de la API de Openpay
+    - [x] Construido (plugin 0.12.0, 2026-11-26; `cursos-datos.md` → `renovacion`):
+        - `includes/renovacion.php`: quién puede renovar, la URL de "Renovar" y los correos de la tarea diaria (7 días antes y al vencer, una vez por fecha).
+        - `renovar_url` en la tarjeta de "Mis cursos" y en la línea del historial (`usuario-cursos.md`, `usuario-historial-pedido.md`).
+        - 235 pruebas y PHPCS en 0.
+    - [x] Probado en el Local:
+        - el correo llega a Mailpit una sola vez;
+        - "Mis cursos" y el historial muestran "Renovar" a 1440 y 390 px;
+        - el botón lleva al checkout sin avisos, con el carrito vacío y con el curso ya en el carrito (`cdp-renovar.mjs`).
+        - Datos: `datos-f5.php renovar` / `renovar-avisar` / `renovar-borrar`. `tienda` ahora crea "Angelita Pro (prueba)" de tipo `suscripcion`.
+    - **Ojo:** desde la consola, el PHP de Local no manda correos ("No se ha podido establecer la función de correo"). `renovar-avisar` se corre con `php -d SMTP=127.0.0.1 -d smtp_port=<SMTP de Mailpit> …` (`specs/pruebas/LEEME.md`). En el sitio y en el cron del hosting no pasa.
+    - [x] Renovación pagada en el sandbox por el usuario (2026-11-26, pedidos 1292 y 1293): "Renovar" desaparece y el nuevo acceso va del 1 de diciembre de 2026 al 1 de abril de 2027, sin días perdidos. En el historial la compra anterior decía "Por expirar" y confundía: ahora dice "Renovado" (decisión del usuario, plugin 0.12.0, con su prueba)
+    - [ ] Falta: reembolsar una renovación **desde el día siguiente** a la compra (con un pedido nuevo: los datos del 2026-11-26 se borran) y comprobar que vuelve el vencimiento anterior y "Por expirar" con "Renovar"
 - [ ] Openpay en producción: credenciales de producción cargadas por el usuario y webhook registrado con la URL del sitio
 - [ ] Compra real de prueba en producción: un producto oculto de $1 ligado a un curso de prueba, pagado con una tarjeta real. Comprobar que el cargo se aprueba en Directo (sin rechazo por falta de 3D Secure), la inscripción, el correo y el webhook. Después, reembolsarlo desde el pedido de Woo, que según el código del plugin devuelve el cargo por la API de Openpay (`openpay_cards.php:281-288`): comprobar que llega a la tarjeta y que se quita el acceso. Borrar el producto y el curso de prueba. Preguntar si Openpay cobra comisión por ese cargo aunque se devuelva
     - (Opcional, en vez del producto de $1) Un cupón de descuento fijo, de un solo uso y limitado a un curso real, que deje el total en $1 (p. ej. $398 sobre A Dormir Por Fin). Así no hay que crear ni borrar productos; después se borra el cupón. Un cupón que deje el total en $0 no sirve para esto: con total $0, WooCommerce no pasa por la pasarela (prueba la inscripción y el correo, pero no Openpay). Confirmar con Openpay si acepta un cargo de $1
@@ -490,6 +506,8 @@ Decisión del usuario (2026-11-25): los videos de las lecciones dejan Vimeo y se
 - [ ] Texto real de Términos y condiciones y de Políticas de privacidad (hoy con relleno; lo pone el usuario). En producción, crear las dos páginas y elegirlas en WooCommerce → Ajustes → Avanzado y en Ajustes → Privacidad
 - [ ] Logo del sitio en Apariencia → Personalizar → Identidad del sitio (decisión del usuario, 2026-11-17: no se carga desde `inc/acf/sitio.php`)
 - [ ] Ajustes del sitio: enlace del mes gratis en Mundo (nas.io), número de WhatsApp y URLs de las redes de la clienta; cursos de cada solución en `solucion_compra_cursos` (en las etapas, también el de cada etapa). También la URL de Instagram del botón "Síguenos" de Inicio (`home_seccion_instagram_boton`, hoy con `#`, pendiente)
+- [ ] Nota del hero de Angelita Pro: hoy dice "7 días de prueba completa", pero los 7 días son la garantía de devolución (F6, 2026-11-26). Bárbara la cambia en el admin, por ejemplo a "7 días de garantía"
+- [ ] Color de los correos: WooCommerce → Ajustes → Correos sigue con el morado de Woo (se vio en el aviso de renovación, 2026-11-26). Poner los colores de la marca (p. ej. base `#234549`)
 - [x] Fluent SMTP instalado y activo en el Local (2026-11-25). En el Local los correos los recibe Mailpit
 - [ ] Fluent SMTP en producción: configurar su conexión (las claves van en su pantalla, no en el repo) y mandar un correo de prueba (pedido, regalo, recuperar contraseña y formularios)
 - [ ] Yoast SEO (más adelante, decisión del usuario, 2026-11-25)
@@ -521,7 +539,7 @@ Las herramientas para probar en el Local (datos de prueba, pruebas en Chrome y c
 - [ ] Archivos privados en producción (F5-d): subir un video de 1 GB por partes desde el constructor; que la duración de un MP4 exportado con HandBrake aparezca en el constructor y en el temario (con el MP4 de prueba el servidor guarda 0); borrar un archivo grande desde "Archivos privados" y que la respuesta llegue (en el Local de Windows a veces no llega)
 - [ ] Video de una landing (galería y modal de etapa) en Chrome, Firefox y Safari: play reproduce, y se detiene al cambiar de diapositiva o al cerrar
 - [ ] Regalo: genera el código, el canje inscribe y el acceso empieza ese día (2026-11-19 en el Local: ok)
-- [ ] Angelita Pro: prueba de 7 días y renovación
+- [ ] Angelita Pro: renovación (correo de aviso, "Renovar" y la compra encadenada) y reembolso dentro de los 7 días de garantía
 - [ ] Reembolso: el pedido reembolsado quita el acceso
 - [ ] Vencimiento: un acceso vencido no abre la lección y figura "Vencido" en el historial
 - [ ] Sin acceso: la lección y el PDF de materiales no se abren (ni cambiando el ID en la URL)

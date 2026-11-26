@@ -156,6 +156,62 @@ if ($accion === 'video-landing' || $accion === 'video-landing-borrar') {
     exit;
 }
 
+// F6, renovación de Angelita Pro: "renovar [días]" (necesita "tienda") crea la alumna renovar-f5@angelitozzz.local
+// (Prueba123) con una compra pagada de "Angelita Pro (prueba)" que vence en esos días (5 por defecto; negativo = ya
+// venció). Después se corre la tarea con "renovar-avisar" (los correos van a Mailpit). "renovar-borrar" lista y borra
+// sus pedidos y a ella (el plugin borra sus inscripciones y su avance).
+if (in_array($accion, ['renovar', 'renovar-avisar', 'renovar-borrar'], true)) {
+    $renovar = get_option('angelitozzz_prueba_renovar', []);
+
+    if ($accion === 'renovar-avisar') {
+        echo "correos enviados: ", angelitozzz_cursos_avisar_renovaciones(), "\n";
+        exit;
+    }
+    if ($accion === 'renovar-borrar') {
+        if (!$renovar) { echo "no hay datos de renovar\n"; exit; }
+        $pedidos = wc_get_orders(['customer_id' => (int) $renovar['usuaria'], 'limit' => -1, 'return' => 'ids', 'status' => array_keys(wc_get_order_statuses())]);
+        echo "se borran: ", wp_json_encode(['usuaria' => $renovar['usuaria'], 'pedidos' => $pedidos]), "\n";
+        foreach ($pedidos as $pedido_id) { wc_get_order($pedido_id)->delete(true); }
+        wp_delete_user((int) $renovar['usuaria']);
+        delete_option('angelitozzz_prueba_renovar');
+        echo "borrado\n";
+        exit;
+    }
+
+    $tienda = get_option('angelitozzz_prueba_tienda', []);
+    $curso_id = 0;
+    foreach ((array) ($tienda['cursos'] ?? []) as $id) {
+        if (get_the_title((int) $id) === 'Angelita Pro (prueba)') { $curso_id = (int) $id; }
+    }
+    if (!$curso_id) { echo "falta la tienda: php zz-datos-f5.php tienda\n"; exit(1); }
+    if ($renovar) { echo "ya hay datos de renovar: usuaria ", (int) $renovar['usuaria'], "\n"; exit; }
+    update_post_meta($curso_id, '_angelitozzz_tipo', 'suscripcion'); // Por si la tienda se creó antes de la F6.
+
+    $usuaria = wp_insert_user(['user_login' => 'renovar-f5', 'user_email' => 'renovar-f5@angelitozzz.local', 'user_pass' => 'Prueba123', 'first_name' => 'Renata', 'last_name' => 'Prueba', 'role' => 'customer']);
+    if (is_wp_error($usuaria)) { echo $usuaria->get_error_message(), "\n"; exit(1); }
+
+    $pedido = wc_create_order(['customer_id' => $usuaria]);
+    $pedido->add_product(wc_get_product(angelitozzz_cursos_producto_de($curso_id)), 1);
+    $pedido->set_billing_first_name('Renata');
+    $pedido->set_billing_email('renovar-f5@angelitozzz.local');
+    $pedido->calculate_totals();
+    $pedido->save();
+    $pedido->update_status('completed'); // El puente inscribe.
+
+    // La compra empezó hace tiempo y vence en N días (o ya venció).
+    $dias = (int) ($argv[2] ?? 5);
+    global $wpdb;
+    $wpdb->update(
+        angelitozzz_cursos_tabla_inscripciones(),
+        ['inicio' => gmdate('Y-m-d H:i:s', time() - 115 * DAY_IN_SECONDS), 'vence' => gmdate('Y-m-d H:i:s', time() + $dias * DAY_IN_SECONDS), 'estado' => $dias > 0 ? 'activa' : 'vencida'],
+        ['usuario_id' => $usuaria, 'curso_id' => $curso_id]
+    );
+    update_option('angelitozzz_prueba_renovar', ['usuaria' => $usuaria, 'curso' => $curso_id], false);
+    echo "alumna renovar-f5@angelitozzz.local (", $usuaria, "), pedido ", $pedido->get_id(), ", vence en ", $dias, " días\n";
+    echo "renovar: ", angelitozzz_cursos_url_renovar($curso_id, $usuaria), "\n";
+    exit;
+}
+
 if ($accion === 'tienda' || $accion === 'tienda-borrar') {
     $tienda = get_option('angelitozzz_prueba_tienda', []);
 
@@ -201,9 +257,9 @@ if ($accion === 'tienda' || $accion === 'tienda-borrar') {
         update_post_meta($post_id, $clave, $valor);
     };
     // Curso publicado con una lección y su producto (precio normal y de lanzamiento).
-    $curso = static function (string $titulo, int $meses, string $precio, string $lanzamiento) use (&$tienda): int {
+    $curso = static function (string $titulo, int $meses, string $precio, string $lanzamiento, string $tipo = 'curso_online') use (&$tienda): int {
         $id = wp_insert_post(['post_type' => 'curso', 'post_status' => 'publish', 'post_title' => $titulo, 'post_excerpt' => 'Curso de prueba de la F5-b.']);
-        update_post_meta($id, '_angelitozzz_tipo', 'curso_online');
+        update_post_meta($id, '_angelitozzz_tipo', $tipo);
         update_post_meta($id, '_angelitozzz_duracion_acceso', $meses);
         update_post_meta($id, '_angelitozzz_modulos', [['id' => 'm1', 'titulo' => 'Módulo 1']]);
         $leccion = wp_insert_post(['post_type' => 'leccion', 'post_status' => 'publish', 'post_parent' => $id, 'post_title' => 'Bienvenida', 'post_content' => '<p>Primera lección.</p>', 'menu_order' => 1]);
@@ -218,13 +274,12 @@ if ($accion === 'tienda' || $accion === 'tienda-borrar') {
     $precios = [
         'a-dormir-por-fin'  => ['A Dormir Por Fin (prueba)', 12, '399', ''],
         'recien-nacidos-go' => ['Recién Nacidos Go (prueba)', 4, '97', '67'],
-        'angelita-pro'      => ['Angelita Pro (prueba)', 4, '97', '67'],
+        'angelita-pro'      => ['Angelita Pro (prueba)', 4, '97', '67', 'suscripcion'], // Se renueva a mano (F6).
     ];
     foreach (get_posts(['post_type' => 'solucion', 'post_status' => 'publish', 'posts_per_page' => -1]) as $solucion) {
         $tipo = (string) get_post_meta($solucion->ID, 'solucion_compra_tipo', true);
         if ($tipo !== 'etapas' && isset($precios[$solucion->post_name])) {
-            [$titulo, $meses, $precio, $lanzamiento] = $precios[$solucion->post_name];
-            $poner($solucion->ID, 'solucion_compra_cursos', [(string) $curso($titulo, $meses, $precio, $lanzamiento)]);
+            $poner($solucion->ID, 'solucion_compra_cursos', [(string) $curso(...$precios[$solucion->post_name])]);
         }
         if ($tipo === 'etapas') {
             // El bloque `etapas` del flexible solucion_secciones_bloques: un curso de $37 por etapa.

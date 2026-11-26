@@ -45,8 +45,9 @@ if (function_exists('wc_get_orders') && is_user_logged_in()) {
                 'nombre' => $item->get_name(),
                 'fecha'  => $fecha ? date_i18n('j \d\e F, Y', $fecha->getTimestamp()) : '',
                 'precio' => wc_price((float) $pedido->get_line_total($item, true), ['currency' => $pedido->get_currency()]),
-                'estado' => $estado,
-                'clave'  => $clave,
+                'estado'  => $estado,
+                'clave'   => $clave,
+                'renovar' => (string) ($linea['renovar_url'] ?? ''), // F6: suscripción por vencer o vencida.
             ];
         }
     }
@@ -116,11 +117,18 @@ $columnas = [
                                 <?php elseif ($clave === 'precio') : ?>
                                     <span><?= wp_kses_post($fila['precio']) ?></span>
                                 <?php elseif ($clave === 'estado') : ?>
-                                    <?php get_template_part('template-parts/components/etiqueta', null, [
-                                        'texto'  => $fila['estado'],
-                                        'estilo' => 'tarjeta',
-                                        'color'  => $colores[$fila['clave']] ?? 'salvia',
-                                    ]); ?>
+                                    <span class="inline-flex flex-col items-center gap-1 max-md:items-end">
+                                        <?php get_template_part('template-parts/components/etiqueta', null, [
+                                            'texto'  => $fila['estado'],
+                                            'estilo' => 'tarjeta',
+                                            'color'  => $colores[$fila['clave']] ?? 'salvia',
+                                        ]); ?>
+                                        <?php if ($fila['renovar'] !== '') : ?>
+                                            <a href="<?= esc_url($fila['renovar']) ?>" class="text-rotulo-s text-marca underline underline-offset-2 hover:text-acento">
+                                                <?= esc_html__('Renovar', 'angelitozzz') ?><span class="sr-only"> <?= esc_html($fila['nombre']) ?></span>
+                                            </a>
+                                        <?php endif; ?>
+                                    </span>
                                 <?php else : ?>
                                     <span><?= esc_html($fila[$clave]) ?></span>
                                 <?php endif; ?>

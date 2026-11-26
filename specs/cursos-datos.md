@@ -310,7 +310,7 @@
     - **Pedido sin clienta** (no debería pasar: el checkout exige cuenta): no inscribe y lo registra como error.
     - **Inscripción fallida** (plugin 0.6.1): cada línea que no se pudo inscribir deja una nota en el pedido y una línea en el registro, con la usuaria y el curso. Si falló porque otra inscripción del mismo curso tenía el bloqueo, se reintenta una vez a los 5 minutos (Action Scheduler, `angelitozzz_cursos_reintentar_pedido`), solo si el pedido sigue pagado.
     - **HPOS:** solo `wc_get_order()` y `WC_Order`. La compatibilidad está declarada en `includes/compatibilidad.php`.
-    - **Angelita Pro (F6, sin construir):** el plugin de Openpay no soporta WooCommerce Subscriptions, así que la renovación cada 4 meses se define en la F6 (`checklist-cursos.md`). Mientras tanto se vende como un curso directo y el puente lo inscribe igual que a los demás.
+    - **Angelita Pro (F6):** se vende como un curso directo y el puente lo inscribe igual que a los demás. Se renueva a mano, con una compra nueva que se encadena al acceso vigente (sección `renovacion`): el plugin de Openpay no soporta WooCommerce Subscriptions.
 - **Estado:** aplicado
 
 **Campos ACF**
@@ -368,6 +368,41 @@
 - [x] Un código usado, vencido o inexistente no inscribe
 - [x] Reembolsar el pedido anula el código o cancela la inscripción del regalo
 - [x] Pruebas PHPUnit de la creación del código, el canje, el doble canje y el reembolso (plugin 0.7.0, `tests/test-regalos.php`; probado también en el Local el 2026-11-19: compra mixta, correo, gracias, canje con y sin sesión, código en el carrito, reembolso y cancelación)
+
+## Sección: renovacion
+
+- **Origen:** decisión "Angelita Pro" de `specs/plan/checklist-cursos.md` (F6, decisión del usuario, 2026-11-26): renovación manual por WooCommerce; los "7 días" son la garantía de devolución, no una prueba gratis
+- **Destino:** `../../plugins/angelitozzz-cursos/includes/renovacion.php`
+- **Grupo:** ninguno
+- **Skill:** ninguna
+- **Comportamiento:** un curso de tipo `suscripcion` (Angelita Pro) se renueva comprándolo otra vez. No hay cobro automático ni tarjeta guardada.
+    - **Solo suscripciones:** cursos con `_angelitozzz_tipo` = `suscripcion`, publicados o en borrador (`angelitozzz_cursos_curso_abierto()`) y con un producto de Woo que se puede comprar. Sin producto no hay aviso ni botón, y queda en el registro.
+    - **La compra nueva se encadena:** el puente ya inscribe y la regla de `inscripcion` hace que empiece cuando vence el acceso vigente (no se pierde ningún día). Si se reembolsa la renovación, solo se quitan esos meses (`angelitozzz_cursos_reencadenar()`). El precio es el del producto de Woo.
+    - **Último vencimiento:** el `vence` más lejano de las inscripciones `activa` o `vencida` de la usuaria en ese curso. Las `cancelada` no cuentan.
+    - **Se puede renovar** (`angelitozzz_cursos_puede_renovar( $usuario_id, $curso_id )`): cuando el último vencimiento cae dentro de los días de "Por expirar" (15, `ANGELITOZZZ_CURSOS_DIAS_POR_EXPIRAR`) o ya pasó. Con una renovación encadenada el vencimiento se aleja y el botón desaparece; en el historial, la compra anterior pasa de "Por expirar" a "Renovado" (si se reembolsa la renovación, vuelve a "Por expirar").
+    - **Botón "Renovar"** (`angelitozzz_cursos_url_renovar( $curso_id, $usuario_id )`; sin usuaria, la de la sesión): la URL del checkout con `add-to-cart=<producto>` y `angelitozzz_renovar=1`. Al agregarlo, Woo redirige al checkout sin esos parámetros (recargar no lo agrega dos veces) y sin el aviso "se ha añadido a tu carrito" (`wc_add_to_cart_message_html`); si el producto ya está en el carrito, va directo al checkout sin el error de "Vender individualmente". Vacío si no se puede renovar.
+    - **Correos a la alumna** (tarea diaria `ANGELITOZZZ_CURSOS_TAREA_VENCER`, `angelitozzz_cursos_avisar_renovaciones()`), con el diseño de los correos de Woo (`WC()->mailer()`):
+        - **Antes:** el acceso vigente vence en 7 días o menos (`ANGELITOZZZ_CURSOS_DIAS_AVISO_RENOVAR`). Asunto "Tu <curso> vence el <fecha>".
+        - **Vencido:** el último vencimiento pasó hace 3 días o menos y no tiene acceso. Asunto "Tu <curso> venció". Los 3 días cubren una tarea diaria atrasada (sin visitas, WP-Cron no corre).
+        - La fecha va como en el historial de la cuenta ("1 de diciembre, 2026"). El cuerpo dice el curso, la fecha, que el nuevo periodo empieza al terminar el actual y que hay 7 días de garantía de devolución, con el botón "Renovar <curso>" (`angelitozzz_cursos_url_renovar()` de esa usuaria). Si inicia sesión en el checkout, el carrito con el producto se conserva.
+        - Cada correo sale una sola vez por fecha de vencimiento: lo enviado queda en el meta de la usuaria `_angelitozzz_renovar_aviso` (`[curso_id => ['antes' => vence, 'vencido' => vence]]`). Al renovar cambia el vencimiento y el ciclo vuelve a empezar. El meta se borra con los datos personales (`privacidad.php`) y al desinstalar.
+    - **Registro:** cada correo y cada curso sin producto quedan en `wc_get_logger` (fuente `angelitozzz-cursos`).
+- **Estado:** aplicado
+
+**Campos ACF**
+
+| Campo | Tipo | Descripción | Valor actual | Requerido |
+| ----- | ---- | ----------- | ------------ | --------- |
+
+**Criterios de aceptación**
+
+- [x] Cumple los criterios comunes de `_shared.md`
+- [x] Solo un curso de tipo `suscripcion` con producto se puede renovar, y solo con el último vencimiento a 15 días o menos (o vencido)
+- [x] El correo "antes" sale a los 7 días o menos y el de "vencido" después del vencimiento, cada uno una sola vez por fecha (en el Local, 2026-11-26: "Tu Angelita Pro (prueba) vence el 1 de diciembre, 2026" en Mailpit, y la segunda corrida no lo repite)
+- [x] Después de renovar no vuelve a avisar hasta el nuevo vencimiento
+- [x] La compra de renovación empieza cuando vence el acceso actual; su reembolso solo quita esos meses (PHPUnit; falta pagarla en el sandbox: `checklist-cursos.md` → F6)
+- [x] "Renovar" lleva al checkout con el producto, sin duplicarlo y sin avisos de Woo (`cdp-renovar.mjs`, con el carrito vacío y con el curso ya en el carrito)
+- [x] Pruebas PHPUnit de lo anterior (`tests/test-renovacion.php`, plugin 0.12.0)
 
 ## Sección: roles
 
@@ -433,7 +468,9 @@
         - `angelitozzz_cursos_aviso_acceso()` (F5-c): el texto del aviso "Este curso no está en tu cuenta…" si la página llegó con `?aviso=sin-acceso`; si no, vacío.
         - `angelitozzz_cursos_texto_leccion( $leccion_id )` (0.7.2): el texto de la lección listo para imprimir (`the_content` y después la lista permitida, con `rel` en los enlaces con `target`); vacío si la usuaria no puede ver la lección.
         - `angelitozzz_cursos_materiales( $id )`: nombre, tamaño y URL de descarga firmada; sin sesión, ninguno (tampoco en una lección de vista previa). Desde el 2026-11-25 también `tipo` (`pdf`, `office`, `imagen` o `audio`) y `tipo_texto` ("PDF", "Word", "Excel", "PowerPoint", "Imagen", "Audio"), para el ícono y la línea "<tipo> · <tamaño>"; desde la 0.10.1 también `extension` (`pdf`, `docx`, `xlsx`, `pptx`, `jpg`, `png`, `webp` o `mp3`), porque Word, Excel y PowerPoint comparten la clase `office` y el ícono no se elige por un texto traducido; desde la 0.10.2, `url_descarga`: la dirección del botón "Descargar" (la misma `url`, salvo en un audio, que lleva `d=1` para bajarlo entero); la URL es la dirección firmada de `url_archivo()`.
-        - `angelitozzz_cursos_estado_linea( $pedido_id, $item_id )` (F5-c): el estado de una línea para el historial, `clave` y `texto`. Línea propia: `activo`, `por_expirar`, `vencido`, `cancelado` o `pendiente`. Línea de regalo: `regalo_sin_canjear`, `regalo_canjeado`, `regalo_vencido`, `cancelado` o `pendiente`. El tema elige el color por la clave.
+        - `angelitozzz_cursos_estado_linea( $pedido_id, $item_id )` (F5-c): el estado de una línea para el historial, `clave` y `texto`. Línea propia: `activo`, `por_expirar`, `renovado` (F6: estaría por expirar, pero otra compra del mismo curso ya sigue después), `vencido`, `cancelado` o `pendiente`. Línea de regalo: `regalo_sin_canjear`, `regalo_canjeado`, `regalo_vencido`, `cancelado` o `pendiente`. El tema elige el color por la clave. Desde la F6 (plugin 0.12.0) también `renovar_url`: la de `url_renovar()` si la línea es `por_expirar` o `vencido` y su vencimiento es el último de ese curso (así no sale en cada compra vieja); si no, vacío.
+        - `angelitozzz_cursos_url_renovar( $curso_id, $usuario_id )` (F6, `includes/renovacion.php`; sin `$usuario_id`, la de la sesión): la URL de "Renovar", o vacío (sección `renovacion`). `datos_tarjeta()` la trae como `renovar_url`, junto con `vence`.
+        - `angelitozzz_cursos_puede_renovar( $usuario_id, $curso_id )` (F6, pide la usuaria): si ese curso se puede renovar hoy.
         - `angelitozzz_cursos_estado_acceso( $pedido_id, $item_id )`: solo el texto de `estado_linea()`.
         - `angelitozzz_cursos_es_primera_leccion( $leccion_id )`.
         - `angelitozzz_cursos_solucion_de( $curso_id )`.

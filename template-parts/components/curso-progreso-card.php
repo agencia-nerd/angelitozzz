@@ -4,10 +4,12 @@
  * Tarjeta de un curso con el avance de la alumna (usuario-escritorio: horizontal; usuario-cursos:
  * vertical). Recibe los datos que da el plugin (angelitozzz_cursos_de_usuaria()), ya calculados para
  * la usuaria de la sesión. El pie cambia con el avance: 0 % "Empezar curso", en progreso
- * "Continuar curso", 100 % la etiqueta "Completado" y "Volver a ver".
+ * "Continuar curso", 100 % la etiqueta "Completado" y "Volver a ver". Si el plugin trae `renovar_url`
+ * (un curso de suscripción por vencer, F6), se suma la fecha de vencimiento y el botón "Renovar".
  *
  * $args:
- * - datos     (array, requerido: titulo, extracto, imagen_id, url, porcentaje, completadas, total)
+ * - datos     (array, requerido: titulo, extracto, imagen_id, url, porcentaje, completadas, total;
+ *              opcionales vence y renovar_url)
  * - variante  ('horizontal' | 'vertical', por defecto 'vertical')
  * - lecciones (bool: "N de M lecciones"; por defecto true en vertical y false en horizontal)
  * - nivel     ('h2' | 'h3', por defecto 'h3': título de la tarjeta)
@@ -27,10 +29,17 @@ $url        = (string) ($datos['url'] ?? '');
 $porcentaje = max(0, min(100, (int) ($datos['porcentaje'] ?? 0)));
 $hechas     = (int) ($datos['completadas'] ?? 0);
 $total      = (int) ($datos['total'] ?? 0);
+$renovar    = (string) ($datos['renovar_url'] ?? '');
+$vence      = (string) ($datos['vence'] ?? '');
 
 if ($titulo === '') {
     return;
 }
+
+// El vencimiento llega en UTC: se muestra en la fecha del sitio.
+$vence_texto = $renovar !== '' && $vence !== ''
+    ? (string) wp_date('j \d\e F, Y', (int) strtotime($vence . ' UTC')) // Como el historial.
+    : '';
 
 $completado = $porcentaje >= 100;
 $boton      = $completado
@@ -85,13 +94,34 @@ $horizontal = $variante === 'horizontal';
             <progress class="barra-progreso" max="100" value="<?= esc_attr($porcentaje) ?>" aria-labelledby="<?= esc_attr($id_barra) ?>"><?= esc_html($porcentaje) ?>%</progress>
         </div>
 
-        <?php if ($url !== '') : ?>
-            <div class="<?= esc_attr($horizontal ? '' : 'mt-auto pt-4') ?>">
-                <?php get_template_part('template-parts/components/boton', null, [
-                    'enlace'   => ['url' => $url, 'title' => $boton['texto']],
-                    'variante' => $boton['variante'],
-                    'texto'    => $boton['texto'],
-                ]); ?>
+        <?php if ($vence_texto !== '') : ?>
+            <p class="text-caption text-acento">
+                <?= esc_html(sprintf(
+                    /* translators: %s: fecha de vencimiento */
+                    __('Tu acceso vence el %s', 'angelitozzz'),
+                    $vence_texto
+                )) ?>
+            </p>
+        <?php endif; ?>
+
+        <?php if ($url !== '' || $renovar !== '') : ?>
+            <div class="<?= esc_attr('flex flex-wrap items-center gap-3' . ($horizontal ? '' : ' mt-auto pt-4')) ?>">
+                <?php if ($url !== '') {
+                    get_template_part('template-parts/components/boton', null, [
+                        'enlace'   => ['url' => $url, 'title' => $boton['texto']],
+                        'variante' => $boton['variante'],
+                        'texto'    => $boton['texto'],
+                    ]);
+                }
+                if ($renovar !== '') {
+                    // Lleva al checkout con el producto del curso (renovación manual, F6).
+                    get_template_part('template-parts/components/boton', null, [
+                        'enlace'   => ['url' => $renovar, 'title' => __('Renovar', 'angelitozzz')],
+                        'variante' => 'secundario',
+                        'texto'    => __('Renovar', 'angelitozzz'),
+                        'flecha'   => false,
+                    ]);
+                } ?>
             </div>
         <?php endif; ?>
     </div>
