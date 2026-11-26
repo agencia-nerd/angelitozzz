@@ -406,7 +406,11 @@ Decisión del usuario (2026-11-25): los videos de las lecciones dejan Vimeo y se
             - `cdp-leccion-video.mjs`, nueva: pasa entera, con un MP4 real de 10 MB generado en el mismo Chrome;
             - `cdp-bloque5.mjs` sigue pasando;
             - capturas a 1440 y 390 px sin desborde.
-        - **Falta ver en un navegador con ventana:** la marca en pantalla completa (Chrome sin ventana no deja entrar) y el ícono que aparece en la barra nativa del video en Chrome sin ventana, aunque `nofullscreen` está aplicado. En Safari de iPhone no se probó desde aquí.
+        - **Revisión del usuario con ventana (2026-11-26):**
+            - en Chrome y Firefox, la marca se ve en pantalla completa;
+            - en Chrome, el botón propio de pantalla completa sale bloqueado y el menú ⋮ solo tiene la velocidad;
+            - en Firefox, que ignora `controlslist`, su botón ponía el `<video>` solo, sin la marca. Ahora el JS lo saca de esa pantalla completa e intenta pasarla al marco; Firefox no lo deja (ya no cuenta como un clic), así que su botón no agranda el video y solo funciona el botón propio. Decisión del usuario: dejarlo así, porque prima la protección; los controles propios quedan como idea para más adelante;
+            - en el iPhone, por el Live Link de Local, no cargó ni la portada ni el video. En Chrome de escritorio, por el mismo Live Link, tampoco: es el túnel (`localsite.io` con Basic Auth), no Safari. Por `angelitozzz.local` todo funciona. Decisión del usuario: el iPhone se prueba en producción (F7, verificación).
     - [ ] **4c · Constructor del tema:**
         - `angelitozzz-cursos-subida` en `/administrador/`;
         - subir y elegir el video y los descargables (`modal-archivos`), sin Vimeo;
@@ -459,6 +463,7 @@ Las herramientas para probar en el Local (datos de prueba, pruebas en Chrome y c
 - [ ] Compra de 1 curso → inscripción con su vencimiento
 - [ ] Horarios Ideales con 2 y con 3 etapas, con el descuento correcto
 - [ ] Compra con cupón
+- [ ] Video de una lección en Safari de iPhone: se reproduce, se puede adelantar y se ve la portada (en el Local no se puede: el Live Link no entrega los archivos privados, 2026-11-26)
 - [ ] Regalo: genera el código, el canje inscribe y el acceso empieza ese día (2026-11-19 en el Local: ok)
 - [ ] Angelita Pro: prueba de 7 días y renovación
 - [ ] Reembolso: el pedido reembolsado quita el acceso

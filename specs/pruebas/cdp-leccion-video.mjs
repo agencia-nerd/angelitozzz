@@ -182,11 +182,19 @@ const completa = await c.ev(`
     const texto = marco.querySelector('[data-angelitozzz-video-pantalla]').textContent;
     delete document.fullscreenElement;
     document.dispatchEvent(new Event('fullscreenchange'));
-    return { pidio: window.__pidio, texto, despues: marco.querySelector('[data-angelitozzz-video-pantalla]').textContent };
+    const despues = marco.querySelector('[data-angelitozzz-video-pantalla]').textContent;
+    // El botón propio del navegador (Firefox ignora controlslist) pone el <video> solo: el JS lo pasa al marco.
+    const antesFirefox = window.__pidio.length;
+    Object.defineProperty(document, 'fullscreenElement', { configurable: true, get: () => v });
+    document.dispatchEvent(new Event('fullscreenchange'));
+    await new Promise((r) => setTimeout(r, 300));
+    delete document.fullscreenElement;
+    return { pidio: window.__pidio.slice(0, antesFirefox), texto, despues, firefox: window.__pidio.slice(antesFirefox) };
 `);
 out.pantallaCompleta = completa;
 c.comprobar('el botón y el doble clic piden pantalla completa del marco, no del <video>', completa.pidio.length === 2 && completa.pidio.every((p) => p === 'marco'), completa);
 c.comprobar('en pantalla completa el botón dice "Salir de pantalla completa" y al salir vuelve', completa.texto === 'Salir de pantalla completa' && completa.despues === 'Pantalla completa', completa);
+c.comprobar('si el navegador pone el <video> solo en pantalla completa, se pasa al marco', completa.firefox.length === 1 && completa.firefox[0] === 'marco', completa.firefox);
 
 // 7. Si la dirección deja de servir (vencida o rechazada), el JS pide una nueva y sigue en la misma posición.
 const renovacion = await c.ev(`
