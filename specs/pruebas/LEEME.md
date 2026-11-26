@@ -86,7 +86,7 @@ Fuente: https://documents.openpay.pe/documentacion/pruebas/ (solo con las llaves
 | `4000000000000119`                     | Visa        | 3004 tarjeta robada                                   |
 | `4000000000000044`                     | Visa        | 3005 antifraude                                       |
 
-Con un rechazo, Woo se queda en el checkout con el aviso de error y el pedido queda "Fallido", sin inscripción. Se puede reintentar con otra tarjeta sin recargar: se reintenta el mismo pedido.
+Con un rechazo, Woo se queda en el checkout con el aviso de error y el pedido queda "Fallido", sin inscripción. Se puede reintentar con otra tarjeta sin recargar: desde el plugin 0.11.1 el pedido fallido sale de la sesión y el reintento crea un pedido nuevo (Openpay no acepta un `order_id` repetido, error 1006).
 
 Errores de datos o de integración vistos:
 

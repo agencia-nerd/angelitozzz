@@ -13,9 +13,8 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
         - Openpay probado en el sandbox, con cargo Directo: compra, etapas, cupón y regalo.
         - Reintento tras un pago fallido arreglado (0.11.1).
         - Renovación manual de Angelita Pro construida y pagada en el sandbox, con el estado "Renovado" (0.12.0).
-    - **Lo siguiente, en el Local:**
-        1. Rechazos con las tarjetas correctas, y una rechazada seguida de una aprobada sin cerrar la ventana.
-        2. Reembolsos **desde el día siguiente** a la compra: un curso y una renovación. Hay que crear datos nuevos con `datos-f5.php tienda` y `renovar`.
+        - Rechazos (3001 y 3003) y rechazada seguida de aprobada sin recargar (2026-11-26).
+    - **Lo siguiente, en el Local:** reembolsos **desde el 2026-11-27** de los pedidos pagados el 2026-11-26: el curso (pedido 1316, Recién Nacidos Go) y la renovación (pedido 1317, Angelita Pro). No borrar esos datos antes.
     - **Esperando a Openpay:** si su sandbox de Perú tiene 3D Secure (error 1000).
     - **Solo en producción:** webhook, credenciales reales y la compra de $1.
 - **Después, la F7** (Cierre): QA, auditoría de seguridad, manual, ajustes reales de la clienta y deploy.
@@ -480,8 +479,8 @@ Decisión del usuario (2026-11-25): los videos de las lecciones dejan Vimeo y se
 
 - [ ] Openpay en modo prueba (sandbox, cargo Directo) con las compras de la verificación. El webhook se prueba en producción: Openpay no llega a `angelitozzz.local`, y en Directo el pedido se marca pagado en la misma petición, sin esperarlo.
     - [x] Probado a mano el 2026-11-26 (datos de `datos-f5.php tienda`): compra de 1 curso, Horarios con 3 etapas, cupón y regalo
-    - [x] Reintento tras un pago fallido (plugin 0.11.1, 2026-11-26). Pasó en el pedido 1289: un primer intento con 3D Secure dio 1000 en Openpay, y los cinco reintentos (ya en Directo) dieron **1006 "The order_id has already been processed"**, porque Woo reutiliza el pedido fallido y Openpay no acepta un `order_id` repetido. Ahora un pedido de Openpay que pasa a `failed` sale de la sesión y el siguiente intento crea otro (`includes/pagos.php`, con su prueba). **Falta comprobar a mano:** rechazada (`4222 2222 2222 2220`) y, sin cerrar la ventana, aprobada (`4111…`)
-    - [ ] Rechazos: `4222 2222 2222 2220` (3001) y `4444 4444 4444 4448` (3003) muestran su error
+    - [x] Reintento tras un pago fallido (plugin 0.11.1, 2026-11-26). Pasó en el pedido 1289: un primer intento con 3D Secure dio 1000 en Openpay, y los cinco reintentos (ya en Directo) dieron **1006 "The order_id has already been processed"**, porque Woo reutiliza el pedido fallido y Openpay no acepta un `order_id` repetido. Ahora un pedido de Openpay que pasa a `failed` sale de la sesión y el siguiente intento crea otro (`includes/pagos.php`, con su prueba). Comprobado a mano el 2026-11-26 en Firefox: rechazada (`4222…2220`, pedido 1315, 3001) y, sin recargar, aprobada (`4111…`) en un pedido **nuevo**, el 1316, con inscripción
+    - [x] Rechazos (2026-11-26, Firefox): `4222 2222 2222 2220` (pedido 1313, 3001) y `4444 4444 4444 4448` (pedido 1314, 3003) muestran "Error en la transacción: No se pudo completar tu pago." y quedan "Fallido" sin inscripción. El aviso "SANDBOX MODE ENABLED" es del plugin de Openpay y solo sale en el sandbox. Openpay cobra una comisión (10 PEN en el cargo de $67 del sandbox)
     - [ ] Reembolso de la línea completa desde el pedido de Woo **desde el día siguiente a la compra**: Openpay Perú responde 1003 "La venta no se podrá reembolsar hasta el día siguiente" (2026-11-26, pedido 1290). Comprobar la nota "Payment was also refunded in Openpay" y que el curso queda Cancelado. Si Openpay lo rechaza, su plugin deja igual el reembolso en Woo (con HPOS no lo puede borrar): se borra a mano en el pedido. Va en el manual (F7)
     - [ ] 3D Secure: el sandbox responde 1000 "Internal server error, contact support" (ID `3cc55a81-1567-4e7c-a63c-f1f6c2c4df76`). Preguntar a soporte de Openpay si el sandbox de Perú tiene 3D Secure activo para el comercio. Mientras tanto, Directo (decisión del usuario, 2026-11-26)
 - [ ] Angelita Pro cada 4 meses. **Decidido (usuario, 2026-11-26):** renovación manual por WooCommerce (aviso por correo y botón "Renovar" que lleva al checkout; la compra nueva se encadena al acceso vigente, como ya hace el plugin). Los "7 días" son la garantía de devolución que ya existe, no una prueba gratis. Sin cobro automático ni suscripciones de la API de Openpay
