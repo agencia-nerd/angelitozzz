@@ -39,7 +39,11 @@
 **Criterios de aceptación**
 
 - [x] Cumple los criterios comunes de `_shared.md`
-- [x] El formulario lleva nonce; tras varios intentos fallidos se bloquea un rato y el mensaje no revela si el correo existe (probado en el navegador: el 5.º fallo de la IP bloquea; y en las pruebas del plugin)
+- [x] El formulario lleva nonce; tras varios intentos fallidos se bloquea un rato y el mensaje no revela si el correo existe (probado en el navegador: el 5.º fallo de la IP bloquea; y en las pruebas del plugin). Desde el plugin 0.13.0:
+    - por cuenta bloquea a los 20 fallos, desde cualquier IP;
+    - recuperar la contraseña borra el bloqueo;
+    - un envío desde otro sitio se rechaza (CSRF de inicio de sesión);
+    - 30 intentos simultáneos solo prueban 5 contraseñas (probado en el Local, 2026-11-26).
 - [x] `redirect_to` solo acepta URL del propio sitio (una URL externa cae en la cuenta)
 - [x] Cada campo tiene `<label>` asociado y el `autocomplete` correcto
 - [x] El ojo muestra y oculta la contraseña, con nombre accesible y `aria-pressed`
