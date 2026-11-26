@@ -491,6 +491,7 @@ Decisión del usuario (2026-11-25): los videos de las lecciones dejan Vimeo y se
 - [ ] Deploy:
     - [ ] Enlaces permanentes en "Nombre de la entrada" (Ajustes → Enlaces permanentes). Las URL del plugin (`/administrador/…`, `/cuenta/perfil/`, `/cursos/<curso>/<leccion>/`, `/cursos/descargar/<id>/`) usan reglas de reescritura y no funcionan con los enlaces simples. El JS del administrador ya no depende de esto: arma las URL de la API sobre la base de `rest_url()` (F4, bloque 6b).
     - [ ] Tema: `pnpm build` y subir el tema con `dist/`, sin `hot`, `node_modules/`, `src/`, `specs/` ni configs.
+    - [ ] Después de publicar, **vaciar la caché de páginas** (hosting, CDN o plugin) y hacer la prueba con curl de wp-query ("Page caches" en `references/vista.md` de la skill). Desde wp-query 1.2.2 (2026-11-26) filtrar sin recargar pide `?_wpq=1`: esa respuesta tiene que salir JSON con `Cache-Control: no-store` y `X-Robots-Tag: noindex`, y la URL normal tiene que salir HTML. En el Local ya se comprobó.
     - [ ] Plugin `angelitozzz-cursos`: subirlo sin tests ni configs de desarrollo.
     - [ ] (Opcional, recomendado) Cron real del hosting: `define('DISABLE_WP_CRON', true)` en `wp-config.php` y una tarea del hosting que llame a `wp-cron.php` cada 5 a 15 minutos. Sin ella, las tareas solo corren cuando alguien visita. El acceso no depende de esto, porque cada lectura compara la fecha (`includes/vencimiento.php`). Lo que se atrasa es la tarea diaria (marcar vencidas y limpiar los contadores de intentos) y el reintento del puente a los 5 minutos.
 
