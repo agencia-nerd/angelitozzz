@@ -1,11 +1,17 @@
 // Recorrido del constructor (bloque 6b) por CDP con la instructora de prueba (datos-f5.php crear):
-// crea un curso de cero (paso 1 con error del servidor y portada), agrega módulo, lecciones con video de
-// Vimeo, texto y PDF, ordena con teclado, elimina, y lo publica (paso 3). Contraseña siempre correcta.
+// crea un curso de cero (paso 1 con error del servidor y portada), agrega módulo, lecciones con video y
+// descargables de "Archivos privados" (F5-d, 4c: subir por partes y elegir de mis archivos), texto, ordena
+// con teclado, elimina, y lo publica (paso 3). Contraseña siempre correcta.
+// 4c: sube el MP4 real de %TEMP%/angelitozzz-video-prueba.mp4 (si falta: node cdp-leccion-video.mjs video),
+// un PDF de 21 MB (advertencia), un SVG (error), cancela una subida y prueba "+ Agregar descargable" con su
+// modal. Lo subido queda en "Archivos privados" de la instructora: se borra aparte, junto con el curso.
+// Termina con código 1 si alguna comprobación falla (out.fallos).
 // F5-c: el enlace del editor y "¿Descartar los cambios?" son paneles del mismo modal. Si aparece una ventana
 // nativa del navegador (alert, confirm o prompt), se cierra sin aceptar y queda en out.dialogosNativos (falla).
 // Uso: node cdp-constructor.mjs <carpeta temporal para el PNG y el PDF>
 import { spawn } from 'node:child_process';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import zlib from 'node:zlib';
 
@@ -24,6 +30,13 @@ const rutaPng = path.join(temporal, 'portada-prueba.png');
 const rutaPdf = path.join(temporal, 'Guía del curso.pdf');
 fs.writeFileSync(rutaPng, png);
 fs.writeFileSync(rutaPdf, '%PDF-1.4\n1 0 obj<<>>endobj\ntrailer<<>>\n%%EOF\n');
+// 4c: PDF de 21 MB (pasa el tope de 20 MB: advertencia y se sube igual), un SVG (no permitido) y el MP4 real.
+const rutaPdfGrande = path.join(temporal, 'Guía grande.pdf');
+const rutaSvg = path.join(temporal, 'dibujo.svg');
+fs.writeFileSync(rutaPdfGrande, Buffer.concat([Buffer.from('%PDF-1.4\n'), Buffer.alloc(21 * 1024 * 1024, 32), Buffer.from('\n%%EOF\n')]));
+fs.writeFileSync(rutaSvg, '<svg xmlns="http://www.w3.org/2000/svg"/>');
+const rutaMp4 = path.join(os.tmpdir(), 'angelitozzz-video-prueba.mp4');
+if (!fs.existsSync(rutaMp4)) { console.error(`Falta ${rutaMp4}: corre antes "node cdp-leccion-video.mjs video".`); process.exit(1); }
 
 const proc = spawn(process.env.CHROME || 'C:/Program Files/Google/Chrome/Application/chrome.exe', ['--headless=new', '--disable-gpu', '--remote-debugging-port=9342', '--window-size=1440,1000', 'about:blank'], { stdio: 'ignore' });
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -43,7 +56,7 @@ const esperar = () => new Promise((r) => { cargo = r; setTimeout(r, 10000); });
 const ir = async (ruta) => { const p = esperar(); await send('Page.navigate', { url: sitio + ruta }); await p; await sleep(900); };
 const subir = async (selector, ruta) => {
     const r = await send('Runtime.evaluate', { expression: `document.querySelector(${JSON.stringify(selector)})` });
-    await send('DOM.setFileInputFiles', { files: [ruta], objectId: r.result.result.objectId });
+    await send('DOM.setFileInputFiles', { files: [].concat(ruta), objectId: r.result.result.objectId });
 };
 const revisar = () => ev(`return {
     url: location.pathname + location.search,
@@ -55,6 +68,10 @@ const revisar = () => ev(`return {
 const texto = (sel) => ev(`return document.querySelector(${JSON.stringify(sel)})?.innerText.replace(/\\s+/g, ' ').trim() ?? null;`);
 
 const out = {};
+const fallos = [];
+const comprobar = (nombre, ok, detalle) => { if (!ok) fallos.push(detalle === undefined ? nombre : `${nombre}: ${JSON.stringify(detalle)}`); };
+// Espera hasta que `expr` (cuerpo de función) devuelva algo verdadero, o null.
+const hasta = async (expr, intentos = 150, pausa = 400) => { for (let i = 0; i < intentos; i++) { const v = await ev(expr); if (v) return v; await sleep(pausa); } return null; };
 try {
     for (let i = 0; i < 40 && !ws; i++) {
         try {
@@ -120,9 +137,37 @@ try {
         await sleep(800);
         await ev(`const f = document.querySelector('[data-leccion-form]'); f.titulo.value = ${JSON.stringify(titulo)}; f.titulo.dispatchEvent(new Event('input', { bubbles: true })); return 1;`);
         if (conVideo) {
-            await ev(`const v = document.querySelector('[data-leccion-form] [name=video]'); v.focus(); v.value = 'https://vimeo.com/76979871'; v.dispatchEvent(new Event('input', { bubbles: true })); v.dispatchEvent(new Event('change', { bubbles: true })); v.blur(); return 1;`);
-            await sleep(4000);
-            out.video = await ev(`return { vista: !document.querySelector('[data-video-vista]')?.hidden, estado: document.querySelector('[data-video-estado]')?.innerText.replace(/\\s+/g, ' ').trim(), miniatura: !!document.querySelector('[data-video-miniatura]')?.getAttribute('src') };`);
+            // Video: un PDF en "Subir video" da error; el MP4 sube por partes con su barra y "Guardar" desactivado.
+            await subir('[data-video-subir]', rutaPdf);
+            await sleep(300);
+            out.videoNoVideo = await texto('[data-leccion-form] [data-error-de=video]');
+            comprobar('un archivo que no es video da error', /MP4 o WebM/.test(out.videoNoVideo || ''), out.videoNoVideo);
+
+            await subir('[data-video-subir]', rutaMp4);
+            const estadoVideo = `const f = document.querySelector('[data-leccion-form]'); return { subiendo: !f.querySelector('[data-video-subiendo]').hidden, texto: f.querySelector('[data-video-progreso-texto]').textContent, valor: f.querySelector('[data-video-progreso]').value, guardar: f.querySelector('[data-leccion-guardar]').disabled, espera: !f.querySelector('[data-leccion-espera]').hidden, foco: document.activeElement?.textContent.trim() };`;
+            out.videoSubiendo = await hasta(`const e = (() => { ${estadoVideo} })(); return e.subiendo ? e : null;`, 20, 100);
+            comprobar('mientras sube hay barra con el nombre y el porcentaje', /Subiendo angelitozzz-video-prueba\.mp4… \d+ %/.test(out.videoSubiendo?.texto || ''), out.videoSubiendo);
+            comprobar('"Guardar lección" queda desactivado mientras sube, con su ayuda', out.videoSubiendo?.guardar && out.videoSubiendo?.espera, out.videoSubiendo);
+            comprobar('el foco pasa a "Cancelar" de la subida', out.videoSubiendo?.foco === 'Cancelar', out.videoSubiendo);
+            await hasta(`return document.querySelector('[data-video-subiendo]').hidden;`, 300);
+            out.video = await ev(`const f = document.querySelector('[data-leccion-form]'); return { listo: !f.querySelector('[data-video-listo]').hidden, detalle: f.querySelector('[data-video-detalle]').textContent, miniatura: !!f.querySelector('[data-video-miniatura]').getAttribute('src'), id: f.video.value, guardar: f.querySelector('[data-leccion-guardar]').disabled, foco: document.activeElement?.textContent.trim(), recomendacion: f.querySelector('[data-video-recomendacion]').textContent };`);
+            comprobar('al terminar: "Video listo", portada, nombre e ID', out.video.listo && out.video.miniatura && /angelitozzz-video-prueba/.test(out.video.detalle) && Number(out.video.id) > 0, out.video);
+            comprobar('al terminar se puede guardar y el foco va a "Cambiar video"', !out.video.guardar && out.video.foco === 'Cambiar video', out.video);
+
+            // Elegir de mis archivos: vista del mismo modal; volver no pierde lo escrito; Escape también vuelve.
+            await ev(`document.querySelector('[data-video-cambiar]').click(); document.querySelector('[data-video-elegir]').click(); return 1;`);
+            out.elegirVideo = await hasta(`const v = document.querySelector('[data-leccion-archivos]'); const filas = [...v.querySelectorAll('[data-lista-elegir]')]; return filas.length ? { vista: !v.hidden, contenidoOculto: document.querySelector('[data-leccion-contenido]').hidden, modales: document.querySelectorAll('dialog[open]').length, filas: filas.map((b) => b.getAttribute('aria-label')), clase: v.querySelector('[data-lista-archivos]').dataset.clase } : null;`, 40);
+            comprobar('"Elegir de mis archivos" es una vista del mismo modal, solo con videos', out.elegirVideo?.vista && out.elegirVideo?.contenidoOculto && out.elegirVideo?.modales === 1 && out.elegirVideo?.clase === 'video', out.elegirVideo);
+            await tecla('Escape', 'Escape', 27);
+            await sleep(300);
+            out.elegirEscape = await ev(`return { modal: document.getElementById('editar-leccion').open, vistaOculta: document.querySelector('[data-leccion-archivos]').hidden, titulo: document.querySelector('[data-leccion-form]').titulo.value, foco: document.activeElement?.textContent.trim() };`);
+            comprobar('Escape vuelve a la lección sin perder lo escrito', out.elegirEscape.modal && out.elegirEscape.vistaOculta && out.elegirEscape.titulo === titulo, out.elegirEscape);
+            await ev(`document.querySelector('[data-video-elegir]').click(); return 1;`);
+            await hasta(`return document.querySelectorAll('[data-leccion-archivos] [data-lista-elegir]').length;`, 40);
+            await ev(`const b = [...document.querySelectorAll('[data-leccion-archivos] [data-lista-elegir]')].find((x) => /angelitozzz-video-prueba/.test(x.getAttribute('aria-label'))); b.click(); return 1;`);
+            await sleep(300);
+            out.videoElegido = await ev(`const f = document.querySelector('[data-leccion-form]'); return { id: f.video.value, foco: document.activeElement?.textContent.trim(), vista: !f.querySelector('[data-leccion-contenido]').hidden };`);
+            comprobar('elegir un video lo deja en la lección con el foco en "Cambiar video"', out.videoElegido.vista && Number(out.videoElegido.id) > 0 && out.videoElegido.foco === 'Cambiar video', out.videoElegido);
             await ev(`document.querySelector('[data-editor-area] [contenteditable]')?.focus() ?? document.querySelector('[data-editor-area]').focus(); return 1;`);
             await send('Input.insertText', { text: 'Bienvenida al curso. PD: escríbeme si tienes dudas.' });
             await ev(`document.querySelector('[data-editor-accion="negrita"], [data-editor-accion="bold"]')?.click(); return 1;`);
@@ -150,9 +195,24 @@ try {
             await tecla('Escape', 'Escape', 27);
             await sleep(300);
             out.enlaceEscape = await ev(`return { filaOculta: document.querySelector('[data-editor-enlace]').hidden, modalAbierto: document.getElementById('editar-leccion').open };`);
-            await subir('[data-leccion-form] input[type=file]', rutaPdf);
-            await sleep(500);
-            out.chips = await texto('[data-materiales]');
+            // Descargables: el SVG da error; el PDF chico y el de 21 MB (advertencia) suben y quedan como chips.
+            await subir('[data-leccion-material]', [rutaSvg, rutaMp4, rutaPdf, rutaPdfGrande]);
+            await sleep(300);
+            out.materialSvg = await texto('[data-leccion-form] [data-error-de=materiales]');
+            comprobar('un SVG y un video en descargables dan error', /dibujo\.svg: .*no está permitido/.test(out.materialSvg || '') && /angelitozzz-video-prueba\.mp4: .*no está permitido/.test(out.materialSvg || ''), out.materialSvg);
+            out.materialEnEspera = await ev(`return [...document.querySelectorAll('[data-materiales] li')].map((li) => li.textContent.trim());`);
+            comprobar('los descargables suben de a uno (el segundo, en espera)', out.materialEnEspera.some((t) => /^En espera: Guía grande\.pdf/.test(t)), out.materialEnEspera);
+            await hasta(`return !document.querySelector('[data-materiales] li.opacity-80');`, 300);
+            out.chips = await ev(`const f = document.querySelector('[data-leccion-form]'); return { chips: [...f.querySelectorAll('[data-materiales] li')].map((li) => li.textContent.trim() + ' · ' + (li.querySelector('img')?.getAttribute('src') || '').split('/').pop()), aviso: f.querySelector('[data-materiales-aviso]').textContent };`);
+            comprobar('los dos PDF quedan como chips con su ícono', out.chips.chips.length === 2 && out.chips.chips.every((c) => /pdf\.svg$/.test(c)), out.chips);
+            comprobar('el PDF de 21 MB muestra la advertencia de peso y se sube igual', /Guía grande\.pdf: .*Se subirá igual/.test(out.chips.aviso), out.chips.aviso);
+
+            // Cancelar una subida: el chip desaparece y no queda nada pendiente.
+            await subir('[data-leccion-material]', rutaPdfGrande);
+            await hasta(`return document.querySelector('[data-materiales] li.opacity-80');`, 20, 100);
+            await ev(`document.querySelector('[data-materiales] li.opacity-80 button').click(); return 1;`);
+            out.cancelada = await hasta(`const f = document.querySelector('[data-leccion-form]'); return !f.querySelector('[data-materiales] li.opacity-80') ? { chips: f.querySelectorAll('[data-materiales] li').length, guardar: f.querySelector('[data-leccion-guardar]').disabled } : null;`, 30, 200);
+            comprobar('cancelar una subida la quita y "Guardar" vuelve a estar activo', out.cancelada?.chips === 2 && out.cancelada?.guardar === false, out.cancelada);
         }
         await ev(`document.querySelector('[data-leccion-guardar]').click(); return 1;`);
         await sleep(5000);
@@ -177,11 +237,54 @@ try {
     out.descartarCerrado = await ev(`return { modalAbierto: document.getElementById('editar-leccion').open, creada: !![...document.querySelectorAll('li[data-item]')].find(i => i.dataset.titulo === 'Lección que se descarta') };`);
     out.items = await ev(`return [...document.querySelectorAll('li[data-modulo] li[data-item]')].map(i => i.innerText.replace(/\\s+/g, ' ').trim().slice(0, 120));`);
 
-    // Descargable del módulo.
-    await subir('li[data-modulo] input[data-agregar-descargable]', rutaPdf);
-    await ev(`document.querySelector('li[data-modulo] input[data-agregar-descargable]').dispatchEvent(new Event('change', { bubbles: true })); return 1;`);
-    await sleep(3000);
-    out.itemsConPdf = await ev(`return [...document.querySelectorAll('li[data-modulo] li[data-item]')].map(i => i.dataset.tipo + ': ' + i.dataset.titulo);`);
+    out.leccionGuardada = await ev(`const li = [...document.querySelectorAll('li[data-item]')].find((i) => i.dataset.titulo === 'Conoce a Bárbara'); const d = JSON.parse(li.dataset.leccion); return { linea: li.querySelector('[data-item-linea]').textContent, video: d.video, materiales: d.materiales.map((m) => m.nombre) };`);
+    comprobar('la lección guardada tiene su video y sus 2 descargables', /^Video/.test(out.leccionGuardada.linea) && out.leccionGuardada.video > 0 && out.leccionGuardada.materiales.length === 2, out.leccionGuardada);
+
+    // Descargable del módulo: "+ Agregar descargable" abre dos opciones.
+    out.menuDescargable = await ev(`const b = document.querySelector('li[data-modulo] [data-agregar-descargable]'); b.click(); await new Promise((r) => setTimeout(r, 200)); return { expandido: b.getAttribute('aria-expanded'), visible: !b.closest('[data-descargable-menu]').querySelector('[data-descargable-opciones]').hidden };`);
+    comprobar('"+ Agregar descargable" abre sus dos opciones', out.menuDescargable.expandido === 'true' && out.menuDescargable.visible, out.menuDescargable);
+    await tecla('Escape', 'Escape', 27);
+    out.menuEscape = await ev(`return { expandido: document.querySelector('li[data-modulo] [data-agregar-descargable]').getAttribute('aria-expanded'), foco: document.activeElement?.matches('[data-agregar-descargable]') };`);
+    comprobar('Escape cierra el menú y devuelve el foco', out.menuEscape.expandido === 'false' && out.menuEscape.foco, out.menuEscape);
+
+    // Subir archivo (PDF chico) desde el módulo.
+    await ev(`document.querySelector('li[data-modulo] [data-agregar-descargable]').click(); return 1;`);
+    await subir('li[data-modulo] [data-descargable-subir]', rutaPdf);
+    await hasta(`return [...document.querySelectorAll('li[data-modulo] li[data-item][data-tipo=material]')].length >= 1;`, 60);
+    // Elegir de mis archivos (modal de 720 px, solo materiales, con buscador): el PDF grande.
+    await ev(`document.querySelector('li[data-modulo] [data-agregar-descargable]').click(); document.querySelector('li[data-modulo] [data-descargable-elegir]').click(); return 1;`);
+    out.modalElegir = await hasta(`const d = document.getElementById('elegir-archivo'); const filas = d.querySelectorAll('[data-lista-elegir]'); return filas.length ? { abierto: d.open, ancho: Math.round(d.querySelector('.modal__panel')?.getBoundingClientRect().width || 0), clase: d.querySelector('[data-lista-archivos]').dataset.clase, filas: [...filas].map((b) => b.getAttribute('aria-label')) } : null;`, 40);
+    comprobar('"Elegir de mis archivos" del módulo abre su modal de 720 px, solo con materiales y sin portadas', out.modalElegir?.abierto && out.modalElegir?.ancho === 720 && out.modalElegir?.clase === 'material' && !out.modalElegir.filas.some((f) => /portada|\.mp4|video-prueba/i.test(f)), out.modalElegir);
+    await ev(`const i = document.querySelector('#elegir-archivo [data-lista-buscar]'); i.value = 'grande'; i.dispatchEvent(new Event('input', { bubbles: true })); return 1;`);
+    await sleep(1200);
+    out.buscador = await ev(`return [...document.querySelectorAll('#elegir-archivo [data-lista-elegir]')].map((b) => b.getAttribute('aria-label'));`);
+    comprobar('el buscador filtra por nombre', out.buscador.length >= 1 && out.buscador.every((f) => /grande/i.test(f)), out.buscador);
+    await ev(`document.querySelector('#elegir-archivo [data-lista-elegir]').click(); return 1;`);
+    await hasta(`return !document.getElementById('elegir-archivo').open;`, 30);
+    out.itemsConPdf = await ev(`return [...document.querySelectorAll('li[data-modulo] li[data-item]')].map(i => i.dataset.tipo + ': ' + i.dataset.titulo + ' · ' + i.querySelector('[data-item-linea]').textContent);`);
+    comprobar('los dos descargables del módulo quedan con su tipo y tamaño', out.itemsConPdf.filter((i) => /^material: .* · PDF · /.test(i)).length === 2, out.itemsConPdf);
+
+    // Quitar un descargable del curso no lo borra de "Archivos privados".
+    out.quitarDescargable = await ev(`
+        const item = [...document.querySelectorAll('li[data-item][data-tipo=material]')].find((i) => i.dataset.titulo === 'Guía grande');
+        const id = item.dataset.id;
+        item.querySelector('[data-item-eliminar]').click();
+        await new Promise((r) => setTimeout(r, 400));
+        const d = document.getElementById('eliminar');
+        const r = { titulo: d.querySelector('#eliminar-title').innerText.trim(), texto: d.querySelector('[data-eliminar-texto], #eliminar-description')?.innerText.trim() };
+        d.querySelector('[data-eliminar-confirmar]').click();
+        await new Promise((r) => setTimeout(r, 2000));
+        const base = document.querySelector('[data-constructor]');
+        const url = new URL(base.dataset.api, location.href);
+        const ruta = '/archivos';
+        if (url.searchParams.has('rest_route')) url.searchParams.set('rest_route', url.searchParams.get('rest_route').replace(/\\/$/, '') + ruta); else url.pathname = url.pathname.replace(/\\/$/, '') + ruta;
+        url.searchParams.set('buscar', 'Guía grande');
+        const lista = await (await fetch(url, { headers: { 'X-WP-Nonce': base.dataset.nonce }, credentials: 'same-origin' })).json();
+        r.sigue = lista.archivos.some((a) => String(a.id) === id);
+        r.queda = !!document.querySelector('li[data-item][data-tipo=material][data-id="' + id + '"]');
+        return r;
+    `);
+    comprobar('quitar un descargable dice "¿Quitar este descargable?" y no lo borra de Archivos privados', out.quitarDescargable.titulo === '¿Quitar este descargable?' && out.quitarDescargable.sigue && !out.quitarDescargable.queda, out.quitarDescargable);
 
     // Ordenar con teclado: subir la segunda lección.
     out.orden = await ev(`
@@ -228,14 +331,28 @@ try {
     await send('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 1, mobile: true });
     out.movil = {};
     for (const paso of [1, 2, 3]) { await ir('/administrador/cursos/' + cursoId + '/editar/?paso=' + paso); out.movil[paso] = (await revisar()).desborde; }
+    // El modal de la lección en el móvil: sin desborde, con el recuadro del video a todo el ancho.
+    await ir('/administrador/cursos/' + cursoId + '/editar/?paso=2');
+    await ev(`document.querySelector('li[data-modulo] [data-item-editar]').click(); return 1;`);
+    await sleep(800);
+    out.movil.modalLeccion = await ev(`const p = document.querySelector('#editar-leccion .modal__panel'); const c = document.querySelector('[data-leccion-contenido]'); return { ancho: Math.round(p.getBoundingClientRect().width), desborde: c.scrollWidth - c.clientWidth };`);
+    comprobar('el modal de la lección entra en 390 px sin desborde', out.movil.modalLeccion.ancho <= 390 && out.movil.modalLeccion.desborde <= 0, out.movil.modalLeccion);
+    const foto = await send('Page.captureScreenshot', { format: 'png' });
+    fs.writeFileSync(path.join(temporal, 'constructor-leccion-390.png'), Buffer.from(foto.result.data, 'base64'));
     await ir('/administrador/cursos/nuevo/');
     out.movil.nuevo = (await revisar()).desborde;
+    for (const [paso, desborde] of Object.entries(out.movil)) if (typeof desborde === 'number') comprobar('sin scroll horizontal en el móvil (' + paso + ')', desborde <= 0, desborde);
 } catch (e) {
     out.fallo = String(e?.stack || e);
 } finally {
     out.erroresJs = errores;
     out.dialogosNativos = dialogosNativos;
+    if (out.fallo) fallos.push(out.fallo);
+    if (errores.length) fallos.push('errores de JS: ' + JSON.stringify(errores));
+    if (dialogosNativos.length) fallos.push('ventanas nativas: ' + JSON.stringify(dialogosNativos));
+    out.fallos = fallos;
+    out.ok = fallos.length === 0;
     console.log(JSON.stringify(out, null, 1));
     proc.kill();
-    process.exit(0);
+    process.exit(fallos.length ? 1 : 0);
 }

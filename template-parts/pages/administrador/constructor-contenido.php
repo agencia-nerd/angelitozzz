@@ -28,9 +28,8 @@ $textos = [
     /* translators: %d: número de lecciones. */
     'lecciones'           => __('%d lecciones', 'angelitozzz'),
     'unaLeccion'          => __('1 lección', 'angelitozzz'),
-    'videoVimeo'          => __('Video de Vimeo', 'angelitozzz'),
+    'video'               => __('Video', 'angelitozzz'),
     'sinVideo'            => __('Sin video', 'angelitozzz'),
-    'descargable'         => __('Descargable', 'angelitozzz'),
     /* translators: %s: comienzo del texto de la lección. */
     'descripcion'         => __('Descripción: %s', 'angelitozzz'),
     /* translators: %s: título del módulo. */
@@ -59,8 +58,12 @@ $textos = [
     'moduloGuardado'      => __('Módulo guardado', 'angelitozzz'),
     'leccionGuardada'     => __('Lección guardada', 'angelitozzz'),
     /* translators: %s: nombre del archivo. */
-    'subiendo'            => __('Subiendo %s…', 'angelitozzz'),
+    'subiendo'            => __('Subiendo %1$s… %2$d %', 'angelitozzz'),
+    /* translators: %s: nombre del archivo. */
+    'enEspera'            => __('En espera: %s', 'angelitozzz'),
     'descargableAgregado' => __('Descargable agregado', 'angelitozzz'),
+    'errorMaterial'       => __('Ese tipo de archivo no está permitido. Se aceptan PDF, Word, Excel, PowerPoint, JPG, PNG, WebP y MP3.', 'angelitozzz'),
+    'sinSubida'           => __('No pudimos preparar la subida. Recarga la página e inténtalo de nuevo.', 'angelitozzz'),
     'error'               => __('No pudimos guardar el cambio. Revisa tu conexión y vuelve a intentarlo.', 'angelitozzz'),
 ];
 
@@ -77,9 +80,9 @@ $fila_item = static function (array $item) use ($textos, $icono_boton, $mover_bo
     $titulo = (string) ($tipo === 'material' ? ($item['nombre'] ?? '') : ($item['titulo'] ?? ''));
 
     if ($tipo === 'material') {
-        $linea = $textos['descargable'] . ' · ' . preg_replace('/^PDF · /u', '', (string) ($item['tamano'] ?? ''));
-    } elseif ((string) ($item['video'] ?? '') !== '') {
-        $linea = $textos['videoVimeo'] . ((string) ($item['duracion_texto'] ?? '') !== '' ? ' · ' . (string) $item['duracion_texto'] : '');
+        $linea = (string) ($item['tamano'] ?? ''); // "PDF · 2,4 MB", "Word · 120 KB" (del plugin).
+    } elseif ((int) ($item['video'] ?? 0) > 0) {
+        $linea = $textos['video'] . ((string) ($item['duracion_texto'] ?? '') !== '' ? ' · ' . (string) $item['duracion_texto'] : '');
     } else {
         $linea = $textos['sinVideo'];
     }
@@ -174,13 +177,34 @@ $fila_modulo = static function (array $modulo, int $numero, bool $abierto) use (
                     <?= angelitozzz_svg('administrador/mas', 'size-5') // SVG fijo del tema. ?>
                     <span><?= esc_html__('Agregar lección', 'angelitozzz') ?></span>
                 </button>
-                <?php // Un <input type="file"> real dentro de su <label>: se usa con teclado. ?>
-                <label class="inline-flex cursor-pointer items-center gap-2 rounded-[8px] text-cuerpo-l text-terracota hover:underline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-marca">
-                    <input class="sr-only" type="file" accept="application/pdf,.pdf" data-agregar-descargable>
-                    <?= angelitozzz_svg('administrador/mas', 'size-5') // SVG fijo del tema. ?>
-                    <span><?= esc_html__('Agregar descargable', 'angelitozzz') ?></span>
-                </label>
+                <?php // "+ Agregar descargable": botón que muestra dos opciones (subir desde la computadora o elegir de "Archivos privados"). ?>
+                <div class="relative" data-descargable-menu>
+                    <button class="inline-flex cursor-pointer items-center gap-2 rounded-[8px] text-cuerpo-l text-terracota hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca disabled:cursor-default disabled:opacity-50"
+                        type="button" aria-expanded="false" data-agregar-descargable>
+                        <?= angelitozzz_svg('administrador/mas', 'size-5') // SVG fijo del tema. ?>
+                        <span><?= esc_html__('Agregar descargable', 'angelitozzz') ?></span>
+                    </button>
+                    <div class="absolute left-0 top-full z-10 mt-2 flex min-w-[240px] flex-col rounded-[12px] border border-neutro bg-blanco p-2 shadow-lg max-md:static max-md:mt-2 max-md:shadow-none" hidden data-descargable-opciones>
+                        <?php // Un <input type="file"> real dentro de su <label>: se usa con teclado. ?>
+                        <label class="flex cursor-pointer items-center gap-3 rounded-[8px] px-3 py-2 text-cuerpo text-marca hover:bg-fondo has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-[-2px] has-[:focus-visible]:outline-marca">
+                            <input class="sr-only" type="file" data-descargable-subir
+                                accept=".pdf,.docx,.xlsx,.pptx,.jpg,.jpeg,.png,.webp,.mp3,application/pdf,image/jpeg,image/png,image/webp,audio/mpeg">
+                            <span><?= esc_html__('Subir archivo', 'angelitozzz') ?></span>
+                        </label>
+                        <button class="flex cursor-pointer items-center gap-3 rounded-[8px] px-3 py-2 text-left text-cuerpo text-marca hover:bg-fondo focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-marca"
+                            type="button" data-descargable-elegir><?= esc_html__('Elegir de mis archivos', 'angelitozzz') ?></button>
+                    </div>
+                </div>
             </div>
+            <div class="flex flex-col gap-2 pb-4" hidden data-descargable-subiendo>
+                <p class="break-words text-cuerpo-s text-marca" data-descargable-texto></p>
+                <div class="flex items-center gap-3">
+                    <progress class="barra-progreso min-w-0 flex-1" max="100" value="0" data-descargable-progreso>0 %</progress>
+                    <button class="inline-flex cursor-pointer items-center justify-center whitespace-nowrap rounded-full border-[1.5px] border-marca px-4 py-2 text-cuerpo-s text-marca focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca"
+                        type="button" data-descargable-cancelar><?= esc_html__('Cancelar', 'angelitozzz') ?></button>
+                </div>
+            </div>
+            <p class="mb-4 rounded-[12px] border border-acento p-3 text-caption text-acento empty:hidden" role="alert" data-descargable-aviso></p>
         </div>
     </li>
     <?php
@@ -194,7 +218,7 @@ $fila_modulo = static function (array $modulo, int $numero, bool $abierto) use (
     <section class="flex flex-col gap-6 rounded-[20px] bg-blanco p-10 max-md:p-5" aria-labelledby="constructor-contenido-titulo">
         <div class="flex flex-col gap-4">
             <h2 id="constructor-contenido-titulo" class="text-h5 text-marca"><?= esc_html__('Módulos y lecciones', 'angelitozzz') ?></h2>
-            <p class="text-cuerpo text-tinta"><?= esc_html__('Arrastra para ordenar. Cada lección tiene su video de Vimeo, un texto corto y sus descargables.', 'angelitozzz') ?></p>
+            <p class="text-cuerpo text-tinta"><?= esc_html__('Arrastra para ordenar. Cada lección tiene su video, un texto corto y sus descargables.', 'angelitozzz') ?></p>
         </div>
 
         <div class="rounded-[15px] border border-acento bg-blanco p-5 text-cuerpo text-acento empty:hidden" role="alert" data-contenido-error></div>
@@ -234,3 +258,4 @@ $fila_modulo = static function (array $modulo, int $numero, bool $abierto) use (
 get_template_part('template-parts/modals/eliminar');
 get_template_part('template-parts/modals/editar-leccion');
 get_template_part('template-parts/modals/editar-modulo');
+get_template_part('template-parts/modals/elegir-archivo');

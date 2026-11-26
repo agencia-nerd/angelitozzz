@@ -25,7 +25,8 @@ function angelitozzz_icono_material(array $material): string
         return 'presentacion';
     }
 
-    $clase = (string) ($material['tipo'] ?? '');
+    // En el constructor la clase va en `clase` (ahí `tipo` dice si el ítem es una lección o un material).
+    $clase = (string) ($material['clase'] ?? $material['tipo'] ?? '');
     if ($clase === 'imagen' || $clase === 'audio') {
         return $clase;
     }

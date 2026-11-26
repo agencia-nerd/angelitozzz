@@ -2,9 +2,15 @@
 
 /**
  * Modal "Editar lección" / "Nueva lección" del constructor (specs/admin-constructor.md → modal-leccion,
- * Figma 3773:5409). Título, enlace de Vimeo con su vista previa (miniatura y duración, leídas por la API
- * del plugin), descripción con el editor (src/js/modules/editor-texto.js, Tiptap), descargables en PDF
- * e interruptor de vista previa gratuita. Pie fijo con "Cancelar" y "Guardar lección".
+ * Figma 3773:5409). Título, video de "Archivos privados" (subir uno por partes o elegir uno ya subido;
+ * con su portada, nombre y duración), descripción con el editor (src/js/modules/editor-texto.js, Tiptap),
+ * descargables de cualquier tipo de material (chips con el ícono de su tipo) e interruptor de vista
+ * previa gratuita. Pie fijo con "Cancelar" y "Guardar lección" (desactivado mientras sube algo).
+ *
+ * La subida es la del plugin (window.AngelitozzzSubida, inc/constructor-subida.php) y lo que se sube va
+ * enseguida a "Archivos privados"; al guardar, la lección guarda el ID del video y vincula los
+ * descargables. "Elegir de mis archivos" es otra vista del mismo modal ([data-leccion-archivos], con
+ * template-parts/pages/administrador/lista-archivos.php).
  *
  * Lo maneja src/js/modules/constructor-contenido.js: cambia el título, el antetítulo ("Módulo N ·
  * Lección N", que es la descripción del modal) y los valores al abrir, y guarda por la API.
@@ -44,13 +50,17 @@ angelitozzz_modal_start('editar-leccion', [
     data-titulo-nueva="<?= esc_attr__('Nueva lección', 'angelitozzz') ?>"
     data-titulo-editar="<?= esc_attr__('Editar lección', 'angelitozzz') ?>"
     data-antetitulo="<?= esc_attr__('Módulo %1$d · Lección %2$d', 'angelitozzz') ?>"
-    data-video-conectado="<?= esc_attr__('Video conectado', 'angelitozzz') ?>"
-    data-video-duracion="<?= esc_attr__('Duración: %s · se detecta sola', 'angelitozzz') ?>"
-    data-video-leyendo="<?= esc_attr__('Leyendo el video…', 'angelitozzz') ?>"
-    data-video-error="<?= esc_attr__('No pudimos leer ese video. Revisa que el enlace sea de Vimeo y que el video permita insertarse en otros sitios.', 'angelitozzz') ?>"
+    data-video-duracion="<?= esc_attr__('%1$s · Duración: %2$s · se detecta sola', 'angelitozzz') ?>"
+    data-subiendo="<?= esc_attr__('Subiendo %1$s… %2$d %', 'angelitozzz') ?>"
+    data-en-espera="<?= esc_attr__('En espera: %s', 'angelitozzz') ?>"
+    data-error-video="<?= esc_attr__('Ese archivo no es un video MP4 o WebM.', 'angelitozzz') ?>"
+    data-error-corte="<?= esc_attr__('No pudimos terminar de subir el video. Revisa tu conexión e inténtalo de nuevo.', 'angelitozzz') ?>"
+    data-error-material="<?= esc_attr__('Ese tipo de archivo no está permitido. Se aceptan PDF, Word, Excel, PowerPoint, JPG, PNG, WebP y MP3.', 'angelitozzz') ?>"
+    data-sin-subida="<?= esc_attr__('No pudimos preparar la subida. Recarga la página e inténtalo de nuevo.', 'angelitozzz') ?>"
+    data-ya-esta="<?= esc_attr__('Ese archivo ya está en esta lección.', 'angelitozzz') ?>"
     data-quitar="<?= esc_attr__('Quitar %s', 'angelitozzz') ?>"
-    data-pendiente="<?= esc_attr__('se sube al guardar', 'angelitozzz') ?>"
-    data-solo-pdf="<?= esc_attr__('Solo se aceptan archivos PDF de hasta 20 MB.', 'angelitozzz') ?>"
+    data-cancelar-subida="<?= esc_attr__('Cancelar la subida de %s', 'angelitozzz') ?>"
+    data-iconos="<?= esc_attr((string) wp_json_encode(angelitozzz_iconos_material_urls())) ?>"
     data-guardando="<?= esc_attr__('Guardando…', 'angelitozzz') ?>">
 
     <div class="flex min-h-0 flex-1 flex-col gap-7 overflow-y-auto overscroll-contain px-8 py-6 max-sm:gap-6 max-sm:px-4" data-leccion-contenido>
@@ -64,19 +74,45 @@ angelitozzz_modal_start('editar-leccion', [
             <p class="<?= esc_attr($error) ?>" id="leccion-titulo-error" data-error-de="titulo"></p>
         </div>
 
-        <div class="flex flex-col gap-2">
-            <label class="<?= esc_attr($etiqueta) ?>" for="leccion-video"><?= esc_html__('Video (enlace de Vimeo)', 'angelitozzz') ?></label>
-            <p class="<?= esc_attr($ayuda) ?>" id="leccion-video-ayuda"><?= esc_html__('Bárbara sube el video a Vimeo y pega aquí el enlace.', 'angelitozzz') ?></p>
-            <input class="<?= esc_attr($campo) ?>" id="leccion-video" name="video" type="url" inputmode="url" autocomplete="off"
-                aria-describedby="leccion-video-ayuda" placeholder="https://vimeo.com/123456789">
-            <p class="<?= esc_attr($error) ?>" id="leccion-video-error" role="alert" data-error-de="video"></p>
-            <div class="mt-2 flex items-center gap-4" hidden data-video-vista>
-                <img class="h-[100px] w-[180px] shrink-0 rounded-[12px] bg-neutro object-cover max-sm:h-[72px] max-sm:w-[128px]" alt="" width="180" height="100" data-video-miniatura>
-                <p class="flex flex-col gap-1">
-                    <span class="text-rotulo text-marca" data-video-estado></span>
-                    <span class="text-caption text-tinta-suave" data-video-duracion></span>
-                </p>
+        <?php // Video: sin video (los dos botones), subiendo (barra y "Cancelar") o con video (portada, nombre y duración). ?>
+        <div class="flex flex-col gap-2" role="group" aria-labelledby="leccion-video-etiqueta" aria-describedby="leccion-video-ayuda" data-video>
+            <p class="<?= esc_attr($etiqueta) ?>" id="leccion-video-etiqueta"><?= esc_html__('Video de la lección', 'angelitozzz') ?></p>
+            <p class="<?= esc_attr($ayuda) ?>" id="leccion-video-ayuda"><?= esc_html__('Sube el video en MP4 desde tu computadora o elige uno que ya subiste. Solo lo ven las alumnas con acceso al curso.', 'angelitozzz') ?></p>
+            <input type="hidden" name="video" value="">
+            <div class="mt-2 flex items-center gap-5 max-sm:flex-col max-sm:items-stretch">
+                <div class="relative flex h-[100px] w-[180px] shrink-0 items-center justify-center overflow-hidden rounded-[12px] bg-neutro text-marca max-sm:w-full max-sm:aspect-video max-sm:h-auto">
+                    <img class="absolute inset-0 size-full object-cover" alt="" width="180" height="100" hidden data-video-miniatura>
+                    <?= angelitozzz_svg('administrador/video', 'size-8') // SVG fijo del tema. ?>
+                </div>
+                <div class="flex min-w-0 flex-1 flex-col gap-3">
+                    <div class="flex flex-col gap-1" hidden data-video-listo>
+                        <p class="text-rotulo text-marca"><?= esc_html__('Video listo', 'angelitozzz') ?></p>
+                        <p class="break-words text-caption text-tinta-suave" data-video-detalle></p>
+                    </div>
+                    <div class="flex flex-col gap-2" hidden data-video-subiendo>
+                        <p class="break-words text-cuerpo-s text-marca" id="leccion-video-progreso-texto" data-video-progreso-texto></p>
+                        <div class="flex items-center gap-3">
+                            <progress class="barra-progreso min-w-0 flex-1" max="100" value="0" aria-labelledby="leccion-video-progreso-texto" data-video-progreso>0 %</progress>
+                            <button class="<?= esc_attr($chico) ?>" type="button" data-video-cancelar><?= esc_html__('Cancelar', 'angelitozzz') ?></button>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-3 max-sm:flex-col" data-video-botones>
+                        <button class="<?= esc_attr($chico) ?>" type="button" data-video-elegir><?= esc_html__('Elegir de mis archivos', 'angelitozzz') ?></button>
+                        <?php // Un <input type="file"> real dentro de su <label>: se usa con teclado. ?>
+                        <label class="<?= esc_attr($chico . ' border-terracota bg-terracota text-blanco has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-marca') ?>">
+                            <input class="sr-only" type="file" accept="video/mp4,video/webm,.mp4,.webm" data-video-subir>
+                            <span><?= esc_html__('Subir video', 'angelitozzz') ?></span>
+                        </label>
+                    </div>
+                    <div class="flex flex-wrap gap-3 max-sm:flex-col" hidden data-video-acciones>
+                        <button class="<?= esc_attr($chico) ?>" type="button" data-video-cambiar><?= esc_html__('Cambiar video', 'angelitozzz') ?></button>
+                        <button class="<?= esc_attr($chico) ?>" type="button" data-video-quitar><?= esc_html__('Quitar video', 'angelitozzz') ?></button>
+                    </div>
+                </div>
             </div>
+            <p class="rounded-[12px] border border-acento p-3 text-caption text-acento empty:hidden" role="alert" data-video-aviso></p>
+            <p class="rounded-[12px] border border-estrella bg-fondo p-3 text-caption text-tinta empty:hidden" role="status" data-video-recomendacion></p>
+            <p class="<?= esc_attr($error) ?>" id="leccion-video-error" role="alert" data-error-de="video"></p>
         </div>
 
         <div class="flex flex-col gap-2">
@@ -120,13 +156,19 @@ angelitozzz_modal_start('editar-leccion', [
 
         <div class="flex flex-col gap-2">
             <p class="<?= esc_attr($etiqueta) ?>" id="leccion-descargables-etiqueta"><?= esc_html__('Descargables (opcional)', 'angelitozzz') ?></p>
-            <p class="<?= esc_attr($ayuda) ?>" id="leccion-descargables-ayuda"><?= esc_html__('PDFs que la mamá puede descargar desde esta lección.', 'angelitozzz') ?></p>
+            <p class="<?= esc_attr($ayuda) ?>" id="leccion-descargables-ayuda"><?= esc_html__('Archivos que la mamá puede descargar desde esta lección: PDF, Word, Excel, PowerPoint, imágenes o audio.', 'angelitozzz') ?></p>
             <ul class="flex flex-wrap gap-3 empty:hidden" aria-labelledby="leccion-descargables-etiqueta" data-materiales></ul>
-            <label class="inline-flex cursor-pointer items-center gap-2 self-start rounded-full border border-neutro bg-fondo px-4 py-2 text-cuerpo-s text-marca hover:border-marca has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-marca">
-                <input class="sr-only" type="file" accept="application/pdf,.pdf" multiple aria-describedby="leccion-descargables-ayuda" data-leccion-pdf>
-                <?= angelitozzz_svg('administrador/mas', 'size-4') // SVG fijo del tema. ?>
-                <span><?= esc_html__('Agregar PDF', 'angelitozzz') ?></span>
-            </label>
+            <div class="flex flex-wrap gap-3">
+                <label class="inline-flex cursor-pointer items-center gap-2 rounded-full border border-neutro bg-fondo px-4 py-2 text-cuerpo-s text-marca hover:border-marca has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-marca">
+                    <input class="sr-only" type="file" multiple aria-describedby="leccion-descargables-ayuda" data-leccion-material
+                        accept=".pdf,.docx,.xlsx,.pptx,.jpg,.jpeg,.png,.webp,.mp3,application/pdf,image/jpeg,image/png,image/webp,audio/mpeg">
+                    <?= angelitozzz_svg('administrador/mas', 'size-4') // SVG fijo del tema. ?>
+                    <span><?= esc_html__('Subir archivo', 'angelitozzz') ?></span>
+                </label>
+                <button class="inline-flex cursor-pointer items-center gap-2 rounded-full border border-neutro bg-fondo px-4 py-2 text-cuerpo-s text-marca hover:border-marca focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca"
+                    type="button" data-materiales-elegir><?= esc_html__('Elegir de mis archivos', 'angelitozzz') ?></button>
+            </div>
+            <p class="rounded-[12px] border border-acento p-3 text-caption text-acento empty:hidden" role="alert" data-materiales-aviso></p>
             <p class="<?= esc_attr($error) ?>" role="alert" data-error-de="materiales"></p>
         </div>
 
@@ -139,6 +181,16 @@ angelitozzz_modal_start('editar-leccion', [
             </span>
             <span class="text-cuerpo text-tinta"><?= esc_html__('Lección de vista previa gratuita (se puede ver sin comprar)', 'angelitozzz') ?></span>
         </label>
+    </div>
+
+    <?php // Elegir de mis archivos (video o descargables): otra vista del mismo modal, sin apilar otro. ?>
+    <div class="flex min-h-0 flex-1 flex-col gap-5 overflow-y-auto overscroll-contain px-8 py-6 max-sm:px-4" hidden role="group" aria-labelledby="leccion-archivos-titulo" data-leccion-archivos>
+        <button class="inline-flex cursor-pointer items-center gap-2 self-start rounded-[8px] text-cuerpo-s text-marca hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca" type="button" data-leccion-volver>
+            <span aria-hidden="true">←</span>
+            <span><?= esc_html__('Volver a la lección', 'angelitozzz') ?></span>
+        </button>
+        <h3 class="text-h5 text-marca" id="leccion-archivos-titulo"><?= esc_html__('Elegir de mis archivos', 'angelitozzz') ?></h3>
+        <?php get_template_part('template-parts/pages/administrador/lista-archivos', null, ['id' => 'leccion-archivos', 'clase' => 'video']); ?>
     </div>
 
     <?php // ¿Descartar los cambios? (en vez de window.confirm): reemplaza el contenido y el pie del mismo modal. ?>
@@ -158,7 +210,8 @@ angelitozzz_modal_start('editar-leccion', [
         </div>
     </div>
 
-    <div class="flex flex-none justify-end gap-4 border-t border-neutro px-8 py-5 max-sm:flex-col-reverse max-sm:px-4" data-leccion-pie>
+    <div class="flex flex-none flex-wrap items-center justify-end gap-4 border-t border-neutro px-8 py-5 max-sm:flex-col-reverse max-sm:px-4" data-leccion-pie>
+        <p class="text-caption text-tinta-suave max-sm:text-center" id="leccion-espera" hidden data-leccion-espera><?= esc_html__('Espera a que termine de subir el video.', 'angelitozzz') ?></p>
         <button class="inline-flex cursor-pointer items-center justify-center gap-[10px] whitespace-nowrap rounded-full border-[1.5px] border-marca px-[28px] py-[14px] text-rotulo text-marca focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca"
             type="button" data-leccion-cancelar><?= esc_html__('Cancelar', 'angelitozzz') ?></button>
         <?php get_template_part('template-parts/components/boton', null, [
