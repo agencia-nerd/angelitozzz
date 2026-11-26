@@ -6,7 +6,22 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 
 ## Dónde vamos (actualizar al cerrar cada fase)
 
-**Al 2026-11-26 (noche):** F0 a F5 hechas, también la F5-d (archivos privados y videos sin Vimeo). Tema y plugin en `main` (tema PR #74, plugin PR #19): plugin 0.12.0 (236 pruebas, PHPCS en 0), wp-query 1.2.2, `check.mjs` de design-import en 0. El Local quedó sin datos de prueba.
+**Al 2026-11-26 (cierre del día):** F0 a F5 hechas, también la F5-d (archivos privados y videos sin Vimeo).
+
+- **En `main`:** tema PR #78 y plugin PR #21. Plugin 0.13.0 (254 pruebas, PHPCS en 0) y wp-query 1.2.2.
+- **`check.mjs`:** design-import 1.41.0 marca 6 avisos en `_shared.md` (componentes como `testimonios-slider`). Ya estaban antes de la auditoría y están por revisar. Con la versión anterior daba 0.
+- **El Local tiene datos de prueba que se usan mañana:**
+    - `datos-f5.php tienda` (cursos y productos 1294 a 1311);
+    - `renovar` (la alumna `renovar-f5@angelitozzz.local`);
+    - los pedidos pagados en el sandbox 1316 y 1317, y los fallidos 1313 a 1315;
+    - la copia `zz-datos-f5.php` en `app/public`.
+- Después de los reembolsos se borran con `tienda-borrar` y `renovar-borrar`.
+- **Entorno de esta PC:** Local con PHP 8.4.28 y el entorno de pruebas armado con `instalar.mjs`. La regla de Nginx de la carpeta privada responde 403.
+
+- **Auditoría de seguridad del plugin: terminada** (corrida 1 y correcciones 0.12.1 y 0.13.0; F7 → "Auditoría de seguridad completa").
+- **Lo siguiente, en este orden:**
+    1. **Auditoría del tema**, en su propia corrida: perfil `standard` y tope de 20 agentes, ya acordados con el usuario. Cómo correrla en Windows: F7 → "Cómo se corrió en Windows".
+    2. Los reembolsos de la F6 **desde el 2026-11-27**. Son independientes: se pueden hacer en cualquier momento de ese día.
 
 - **F6 en curso** (Pagos y Angelita Pro). El detalle está en la sección F6.
     - **Hecho:**
@@ -535,7 +550,35 @@ Decisión del usuario (2026-11-25): los videos de las lecciones dejan Vimeo y se
             - `cdp-compra.mjs` pasa (0 avisos de PHP);
             - `cdp-renovar.mjs` falla igual en `main`, porque la alumna `renovar-f5` ya renovó hoy (pedido 1317). Hay que volver a correrla con `datos-f5.php renovar` después de los reembolsos.
         - **Ya estaba antes (no es de la 0.13.0):** en `cdp-bloque4.mjs`, el enlace de reseteo del correo de Mailpit abre una página de error en Chrome ("No se puede acceder a este sitio"), también en `main`. Hay que revisar el enlace que arma la prueba.
-    - [ ] Tema: su propia corrida (`standard`, tope 20)
+    - [ ] Tema: su propia corrida (`standard`, tope 20 agentes; si con los candidatos no alcanza, preguntar al usuario antes de subirlo).
+        - **Objetivo:** el repo del tema, sin `node_modules/`, `dist/`, `vendor/` ni `specs/` como código. El plugin queda fuera: ya se auditó.
+        - **Informe:** en `~/security-audit-skill/angelitozzz/run-1/`, fuera del repo.
+        - **Superficies:**
+            - plantillas que imprimen datos del plugin y de ACF (escapes);
+            - formularios de wp-form (`inc/forms/`);
+            - wp-query (`inc/query/`);
+            - JS del administrador de cursos (`src/js/modules/admin-cursos.js` y el constructor), con datos de la API `angelitozzz/v1`: es la unidad que la corrida del plugin dejó fuera de alcance;
+            - modales y acordeones;
+            - plantillas de WooCommerce.
+    - **Cómo se corrió en Windows** (corrida del plugin, para repetirlo en el tema):
+        - **La skill:** `security-audit` de Cloudflare, instalada con `pnpm dlx skills add https://github.com/cloudflare/security-audit-skill --skill security-audit --global`. Queda en `~/.agents/skills/security-audit`, con un enlace desde `~/.claude/skills/`, y se comprobó idéntica al commit revisado `c1c8a8c`. Se invoca con la skill `security-audit`, en modo "full audit".
+        - **Sin sandbox:** en Windows no hay sandbox del sistema operativo, así que no se ejecuta el código auditado. Todo es lectura del código, y lo que necesita ejecutarse queda como `needs_validation`. Después se valida con sondas en el Local, como en el plugin.
+        - **Scripts:** están en el repo, en `specs/pruebas/auditoria/`. Toman las rutas de variables (`SKILL_DIR`, `OUT`, `TARGET`, `WP_ROOT` y `COMMIT`), así que sirven en otra PC, y todo lo de la corrida queda fuera del repo, en `OUT`. Cómo usarlos: `specs/pruebas/auditoria/LEEME.md`.
+        - **Validadores:** los de la skill no leen archivos en Windows (exigen `O_NOFOLLOW`). Se corren con `validar.cjs` (`node validar.cjs ledger|findings <archivo>`), que aplica las mismas reglas exportadas.
+        - **Instrucciones de cada agente:** van en `agents/<id>/PROMPT.md`, generado con los bloques de la skill copiados textualmente. Los scripts se adaptan al tema (las listas de cazadores de `plan.cjs` y `plan2.cjs` son las del plugin):
+            - `plan.cjs` / `plan2.cjs`: registro de cobertura y cazadores;
+            - `verif.cjs`: fase 3;
+            - `verif5.cjs`: fase 5;
+            - `bloque.cjs`: copia textual de un bloque;
+            - `guardar.cjs` / `consolidar.cjs`: resultados al registro;
+            - `informes.cjs`: los informes.
+        - **Resultados de los agentes:** las transcripciones de los subagentes salen vacías en esta plataforma, así que el resultado JSON que devuelve cada agente lo guarda a mano el coordinador.
+        - **Presupuesto del perfil `standard`:**
+            - 4 de reconocimiento;
+            - una ola de cazadores;
+            - 1 crítico por ola más 1 crítico final;
+            - 2 verificadores por candidato (fases 3 y 5).
+            - En el plugin, con 9 candidatos, hicieron falta 36 agentes.
 - [ ] Revisión de seguridad final (`/security-review` de todo el plugin y las plantillas)
 - [ ] Manual de la clienta con wp-manual (incluye el administrador de cursos). También cómo preparar un video con HandBrake (MP4 H.264, 720p o 1080p, "Web Optimized"), cómo usar "Archivos privados" y cómo poner el video de una landing (archivo de Medios, público)
 - [ ] Cuenta de Bárbara en producción: usuaria propia con su correo y rol administradora (no la de la agencia). Con ella entra a `/wp-admin/` (contenido) y a `/administrador/` (cursos)
