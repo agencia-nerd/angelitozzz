@@ -112,8 +112,7 @@ All-in-One WP Migration solo lleva `app/public/` y la base: **no** lleva `.git`,
 2. **Código, siempre por git**, porque la copia importada no trae `.git`:
     - **Tema:** `git clone` de `agencia-nerd/angelitozzz` en `wp-content/themes/angelitozzz`. Si ya había una copia, se aparta antes.
     - **Plugin:** `git clone` de `agencia-nerd/angelitozzz-cursos` en `wp-content/plugins/angelitozzz-cursos`.
-    - En una PC que ya los tiene clonados, basta con `git pull` en los dos.
-3. **Entorno**, desde el tema:
+    - En una PC que ya los tiene clonados, basta con `git pull` en los dos.3. **Entorno**, desde el tema:
 
     ```bash
     node specs/pruebas/entorno/instalar.mjs             # revisa (no cambia nada)
