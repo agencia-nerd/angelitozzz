@@ -34,4 +34,6 @@ Reglas:
 ## Ajustes a plugins de terceros sin tocar sus archivos
 
 - **Openpay Cards:** carga sus scripts (también el antifraude de `js.openpay.pe`) en todo el sitio; el plugin `angelitozzz-cursos` los saca fuera del checkout (`includes/pagos.php`). Su CSS en línea del checkout (`.form-row` con `!important`, `.hidden { visibility: hidden }`) se neutraliza para lo nuestro en `src/css/pasarela.css`.
+- **Openpay Cards, reintento (plugin 0.11.1, 2026-11-26):** Openpay rechaza con 1006 todo cargo con un `order_id` ya registrado, y WooCommerce reutiliza el pedido fallido de la sesión mientras el carrito no cambie. Cuando un pedido de Openpay pasa a `failed`, `angelitozzz_cursos_pago_fallido_pedido_nuevo()` (`includes/pagos.php`) lo quita de la sesión (`order_awaiting_payment`) y el siguiente intento crea un pedido nuevo. Distinto del arreglo del token (1003) de `checkout-boton.js`.
+- **Openpay Cards, reembolso fallido:** si Openpay no acepta el reembolso, su plugin intenta borrarlo con `wp_delete_post()`, que con HPOS no lo borra. El reembolso queda en Woo sin dinero devuelto; hay que borrarlo a mano en el pedido (la nota "There was an error refunding charge in Openpay…" queda como historial).
 - **WooCommerce:** `checkout.js` cambia el texto de `#place_order` y borra la flecha del diseño; `src/js/modules/checkout-boton.js` la repone.
