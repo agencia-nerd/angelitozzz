@@ -7,7 +7,8 @@
  * - la marca de agua cambia de esquina cada 30 s;
  * - "Pantalla completa" (y el doble clic) pone en pantalla completa el marco entero, para que la marca
  *   siga a la vista; en iPhone, que solo deja hacerlo con el <video>, se usa la del <video> (ahí la marca
- *   no se ve: límite aceptado en el spec);
+ *   no se ve: límite aceptado en el spec). Si el navegador pone el <video> solo en pantalla completa con
+ *   su propio botón (Firefox no respeta controlslist="nofullscreen"), se pasa al marco entero;
  * - el clic derecho no abre el menú;
  * - si la dirección firmada venció (4 h) o falla, se pide una nueva a la ruta REST del plugin
  *   (GET angelitozzz/v1/lecciones/<id>/video) y se sigue en la misma posición; como mucho un intento
@@ -142,6 +143,16 @@ async function iniciar(marco, plantilla, boton) {
         }
     };
     const alCambiar = () => {
+        // Firefox no respeta controlslist="nofullscreen": su botón pone en pantalla completa el <video>
+        // solo, sin la marca de agua. Se pasa al marco entero; si el navegador no lo deja, se sale.
+        if (pantallaCompleta() === video) {
+            const salir = (document.exitFullscreen || document.webkitExitFullscreen)?.call(document);
+            Promise.resolve(salir)
+                .catch(() => {})
+                .then(() => marco.requestFullscreen?.())
+                .catch(() => {});
+            return;
+        }
         if (pantalla) pantalla.textContent = pantallaCompleta() === marco ? datos.textoSalir || textoEntrar : textoEntrar;
     };
     pantalla?.addEventListener('click', alternarPantalla);
