@@ -4,6 +4,15 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 
 **Cambio de rumbo (2026-11-13):** se deja Tutor LMS (gratis y Pro). Los cursos, la cuenta de la alumna, la lección y el administrador de Bárbara se construyen a medida, iguales a Figma y a los specs. Lo hecho con Tutor en la F0 anterior era de prueba y se limpia en la nueva F0.
 
+## Dónde vamos (actualizar al cerrar cada fase)
+
+**Al 2026-11-26:** F0 a F5 hechas, también la F5-d (archivos privados y videos sin Vimeo). Tema y plugin en `main`: plugin 0.11.0 (226 pruebas, PHPCS en 0), wp-query 1.2.2, `check.mjs` de design-import en 0.
+
+- **Lo siguiente es la F6** (Pagos y Angelita Pro): Openpay en modo prueba con su webhook, que necesita una URL pública, y decidir cómo se renueva Angelita Pro (el plugin de Openpay no soporta suscripciones). Plan aprobado antes de empezar.
+- **Después, la F7** (Cierre): QA, auditoría de seguridad, manual, ajustes reales de la clienta y deploy.
+- **Lo que solo se comprueba en producción** (iPhone, un video de 1 GB, la duración de un MP4 de HandBrake, borrar un archivo grande, la caché de páginas) está en "Verificación", al final. Por eso algunas secciones de `cursos-datos.md` y `archivos-privados.md` siguen en `aprobado` (`specs/_index.md`, nota "Archivos privados").
+- Para probar en el Local (datos de prueba, pruebas en Chrome y el entorno en otra PC): `specs/pruebas/LEEME.md`.
+
 ## Decisiones tomadas
 
 | Tema | Decisión |
@@ -372,7 +381,7 @@ Decisión del usuario (2026-11-25): los videos de las lecciones dejan Vimeo y se
     - **Archivos:** `includes/admin-archivos.php` (la lista la arma PHP) y `assets/js/archivos-admin.js` (subir, renombrar y eliminar, sin ventanas nativas).
     - **Script de subida compartido** (`assets/js/subida.js`, handle `angelitozzz-cursos-subida`), para reutilizar en el constructor del bloque 4: por partes, con reintentos, tiempo máximo por pedido, advertencia de peso, recomendación de calidad y portada del video.
     - **Pruebas:** 221 en verde (6 nuevas en `tests/test-admin-archivos.php`) y PHPCS en 0. En Chrome: `specs/pruebas/cdp-archivos-admin.mjs`, con la administradora de prueba de `datos-f5.php archivos` / `archivos-borrar`. Los datos de prueba quedaron borrados.
-    - [ ] **A confirmar en producción:** al eliminar un archivo grande en el Local de Windows, a veces la respuesta no llega aunque el servidor sí lo borra (ver `archivos-privados.md`, último criterio). La pantalla ya tiene un tiempo máximo de 20 s que avisa y recarga la lista.
+    - [x] **Pasa a "Verificación" (2026-11-26).** A confirmar en producción: al eliminar un archivo grande en el Local de Windows, a veces la respuesta no llega aunque el servidor sí lo borra (ver `archivos-privados.md`, último criterio). La pantalla ya tiene un tiempo máximo de 20 s que avisa y recarga la lista.
 - [x] **4. Constructor y lección** (cerrado el 2026-11-25; con la migración de los PDF y de `_angelitozzz_video` del plugin, y los saneadores solo con lo nuevo): "Subir video" y "Elegir de mis archivos" (`modal-archivos`), barra de avance y advertencia, descargables de cualquier tipo, reproductor `<video>` con marca de agua y pantalla completa propia, y materiales con su ícono y el audio. Pruebas en Chrome (`specs/pruebas/`), también adelantar el video. Va en 3 tramos, en la rama `feat/archivos-constructor` de los dos repos:
     - [x] **4a · Plugin 0.10.0** (2026-11-26):
         - **Migración 4** (`includes/esquema.php`): los PDF adjuntos pasan a archivos privados, con su archivo movido al almacén y su nombre, y los IDs cambian en las lecciones y en los cursos, también en la papelera. Además se borran los enlaces de Vimeo, con su duración, y `_angelitozzz_miniatura`. Probada también en el Local por CLI, con los datos de prueba borrados.
@@ -456,7 +465,7 @@ Decisión del usuario (2026-11-25): los videos de las lecciones dejan Vimeo y se
         - `cdp-compra.mjs` y `cdp-leccion-video.mjs` siguen pasando.
     - **Sin Vimeo:** en el código del tema no queda nada; en el plugin solo las pruebas que rechazan enlaces de Vimeo y los comentarios de la migración 4.
     - **Falta comprobar a mano con ventana:** el video de una landing en Chrome y Firefox (y Safari en producción).
-- [ ] Manual de la clienta (F7): cómo preparar un video con HandBrake (MP4 H.264, 720p o 1080p, "Web Optimized") y cómo usar "Archivos privados".
+- [x] Manual de la clienta: pasa a la F7, en "Manual de la clienta con wp-manual" (2026-11-26).
 
 ## F6 · Pagos y Angelita Pro
 
@@ -471,7 +480,7 @@ Decisión del usuario (2026-11-25): los videos de las lecciones dejan Vimeo y se
 - [ ] QA en escritorio, tablet y móvil
 - [ ] Auditoría de seguridad completa (movida desde la F3, decisión del usuario, 2026-11-19): plugin completo y plantillas del tema, con todo ya integrado (cuentas, compra, regalo y canje, lección, administrador, Angelita Pro). Con la skill `cloudflare/security-audit-skill` (https://github.com/cloudflare/security-audit-skill; leer su código antes de instalarla); si no sirve para PHP/WordPress, otra equivalente. Antes de correrla, preguntar al usuario el perfil y el tope de agentes (usa muchos subagentes). Cada hallazgo se corrige con su prueba
 - [ ] Revisión de seguridad final (`/security-review` de todo el plugin y las plantillas)
-- [ ] Manual de la clienta con wp-manual (incluye el administrador de cursos)
+- [ ] Manual de la clienta con wp-manual (incluye el administrador de cursos). También cómo preparar un video con HandBrake (MP4 H.264, 720p o 1080p, "Web Optimized"), cómo usar "Archivos privados" y cómo poner el video de una landing (archivo de Medios, público)
 - [ ] Cuenta de Bárbara en producción: usuaria propia con su correo y rol administradora (no la de la agencia). Con ella entra a `/wp-admin/` (contenido) y a `/administrador/` (cursos)
 - [ ] Texto real de Términos y condiciones y de Políticas de privacidad (hoy con relleno; lo pone el usuario). En producción, crear las dos páginas y elegirlas en WooCommerce → Ajustes → Avanzado y en Ajustes → Privacidad
 - [ ] Logo del sitio en Apariencia → Personalizar → Identidad del sitio (decisión del usuario, 2026-11-17: no se carga desde `inc/acf/sitio.php`)
@@ -480,7 +489,7 @@ Decisión del usuario (2026-11-25): los videos de las lecciones dejan Vimeo y se
 - [ ] Fluent SMTP en producción: configurar su conexión (las claves van en su pantalla, no en el repo) y mandar un correo de prueba (pedido, regalo, recuperar contraseña y formularios)
 - [ ] Yoast SEO (más adelante, decisión del usuario, 2026-11-25)
 - [x] Decidir dónde se guardan los PDF privados de materiales (pendiente desde el 2026-11-17). Decidido el 2026-11-25: **fuera de `public_html`**, en `/home/fizidnwp/angelitozzz-privado`, con la constante `ANGELITOZZZ_CURSOS_RUTA_PRIVADA` en `wp-config.php` de producción; en el Local sigue `uploads/angelitozzz-privado/` con su regla. Vale para todos los archivos privados (videos y materiales). Se construye en la F5-d, bloque 2.
-    - Hoy (hasta la F5-d) van en `wp-content/uploads/angelitozzz-privado/` y dependen de una regla `deny` de Nginx, o de su equivalente en Apache. Si la regla falta, los PDF quedan públicos.
+    - En el Local (y en producción si faltara la constante) van en `wp-content/uploads/angelitozzz-privado/` y dependen de una regla `deny` de Nginx, o de su equivalente en Apache. Si la regla falta, los PDF quedan públicos.
 - [ ] En producción: definir `ANGELITOZZZ_CURSOS_RUTA_PRIVADA` en `wp-config.php`, comprobar que PHP puede escribir en esa carpeta y que ninguna URL llega a ella
 - [ ] **Sitio actual en el hosting** (revisión del 2026-11-25, por las capturas del cPanel). Antes del respaldo y del deploy:
     - `public_html/` ocupa unos 956 GB y la cuenta tiene 356.396 archivos. Ver con "Uso del disco" qué carpeta de `wp-content/` ocupa tanto (respaldos viejos, caché, `uploads`). Un respaldo de ese tamaño no es práctico: primero se identifica y se decide qué se guarda.
@@ -489,7 +498,7 @@ Decisión del usuario (2026-11-25): los videos de las lecciones dejan Vimeo y se
     - **Recomendación:** publicar el sitio nuevo sobre un WordPress **limpio** (núcleo y plugins descargados de nuevo, más la base y los archivos del Local), sin reutilizar el núcleo, los plugins ni el `wp-content` del sitio actual. Del sitio actual se guarda solo lo que la clienta quiera conservar.
 - [ ] Pasar producción a **PHP 8.4** (cPanel → MultiPHP Manager) después del respaldo, porque 8.1 ya no tiene parches de seguridad. El Local ya corre 8.4. Revisar que los límites del `php.ini` (2048M y el resto) queden iguales en 8.4. Hasta entonces el código respeta 8.1 (PHPCompatibility en el plugin); después se sube el "Requires PHP" del plugin y del tema.
 - [ ] Deploy:
-    - [ ] Enlaces permanentes en "Nombre de la entrada" (Ajustes → Enlaces permanentes). Las URL del plugin (`/administrador/…`, `/cuenta/perfil/`, `/cursos/<curso>/<leccion>/`, `/cursos/descargar/<id>/`) usan reglas de reescritura y no funcionan con los enlaces simples. El JS del administrador ya no depende de esto: arma las URL de la API sobre la base de `rest_url()` (F4, bloque 6b).
+    - [ ] Enlaces permanentes en "Nombre de la entrada" (Ajustes → Enlaces permanentes). Las URL del plugin (`/administrador/…`, `/cuenta/perfil/`, `/cursos/<curso>/<leccion>/`, `/cursos/archivo/<id>/`) usan reglas de reescritura y no funcionan con los enlaces simples. El JS del administrador ya no depende de esto: arma las URL de la API sobre la base de `rest_url()` (F4, bloque 6b).
     - [ ] Tema: `pnpm build` y subir el tema con `dist/`, sin `hot`, `node_modules/`, `src/`, `specs/` ni configs.
     - [ ] Después de publicar, **vaciar la caché de páginas** (hosting, CDN o plugin) y hacer la prueba con curl de wp-query ("Page caches" en `references/vista.md` de la skill). Desde wp-query 1.2.2 (2026-11-26) filtrar sin recargar pide `?_wpq=1`: esa respuesta tiene que salir JSON con `Cache-Control: no-store` y `X-Robots-Tag: noindex`, y la URL normal tiene que salir HTML. En el Local ya se comprobó.
     - [ ] Plugin `angelitozzz-cursos`: subirlo sin tests ni configs de desarrollo.
@@ -504,6 +513,8 @@ Las herramientas para probar en el Local (datos de prueba, pruebas en Chrome y c
 - [ ] Horarios Ideales con 2 y con 3 etapas, con el descuento correcto
 - [ ] Compra con cupón
 - [ ] Video de una lección en Safari de iPhone: se reproduce, se puede adelantar y se ve la portada (en el Local no se puede: el Live Link no entrega los archivos privados, 2026-11-26)
+- [ ] Archivos privados en producción (F5-d): subir un video de 1 GB por partes desde el constructor; que la duración de un MP4 exportado con HandBrake aparezca en el constructor y en el temario (con el MP4 de prueba el servidor guarda 0); borrar un archivo grande desde "Archivos privados" y que la respuesta llegue (en el Local de Windows a veces no llega)
+- [ ] Video de una landing (galería y modal de etapa) en Chrome, Firefox y Safari: play reproduce, y se detiene al cambiar de diapositiva o al cerrar
 - [ ] Regalo: genera el código, el canje inscribe y el acceso empieza ese día (2026-11-19 en el Local: ok)
 - [ ] Angelita Pro: prueba de 7 días y renovación
 - [ ] Reembolso: el pedido reembolsado quita el acceso
