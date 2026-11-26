@@ -60,12 +60,13 @@ Stack: WordPress (Local WP) + Vite + Tailwind + pnpm.
 <!-- design-import:end -->
 
 <!-- wp-form:start -->
-## Formularios (wp-form 1.5.0)
+## Formularios (wp-form 1.6.0)
 - Cada form son dos archivos: la definición `inc/forms/<id>.php` y la vista `template-parts/forms/<id>.php`. Muéstralo con `get_template_part('template-parts/forms/<id>')`.
 - No edites el motor (`inc/forms.php`, `inc/forms-entries.php`, `src/js/modules/form.js`): se actualiza desde la skill wp-form.
 - Define los campos, las reglas y los mensajes solo en la definición.
 - No escribas a mano `name`, `id`, `required`, `maxlength` ni `aria-*` en los campos: los imprimen los helpers `angelitozzz_*`.
 - Instala Zod con `pnpm add zod@latest`.
+- El límite de envíos usa la IP real de la visitante detrás de Cloudflare o de un proxy del hosting (IP privadas): no hace falta filtro. Un proxy propio con IP públicas se agrega con el filtro `angelitozzz_form_trusted_proxies` en `inc/forms/<id>.php`. Los rangos de Cloudflare están escritos en `inc/forms.php` y se revisan al actualizar la skill.
 <!-- wp-form:end -->
 
 <!-- wp-modal:start -->
