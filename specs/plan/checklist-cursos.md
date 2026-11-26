@@ -368,7 +368,11 @@ Decisión del usuario (2026-11-25): los videos de las lecciones dejan Vimeo y se
         - Regresión: sin sesión se podían descargar los materiales de una lección de vista previa (la descarga de PDF de antes pedía sesión). Ahora sin sesión solo se ven el video y su portada.
         - Menor: la desinstalación con `BORRAR_TODO` quitaba la protección de la carpeta aunque quedara algún archivo. Ahora solo la quita si la carpeta queda vacía.
         - Queda sin cambio, por bajo impacto: dos envíos simultáneos del mismo trozo dañan esa subida, pero el final la rechaza y solo afecta a quien sube.
-- [ ] **3. wp-admin:** pantalla "Archivos privados" (`archivos-privados.md`).
+- [x] **3. wp-admin** (plugin 0.9.0, 2026-11-26, rama `feat/archivos-admin` del plugin): pantalla "Archivos privados" (`archivos-privados.md`).
+    - **Archivos:** `includes/admin-archivos.php` (la lista la arma PHP) y `assets/js/archivos-admin.js` (subir, renombrar y eliminar, sin ventanas nativas).
+    - **Script de subida compartido** (`assets/js/subida.js`, handle `angelitozzz-cursos-subida`), para reutilizar en el constructor del bloque 4: por partes, con reintentos, tiempo máximo por pedido, advertencia de peso, recomendación de calidad y portada del video.
+    - **Pruebas:** 221 en verde (6 nuevas en `tests/test-admin-archivos.php`) y PHPCS en 0. En Chrome: `specs/pruebas/cdp-archivos-admin.mjs`, con la administradora de prueba de `datos-f5.php archivos` / `archivos-borrar`. Los datos de prueba quedaron borrados.
+    - [ ] **A confirmar en producción:** al eliminar un archivo grande en el Local de Windows, a veces la respuesta no llega aunque el servidor sí lo borra (ver `archivos-privados.md`, último criterio). La pantalla ya tiene un tiempo máximo de 20 s que avisa y recarga la lista.
 - [ ] **4. Constructor y lección** (con la migración de los PDF y de `_angelitozzz_video` del plugin, y los saneadores solo con lo nuevo): "Subir video" y "Elegir de mis archivos" (`modal-archivos`), barra de avance y advertencia, descargables de cualquier tipo, reproductor `<video>` con marca de agua y pantalla completa propia, y materiales con su ícono y el audio. Pruebas en Chrome (`specs/pruebas/`), también adelantar el video.
 - [ ] **5. Landings:** campos `file` de ACF (`generate.mjs` de wp-acf), `video-portada` con `<video>`, quitar `angelitozzz_cursos_video_url()` del plugin y la vista previa de Vimeo del constructor.
 - [ ] Manual de la clienta (F7): cómo preparar un video con HandBrake (MP4 H.264, 720p o 1080p, "Web Optimized") y cómo usar "Archivos privados".

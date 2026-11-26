@@ -23,10 +23,10 @@
 ## Sección: pantalla
 
 - **Origen:** propuesta sin Figma (2026-11-25)
-- **Destino:** `../../plugins/angelitozzz-cursos/includes/admin.php`
+- **Destino:** `../../plugins/angelitozzz-cursos/includes/admin-archivos.php`
 - **Grupo:** ninguno
 - **Skill:** ninguna
-- **Comportamiento:** una sola pantalla con tres partes. En el bloque 3 la pantalla va en un archivo propio del plugin; `admin.php` es el de hoy.
+- **Comportamiento:** una sola pantalla con tres partes (plugin 0.9.0, 2026-11-26). La lista la arma PHP (filtros, buscador y paginación por URL, funciona sin JS); el JS (`assets/js/archivos-admin.js`) suma subir, renombrar y eliminar, sin ventanas nativas del navegador: "Renombrar" pone un campo en la celda (Enter guarda, Escape cancela) y "Eliminar" agrega una fila de confirmación debajo, con el foco en "Cancelar". La subida usa el script compartido `assets/js/subida.js`. Cada pedido de renombrar o eliminar tiene 20 s: si la respuesta no llega, se avisa "No recibimos respuesta del servidor. Actualizamos la lista para ver cómo quedó." y se recarga la lista.
     - **Encabezado:**
         - título "Archivos privados" (`h1` de WordPress);
         - texto: "Solo las alumnas con acceso al curso pueden ver estos archivos. Para fotos o videos públicos de la web usa Medios.";
@@ -54,10 +54,11 @@
 
 **Criterios de aceptación**
 
-- [ ] Cumple los criterios comunes de `_shared.md` que aplican al admin (accesibilidad de botones y formularios, textos traducibles y salida escapada)
-- [ ] Solo entra quien tiene `angelitozzz_gestionar_cursos`; el resto no ve el menú ni puede abrir la pantalla
-- [ ] Se puede subir un video de 1 GB por partes, con su barra de avance, y varios archivos seguidos
-- [ ] Un archivo que pasa su tope se sube igual con la advertencia en rojo; un SVG o un tipo fuera de la lista no se sube
-- [ ] Lo subido aquí aparece en "Elegir de mis archivos" del constructor y no aparece en Medios
-- [ ] "Dónde se usa" lista las lecciones y los cursos correctos; un archivo en uso no se puede eliminar
-- [ ] "Renombrar" cambia el nombre que ven las alumnas y el de la descarga
+- [x] (0.9.0) Cumple los criterios comunes de `_shared.md` que aplican al admin (accesibilidad de botones y formularios, textos traducibles y salida escapada)
+- [x] (0.9.0, PHPUnit) Solo entra quien tiene `angelitozzz_gestionar_cursos`; el resto no ve el menú ni puede abrir la pantalla
+- [ ] Se puede subir un video de 1 GB por partes, con su barra de avance, y varios archivos seguidos (probado en Chrome con un PDF de 21 MB en 3 trozos y un MP4, uno detrás de otro; falta un video real de 1 GB)
+- [x] (0.9.0, Chrome) Un archivo que pasa su tope se sube igual con la advertencia en rojo; un SVG o un tipo fuera de la lista no se sube
+- [ ] Lo subido aquí aparece en "Elegir de mis archivos" del constructor (bloque 4) y no aparece en Medios (esto último probado en Chrome)
+- [x] (0.9.0, PHPUnit) "Dónde se usa" lista las lecciones y los cursos correctos; un archivo en uso no se puede eliminar
+- [x] (0.9.0, Chrome) "Renombrar" cambia el nombre que ven las alumnas y el de la descarga
+- [ ] **A confirmar en producción:** en el Local de Windows, al eliminar un archivo grande (21 MB), a veces (1 de cada 3 o 4) el servidor lo borra pero la respuesta no llega al navegador. Con archivos chicos no pasó (20 de 20). Causa no confirmada, probablemente del Local (Nginx con `php-cgi`). La pantalla tiene un tiempo máximo de 20 s que avisa y recarga la lista; falta ver esa protección actuar en una falla real. Probar en producción (Apache) eliminando un archivo grande.
