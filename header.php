@@ -63,7 +63,8 @@ $cuenta_html = '<a' . ($attrs_cuenta !== '' ? $attrs_cuenta : ' class="' . esc_a
         'modal' => 'modal-coach',
     ]); ?>
 
-    <header class="relative z-30 bg-fondo shadow-header">
+    <?php // Fijo arriba; se oculta al bajar y aparece al subir (src/js/modules/header-scroll.js). Con la barra de WordPress, debajo de ella (en ≤ 600 px esa barra no es fija). ?>
+    <header class="sticky top-[var(--wp-admin--admin-bar--height,0px)] z-30 bg-fondo shadow-header transition-transform duration-300 ease-out motion-reduce:transition-none data-oculto:-translate-y-full max-[600px]:top-0" data-header>
         <div class="mx-auto flex max-w-[1364px] items-center justify-between gap-6 px-4 py-4">
             <div class="shrink-0 [&_img]:h-[63px] [&_img]:w-auto max-lg:[&_img]:h-12">
                 <?php if (has_custom_logo()) : ?>
@@ -103,7 +104,7 @@ $cuenta_html = '<a' . ($attrs_cuenta !== '' ? $attrs_cuenta : ' class="' . esc_a
             </div>
         </div>
 
-        <div id="menu-movil" class="border-t border-neutro bg-fondo px-4 pb-8 pt-4 lg:hidden" hidden data-menu-panel>
+        <div id="menu-movil" class="max-h-[calc(100dvh-80px)] overflow-y-auto border-t border-neutro bg-fondo px-4 pb-8 pt-4 lg:hidden" hidden data-menu-panel>
             <nav aria-label="<?= esc_attr__('Principal', 'angelitozzz') ?>">
                 <?php angelitozzz_menu('principal', $menu_principal, [
                     'clase'        => 'flex flex-col text-cuerpo [&_a]:block [&_a]:py-3 [&_span]:block [&_span]:py-3 [&_[aria-current]]:text-marca',
