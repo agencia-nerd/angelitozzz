@@ -16,6 +16,8 @@
  * vacia-f5@angelitozzz.local (cuenta vacía y canje); "borrar" los quita junto con el cupón del regalo.
  * F5-d: "archivos" crea la administradora prueba-admin-f5@angelitozzz.local (Prueba123) para cdp-archivos-admin.mjs;
  * "archivos-borrar" lista y borra los archivos privados que subió y a ella.
+ * F5-d, bloque 5: "video-landing" pone un MP4 de Medios en la galería de Angelita Pro y en el modal de la primera
+ * etapa de Horarios Ideales (cdp-landing-video.mjs); "video-landing-borrar" devuelve los valores y borra el adjunto.
  * Limpiezas sueltas: "limpiar-f4" (usuarias de cdp-bloque4.mjs y contadores del límite de intentos) y
  * "limpiar-formularios" (envíos guardados por cdp-formularios.mjs con prueba-formularios@angelitozzz.local).
  * El puerto de MySQL se lee del sites.json de Local (cambia en cada PC). Para forzarlo:
@@ -78,6 +80,79 @@ if ($accion === 'archivos' || $accion === 'archivos-borrar') {
     if ($admin) { echo "ya existe la administradora de prueba: ", $admin->ID, "\n"; exit; }
     $id = wp_insert_user(['user_login' => 'prueba-admin-f5', 'user_email' => 'prueba-admin-f5@angelitozzz.local', 'user_pass' => 'Prueba123', 'first_name' => 'Admin', 'last_name' => 'Prueba', 'role' => 'administrator']);
     echo is_wp_error($id) ? $id->get_error_message() : "administradora de prueba: " . $id, "\n";
+    exit;
+}
+
+// F5-d, bloque 5: un video público de Medios en la galería de Angelita Pro (primera diapositiva) y en el
+// modal de la primera etapa de Horarios Ideales, para cdp-landing-video.mjs. Guarda los valores que tenían
+// esos campos en la opción angelitozzz_prueba_video_landing; "video-landing-borrar" los devuelve y borra el
+// adjunto (lista su ID antes).
+if ($accion === 'video-landing' || $accion === 'video-landing-borrar') {
+    $guardado = get_option('angelitozzz_prueba_video_landing', []);
+
+    if ($accion === 'video-landing-borrar') {
+        if (!$guardado) { echo "no hay video de landing de prueba\n"; exit; }
+        echo "se borra el adjunto ", (int) $guardado['adjunto'], " y se devuelven ", wp_json_encode($guardado['antes']), "\n";
+        foreach ($guardado['antes'] as $clave => $valor) {
+            [$post_id, $meta] = explode('|', $clave);
+            update_post_meta((int) $post_id, $meta, $valor);
+        }
+        echo "se quitan: ", wp_json_encode($guardado['nuevas'] ?? []), "\n";
+        foreach ($guardado['nuevas'] ?? [] as $clave) {
+            [$post_id, $meta] = explode('|', $clave);
+            delete_post_meta((int) $post_id, $meta);
+        }
+        wp_delete_attachment((int) $guardado['adjunto'], true);
+        delete_option('angelitozzz_prueba_video_landing');
+        echo "borrado\n";
+        exit;
+    }
+
+    if ($guardado) { echo "ya está el video de landing de prueba: ", (int) $guardado['adjunto'], "\n"; exit; }
+    $origen = rtrim(str_replace('\\', '/', (string) getenv('TEMP')), '/') . '/angelitozzz-video-prueba.mp4';
+    if (!is_readable($origen)) { echo "falta $origen: corre node cdp-leccion-video.mjs video\n"; exit(1); }
+    $copia = wp_tempnam('angelitozzz-video-landing.mp4');
+    copy($origen, $copia);
+    $adjunto = media_handle_sideload(['name' => 'video-landing-prueba.mp4', 'tmp_name' => $copia], 0, 'Video de landing (prueba)');
+    if (is_wp_error($adjunto)) { echo $adjunto->get_error_message(), "\n"; exit(1); }
+
+    $campos = [
+        'angelita-pro'     => '/^solucion_secciones_bloques_\d+_diapositivas_0_video$/',
+        'horarios-ideales' => '/^solucion_secciones_bloques_\d+_items_0_modal_video$/',
+    ];
+    $antes = [];
+    foreach ($campos as $slug => $patron) {
+        $solucion = get_page_by_path($slug, OBJECT, 'solucion');
+        if (!$solucion) { echo "no está la solución $slug\n"; continue; }
+        foreach (array_keys(get_post_meta($solucion->ID)) as $meta) {
+            if (preg_match($patron, $meta)) {
+                $antes[$solucion->ID . '|' . $meta] = (string) get_post_meta($solucion->ID, $meta, true);
+                update_post_meta($solucion->ID, $meta, (int) $adjunto);
+            }
+        }
+    }
+    // La galería de Angelita Pro tiene una sola diapositiva: se agrega una segunda (la misma imagen, sin video)
+    // para probar que el video se detiene al cambiar de diapositiva. Se quita en "video-landing-borrar".
+    $nuevas = [];
+    $pro    = get_page_by_path('angelita-pro', OBJECT, 'solucion');
+    foreach ($pro ? array_keys(get_post_meta($pro->ID)) : [] as $meta) {
+        if (!preg_match('/^(solucion_secciones_bloques_\d+_diapositivas)$/', $meta, $m) || (int) get_post_meta($pro->ID, $meta, true) !== 1) {
+            continue;
+        }
+        $antes[$pro->ID . '|' . $meta] = '1';
+        update_post_meta($pro->ID, $meta, 2);
+        foreach (['imagen', 'video'] as $campo) {
+            $origen_meta = $m[1] . '_0_' . $campo;
+            $destino     = $m[1] . '_1_' . $campo;
+            update_post_meta($pro->ID, $destino, $campo === 'imagen' ? get_post_meta($pro->ID, $origen_meta, true) : '');
+            update_post_meta($pro->ID, '_' . $destino, get_post_meta($pro->ID, '_' . $origen_meta, true));
+            $nuevas[] = $pro->ID . '|' . $destino;
+            $nuevas[] = $pro->ID . '|_' . $destino;
+        }
+    }
+    update_option('angelitozzz_prueba_video_landing', ['adjunto' => (int) $adjunto, 'antes' => $antes, 'nuevas' => $nuevas], false);
+    echo "video de landing: adjunto ", (int) $adjunto, " en ", wp_json_encode(array_keys($antes)), "\n";
+    echo "landings: ", get_permalink(get_page_by_path('angelita-pro', OBJECT, 'solucion')), " y ", get_permalink(get_page_by_path('horarios-ideales', OBJECT, 'solucion')), "\n";
     exit;
 }
 
