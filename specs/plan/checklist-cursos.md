@@ -11,7 +11,7 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 | Cursos y lecciones | A medida, en el plugin propio `angelitozzz-cursos` (tipos `curso` y `leccion`, tablas de inscripciones y de avance). Sin Tutor LMS |
 | Alcance de la lección | Video, texto (con cita "PD"), materiales descargables, avance y banner de Mundo. Sin cuestionarios, certificados ni comentarios |
 | Cobro | WooCommerce es el motor (carrito, checkout, cupones, pedidos, correos, reembolsos). Pasarela Openpay (Perú) con su plugin oficial para WooCommerce, "Openpay Cards", en USD (decisión de la clienta, 2026-11-18; antes Niubiz). El plugin propio solo hace el puente pedido → inscripción |
-| Videos | Vimeo gratis, videos ocultos (no listados), sin restricción de dominio: riesgo aceptado por el usuario (quien tenga el enlace puede verlo). El código no se ata a Vimeo: una sola función arma el reproductor y se cambia de proveedor ahí |
+| Videos | ~~Vimeo gratis, videos ocultos (no listados), sin restricción de dominio: riesgo aceptado por el usuario (quien tenga el enlace puede verlo).~~ **Desde el 2026-11-25: archivos privados del sitio** (decisión del usuario). Subida por partes, entrega por pedazos con dirección firmada por alumna, lección y sesión, y marca de agua con el correo; los videos de venta de las landings son archivos públicos de ACF. Detalle en la F5-d y en `cursos-datos.md` → `archivos-privados`. El código sigue sin atarse al proveedor: el reproductor vive en `includes/video.php` |
 | Landing de venta | Tipo de contenido `solucion` con secciones ACF flexibles, unida a 1 o más cursos |
 | URL del listado | `/soluciones-de-sueno/` (y cada solución en `/soluciones-de-sueno/<slug>/`) |
 | Angelita Pro | Suscripción cada 4 meses con 7 días de prueba: por definir en la F6. El plugin de Openpay guarda tarjetas pero no muestra soporte de WooCommerce Subscriptions (revisión de su código, 2026-11-18): renovación manual con enlace de pago, o un desarrollo propio con la tarjeta guardada o las suscripciones de la API de Openpay. Mientras tanto se vende como un curso directo |
@@ -97,7 +97,7 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 - [x] Tipo de cargo de Openpay: **Directo** (decisión del usuario, 2026-11-25). Es el ajuste "¿Cómo procesar el cargo?" del plugin (Directo o 3D Secure, `class-wc-openpay-gateway.php:209-220`), y así está desde la F5-b.
     - **Puede cambiar a 3D Secure** si Openpay o el banco lo exigen al comercio, o si aparecen fraudes o contracargos. Es la confirmación extra que pide el banco a quien paga (sin fricción o con código o app): el pedido queda "En espera" ("Pago en revisión" en `gracias.md`) hasta que vuelve.
     - El cambio es ese ajuste más una prueba en el Local con el sandbox. Según el código del plugin, el regreso del 3D Secure (`/?wc-api=openpay_confirm`) lo hace el navegador de quien paga, así que no necesita URL pública; el webhook sí.
-- [ ] Proveedor de video por decidir: Vimeo u otra fuente (el usuario lo analiza, 2026-11-25). Cambiarlo toca solo `includes/video.php` del plugin (el tema pide la dirección con `angelitozzz_cursos_video_url()`). Si sigue Vimeo: confirmar con la clienta que su cuenta gratis permite videos ocultos y que el espacio le alcanza.
+- [x] Proveedor de video: **archivos privados del sitio**, sin Vimeo (decisión del usuario, 2026-11-25). Se construye en la F5-d.
 
 ## F1 · Specs
 
@@ -322,6 +322,42 @@ Plan aprobado el 2026-11-19, en 2 bloques. Decisiones del usuario: avisos del co
 - [x] Página 404 (2026-11-25, propuesta sin Figma, `specs/error-404.md`): `404.php` con la tarjeta `confirmacion-tarjeta`, "Ir al inicio" y "Ver soluciones de sueño". Antes caía en `index.php` sin diseño. Probada en Chrome a 1440, 390 y 320 px
 - [x] Buscador general de WordPress (`/?s=`) redirige con 301 al Blog con `?q=` (2026-11-25, `inc/busqueda.php`, `blog.md`): un solo buscador, el del blog
 
+### F5-d · Archivos privados y video propio
+
+Decisión del usuario (2026-11-25): los videos de las lecciones dejan Vimeo y se suben al sitio, protegidos como los PDF; los materiales aceptan más tipos que PDF; hay un apartado "Archivos privados" en `/wp-admin/`, aparte de Medios; los videos de venta de las landings pasan a ser archivos públicos de ACF. Una rama por bloque y el plan de cada uno aprobado antes.
+
+**Decisiones:**
+- **Subida:** por partes (unos 10 MB); si un archivo pasa el tope de su tipo, advertencia en rojo sin bloqueo. La web no optimiza nada, tampoco las imágenes. El video se prepara antes con HandBrake (va en el manual de la clienta).
+- **Entrega:** por pedazos (HTTP Range, 206) con PHP, sin X-Sendfile.
+- **Protección:** dirección firmada por alumna, lección o curso y sesión, que vence a las 4 horas y se renueva al recargar. En cada pedido se comprueban la sesión y la inscripción. Para la alumna inscrita: sin descarga ni clic derecho, sin caché y marca de agua con su correo. Sin límite de sesiones por cuenta.
+- **Tipos:** video MP4 y WebM (solo como video de lección); materiales PDF, docx, xlsx, pptx, JPG, PNG, WebP y MP3. **Sin SVG.**
+- **Almacén:** fuera de `public_html` en producción (`ANGELITOZZZ_CURSOS_RUTA_PRIVADA`).
+
+**Hosting de producción (cPanel de la clienta, 2026-11-25):**
+- paquete Bana-Starter-Deluxe-SSD, Apache 2.4.71 con CloudLinux (sin LiteSpeed) y MariaDB 11.4;
+- **PHP 8.1** (`ea-php81`), con `upload_max_filesize` y `post_max_size` en 2048M, `memory_limit` 2048M, `max_execution_time` 30 s y `max_input_time` 60 s;
+- cuenta en `/home/fizidnwp/`, con la web en `public_html/`;
+- tiene Backup, Backup Wizard y JetBackup 5;
+- **estadísticas (2026-11-25):**
+    - disco, tráfico y bases de datos sin límite;
+    - 4 GB de memoria;
+    - **25 procesos a la vez** (Entry Processes) y **10 MB/s de lectura de disco** para toda la cuenta: por eso la entrega del video va en pedazos de hasta 4 MB y la web recomienda videos livianos (sin límite de resolución, decisión del usuario);
+    - **356.396 de 500.000 archivos** (71 %), casi todo del sitio actual (ver F7, "Sitio actual en el hosting").
+
+**Bloques:**
+- [x] **1. Specs** (rama `docs/archivos-privados`):
+    - `cursos-datos.md`: sección nueva `archivos-privados`; cambian `curso`, `leccion`, `acceso` y `funciones-publicas`;
+    - `leccion.md`: `temario`, `video` y `pestanas`;
+    - `admin-constructor.md`: `paso-contenido`, `modal-leccion` y `modal-eliminar`, y la sección nueva `modal-archivos`;
+    - `archivos-privados.md` nuevo;
+    - `solucion.md`: `secciones` y `modal-etapa`, con los 2 campos a `file`;
+    - `_shared.md` → `video-portada`.
+- [ ] **2. Plugin:** tipo `angelitozzz_archivo`, almacén con la constante, subida por partes (REST), revisión del tipo, entrega con firma y por pedazos, video y portada, "dónde se usa", migración de los PDF y de `_angelitozzz_video`, limpieza de subidas a medias en la tarea diaria y desinstalación. Pruebas PHPUnit (firma, sesión, acceso perdido, rangos, tipos, migración), PHPCS y compatibilidad con PHP 8.1.
+- [ ] **3. wp-admin:** pantalla "Archivos privados" (`archivos-privados.md`).
+- [ ] **4. Constructor y lección:** "Subir video" y "Elegir de mis archivos" (`modal-archivos`), barra de avance y advertencia, descargables de cualquier tipo, reproductor `<video>` con marca de agua y pantalla completa propia, y materiales con su ícono y el audio. Pruebas en Chrome (`specs/pruebas/`), también adelantar el video.
+- [ ] **5. Landings:** campos `file` de ACF (`generate.mjs` de wp-acf), `video-portada` con `<video>`, quitar `angelitozzz_cursos_video_url()` del plugin y la vista previa de Vimeo del constructor.
+- [ ] Manual de la clienta (F7): cómo preparar un video con HandBrake (MP4 H.264, 720p o 1080p, "Web Optimized") y cómo usar "Archivos privados".
+
 ## F6 · Pagos y Angelita Pro
 
 - [ ] Openpay en modo prueba con las compras de la verificación y el webhook (necesita URL pública)
@@ -343,11 +379,15 @@ Plan aprobado el 2026-11-19, en 2 bloques. Decisiones del usuario: avisos del co
 - [x] Fluent SMTP instalado y activo en el Local (2026-11-25). En el Local los correos los recibe Mailpit
 - [ ] Fluent SMTP en producción: configurar su conexión (las claves van en su pantalla, no en el repo) y mandar un correo de prueba (pedido, regalo, recuperar contraseña y formularios)
 - [ ] Yoast SEO (más adelante, decisión del usuario, 2026-11-25)
-- [ ] Decidir dónde se guardan los PDF privados de materiales (pendiente desde el 2026-11-17). Hoy van en `wp-content/uploads/angelitozzz-privado/` y dependen de una regla `deny` de Nginx, o de su equivalente en Apache, en Local y en producción. Si la regla falta, los PDF quedan públicos.
-    - **Opción preferida:** una carpeta fuera de la raíz pública, que no necesita regla en el servidor.
-    - **Toca el plugin:** `includes/descargas.php` (dónde se guardan y cómo se entregan), `uninstall.php`, una migración que mueva los PDF que ya existan y sus pruebas.
-    - **Antes de decidir,** confirmar que el hosting de producción deja escribir fuera de `public_html`.
-    - **Si no deja,** se mantiene la regla y se comprueba el 403 en producción.
+- [x] Decidir dónde se guardan los PDF privados de materiales (pendiente desde el 2026-11-17). Decidido el 2026-11-25: **fuera de `public_html`**, en `/home/fizidnwp/angelitozzz-privado`, con la constante `ANGELITOZZZ_CURSOS_RUTA_PRIVADA` en `wp-config.php` de producción; en el Local sigue `uploads/angelitozzz-privado/` con su regla. Vale para todos los archivos privados (videos y materiales). Se construye en la F5-d, bloque 2.
+    - Hoy (hasta la F5-d) van en `wp-content/uploads/angelitozzz-privado/` y dependen de una regla `deny` de Nginx, o de su equivalente en Apache. Si la regla falta, los PDF quedan públicos.
+- [ ] En producción: definir `ANGELITOZZZ_CURSOS_RUTA_PRIVADA` en `wp-config.php`, comprobar que PHP puede escribir en esa carpeta y que ninguna URL llega a ella
+- [ ] **Sitio actual en el hosting** (revisión del 2026-11-25, por las capturas del cPanel). Antes del respaldo y del deploy:
+    - `public_html/` ocupa unos 956 GB y la cuenta tiene 356.396 archivos. Ver con "Uso del disco" qué carpeta de `wp-content/` ocupa tanto (respaldos viejos, caché, `uploads`). Un respaldo de ese tamaño no es práctico: primero se identifica y se decide qué se guarda.
+    - Algunos archivos del núcleo de WordPress tienen fechas distintas al resto: `wp-login.php` (2026-08-07), `wp-signup.php` (2026-10-29) y `readme.html` (2026-11-19), mientras casi todos son del 2024-03-15. Una actualización de WordPress cambia todos juntos, así que esto **puede** indicar archivos modificados por un tercero. No es una prueba: hay que revisarlo, sin ejecutar nada.
+    - `error_log` pesa 67,82 MB y `.tmb` tiene permisos 0777.
+    - **Recomendación:** publicar el sitio nuevo sobre un WordPress **limpio** (núcleo y plugins descargados de nuevo, más la base y los archivos del Local), sin reutilizar el núcleo, los plugins ni el `wp-content` del sitio actual. Del sitio actual se guarda solo lo que la clienta quiera conservar.
+- [ ] Pasar producción a **PHP 8.4** (cPanel → MultiPHP Manager) después del respaldo, porque 8.1 ya no tiene parches de seguridad. El Local ya corre 8.4. Revisar que los límites del `php.ini` (2048M y el resto) queden iguales en 8.4. Hasta entonces el código respeta 8.1 (PHPCompatibility en el plugin); después se sube el "Requires PHP" del plugin y del tema.
 - [ ] Deploy:
     - [ ] Enlaces permanentes en "Nombre de la entrada" (Ajustes → Enlaces permanentes). Las URL del plugin (`/administrador/…`, `/cuenta/perfil/`, `/cursos/<curso>/<leccion>/`, `/cursos/descargar/<id>/`) usan reglas de reescritura y no funcionan con los enlaces simples. El JS del administrador ya no depende de esto: arma las URL de la API sobre la base de `rest_url()` (F4, bloque 6b).
     - [ ] Tema: `pnpm build` y subir el tema con `dist/`, sin `hot`, `node_modules/`, `src/`, `specs/` ni configs.

@@ -6,19 +6,20 @@
 - **Destinos:** este spec se implementa en el plugin `angelitozzz-cursos`, fuera del tema. Cada `Destino` es una ruta relativa al tema (`../../plugins/angelitozzz-cursos/includes/<archivo>.php`) para que `check.mjs` de design-import compruebe que el archivo existe (2026-11-24).
 - **Tipo:** detalle
 - **Contenido:** curso
-- **Secciones (en orden):** curso, leccion, inscripcion, avance, acceso, puente-woo, regalo, roles, funciones-publicas
+- **Secciones (en orden):** curso, leccion, inscripcion, avance, acceso, archivos-privados, puente-woo, regalo, roles, funciones-publicas
 - **Skills usadas:** ninguna. Es código del plugin `angelitozzz-cursos` (sin skill que lo cubra: se sigue la documentación oficial de WordPress y WooCommerce)
 - **Grupo ACF:** ninguno
 - **Ubicación:** tipo de contenido = curso
 - **Padre:** ninguno
 - **Notas de página:**
     - Decisiones de `specs/plan/checklist-cursos.md` (2026-11-13): LMS a medida, sin Tutor; cobro con WooCommerce + Openpay (era Niubiz hasta el 2026-11-18); videos en Vimeo (ocultos, sin restricción de dominio); sin cuestionarios, certificados ni comentarios; por ahora solo Bárbara administra.
+    - **Cambio de rumbo de los videos (decisión del usuario, 2026-11-25):** los videos de las lecciones dejan Vimeo y se suben al sitio como archivos privados, con la misma protección que los materiales (sección `archivos-privados`). Los materiales aceptan más tipos que PDF. Lo que dicen de Vimeo las secciones `leccion` y `acceso` se reemplaza por esa sección; las secciones con estado `aprobado` son las que cambian.
     - Los datos de cursos y lecciones los escribe el constructor de Bárbara (`admin-constructor.md`), no el admin de WordPress ni ACF. Las capturas del constructor están en `specs/figma/lectura/admin-cursos/constructor-*.png`; de ahí salen los campos de `curso` y `leccion`.
     - Todo en el plugin: prefijo `angelitozzz_` en funciones, opciones, hooks, metadatos (`_angelitozzz_*`) y tablas (`{prefix}angelitozzz_*`); text domain `angelitozzz-cursos`; las tablas se crean con migraciones versionadas (`includes/esquema.php`).
     - Fechas guardadas en UTC (`DATETIME`); se muestran en la zona horaria del sitio (`wp_date`).
     - Privacidad: al borrar una usuaria se borran sus inscripciones y su avance (`delete_user`), y el plugin registra el exportador y el borrador de datos personales de WordPress (Herramientas → Exportar / Borrar datos personales; plugin 0.7.3, `includes/privacidad.php`). El exportador entrega sus inscripciones, su avance y el correo pendiente de confirmar. El borrador quita sus inscripciones (pierde el acceso), su avance, sus metadatos del plugin y su ID en los cupones de regalo que canjeó; los pedidos quedan para el borrador de WooCommerce.
-    - Desinstalar el plugin (`uninstall.php` → `includes/desinstalar.php`, plugin 0.7.3) borra sus tablas, opciones, datos temporales (canje, mensajes, contadores viejos), metadatos de las usuarias, el rol, las capacidades y las tareas programadas. Los cursos, las lecciones y sus productos de Woo (con su meta `_angelitozzz_curso_id`, que el puente necesita al reinstalar) se conservan, salvo que esté definida la constante `ANGELITOZZZ_CURSOS_BORRAR_TODO`: entonces borra también los PDF de materiales, los cupones de regalo, las portadas que subió el constructor, los productos de los cursos, los cursos, las lecciones y la carpeta privada. Los pedidos nunca se tocan.
-- **Estado:** aplicado
+    - Desinstalar el plugin (`uninstall.php` → `includes/desinstalar.php`, plugin 0.7.3) borra sus tablas, opciones, datos temporales (canje, mensajes, contadores viejos), metadatos de las usuarias, el rol, las capacidades y las tareas programadas. Los cursos, las lecciones y sus productos de Woo (con su meta `_angelitozzz_curso_id`, que el puente necesita al reinstalar) se conservan, salvo que esté definida la constante `ANGELITOZZZ_CURSOS_BORRAR_TODO`: entonces borra también los PDF de materiales, los cupones de regalo, las portadas que subió el constructor, los productos de los cursos, los cursos, las lecciones y la carpeta privada. Los pedidos nunca se tocan. Con los archivos privados (2026-11-25), `BORRAR_TODO` borra también sus registros y el almacén privado; sin esa constante se conservan, como los cursos.
+- **Estado:** aprobado
 
 ## Sección: curso
 
@@ -38,10 +39,10 @@
         - `_angelitozzz_producto_id`: su producto de Woo (sección `puente-woo`).
         - `_angelitozzz_modulos`: lista ordenada de módulos `[{id, titulo}]`; `id` es un identificador estable que no cambia al renombrar o reordenar.
         - `_angelitozzz_mes_mundo`: sí/no, "Incluye mes gratis en Mundo" (lo marca Bárbara en el constructor): muestra el banner de Mundo en la primera lección del curso (`leccion.md`) y el bloque en gracias y en el correo. Lo decide solo este interruptor, también en una suscripción (`_angelitozzz_tipo` = `suscripcion`): el constructor solo avisa que las suscripciones normalmente no lo incluyen (decisión del usuario, 2026-11-19). Se lee con `angelitozzz_cursos_incluye_mundo()`.
-        - `_angelitozzz_materiales`: PDF del curso, cada uno con `adjunto_id`, `modulo` (`id` del módulo) y `orden`, porque en el constructor se agregan dentro de un módulo ("+ Agregar descargable", `admin-constructor.md`). En la lección van al final del temario, sin check (`leccion.md`).
+        - `_angelitozzz_materiales`: archivos del curso, cada uno con `adjunto_id`, `modulo` (`id` del módulo) y `orden`, porque en el constructor se agregan dentro de un módulo ("+ Agregar descargable", `admin-constructor.md`). En la lección van al final del temario, sin check (`leccion.md`). Desde el 2026-11-25, `adjunto_id` es el ID de un archivo privado (sección `archivos-privados`) de un tipo de material, no solo PDF.
     - **Precio:** "Precio (USD)" y "Precio de lanzamiento" no se guardan en el curso. Son el precio normal y el rebajado de su producto de Woo, que el constructor actualiza.
     - **Paso 3 del diseño:** "Qué aprenderás", "Requisitos", "Para quién es" y "Duración total" no se guardan (decisión del usuario, 2026-11-13): los textos de venta están en la solución. La duración total se calcula sumando las lecciones.
-- **Estado:** aplicado
+- **Estado:** aprobado
 
 **Campos ACF**
 
@@ -55,6 +56,7 @@
 - [x] `/cursos/<curso>/` nunca muestra contenido: redirige según el acceso
 - [x] Los cursos no aparecen en la búsqueda del sitio ni en el mapa del sitio
 - [x] Cada metadato se guarda saneado (texto, entero de una lista permitida, IDs que existen)
+- [ ] `_angelitozzz_materiales` del curso solo guarda IDs de archivos privados que existen y son de un tipo de material
 
 ## Sección: leccion
 
@@ -70,16 +72,16 @@
     - **Contenido:** solo se permite negrita, cursiva, listas, enlaces y párrafos, filtrado con `wp_kses` y una lista propia al guardar y al mostrar. Un enlace con `target` solo abre en pestaña nueva (`_blank`) y siempre lleva `rel="noopener noreferrer"`. El tema imprime el texto con `angelitozzz_cursos_texto_leccion()` (sección `funciones-publicas`), que lo vuelve a filtrar después de `the_content`. Un párrafo que empieza con "PD:" se muestra solo como cita (`leccion.md`), sin marcado especial en el texto guardado.
     - **Metadatos:**
         - `_angelitozzz_modulo`: `id` del módulo del curso.
-        - `_angelitozzz_video`: enlace de Vimeo, guardado solo si es una URL `https://vimeo.com/…` o `https://player.vimeo.com/…` válida.
-        - `_angelitozzz_duracion`: segundos, leídos de Vimeo con oEmbed al guardar ("se detecta sola").
-        - `_angelitozzz_miniatura`: URL de la miniatura del video, leída de Vimeo con oEmbed junto con la duración (F4, bloque 6b: la muestra el modal de la lección del constructor).
+        - `_angelitozzz_video`: ID del archivo privado de video de la lección (mp4 o webm; sección `archivos-privados`). Se guarda solo si existe y es de tipo video. Reemplaza al enlace de Vimeo (2026-11-25).
+        - `_angelitozzz_duracion`: segundos, leídos del propio archivo en el servidor al terminar la subida (`wp_read_video_metadata()` de WordPress) y copiados a la lección al elegir el video ("se detecta sola").
+        - `_angelitozzz_miniatura`: ya no se usa (era la miniatura de Vimeo). La portada del video es del archivo privado (sección `archivos-privados` → portada).
         - `_angelitozzz_vista_previa`: sí/no, "Lección de vista previa gratuita".
-        - `_angelitozzz_materiales`: IDs de PDF de la lección (pestaña "Materiales").
-    - **Reproductor:** una sola función, `angelitozzz_cursos_video_html()` en `includes/video.php`, arma el iframe del proveedor. Hoy es Vimeo con `dnt=1`; cambiar de proveedor es cambiar esa función.
+        - `_angelitozzz_materiales`: IDs de archivos privados de la lección (pestaña "Materiales"), de los tipos de material de la sección `archivos-privados`.
+    - **Reproductor:** una sola función, `angelitozzz_cursos_video_html()` en `includes/video.php`, arma el reproductor. Desde el 2026-11-25 es un `<video>` del navegador con la dirección firmada del archivo (sección `acceso`), sin botón de descarga y con la marca de agua (`leccion.md` → video). Cambiar de proveedor sigue siendo cambiar ese archivo.
     - **Primera lección:** la de menor orden del primer módulo. Ahí va el banner de Mundo (`leccion.md`).
-    - **Materiales (PDF):** se suben a una carpeta privada `uploads/angelitozzz-privado/`, con nombre aleatorio y regla que impide el acceso directo. Se entregan solo por la descarga con permiso (sección `acceso`). Tipo verificado por contenido (`wp_check_filetype_and_ext`, solo `application/pdf`) y tamaño máximo (propuesta: 20 MB). Se muestran con su nombre y su tamaño ("PDF · 2,4 MB"); el "13 páginas" del diseño no se calcula.
-    - **Servidor:** la regla de la carpeta privada depende del servidor (`.htaccess` en Apache, regla `location` en Nginx). Se confirma con el hosting antes del deploy; la descarga nunca depende solo de esa regla, porque los nombres son aleatorios y no se listan.
-- **Estado:** aplicado
+    - **Materiales:** son archivos privados (sección `archivos-privados`), de los tipos de material de esa sección. Se muestran con su nombre, su tipo y su tamaño ("PDF · 2,4 MB", "Word · 120 KB"); el "13 páginas" del diseño no se calcula.
+    - **Migración (bloque 2):** las lecciones que tengan un enlace de Vimeo guardado lo pierden (el campo pasa a ser un ID); hoy no hay cursos reales cargados, así que no se pierde contenido.
+- **Estado:** aprobado
 
 **Campos ACF**
 
@@ -89,11 +91,12 @@
 **Criterios de aceptación**
 
 - [x] Cumple los criterios comunes de `_shared.md`
-- [x] Un enlace de video que no es de Vimeo no se guarda
 - [x] El texto de la lección no deja pasar etiquetas fuera de la lista permitida (por ejemplo `<script>` o atributos `on*`)
 - [x] Un enlace del texto de la lección con `target` sale con `rel="noopener noreferrer"`, al guardar y al mostrar
-- [x] Un PDF no se puede abrir con la URL de `uploads/` (403) y un archivo que no es PDF no se sube
-- [x] La lógica del video (validar el enlace, leer duración y miniatura, armar el reproductor de la lección) está en `includes/video.php`; los textos de la interfaz pueden nombrar al proveedor
+- [ ] `_angelitozzz_video` solo guarda el ID de un archivo privado de tipo video; un ID que no existe o de otro tipo no se guarda
+- [ ] La duración se lee del archivo al subirlo y se ve en el temario y en el constructor
+- [ ] La lógica del video (armar el reproductor de la lección) sigue solo en `includes/video.php`
+- [ ] Un material de un tipo permitido se guarda y se muestra con su tipo y su tamaño
 
 ## Sección: inscripcion
 
@@ -184,15 +187,23 @@
         - con sesión → la solución del curso, con el aviso "Este curso no está en tu cuenta. Puedes comprarlo aquí o canjear un código de regalo." (F5-c: `?aviso=sin-acceso` desde una lección o desde un curso; la landing y `/soluciones-de-sueno/` lo muestran con `aviso-formulario` y `angelitozzz_cursos_aviso_acceso()`);
         - lección en borrador, o curso en borrador sin inscripción vigente → 404, salvo para quien gestiona cursos.
     - **Solución de un curso:** la `solucion` publicada que lo tiene en `solucion_compra_cursos` (o en una etapa). Si no hay, `/soluciones-de-sueno/`.
-    - **Descargas de materiales:**
-        - URL `/cursos/descargar/<id>/?_wpnonce=…`. El archivo se descarga con el título del PDF saneado, sin el "Privado:" que WordPress antepone a los adjuntos privados (`angelitozzz_cursos_nombre_descarga()`, F5-c).
-        - Comprueba sesión, nonce y que el PDF pertenezca a una lección o curso que la usuaria puede ver.
-        - Entrega el archivo con `Content-Type: application/pdf`, `Content-Disposition: attachment`, `X-Content-Type-Options: nosniff` y sin caché pública.
-        - Si algo falla, 403, sin revelar si el archivo existe.
+    - **Entrega de archivos privados (2026-11-25; reemplaza a la descarga con nonce de los PDF):** el video de la lección, sus materiales y los del curso se entregan solo por una dirección firmada.
+        - **Dirección:** `/cursos/archivo/<id>/?l=<leccion_o_curso>&e=<vence>&f=<firma>`. La arma el plugin al imprimir la lección (`angelitozzz_cursos_url_archivo()`); el tema nunca la arma.
+        - **Firma:** `hash_hmac( 'sha256', archivo|usuaria|lección o curso|vence|sesión, wp_salt( 'auth' ) )`. "Sesión" es el resumen del token de la sesión de WordPress (`wp_get_session_token()`), no el token.
+        - **Vence** a las 4 horas (propuesta, con filtro). Al recargar la lección sale una dirección nueva.
+        - **En cada pedido** (también en cada pedazo del video) se comprueba, sin confiar en nada de la URL salvo la firma:
+            - que la firma sea válida y no esté vencida;
+            - que la usuaria de la sesión sea la de la firma y que su sesión sea la misma (cerrar sesión la invalida);
+            - que el archivo esté vinculado a esa lección o a ese curso;
+            - que la usuaria pueda ver la lección (`angelitozzz_cursos_puede_ver()`) o, si es material del curso, el curso (`angelitozzz_cursos_puede_ver_curso()`). Si vence la inscripción, se reembolsa o se pasa a borrador sin inscripción, deja de entregarse al momento.
+        - **Qué ve cada caso:** sin sesión, en otro navegador o en una ventana privada no se ve. Con la sesión de otra alumna, tampoco (la firma es de otra usuaria). La misma alumna en otra pestaña de su navegador sí (es su sesión). No hay límite de sesiones por cuenta (decisión del usuario, 2026-11-25).
+        - **Por pedazos (HTTP Range):** responde `Accept-Ranges: bytes`. Con `Range: bytes=a-b`, `a-` o `-n` entrega solo ese trozo con `206 Partial Content` y `Content-Range`; un rango imposible da `416`. Sin `Range`, todo con `200`. Lo hace PHP leyendo por bloques (`fopen`, `fseek`, `fread` de 1 MB con `flush`) y con `set_time_limit(0)`, porque el hosting tiene `max_execution_time` de 30 s. **Pedazos chicos (2026-11-25):** cada respuesta 206 entrega como máximo 4 MB, aunque el navegador pida más (`bytes=a-` sin fin); el navegador pide el siguiente solo. Así cada pedido dura una fracción de segundo y no ocupa por mucho tiempo uno de los 25 procesos a la vez del hosting (Entry Processes; si se llenan, el sitio responde 508). El hosting también limita la lectura del disco a 10 MB/s para toda la cuenta, así que los videos livianos (ver la recomendación de `archivos-privados`) dejan más margen para las alumnas que miran a la vez. No depende de X-Sendfile (decisión del usuario, 2026-11-25). Sin esto, el video no se puede adelantar y en Safari de iPhone ni siquiera se reproduce.
+        - **Cabeceras:** el tipo real guardado (`Content-Type`), `X-Content-Type-Options: nosniff`, `Cache-Control: private, no-store, max-age=0` y `Content-Disposition`: `inline` para el video y el audio (se reproducen en la página) y `attachment` con el nombre del archivo saneado para lo que se descarga (`angelitozzz_cursos_nombre_descarga()`, sin el "Privado:").
+        - **Si algo falla:** 403 sin detalles, sin revelar si el archivo existe.
     - **Sin listados ni feeds:** la consulta principal de `curso` o `leccion` que no es de una sola entrada (`/?post_type=leccion`, su feed) no devuelve nada, así el texto de una lección solo se ve pasando por este control.
-    - **Materiales privados:** el adjunto de cada PDF se guarda con estado `private` y su página de adjunto da 404 (salvo para quien gestiona), para que la URL del archivo no se revele recorriendo IDs. La subida exige poder editar el curso o la lección y comprueba, además del tipo, que el archivo empiece con `%PDF-`.
+    - **Archivos privados:** no tienen página propia ni aparecen en la REST de WordPress, en la Biblioteca de medios ni en la búsqueda (sección `archivos-privados`).
     - **Nunca se confía en IDs recibidos:** la usuaria es siempre la de la sesión (`get_current_user_id()`).
-- **Estado:** aplicado
+- **Estado:** aprobado
 
 **Campos ACF**
 
@@ -207,6 +218,69 @@
 - [x] Cambiar el ID de una descarga o de una lección en la URL no da acceso a algo ajeno
 - [x] Una lección de vista previa se ve sin comprar
 - [x] Pruebas PHPUnit de `angelitozzz_cursos_puede_ver()` con cada caso
+- [ ] La dirección firmada de un archivo responde 403 sin sesión, con otra usuaria, con otra sesión de la misma usuaria (después de cerrar sesión), vencida, con la firma cambiada, con otro archivo o con la inscripción vencida o cancelada
+- [ ] Un pedido con `Range` responde 206 con el trozo justo y `Content-Range`; un rango imposible, 416; sin `Range`, 200 con el archivo entero
+- [ ] Una respuesta 206 nunca entrega más de 4 MB, aunque el pedido sea `bytes=a-`
+- [ ] El video se puede adelantar en Chrome, Firefox y Safari (también en iPhone)
+- [ ] Pruebas PHPUnit de la firma, del permiso y de los rangos
+
+## Sección: archivos-privados
+
+- **Origen:** decisiones del usuario del 2026-11-25 (videos fuera de Vimeo, materiales de varios tipos, apartado "Archivos privados" fuera de Medios) y cómo lo resuelve WooCommerce con sus descargables (`woocommerce_uploads`, `class-wc-download-handler.php`, `class-wc-admin-upload-downloadable-product.php`)
+- **Destino:** `../../plugins/angelitozzz-cursos/includes/descargas.php`
+- **Grupo:** ninguno
+- **Skill:** ninguna
+- **Comportamiento:** el almacén de los archivos de los cursos que solo ven las alumnas con acceso: el video de cada lección y los materiales. Lo administran la pantalla de `/wp-admin/` (`archivos-privados.md`) y el constructor (`admin-constructor.md`). En el bloque 2 la lógica se reparte en archivos propios del plugin (almacén, subida, entrega); `descargas.php` es el de hoy.
+    - **Registro:** un tipo de contenido propio, `angelitozzz_archivo`, no público: sin URL, sin REST, sin búsqueda ni mapa del sitio, y `show_ui` no (lo muestra la pantalla propia). No son adjuntos de WordPress, así que no aparecen en la Biblioteca de medios, WordPress no les genera tamaños de imagen y no tienen página de adjunto. Título = el nombre legible ("Horarios 4 a 9 meses"). Metadatos:
+        - `_angelitozzz_ruta`: ruta del archivo relativa al almacén (nombre aleatorio de 24 caracteres más la extensión);
+        - `_angelitozzz_mime` y `_angelitozzz_tamano` (bytes), de la revisión al subir;
+        - `_angelitozzz_clase`: `video`, `audio`, `pdf`, `office` o `imagen`;
+        - `_angelitozzz_duracion`: segundos, solo video y audio;
+        - `_angelitozzz_portada`: ID de otro archivo privado de imagen, solo video (ver **Portada**).
+    - **Dónde se guardan:**
+        - **Fuera de la web**, si está definida la constante `ANGELITOZZZ_CURSOS_RUTA_PRIVADA` en `wp-config.php`. En producción (cPanel, 2026-11-25) es `/home/fizidnwp/angelitozzz-privado`, al lado de `public_html` y no dentro: ninguna URL llega ahí, aunque falte una regla del servidor.
+        - **Sin la constante** (el Local), `uploads/angelitozzz-privado/`, como hoy, con su `.htaccess` (`Require all denied`), su `index.php` y la regla `deny` de Nginx (`specs/pruebas/entorno/`).
+        - La entrega nunca depende solo del lugar: siempre pasa por la dirección firmada (sección `acceso`).
+    - **Tipos permitidos (lista cerrada, decisión del usuario, 2026-11-25):**
+        - **Video** (solo como video de una lección): `mp4` (`video/mp4`) y `webm` (`video/webm`).
+        - **Material** (lección o curso): `pdf`; `docx`, `xlsx` y `pptx` (Office moderno; no `doc`, `xls` ni `ppt`, que pueden llevar macros); `jpg`/`jpeg`, `png` y `webp`; `mp3` (`audio/mpeg`).
+        - **SVG nunca** (puede llevar código), ni ningún otro tipo.
+        - Un video no se ofrece como material: si se pudiera descargar desde la lección, la protección del reproductor no serviría.
+        - **Revisión del tipo:** la extensión **y** el contenido (`wp_check_filetype_and_ext` con la lista de arriba), más la firma de los primeros bytes: `%PDF-` en PDF; `PK` en Office (son zip); la de JPEG, PNG, WebP, MP3, MP4 (`ftyp`) y WebM. Si no coinciden, no se guarda.
+    - **Tope de peso, con advertencia y sin bloqueo (decisión del usuario, 2026-11-25):** video 500 MB, audio 50 MB, PDF 20 MB, Office 30 MB e imagen 5 MB (propuesta; constantes con filtro). Si el archivo pasa el tope de su tipo, se sube igual y se muestra en rojo: "Este <tipo> pesa <peso>; lo recomendado es hasta <tope>. Se subirá igual, pero va a tardar más en cargar para las alumnas. Para los videos, mira en el manual cómo achicarlo con HandBrake." La web no comprime ni convierte nada, tampoco las imágenes.
+    - **Recomendación de calidad del video, sin límite (decisión del usuario, 2026-11-25):** la resolución la decide la clienta; la web solo aconseja. Antes de subir, el navegador lee el alto del video (`videoHeight`) y su duración y calcula el peso por minuto. Si el video pasa de 1080p, o de unos 15 MB por minuto, muestra en ámbar (aviso, no error): "Este video es <resolución> y pesa <N> MB por minuto. Para que cargue rápido a las alumnas, te recomendamos exportarlo en 720p o 1080p con HandBrake (mira el manual). Se subirá igual." La subida no se detiene. Si el navegador no puede leer el video, no se muestra nada.
+    - **Subida por partes (REST `angelitozzz/v1`, nonce `wp_rest` y capacidad `angelitozzz_gestionar_cursos`):**
+        1. `POST /archivos/subidas` con el nombre, el peso y el tipo: revisa la extensión y el tipo declarado y devuelve un ID de subida.
+        2. `PUT /archivos/subidas/<id>` con cada trozo (unos 10 MB) y su posición (`Content-Range`). Cada trozo entra en los 30 s del hosting. Un trozo que falla se reintenta solo (3 veces).
+        3. `POST /archivos/subidas/<id>/fin`: une los trozos y revisa el tipo real y la firma. Lee la duración de video y audio (`wp_read_video_metadata()` y `wp_read_audio_metadata()`), mueve el archivo al almacén con nombre aleatorio y crea el registro.
+        - Los trozos esperan en una carpeta temporal dentro del almacén. La tarea diaria borra las subidas que quedaron a medias hace más de 24 horas.
+        - En pantalla, una barra de avance con el porcentaje y "Cancelar".
+    - **Portada del video:** al subir un video, el navegador toma un cuadro del segundo 1 y lo sube como imagen privada (`_angelitozzz_portada`). Es la portada de la lección antes de pulsar play y la miniatura del constructor. Si el navegador no puede (formato que no reproduce), no hay portada y se ve el fondo beige (`leccion.md` → video).
+    - **Dónde se usa:** se calcula leyendo `_angelitozzz_video` y `_angelitozzz_materiales` de las lecciones y `_angelitozzz_materiales` de los cursos (con lo que esté en la papelera). Un archivo en uso no se puede borrar: primero se quita de la lección o del curso.
+    - **Quitar no es borrar:** quitar un archivo de una lección o de un curso solo lo desvincula; sigue en "Archivos privados" para volver a usarlo. Se borra del disco solo desde esa pantalla y solo si no está en uso.
+    - **Migración (bloque 2):** los PDF de materiales que ya existan (adjuntos con `_angelitozzz_material`) pasan a `angelitozzz_archivo`, con su archivo movido al almacén y los IDs actualizados en `_angelitozzz_materiales`. Hoy no hay cursos reales cargados, pero la migración se escribe igual, con su prueba.
+    - **Desinstalar:** sin `ANGELITOZZZ_CURSOS_BORRAR_TODO` se conservan los registros y el almacén; con ella se borran los dos.
+- **Estado:** aprobado
+
+**Campos ACF**
+
+| Campo | Tipo | Descripción | Valor actual | Requerido |
+| ----- | ---- | ----------- | ------------ | --------- |
+
+**Criterios de aceptación**
+
+- [ ] Cumple los criterios comunes de `_shared.md`
+- [ ] Un SVG, un `doc` o cualquier tipo fuera de la lista no se guarda, aunque se le cambie la extensión
+- [ ] Un archivo de la lista con el contenido de otro tipo (por ejemplo, un `.pdf` que no empieza con `%PDF-`) no se guarda
+- [ ] Un video de 1 GB se sube por partes con su barra de avance; si se corta un trozo, se reintenta
+- [ ] Un archivo que pasa el tope de su tipo se sube igual y muestra la advertencia en rojo
+- [ ] Un video de más de 1080p, o de más de 15 MB por minuto, muestra la recomendación de HandBrake y se sube igual
+- [ ] Con `ANGELITOZZZ_CURSOS_RUTA_PRIVADA`, el archivo queda fuera de la carpeta de la web; sin ella, en `uploads/angelitozzz-privado/` y su URL directa responde 403
+- [ ] Los archivos privados no aparecen en la Biblioteca de medios, en `/wp-json/wp/v2/media` ni en la búsqueda
+- [ ] Un archivo en uso no se puede borrar; quitarlo de una lección no lo borra
+- [ ] Solo quien tiene `angelitozzz_gestionar_cursos` puede subir, listar o borrar (una alumna recibe 403)
+- [ ] La migración pasa los PDF que ya existían y sus lecciones los siguen mostrando
+- [ ] Pruebas PHPUnit de la revisión del tipo, la subida por partes, "dónde se usa", el borrado y la migración
 
 ## Sección: puente-woo
 
@@ -346,13 +420,15 @@
         - `angelitozzz_cursos_datos_tarjeta( $curso_id, $usuario_id, $vence )`: los datos de un curso para `curso-progreso-card` (los arma `de_usuaria()`).
         - `angelitozzz_cursos_puede_gestionar( $usuario_id )`: si puede gestionar cursos (sin `$usuario_id`, la de la sesión). La usa `/administrador/`.
         - `angelitozzz_cursos_redirect_seguro( $url, $defecto )`: la vuelta de un `redirect_to`, solo si es de este sitio. La usan iniciar sesión y crear cuenta.
-        - `angelitozzz_cursos_video_html( $leccion_id )`: el reproductor.
-        - `angelitozzz_cursos_video_url( $url, $opciones )` (F5-c): la dirección del reproductor para un enlace de video (opción `autoplay`), o vacío. Es lo único que sabe del proveedor (hoy Vimeo); la usa `video-portada`.
+        - `angelitozzz_cursos_video_html( $leccion_id )`: el reproductor (desde el 2026-11-25, el `<video>` con la dirección firmada, la marca de agua y su botón de pantalla completa; vacío si la usuaria no puede ver la lección o no hay video).
+        - `angelitozzz_cursos_video_portada( $leccion_id )` (2026-11-25): la dirección firmada de la portada del video, o vacío.
+        - `angelitozzz_cursos_url_archivo( $archivo_id, $contexto_id )` (2026-11-25): la dirección firmada de un archivo privado para la usuaria de la sesión. `$contexto_id` es la lección o el curso al que está vinculado. Vacío si no tiene permiso.
+        - `angelitozzz_cursos_video_url( $url, $opciones )` (F5-c): **se quita en el bloque 5** (2026-11-25). Era la dirección del reproductor de Vimeo para `video-portada`; los videos de las landings pasan a ser archivos públicos de ACF (`solucion.md`) y el tema ya no la llama.
         - `angelitozzz_cursos_puede_completar( $leccion_id, $usuario_id )` (F5-c): si puede guardar avance (ve la lección y tiene el curso, o gestiona cursos). Acción de formulario `angelitozzz_completar_leccion` (`leccion_id`, `marcar`) para "Marcar como completo" sin JS.
         - `angelitozzz_cursos_aviso_acceso()` (F5-c): el texto del aviso "Este curso no está en tu cuenta…" si la página llegó con `?aviso=sin-acceso`; si no, vacío.
         - `angelitozzz_cursos_nombre_descarga( $adjunto_id )` (F5-c): el nombre del archivo descargado.
         - `angelitozzz_cursos_texto_leccion( $leccion_id )` (0.7.2): el texto de la lección listo para imprimir (`the_content` y después la lista permitida, con `rel` en los enlaces con `target`); vacío si la usuaria no puede ver la lección.
-        - `angelitozzz_cursos_materiales( $id )`: nombre, tamaño y URL de descarga firmada.
+        - `angelitozzz_cursos_materiales( $id )`: nombre, tamaño y URL de descarga firmada. Desde el 2026-11-25 también `tipo` (`pdf`, `office`, `imagen` o `audio`) y `tipo_texto` ("PDF", "Word", "Excel", "PowerPoint", "Imagen", "Audio"), para el ícono y la línea "<tipo> · <tamaño>"; la URL es la dirección firmada de `url_archivo()`.
         - `angelitozzz_cursos_estado_linea( $pedido_id, $item_id )` (F5-c): el estado de una línea para el historial, `clave` y `texto`. Línea propia: `activo`, `por_expirar`, `vencido`, `cancelado` o `pendiente`. Línea de regalo: `regalo_sin_canjear`, `regalo_canjeado`, `regalo_vencido`, `cancelado` o `pendiente`. El tema elige el color por la clave.
         - `angelitozzz_cursos_estado_acceso( $pedido_id, $item_id )`: solo el texto de `estado_linea()`.
         - `angelitozzz_cursos_es_primera_leccion( $leccion_id )`.
@@ -364,7 +440,8 @@
             - `angelitozzz_cursos_url_admin( $vista, $curso_id, $paso )`: URL de `escritorio`, `cursos`, `nuevo` o `editar`.
             - `angelitozzz_cursos_aviso_publicado( $curso_id )` (`includes/rest-admin.php`): el texto del aviso "¡Curso publicado!", que cambia si el curso no está en ninguna solución.
             - `angelitozzz_cursos_pendientes_publicar( $curso_id )`: lo que falta para publicar (`clave`, `texto`, `bloquea`), para "Antes de publicar" del constructor. Publicar usa la misma regla sin mirar quién pregunta (`angelitozzz_cursos_faltan_para_publicar()`, interna), así que nunca publica con algo pendiente.
-            - `angelitozzz_cursos_admin_curso( $curso_id )` (F4, bloque 6b; `includes/constructor.php`): todo lo que muestra el constructor. Campos del paso 1 (`titulo`, `descripcion`, `edad`, `tipo`, `duracion`, `mes_mundo`, `precio`, `precio_lanzamiento` del producto de Woo), `portada_id` y `portada_url`, `estado`, `estudiantes` (con acceso), `modulos` con sus `items` en orden (lecciones: `id`, `titulo`, `video`, `duracion`, `duracion_texto`, `miniatura`, `contenido`, `extracto`, `vista_previa`, `materiales`; PDF del curso: `id`, `nombre`, `tamano`), `totales` (módulos, lecciones y duración) y `pendientes`. Con 0, los valores de un curso nuevo.
+            - `angelitozzz_cursos_admin_curso( $curso_id )` (F4, bloque 6b; `includes/constructor.php`): todo lo que muestra el constructor. Campos del paso 1 (`titulo`, `descripcion`, `edad`, `tipo`, `duracion`, `mes_mundo`, `precio`, `precio_lanzamiento` del producto de Woo), `portada_id` y `portada_url`, `estado`, `estudiantes` (con acceso), `modulos` con sus `items` en orden (lecciones: `id`, `titulo`, `video`, `duracion`, `duracion_texto`, `miniatura`, `contenido`, `extracto`, `vista_previa`, `materiales`; PDF del curso: `id`, `nombre`, `tamano`), `totales` (módulos, lecciones y duración) y `pendientes`. Con 0, los valores de un curso nuevo. Desde el 2026-11-25, `video` es el ID del archivo privado con su `nombre`, y `miniatura` es la dirección firmada de su portada; los materiales traen también `tipo`.
+            - `angelitozzz_cursos_admin_archivos( $opciones )` (2026-11-25): la lista de "Archivos privados" para la pantalla de `/wp-admin/` y para "Elegir de mis archivos" del constructor. Filtros `clase` (`video` o `material`), `buscar` y `pagina` (24 por página). Cada archivo trae `id`, `nombre`, `clase`, `tipo_texto`, `tamano`, `duracion_texto`, `fecha`, `en_uso` (lecciones y cursos donde está, con su enlace al constructor) y `portada`.
         - **Cuentas (F3):**
             - `angelitozzz_cursos_url_envio()` y `angelitozzz_cursos_campos_ocultos( $accion, $volver_a )`: a dónde se envía un formulario y sus campos ocultos (acción, nonce, `redirect_to`). Acciones: `angelitozzz_iniciar_sesion`, `angelitozzz_crear_cuenta`, `angelitozzz_recuperar`, `angelitozzz_nueva_contrasena`, `angelitozzz_perfil_datos`, `angelitozzz_perfil_contrasena`.
             - `angelitozzz_cursos_mensaje()`: el resultado del último envío (tipo `error` o `aviso`, texto y lo ya escrito, nunca contraseñas), una sola vez.
@@ -387,7 +464,7 @@
         - `angelitozzz_cursos_puede_ver_curso( $curso_id, $usuario_id )` (pide la usuaria): si la usuaria compró el curso (lo usa la lección para el botón de completar, los candados del temario y el PDF del curso).
         - `angelitozzz_cursos_ultimo_canje()`: lo que muestra `/canjear-regalo/`, una sola vez. Justo después de canjear, `estado` `canjeado` con `curso`, `meses` (0 = ilimitado), `primera_leccion`, `cursos_url` y `empieza` (la fecha si el acceso quedó encadenado a uno vigente; vacío si empieza hoy); tras un envío con error, `estado` `canje` con `valor` (lo escrito) y `error`; si no, vacío.
     - **Los datos ya vienen saneados, pero no escapados.** El tema escapa siempre al imprimir.
-- **Estado:** aplicado
+- **Estado:** aprobado
 
 **Campos ACF**
 
