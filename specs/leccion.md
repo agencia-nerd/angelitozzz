@@ -85,7 +85,7 @@
         - completada: check relleno `#9cb09d`;
         - pendiente: círculo vacío con borde `#9ec0c0`;
         - actual: fondo `#fafeff`, título verde y `aria-current="page"`.
-    - **Al final:** los materiales del curso ("PDF Recién Nacidos Go"), con el ícono de su tipo y el de descarga, sin duración ni check. Son direcciones firmadas (`cursos-datos.md` → `acceso`). Desde el 2026-11-25 pueden ser de cualquier tipo de material, no solo PDF.
+    - **Al final:** los materiales del curso ("PDF Recién Nacidos Go"), con el ícono de su tipo y el de descarga, sin duración ni check. Son direcciones firmadas (`cursos-datos.md` → `acceso`). Desde el 2026-11-25 pueden ser de cualquier tipo de material, no solo PDF. El ícono lo elige `angelitozzz_icono_material()` (`inc/leccion.php`) por la clase y la extensión del material: documento (PDF y Word, el `pdf.svg` del diseño), hoja (Excel), presentación (PowerPoint), imagen o audio; los cuatro últimos son propuesta (`assets/img/leccion/tipo-*.svg`, el mismo círculo del diseño).
     - **Sin compra** (vista previa, propuesta): las lecciones que no son de vista previa se muestran con un candado y sin enlace, y los materiales del curso no se muestran.
     - **Datos:** salen de `angelitozzz_cursos_temario()`.
     - **Móvil (propuesta):** el temario pasa arriba del video, plegado en un acordeón de wp-accordion "Contenido del curso", con la lección actual visible al abrirlo.
@@ -143,7 +143,7 @@ Contenido del diseño (del plugin, no campos): módulo "Recién Nacidos Go" con 
 ## Sección: video
 
 - **Origen:** `specs/figma/lectura/leccion/seccion-entera.ref.txt` (reproductor 4176:28055)
-- **Destino:** `template-parts/pages/leccion/video.php`, `src/js/modules/video-leccion.js`
+- **Destino:** `template-parts/pages/leccion/video.php`, `src/js/modules/video-leccion.js`, `src/css/leccion-video.css`
 - **Grupo:** ninguno
 - **Skill:** ninguna
 - **Comportamiento:** marco de 1033 × 567 (proporción 16:9, radio 15).
@@ -155,8 +155,9 @@ Contenido del diseño (del plugin, no campos): módulo "Recién Nacidos Go" con 
         - Sin menú del clic derecho sobre el video (`contextmenu` cancelado).
         - **Marca de agua:** el correo de la alumna en texto chico, blanco al 35 % con sombra suave, encima del video (`pointer-events: none`, sin tapar los controles). Cambia de esquina cada 30 segundos (propuesta). Desanima que se grabe la pantalla y se comparta, porque se ve de quién es.
         - **Pantalla completa:** con el marco entero (video y marca de agua), por un botón propio "Pantalla completa" sobre el reproductor; la pantalla completa propia del `<video>` se quita (`controlsList="nofullscreen"`) para que la marca no desaparezca. En iPhone, Safari solo deja poner en pantalla completa el `<video>` solo, así que ahí la marca no se ve (límite aceptado).
-        - La dirección vence a las 4 horas: si la alumna deja la pestaña abierta más tiempo y el video falla, el JS pide una nueva recargando el reproductor en el mismo minuto, sin perder la posición (propuesta).
+        - La dirección vence a las 4 horas: si la alumna deja la pestaña abierta más tiempo y el video falla, el JS pide una nueva a `GET angelitozzz/v1/lecciones/<id>/video` (`cursos-datos.md` → `funciones-publicas`) y sigue en la misma posición y con el mismo estado (propuesta). Como mucho un intento por minuto; si no se puede, un aviso `role="alert"` en el marco: "No pudimos cargar el video. Recarga la página.". Al pulsar play, si la dirección de la página ya venció (o vence en menos de un minuto), se pide otra antes de empezar.
         - Cambiar de proveedor sigue tocando solo `includes/video.php` del plugin.
+    - **Cómo está hecho (4b, 2026-11-26):** el plugin entrega el reproductor ya armado (`[data-angelitozzz-video]` con el `<video>`, `[data-angelitozzz-video-marca]` y `[data-angelitozzz-video-pantalla]`); el tema lo deja en un `<template>` y le da forma por esos atributos en `src/css/leccion-video.css`. La marca recorre las esquinas en este orden: arriba izquierda, arriba derecha, abajo derecha y abajo izquierda (`data-esquina`); abajo queda por encima de la barra de controles, y arriba a la derecha baja un poco para no tapar "Pantalla completa". El doble clic en el video también pone el marco en pantalla completa. Sin JS, el reproductor sale en `<noscript>` encima del botón play.
     - **Móvil:** ocupa el ancho y mantiene 16:9.
 - **Indicaciones del diseño:**
     - nota: seccion especifica del curso https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4176-27857&t=lySNWh2dFHTQgiTC-4
@@ -174,11 +175,11 @@ Contenido del diseño (del plugin, no campos): módulo "Recién Nacidos Go" con 
 - [x] Cumple los criterios comunes de `_shared.md`
 - [x] El botón play es un `<button>` con nombre accesible y se usa con teclado
 - [x] El video mantiene 16:9 en todos los anchos
-- [ ] El video no se pide hasta pulsar play (al abrir la página solo se pide la portada)
-- [ ] El reproductor no tiene botón de descarga ni menú del clic derecho, y se puede adelantar
-- [ ] La marca de agua con el correo se ve encima del video, también en la pantalla completa propia
-- [ ] Copiar la dirección del video y abrirla en otro navegador o en una ventana privada no lo muestra (403)
-- [ ] Sin acceso a la lección (o después de cerrar sesión), la dirección del video responde 403
+- [x] (4b, `cdp-leccion-video.mjs`) El video no se pide hasta pulsar play (al abrir la página solo se pide la portada)
+- [x] (4b, en Chrome; falta Safari, ver `cursos-datos.md` → acceso) El reproductor no tiene botón de descarga ni menú del clic derecho, y se puede adelantar
+- [ ] La marca de agua con el correo se ve encima del video, también en la pantalla completa propia. (4b: encima del video y cambiando de esquina, comprobado; el botón y el doble clic piden la pantalla completa del marco entero. Chrome sin ventana no deja entrar en pantalla completa: falta verlo en un navegador con ventana)
+- [x] (4b, `cdp-leccion-video.mjs`) Copiar la dirección del video y abrirla en otro navegador o en una ventana privada no lo muestra (403)
+- [x] (4b, `cdp-leccion-video.mjs`) Sin acceso a la lección (o después de cerrar sesión), la dirección del video responde 403
 
 ## Sección: banner-mundo
 
@@ -213,7 +214,7 @@ Valores del diseño (campos en `opciones.md` → `mes-gratis-mundo`): título "T
 ## Sección: pestanas
 
 - **Origen:** `specs/figma/lectura/leccion/seccion-entera.ref.txt` (pestañas 4176:28059, texto de la lección, PD 3901:7716, materiales 3899:7674)
-- **Destino:** `template-parts/pages/leccion/pestanas.php`, `src/js/modules/pestanas.js`
+- **Destino:** `template-parts/pages/leccion/pestanas.php`, `src/js/modules/pestanas.js`, `inc/leccion.php`
 - **Grupo:** ninguno
 - **Skill:** ninguna
 - **Comportamiento:** pestañas "Resumen" y "Materiales" bajo el video. Con `role="tablist"`, se recorren con las flechas del teclado y cambian sin recargar.
@@ -226,10 +227,10 @@ Valores del diseño (campos en `opciones.md` → `mes-gratis-mundo`): título "T
     - **Cita "PD":** un párrafo que empieza con "PD:" se muestra solo como la cita: fondo `--color-fondo-rosa`, borde izquierdo de 4 px frambuesa, radio 12, padding 24/18 y "PD:" en seminegrita. Bárbara no tiene que marcar nada.
     - **Materiales:** una tarjeta por material de la lección (desde el 2026-11-25, de cualquier tipo de material de `cursos-datos.md` → `archivos-privados`: PDF, Word, Excel, PowerPoint, imagen o audio).
         - **Tarjeta:** blanca, borde beige al 45 %, radio 16.
-        - **Izquierda:** cuadrado rosa de 48 px con el ícono de su tipo (documento, hoja de cálculo, presentación, imagen o audio; los de documento son el ícono de archivo del diseño).
+        - **Izquierda:** cuadrado rosa de 48 px con el ícono de su tipo (documento, hoja de cálculo, presentación, imagen o audio; los de documento son el ícono de archivo del diseño). Lo elige `angelitozzz_icono_material()` (`inc/leccion.php`); los cuatro que no son documento son propuesta, con el mismo trazo (`assets/img/leccion/archivo-*.svg`).
         - **Centro:** el nombre ("Horarios 4 a 9 meses", `--text-rotulo`, verde) y "<tipo> · <tamaño>" ("PDF · 2,4 MB", "Word · 120 KB"; `--text-caption`, `--color-tinta-suave`; decisión 2026-11-13: tamaño, no páginas).
         - **Derecha:** "Descargar" en pastilla crema con borde beige. Es la dirección firmada del archivo con nombre accesible "Descargar <nombre>".
-        - **Audio (propuesta):** además de "Descargar", un reproductor de audio del navegador debajo del nombre (`<audio controls preload="none" controlsList="nodownload">` con la misma dirección firmada).
+        - **Audio (propuesta):** además de "Descargar", un reproductor de audio del navegador debajo del nombre (`<audio controls preload="none" controlsList="nodownload">` con la misma dirección firmada, `aria-label` "Escuchar <nombre>"). El reproductor usa `url` (por pedazos) y "Descargar" usa `url_descarga`, que baja el MP3 entero con su nombre (decisión del usuario, 2026-11-26, plugin 0.10.2: por ejemplo, para tener un ruido blanco sin internet).
     - **Sin materiales:** no se muestra la pestaña "Materiales".
     - **Móvil (propuesta):** pestañas a todo el ancho y tarjetas de material con "Descargar" debajo del nombre.
 - **Indicaciones del diseño:**
@@ -252,5 +253,5 @@ Contenido del diseño (del plugin, no campos): lección "Bienvenida" con 7 párr
 - [x] El texto de la lección no deja pasar HTML fuera de la lista permitida, tampoco lo que otro plugin agregue con `the_content`
 - [x] Cada "Descargar" es una descarga firmada (URL con nonce del plugin; el 403 sin acceso lo cubren las pruebas del plugin)
 - [x] Sin materiales no aparece la pestaña "Materiales"
-- [ ] Cada material muestra el ícono y el texto de su tipo ("Word · 120 KB") y se descarga con su nombre
-- [ ] Un material de audio se puede escuchar en la tarjeta sin descargarlo
+- [x] (4b, `cdp-leccion-video.mjs`) Cada material muestra el ícono y el texto de su tipo ("Word · 120 KB") y se descarga con su nombre
+- [x] (4b, `cdp-leccion-video.mjs`) Un material de audio se puede escuchar en la tarjeta sin descargarlo

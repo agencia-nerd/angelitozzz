@@ -388,7 +388,25 @@ Decisión del usuario (2026-11-25): los videos de las lecciones dejan Vimeo y se
         - **Se quedan hasta el bloque 5:** `angelitozzz_cursos_video_url()` y `angelitozzz_cursos_vimeo_partes()`.
         - **Sin sesión, los materiales no se listan:** antes salían con un enlace que daba 403. Ahora `angelitozzz_cursos_materiales()` y el temario no los muestran, tampoco en una lección de vista previa.
         - **Hasta el 4c, en esta rama:** el constructor y `datos-f5.php` del tema todavía mandan enlaces de Vimeo y PDF, así que no funcionan. Es esperado.
-    - [ ] **4b · Lección del tema:** `leccion/video.php` y `video-leccion.js` (portada, `<video>`, marca de agua cada 30 s, pantalla completa propia y renovación de la dirección con `GET /lecciones/<id>/video`), ícono por tipo y audio en `pestanas.php` y `temario.php`, y los SVG.
+    - [x] **4b · Lección del tema** (2026-11-26, rama `feat/archivos-leccion` en los dos repos):
+        - **Video** (`leccion/video.php`, `src/js/modules/video-leccion.js` reescrito, `src/css/leccion-video.css` nuevo):
+            - la portada firmada y el `<video>` del plugin solo al pulsar play;
+            - la marca de agua cambia de esquina cada 30 s;
+            - la pantalla completa es del marco entero (el botón y el doble clic);
+            - sin menú del clic derecho;
+            - si la dirección falla o vence, pide una nueva y sigue en la misma posición (como mucho una vez por minuto; si no, un aviso).
+        - **Materiales:**
+            - ícono por tipo con `angelitozzz_icono_material()` (`inc/leccion.php`, nuevo) y 8 SVG nuevos (`archivo-*` y `tipo-*`, propuesta);
+            - `<audio>` en la tarjeta del MP3.
+        - **Plugin:**
+            - 0.10.1: `extension` en los datos de cada material;
+            - 0.10.2: el "Descargar" de un audio daba 416 (el audio solo iba por pedazos). Decisión del usuario: se puede bajar entero con `url_descarga` (`d=1`). 225 pruebas y PHPCS en 0.
+        - **`datos-f5.php`:** `crear` ya no usa Vimeo ni `subir_material`: video, portada y 6 materiales como archivos privados.
+        - **Pruebas en Chrome:**
+            - `cdp-leccion-video.mjs`, nueva: pasa entera, con un MP4 real de 10 MB generado en el mismo Chrome;
+            - `cdp-bloque5.mjs` sigue pasando;
+            - capturas a 1440 y 390 px sin desborde.
+        - **Falta ver en un navegador con ventana:** la marca en pantalla completa (Chrome sin ventana no deja entrar) y el ícono que aparece en la barra nativa del video en Chrome sin ventana, aunque `nofullscreen` está aplicado. En Safari de iPhone no se probó desde aquí.
     - [ ] **4c · Constructor del tema:**
         - `angelitozzz-cursos-subida` en `/administrador/`;
         - subir y elegir el video y los descargables (`modal-archivos`), sin Vimeo;
