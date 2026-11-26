@@ -108,7 +108,7 @@ Stack: WordPress (Local WP) + Vite + Tailwind + pnpm.
 - No edites el motor (`inc/accordions.php`, `src/js/modules/accordion.js`, `src/css/accordion.css`): se actualiza desde la skill wp-accordion.
 <!-- wp-accordion:end -->
 ## Cursos (plugin angelitozzz-cursos)
-- Los cursos son a medida, sin Tutor LMS. El plan, las decisiones y el avance están en `specs/plan/checklist-cursos.md`.
+- Los cursos son a medida, sin Tutor LMS. El plan, las decisiones y el avance están en `specs/plan/checklist-cursos.md`: empieza por su sección "Dónde vamos" (qué está hecho y qué sigue) y actualízala al cerrar cada fase.
 - La lógica de negocio va en el plugin propio `angelitozzz-cursos` (`wp-content/plugins/angelitozzz-cursos/`, fuera del repo del tema, con su propio repo en GitHub, `agencia-nerd/angelitozzz-cursos`): tipos `curso` y `leccion`, inscripciones, avance, vencimiento, acceso, descargas protegidas, puente con WooCommerce, cuentas, roles y la API REST `angelitozzz/v1` del constructor. El tema solo pinta: plantillas, componentes, CSS y JS.
 - El tema lee el plugin solo por sus funciones públicas `angelitozzz_cursos_*`. Nunca consulta sus tablas ni repite su lógica.
 - El cobro es de WooCommerce + Openpay (plugin oficial "Openpay Cards"; antes Niubiz). El plugin no toca la tarjeta: solo inscribe cuando el pedido está pagado y quita el acceso si se reembolsa o se cancela.
