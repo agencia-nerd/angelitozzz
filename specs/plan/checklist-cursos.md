@@ -504,6 +504,18 @@ Decisión del usuario (2026-11-25): los videos de las lecciones dejan Vimeo y se
 
 - [ ] QA en escritorio, tablet y móvil
 - [ ] Auditoría de seguridad completa (movida desde la F3, decisión del usuario, 2026-11-19): plugin completo y plantillas del tema, con todo ya integrado (cuentas, compra, regalo y canje, lección, administrador, Angelita Pro). Con la skill `cloudflare/security-audit-skill` (https://github.com/cloudflare/security-audit-skill; leer su código antes de instalarla); si no sirve para PHP/WordPress, otra equivalente. Antes de correrla, preguntar al usuario el perfil y el tope de agentes (usa muchos subagentes). Cada hallazgo se corrige con su prueba
+    - [x] Plugin, corrida 1 (2026-11-26, skill de Cloudflare `c1c8a8c`, perfil `standard`, 36 de 40 agentes, plugin `c8ea5f2`): 0 confirmados (en Windows no hay sandbox, así que no se ejecutó nada), 8 por validar y 1 descartado. Informe fuera del repo en `~/security-audit-skill/angelitozzz-cursos/run-1/` (`REPORT.md`, `NEEDS-VALIDATION.md`)
+    - [x] Validados en el Local (2026-11-26), con sondas HTTP y Chrome sin ventana desde el scratchpad y los datos de prueba borrados al terminar. Los tres se **confirman**:
+        - **P1, checkout de la Store API:** `POST /wc/store/v1/checkout` con `wc_openpay_gateway` y sin token creó la usuaria con contraseña `a` y la sesión iniciada **antes** del pago. También dejó el pedido pendiente con teléfono `12` y sin documento, y mandó el correo de bienvenida. 11 de 11 checkouts con un correo existente respondieron `registration-error-email-exists`, ninguno `angelitozzz_bloqueado`.
+        - **P2, `/wp/v2/users/me`:** una alumna con sesión iniciada sacó el nonce de `admin-ajax.php?action=rest-nonce`. Su `PUT` respondió 200 y cambió el correo al instante, sin confirmación. También cambió la contraseña a `x` sin pedir la actual. Al correo viejo solo llegaron los avisos de WordPress.
+        - **P4, CSRF de inicio de sesión:** el nonce de visitante lo leyó otro cliente. Una página en `127.0.0.1:8799` envió el POST a `admin-post.php`, y el Chrome "víctima", con perfil limpio, quedó con la sesión de la usuaria "atacante" en `/cuenta/`.
+    - [x] P1 corregido (plugin 0.12.1, 2026-11-26): el plugin cierra las rutas del checkout de la Store API con `rest_endpoints` (`includes/checkout.php`, con su prueba: 237 pruebas y PHPCS en 0).
+        - En el Local, las cuatro variantes del checkout responden 404 `rest_no_route` y no se crea ninguna cuenta.
+        - El carrito de la Store API sigue respondiendo.
+        - `cdp-compra.mjs` pasa: checkout clásico con sus 7 campos, Openpay y 0 avisos de PHP.
+        - Anotado en `_shared.md` → WooCommerce.
+    - [ ] Corregir P2 (`/wp/v2/users/me`) y P4 (CSRF de inicio de sesión), y después los otros 5 por validar
+    - [ ] Tema: su propia corrida (`standard`, tope 20)
 - [ ] Revisión de seguridad final (`/security-review` de todo el plugin y las plantillas)
 - [ ] Manual de la clienta con wp-manual (incluye el administrador de cursos). También cómo preparar un video con HandBrake (MP4 H.264, 720p o 1080p, "Web Optimized"), cómo usar "Archivos privados" y cómo poner el video de una landing (archivo de Medios, público)
 - [ ] Cuenta de Bárbara en producción: usuaria propia con su correo y rol administradora (no la de la agencia). Con ella entra a `/wp-admin/` (contenido) y a `/administrador/` (cursos)
