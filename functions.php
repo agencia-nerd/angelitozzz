@@ -27,6 +27,7 @@ require_once get_theme_file_path('/inc/soluciones.php');
 require_once get_theme_file_path('/inc/tienda.php');
 require_once get_theme_file_path('/inc/busqueda.php');
 require_once get_theme_file_path('/inc/paginas-privadas.php');
+require_once get_theme_file_path('/inc/sin-cache.php');
 require_once get_theme_file_path('/inc/administrador.php');
 require_once get_theme_file_path('/inc/constructor-subida.php');
 require_once get_theme_file_path('/inc/leccion.php');
