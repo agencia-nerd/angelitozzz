@@ -352,9 +352,20 @@ Decisión del usuario (2026-11-25): los videos de las lecciones dejan Vimeo y se
     - `archivos-privados.md` nuevo;
     - `solucion.md`: `secciones` y `modal-etapa`, con los 2 campos a `file`;
     - `_shared.md` → `video-portada`.
-- [ ] **2. Plugin:** tipo `angelitozzz_archivo`, almacén con la constante, subida por partes (REST), revisión del tipo, entrega con firma y por pedazos, video y portada, "dónde se usa", migración de los PDF y de `_angelitozzz_video`, limpieza de subidas a medias en la tarea diaria y desinstalación. Pruebas PHPUnit (firma, sesión, acceso perdido, rangos, tipos, migración), PHPCS y compatibilidad con PHP 8.1.
+- [x] **2. Plugin** (plugin 0.8.0, 2026-11-26, rama `feat/archivos-privados` del plugin): lo nuevo se construye **al lado** de lo actual, para que `main` no se rompa entre bloques.
+    - **Archivos nuevos:**
+        - `includes/archivos.php`: tipo `angelitozzz_archivo`, almacén con `ANGELITOZZZ_CURSOS_RUTA_PRIVADA` (filtro `angelitozzz_cursos_ruta_privada`), tipos sin SVG con revisión de WordPress y de la firma de los primeros bytes, topes con advertencia, portada, "dónde se usa", renombrar, borrar y `angelitozzz_cursos_admin_archivos()`;
+        - `includes/archivos-subida.php`: subida por partes y rutas `/archivos`; la tarea diaria borra las subidas a medias;
+        - `includes/archivos-entrega.php`: `/cursos/archivo/<id>/` con firma por usuaria, lección o curso, sesión y vencimiento de 4 h; permiso en cada pedido; pedazos de hasta 4 MB (206 y 416).
+    - **Cambios en lo existente:**
+        - `angelitozzz_cursos_url_archivo()` y `angelitozzz_cursos_video_portada()`;
+        - la desinstalación borra las subidas a medias siempre, y los archivos y el almacén con `BORRAR_TODO`;
+        - los saneadores aceptan lo viejo y lo nuevo durante la transición (enlace de Vimeo o ID de video; adjunto PDF o archivo privado).
+    - **Pruebas:** **213 en verde** (28 nuevas en `tests/test-archivos.php`) y PHPCS en 0, con PHP 8.4.28. Probado en el Local con curl y un video de 10 MB: 206 de 1 KB y de 4 MB, 416, 403 con la firma alterada, con otra lección, por la URL directa y sin vista previa ni sesión, y 200 completo. Los datos de la prueba quedaron borrados.
+    - **Pasa al bloque 4:** la migración de los PDF y de `_angelitozzz_video`, y quitar los formatos viejos de los saneadores, junto con el cambio del constructor.
+    - Falta `/security-review` sobre la rama del plugin.
 - [ ] **3. wp-admin:** pantalla "Archivos privados" (`archivos-privados.md`).
-- [ ] **4. Constructor y lección:** "Subir video" y "Elegir de mis archivos" (`modal-archivos`), barra de avance y advertencia, descargables de cualquier tipo, reproductor `<video>` con marca de agua y pantalla completa propia, y materiales con su ícono y el audio. Pruebas en Chrome (`specs/pruebas/`), también adelantar el video.
+- [ ] **4. Constructor y lección** (con la migración de los PDF y de `_angelitozzz_video` del plugin, y los saneadores solo con lo nuevo): "Subir video" y "Elegir de mis archivos" (`modal-archivos`), barra de avance y advertencia, descargables de cualquier tipo, reproductor `<video>` con marca de agua y pantalla completa propia, y materiales con su ícono y el audio. Pruebas en Chrome (`specs/pruebas/`), también adelantar el video.
 - [ ] **5. Landings:** campos `file` de ACF (`generate.mjs` de wp-acf), `video-portada` con `<video>`, quitar `angelitozzz_cursos_video_url()` del plugin y la vista previa de Vimeo del constructor.
 - [ ] Manual de la clienta (F7): cómo preparar un video con HandBrake (MP4 H.264, 720p o 1080p, "Web Optimized") y cómo usar "Archivos privados".
 
