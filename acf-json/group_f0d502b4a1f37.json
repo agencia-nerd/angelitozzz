@@ -1885,8 +1885,8 @@
                                             "label": "Video",
                                             "name": "video",
                                             "aria-label": "",
-                                            "type": "file",
-                                            "instructions": "Video MP4 o WebM (opcional), de la Biblioteca de medios. Si lo tiene, la imagen muestra el botón play. Es público: no subas aquí videos de los cursos.",
+                                            "type": "oembed",
+                                            "instructions": "Video de Vimeo (opcional). Si lo tiene, la imagen muestra el botón play. Es público: no pongas aquí videos de los cursos.",
                                             "required": 0,
                                             "conditional_logic": 0,
                                             "wrapper": {
@@ -1894,11 +1894,8 @@
                                                 "class": "",
                                                 "id": ""
                                             },
-                                            "return_format": "array",
-                                            "library": "all",
-                                            "min_size": "",
-                                            "max_size": "",
-                                            "mime_types": "",
+                                            "width": "",
+                                            "height": "",
                                             "allow_in_bindings": 0
                                         }
                                     ]
@@ -2214,8 +2211,8 @@
                                             "label": "Modal video",
                                             "name": "modal_video",
                                             "aria-label": "",
-                                            "type": "file",
-                                            "instructions": "Video de presentación del modal, MP4 o WebM de la Biblioteca de medios. Es público: no subas aquí videos de los cursos.",
+                                            "type": "oembed",
+                                            "instructions": "Video de presentación de Vimeo del modal. Es público: no pongas aquí videos de los cursos.",
                                             "required": 0,
                                             "conditional_logic": 0,
                                             "wrapper": {
@@ -2223,11 +2220,8 @@
                                                 "class": "",
                                                 "id": ""
                                             },
-                                            "return_format": "array",
-                                            "library": "all",
-                                            "min_size": "",
-                                            "max_size": "",
-                                            "mime_types": "",
+                                            "width": "",
+                                            "height": "",
                                             "allow_in_bindings": 0
                                         },
                                         {
@@ -2564,5 +2558,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1795670175
+    "modified": 1795812101
 }
