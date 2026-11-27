@@ -24,9 +24,9 @@ $deco = static fn(string $archivo): string => esc_url(get_theme_file_uri('assets
     <img class="pointer-events-none absolute left-[calc(50%-77px)] top-[563px] w-10 max-lg:hidden" src="<?= $deco('reflexion-corazon.webp') ?>" alt="" aria-hidden="true" width="40" height="36" loading="lazy">
 
     <div class="relative mx-auto flex max-w-sitio flex-col gap-14 max-md:gap-10">
-        <h2 id="conoce-a-barbara-reflexion-cita" class="mx-auto max-w-[900px] text-center text-[40px] font-medium italic leading-[1.15] text-marca max-md:text-[28px]"><?= angelitozzz_highlight($cita) ?></h2>
+        <h2 data-aos="fade-up" id="conoce-a-barbara-reflexion-cita" class="mx-auto max-w-[900px] text-center text-[40px] font-medium italic leading-[1.15] text-marca max-md:text-[28px]"><?= angelitozzz_highlight($cita) ?></h2>
 
-        <div class="flex flex-col items-center gap-20 max-lg:gap-10 lg:flex-row">
+        <div data-aos="fade-up" class="flex flex-col items-center gap-20 max-lg:gap-10 lg:flex-row">
             <div class="aspect-[11/13] w-full max-w-[440px] shrink-0 overflow-hidden rounded-[32px] lg:w-[440px]">
                 <?= angelitozzz_image($imagen, [
                     'class'        => 'size-full object-cover object-[65%_center]',
@@ -38,7 +38,7 @@ $deco = static fn(string $archivo): string => esc_url(get_theme_file_uri('assets
             </div>
         </div>
 
-        <div class="mx-auto flex max-w-[820px] flex-col items-center gap-3.5 text-center">
+        <div data-aos="fade-up" class="mx-auto flex max-w-[820px] flex-col items-center gap-3.5 text-center">
             <p class="text-h4 text-marca max-md:text-h5"><?= angelitozzz_highlight($mision) ?></p>
             <?php if ($cierre !== '') : ?>
                 <p class="text-cuerpo-l [&_br]:mt-2 [&_br]:block [&_br]:content-['']"><?= angelitozzz_highlight($cierre) ?></p>

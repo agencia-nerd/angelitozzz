@@ -20,7 +20,7 @@ $precio = (string) ($cta['precio'] ?? '');
 $boton  = $cta['boton'] ?? null;
 ?>
 <section class="fondo-lunas px-4 py-22 max-md:py-14" aria-labelledby="home-seccion-cta-titulo">
-    <div class="mx-auto flex max-w-[1070px] flex-col items-center gap-8 text-center">
+    <div data-aos="fade-up" class="mx-auto flex max-w-[1070px] flex-col items-center gap-8 text-center">
         <div class="flex flex-col items-center gap-8">
             <?= angelitozzz_image($logo, [
                 'class' => 'size-[86px] rounded-full object-cover',
@@ -34,7 +34,7 @@ $boton  = $cta['boton'] ?? null;
         <?php endif; ?>
 
         <?php if ($puntos) : ?>
-            <ul class="lista-puntos text-cuerpo max-md:text-left">
+            <ul  class="lista-puntos text-cuerpo max-md:text-left">
                 <?php foreach ($puntos as $punto) : ?>
                     <li><?= esc_html($punto) ?></li>
                 <?php endforeach; ?>
@@ -42,7 +42,7 @@ $boton  = $cta['boton'] ?? null;
         <?php endif; ?>
 
         <?php if ($precio !== '') : ?>
-            <p class="text-h5 text-marca"><?= esc_html($precio) ?></p>
+            <p  class="text-h5 text-marca"><?= esc_html($precio) ?></p>
         <?php endif; ?>
 
         <?php get_template_part('template-parts/components/boton', null, [

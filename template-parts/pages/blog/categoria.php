@@ -28,7 +28,7 @@ $titulo_id = 'categoria-' . $slug;
 $conteo    = sprintf(_n('%d artículo', '%d artículos', $total, 'angelitozzz'), $total);
 ?>
 <section class="px-4 py-10" aria-labelledby="<?= esc_attr($titulo_id) ?>">
-    <div class="mx-auto flex max-w-sitio flex-col gap-7">
+    <div data-aos="fade-up" class="mx-auto flex max-w-sitio flex-col gap-7">
         <div class="flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
             <div class="flex flex-wrap items-center gap-3">
                 <h2 id="<?= esc_attr($titulo_id) ?>" class="text-h3 text-marca"><?= esc_html($nombre) ?></h2>

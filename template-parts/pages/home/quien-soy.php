@@ -15,7 +15,7 @@ $imagen = $quien_soy['imagen'] ?? null;
 ?>
 <section class="bg-neutro px-4 py-22 max-md:py-14" aria-labelledby="home-quien-soy-titulo">
     <div class="mx-auto flex max-w-[1143px] flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
-        <div class="flex flex-col items-start gap-8 lg:max-w-[589px]">
+        <div data-aos="fade-up" class="flex flex-col items-start gap-8 lg:max-w-[589px]">
             <div class="flex flex-col gap-6">
                 <h2 id="home-quien-soy-titulo" class="relative w-fit text-h1 text-marca max-md:text-h2">
                     <?= angelitozzz_highlight($titulo) ?>
@@ -29,7 +29,7 @@ $imagen = $quien_soy['imagen'] ?? null;
             ]); ?>
         </div>
 
-        <div class="order-first aspect-[482/487] w-full shrink-0 overflow-hidden rounded-media lg:order-none lg:w-[482px]">
+        <div data-aos="fade-up" class="order-first aspect-[482/487] w-full shrink-0 overflow-hidden rounded-media lg:order-none lg:w-[482px]">
             <?= angelitozzz_image($imagen, [
                 'class'        => 'size-full object-cover',
                 'alt_fallback' => $titulo,
