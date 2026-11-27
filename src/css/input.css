@@ -207,13 +207,80 @@
         }
     }
 
-    /* Testimonios: las tarjetas fuera de la vista asoman con opacidad reducida. */
     .swiper-alto-auto .swiper-slide {
         height: auto;
     }
 
-    .testimonios-slider .swiper-slide:not(.swiper-slide-visible) {
-        opacity: 0.45;
+    /*
+     * Testimonios en cinta (template-parts/components/testimonios-slider.php), de borde a borde de la ventana.
+     * Sin JS o con movimiento reducido: fila con scroll horizontal alineada al contenedor.
+     * Con JS (data-cinta-activa): la pista avanza sin fin; testimonios-slider.js pone el desplazamiento y la duración.
+     */
+    .testimonios-cinta {
+        width: 100vw;
+        margin-inline: calc(50% - 50vw);
+        padding-inline: max(16px, calc((100vw - var(--container-sitio)) / 2));
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+    }
+
+    .testimonios-cinta__pista {
+        display: flex;
+        gap: 16px;
+        width: max-content;
+    }
+
+    .testimonios-cinta__item {
+        flex: none;
+        width: calc((100vw - 32px) / 1.1);
+        scroll-snap-align: start;
+    }
+
+    @media (min-width: 768px) {
+        .testimonios-cinta__pista {
+            gap: 24px;
+        }
+
+        .testimonios-cinta__item {
+            width: calc((100vw - 56px) / 2);
+        }
+    }
+
+    /* En escritorio las tarjetas de los bordes se esfuman en 220 px (máscara: siempre alineada con la cinta). */
+    @media (min-width: 1024px) {
+        .testimonios-cinta {
+            mask-image: linear-gradient(to right, transparent, #000 220px, #000 calc(100% - 220px), transparent);
+        }
+
+        .testimonios-cinta__item {
+            width: calc((min(100vw, var(--container-sitio)) - 48px) / 3);
+        }
+    }
+
+    .testimonios-cinta[data-cinta-activa] {
+        padding-inline: 0;
+        overflow: hidden;
+    }
+
+    .testimonios-cinta[data-cinta-activa] .testimonios-cinta__pista {
+        animation: testimonios-cinta-avanza var(--cinta-duracion, 40s) linear infinite;
+    }
+
+    .testimonios-cinta[data-pausado] .testimonios-cinta__pista {
+        animation-play-state: paused;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .testimonios-cinta[data-cinta-activa] .testimonios-cinta__pista {
+            animation: none;
+        }
+    }
+
+    @keyframes testimonios-cinta-avanza {
+        to {
+            transform: translate3d(calc(-1 * var(--cinta-desplazamiento, 50%)), 0, 0);
+        }
     }
 
     /* Puntos de paginación de los sliders (Swiper). */

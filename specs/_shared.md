@@ -323,7 +323,7 @@ Cada componente vive en `template-parts/components/<nombre>.php` y recibe sus da
 
 - **Origen:** componente Figma "Testimonios · Tarjetas" (home/testimonios y mundo-angelitozzz/testimonios)
 - **Destino:** `template-parts/components/testimonios-slider.php`
-- **Argumentos:** `titulo` (string, requerido), `testimonios` (array de `autora`, `detalle`, `estrellas`, `texto`; requerido), `boton` (array link, lleva a la página Testimonios). El movimiento es de `src/js/modules/testimonios-slider.js` (Swiper, no automático)
+- **Argumentos:** `titulo` (string, requerido), `testimonios` (array de `autora`, `detalle`, `estrellas`, `texto`; requerido), `boton` (array link, lleva a la página Testimonios). El movimiento es de `src/js/modules/testimonios-slider.js` (cinta continua e infinita, automática, sin Swiper: clona las tarjetas, se pausa al pasar el mouse y con un botón Pausar/Reanudar; con movimiento reducido o sin JS queda una fila con scroll horizontal). Cambiado de "no automático" a pedido del usuario el 2026-11-27
 - **Se usa en:** home/testimonios, mundo-angelitozzz/testimonios (cada página con su propio repetidor)
 
 ### testimonio-card

@@ -1,8 +1,9 @@
 <?php
 
 /**
- * Slider de testimonios (componente Figma "Testimonios · Tarjetas").
- * El JS vive en src/js/modules/testimonios-slider.js (Swiper, no automático).
+ * Testimonios en cinta continua e infinita (componente Figma "Testimonios · Tarjetas").
+ * El JS vive en src/js/modules/testimonios-slider.js: clona la lista, la anima y maneja el botón de pausa.
+ * Sin JS o con movimiento reducido queda una fila con scroll horizontal.
  *
  * $args:
  * - titulo      (string, requerido)
@@ -56,26 +57,21 @@ $letras_z = [
         <div class="relative flex items-center justify-between gap-6">
             <img class="pointer-events-none absolute -left-[75px] -top-4 w-11 max-xl:hidden" src="<?= esc_url(get_theme_file_uri('assets/img/testimonios-detalle-estrella.svg')) ?>" alt="" aria-hidden="true" width="44" height="50" loading="lazy">
             <h2 id="<?= esc_attr($id) ?>-titulo" class="text-h2 text-marca max-md:text-h3"><?= angelitozzz_highlight($titulo) ?></h2>
-            <div class="flex shrink-0 gap-3 max-md:hidden">
-                <button type="button" class="flex size-12 items-center justify-center rounded-full border border-neutro bg-blanco text-marca focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca" data-slider-anterior>
-                    <span class="sr-only"><?= esc_html__('Anterior', 'angelitozzz') ?></span>
-                    <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15.83 10H4.17M10 15.83 4.17 10 10 4.17" /></svg>
-                </button>
-                <button type="button" class="flex size-12 items-center justify-center rounded-full border border-neutro bg-blanco text-marca focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca" data-slider-siguiente>
-                    <span class="sr-only"><?= esc_html__('Siguiente', 'angelitozzz') ?></span>
-                    <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.17 10h11.66M10 4.17 15.83 10 10 15.83" /></svg>
-                </button>
-            </div>
+            <button type="button" class="group flex size-12 shrink-0 items-center justify-center rounded-full border border-neutro bg-blanco text-marca focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca" aria-pressed="false" data-cinta-pausa hidden>
+                <span class="sr-only"><?= esc_html__('Pausar testimonios', 'angelitozzz') ?></span>
+                <svg class="size-5 group-aria-pressed:hidden" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M6 4h2.5v12H6zM11.5 4H14v12h-2.5z" /></svg>
+                <svg class="hidden size-5 group-aria-pressed:block" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M6.5 4.2v11.6a.6.6 0 0 0 .92.5l9.06-5.8a.6.6 0 0 0 0-1L7.42 3.7a.6.6 0 0 0-.92.5z" /></svg>
+            </button>
         </div>
 
-        <div class="swiper swiper-alto-auto testimonios-slider mt-16 overflow-visible max-md:mt-10" data-testimonios-slider aria-label="<?= esc_attr($titulo) ?>">
-            <ul class="swiper-wrapper">
+        <div class="testimonios-cinta mt-16 max-md:mt-10" data-testimonios-cinta>
+            <ul class="testimonios-cinta__pista" data-cinta-pista>
                 <?php foreach ($testimonios as $testimonio) :
                     $estrellas = max(1, min(5, (int) ($testimonio['estrellas'] ?? 5)));
                     $autora    = (string) ($testimonio['autora'] ?? '');
                     $detalle   = (string) ($testimonio['detalle'] ?? '');
                 ?>
-                    <li class="swiper-slide transition-opacity">
+                    <li class="testimonios-cinta__item">
                         <figure class="relative flex h-full min-h-[320px] flex-col gap-[14px] rounded-media bg-blanco p-7">
                             <div class="flex gap-[2px] text-estrella">
                                 <span class="sr-only"><?= esc_html(sprintf(__('%d de 5 estrellas', 'angelitozzz'), $estrellas)) ?></span>
@@ -102,18 +98,6 @@ $letras_z = [
             </ul>
         </div>
 
-        <div class="mt-14 flex items-center justify-center gap-4 max-md:mt-8">
-            <button type="button" class="flex size-12 shrink-0 items-center justify-center rounded-full border border-neutro bg-blanco text-marca focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca md:hidden" data-slider-anterior>
-                <span class="sr-only"><?= esc_html__('Anterior', 'angelitozzz') ?></span>
-                <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15.83 10H4.17M10 15.83 4.17 10 10 4.17" /></svg>
-            </button>
-            <div class="slider-puntos" data-slider-puntos></div>
-            <button type="button" class="flex size-12 shrink-0 items-center justify-center rounded-full border border-neutro bg-blanco text-marca focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca md:hidden" data-slider-siguiente>
-                <span class="sr-only"><?= esc_html__('Siguiente', 'angelitozzz') ?></span>
-                <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.17 10h11.66M10 4.17 15.83 10 10 15.83" /></svg>
-            </button>
-        </div>
-
         <div class="mt-14 flex justify-center max-md:mt-10">
             <?php get_template_part('template-parts/components/boton', null, [
                 'enlace'   => $boton,
@@ -122,7 +106,4 @@ $letras_z = [
             ]); ?>
         </div>
     </div>
-
-    <div class="pointer-events-none absolute left-0 top-[267px] z-10 h-[340px] w-[220px] bg-linear-to-r from-neutro to-neutro/0 max-lg:hidden" aria-hidden="true"></div>
-    <div class="pointer-events-none absolute right-0 top-[267px] z-10 h-[340px] w-[220px] bg-linear-to-l from-neutro to-neutro/0 max-lg:hidden" aria-hidden="true"></div>
 </section>
