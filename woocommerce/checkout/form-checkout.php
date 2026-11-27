@@ -28,7 +28,12 @@
 
 defined('ABSPATH') || exit;
 
-do_action('woocommerce_before_checkout_form', $checkout);
+// Avisos de Woo (woocommerce_output_all_notices) y lo que cuelgue de este gancho, en el mismo ancho que el checkout.
+?>
+<div class="mx-auto w-full max-w-[1200px] px-6 max-md:px-4">
+    <?php do_action('woocommerce_before_checkout_form', $checkout); ?>
+</div>
+<?php
 
 // Si el registro en el checkout está desactivado y no hay sesión, no se puede comprar.
 if (!$checkout->is_registration_enabled() && $checkout->is_registration_required() && !is_user_logged_in()) {
@@ -39,7 +44,7 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 $id_form = 'angelitozzz-checkout';
 
 $texto_boton = (string) apply_filters('woocommerce_order_button_text', __('Pagar ahora', 'angelitozzz'));
-$boton_html  = '<button type="submit" form="' . esc_attr($id_form) . '" class="inline-flex cursor-pointer items-center gap-[10px] whitespace-nowrap rounded-full bg-acento py-[14px] pl-[28px] pr-[24px] text-rotulo text-blanco focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca max-lg:w-full max-lg:justify-center" name="woocommerce_checkout_place_order" id="place_order" value="' . esc_attr($texto_boton) . '" data-value="' . esc_attr($texto_boton) . '">'
+$boton_html  = '<button type="submit" form="' . esc_attr($id_form) . '" class="inline-flex cursor-pointer items-center gap-[10px] whitespace-nowrap rounded-full bg-acento py-[14px] pl-[28px] pr-[24px] text-rotulo text-blanco focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marca w-full justify-center" name="woocommerce_checkout_place_order" id="place_order" value="' . esc_attr($texto_boton) . '" data-value="' . esc_attr($texto_boton) . '">'
     . '<span>' . esc_html($texto_boton) . '</span>'
     . '<svg class="size-[18px] shrink-0" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.75 9h10.5M9 3.75 14.25 9 9 14.25" /></svg>'
     . '</button>';
@@ -60,18 +65,18 @@ $boton_permitido = [
     'path' => ['d' => true, 'fill' => true, 'stroke' => true, 'stroke-width' => true, 'fill-rule' => true, 'clip-rule' => true],
 ];
 ?>
-<div class="mx-auto grid max-w-[1507px] grid-cols-1 gap-7 px-4 py-30 max-md:py-14 lg:grid-cols-[minmax(0,969px)_346px] lg:items-start lg:justify-center lg:gap-x-[clamp(48px,10vw,192px)]">
+<div class="mx-auto grid w-full max-w-[1200px] grid-cols-1 gap-6 px-6 pb-30 pt-14 max-md:px-4 max-md:pb-14 max-md:pt-8 lg:grid-cols-[minmax(0,1fr)_345px] lg:items-start lg:gap-12">
     <h1 class="sr-only"><?= esc_html__('Finalizar compra', 'angelitozzz') ?></h1>
 
     <?php // Columna izquierda (en móvil, sus bloques se reparten con `order`). ?>
-    <div class="flex flex-col gap-7 max-lg:contents">
+    <div class="flex flex-col gap-6 max-lg:contents">
         <?php if (!is_user_logged_in()) : ?>
             <div class="max-lg:order-1">
                 <?php wc_get_template('checkout/form-login.php', ['checkout' => $checkout]); ?>
             </div>
         <?php endif; ?>
 
-        <form id="<?= esc_attr($id_form) ?>" name="checkout" method="post" class="checkout woocommerce-checkout flex flex-col gap-[41px] max-lg:contents" action="<?= esc_url(wc_get_checkout_url()) ?>" enctype="multipart/form-data" aria-label="<?= esc_attr__('Finalizar compra', 'angelitozzz') ?>">
+        <form id="<?= esc_attr($id_form) ?>" name="checkout" method="post" class="checkout woocommerce-checkout flex flex-col gap-6 max-lg:contents" action="<?= esc_url(wc_get_checkout_url()) ?>" enctype="multipart/form-data" aria-label="<?= esc_attr__('Finalizar compra', 'angelitozzz') ?>">
             <?php if ($checkout->get_checkout_fields()) : ?>
 
                 <?php do_action('woocommerce_checkout_before_customer_details'); ?>
@@ -86,14 +91,14 @@ $boton_permitido = [
             <?php endif; ?>
 
             <?php // Método de pago, términos, ganchos del botón y nonce (payment.php), dentro del <form>. ?>
-            <div class="flex flex-col gap-[41px] max-lg:contents">
+            <div class="flex flex-col gap-6 max-lg:contents">
                 <?php woocommerce_checkout_payment(); ?>
             </div>
         </form>
     </div>
 
-    <?php // Columna derecha: resumen, "Pagar ahora" y cupón. ?>
-    <div class="flex flex-col items-center gap-[34px] max-lg:contents">
+    <?php // Columna derecha: resumen, "Pagar ahora" y cupón. En escritorio queda fija al bajar (bajo el header). ?>
+    <div class="flex flex-col items-center gap-6 max-lg:contents lg:sticky lg:top-28">
         <?php do_action('woocommerce_checkout_before_order_review_heading'); ?>
         <?php // Sin el <h3 id="order_review_heading"> del original: el título "Resumen de compra" es el h2 del componente. ?>
         <?php do_action('woocommerce_checkout_before_order_review'); ?>

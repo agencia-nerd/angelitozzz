@@ -24,7 +24,7 @@ if (apply_filters('woocommerce_checkout_show_terms', true) && function_exists('w
     do_action('woocommerce_checkout_before_terms_and_conditions');
 
     ?>
-    <div class="woocommerce-terms-and-conditions-wrapper flex flex-col gap-[41px] text-cuerpo-s text-tinta [&_a]:underline [&_a]:underline-offset-2 [&_a:focus-visible]:outline-2 [&_a:focus-visible]:outline-offset-2 [&_a:focus-visible]:outline-marca">
+    <div class="woocommerce-terms-and-conditions-wrapper flex flex-col gap-5 text-cuerpo-s text-tinta [&_a]:underline [&_a]:underline-offset-2 [&_a:focus-visible]:outline-2 [&_a:focus-visible]:outline-offset-2 [&_a:focus-visible]:outline-marca">
         <?php
         /*
          * Texto de privacidad (wc_checkout_privacy_policy_text, prioridad 20) y contenido de la página de

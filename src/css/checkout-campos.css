@@ -1,0 +1,82 @@
+/*
+ * Checkout: campos en caja, como los de Perfil (specs/checkout.md, rediseño del 2026-11-27). La caja es
+ * .campo-caja (envuelve el control, o el prefijo y el número del celular) y el control, .campo-caja__control.
+ * El error lo marca Woo (o checkout-boton.js) con .woocommerce-invalid en el .form-row: aquí pasa a la caja.
+ * Sin @layer, como pasarela.css, para ganar a los estilos en línea de Woo y Openpay.
+ */
+
+.campo-caja {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    height: 50px;
+    padding: 0 1rem;
+    border: 1px solid #dfdfdf;
+    border-radius: 15px;
+    background-color: var(--color-blanco);
+    color: var(--color-tinta);
+    transition:
+        border-color 150ms ease,
+        box-shadow 150ms ease;
+}
+
+.campo-caja:hover {
+    border-color: var(--color-neutro);
+}
+
+.campo-caja:focus-within {
+    border-color: var(--color-marca);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-marca) 12%, transparent);
+}
+
+.campo-caja__control {
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 100%;
+    border: 0;
+    background: transparent;
+    font-size: var(--text-cuerpo-s);
+    color: var(--color-tinta);
+    outline: none;
+}
+
+.campo-caja__control::placeholder {
+    color: var(--color-tinta-suave);
+    opacity: 1;
+}
+
+/* Error: borde y anillo en el color de acento. */
+.woocommerce-invalid .campo-caja {
+    border-color: var(--color-acento);
+}
+
+.woocommerce-invalid .campo-caja:focus-within {
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-acento) 14%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .campo-caja {
+        transition: none;
+    }
+}
+
+
+/* Un <input> que es la caja (el cupón: Woo pone su mensaje junto al campo, así que no puede ir envuelto). */
+input.campo-caja {
+    font-size: var(--text-cuerpo-s);
+    outline: none;
+}
+
+input.campo-caja.has-error {
+    border-color: var(--color-acento);
+}
+
+/* Mensaje del cupón (checkout.js lo agrega después del campo): en su fila, bajo la caja y el botón. */
+.checkout_coupon .coupon-error-notice {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    font-size: var(--text-caption);
+    line-height: 1.3;
+    color: var(--color-acento);
+}
