@@ -57,6 +57,10 @@ if (document.querySelector('[data-carrito-contenido], form[data-cupon-hero]')) {
     import('./modules/carrito.js').then(({ initCarrito }) => initCarrito()).catch(console.error);
 }
 
+if (document.querySelector('[data-paso]')) {
+    import('./modules/checkout-pasos.js').then(({ initCheckoutPasos }) => initCheckoutPasos()).catch(console.error);
+}
+
 if (document.getElementById('place_order')) {
     import('./modules/checkout-boton.js').then(({ initCheckoutBoton }) => initCheckoutBoton()).catch(console.error);
 }

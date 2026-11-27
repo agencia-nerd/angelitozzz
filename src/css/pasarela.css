@@ -25,3 +25,140 @@
 .hidden:not(#openpay_cards .hidden) {
     visibility: visible;
 }
+
+/* ---- Rediseño del checkout (2026-11-27, specs/checkout.md): Openpay con el aspecto de los campos del sitio ----
+ * Estructura de templates/payment.php de Openpay Cards (revisar si el plugin se actualiza): #wc_openpay_gateway
+ * > [div.ajax-loader, div (logos), div (separador), h3 "Información de Pago", p (modo sandbox), selector de
+ * tarjeta, #payment_form_openpay_cards (campos)], y después, hermanos, el separador y el pie (logo y cifrado). */
+
+/* Los logos y el título de Openpay repiten la cabecera del paso "Pago". */
+#wc_openpay_gateway > div:nth-child(2),
+#wc_openpay_gateway > div:nth-child(3),
+#wc_openpay_gateway > h3,
+.payment_box > #wc_openpay_gateway + div {
+    display: none !important;
+}
+
+.payment_box {
+    margin: 0;
+    padding: 0;
+    background: none;
+}
+
+#wc_openpay_gateway > p {
+    margin: 0 0 1rem !important;
+    font-size: var(--text-caption);
+    color: var(--color-tinta-suave);
+}
+
+/* Campos: etiqueta arriba y línea inferior, como "Tus datos"; titular y número a lo ancho, Expira | CVV. */
+#payment_form_openpay_cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+#payment_form_openpay_cards > .form-row-wide {
+    grid-column: 1 / -1;
+}
+
+#wc_openpay_gateway .form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 0 !important;
+    padding: 0 !important;
+    float: none !important;
+    width: auto !important;
+}
+
+#wc_openpay_gateway .form-row > label {
+    margin: 0;
+    font-size: var(--text-cuerpo-s);
+    line-height: 1.5;
+    color: var(--color-tinta);
+}
+
+#wc_openpay_gateway .form-row .required {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Mismo aspecto que .campo-caja (checkout-campos.css): caja blanca de 50 px, radio 15, borde #dfdfdf. */
+#wc_openpay_gateway input.input-text,
+#wc_openpay_gateway select.openpay-select {
+    width: 100% !important;
+    height: 50px;
+    margin: 0;
+    padding: 0 1rem !important;
+    border: 1px solid #dfdfdf !important;
+    border-radius: 15px !important;
+    background-color: var(--color-blanco) !important;
+    font-size: var(--text-cuerpo-s) !important;
+    line-height: 1.5 !important;
+    color: var(--color-tinta);
+    box-shadow: none;
+    transition:
+        border-color 150ms ease,
+        box-shadow 150ms ease;
+}
+
+#wc_openpay_gateway input.input-text:hover,
+#wc_openpay_gateway select.openpay-select:hover {
+    border-color: var(--color-neutro) !important;
+}
+
+#wc_openpay_gateway input.input-text:focus,
+#wc_openpay_gateway select.openpay-select:focus {
+    outline: none;
+    border-color: var(--color-marca) !important;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-marca) 12%, transparent);
+}
+
+/* Titular inválido (checkout-boton.js pone aria-invalid). */
+#wc_openpay_gateway input.input-text[aria-invalid='true'] {
+    border-color: var(--color-acento) !important;
+}
+
+#wc_openpay_gateway input.input-text::placeholder {
+    color: var(--color-tinta-suave);
+    opacity: 1;
+}
+
+/* Pie de Openpay (logo y "Tus pagos se realizan de forma segura…"): una línea chica y centrada. */
+.payment_box > #wc_openpay_gateway + div + div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem 1rem;
+    margin-top: 1.75rem;
+}
+
+.payment_box > #wc_openpay_gateway + div + div > div {
+    align-items: center;
+    margin: 0 !important;
+}
+
+.payment_box > #wc_openpay_gateway + div + div img {
+    max-height: 1.5rem !important;
+}
+
+.payment_box > #wc_openpay_gateway + div + div p {
+    margin: 0 !important;
+    font-size: var(--text-caption) !important;
+    color: var(--color-tinta-suave);
+}
+
+/* El separador de los términos (payment.php) no lleva el margen y relleno de `.form-row` de Openpay. */
+.woocommerce-checkout #payment .form-row.place-order {
+    margin: 0 !important;
+    padding: 1.75rem 0 0 !important;
+}
+
+/* Lo que Openpay oculta con `.hidden` (p. ej. "Guardar tarjeta" si no se pueden guardar) sigue oculto con el
+ * display de arriba. */
+#wc_openpay_gateway .form-row.hidden {
+    display: none !important;
+}

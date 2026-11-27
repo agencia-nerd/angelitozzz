@@ -40,7 +40,37 @@ function validarTitular() {
     campo.focus();
     return false;
 }
-const FLECHA = '<svg class="size-[18px] shrink-0" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.75 9h10.5M9 3.75 14.25 9 9 14.25" /></svg>';
+/*
+ * "Tus datos" antes que la tarjeta: openpay.js tokeniza la tarjeta antes de que Woo envíe el pedido, así que con los
+ * datos vacíos solo se veía el error de la tarjeta, abajo. Aquí se marcan los campos requeridos vacíos como lo hace
+ * checkout.js de Woo (clases woocommerce-invalid y mensaje .checkout-inline-error-message con id <campo>_description,
+ * que su validación quita sola al escribir) y no se envía. El servidor sigue validando todo igual.
+ */
+function validarDatos(form) {
+    let primero = null;
+    form.querySelectorAll('.woocommerce-billing-fields .validate-required[id$="_field"]').forEach((fila) => {
+        const campo = document.getElementById(fila.id.replace(/_field$/, ''));
+        if (!campo || campo.disabled || campo.value.trim() !== '') return;
+
+        fila.classList.add('woocommerce-invalid', 'woocommerce-invalid-required-field');
+        fila.classList.remove('woocommerce-validated');
+        if (!fila.querySelector('.checkout-inline-error-message')) {
+            const etiqueta = (fila.querySelector('label')?.textContent || '').replace(/[:*]/g, '').trim();
+            const mensaje = document.createElement('p');
+            mensaje.id = `${campo.id}_description`;
+            mensaje.className = 'checkout-inline-error-message';
+            mensaje.textContent = `${etiqueta} es un campo requerido.`;
+            fila.append(mensaje);
+            campo.setAttribute('aria-describedby', mensaje.id);
+        }
+        campo.setAttribute('aria-invalid', 'true');
+        primero ??= campo;
+    });
+    primero?.focus();
+    return !primero;
+}
+
+const FLECHA ='<svg class="size-[18px] shrink-0" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.75 9h10.5M9 3.75 14.25 9 9 14.25" /></svg>';
 
 export function initCheckoutBoton() {
     const boton = document.getElementById('place_order');
@@ -61,7 +91,7 @@ export function initCheckoutBoton() {
     boton.addEventListener('click', (evento) => {
         const form = boton.form;
         if (!form || !form.classList.contains('checkout')) return;
-        if (!validarTitular()) {
+        if (!validarDatos(form) || !validarTitular()) {
             evento.preventDefault(); // Sin submit: ni token ni pedido.
             return;
         }

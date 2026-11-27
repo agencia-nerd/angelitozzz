@@ -1,0 +1,31 @@
+/*
+ * Checkout: tarjeta del paso en curso (specs/checkout.md, 2026-11-27). La marca src/js/modules/checkout-pasos.js
+ * con data-activo y pone la clase .checkout-pasos en <html>: sin JS todo se ve igual que sin resaltar.
+ * Sin @layer para ganar al borde de la tarjeta (utilidad de Tailwind).
+ */
+
+.checkout-pasos [data-paso] {
+    transition:
+        border-color 200ms ease,
+        box-shadow 200ms ease;
+}
+
+.checkout-pasos [data-paso][data-activo] {
+    border-color: var(--color-marca-suave);
+    box-shadow:
+        0 0 0 3px color-mix(in srgb, var(--color-marca) 10%, transparent),
+        0 10px 30px -12px color-mix(in srgb, var(--color-marca) 22%, transparent);
+}
+
+/* El número del paso: oscuro en el activo, más claro en los demás. */
+.checkout-pasos [data-paso]:not([data-activo]) .paso-titulo__numero {
+    background-color: var(--color-marca-suave);
+    transition: background-color 200ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .checkout-pasos [data-paso],
+    .checkout-pasos [data-paso] .paso-titulo__numero {
+        transition: none;
+    }
+}

@@ -77,7 +77,8 @@ try {
             return null;
         };
         const faltan = [
-            poner('#billing_first_name', 'Prueba Pago'),
+            poner('#billing_first_name', 'Prueba'),
+            poner('#billing_last_name', 'Pago'),
             poner('#billing_phone_prefijo', '+51'),
             poner('#billing_phone', '987654321'),
             poner('#billing_tipo_documento', 'dni'),

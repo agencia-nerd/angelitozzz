@@ -65,6 +65,8 @@ Solo si algún contenido tiene `Origen: woo`; si no, se deja vacía o se borra. 
 
 Decidido en la F0 (2026-11-10): carrito, checkout y mini-carrito clásicos, porque el diseño es propio y los plugins de pasarela peruanos no siempre soportan el checkout en bloques. La pasarela es Openpay desde el 2026-11-18 (antes Niubiz); su plugin dibuja el pago con `payment_fields()` del checkout clásico. El mini-carrito es un drawer que se abre al agregar un curso. La cuenta no es la de Woo: es propia (página `/cuenta/` del tema, con datos del plugin `angelitozzz-cursos`: escritorio, mi perfil, cursos inscritos e historial de pedidos leído de `WC_Order`), y "Mi cuenta" de Woo redirige ahí. Hasta 2026-11-13 era el panel de Tutor LMS, que se dejó. Las etapas de Horarios Ideales no son variaciones: son 3 cursos con su propio producto.
 
+**Avisos de WooCommerce (2026-11-27).** Los avisos `.woocommerce-error`, `.woocommerce-message` y `.woocommerce-info` tienen estilo propio en todo el sitio (`src/css/avisos-woo.css`, sin sobrescribir las plantillas de avisos de Woo): caja con borde y radio 12, `--text-cuerpo-s`; error en `--color-acento`, éxito en `--color-marca-suave`, información en `--color-neutro`, con fondo suave del mismo color. Los avisos del shortcode van en un contenedor de 1200 px. En el checkout, el error de cada campo va bajo su línea, en `--color-acento` y `--text-caption`.
+
 **Checkout de la Store API cerrado (plugin 0.12.1, 2026-11-26).** El plugin quita las rutas `/wc/store/v1/checkout` y `/checkout/{id}`, y las mismas sin `v1` (`includes/checkout.php`). Se cerraron porque se saltaban las validaciones del checkout clásico: contraseña, documento, celular y el límite de "el correo ya tiene cuenta". El carrito de la Store API sigue abierto. Si algún día el checkout pasa a `bloques`, hay que quitar ese cierre y validar en `woocommerce_store_api_checkout_update_order_from_request`.
 
 - `Pieza`: las que WooCommerce puede dibujar como plantilla PHP o como bloque: `carrito`, `checkout`, `mini-carrito` y `cuenta`. Tienda, tarjeta de producto y ficha son siempre plantillas PHP y no se preguntan.
@@ -197,10 +199,10 @@ Cada componente vive en `template-parts/components/<nombre>.php` y recibe sus da
 
 ### resumen-compra
 
-- **Origen:** caja "Resumen de compra" de carrito (4151:10157) y checkout (4156:9961): borde `#bcb28a`, radio 12, 345 px de ancho
+- **Origen:** caja "Resumen de compra" de carrito (4151:10157) y checkout (4156:9961), rediseñada el 2026-11-27 como las tarjetas del checkout por pasos: borde `#bcb28a`, radio 12, fondo blanco al 60 %, `p-6`, hasta 345 px de ancho
 - **Destino:** `template-parts/components/resumen-compra.php`
 - **Argumentos:** `items` (array de `tipo` ("Curso"), `nombre` y `precio` (string ya formateado por Woo); requerido), `subtotal` (string, requerido), `descuento` (string, opcional: sin valor no se imprime la fila), `impuesto` (array `etiqueta` ("IGV") y `monto`, opcional: sin valor no se imprime la fila), `total` (string, requerido)
-- **Se usa en:** carrito/carrito-de-compras (`woocommerce/cart/cart.php`), checkout/hero (`woocommerce/checkout/review-order.php`). Título "Resumen de compra" fijo; cada fila con su etiqueta a la izquierda y el monto a la derecha, separadas por líneas `#bcb28a`. Los datos los arma la plantilla de Woo desde el carrito; el componente no llama a Woo.
+- **Se usa en:** carrito/carrito-de-compras (`woocommerce/cart/cart.php`), checkout/hero (`woocommerce/checkout/review-order.php`). Título "Resumen de compra" fijo, a la izquierda (`--text-h5`, `--color-marca`). Cada curso con el ícono de regalo en un círculo `--color-fondo-rosa`, "Curso" en `--text-caption` `--color-tinta-suave`, el nombre y el precio a la derecha. Debajo de una línea, Subtotal, Descuento (en `--color-marca`) e IGV, sin dos puntos, con la etiqueta en `--color-tinta-suave`; y, tras otra línea, "Total" con el monto destacado (`--text-h5`, `--color-marca`). Los datos los arma la plantilla de Woo desde el carrito; el componente no llama a Woo.
 
 ### carrito-contenido
 
@@ -272,7 +274,7 @@ Cada componente vive en `template-parts/components/<nombre>.php` y recibe sus da
 - **Origen:** lista "Su contraseña debe tener al menos:" de usuario-mi-perfil / Seguridad (4164:27124)
 - **Destino:** `template-parts/components/reglas-contrasena.php`
 - **JS:** `src/js/modules/reglas-contrasena.js`
-- **Argumentos:** `campo` (string, requerido: id del campo de contraseña que vigila). Lista de 4 reglas en 2 × 2 (8 caracteres, 1 letra minúscula, 1 número, 1 letra mayúscula) con ícono de 30 px: cumplida check `#9cb09d`, pendiente ✕ `#f5a8a9`; cada regla dice su estado en texto para lectores ("cumplida" / "pendiente") y la lista se anuncia con `aria-live="polite"`. Las reglas que se muestran las da el plugin con `angelitozzz_cursos_reglas_contrasena()` (las mismas que valida el servidor, F3); el tema pone el texto de cada una y su comprobación en vivo. Una regla nueva del plugin sin texto en el tema se muestra con su clave y queda pendiente (2026-11-24). Sin el plugin, la lista no se muestra.
+- **Argumentos:** `campo` (string, requerido: id del campo de contraseña que vigila), `compacto` (bool, por defecto no: íconos de 20 px, título y reglas en `--text-cuerpo-s`, título en `--color-tinta-suave` y menos espacio; lo usa el checkout, 2026-11-27). Lista de 4 reglas en 2 × 2 (8 caracteres, 1 letra minúscula, 1 número, 1 letra mayúscula) con ícono de 30 px: cumplida check `#9cb09d`, pendiente ✕ `#f5a8a9`; cada regla dice su estado en texto para lectores ("cumplida" / "pendiente") y la lista se anuncia con `aria-live="polite"`. Las reglas que se muestran las da el plugin con `angelitozzz_cursos_reglas_contrasena()` (las mismas que valida el servidor, F3); el tema pone el texto de cada una y su comprobación en vivo. Una regla nueva del plugin sin texto en el tema se muestra con su clave y queda pendiente (2026-11-24). Sin el plugin, la lista no se muestra.
 - **Se usa en:** usuario-mi-perfil (Seguridad), crear-cuenta, recuperar-contrasena (nueva contraseña), checkout (contraseña de la cuenta nueva). Regla de todo el sitio (decisión del usuario, 2026-11-13).
 
 ### banner-mundo
@@ -346,6 +348,13 @@ Cada componente vive en `template-parts/components/<nombre>.php` y recibe sus da
 - **Destino:** `template-parts/components/cintillo-promociones.php`
 - **Argumentos:** `texto` (string; vacío = no se muestra), `modal` (string, id del modal que abre; por defecto `modal-coach`)
 - **Se usa en:** `header.php`
+
+### paso-titulo
+
+- **Origen:** rediseño del checkout por pasos (decisión del usuario, 2026-11-27; sin frame de Figma)
+- **Destino:** `template-parts/components/paso-titulo.php`
+- **Argumentos:** `id` (string, requerido: id del h2, para el `aria-labelledby` de la tarjeta), `numero` (int, requerido), `titulo` (string, requerido). Círculo de 32 px `--color-marca` con el número en blanco (decorativo; para lectores dice "Paso N:"; clase `paso-titulo__numero`, que pasa a `--color-marca-suave` cuando su tarjeta no es el paso en curso, ver `checkout.md`) y el título en `--text-h5` `--color-marca`.
+- **Se usa en:** checkout ("1 · Tus datos" en `form-billing.php`, "2 · Pago" en `payment.php`)
 
 ## Criterios comunes
 

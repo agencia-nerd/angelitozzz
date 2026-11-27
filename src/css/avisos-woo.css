@@ -1,0 +1,123 @@
+/*
+ * Avisos de WooCommerce (specs/_shared.md → "Avisos de WooCommerce"; rediseño del checkout, 2026-11-27).
+ * Woo imprime sus avisos con estas clases en todo el sitio (carrito, checkout, cuenta) y en el checkout los
+ * devuelve por AJAX: se les da estilo aquí, sin sobrescribir sus plantillas. Sin @layer, como pasarela.css,
+ * para ganar a lo que traiga Woo o una pasarela.
+ */
+
+.woocommerce-error,
+.woocommerce-message,
+.woocommerce-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin: 0 0 1.5rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid;
+    border-radius: 12px;
+    list-style: none;
+    font-size: var(--text-cuerpo-s);
+    line-height: 1.5;
+    color: var(--color-tinta);
+}
+
+.woocommerce-message,
+.woocommerce-info {
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 1rem;
+}
+
+.woocommerce-error {
+    border-color: var(--color-acento);
+    background: color-mix(in srgb, var(--color-acento) 7%, var(--color-blanco));
+}
+
+.woocommerce-message {
+    border-color: var(--color-marca-suave);
+    background: color-mix(in srgb, var(--color-marca) 6%, var(--color-blanco));
+}
+
+.woocommerce-info {
+    border-color: var(--color-neutro);
+    background: color-mix(in srgb, var(--color-neutro) 22%, var(--color-blanco));
+}
+
+/* Varios errores: lista con viñeta propia; Woo enlaza cada uno a su campo. */
+.woocommerce-error li {
+    position: relative;
+    padding-left: 1rem;
+}
+
+.woocommerce-error li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 6px;
+    height: 6px;
+    border-radius: 9999px;
+    background: var(--color-acento);
+}
+
+.woocommerce-error a,
+.woocommerce-message a,
+.woocommerce-info a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.woocommerce-error a:focus-visible,
+.woocommerce-message a:focus-visible,
+.woocommerce-info a:focus-visible {
+    outline: 2px solid var(--color-marca);
+    outline-offset: 2px;
+}
+
+/* ---- Checkout: error de cada campo, bajo su línea (checkout.js lo agrega dentro del .form-row) ---- */
+
+.woocommerce-checkout .form-row {
+    position: relative;
+}
+
+.woocommerce-checkout .form-row .checkout-inline-error-message {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 4px);
+    margin: 0;
+    font-size: var(--text-caption);
+    line-height: 1.3;
+    color: var(--color-acento);
+}
+
+/* El borde del campo con error está en checkout-campos.css (la caja del campo). */
+
+/* El shortcode de WooCommerce imprime sus avisos antes de la plantilla, fuera del contenedor de la página: se les
+ * da el mismo ancho que el contenido (checkout y carrito, 1200 px como el checkout). */
+.woocommerce > .woocommerce-notices-wrapper:not(:empty) {
+    max-width: 1200px;
+    margin: 3.5rem auto 0;
+    padding: 0 1.5rem;
+}
+
+@media (max-width: 767px) {
+    .woocommerce > .woocommerce-notices-wrapper:not(:empty) {
+        margin-top: 2rem;
+        padding: 0 1rem;
+    }
+}
+
+/* Openpay pinta sus errores de tarjeta con un fondo rojo en línea (openpay.js): mismo aspecto que los demás. */
+.woocommerce-error[style] {
+    background: color-mix(in srgb, var(--color-acento) 7%, var(--color-blanco)) !important;
+    color: var(--color-tinta) !important;
+}
+
+/* Checkout: el medidor de seguridad de contraseña de Woo ("Débil – introduce una contraseña más fuerte…", pide
+ * 12 caracteres) contradice las reglas del sitio, que ya se muestran con reglas-contrasena y valida el plugin. */
+.woocommerce-checkout .woocommerce-password-strength,
+.woocommerce-checkout .woocommerce-password-hint {
+    display: none !important;
+}

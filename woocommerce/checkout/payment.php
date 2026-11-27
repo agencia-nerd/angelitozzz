@@ -31,17 +31,19 @@ if (!wp_doing_ajax()) {
 $id_titulo  = wp_unique_id('checkout-pago-');
 $logos_alt  = __('Visa, Mastercard, American Express y Diners Club', 'angelitozzz');
 $pasarelas  = !empty($available_gateways) ? (array) $available_gateways : [];
-$clase_lista = count($pasarelas) === 1 ? ' [&_input.input-radio]:hidden' : '';
+// Con una sola pasarela no se ve el radio de elegir método ni su <label> (título y logos de la pasarela):
+// los logos ya están en la cabecera del paso.
+$clase_lista = count($pasarelas) === 1 ? ' [&_input.input-radio]:hidden [&>li>label]:hidden' : '';
 ?>
-<div id="payment" class="woocommerce-checkout-payment flex flex-col gap-[41px] max-lg:order-5 max-lg:gap-7">
+<div id="payment" data-paso="pago" class="woocommerce-checkout-payment flex flex-col gap-7 rounded-[12px] border border-[#bcb28a] bg-blanco/60 p-8 max-lg:order-5 max-md:p-5" role="region" aria-labelledby="<?= esc_attr($id_titulo) ?>">
     <div class="flex flex-col gap-6">
-        <section class="flex min-h-[124px] items-center justify-between gap-6 rounded-[12px] border border-[#bcb28a] pb-[31px] pl-[30px] pr-[35px] pt-[25px] max-md:flex-col max-md:items-start max-md:px-5 max-md:py-5" aria-labelledby="<?= esc_attr($id_titulo) ?>">
-            <div class="flex flex-col gap-[14px]">
-                <h2 id="<?= esc_attr($id_titulo) ?>" class="text-cuerpo-l text-tinta"><?= esc_html__('Método de pago', 'angelitozzz') ?></h2>
-                <p class="text-cuerpo-s text-tinta"><?= esc_html__('Tarjetas de crédito / débito aceptadas', 'angelitozzz') ?></p>
+        <div class="flex items-center justify-between gap-6 max-md:flex-col max-md:items-start max-md:gap-4">
+            <div class="flex flex-col gap-2">
+                <?php get_template_part('template-parts/components/paso-titulo', null, ['id' => $id_titulo, 'numero' => 2, 'titulo' => __('Pago', 'angelitozzz')]); ?>
+                <p class="text-cuerpo-s text-tinta-suave"><?= esc_html__('Tarjetas de crédito / débito aceptadas', 'angelitozzz') ?></p>
             </div>
-            <img class="h-[53px] w-[212px] max-w-full shrink-0" src="<?= esc_url(get_theme_file_uri('assets/img/compra/checkout-logos-tarjetas.svg')) ?>" alt="<?= esc_attr($logos_alt) ?>" width="212" height="53" loading="lazy">
-        </section>
+            <img class="h-[40px] w-[160px] max-w-full shrink-0" src="<?= esc_url(get_theme_file_uri('assets/img/compra/checkout-logos-tarjetas.svg')) ?>" alt="<?= esc_attr($logos_alt) ?>" width="160" height="40" loading="lazy">
+        </div>
 
         <?php if (WC()->cart && WC()->cart->needs_payment()) : ?>
             <ul class="wc_payment_methods payment_methods methods flex flex-col gap-4 text-cuerpo-s text-tinta<?= esc_attr($clase_lista) ?>" aria-label="<?= esc_attr__('Métodos de pago', 'angelitozzz') ?>">
@@ -68,7 +70,7 @@ $clase_lista = count($pasarelas) === 1 ? ' [&_input.input-radio]:hidden' : '';
         <?php endif; ?>
     </div>
 
-    <div class="form-row place-order">
+    <div class="form-row place-order border-t border-[#bcb28a]/60 pt-7">
         <noscript>
             <p class="text-cuerpo-s text-tinta">
                 <?php

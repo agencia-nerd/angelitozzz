@@ -2,8 +2,9 @@
 
 /**
  * Checkout · "Datos de facturación" (specs/checkout.md, bloque 2 y "Campos del formulario"), conectado a
- * WooCommerce. Grilla de 2 columnas con campos subrayados: etiqueta y campo sobre la misma línea, sin
- * placeholder. Sin sesión suma Correo y Contraseña (la cuenta se crea al pagar) con las reglas de contraseña.
+ * WooCommerce. Tarjeta "1 · Tus datos" con una grilla de 2 columnas de campos en caja (etiqueta arriba, como
+ * Perfil; estilo en src/css/checkout-campos.css), sin placeholder. Sin sesión suma "Tu acceso a los cursos":
+ * Correo y Contraseña (la cuenta se crea al pagar) con las reglas de contraseña.
  *
  * Los campos los define el plugin angelitozzz-cursos (includes/checkout.php, filtro woocommerce_checkout_fields):
  * etiqueta, requerido, opciones y valor por defecto salen de $checkout->get_checkout_fields(). Las claves que
@@ -23,13 +24,19 @@ defined('ABSPATH') || exit;
 
 $id_titulo = wp_unique_id('checkout-facturacion-');
 
-$campo     = 'flex flex-wrap items-end gap-2 border-b border-tinta pb-[2px] focus-within:border-marca [&>.checkout-inline-error-message]:basis-full';
-$etiqueta  = 'shrink-0 text-cuerpo-s text-tinta';
-$entrada   = 'min-w-0 flex-1 bg-transparent text-cuerpo-s text-tinta focus:outline-none';
-$asterisco = '<abbr class="no-underline" title="' . esc_attr__('obligatorio', 'angelitozzz') . '">*</abbr>';
+// Campos en caja, como los de Perfil (rediseño del 2026-11-27): la etiqueta arriba y el control dentro de
+// .campo-caja (src/css/checkout-campos.css: borde, foco y error).
+$campo     = 'flex flex-col gap-2';
+$etiqueta  = 'text-cuerpo-s text-tinta';
+$entrada   = 'campo-caja__control';
+$asterisco = '<abbr class="text-acento no-underline" title="' . esc_attr__('obligatorio', 'angelitozzz') . '">*</abbr>';
 $chevron   = '<svg class="pointer-events-none size-[13px] shrink-0" viewBox="0 0 13 13" fill="currentColor" aria-hidden="true" focusable="false"><path d="M6.21 8.63 1.89 4.1a.4.4 0 0 1 0-.56.38.38 0 0 1 .55 0L6.5 7.8l4.06-4.26a.38.38 0 0 1 .55 0 .4.4 0 0 1 0 .56L6.79 8.63a.4.4 0 0 1-.58 0Z" /></svg>';
 
 $campos_facturacion = $checkout->get_checkout_fields('billing');
+
+// Sin sesión, el correo se pinta junto a la contraseña ("Tu acceso a los cursos"), no en el bucle de facturación.
+$bloque_acceso = !is_user_logged_in() && $checkout->is_registration_enabled();
+$correo_acceso = null;
 $campos_cuenta      = $checkout->get_checkout_fields('account');
 
 /**
@@ -109,8 +116,10 @@ $clases_input = static function (array $args, string $base) : string {
  */
 $etiqueta_html = static function (string $clave, array $args) use ($etiqueta, $asterisco): string {
     $requerido = !empty($args['required']) ? ' ' . $asterisco : '';
+    // Etiqueta arriba de la caja, sin dos puntos (el plugin ya la da sin ellos).
+    $texto = rtrim(trim((string) ($args['label'] ?? '')), ':');
     return '<label class="' . esc_attr($etiqueta) . '" for="' . esc_attr($clave) . '">'
-        . esc_html((string) ($args['label'] ?? '')) . $requerido . '</label>';
+        . esc_html($texto) . $requerido . '</label>';
 };
 
 /**
@@ -121,7 +130,9 @@ $campo_texto = static function (string $clave, array $args, string $tipo, string
     ?>
     <p class="<?= esc_attr($clases_envoltorio($args)) ?>" id="<?= esc_attr($clave . '_field') ?>">
         <?= wp_kses($etiqueta_html($clave, $args), $html_permitido) ?>
-        <input class="<?= esc_attr($clases_input($args, $entrada . ' input-text')) ?>" type="<?= esc_attr($tipo) ?>" name="<?= esc_attr($clave) ?>" id="<?= esc_attr($clave) ?>" value="<?= esc_attr($valor_actual) ?>"<?php $atributos($args, $autocomplete); ?>>
+        <span class="campo-caja">
+            <input class="<?= esc_attr($clases_input($args, $entrada . ' input-text')) ?>" type="<?= esc_attr($tipo) ?>" name="<?= esc_attr($clave) ?>" id="<?= esc_attr($clave) ?>" value="<?= esc_attr($valor_actual) ?>"<?php $atributos($args, $autocomplete); ?>>
+        </span>
     </p>
     <?php
 };
@@ -139,13 +150,13 @@ $opciones_html = static function (array $args, string $actual): string {
 
 $tiene_prefijo = isset($campos_facturacion['billing_phone_prefijo'], $campos_facturacion['billing_phone']);
 ?>
-<section class="woocommerce-billing-fields flex flex-col gap-[25px] p-6 max-md:px-0" aria-labelledby="<?= esc_attr($id_titulo) ?>">
-    <h2 id="<?= esc_attr($id_titulo) ?>" class="text-cuerpo-l text-tinta"><?= esc_html__('Datos de facturación', 'angelitozzz') ?></h2>
+<section id="tus-datos" data-paso="datos" tabindex="-1" class="woocommerce-billing-fields flex scroll-mt-28 flex-col gap-7 focus:outline-none rounded-[12px] border border-[#bcb28a] bg-blanco/60 p-8 max-md:p-5" aria-labelledby="<?= esc_attr($id_titulo) ?>">
+    <?php get_template_part('template-parts/components/paso-titulo', null, ['id' => $id_titulo, 'numero' => 1, 'titulo' => __('Tus datos', 'angelitozzz')]); ?>
 
     <?php do_action('woocommerce_before_checkout_billing_form', $checkout); ?>
 
     <?php // Una sola grilla: los campos de facturación y los de la cuenta (Correo y Contraseña en la misma fila). ?>
-    <div class="grid grid-cols-2 gap-x-[39px] gap-y-[28px] max-md:grid-cols-1">
+    <div class="grid grid-cols-2 gap-x-6 gap-y-8 max-md:grid-cols-1">
     <div class="woocommerce-billing-fields__field-wrapper contents">
         <?php
         foreach ($campos_facturacion as $clave => $args) {
@@ -162,6 +173,11 @@ $tiene_prefijo = isset($campos_facturacion['billing_phone_prefijo'], $campos_fac
                     break;
 
                 case 'billing_email':
+                    // Sin sesión, el correo va con la contraseña en "Tu acceso a los cursos" (más abajo).
+                    if ($bloque_acceso) {
+                        $correo_acceso = $args;
+                        break;
+                    }
                     $campo_texto($clave, $args, 'email', 'email');
                     break;
 
@@ -192,27 +208,32 @@ $tiene_prefijo = isset($campos_facturacion['billing_phone_prefijo'], $campos_fac
                     ?>
                     <p class="<?= esc_attr($clases_envoltorio($args)) ?>" id="billing_phone_field">
                         <?= wp_kses($etiqueta_html($clave, $args), $html_permitido) ?>
-                        <?php if ($prefijo) : ?>
-                            <span class="relative flex shrink-0 items-center">
-                                <select class="<?= esc_attr($clases_input($prefijo, 'cursor-pointer appearance-none bg-transparent pr-3 text-cuerpo-s text-tinta focus:outline-none')) ?>" name="billing_phone_prefijo" id="billing_phone_prefijo" aria-label="<?= esc_attr((string) ($prefijo['label'] ?? __('Código de país', 'angelitozzz'))) ?>"<?php $atributos($prefijo); ?>>
-                                    <?= wp_kses($opciones_html($prefijo, $valor('billing_phone_prefijo', $prefijo)), $html_permitido) ?>
-                                </select>
-                                <svg class="pointer-events-none absolute right-0 size-[7px]" viewBox="0 0 8 5" fill="currentColor" aria-hidden="true" focusable="false"><path d="M0 0h8L4 5z" /></svg>
-                            </span>
-                        <?php endif; ?>
-                        <input class="<?= esc_attr($clases_input($args, $entrada . ' input-text')) ?>" type="tel" name="billing_phone" id="billing_phone" value="<?= esc_attr($valor($clave, $args)) ?>" inputmode="tel"<?php $atributos($args, 'tel-national'); ?>>
+                        <span class="campo-caja">
+                            <?php if ($prefijo) : ?>
+                                <?php // Prefijo a la izquierda, separado del número por una línea. ?>
+                                <span class="relative flex h-full shrink-0 items-center border-r border-[#dfdfdf] pr-3">
+                                    <select class="<?= esc_attr($clases_input($prefijo, 'h-full cursor-pointer appearance-none bg-transparent pr-4 text-cuerpo-s text-tinta focus:outline-none')) ?>" name="billing_phone_prefijo" id="billing_phone_prefijo" aria-label="<?= esc_attr((string) ($prefijo['label'] ?? __('Código de país', 'angelitozzz'))) ?>"<?php $atributos($prefijo); ?>>
+                                        <?= wp_kses($opciones_html($prefijo, $valor('billing_phone_prefijo', $prefijo)), $html_permitido) ?>
+                                    </select>
+                                    <svg class="pointer-events-none absolute right-3 size-[7px]" viewBox="0 0 8 5" fill="currentColor" aria-hidden="true" focusable="false"><path d="M0 0h8L4 5z" /></svg>
+                                </span>
+                            <?php endif; ?>
+                            <input class="<?= esc_attr($clases_input($args, $entrada . ' input-text')) ?>" type="tel" name="billing_phone" id="billing_phone" value="<?= esc_attr($valor($clave, $args)) ?>" inputmode="tel"<?php $atributos($args, 'tel-national'); ?>>
+                        </span>
                     </p>
                     <?php
                     break;
 
                 case 'billing_tipo_documento':
                     ?>
-                    <p class="<?= esc_attr($clases_envoltorio($args, 'relative')) ?>" id="billing_tipo_documento_field">
+                    <p class="<?= esc_attr($clases_envoltorio($args)) ?>" id="billing_tipo_documento_field">
                         <?= wp_kses($etiqueta_html($clave, $args), $html_permitido) ?>
-                        <select class="<?= esc_attr($clases_input($args, 'min-w-0 flex-1 cursor-pointer appearance-none bg-transparent pr-6 text-cuerpo-s text-tinta focus:outline-none')) ?>" name="billing_tipo_documento" id="billing_tipo_documento" data-documento-tipo<?php $atributos($args); ?>>
-                            <?= wp_kses($opciones_html($args, $valor($clave, $args)), $html_permitido) ?>
-                        </select>
-                        <span class="pointer-events-none absolute bottom-[8px] right-0 text-tinta"><?= wp_kses($chevron, $html_permitido) ?></span>
+                        <span class="campo-caja relative">
+                            <select class="<?= esc_attr($clases_input($args, $entrada . ' cursor-pointer appearance-none pr-6')) ?>" name="billing_tipo_documento" id="billing_tipo_documento" data-documento-tipo<?php $atributos($args); ?>>
+                                <?= wp_kses($opciones_html($args, $valor($clave, $args)), $html_permitido) ?>
+                            </select>
+                            <span class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-tinta"><?= wp_kses($chevron, $html_permitido) ?></span>
+                        </span>
                     </p>
                     <?php
                     break;
@@ -239,6 +260,18 @@ $tiene_prefijo = isset($campos_facturacion['billing_phone_prefijo'], $campos_fac
 
             <?php do_action('woocommerce_before_checkout_registration_form', $checkout); ?>
 
+            <?php // Subtítulo del acceso: el correo y la contraseña son con los que entrará a sus cursos. ?>
+            <div class="col-span-full flex flex-col gap-1 border-t border-[#bcb28a]/60 pt-7">
+                <h3 class="text-cuerpo text-marca"><?= esc_html__('Tu acceso a los cursos', 'angelitozzz') ?></h3>
+                <p class="text-cuerpo-s text-tinta-suave"><?= esc_html__('Con este correo y contraseña entrarás a tus cursos.', 'angelitozzz') ?></p>
+            </div>
+
+            <?php
+            if ($correo_acceso !== null) {
+                $campo_texto('billing_email', $correo_acceso, 'email', 'email');
+            }
+            ?>
+
             <?php if ($campos_cuenta) : ?>
                 <div class="create-account contents">
                     <?php
@@ -250,7 +283,7 @@ $tiene_prefijo = isset($campos_facturacion['billing_phone_prefijo'], $campos_fac
                             $campo_texto($clave, $args, 'password', 'new-password');
                             ?>
                             <div class="col-span-full">
-                                <?php get_template_part('template-parts/components/reglas-contrasena', null, ['campo' => 'account_password']); ?>
+                                <?php get_template_part('template-parts/components/reglas-contrasena', null, ['campo' => 'account_password', 'compacto' => true]); ?>
                             </div>
                             <?php
                             continue;

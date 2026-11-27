@@ -4,6 +4,8 @@ defined('ABSPATH') || exit;
 /*
  * Códigos de país para los campos de teléfono de los formularios (bandera y código).
  * Lo comparten los formularios con selector de país (coach, contacto). La primera clave, 'pe', es el valor por defecto.
+ * El checkout usa la misma lista, en el mismo orden, desde el plugin (angelitozzz_cursos_prefijos_telefono(), que la
+ * valida en el servidor): si se cambia una, se cambia la otra.
  */
 function angelitozzz_phone_countries(): array
 {
