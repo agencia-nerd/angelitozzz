@@ -51,6 +51,9 @@ angelitozzz_modal_start('editar-leccion', [
     data-titulo-editar="<?= esc_attr__('Editar lección', 'angelitozzz') ?>"
     data-antetitulo="<?= esc_attr__('Módulo %1$d · Lección %2$d', 'angelitozzz') ?>"
     data-video-duracion="<?= esc_attr__('%1$s · Duración: %2$s · se detecta sola', 'angelitozzz') ?>"
+    data-vimeo-duracion="<?= esc_attr__('Duración: %s · se detecta sola', 'angelitozzz') ?>"
+    data-vimeo-leyendo="<?= esc_attr__('Leyendo el video…', 'angelitozzz') ?>"
+    data-vimeo-error="<?= esc_attr__('No pudimos leer ese video. Revisa que el enlace sea de Vimeo y que el video permita insertarse en otros sitios.', 'angelitozzz') ?>"
     data-subiendo="<?= esc_attr__('Subiendo %1$s… %2$d %', 'angelitozzz') ?>"
     data-en-espera="<?= esc_attr__('En espera: %s', 'angelitozzz') ?>"
     data-error-video="<?= esc_attr__('Ese archivo no es un video MP4 o WebM.', 'angelitozzz') ?>"
@@ -74,11 +77,49 @@ angelitozzz_modal_start('editar-leccion', [
             <p class="<?= esc_attr($error) ?>" id="leccion-titulo-error" data-error-de="titulo"></p>
         </div>
 
-        <?php // Video: sin video (los dos botones), subiendo (barra y "Cancelar") o con video (portada, nombre y duración). ?>
-        <div class="flex flex-col gap-2" role="group" aria-labelledby="leccion-video-etiqueta" aria-describedby="leccion-video-ayuda" data-video>
-            <p class="<?= esc_attr($etiqueta) ?>" id="leccion-video-etiqueta"><?= esc_html__('Video de la lección', 'angelitozzz') ?></p>
-            <p class="<?= esc_attr($ayuda) ?>" id="leccion-video-ayuda"><?= esc_html__('Sube el video en MP4 desde tu computadora o elige uno que ya subiste. Solo lo ven las alumnas con acceso al curso.', 'angelitozzz') ?></p>
+        <?php
+        // Video (F5-e): "Enlace de Vimeo" (por defecto) o "Archivo privado". Con Vimeo, el enlace y su vista
+        // previa (miniatura y duración de GET /video). Con un archivo: sin video (los dos botones), subiendo
+        // (barra y "Cancelar") o con video (portada, nombre y duración). Se guarda solo lo de la opción marcada.
+        $opcion = 'inline-flex cursor-pointer items-center gap-2 rounded-full border-[1.5px] border-marca px-4 py-2 text-cuerpo-s text-marca has-[:checked]:bg-marca has-[:checked]:text-blanco has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-marca';
+        ?>
+        <div class="flex flex-col gap-2" data-video>
             <input type="hidden" name="video" value="">
+            <fieldset class="flex flex-col gap-3">
+                <legend class="<?= esc_attr($etiqueta) ?> mb-2"><?= esc_html__('Video de la lección', 'angelitozzz') ?></legend>
+                <div class="flex flex-wrap gap-3">
+                    <label class="<?= esc_attr($opcion) ?>">
+                        <input class="sr-only" type="radio" name="video_tipo" value="vimeo" checked data-video-tipo>
+                        <span><?= esc_html__('Enlace de Vimeo', 'angelitozzz') ?></span>
+                    </label>
+                    <label class="<?= esc_attr($opcion) ?>">
+                        <input class="sr-only" type="radio" name="video_tipo" value="archivo" data-video-tipo>
+                        <span><?= esc_html__('Archivo privado', 'angelitozzz') ?></span>
+                    </label>
+                </div>
+            </fieldset>
+
+            <div class="flex flex-col gap-2" data-video-modo="vimeo">
+                <label class="sr-only" for="leccion-video-vimeo"><?= esc_html__('Enlace de Vimeo', 'angelitozzz') ?></label>
+                <p class="<?= esc_attr($ayuda) ?>" id="leccion-video-vimeo-ayuda"><?= esc_html__('Sube el video a Vimeo y pega aquí el enlace.', 'angelitozzz') ?></p>
+                <input class="<?= esc_attr($campo) ?>" id="leccion-video-vimeo" name="video_vimeo" type="url" inputmode="url" autocomplete="off" spellcheck="false"
+                    aria-describedby="leccion-video-vimeo-ayuda leccion-video-vimeo-estado" placeholder="https://vimeo.com/123456789" data-video-vimeo>
+                <div class="mt-2 flex items-center gap-5 max-sm:flex-col max-sm:items-stretch" hidden data-video-vimeo-vista>
+                    <div class="relative flex h-[100px] w-[180px] shrink-0 items-center justify-center overflow-hidden rounded-[12px] bg-neutro text-marca max-sm:w-full max-sm:aspect-video max-sm:h-auto">
+                        <img class="absolute inset-0 size-full object-cover" alt="" width="180" height="100" hidden data-video-vimeo-miniatura>
+                        <?= angelitozzz_svg('administrador/video', 'size-8') // SVG fijo del tema. ?>
+                    </div>
+                    <div class="flex min-w-0 flex-1 flex-col gap-1">
+                        <p class="text-rotulo text-marca"><?= esc_html__('Video conectado', 'angelitozzz') ?></p>
+                        <p class="break-words text-caption text-tinta-suave" data-video-vimeo-duracion></p>
+                    </div>
+                </div>
+                <p class="<?= esc_attr($ayuda) ?> empty:hidden" id="leccion-video-vimeo-estado" role="status" data-video-vimeo-estado></p>
+                <p class="<?= esc_attr($error) ?>" id="leccion-video-vimeo-error" role="alert" data-error-de="video_vimeo"></p>
+            </div>
+
+            <div class="flex flex-col gap-2" hidden data-video-modo="archivo">
+            <p class="<?= esc_attr($ayuda) ?>" id="leccion-video-ayuda"><?= esc_html__('Sube el video en MP4 desde tu computadora o elige uno que ya subiste. Solo lo ven las alumnas con acceso al curso.', 'angelitozzz') ?></p>
             <div class="mt-2 flex items-center gap-5 max-sm:flex-col max-sm:items-stretch">
                 <div class="relative flex h-[100px] w-[180px] shrink-0 items-center justify-center overflow-hidden rounded-[12px] bg-neutro text-marca max-sm:w-full max-sm:aspect-video max-sm:h-auto">
                     <img class="absolute inset-0 size-full object-cover" alt="" width="180" height="100" hidden data-video-miniatura>
@@ -113,6 +154,7 @@ angelitozzz_modal_start('editar-leccion', [
             <p class="rounded-[12px] border border-acento p-3 text-caption text-acento empty:hidden" role="alert" data-video-aviso></p>
             <p class="rounded-[12px] border border-estrella bg-fondo p-3 text-caption text-tinta empty:hidden" role="status" data-video-recomendacion></p>
             <p class="<?= esc_attr($error) ?>" id="leccion-video-error" role="alert" data-error-de="video"></p>
+            </div>
         </div>
 
         <div class="flex flex-col gap-2">

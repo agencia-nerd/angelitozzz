@@ -32,12 +32,12 @@ $textos = [
     'leccion' => [
         'titulo' => __('¿Eliminar esta lección?', 'angelitozzz'),
         /* translators: %s: título de la lección. */
-        'texto'  => __('Se eliminará “%s” y su texto. El video seguirá guardado en Archivos privados.', 'angelitozzz'),
+        'texto'  => __('Se eliminará “%s” y su texto. El video no se borra: sigue en Vimeo o en Archivos privados.', 'angelitozzz'),
     ],
     'modulo' => [
         'titulo' => __('¿Eliminar este módulo?', 'angelitozzz'),
         /* translators: 1: título del módulo, 2: número de lecciones. */
-        'texto'  => __('Se eliminarán “%1$s” y sus %2$d lecciones. Los videos seguirán guardados en Archivos privados.', 'angelitozzz'),
+        'texto'  => __('Se eliminarán “%1$s” y sus %2$d lecciones. Los videos no se borran: siguen en Vimeo o en Archivos privados.', 'angelitozzz'),
     ],
     'descargable' => [
         'titulo' => __('¿Quitar este descargable?', 'angelitozzz'),

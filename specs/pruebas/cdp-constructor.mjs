@@ -2,6 +2,8 @@
 // crea un curso de cero (paso 1 con error del servidor y portada), agrega módulo, lecciones con video y
 // descargables de "Archivos privados" (F5-d, 4c: subir por partes y elegir de mis archivos), texto, ordena
 // con teclado, elimina, y lo publica (paso 3). Contraseña siempre correcta.
+// F5-e: la lección nueva abre en "Enlace de Vimeo"; un enlace malo da error y no se guarda; uno válido muestra la
+// miniatura y la duración, se guarda ("Video · m:ss") y vuelve a abrir marcado; cambiar de opción no pierde el enlace.
 // 4c: sube el MP4 real de %TEMP%/angelitozzz-video-prueba.mp4 (si falta: node cdp-leccion-video.mjs video),
 // un PDF de 21 MB (advertencia), un SVG (error), cancela una subida y prueba "+ Agregar descargable" con su
 // modal. Lo subido queda en "Archivos privados" de la instructora: se borra aparte, junto con el curso.
@@ -136,7 +138,36 @@ try {
         await ev(`const m = document.querySelector('li[data-modulo]'); if (m.querySelector('[data-modulo-plegar]').getAttribute('aria-expanded') !== 'true') m.querySelector('[data-modulo-plegar]').click(); m.querySelector('[data-agregar-leccion]').click(); return 1;`);
         await sleep(800);
         await ev(`const f = document.querySelector('[data-leccion-form]'); f.titulo.value = ${JSON.stringify(titulo)}; f.titulo.dispatchEvent(new Event('input', { bubbles: true })); return 1;`);
-        if (conVideo) {
+        // F5-e: la lección nueva abre en "Enlace de Vimeo".
+        const modo = await ev(`const f = document.querySelector('[data-leccion-form]'); return { marcado: f.querySelector('[data-video-tipo]:checked')?.value, vimeo: !f.querySelector('[data-video-modo=vimeo]').hidden, archivo: !f.querySelector('[data-video-modo=archivo]').hidden };`);
+        comprobar('la lección nueva abre en "Enlace de Vimeo"', modo.marcado === 'vimeo' && modo.vimeo && !modo.archivo, modo);
+        if (conVideo === 'vimeo') {
+            // Un enlace que no es de Vimeo da el error y no deja guardar; uno válido muestra "Video conectado".
+            await ev(`const i = document.querySelector('[data-video-vimeo]'); i.value = 'https://youtube.com/watch?v=1'; i.dispatchEvent(new Event('change', { bubbles: true })); return 1;`);
+            out.vimeoMalo = await hasta(`const f = document.querySelector('[data-leccion-form]'); const e = f.querySelector('[data-error-de=video_vimeo]').textContent; return e ? { error: e, invalido: f.querySelector('[data-video-vimeo]').getAttribute('aria-invalid'), vista: !f.querySelector('[data-video-vimeo-vista]').hidden } : null;`, 40);
+            comprobar('un enlace que no es de Vimeo muestra el error', /No pudimos leer ese video/.test(out.vimeoMalo?.error || '') && out.vimeoMalo?.invalido === 'true' && !out.vimeoMalo?.vista, out.vimeoMalo);
+            await ev(`document.querySelector('[data-leccion-guardar]').click(); return 1;`);
+            await sleep(1500);
+            out.vimeoMaloGuardar = await ev(`return { abierto: document.getElementById('editar-leccion').open, foco: document.activeElement?.matches('[data-video-vimeo]') };`);
+            comprobar('con un enlace malo no se guarda y el foco vuelve al enlace', out.vimeoMaloGuardar.abierto && out.vimeoMaloGuardar.foco, out.vimeoMaloGuardar);
+
+            await ev(`const i = document.querySelector('[data-video-vimeo]'); i.value = 'https://vimeo.com/76979871'; i.dispatchEvent(new Event('change', { bubbles: true })); return 1;`);
+            out.vimeoBueno = await hasta(`const f = document.querySelector('[data-leccion-form]'); return !f.querySelector('[data-video-vimeo-vista]').hidden ? { duracion: f.querySelector('[data-video-vimeo-duracion]').textContent, miniatura: f.querySelector('[data-video-vimeo-miniatura]').getAttribute('src') || '', error: f.querySelector('[data-error-de=video_vimeo]').textContent, invalido: f.querySelector('[data-video-vimeo]').hasAttribute('aria-invalid'), valor: f.video.value } : null;`, 60);
+            comprobar('un enlace de Vimeo válido muestra "Video conectado", la miniatura y la duración', /^Duración: \d+:\d{2} · se detecta sola$/.test(out.vimeoBueno?.duracion || '') && /vimeocdn\.com/.test(out.vimeoBueno?.miniatura || '') && !out.vimeoBueno?.error && !out.vimeoBueno?.invalido && out.vimeoBueno?.valor === 'https://vimeo.com/76979871', out.vimeoBueno);
+
+            // Pasar a "Archivo privado" y volver no pierde el enlace.
+            await ev(`document.querySelector('[data-video-tipo][value=archivo]').click(); return 1;`);
+            await sleep(200);
+            const ida = await ev(`const f = document.querySelector('[data-leccion-form]'); return { vimeo: !f.querySelector('[data-video-modo=vimeo]').hidden, archivo: !f.querySelector('[data-video-modo=archivo]').hidden, valor: f.video.value };`);
+            await ev(`document.querySelector('[data-video-tipo][value=vimeo]').click(); return 1;`);
+            await sleep(200);
+            const vuelta = await ev(`const f = document.querySelector('[data-leccion-form]'); return { enlace: f.querySelector('[data-video-vimeo]').value, vista: !f.querySelector('[data-video-vimeo-vista]').hidden, valor: f.video.value };`);
+            out.vimeoCambio = { ida, vuelta };
+            comprobar('cambiar a "Archivo privado" y volver no pierde el enlace', ida.archivo && !ida.vimeo && ida.valor === '' && vuelta.enlace === 'https://vimeo.com/76979871' && vuelta.vista && vuelta.valor === 'https://vimeo.com/76979871', out.vimeoCambio);
+        }
+        if (conVideo === true) {
+            await ev(`document.querySelector('[data-video-tipo][value=archivo]').click(); return 1;`);
+            await sleep(200);
             // Video: un PDF en "Subir video" da error; el MP4 sube por partes con su barra y "Guardar" desactivado.
             await subir('[data-video-subir]', rutaPdf);
             await sleep(300);
@@ -219,7 +250,22 @@ try {
     };
     await nuevaLeccion('Conoce a Bárbara', true);
     out.modalCerrado = await ev(`return !document.getElementById('editar-leccion').open;`);
-    await nuevaLeccion('Objetivos del curso', false);
+    await nuevaLeccion('Objetivos del curso', 'vimeo');
+    out.leccionVimeo = await ev(`const li = [...document.querySelectorAll('li[data-item]')].find((i) => i.dataset.titulo === 'Objetivos del curso'); const d = li ? JSON.parse(li.dataset.leccion) : {}; return { linea: li?.querySelector('[data-item-linea]').textContent, tipo: d.video_tipo, video: d.video, miniatura: d.miniatura };`);
+    comprobar('la lección con Vimeo se guarda con su enlace y la línea "Video · <duración>"', /^Video · \d+:\d{2}$/.test(out.leccionVimeo.linea || '') && out.leccionVimeo.tipo === 'vimeo' && out.leccionVimeo.video === 'https://vimeo.com/76979871' && /vimeocdn\.com/.test(out.leccionVimeo.miniatura || ''), out.leccionVimeo);
+    // Al volver a abrirla, viene en "Enlace de Vimeo" con su vista; se cierra sin cambios.
+    out.reabrirVimeo = await ev(`
+        const li = [...document.querySelectorAll('li[data-item]')].find((i) => i.dataset.titulo === 'Objetivos del curso');
+        li.querySelector('[data-item-editar]').click();
+        await new Promise((r) => setTimeout(r, 600));
+        const f = document.querySelector('[data-leccion-form]');
+        const r = { marcado: f.querySelector('[data-video-tipo]:checked')?.value, enlace: f.querySelector('[data-video-vimeo]').value, vista: !f.querySelector('[data-video-vimeo-vista]').hidden };
+        f.querySelector('[data-leccion-cancelar]').click();
+        await new Promise((r) => setTimeout(r, 400));
+        r.cerrado = !document.getElementById('editar-leccion').open;
+        return r;
+    `);
+    comprobar('al reabrir la lección con Vimeo viene marcada con su enlace y se cierra sin preguntar', out.reabrirVimeo.marcado === 'vimeo' && out.reabrirVimeo.enlace === 'https://vimeo.com/76979871' && out.reabrirVimeo.vista && out.reabrirVimeo.cerrado, out.reabrirVimeo);
 
     // ¿Descartar los cambios? (sin confirm): Cancelar con cambios muestra la vista; Escape = seguir editando.
     await ev(`const m = document.querySelector('li[data-modulo]'); m.querySelector('[data-agregar-leccion]').click(); return 1;`);
@@ -300,12 +346,14 @@ try {
         item.querySelector('[data-item-eliminar]').click();
         await new Promise(r => setTimeout(r, 400));
         const d = document.getElementById('eliminar');
-        const r = { abierto: d.open, titulo: d.querySelector('#eliminar-title').innerText, foco: document.activeElement.innerText.trim() };
+        const r = { abierto: d.open, titulo: d.querySelector('#eliminar-title').innerText, texto: d.innerText, foco: document.activeElement.innerText.trim() };
         d.querySelector('[data-eliminar-confirmar]').click();
         await new Promise(r => setTimeout(r, 2500));
         r.queda = !![...document.querySelectorAll('li[data-item]')].find(i => i.dataset.titulo === 'Objetivos del curso');
         return r;
     `);
+
+    comprobar('eliminar una lección: el texto dice que el video sigue en Vimeo o en Archivos privados', /sigue en Vimeo o en Archivos privados/.test(out.eliminar?.texto || '') && out.eliminar?.queda === false, { texto: out.eliminar?.texto, queda: out.eliminar?.queda });
 
     // Recargar: el orden y el contenido quedaron guardados.
     await ir('/administrador/cursos/' + cursoId + '/editar/?paso=2');

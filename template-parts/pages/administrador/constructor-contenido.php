@@ -81,7 +81,7 @@ $fila_item = static function (array $item) use ($textos, $icono_boton, $mover_bo
 
     if ($tipo === 'material') {
         $linea = (string) ($item['tamano'] ?? ''); // "PDF · 2,4 MB", "Word · 120 KB" (del plugin).
-    } elseif ((int) ($item['video'] ?? 0) > 0) {
+    } elseif ((string) ($item['video_tipo'] ?? '') !== '' || (int) ($item['video'] ?? 0) > 0) { // Vimeo (F5-e) o archivo privado.
         $linea = $textos['video'] . ((string) ($item['duracion_texto'] ?? '') !== '' ? ' · ' . (string) $item['duracion_texto'] : '');
     } else {
         $linea = $textos['sinVideo'];

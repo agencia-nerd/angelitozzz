@@ -9,7 +9,9 @@
  *   vuelve a como estaba y se avisa.
  * - Agregar y editar módulos (modal editar-modulo), lecciones (modal editar-leccion, con el editor de
  *   editor-texto.js) y descargables del curso; eliminar con el modal `eliminar`.
- * - El video y los descargables son archivos privados (specs/admin-constructor.md → modal-leccion y
+ * - El video de la lección es un enlace de Vimeo (F5-e, por defecto: se lee con GET /video?url= para
+ *   mostrar la miniatura y la duración) o un archivo privado; se guarda solo lo de la opción marcada.
+ * - El video privado y los descargables son archivos privados (specs/admin-constructor.md → modal-leccion y
  *   modal-archivos): se suben por partes con el script del plugin (crearCola() de elegir-archivo.js, de a
  *   uno por vez) o se eligen de "Archivos privados" (crearLista()). Lo subido queda enseguida en
  *   "Archivos privados"; la lección guarda el ID del video y vincula los descargables por archivo_id.
@@ -102,7 +104,7 @@ export function initConstructorContenido() {
             linea = String(datos.tamano ?? ''); // "PDF · 2,4 MB", "Word · 120 KB".
         } else {
             li.dataset.leccion = JSON.stringify(datos);
-            linea = Number(datos.video) > 0 ? t.video + (datos.duracion_texto ? ` · ${datos.duracion_texto}` : '') : t.sinVideo;
+            linea = datos.video_tipo || Number(datos.video) > 0 ? t.video + (datos.duracion_texto ? ` · ${datos.duracion_texto}` : '') : t.sinVideo;
         }
         li.querySelector('[data-item-linea]').textContent = linea;
 
@@ -466,12 +468,14 @@ export function initConstructorContenido() {
     const filaSubidas = crearCola({ sinSubida: d.sinSubida || t.sinSubida });
 
     const enVideo = (selector) => zonaVideo?.querySelector(selector);
+    const enVimeo = (selector) => zonaVideo?.querySelector(`[data-video-modo="vimeo"] ${selector}`);
     const entradaVideo = enVideo('[data-video-subir]');
     const entradaMaterial = formLeccion?.querySelector('[data-leccion-material]');
 
     let editor = null;
     /**
-     * La lección abierta: { modulo, li, video: {id, nombre, duracion_texto, miniatura}|null, cambiandoVideo,
+     * La lección abierta: { modulo, li, tipo: 'vimeo'|'archivo', vimeo: {url, duracion_texto, miniatura}|null,
+     * vimeoLeido (el texto que se leyó por última vez), video: {id, nombre, duracion_texto, miniatura}|null, cambiandoVideo,
      * materiales (los vinculados al abrir), quitar: Set<id>, nuevos (subidos o elegidos, sin vincular aún),
      * subidas: [{uso, nombre, porcentaje, esperando, cancelada, cancelar, texto}] }.
      */
@@ -484,6 +488,8 @@ export function initConstructorContenido() {
         actual
             ? JSON.stringify([
                   formLeccion.titulo.value,
+                  actual.tipo,
+                  enVimeo('[data-video-vimeo]')?.value.trim() ?? '',
                   actual.video?.id ?? 0,
                   editor?.getHTML() ?? '',
                   formLeccion.vista_previa.checked,
@@ -516,7 +522,8 @@ export function initConstructorContenido() {
         if (!actual || !zonaVideo) return;
         const subida = actual.subidas.find((s) => s.uso === 'video');
         const { video } = actual;
-        formLeccion.video.value = video ? String(video.id) : '';
+        formLeccion.video.value = actual.tipo === 'vimeo' ? actual.vimeo?.url || '' : video ? String(video.id) : '';
+        pintarModo();
 
         const miniatura = enVideo('[data-video-miniatura]');
         if (video?.miniatura) {
@@ -541,6 +548,99 @@ export function initConstructorContenido() {
         enVideo('[data-video-acciones]').hidden = Boolean(subida) || !video || actual.cambiandoVideo;
         actualizarGuardar();
     };
+
+    // Opción marcada: "Enlace de Vimeo" o "Archivo privado" (F5-e).
+    const pintarModo = () => {
+        zonaVideo.querySelectorAll('[data-video-tipo]').forEach((radio) => {
+            radio.checked = radio.value === actual.tipo;
+        });
+        zonaVideo.querySelectorAll('[data-video-modo]').forEach((bloque) => {
+            bloque.hidden = bloque.dataset.videoModo !== actual.tipo;
+        });
+        const { vimeo } = actual;
+        enVimeo('[data-video-vimeo-vista]').hidden = !vimeo;
+        const miniatura = enVimeo('[data-video-vimeo-miniatura]');
+        if (vimeo?.miniatura) {
+            miniatura.src = vimeo.miniatura;
+            miniatura.hidden = false;
+        } else {
+            miniatura.removeAttribute('src');
+            miniatura.hidden = true;
+        }
+        enVimeo('[data-video-vimeo-duracion]').textContent = vimeo?.duracion_texto ? formatear(d.vimeoDuracion, vimeo.duracion_texto) : '';
+    };
+
+    const limpiarErrorVimeo = () => {
+        const campo = enVimeo('[data-video-vimeo]');
+        enVimeo('[data-error-de="video_vimeo"]').textContent = '';
+        campo?.removeAttribute('aria-invalid');
+    };
+
+    const errorVimeo = (texto) => {
+        const campo = enVimeo('[data-video-vimeo]');
+        enVimeo('[data-error-de="video_vimeo"]').textContent = texto;
+        campo?.setAttribute('aria-invalid', 'true');
+        campo?.setAttribute('aria-describedby', 'leccion-video-vimeo-ayuda leccion-video-vimeo-estado leccion-video-vimeo-error');
+    };
+
+    /**
+     * Lee el enlace escrito con GET /video?url= (miniatura y duración). Devuelve true si quedó un video
+     * válido o si el campo está vacío.
+     */
+    const leerVimeo = async () => {
+        if (!actual) return false;
+        const sesion = actual;
+        const campo = enVimeo('[data-video-vimeo]');
+        const texto = campo?.value.trim() ?? '';
+        if (texto === sesion.vimeoLeido) return sesion.lectura ?? (texto === '' || Boolean(sesion.vimeo));
+        sesion.vimeoLeido = texto;
+        sesion.lectura = leerEnlace(sesion, texto);
+        return sesion.lectura;
+    };
+
+    const leerEnlace = async (sesion, texto) => {
+        limpiarErrorVimeo();
+        if (texto === '') {
+            sesion.vimeo = null;
+            pintarVideo();
+            return true;
+        }
+        const estado = enVimeo('[data-video-vimeo-estado]');
+        estado.textContent = d.vimeoLeyendo;
+        try {
+            const datos = await pedir('GET', '/video', undefined, { url: texto });
+            if (actual !== sesion || sesion.vimeoLeido !== texto) return false;
+            sesion.vimeo = { url: String(datos.url), duracion_texto: String(datos.duracion_texto || ''), miniatura: String(datos.miniatura || '') };
+            return true;
+        } catch (error) {
+            if (actual !== sesion || sesion.vimeoLeido !== texto) return false;
+            sesion.vimeo = null;
+            errorVimeo(error?.message || d.vimeoError);
+            return false;
+        } finally {
+            if (sesion.vimeoLeido === texto) sesion.lectura = null;
+            if (actual === sesion) {
+                estado.textContent = '';
+                pintarVideo();
+            }
+        }
+    };
+
+    zonaVideo?.querySelectorAll('[data-video-tipo]').forEach((radio) => {
+        radio.addEventListener('change', () => {
+            if (!actual || !radio.checked) return;
+            actual.tipo = radio.value === 'archivo' ? 'archivo' : 'vimeo';
+            pintarVideo();
+        });
+    });
+    enVimeo('[data-video-vimeo]')?.addEventListener('change', () => leerVimeo());
+    enVimeo('[data-video-vimeo]')?.addEventListener('paste', () => setTimeout(() => leerVimeo(), 0));
+    // Enter en el enlace lo lee, sin enviar el formulario.
+    enVimeo('[data-video-vimeo]')?.addEventListener('keydown', (event) => {
+        if (event.key !== 'Enter') return;
+        event.preventDefault();
+        leerVimeo();
+    });
 
     const limpiarAvisosVideo = () => {
         enVideo('[data-video-aviso]').textContent = '';
@@ -879,8 +979,14 @@ export function initConstructorContenido() {
                 /* Se abre con lo que haya en la fila. */
             }
         }
-        const video = Number(datos.video) > 0 ? { id: Number(datos.video), nombre: String(datos.video_nombre || ''), duracion_texto: datos.duracion_texto || '', miniatura: datos.miniatura || '' } : null;
-        actual = { modulo, li, video, cambiandoVideo: false, materiales: [...(datos.materiales || [])], quitar: new Set(), nuevos: [], subidas: [] };
+        const esVimeo = datos.video_tipo === 'vimeo';
+        const video = !esVimeo && Number(datos.video) > 0 ? { id: Number(datos.video), nombre: String(datos.video_nombre || ''), duracion_texto: datos.duracion_texto || '', miniatura: datos.miniatura || '' } : null;
+        const vimeo = esVimeo ? { url: String(datos.video || ''), duracion_texto: datos.duracion_texto || '', miniatura: datos.miniatura || '' } : null;
+        // Una lección nueva o con Vimeo abre en "Enlace de Vimeo"; una con archivo privado, en "Archivo privado".
+        const tipo = video ? 'archivo' : 'vimeo';
+        actual = { modulo, li, tipo, vimeo, vimeoLeido: vimeo?.url ?? '', lectura: null, video, cambiandoVideo: false, materiales: [...(datos.materiales || [])], quitar: new Set(), nuevos: [], subidas: [] };
+        const campoVimeo = enVimeo('[data-video-vimeo]');
+        if (campoVimeo) campoVimeo.value = vimeo?.url ?? '';
 
         const lecciones = leccionesDe(modulo);
         const numero = li ? lecciones.indexOf(li) + 1 : lecciones.length + 1;
@@ -891,6 +997,8 @@ export function initConstructorContenido() {
         limpiarErrores(formLeccion);
         errorLeccion.textContent = '';
         limpiarAvisosVideo();
+        limpiarErrorVimeo();
+        enVimeo('[data-video-vimeo-estado]').textContent = '';
         formLeccion.querySelector('[data-materiales-aviso]').textContent = '';
         formLeccion.titulo.value = datos.titulo || '';
         formLeccion.vista_previa.checked = Boolean(datos.vista_previa);
@@ -969,6 +1077,14 @@ export function initConstructorContenido() {
             return;
         }
 
+        // Con Vimeo, el enlace escrito tiene que leerse bien antes de guardar (F5-e).
+        if (actual.tipo === 'vimeo' && !(await leerVimeo())) {
+            if (!actual) return;
+            if (!enVimeo('[data-error-de="video_vimeo"]').textContent) errorVimeo(d.vimeoError);
+            enVimeo('[data-video-vimeo]')?.focus();
+            return;
+        }
+
         const guardar = formLeccion.querySelector('[data-leccion-guardar]');
         guardar.disabled = true;
         guardar.setAttribute('aria-busy', 'true');
@@ -983,7 +1099,7 @@ export function initConstructorContenido() {
         let { li } = sesion;
         const cuerpo = {
             titulo,
-            video: sesion.video ? String(sesion.video.id) : '',
+            video: sesion.tipo === 'vimeo' ? sesion.vimeo?.url || '' : sesion.video ? String(sesion.video.id) : '',
             contenido: editor?.getHTML() ?? '',
             vista_previa: formLeccion.vista_previa.checked,
         };
@@ -993,7 +1109,15 @@ export function initConstructorContenido() {
         try {
             item = await pedir('POST', li ? `/lecciones/${li.dataset.id}` : `/cursos/${cursoId}/lecciones`, cuerpo);
         } catch (error) {
+            // El error del video va bajo el campo de la opción marcada.
+            if (sesion.tipo === 'vimeo' && error?.data?.campos?.video) {
+                const { video: textoVideo, ...otros } = error.data.campos;
+                errorVimeo(textoVideo);
+                error = { ...error, data: { ...error.data, campos: otros } };
+            }
+            const otrosCampos = Object.keys(error?.data?.campos || {}).length;
             mostrarErrores(formLeccion, error, errorLeccion);
+            if (sesion.tipo === 'vimeo' && !otrosCampos && enVimeo('[data-error-de="video_vimeo"]').textContent) enVimeo('[data-video-vimeo]')?.focus();
             terminar();
             return;
         }
