@@ -40,7 +40,8 @@
         - Todo se guarda por la API REST `angelitozzz/v1`, con nonce `wp_rest`, `permission_callback` con la capacidad y validación de cada campo en el servidor; la validación del navegador es solo ayuda.
         - **Rutas** (plugin `includes/rest-constructor.php`, lógica en `includes/constructor.php`): `POST /cursos` y `POST /cursos/<id>` (paso 1), `POST|DELETE /cursos/<id>/portada`, `POST /cursos/<id>/modulos`, `POST|DELETE /cursos/<id>/modulos/<modulo>`, `POST /cursos/<id>/lecciones`, `POST|DELETE /lecciones/<id>`, `POST /cursos/<id>/materiales` (descargable de un módulo, con `archivo_id` y `modulo`), `DELETE /cursos/<id>/materiales/<archivo>`, `POST /lecciones/<id>/materiales` (con `archivo_id`), `DELETE /lecciones/<id>/materiales/<archivo>` y `POST /cursos/<id>/orden`. Publicar y pasar a borrador usan `POST /cursos/<id>/estado` de `admin-cursos.md`. Los errores de validación responden 400 con el mensaje de cada campo (`data.campos`).
         - Cada lección, módulo y descargable se comprueba que sea del curso: un ID de otro curso responde 400 o 404 y no cambia nada.
-        - **Archivos privados (2026-11-25; en el plugin desde la 0.10.0):** `GET /video?url=` se quitó (era la vista previa de Vimeo; hoy responde 404). Se suman las rutas de subida por partes y de la lista (`cursos-datos.md` → `archivos-privados`: `POST /archivos/subidas`, `PUT /archivos/subidas/<id>`, `POST /archivos/subidas/<id>/fin`, `GET /archivos`), y las de materiales pasan a recibir el ID de un archivo privado ya subido en vez del PDF. Un archivo que no existe o que no es del tipo que pide el campo responde 400, y también el mismo archivo agregado dos veces a la misma lección o al mismo curso. Quitar un descargable (o eliminar su módulo) solo lo desvincula. Lo que devuelve cada lección y cada descargable (`video`, `video_nombre`, `miniatura` firmada, `clase`, `tipo_texto`) está en `cursos-datos.md` → `funciones-publicas` (`angelitozzz_cursos_admin_curso()`).
+        - **Vimeo (F5-e, 2026-11-27):** vuelve `GET /video?url=` (la vista previa de un enlace de Vimeo: miniatura, duración y título, o 422), y `POST /lecciones/<id>` y `POST /cursos/<id>/lecciones` aceptan en `video` un enlace de Vimeo o el ID de un archivo privado (`cursos-datos.md` → `leccion`).
+        - **Archivos privados (2026-11-25; en el plugin desde la 0.10.0):** `GET /video?url=` se quitó en la 0.10.0 (vuelve en la F5-e, arriba). Se suman las rutas de subida por partes y de la lista (`cursos-datos.md` → `archivos-privados`: `POST /archivos/subidas`, `PUT /archivos/subidas/<id>`, `POST /archivos/subidas/<id>/fin`, `GET /archivos`), y las de materiales pasan a recibir el ID de un archivo privado ya subido en vez del PDF. Un archivo que no existe o que no es del tipo que pide el campo responde 400, y también el mismo archivo agregado dos veces a la misma lección o al mismo curso. Quitar un descargable (o eliminar su módulo) solo lo desvincula. Lo que devuelve cada lección y cada descargable (`video`, `video_nombre`, `miniatura` firmada, `clase`, `tipo_texto`) está en `cursos-datos.md` → `funciones-publicas` (`angelitozzz_cursos_admin_curso()`).
         - Las respuestas devuelven solo lo que la pantalla necesita.
     - **Cambios sin guardar:** si quedan cambios sin guardar al salir, el navegador pregunta antes (`beforeunload`).
     - **Página:**
@@ -53,7 +54,8 @@
         - Título SEO del paso, con `noindex`.
         - Sin frame móvil: el móvil es una propuesta.
     - **Cambio (decisión del usuario, 2026-11-25):** el video de la lección deja de ser un enlace de Vimeo; se sube un archivo o se elige uno ya subido ("Archivos privados"), y los descargables aceptan más tipos que PDF. Cambian `paso-contenido`, `modal-leccion` y `modal-eliminar`, y se suma `modal-archivos`.
-- **Estado:** aplicado
+    - **Vimeo vuelve (F5-e, 2026-11-27):** el video de la lección puede ser un enlace de Vimeo (por defecto) o un archivo privado. Cambian `modal-leccion` y `modal-eliminar`. En `paso-contenido` la línea gris sigue siendo "Video · <duración>" para los dos tipos.
+- **Estado:** aprobado
 
 ## Sección: pasos
 
@@ -190,7 +192,13 @@ Contenido del diseño (ejemplo): "Módulo 1 · Bienvenida" con "Conoce a Bárbar
     - **Cabecera:** "Módulo N · Lección N" chico y título "Editar lección" ("Nueva lección" al agregar). Cerrar ✕.
     - **Campos:**
         - **"Título de la lección":** ayuda "Se muestra arriba del video.", requerido.
-        - **"Video de la lección"** (2026-11-25, reemplaza a "Video (enlace de Vimeo)"): ayuda "Sube el video en MP4 desde tu computadora o elige uno que ya subiste. Solo lo ven las alumnas con acceso al curso.".
+        - **"Video de la lección"** (F5-e, 2026-11-27: Vimeo o archivo privado). Debajo de la etiqueta, dos opciones como radios con aspecto de pestañas (`<fieldset>` con `<legend>` "Video de la lección" y dos `<input type="radio" name="video_tipo">`): **"Enlace de Vimeo"** (marcada en una lección nueva o con Vimeo) y **"Archivo privado"** (marcada si la lección ya tiene un archivo). Cambiar de opción no borra lo de la otra hasta guardar: se guarda solo lo de la opción marcada.
+            - **Enlace de Vimeo** (lo de antes del 2026-11-25, de vuelta): ayuda "Sube el video a Vimeo y pega aquí el enlace." y un campo `type="url"` con el ejemplo `https://vimeo.com/123456789`.
+                - Al pegar o al salir del campo, el constructor pide `GET /video?url=` y muestra la miniatura de Vimeo en el recuadro de 180 × 100, con "Video conectado" y "Duración: 08:24 · se detecta sola". Mientras tanto, "Leyendo el video…" (`role="status"`).
+                - Si no es de Vimeo o no se puede leer: "No pudimos leer ese video. Revisa que el enlace sea de Vimeo y que el video permita insertarse en otros sitios." (`role="alert"`, campo con `aria-invalid`). Así no se puede guardar.
+                - Con videos ocultos de Vimeo vale el enlace completo, con su código privado.
+                - Vaciar el campo y guardar quita el video de la lección (no lo borra de Vimeo).
+            - **Archivo privado** (2026-11-25): ayuda "Sube el video en MP4 desde tu computadora o elige uno que ya subiste. Solo lo ven las alumnas con acceso al curso.". Todo lo que sigue es de esta opción.
             - **Sin video:** un recuadro de 180 × 100 (fondo `--color-neutro`, radio 12, ícono de video) y a su derecha los botones "Elegir de mis archivos" (secundario, abre `modal-archivos` solo con videos) y "Subir video" (terracota, abre el selector de archivos del sistema con `accept="video/mp4,video/webm"`).
             - **Subiendo:** barra de avance con el nombre del archivo y el porcentaje ("Subiendo mi-video.mp4… 62 %", un `<progress>` nativo, que ya es `progressbar` con su valor) y "Cancelar". El modal no se puede guardar hasta que termine (el botón "Guardar lección" queda desactivado con el texto de ayuda "Espera a que termine de subir el video.").
             - **Archivos:** la lista y la cola de subidas están en `elegir-archivo.js`; `inc/constructor-subida.php` encola la subida del plugin (`angelitozzz-cursos-subida`) solo en el paso 2.
@@ -216,14 +224,15 @@ Contenido del diseño (ejemplo): "Módulo 1 · Bienvenida" con "Conoce a Bárbar
 - **Indicaciones del diseño:**
     - (La nota de la página "Para editar un modulo, curso es un modal asi" muestra este modal de lección; editar un módulo usa un modal chico con el mismo estilo.)
     - **Móvil (propuesta):** ocupa la pantalla con 16 px de margen y scroll interno; la cabecera y el pie quedan fijos; los campos en una columna. En "Video de la lección", el recuadro va arriba y los botones debajo, a todo el ancho.
-- **Estado:** aplicado
+    - **Las dos opciones del video (F5-e):** no están en Figma (el diseño solo tenía el enlace de Vimeo); son propuesta, con el estilo de los botones secundarios del constructor.
+- **Estado:** aprobado
 
 **Campos ACF**
 
 | Campo | Tipo | Descripción | Valor actual | Requerido |
 | ----- | ---- | ----------- | ------------ | --------- |
 
-Datos que guarda (del plugin, no ACF; `cursos-datos.md` → `leccion`): título, contenido, `_angelitozzz_video` (ID del archivo privado desde el 2026-11-25), `_angelitozzz_duracion`, `_angelitozzz_materiales`, `_angelitozzz_vista_previa`, `_angelitozzz_modulo` y el orden.
+Datos que guarda (del plugin, no ACF; `cursos-datos.md` → `leccion`): título, contenido, `_angelitozzz_video` (enlace de Vimeo o ID del archivo privado, F5-e), `_angelitozzz_miniatura` (solo Vimeo), `_angelitozzz_duracion`, `_angelitozzz_materiales`, `_angelitozzz_vista_previa`, `_angelitozzz_modulo` y el orden.
 
 **Criterios de aceptación**
 
@@ -236,6 +245,10 @@ Datos que guarda (del plugin, no ACF; `cursos-datos.md` → `leccion`): título,
 - [x] Un archivo que pasa su tope muestra la advertencia en rojo y se sube igual
 - [x] "Guardar lección" queda desactivado mientras sube un archivo
 - [x] Quitar el video o un descargable no lo borra de "Archivos privados"
+- [ ] (F5-e) "Enlace de Vimeo" viene marcado en una lección nueva; un enlace válido muestra la miniatura, "Video conectado" y la duración, y se guarda
+- [ ] (F5-e) Un enlace que no es de Vimeo muestra el error, no se puede guardar, y el servidor lo rechaza igual (400)
+- [ ] (F5-e) Cambiar entre "Enlace de Vimeo" y "Archivo privado" no pierde lo escrito hasta guardar; se guarda solo lo de la opción marcada
+- [ ] (F5-e) Una lección con archivo privado abre con "Archivo privado" marcado y todo lo de la F5-d sigue igual
 
 ## Sección: modal-archivos
 
@@ -278,8 +291,8 @@ Datos que guarda (del plugin, no ACF; `cursos-datos.md` → `leccion`): título,
 - **Comportamiento:** un solo modal de confirmación para lecciones, descargables y módulos (y para cursos, `admin-cursos.md`).
     - **Diseño:** tarjeta blanca centrada, ícono "!" terracota en círculo, título y texto que cambian según qué se elimina, y los botones "Cancelar" (secundario) y "Sí, eliminar" (frambuesa con flecha).
     - **Textos:**
-        - **Lección:** "¿Eliminar esta lección?" / "Se eliminará “<título>” y su texto. El video seguirá guardado en Archivos privados." (2026-11-25: antes "en Vimeo").
-        - **Módulo** (propuesta): "¿Eliminar este módulo?" / "Se eliminarán “<título>” y sus N lecciones. Los videos seguirán guardados en Archivos privados.".
+        - **Lección:** "¿Eliminar esta lección?" / "Se eliminará “<título>” y su texto. El video no se borra: sigue en Vimeo o en Archivos privados." (F5-e, 2026-11-27: el video puede estar en cualquiera de los dos).
+        - **Módulo** (propuesta): "¿Eliminar este módulo?" / "Se eliminarán “<título>” y sus N lecciones. Los videos no se borran: siguen en Vimeo o en Archivos privados.".
         - **Descargable** (propuesta): "¿Quitar este descargable?" / "Se quitará “<archivo>” de este curso. Seguirá guardado en Archivos privados.".
     - **Si el curso tiene alumnas inscritas** (propuesta): se agrega "Las alumnas inscritas dejarán de ver este contenido.".
     - **Qué pasa al eliminar:** lecciones y módulos van a la papelera de WordPress (se pueden recuperar 30 días). Desde el 2026-11-25, sus videos y descargables no se borran: siguen en "Archivos privados" y solo se borran desde esa pantalla, si no están en uso (`archivos-privados.md`). Antes, los PDF se borraban de la carpeta privada.
@@ -287,7 +300,7 @@ Datos que guarda (del plugin, no ACF; `cursos-datos.md` → `leccion`): título,
 - **Indicaciones del diseño:**
     - (Nota de la página: "eliminar un modulo y lecciones modal". El diseño solo dibuja el de lección; los demás textos son propuesta.)
     - **Móvil (propuesta):** ancho completo con 16 px de margen; los dos botones a todo el ancho, uno debajo del otro ("Eliminar" arriba, "Cancelar" abajo).
-- **Estado:** aplicado
+- **Estado:** aprobado
 
 **Campos ACF**
 

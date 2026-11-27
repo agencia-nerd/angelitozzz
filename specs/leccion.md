@@ -20,6 +20,7 @@
     - Solo se agregan descargables en las lecciones donde el documento menciona un PDF o archivo (pestaña “Materiales” (Lesson attachments de Tutor; la pestaña “Exercise files” se renombra con Loco Translate)).
     - El video es el reproductor de Vimeo de cada lección (en Figma, placeholder).
     - **Cambio (decisión del usuario, 2026-11-25):** el video deja Vimeo. Es un archivo privado del sitio que se reproduce con el reproductor del navegador, con dirección firmada y marca de agua (sección `video`). Los materiales aceptan más tipos que PDF (sección `pestanas`). Detalle en `cursos-datos.md` → `archivos-privados` y `acceso`.
+    - **Vimeo vuelve (decisión de la clienta y del usuario, 2026-11-27, F5-e):** el video de una lección puede ser un enlace de Vimeo (lo habitual: la clienta tiene sus videos ahí) o un archivo privado. Los dos van en el mismo marco, con la misma marca de agua y la misma pantalla completa (sección `video`).
     - Mes gratis en Mundo: banner solo en la primera lección del curso (siempre visible), más el bloque en la confirmación de compra y en el correo de pedido. Detalle en la nota “Banner del mes gratis en Mundo”.
     - Nota Banner del mes gratis en Mundo (para desarrollo) a continuacion
     - Aplica a Recién Nacidos Go y a los 3 cursos de Horarios (Angelita Pro no incluye el mes gratis). Versión simple, según lo pedido por Bárbara en la Reunión 3 (reducir costos).
@@ -42,7 +43,7 @@
     - Cintillo, header y footer salen de `header.php` y `footer.php`. Sin frame móvil: el móvil es una propuesta.
     - Aplicado en la F4, bloque 5 (2026-11-14): el avance del curso se actualiza en el temario y se anuncia por `aria-live`, sin barra (el diseño no la tiene); "Marcar como completo" funcionaba solo con JS; desde la F5-c (plugin 0.7.1) es un formulario a la acción `angelitozzz_completar_leccion` (mismo permiso que la ruta REST, `angelitozzz_cursos_puede_completar()`) que el JS envía por la REST sin recargar; las pestañas usan el `src/js/modules/pestanas.js` genérico (no un `pestanas-leccion.js`); el video sale de un `<template>` con `angelitozzz_cursos_video_html()` y se carga al pulsar play (`video-leccion.js`), con `<noscript>` sin JS; el título del mensaje de Angelita Pro es `h2` para no saltar del `h1`; el banner de Mundo va entre el video y las pestañas, como en el orden del spec. Para saber si la alumna compró el curso (botón, candados y PDF del curso) se usa `angelitozzz_cursos_puede_ver_curso()`.
     - Verificado en la F5-c (2026-11-19, en el Local): "Marcar como completo" sin JS marca, desmarca y vuelve a la lección; el banner de Mundo no se imprime sin enlace en Ajustes del sitio.
-- **Estado:** aplicado
+- **Estado:** aprobado
 
 ## Sección: cabecera
 
@@ -147,23 +148,26 @@ Contenido del diseño (del plugin, no campos): módulo "Recién Nacidos Go" con 
 - **Grupo:** ninguno
 - **Skill:** ninguna
 - **Comportamiento:** marco de 1033 × 567 (proporción 16:9, radio 15).
-    - **Carga diferida:** el video no se pide al abrir la página. Se ve su portada (la imagen privada que se tomó al subirlo, con su dirección firmada de `angelitozzz_cursos_video_portada()`) con el botón play crema de 88 px (`<button>` "Reproducir video: <lección>"). Al pulsarlo se reemplaza por el reproductor de `angelitozzz_cursos_video_html()` y empieza a reproducir.
+    - **Dos tipos de video (F5-e, 2026-11-27):** `angelitozzz_cursos_video_tipo()` dice si la lección tiene un enlace de **Vimeo** o un **archivo privado** (`cursos-datos.md` → `leccion`). Lo de esta sección vale para los dos, salvo lo marcado como "solo archivo privado" o "solo Vimeo".
+    - **Carga diferida:** el video no se pide al abrir la página. Se ve su portada (`angelitozzz_cursos_video_portada()`: con un archivo privado, la imagen que se tomó al subirlo, con su dirección firmada; con Vimeo, la miniatura de Vimeo) con el botón play crema de 88 px (`<button>` "Reproducir video: <lección>"). Al pulsarlo se reemplaza por el reproductor de `angelitozzz_cursos_video_html()` y empieza a reproducir.
     - **Sin portada:** fondo beige del diseño.
     - **Sin video:** la lección no muestra el marco.
-    - **Reproductor (2026-11-25, reemplaza al iframe de Vimeo):**
+    - **Reproductor de Vimeo (solo Vimeo, F5-e):** el `<iframe>` de `player.vimeo.com` que arma el plugin (`dnt=1`, `h=` si es oculto), que al pulsar play se carga con `autoplay=1`. Sin `allowfullscreen`: la pantalla completa de Vimeo no está y se usa la del marco (abajo), así la marca de agua no se pierde. Los controles, la velocidad y adelantar son los de Vimeo. La dirección no vence, así que no hay renovación. El clic derecho dentro del iframe es de Vimeo (no se puede cancelar desde la página).
+    - **Reproductor de archivo privado (2026-11-25):**
         - `<video>` del navegador con `controls`, `playsinline`, `preload="metadata"`, `controlsList="nodownload noremoteplayback"`, `disablePictureInPicture` y la dirección firmada del archivo (`cursos-datos.md` → `acceso`). Se puede adelantar porque el servidor entrega por pedazos.
         - Sin menú del clic derecho sobre el video (`contextmenu` cancelado).
-        - **Marca de agua:** el correo de la alumna en texto chico, blanco al 35 % con sombra suave, encima del video (`pointer-events: none`, sin tapar los controles). Cambia de esquina cada 30 segundos (propuesta). Desanima que se grabe la pantalla y se comparta, porque se ve de quién es.
-        - **Pantalla completa:** con el marco entero (video y marca de agua), por un botón propio "Pantalla completa" sobre el reproductor; la pantalla completa propia del `<video>` se quita (`controlsList="nofullscreen"`) para que la marca no desaparezca. En iPhone, Safari solo deja poner en pantalla completa el `<video>` solo, así que ahí la marca no se ve (límite aceptado).
-        - La dirección vence a las 4 horas: si la alumna deja la pestaña abierta más tiempo y el video falla, el JS pide una nueva a `GET angelitozzz/v1/lecciones/<id>/video` (`cursos-datos.md` → `funciones-publicas`) y sigue en la misma posición y con el mismo estado (propuesta). Como mucho un intento por minuto; si no se puede, un aviso `role="alert"` en el marco: "No pudimos cargar el video. Recarga la página.". Al pulsar play, si la dirección de la página ya venció (o vence en menos de un minuto), se pide otra antes de empezar.
+        - **Marca de agua (los dos tipos):** el correo de la alumna en texto chico, blanco al 35 % con sombra suave, encima del video (`pointer-events: none`, sin tapar los controles). Cambia de esquina cada 30 segundos (propuesta). Desanima que se grabe la pantalla y se comparta, porque se ve de quién es.
+        - **Pantalla completa (los dos tipos):** con el marco entero (video y marca de agua), por un botón propio "Pantalla completa" sobre el reproductor; la pantalla completa propia del `<video>` se quita (`controlsList="nofullscreen"`) para que la marca no desaparezca. En iPhone, Safari solo deja poner en pantalla completa el `<video>` solo, así que ahí la marca no se ve (límite aceptado).
+        - (Solo archivo privado.) La dirección vence a las 4 horas: si la alumna deja la pestaña abierta más tiempo y el video falla, el JS pide una nueva a `GET angelitozzz/v1/lecciones/<id>/video` (`cursos-datos.md` → `funciones-publicas`) y sigue en la misma posición y con el mismo estado (propuesta). Como mucho un intento por minuto; si no se puede, un aviso `role="alert"` en el marco: "No pudimos cargar el video. Recarga la página.". Al pulsar play, si la dirección de la página ya venció (o vence en menos de un minuto), se pide otra antes de empezar.
         - Cambiar de proveedor sigue tocando solo `includes/video.php` del plugin.
     - **Cómo está hecho (4b, 2026-11-26):** el plugin entrega el reproductor ya armado (`[data-angelitozzz-video]` con el `<video>`, `[data-angelitozzz-video-marca]` y `[data-angelitozzz-video-pantalla]`); el tema lo deja en un `<template>` y le da forma por esos atributos en `src/css/leccion-video.css`. La marca recorre las esquinas en este orden: arriba izquierda, arriba derecha, abajo derecha y abajo izquierda (`data-esquina`); abajo queda por encima de la barra de controles, y arriba a la derecha baja un poco para no tapar "Pantalla completa". El doble clic en el video también pone el marco en pantalla completa. Firefox no respeta `controlslist="nofullscreen"`: si su botón pone el `<video>` solo en pantalla completa (sin la marca), el JS sale de ella e intenta pasarla al marco entero. Firefox no deja ese segundo intento, así que en Firefox su botón no agranda el video y solo funciona el botón propio (decisión del usuario, 2026-11-26: dejarlo así; prima que el video nunca se vea sin la marca). Sin JS, el reproductor sale en `<noscript>` encima del botón play.
+    - **Con Vimeo (F5-e):** el mismo `<template>`, la marca, el botón "Pantalla completa" y el doble clic sobre la marca (dentro del iframe el doble clic es de Vimeo). Sin renovación de dirección ni nonce de la ruta `lecciones/<id>/video`. Sin JS, el iframe sale en `<noscript>` como el `<video>`.
     - **Móvil:** ocupa el ancho y mantiene 16:9.
 - **Indicaciones del diseño:**
     - nota: seccion especifica del curso https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4176-27857&t=lySNWh2dFHTQgiTC-4
     - nota: contenido https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4176-27889&t=lySNWh2dFHTQgiTC-4
     - (Las dos notas son de la sección entera: el temario y el contenido.)
-- **Estado:** aplicado
+- **Estado:** aprobado
 
 **Campos ACF**
 
@@ -180,6 +184,10 @@ Contenido del diseño (del plugin, no campos): módulo "Recién Nacidos Go" con 
 - [x] (4b; en pantalla completa lo comprobó el usuario en Chrome y Firefox con ventana, 2026-11-26) La marca de agua con el correo se ve encima del video, también en la pantalla completa propia
 - [x] (4b, `cdp-leccion-video.mjs`) Copiar la dirección del video y abrirla en otro navegador o en una ventana privada no lo muestra (403)
 - [x] (4b, `cdp-leccion-video.mjs`) Sin acceso a la lección (o después de cerrar sesión), la dirección del video responde 403
+- [ ] (F5-e) Con Vimeo: antes de play no hay iframe ni pedido a `player.vimeo.com`; al pulsar play el iframe carga con `dnt=1` y `autoplay=1`, sin `allowfullscreen`
+- [ ] (F5-e) Con Vimeo: la portada es la miniatura de Vimeo, la marca de agua se ve y rota, y "Pantalla completa" pone el marco entero con la marca
+- [ ] (F5-e) Con Vimeo: sin acceso a la lección, el HTML no tiene `player.vimeo.com`
+- [ ] (F5-e) Una lección con archivo privado sigue cumpliendo todo lo de arriba
 
 ## Sección: banner-mundo
 
