@@ -25,6 +25,10 @@ if (document.querySelector('[data-accordion]')) {
     import('./modules/accordion.js').then(({ initAccordions }) => initAccordions()).catch(console.error);
 }
 
+if (document.querySelector('[data-colgantes]')) {
+    import('./modules/colgantes.js').then(({ initColgantes }) => initColgantes()).catch(console.error);
+}
+
 if (document.querySelector('[data-pastillas]')) {
     import('./modules/pastillas.js').then(({ initPastillas }) => initPastillas()).catch(console.error);
 }
