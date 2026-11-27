@@ -17,7 +17,7 @@ Antes de las páginas, revisa y aprueba [\_shared.md](_shared.md): tokens, compo
 | Artículo del blog                    | [articulo-blog.md](articulo-blog.md)                       | `single.php`                              | aplicado |
 | Entrada del blog                     | [entrada.md](entrada.md)                                   | ninguna                                   | aplicado |
 | Soluciones de sueño                  | [soluciones-de-sueno.md](soluciones-de-sueno.md)           | `archive-solucion.php`                    | aplicado |
-| Solución (landing)                   | [solucion.md](solucion.md)                                 | `single-solucion.php`                     | aprobado |
+| Solución (landing)                   | [solucion.md](solucion.md)                                 | `single-solucion.php`                     | aplicado |
 | Testimonios                          | [testimonios.md](testimonios.md)                           | `archive-testimonio.php`                  | aplicado |
 | Testimonio                           | [testimonio.md](testimonio.md)                             | ninguna                                   | aplicado |
 | Ajustes del sitio                    | [opciones.md](opciones.md)                                 | `header.php`                              | aplicado |
@@ -31,10 +31,10 @@ Antes de las páginas, revisa y aprueba [\_shared.md](_shared.md): tokens, compo
 | Cuenta: cursos inscritos             | [usuario-cursos.md](usuario-cursos.md)                     | `pages/template-cuenta.php`               | aplicado |
 | Cuenta: historial de pedidos         | [usuario-historial-pedido.md](usuario-historial-pedido.md) | `pages/template-cuenta.php`               | aplicado |
 | Cursos: modelo de datos              | [cursos-datos.md](cursos-datos.md)                         | ninguna                                   | aprobado |
-| Lección                              | [leccion.md](leccion.md)                                   | `single-leccion.php`                      | aprobado |
+| Lección                              | [leccion.md](leccion.md)                                   | `single-leccion.php`                      | aplicado |
 | Administrador                        | [admin-escritorio.md](admin-escritorio.md)                 | `pages/template-administrador.php`        | aplicado |
 | Administrador: cursos                | [admin-cursos.md](admin-cursos.md)                         | `pages/template-administrador.php`        | aplicado |
-| Administrador: constructor de cursos | [admin-constructor.md](admin-constructor.md)               | `pages/template-administrador.php`        | aprobado |
+| Administrador: constructor de cursos | [admin-constructor.md](admin-constructor.md)               | `pages/template-administrador.php`        | aplicado |
 | Canjear regalo                       | [canjear-regalo.md](canjear-regalo.md)                     | `pages/template-canjear-regalo.php`       | aplicado |
 | Gracias por tu compra                | [gracias.md](gracias.md)                                   | `woocommerce/checkout/thankyou.php`       | aplicado |
 | Página no encontrada (404)           | [error-404.md](error-404.md)                               | `404.php`                                 | aplicado |
@@ -48,6 +48,6 @@ Desde la F5-c (2026-11-19) ninguna página aplicada espera lógica pendiente del
 
 **Archivos privados (2026-11-25).** Solución, Cursos: modelo de datos, Lección y Administrador: constructor vuelven a `aprobado` por el cambio de los videos (de Vimeo a archivos privados del sitio) y de los materiales (más tipos que PDF). Lo ya hecho de esas páginas sigue funcionando; solo las secciones en `aprobado` dentro de cada spec cambian. Se aplican en los bloques 2 a 5 de `plan/checklist-cursos.md` → "F5-d". Al cerrar el bloque 4 (4c, 2026-11-25) pasan a `aplicado` Lección y Administrador: constructor. Siguen en `aprobado` las secciones con criterios que solo se comprueban en producción o con un video real (Safari de iPhone, un video de 1 GB, la duración de un MP4 de HandBrake, borrar un archivo grande): `cursos-datos.md` → `leccion`, `acceso` y `archivos-privados`, y `archivos-privados.md`. Con el bloque 5 (2026-11-26, plugin 0.11.0, sin Vimeo) pasan a `aplicado` Solución y `cursos-datos.md` → `funciones-publicas`.
 
-**Vimeo vuelve (2026-11-27, F5-e).** La clienta tiene sus videos en Vimeo (plan Plus) y no quiere pagar otro servicio: el video de una lección puede ser un enlace de Vimeo (por defecto) o un archivo privado, y los videos de venta de las landings vuelven a ser enlaces de Vimeo. Solución, Lección, Administrador: constructor y Cursos: modelo de datos quedan en `aprobado` hasta cerrar la F5-e (`plan/checklist-cursos.md`).
+**Vimeo vuelve (2026-11-27, F5-e).** La clienta tiene sus videos en Vimeo (plan Plus) y no quiere pagar otro servicio: el video de una lección puede ser un enlace de Vimeo (por defecto) o un archivo privado, y los videos de venta de las landings vuelven a ser enlaces de Vimeo. Solución, Lección, Administrador: constructor y Cursos: modelo de datos quedaron en `aprobado` mientras duró la F5-e. Al cerrarla (2026-11-27; plugin 0.14.1, auditoría dirigida sin hallazgos) pasan a `aplicado` Solución, Lección y Administrador: constructor. Cursos: modelo de datos sigue en `aprobado` por las secciones que solo se comprueban en producción (nota "Archivos privados"). El detalle está en `plan/checklist-cursos.md` → "F5-e".
 
 El avance real está en `plan/checklist-cursos.md`. La línea "Generado con design-import 1.14.0" es la versión con la que se crearon los specs; hoy el proyecto usa design-import 1.17.0 (`CLAUDE.md`).

@@ -98,10 +98,10 @@
 - [x] El texto de la lección no deja pasar etiquetas fuera de la lista permitida (por ejemplo `<script>` o atributos `on*`)
 - [x] Un enlace del texto de la lección con `target` sale con `rel="noopener noreferrer"`, al guardar y al mostrar
 - [x] `_angelitozzz_video` guarda el ID de un archivo privado de tipo video; un ID que no existe o de otro tipo no se guarda
-- [ ] (F5-e) `_angelitozzz_video` guarda un enlace de Vimeo válido; uno con `http`, de otro dominio (también `vimeo.com.otro.com` o `evilvimeo.com`) o con un hash que no es hexadecimal no se guarda
-- [ ] (F5-e) Al guardar un enlace de Vimeo se guardan su duración y su miniatura; si Vimeo no responde, la lección se guarda sin duración ni miniatura (no quedan las del video anterior, 0.14.1)
+- [x] (F5-e, PHPUnit `test-acceso.php` y `test-tipos.php`) `_angelitozzz_video` guarda un enlace de Vimeo válido; uno con `http`, de otro dominio (también `vimeo.com.otro.com` o `evilvimeo.com`) o con un hash que no es hexadecimal no se guarda
+- [x] (F5-e, PHPUnit, 0.14.1) Al guardar un enlace de Vimeo se guardan su duración y su miniatura; si Vimeo no responde, la lección se guarda sin duración ni miniatura (no quedan las del video anterior, 0.14.1)
 - [ ] La duración se lee del archivo al subirlo y se ve en el temario y en el constructor
-- [ ] La lógica del video (validar el enlace, leer duración y miniatura, armar el reproductor de la lección) está solo en `includes/video.php`
+- [x] (F5-e, revisado en la auditoría de la F5-e) La lógica del video (validar el enlace, leer duración y miniatura, armar el reproductor de la lección) está solo en `includes/video.php`
 - [x] Un material de un tipo permitido se guarda y se muestra con su tipo y su tamaño (constructor, 4c: "PDF · 21,0 MB")
 
 ## Sección: inscripcion
@@ -233,7 +233,7 @@
 - [x] (0.8.0) Una respuesta 206 nunca entrega más de 4 MB, aunque el pedido sea `bytes=a-`
 - [ ] El video se puede adelantar en Chrome, Firefox y Safari (también en iPhone)
 - [x] (0.8.0, `tests/test-archivos.php`) Pruebas PHPUnit de la firma, del permiso y de los rangos
-- [ ] (F5-e) Una lección con Vimeo, sin sesión o sin inscripción, no tiene `player.vimeo.com` en el HTML; con vista previa, sí (PHPUnit y curl en el Local)
+- [x] (F5-e, PHPUnit y `cdp-leccion-video.mjs` sin sesión) Una lección con Vimeo, sin sesión o sin inscripción, no tiene `player.vimeo.com` en el HTML; con vista previa, sí (PHPUnit y curl en el Local)
 
 ## Sección: archivos-privados
 
@@ -527,7 +527,7 @@
         - `angelitozzz_cursos_puede_ver_curso( $curso_id, $usuario_id )` (pide la usuaria): si la usuaria compró el curso (lo usa la lección para el botón de completar, los candados del temario y el PDF del curso).
         - `angelitozzz_cursos_ultimo_canje()`: lo que muestra `/canjear-regalo/`, una sola vez. Justo después de canjear, `estado` `canjeado` con `curso`, `meses` (0 = ilimitado), `primera_leccion`, `cursos_url` y `empieza` (la fecha si el acceso quedó encadenado a uno vigente; vacío si empieza hoy); tras un envío con error, `estado` `canje` con `valor` (lo escrito) y `error`; si no, vacío.
     - **Los datos ya vienen saneados, pero no escapados.** El tema escapa siempre al imprimir.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 

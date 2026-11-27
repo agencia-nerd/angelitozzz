@@ -55,7 +55,7 @@
         - Sin frame móvil: el móvil es una propuesta.
     - **Cambio (decisión del usuario, 2026-11-25):** el video de la lección deja de ser un enlace de Vimeo; se sube un archivo o se elige uno ya subido ("Archivos privados"), y los descargables aceptan más tipos que PDF. Cambian `paso-contenido`, `modal-leccion` y `modal-eliminar`, y se suma `modal-archivos`.
     - **Vimeo vuelve (F5-e, 2026-11-27):** el video de la lección puede ser un enlace de Vimeo (por defecto) o un archivo privado. Cambian `modal-leccion` y `modal-eliminar`. En `paso-contenido` la línea gris sigue siendo "Video · <duración>" para los dos tipos.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 ## Sección: pasos
 
@@ -225,7 +225,7 @@ Contenido del diseño (ejemplo): "Módulo 1 · Bienvenida" con "Conoce a Bárbar
     - (La nota de la página "Para editar un modulo, curso es un modal asi" muestra este modal de lección; editar un módulo usa un modal chico con el mismo estilo.)
     - **Móvil (propuesta):** ocupa la pantalla con 16 px de margen y scroll interno; la cabecera y el pie quedan fijos; los campos en una columna. En "Video de la lección", el recuadro va arriba y los botones debajo, a todo el ancho.
     - **Las dos opciones del video (F5-e):** no están en Figma (el diseño solo tenía el enlace de Vimeo); son propuesta, con el estilo de los botones secundarios del constructor.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -245,10 +245,10 @@ Datos que guarda (del plugin, no ACF; `cursos-datos.md` → `leccion`): título,
 - [x] Un archivo que pasa su tope muestra la advertencia en rojo y se sube igual
 - [x] "Guardar lección" queda desactivado mientras sube un archivo
 - [x] Quitar el video o un descargable no lo borra de "Archivos privados"
-- [ ] (F5-e) "Enlace de Vimeo" viene marcado en una lección nueva; un enlace válido muestra la miniatura, "Video conectado" y la duración, y se guarda
-- [ ] (F5-e) Un enlace que no es de Vimeo muestra el error, no se puede guardar, y el servidor lo rechaza igual (400)
-- [ ] (F5-e) Cambiar entre "Enlace de Vimeo" y "Archivo privado" no pierde lo escrito hasta guardar; se guarda solo lo de la opción marcada
-- [ ] (F5-e) Una lección con archivo privado abre con "Archivo privado" marcado y todo lo de la F5-d sigue igual
+- [x] (F5-e, `cdp-constructor.mjs`) "Enlace de Vimeo" viene marcado en una lección nueva; un enlace válido muestra la miniatura, "Video conectado" y la duración, y se guarda
+- [x] (F5-e, `cdp-constructor.mjs` y PHPUnit) Un enlace que no es de Vimeo muestra el error, no se puede guardar, y el servidor lo rechaza igual (400)
+- [x] (F5-e, `cdp-constructor.mjs`) Cambiar entre "Enlace de Vimeo" y "Archivo privado" no pierde lo escrito hasta guardar; se guarda solo lo de la opción marcada
+- [x] (F5-e, `cdp-constructor.mjs`) Una lección con archivo privado abre con "Archivo privado" marcado y todo lo de la F5-d sigue igual
 
 ## Sección: modal-archivos
 
@@ -300,7 +300,7 @@ Datos que guarda (del plugin, no ACF; `cursos-datos.md` → `leccion`): título,
 - **Indicaciones del diseño:**
     - (Nota de la página: "eliminar un modulo y lecciones modal". El diseño solo dibuja el de lección; los demás textos son propuesta.)
     - **Móvil (propuesta):** ancho completo con 16 px de margen; los dos botones a todo el ancho, uno debajo del otro ("Eliminar" arriba, "Cancelar" abajo).
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 

@@ -6,18 +6,20 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 
 ## Dónde vamos (actualizar al cerrar cada fase)
 
-**Al 2026-11-26 (cierre del día):** F0 a F5 hechas, también la F5-d (archivos privados y videos sin Vimeo).
+**Al 2026-11-27:** F0 a F5 hechas, con la F5-d (archivos privados) y la **F5-e (Vimeo vuelve: lección con enlace de Vimeo o archivo privado, landings con Vimeo, plugin 0.14.1 y auditoría dirigida sin hallazgos)**. F6 hecha en el sandbox; falta lo de producción y lo que depende de Openpay.
 
-- **En `main`:** tema PR #84 y plugin PR #21. Los PR #83 (header que se oculta al bajar y aparece al subir) y #84 (flechas y margen del carrusel "¿Cómo puedo ayudarte?" de Inicio) son ajustes visuales fuera del plan. Plugin 0.13.0 (254 pruebas, PHPCS en 0), wp-query 1.2.3 y wp-form 1.6.0 (en el Local; todavía no en producción).
+- **En `main`:** tema PR #97 y plugin PR #25 (plugin 0.14.1, 268 pruebas, PHPCS en 0). La F5-e son los PR #93 a #97 del tema y #24 y #25 del plugin (detalle en la sección F5-e). Antes, los PR #83 (header que se oculta al bajar y aparece al subir) y #84 (flechas y margen del carrusel "¿Cómo puedo ayudarte?" de Inicio) fueron ajustes visuales fuera del plan; wp-query 1.2.3 y wp-form 1.6.0 están en el Local, todavía no en producción.
 - **2026-11-27, plugin 0.13.1:** el checkout separa "Nombres" y "Apellidos" (`billing_first_name` / `billing_last_name`, `includes/checkout.php`), como Crear cuenta y Perfil. Probado por el usuario.
 - **2026-11-27, rediseño del checkout por pasos** (tema) **y plugin 0.13.2 y 0.13.3** (etiquetas sin dos puntos, mensajes sin "Facturación" y los 20 países del celular, iguales a los formularios del sitio): login en tarjeta fija, tarjetas "1 · Tus datos" y "2 · Pago", columna derecha fija, errores bajo cada campo, avisos de Woo con estilo y Openpay con el aspecto del sitio (`specs/checkout.md`). Probado por CDP y por el usuario en el sandbox (pago, rechazo y nuevo pago sin recargar). Falta probar en un celular el teclado del número de documento.
 - **`check.mjs`:** design-import 1.41.0 marca 6 avisos en `_shared.md` (componentes como `testimonios-slider`). Ya estaban antes de la auditoría y están por revisar. Con la versión anterior daba 0.
-- **El Local tiene datos de prueba que se usan mañana:**
+- **El Local tiene datos de prueba por borrar** (se borran al final de la F5-e, decisión del usuario):
     - `datos-f5.php tienda` (cursos y productos 1294 a 1311);
     - `renovar` (la alumna `renovar-f5@angelitozzz.local`);
     - los pedidos pagados en el sandbox 1316 y 1317, y los fallidos 1313 a 1315;
     - la copia `zz-datos-f5.php` en `app/public`.
-- Después de los reembolsos se borran con `tienda-borrar` y `renovar-borrar`.
+    - `datos-f5.php crear` (rehecho en la F5-e: la lección A3 con Vimeo);
+    - el curso de prueba 1386 de la instructora, que dejó `cdp-constructor.mjs` (con sus archivos privados subidos).
+- Los reembolsos de la F6 ya se hicieron (2026-11-27). Falta volver a correr `cdp-renovar.mjs` con datos nuevos y después borrar todo con `renovar-borrar`, `tienda-borrar` y `borrar`, más el curso 1386 desde el administrador.
 - **Entorno de esta PC:** Local con PHP 8.4.28 y el entorno de pruebas armado con `instalar.mjs`. La regla de Nginx de la carpeta privada responde 403.
 
 - **Auditoría de seguridad del plugin: terminada** (corrida 1 y correcciones 0.12.1 y 0.13.0; F7 → "Auditoría de seguridad completa").
@@ -28,8 +30,9 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
     - **Pendiente:** las pruebas en producción al publicar.
     - El detalle está en F7 → "Auditoría de seguridad completa".
 - **Lo siguiente, en este orden:**
-    1. Volver a correr `cdp-renovar.mjs` con datos nuevos (`renovar-borrar` y `renovar`) y después borrar los datos de prueba (`tienda-borrar` y `renovar-borrar`).
-    2. El resto de la F7.
+    1. Cerrar las pruebas del Local: volver a correr `cdp-renovar.mjs` con datos nuevos (`renovar-borrar` y `renovar`) y después borrar los datos de prueba (arriba).
+    2. Revisar con ventana la lección con Vimeo (F5-e, bloque 3) y pedirle a la clienta los videos y la configuración de privacidad de Vimeo.
+    3. El resto de la F7.
 
 - **F6 en curso** (Pagos y Angelita Pro). El detalle está en la sección F6.
     - **Hecho:**
@@ -137,7 +140,7 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 - [x] Tipo de cargo de Openpay: **Directo** (decisión del usuario, 2026-11-25). Es el ajuste "¿Cómo procesar el cargo?" del plugin (Directo o 3D Secure, `class-wc-openpay-gateway.php:209-220`), y así está desde la F5-b.
     - **Puede cambiar a 3D Secure** si Openpay o el banco lo exigen al comercio, o si aparecen fraudes o contracargos. Es la confirmación extra que pide el banco a quien paga (sin fricción o con código o app): el pedido queda "En espera" ("Pago en revisión" en `gracias.md`) hasta que vuelve.
     - El cambio es ese ajuste más una prueba en el Local con el sandbox. Según el código del plugin, el regreso del 3D Secure (`/?wc-api=openpay_confirm`) lo hace el navegador de quien paga, así que no necesita URL pública; el webhook sí.
-- [x] Proveedor de video: **archivos privados del sitio**, sin Vimeo (decisión del usuario, 2026-11-25). Se construye en la F5-d.
+- [x] Proveedor de video: **archivos privados del sitio**, sin Vimeo (decisión del usuario, 2026-11-25). Se construye en la F5-d. **Cambió el 2026-11-27 (F5-e):** vuelve Vimeo como opción por defecto, y el archivo privado queda como alternativa.
 
 ## F1 · Specs
 
@@ -498,6 +501,31 @@ Decisión del usuario (2026-11-25): los videos de las lecciones dejan Vimeo y se
     - **Falta comprobar a mano con ventana:** el video de una landing en Chrome y Firefox (y Safari en producción).
 - [x] Manual de la clienta: pasa a la F7, en "Manual de la clienta con wp-manual" (2026-11-26).
 
+### F5-e · Vimeo vuelve (hecha, 2026-11-27)
+
+Decisión de la clienta y del usuario (2026-11-27): la clienta tiene sus videos en Vimeo (plan Plus, confirmado por el oEmbed de sus videos) y no quiere pagar otro servicio. El video de una lección puede ser un **enlace de Vimeo** (por defecto) **o** un archivo privado (lo de la F5-d se conserva igual), y los videos de venta de las landings vuelven a ser enlaces de Vimeo. Se evaluaron Bunny Stream y Cloudflare Stream; quedan descartados por ahora. Una rama por bloque, con el plan aprobado antes.
+
+**Riesgo aceptado (decisión del usuario):** el enlace de Vimeo no se firma por alumna ni vence. Quien puede ver la lección puede copiarlo y, si en Vimeo el video no está limitado al dominio, se reproduce fuera de la web. Se reduce en Vimeo ("Ocultar de Vimeo" + "Solo en dominios específicos"; ver F7 → manual y Deploy) y con la marca de agua (`cursos-datos.md` → `acceso`).
+
+- [x] **1. Specs** (rama `docs/f5e-vimeo`): `cursos-datos.md` (`leccion`, `acceso`, `funciones-publicas`), `leccion.md` → `video`, `admin-constructor.md` (`modal-leccion`, `modal-eliminar`), `solucion.md` (`secciones`, `modal-etapa`: campos a `oembed`), `_shared.md` → `video-portada` y `_index.md`.
+- [x] **2. Plugin 0.14.0** (rama `feat/vimeo-vuelve` del plugin): restaurado de la versión híbrida 0.9.0 (`5a52923`), con mejoras:
+    - `includes/video.php`: `vimeo_partes()` (solo https, dominios exactos, id de hasta 15 dígitos, hash hexadecimal), `vimeo_enlace()` (se guarda normalizado, sin la consulta), `video_tipo()`, `video_url()`, oEmbed con `Referer` del sitio, `width=1280` (miniatura de 1280 px), 64 KiB y 2 redirecciones, y miniatura solo de `*.vimeocdn.com`.
+    - `video_html()` comprueba `puede_ver()` dentro de la función (la versión vieja no lo hacía) y da el iframe **sin `allowfullscreen`**, con la marca de agua y el botón "Pantalla completa" del marco.
+    - Vuelven `GET /video?url=` (solo quien gestiona cursos) y `_angelitozzz_miniatura`; `item_leccion()` devuelve `video_tipo`. La migración 4 no cambia: no hubo migración nueva (los enlaces viejos los vuelve a pegar la clienta).
+    - Pruebas: Vimeo falso en la base de PHPUnit (sin red por defecto) y 13 pruebas nuevas; 267 en verde y PHPCS en 0.
+- [x] **3. Lección del tema** (rama `feat/leccion-vimeo`): `leccion/video.php` (ruta de renovación y nonce solo con archivo privado), `video-leccion.js` (iframe con `autoplay=1` al pulsar play, marca y pantalla completa del marco; en iPhone, la de Vimeo sin el botón propio) y `leccion-video.css`. `datos-f5.php crear` pone un video público de Vimeo en la lección A3; `cdp-leccion-video.mjs` suma 6 comprobaciones de Vimeo y pasa entera.
+    - **Ojo:** en el Chrome sin ventana de las pruebas, Vimeo a veces muestra "No se pudo reproducir el video" dentro del iframe; con los mismos atributos, otras veces carga normal. Es intermitente de ese Chrome, no del iframe.
+    - [ ] Revisar con ventana: la lección A3 en Chrome, Firefox y Safari, y si el botón "Pantalla completa" tapa los íconos de Vimeo arriba a la derecha.
+- [x] **4. Constructor** (rama `feat/constructor-vimeo`): "Enlace de Vimeo" (por defecto) o "Archivo privado" en el modal de la lección; lee el enlace con `GET /video` ("Leyendo el video…", "Video conectado", miniatura y duración, error), no deja guardar un enlace malo, guarda solo la opción marcada y reabre la lección en la suya. La línea gris dice "Video · m:ss" también con Vimeo, y "Eliminar" dice que el video sigue en Vimeo o en Archivos privados. `cdp-constructor.mjs` suma 8 comprobaciones y pasa entera.
+- [x] **5. Landings** (rama `feat/landings-vimeo`): `video` y `modal_video` de `file` a `oembed` (`generate.mjs` de wp-acf con `--states aplicado,aprobado`, sincronizado con `angelitozzz_acf_sync()`); `video-portada`, `etapa.php` y `galeria.php` restaurados de `2a494dd^`. **Arreglo:** el campo `oembed` de ACF devuelve el `<iframe>` de WordPress, no el enlace; `video-portada.php` toma su `src` y el plugin lo valida (la versión anterior a la F5-d no lo hacía). `cdp-landing-video.mjs` reescrita para Vimeo; `cdp-modales.mjs` y `cdp-compra.mjs` siguen pasando.
+- [x] **6. Pruebas:** hechas dentro de los bloques 3 a 5.
+- [x] **7. Auditoría de seguridad dirigida** (2026-11-27, skill `security-audit` de Cloudflare, perfil `quick` acotado al diff, tope de 10 agentes; se usaron 8: 4 de reconocimiento, 3 cazadores y 1 crítico).
+    - **Resultado:** 0 confirmados, 0 por validar. Las 8 unidades quedaron cubiertas (acceso al enlace de Vimeo, inyección, XSS del DOM en la lección, el constructor y las landings, y la petición al oEmbed) y el crítico no encontró huecos.
+    - Informe fuera del repo: `~/security-audit-skill/angelitozzz/run-2-vimeo/` (`REPORT.md`, `FINDINGS-DETAIL.md` con 8 notas de refuerzo, `NEEDS-VALIDATION.md`). Sin sandbox en Windows: solo lectura del código.
+    - [x] Refuerzo hecho: **plugin 0.14.1**. Al cambiar el video, la duración y la miniatura del anterior se borran antes de leer Vimeo; si no responde, la lección queda sin ellas en vez de mostrar las de otro video. 268 pruebas y PHPCS en 0.
+    - No se corrió `/security-review` del diff: revisa cambios sin commitear y todo ya estaba en `main`. Lo cubre la auditoría completa de la F7.
+- [x] **8. Cierre:** Solución, Lección y Administrador: constructor vuelven a `aplicado` (`_index.md`); Cursos: modelo de datos sigue en `aprobado` por lo que solo se comprueba en producción.
+
 ## F6 · Pagos y Angelita Pro
 
 - [ ] Openpay en modo prueba (sandbox, cargo Directo) con las compras de la verificación. El webhook se prueba en producción: Openpay no llega a `angelitozzz.local`, y en Directo el pedido se marca pagado en la misma petición, sin esperarlo.
@@ -619,7 +647,7 @@ Decisión del usuario (2026-11-25): los videos de las lecciones dejan Vimeo y se
             - 2 verificadores por candidato (fases 3 y 5).
             - En el plugin, con 9 candidatos, hicieron falta 36 agentes.
 - [ ] Revisión de seguridad final (`/security-review` de todo el plugin y las plantillas)
-- [ ] Manual de la clienta con wp-manual (incluye el administrador de cursos). También cómo preparar un video con HandBrake (MP4 H.264, 720p o 1080p, "Web Optimized"), cómo usar "Archivos privados" y cómo poner el video de una landing (archivo de Medios, público)
+- [ ] Manual de la clienta con wp-manual (incluye el administrador de cursos). También cómo preparar un video con HandBrake (MP4 H.264, 720p o 1080p, "Web Optimized"), cómo usar "Archivos privados". **Desde la F5-e (2026-11-27):** cómo pegar el enlace de Vimeo en una lección ("Enlace de Vimeo", "Video conectado") y en el video de una landing (campo de Vimeo, público), y cómo dejar cada video de los cursos en Vimeo con "Ocultar de Vimeo" y "Solo en dominios específicos" con el dominio del sitio, para que un enlace copiado no sirva fuera de la web
 - [ ] Cuenta de Bárbara en producción: usuaria propia con su correo y rol administradora (no la de la agencia). Con ella entra a `/wp-admin/` (contenido) y a `/administrador/` (cursos)
 - [ ] Texto real de Términos y condiciones y de Políticas de privacidad (hoy con relleno; lo pone el usuario). En producción, crear las dos páginas y elegirlas en WooCommerce → Ajustes → Avanzado y en Ajustes → Privacidad
 - [ ] Logo del sitio en Apariencia → Personalizar → Identidad del sitio (decisión del usuario, 2026-11-17: no se carga desde `inc/acf/sitio.php`)
@@ -643,6 +671,7 @@ Decisión del usuario (2026-11-25): los videos de las lecciones dejan Vimeo y se
     - [ ] Tema: `pnpm build` y subir el tema con `dist/`, sin `hot`, `node_modules/`, `src/`, `specs/` ni configs.
     - [ ] Después de publicar, **vaciar la caché de páginas** (hosting, CDN o plugin) y hacer la prueba con curl de wp-query ("Page caches" en `references/vista.md` de la skill). Desde wp-query 1.2.2 (2026-11-26) filtrar sin recargar pide `?_wpq=1`: esa respuesta tiene que salir JSON con `Cache-Control: no-store` y `X-Robots-Tag: noindex`, y la URL normal tiene que salir HTML. Desde wp-query 1.2.3, también con el encabezado `X-WP-Query: 1` solo (sin `_wpq`). En el Local ya se comprobó.
     - [ ] Plugin `angelitozzz-cursos`: subirlo sin tests ni configs de desarrollo.
+    - [ ] Vimeo (F5-e): en la cuenta de la clienta, cada video de los cursos con "Ocultar de Vimeo" y "Solo en dominios específicos" con el dominio de producción (y el del Local o de pruebas, si se sigue probando ahí). Comprobar que un enlace `player.vimeo.com/video/…` copiado de una lección no se reproduce abierto suelto ni en otra web. Si la producción tiene CSP, permitir `frame-src https://player.vimeo.com` e `img-src https://*.vimeocdn.com`.
     - [ ] Antes de migrar la base del Local:
         - correr los `*-borrar` de `datos-f5.php`;
         - borrar `app/public/zz-datos-f5.php`;
@@ -657,9 +686,9 @@ Las herramientas para probar en el Local (datos de prueba, pruebas en Chrome y c
 - [ ] Compra de 1 curso → inscripción con su vencimiento
 - [ ] Horarios Ideales con 2 y con 3 etapas, con el descuento correcto
 - [ ] Compra con cupón
-- [ ] Video de una lección en Safari de iPhone: se reproduce, se puede adelantar y se ve la portada (en el Local no se puede: el Live Link no entrega los archivos privados, 2026-11-26)
+- [ ] Video de una lección en Safari de iPhone: se reproduce, se puede adelantar y se ve la portada (en el Local no se puede: el Live Link no entrega los archivos privados, 2026-11-26). Desde la F5-e, también una lección con Vimeo: se reproduce y su pantalla completa funciona (en iPhone es la de Vimeo, sin la marca de agua)
 - [ ] Archivos privados en producción (F5-d): subir un video de 1 GB por partes desde el constructor; que la duración de un MP4 exportado con HandBrake aparezca en el constructor y en el temario (con el MP4 de prueba el servidor guarda 0); borrar un archivo grande desde "Archivos privados" y que la respuesta llegue (en el Local de Windows a veces no llega)
-- [ ] Video de una landing (galería y modal de etapa) en Chrome, Firefox y Safari: play reproduce, y se detiene al cambiar de diapositiva o al cerrar
+- [ ] Video de una landing (galería y modal de etapa) en Chrome, Firefox y Safari: play reproduce, y se detiene al cambiar de diapositiva o al cerrar (desde la F5-e, un enlace de Vimeo)
 - [ ] Regalo: genera el código, el canje inscribe y el acceso empieza ese día (2026-11-19 en el Local: ok)
 - [ ] Angelita Pro: renovación (correo de aviso, "Renovar" y la compra encadenada) y reembolso dentro de los 7 días de garantía
 - [ ] Reembolso: el pedido reembolsado quita el acceso
