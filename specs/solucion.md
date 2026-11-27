@@ -30,7 +30,8 @@
     - Sin frames móviles en Figma: el comportamiento en móvil de cada sección es una propuesta en su `Comportamiento`.
     - Cintillo, header y footer salen de `header.php` y `footer.php`; la plantilla no los repite.
     - **Videos de venta (decisión del usuario, 2026-11-25):** los videos de la galería y del modal de etapa dejan de ser enlaces de Vimeo (campos oEmbed). Son archivos MP4 o WebM de la Biblioteca de medios (campos `file` de ACF), públicos porque son de venta, y se reproducen con el reproductor del navegador (`video-portada`). Hoy esos campos están vacíos en el contenido inicial, así que no se pierde nada al cambiar el tipo.
-- **Estado:** aplicado
+    - **Vimeo vuelve (decisión de la clienta y del usuario, 2026-11-27, F5-e):** la clienta tiene sus videos en Vimeo (plan Plus), así que los videos de la galería y del modal de etapa vuelven a ser enlaces de Vimeo (campos `oembed`). `video-portada` arma el iframe con `angelitozzz_cursos_video_url()` del plugin al pulsar play. Los campos siguen vacíos en el contenido inicial: no hay nada que migrar.
+- **Estado:** aprobado
 
 ## Sección: hero
 
@@ -145,7 +146,7 @@ Valores de las otras landings (para el contenido inicial): ver "Orden de cada la
     - `beneficios` (cómo funciona de A. Pro 4013:13962; además incluye de A Dormir 4013:16796 y Horarios 4013:19363): caja redondeada (beige o crema) con título, bajada opcional y 2 o 3 columnas (ícono + texto) separadas por líneas verticales. Móvil: columnas apiladas con separador horizontal.
     - `experiencia` (A Dormir Por Fin, `experiencia-exclusiva.ref.txt`, 4013:15567): título, texto centrado (primer y último párrafo en negrita: el texto se escribe con el marcador de negrita de wp-helper), foto horizontal redondeada y botón. Móvil: igual, en una columna.
     - `pasos` (A Dormir Por Fin, `como-funciona.ref.txt`, 4013:15672): antetítulo, título, bajada, 3 tarjetas blancas (foto, "Paso n", título `h3`, texto, etiqueta crema) y botón verde. "Paso n" se numera solo. Móvil: tarjetas apiladas (2 en tablet).
-    - `galeria` (conoce por dentro de A. Pro 4013:14037; resumen breve de Recién Nacidos 4013:18035): título, bajada, slider de diapositivas (una a la vez, flechas debajo; `solucion-galeria.js`), texto bajo las flechas y botón de compra opcional. Cada diapositiva es una imagen y, si tiene video (archivo MP4 o WebM de Medios desde el 2026-11-25; antes Vimeo), muestra el botón play y reproduce en el mismo lugar (decisión del usuario, 2026-11-13), con el componente `video-portada` (`_shared.md`). Con una sola diapositiva no se muestran flechas. El botón hace lo mismo que el botón del hero y puede llevar el precio ("Comprar ahora — $97 USD"). Si la solución no está a la venta, el botón dice "Próximamente", desactivado y sin precio (como el del hero, 2026-11-20).
+    - `galeria` (conoce por dentro de A. Pro 4013:14037; resumen breve de Recién Nacidos 4013:18035): título, bajada, slider de diapositivas (una a la vez, flechas debajo; `solucion-galeria.js`), texto bajo las flechas y botón de compra opcional. Cada diapositiva es una imagen y, si tiene video (enlace de Vimeo; del 2026-11-25 al 2026-11-27 fue un archivo de Medios), muestra el botón play y reproduce en el mismo lugar (decisión del usuario, 2026-11-13), con el componente `video-portada` (`_shared.md`). Con una sola diapositiva no se muestran flechas. El botón hace lo mismo que el botón del hero y puede llevar el precio ("Comprar ahora — $97 USD"). Si la solución no está a la venta, el botón dice "Próximamente", desactivado y sin precio (como el del hero, 2026-11-20).
     - `etapas` (Horarios Ideales, `etapas.ref.txt`, 4013:19194): título y 3 tarjetas (foto, título `h3`, texto, botón "Más información" que abre `modal-etapa` con los datos de esa etapa). Cada etapa es un curso. Móvil: tarjetas apiladas.
     - `testimonios` (componente Figma "Testimonio · Destacado": A. Pro 4013:14078, A Dormir 4013:15586, Horarios 4013:19383, Recién Nacidos 4013:18105): título, un testimonio a la vez (cita en itálica + autora), flechas a los lados y puntos; fila de "Z" y nubes decorativas. Usa el componente nuevo `testimonio-destacado` (`_shared.md`).
     - `preguntas` (A. Pro 4013:14164, A Dormir 4013:15724, Horarios 4013:19424, Recién Nacidos 4013:18192): título y acordeón (`<details>`, con wp-accordion); la primera abierta; con más de 5 se muestran 5 y "Ver más" despliega el resto. Una pregunta sin respuesta no se imprime.
@@ -155,7 +156,7 @@ Valores de las otras landings (para el contenido inicial): ver "Orden de cada la
     - nota: los testimonios de aca tambien son indepenientes
     - nota: las preguntas frecuentes tambien son independientes en este curso.
     - (La primera nota es de "Conoce Angelita Pro por dentro" → layout `galeria`, diapositivas en repetidor. Las de testimonios, de Angelita Pro y A Dormir Por Fin; la de preguntas, de las 4 landings.)
-- **Estado:** aplicado
+- **Estado:** aprobado
 - **ACF:** conectado
 
 **Campos ACF**
@@ -218,7 +219,7 @@ Valores de las otras landings (para el contenido inicial): ver "Orden de cada la
 | `solucion_secciones_bloques.galeria.bajada` | textarea | Texto bajo el título. | Cada video es corto, claro y lleno de información práctica — para que puedas verlo cuando tu bebé te lo permita y aplicarlo ese mismo día. | no |
 | `solucion_secciones_bloques.galeria.diapositivas` | repeater | Diapositivas del slider. El diseño tiene 1. | — | sí |
 | `solucion_secciones_bloques.galeria.diapositivas.imagen` | image | Imagen o portada del video. Recomendado: hasta 2000 px en el lado más largo, horizontal. | — | sí |
-| `solucion_secciones_bloques.galeria.diapositivas.video` | file | Video MP4 o WebM (opcional), de la Biblioteca de medios. Si lo tiene, la imagen muestra el botón play. Es público: no subas aquí videos de los cursos. | — | no |
+| `solucion_secciones_bloques.galeria.diapositivas.video` | oembed | Video de Vimeo (opcional). Si lo tiene, la imagen muestra el botón play. Es público: no pongas aquí videos de los cursos. | — | no |
 | `solucion_secciones_bloques.galeria.texto` | text | Línea bajo las flechas. | Desde tu compra tienes 4 meses para acceder y ver el curso las veces que quieras. | no |
 | `solucion_secciones_bloques.galeria.boton` | text | Texto del botón de compra (vacío: sin botón). Hace lo mismo que el botón del hero. | Comprar ahora | no |
 | `solucion_secciones_bloques.galeria.boton_precio` | true_false | Agrega el precio al botón ("— $97 USD"). | sí | no |
@@ -233,7 +234,7 @@ Valores de las otras landings (para el contenido inicial): ver "Orden de cada la
 | `solucion_secciones_bloques.etapas.items.texto` | textarea | Texto de la tarjeta. | ¿Sientes que tu bebé parece tener sueño todo el día pero duerme poco? Esta etapa es un laberinto de señales confusas. Aprenderás a identificar las ventanas de vigilia correctas, evitar el círculo vicioso de siestas cortas y descubrir el secreto de la última ventana del día para que las tres siestas funcionen como relojito. Todo lo que necesitas para descifrar el horario ideal — sin adivinar. | sí |
 | `solucion_secciones_bloques.etapas.items.modal_titulo` | text | Título del modal "Más información". | Para bebés de 4 a 9 meses | sí |
 | `solucion_secciones_bloques.etapas.items.modal_texto` | textarea | Texto del modal. Si se deja vacío, el modal muestra solo el título y el video. | ¿Sientes que tu bebé parece tener sueño todo el día pero igual duerme poco? En este curso aprenderás a priorizar las ventanas de vigilia y a evitar el círculo de siestas cortas y horarios caóticos. Descubre cómo lograr que las tres siestas funcionen como un reloj. | no |
-| `solucion_secciones_bloques.etapas.items.modal_video` | file | Video de presentación del modal, MP4 o WebM de la Biblioteca de medios. Es público: no subas aquí videos de los cursos. | — | no |
+| `solucion_secciones_bloques.etapas.items.modal_video` | oembed | Video de presentación de Vimeo del modal. Es público: no pongas aquí videos de los cursos. | — | no |
 | `solucion_secciones_bloques.etapas.items.modal_portada` | image | Portada del video del modal. Recomendado: hasta 2000 px en el lado más largo, horizontal. | — | no |
 | `solucion_secciones_bloques.etapas.modal_antetitulo` | text | Texto chico sobre el título de cada modal. | Introducción al curso de Horarios | no |
 | `solucion_secciones_bloques.testimonios` | group | Slider de testimonios propios de esta solución. | — | no |
@@ -256,7 +257,8 @@ Valores de las otras landings (para el contenido inicial): ver "Orden de cada la
 - [x] Cada layout se ve igual al frame de su `Origen` con el contenido de esa landing
 - [x] `lista` y `preguntas` con más de 5 ítems muestran 5 y el resto con "Ver más"; el botón tiene `aria-expanded` y sin JS se ve la lista completa
 - [x] `galeria`: una diapositiva sin video es solo imagen; con video, el play tiene nombre accesible
-- [x] `galeria` y `modal-etapa`: con un archivo MP4 en el campo, el play reproduce el `<video>` en el mismo lugar; el video no se pide hasta pulsar play y se detiene al cambiar de diapositiva o al cerrar el modal
+- [x] `galeria` y `modal-etapa`: con un archivo MP4 en el campo, el play reproduce el `<video>` en el mismo lugar; el video no se pide hasta pulsar play y se detiene al cambiar de diapositiva o al cerrar el modal (F5-d; reemplazado por el siguiente)
+- [ ] (F5-e) `galeria` y `modal-etapa`: con un enlace de Vimeo en el campo, el iframe de `player.vimeo.com` no se carga hasta pulsar play, reproduce en el mismo lugar y se quita al cambiar de diapositiva o al cerrar el modal
 - [x] `preguntas` es un acordeón de wp-accordion (`<details>`), la primera abierta, sin enlaces dentro del título
 - [x] `etapas`: cada "Más información" es un `<button>` que abre `modal-etapa` con los datos de su etapa
 - [x] Los íconos de `iconos` y `beneficios` son SVG del tema con `aria-hidden="true"`; la decoración (nubes, destellos, corazón, "Z") no es campo y tiene `alt=""` o `aria-hidden`
@@ -314,8 +316,8 @@ Valores de las otras landings (para el contenido inicial): ver "Orden de cada la
 - **Destino:** `template-parts/modals/etapa.php`
 - **Grupo:** ninguno
 - **Skill:** wp-modal
-- **Comportamiento:** uno por etapa (id `etapa-<n>`), lo abre su "Más información". Modal de 620 px: arriba la portada del video (`modal_portada`, componente `video-portada`) con botón play y botón cerrar circular flotando encima; al pulsar play se carga el video (`modal_video`, archivo MP4 o WebM desde el 2026-11-25; antes Vimeo) en el mismo lugar; sin video, solo la portada; sin portada (etapas 9-15 y 15-36 en el diseño), el modal empieza en el antetítulo. Figma no tiene encabezado: el `title` del modal va oculto (`title_hidden`) y el título se repite visible debajo de la portada. Debajo: antetítulo (`modal_antetitulo` del bloque), título, texto, precio de Woo del curso ("$37 USD") con la escala de `solucion_compra_descuentos` debajo ("2 cursos $67 · 3 cursos $97") y "Agregar al carrito" (agrega ese curso y abre el drawer). Al cerrar, el video se detiene. En móvil (propuesta): ocupa el ancho con 16 px de margen. **Etapa sin curso a la venta** (decisión del usuario, 2026-11-20; `angelitozzz_solucion_a_la_venta()`, `inc/woocommerce/precios.php`): el botón dice "En preparación", desactivado y sin flecha, sin precio ni escala de descuento. El modal y su "Más información" se mantienen.
-- **Estado:** aplicado
+- **Comportamiento:** uno por etapa (id `etapa-<n>`), lo abre su "Más información". Modal de 620 px: arriba la portada del video (`modal_portada`, componente `video-portada`) con botón play y botón cerrar circular flotando encima; al pulsar play se carga el video de Vimeo (`modal_video`; del 2026-11-25 al 2026-11-27 fue un archivo MP4 o WebM) en el mismo lugar; sin video, solo la portada; sin portada (etapas 9-15 y 15-36 en el diseño), el modal empieza en el antetítulo. Figma no tiene encabezado: el `title` del modal va oculto (`title_hidden`) y el título se repite visible debajo de la portada. Debajo: antetítulo (`modal_antetitulo` del bloque), título, texto, precio de Woo del curso ("$37 USD") con la escala de `solucion_compra_descuentos` debajo ("2 cursos $67 · 3 cursos $97") y "Agregar al carrito" (agrega ese curso y abre el drawer). Al cerrar, el video se detiene. En móvil (propuesta): ocupa el ancho con 16 px de margen. **Etapa sin curso a la venta** (decisión del usuario, 2026-11-20; `angelitozzz_solucion_a_la_venta()`, `inc/woocommerce/precios.php`): el botón dice "En preparación", desactivado y sin flecha, sin precio ni escala de descuento. El modal y su "Más información" se mantienen.
+- **Estado:** aprobado
 
 **Campos ACF**
 
@@ -326,7 +328,7 @@ Valores de las otras landings (para el contenido inicial): ver "Orden de cada la
 
 - [x] Cumple los criterios comunes de `_shared.md`
 - [x] Es un modal de wp-modal con `title`, sin `open` en el `<dialog>`
-- [x] El video (archivo de `modal_video`) no se pide hasta pulsar play y se detiene al cerrar
+- [ ] (F5-e) El iframe de Vimeo (`modal_video`) no se carga hasta pulsar play y se quita al cerrar
 - [x] La escala de descuento sale de `solucion_compra_descuentos`, no está escrita en la plantilla
 
 ## Sección: drawer-carrito
