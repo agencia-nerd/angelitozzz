@@ -48,7 +48,7 @@ defined('ABSPATH') || exit;
         }
         $pagado = $estado === 'pagado';
 
-        // El campo de facturación es "Nombres y Apellidos": el saludo usa solo el primer nombre.
+        // "Nombres" de la facturación (los apellidos van aparte): el saludo usa solo el primer nombre.
         $nombre_completo = trim((string) $order->get_billing_first_name());
         $nombre          = $nombre_completo !== '' ? (string) preg_split('/\s+/u', $nombre_completo)[0] : '';
 

@@ -154,7 +154,11 @@ $tiene_prefijo = isset($campos_facturacion['billing_phone_prefijo'], $campos_fac
 
             switch ($clave) {
                 case 'billing_first_name':
-                    $campo_texto($clave, $args, 'text', 'name');
+                    $campo_texto($clave, $args, 'text', 'given-name');
+                    break;
+
+                case 'billing_last_name':
+                    $campo_texto($clave, $args, 'text', 'family-name');
                     break;
 
                 case 'billing_email':
