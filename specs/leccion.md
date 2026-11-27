@@ -43,7 +43,7 @@
     - Cintillo, header y footer salen de `header.php` y `footer.php`. Sin frame móvil: el móvil es una propuesta.
     - Aplicado en la F4, bloque 5 (2026-11-14): el avance del curso se actualiza en el temario y se anuncia por `aria-live`, sin barra (el diseño no la tiene); "Marcar como completo" funcionaba solo con JS; desde la F5-c (plugin 0.7.1) es un formulario a la acción `angelitozzz_completar_leccion` (mismo permiso que la ruta REST, `angelitozzz_cursos_puede_completar()`) que el JS envía por la REST sin recargar; las pestañas usan el `src/js/modules/pestanas.js` genérico (no un `pestanas-leccion.js`); el video sale de un `<template>` con `angelitozzz_cursos_video_html()` y se carga al pulsar play (`video-leccion.js`), con `<noscript>` sin JS; el título del mensaje de Angelita Pro es `h2` para no saltar del `h1`; el banner de Mundo va entre el video y las pestañas, como en el orden del spec. Para saber si la alumna compró el curso (botón, candados y PDF del curso) se usa `angelitozzz_cursos_puede_ver_curso()`.
     - Verificado en la F5-c (2026-11-19, en el Local): "Marcar como completo" sin JS marca, desmarca y vuelve a la lección; el banner de Mundo no se imprime sin enlace en Ajustes del sitio.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 ## Sección: cabecera
 
@@ -167,7 +167,7 @@ Contenido del diseño (del plugin, no campos): módulo "Recién Nacidos Go" con 
     - nota: seccion especifica del curso https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4176-27857&t=lySNWh2dFHTQgiTC-4
     - nota: contenido https://www.figma.com/design/FumWuCPT1PPDg5vBTYoufA/Benchmark-Angelitozzz?node-id=4176-27889&t=lySNWh2dFHTQgiTC-4
     - (Las dos notas son de la sección entera: el temario y el contenido.)
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -184,10 +184,10 @@ Contenido del diseño (del plugin, no campos): módulo "Recién Nacidos Go" con 
 - [x] (4b; en pantalla completa lo comprobó el usuario en Chrome y Firefox con ventana, 2026-11-26) La marca de agua con el correo se ve encima del video, también en la pantalla completa propia
 - [x] (4b, `cdp-leccion-video.mjs`) Copiar la dirección del video y abrirla en otro navegador o en una ventana privada no lo muestra (403)
 - [x] (4b, `cdp-leccion-video.mjs`) Sin acceso a la lección (o después de cerrar sesión), la dirección del video responde 403
-- [ ] (F5-e) Con Vimeo: antes de play no hay iframe ni pedido a `player.vimeo.com`; al pulsar play el iframe carga con `dnt=1` y `autoplay=1`, sin `allowfullscreen`
-- [ ] (F5-e) Con Vimeo: la portada es la miniatura de Vimeo, la marca de agua se ve y rota, y "Pantalla completa" pone el marco entero con la marca
-- [ ] (F5-e) Con Vimeo: sin acceso a la lección, el HTML no tiene `player.vimeo.com`
-- [ ] (F5-e) Una lección con archivo privado sigue cumpliendo todo lo de arriba
+- [x] (F5-e, `cdp-leccion-video.mjs`) Con Vimeo: antes de play no hay iframe ni pedido a `player.vimeo.com`; al pulsar play el iframe carga con `dnt=1` y `autoplay=1`, sin `allowfullscreen`
+- [x] (F5-e, `cdp-leccion-video.mjs`) Con Vimeo: la portada es la miniatura de Vimeo, la marca de agua se ve y rota, y "Pantalla completa" pone el marco entero con la marca
+- [x] (F5-e, `cdp-leccion-video.mjs`) Con Vimeo: sin acceso a la lección, el HTML no tiene `player.vimeo.com`
+- [x] (F5-e, `cdp-leccion-video.mjs` y `cdp-bloque5.mjs`) Una lección con archivo privado sigue cumpliendo todo lo de arriba
 
 ## Sección: banner-mundo
 

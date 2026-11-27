@@ -31,7 +31,7 @@
     - Cintillo, header y footer salen de `header.php` y `footer.php`; la plantilla no los repite.
     - **Videos de venta (decisión del usuario, 2026-11-25):** los videos de la galería y del modal de etapa dejan de ser enlaces de Vimeo (campos oEmbed). Son archivos MP4 o WebM de la Biblioteca de medios (campos `file` de ACF), públicos porque son de venta, y se reproducen con el reproductor del navegador (`video-portada`). Hoy esos campos están vacíos en el contenido inicial, así que no se pierde nada al cambiar el tipo.
     - **Vimeo vuelve (decisión de la clienta y del usuario, 2026-11-27, F5-e):** la clienta tiene sus videos en Vimeo (plan Plus), así que los videos de la galería y del modal de etapa vuelven a ser enlaces de Vimeo (campos `oembed`). `video-portada` arma el iframe con `angelitozzz_cursos_video_url()` del plugin al pulsar play. Los campos siguen vacíos en el contenido inicial: no hay nada que migrar.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 ## Sección: hero
 
@@ -156,7 +156,7 @@ Valores de las otras landings (para el contenido inicial): ver "Orden de cada la
     - nota: los testimonios de aca tambien son indepenientes
     - nota: las preguntas frecuentes tambien son independientes en este curso.
     - (La primera nota es de "Conoce Angelita Pro por dentro" → layout `galeria`, diapositivas en repetidor. Las de testimonios, de Angelita Pro y A Dormir Por Fin; la de preguntas, de las 4 landings.)
-- **Estado:** aprobado
+- **Estado:** aplicado
 - **ACF:** conectado
 
 **Campos ACF**
@@ -258,7 +258,7 @@ Valores de las otras landings (para el contenido inicial): ver "Orden de cada la
 - [x] `lista` y `preguntas` con más de 5 ítems muestran 5 y el resto con "Ver más"; el botón tiene `aria-expanded` y sin JS se ve la lista completa
 - [x] `galeria`: una diapositiva sin video es solo imagen; con video, el play tiene nombre accesible
 - [x] `galeria` y `modal-etapa`: con un archivo MP4 en el campo, el play reproduce el `<video>` en el mismo lugar; el video no se pide hasta pulsar play y se detiene al cambiar de diapositiva o al cerrar el modal (F5-d; reemplazado por el siguiente)
-- [ ] (F5-e) `galeria` y `modal-etapa`: con un enlace de Vimeo en el campo, el iframe de `player.vimeo.com` no se carga hasta pulsar play, reproduce en el mismo lugar y se quita al cambiar de diapositiva o al cerrar el modal
+- [x] (F5-e, `cdp-landing-video.mjs`) `galeria` y `modal-etapa`: con un enlace de Vimeo en el campo, el iframe de `player.vimeo.com` no se carga hasta pulsar play, reproduce en el mismo lugar y se quita al cambiar de diapositiva o al cerrar el modal
 - [x] `preguntas` es un acordeón de wp-accordion (`<details>`), la primera abierta, sin enlaces dentro del título
 - [x] `etapas`: cada "Más información" es un `<button>` que abre `modal-etapa` con los datos de su etapa
 - [x] Los íconos de `iconos` y `beneficios` son SVG del tema con `aria-hidden="true"`; la decoración (nubes, destellos, corazón, "Z") no es campo y tiene `alt=""` o `aria-hidden`
@@ -317,7 +317,7 @@ Valores de las otras landings (para el contenido inicial): ver "Orden de cada la
 - **Grupo:** ninguno
 - **Skill:** wp-modal
 - **Comportamiento:** uno por etapa (id `etapa-<n>`), lo abre su "Más información". Modal de 620 px: arriba la portada del video (`modal_portada`, componente `video-portada`) con botón play y botón cerrar circular flotando encima; al pulsar play se carga el video de Vimeo (`modal_video`; del 2026-11-25 al 2026-11-27 fue un archivo MP4 o WebM) en el mismo lugar; sin video, solo la portada; sin portada (etapas 9-15 y 15-36 en el diseño), el modal empieza en el antetítulo. Figma no tiene encabezado: el `title` del modal va oculto (`title_hidden`) y el título se repite visible debajo de la portada. Debajo: antetítulo (`modal_antetitulo` del bloque), título, texto, precio de Woo del curso ("$37 USD") con la escala de `solucion_compra_descuentos` debajo ("2 cursos $67 · 3 cursos $97") y "Agregar al carrito" (agrega ese curso y abre el drawer). Al cerrar, el video se detiene. En móvil (propuesta): ocupa el ancho con 16 px de margen. **Etapa sin curso a la venta** (decisión del usuario, 2026-11-20; `angelitozzz_solucion_a_la_venta()`, `inc/woocommerce/precios.php`): el botón dice "En preparación", desactivado y sin flecha, sin precio ni escala de descuento. El modal y su "Más información" se mantienen.
-- **Estado:** aprobado
+- **Estado:** aplicado
 
 **Campos ACF**
 
@@ -328,7 +328,7 @@ Valores de las otras landings (para el contenido inicial): ver "Orden de cada la
 
 - [x] Cumple los criterios comunes de `_shared.md`
 - [x] Es un modal de wp-modal con `title`, sin `open` en el `<dialog>`
-- [ ] (F5-e) El iframe de Vimeo (`modal_video`) no se carga hasta pulsar play y se quita al cerrar
+- [x] (F5-e, `cdp-landing-video.mjs`) El iframe de Vimeo (`modal_video`) no se carga hasta pulsar play y se quita al cerrar
 - [x] La escala de descuento sale de `solucion_compra_descuentos`, no está escrita en la plantilla
 
 ## Sección: drawer-carrito
