@@ -162,6 +162,17 @@ $tiene_prefijo = isset($campos_facturacion['billing_phone_prefijo'], $campos_fac
                     break;
 
                 case 'billing_numero_documento':
+                    // Teclado según el tipo elegido: numérico con DNI y RUC; con CE y Pasaporte, letras en mayúscula.
+                    // Solo cambia el teclado: el formato lo valida el plugin. documento-teclado.js lo actualiza al cambiar el tipo.
+                    $tipo_actual = $valor('billing_tipo_documento', (array) ($campos_facturacion['billing_tipo_documento'] ?? []));
+                    $teclado     = [
+                        'data-documento-numero' => '',
+                        'inputmode'             => in_array($tipo_actual, ['dni', 'ruc'], true) ? 'numeric' : 'text',
+                    ];
+                    if (in_array($tipo_actual, ['ce', 'pasaporte'], true)) {
+                        $teclado['autocapitalize'] = 'characters';
+                    }
+                    $args['custom_attributes'] = array_merge((array) ($args['custom_attributes'] ?? []), $teclado);
                     $campo_texto($clave, $args, 'text', 'off');
                     break;
 
@@ -194,7 +205,7 @@ $tiene_prefijo = isset($campos_facturacion['billing_phone_prefijo'], $campos_fac
                     ?>
                     <p class="<?= esc_attr($clases_envoltorio($args, 'relative')) ?>" id="billing_tipo_documento_field">
                         <?= wp_kses($etiqueta_html($clave, $args), $html_permitido) ?>
-                        <select class="<?= esc_attr($clases_input($args, 'min-w-0 flex-1 cursor-pointer appearance-none bg-transparent pr-6 text-cuerpo-s text-tinta focus:outline-none')) ?>" name="billing_tipo_documento" id="billing_tipo_documento"<?php $atributos($args); ?>>
+                        <select class="<?= esc_attr($clases_input($args, 'min-w-0 flex-1 cursor-pointer appearance-none bg-transparent pr-6 text-cuerpo-s text-tinta focus:outline-none')) ?>" name="billing_tipo_documento" id="billing_tipo_documento" data-documento-tipo<?php $atributos($args); ?>>
                             <?= wp_kses($opciones_html($args, $valor($clave, $args)), $html_permitido) ?>
                         </select>
                         <span class="pointer-events-none absolute bottom-[8px] right-0 text-tinta"><?= wp_kses($chevron, $html_permitido) ?></span>
