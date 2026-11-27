@@ -3,10 +3,12 @@
 /**
  * Lección · video (specs/leccion.md → video, Figma 4176:28055): marco 16:9 con la portada del video y
  * el botón play. El reproductor es el de angelitozzz_cursos_video_html(): HTML ya escapado del plugin
- * (el único lugar que conoce al proveedor), un <video> con la dirección firmada, la marca de agua con
- * el correo y el botón "Pantalla completa". Va dentro de un <template> y src/js/modules/video-leccion.js
- * lo pone al pulsar play: al abrir la página solo se pide la portada. El mismo JS mueve la marca, hace
- * la pantalla completa del marco entero y renueva la dirección si vence (ruta REST del plugin). Los
+ * (el único lugar que conoce al proveedor). Con Vimeo es su iframe y con un archivo privado un <video>
+ * con la dirección firmada (F5-e); los dos llevan la marca de agua con el correo y el botón "Pantalla
+ * completa". Va dentro de un <template> y src/js/modules/video-leccion.js lo pone al pulsar play: al
+ * abrir la página solo se pide la portada (la miniatura de Vimeo o la del archivo). El mismo JS mueve
+ * la marca, hace la pantalla completa del marco entero y, solo con un archivo privado, renueva la
+ * dirección si vence (ruta REST del plugin). Los
  * estilos del reproductor están en src/css/leccion-video.css. Sin JS, el reproductor sale en
  * <noscript>, encima del botón. Sin video, la lección no muestra el marco.
  *
@@ -25,10 +27,14 @@ if ($html === '') {
 
 $titulo  = get_the_title($leccion_id);
 $portada = function_exists('angelitozzz_cursos_video_portada') ? angelitozzz_cursos_video_portada($leccion_id) : '';
+// Solo el archivo privado tiene dirección que vence; el enlace de Vimeo no se renueva.
+$privado = function_exists('angelitozzz_cursos_video_tipo') && angelitozzz_cursos_video_tipo($leccion_id) === 'archivo';
 ?>
 <div class="leccion-video relative aspect-video w-full overflow-hidden rounded-[15px] bg-neutro" data-video-leccion
+    <?php if ($privado) : ?>
     data-video-leccion-url="<?= esc_url(rest_url('angelitozzz/v1/lecciones/' . $leccion_id . '/video')) ?>"
     data-video-leccion-nonce="<?= esc_attr(wp_create_nonce('wp_rest')) ?>"
+    <?php endif; ?>
     data-texto-salir="<?= esc_attr__('Salir de pantalla completa', 'angelitozzz') ?>"
     data-texto-error="<?= esc_attr__('No pudimos cargar el video. Recarga la página.', 'angelitozzz') ?>">
     <template data-video-leccion-plantilla><?= $html // HTML ya escapado por el plugin. ?></template>
