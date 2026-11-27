@@ -9,6 +9,7 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 **Al 2026-11-26 (cierre del día):** F0 a F5 hechas, también la F5-d (archivos privados y videos sin Vimeo).
 
 - **En `main`:** tema PR #84 y plugin PR #21. Los PR #83 (header que se oculta al bajar y aparece al subir) y #84 (flechas y margen del carrusel "¿Cómo puedo ayudarte?" de Inicio) son ajustes visuales fuera del plan. Plugin 0.13.0 (254 pruebas, PHPCS en 0), wp-query 1.2.3 y wp-form 1.6.0 (en el Local; todavía no en producción).
+- **2026-11-27, plugin 0.13.1:** el checkout separa "Nombres" y "Apellidos" (`billing_first_name` / `billing_last_name`, `includes/checkout.php`), como Crear cuenta y Perfil. Falta repetir en el sandbox un pago sin sesión, uno con sesión y un rechazo.
 - **`check.mjs`:** design-import 1.41.0 marca 6 avisos en `_shared.md` (componentes como `testimonios-slider`). Ya estaban antes de la auditoría y están por revisar. Con la versión anterior daba 0.
 - **El Local tiene datos de prueba que se usan mañana:**
     - `datos-f5.php tienda` (cursos y productos 1294 a 1311);
