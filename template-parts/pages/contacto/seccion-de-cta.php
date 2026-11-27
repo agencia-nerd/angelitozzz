@@ -21,7 +21,7 @@ if ($titulo === '') {
 $id_titulo = wp_unique_id('contacto-cta-');
 ?>
 <section class="px-4 py-22 max-md:py-16" aria-labelledby="<?= esc_attr($id_titulo) ?>">
-    <div class="relative mx-auto flex w-full max-w-sitio flex-col items-center gap-3.5 overflow-hidden rounded-tarjeta bg-neutro p-16 text-center max-md:px-6 max-md:py-12">
+    <div data-aos="fade-up" class="relative mx-auto flex w-full max-w-sitio flex-col items-center gap-3.5 overflow-hidden rounded-tarjeta bg-neutro p-16 text-center max-md:px-6 max-md:py-12">
         <img class="pointer-events-none absolute -left-[30px] bottom-9 w-[121px] max-md:w-[60px]" src="<?= esc_url(get_theme_file_uri('assets/img/cta-estrella-contorno-inferior.svg')) ?>" alt="" aria-hidden="true" width="121" height="78" loading="lazy">
         <span class="pointer-events-none absolute bottom-[39px] left-[120px] flex size-[50px] items-center justify-center max-md:hidden" aria-hidden="true">
             <img class="size-[27px]" src="<?= esc_url(get_theme_file_uri('assets/img/cta-destello-dorado-pequeno.svg')) ?>" alt="" width="27" height="27" loading="lazy">

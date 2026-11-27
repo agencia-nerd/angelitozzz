@@ -193,6 +193,9 @@ importers:
       '@tiptap/pm':
         specifier: ^3.34.0
         version: 3.34.0
+      aos:
+        specifier: ^2.3.4
+        version: 2.3.4
       swiper:
         specifier: ^14.4.0
         version: 14.4.0
@@ -672,6 +675,12 @@ packages:
   '@types/node@24.19.2':
     resolution: {integrity: sha512-93d49wCWJkCyN87MxLpNN6KXPCwFw7bVUg79mGUV1OS40JGWwVCr8n61DXCSqz7CV6/VfPkb7xec7uP2M+QHWQ==}
 
+  aos@2.3.4:
+    resolution: {integrity: sha512-zh/ahtR2yME4I51z8IttIt4lC1Nw0ktsFtmeDzID1m9naJnWXhCoARaCgNOGXb5CLy3zm+wqmRAEgMYB5E2HUw==}
+
+  classlist-polyfill@1.2.0:
+    resolution: {integrity: sha512-GzIjNdcEtH4ieA2S8NmrSxv7DfEV5fmixQeyTmqmRmRJPGpRBaSnA2a0VrCjyT8iW8JjEdMbKzDotAJf+ajgaQ==}
+
   detect-libc@2.1.2:
     resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==}
     engines: {node: '>=8'}
@@ -777,6 +786,12 @@ packages:
 
   linkifyjs@4.4.0:
     resolution: {integrity: sha512-InTexvtbai+2c+dEVGcc6O6P2DMVIiwD9a/i4zFroazOIYLOS6FSVmAJ7kFeumnCMx6/gQqNAkbUvgMubV4+MA==}
+
+  lodash.debounce@4.0.8:
+    resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
+
+  lodash.throttle@4.1.1:
+    resolution: {integrity: sha512-wIkUCfVKpVsWo3JSZlc+8MB5it+2AN5W8J7YVMST30UrvcQNZ1Okbj+rbVniijTWE6FGYy4XJq/rHkas8qJMLQ==}
 
   magic-string@1.4.5:
     resolution: {integrity: sha512-oLLC2+YvQUfAa+vxoufE/yc1icb87M9iXIRqAoR/2EhE/8cb3SF/+Gi0c2By1B+5Vz2e2vQtUvHiu1+63Znh+w==}
@@ -1276,6 +1291,14 @@ snapshots:
     dependencies:
       undici-types: 7.24.6
 
+  aos@2.3.4:
+    dependencies:
+      classlist-polyfill: 1.2.0
+      lodash.debounce: 4.0.8
+      lodash.throttle: 4.1.1
+
+  classlist-polyfill@1.2.0: {}
+
   detect-libc@2.1.2: {}
 
   enhanced-resolve@5.26.1:
@@ -1344,6 +1367,10 @@ snapshots:
       lightningcss-win32-x64-msvc: 1.33.0
 
   linkifyjs@4.4.0: {}
+
+  lodash.debounce@4.0.8: {}
+
+  lodash.throttle@4.1.1: {}
 
   magic-string@1.4.5:
     dependencies:

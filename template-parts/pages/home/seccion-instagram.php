@@ -15,7 +15,7 @@ $boton    = $instagram['boton'] ?? null;
 $total    = count($imagenes);
 ?>
 <section class="px-4 py-22 max-md:py-14" aria-labelledby="home-seccion-instagram-titulo">
-    <div class="mx-auto flex max-w-sitio flex-col items-center gap-[57px] max-md:gap-10">
+    <div data-aos="fade-up" class="mx-auto flex max-w-sitio flex-col items-center gap-[57px] max-md:gap-10">
         <div class="flex w-full flex-col gap-[49px] max-md:gap-8">
             <h2 id="home-seccion-instagram-titulo" class="text-h1 text-marca max-md:text-h3"><?= angelitozzz_highlight($titulo) ?></h2>
             <?php if ($imagenes) : ?>

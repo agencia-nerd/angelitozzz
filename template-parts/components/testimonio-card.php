@@ -31,7 +31,7 @@ if ($nombre === '' || $texto === '') {
     return;
 }
 ?>
-<article class="flex gap-8 rounded-tarjeta bg-blanco p-8 max-md:flex-col max-md:gap-5 max-md:p-6">
+<article data-aos="fade-up" class="flex gap-8 rounded-tarjeta bg-blanco p-8 max-md:flex-col max-md:gap-5 max-md:p-6">
     <div class="size-40 shrink-0 overflow-hidden rounded-media max-md:size-30">
         <?= angelitozzz_image($foto, [
             'class'        => 'aspect-square size-full object-cover',

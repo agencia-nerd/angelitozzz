@@ -35,7 +35,7 @@ if (!$ids) {
 $articulos = array_map('angelitozzz_post_card_args', $ids);
 ?>
 <section class="bg-fondo px-4 py-26 max-md:py-16"<?= $titulo !== '' ? ' aria-labelledby="conoce-a-barbara-blog-titulo"' : '' ?>>
-    <div class="mx-auto flex max-w-sitio flex-col gap-10">
+    <div data-aos="fade-up" class="mx-auto flex max-w-sitio flex-col gap-10">
         <?php if ($titulo !== '') : ?>
             <h2 id="conoce-a-barbara-blog-titulo" class="text-h2 text-marca max-md:text-h3"><?= angelitozzz_highlight($titulo) ?></h2>
         <?php endif; ?>
