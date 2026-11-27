@@ -12,14 +12,7 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
 - **2026-11-27, plugin 0.13.1:** el checkout separa "Nombres" y "Apellidos" (`billing_first_name` / `billing_last_name`, `includes/checkout.php`), como Crear cuenta y Perfil. Probado por el usuario.
 - **2026-11-27, rediseño del checkout por pasos** (tema) **y plugin 0.13.2 y 0.13.3** (etiquetas sin dos puntos, mensajes sin "Facturación" y los 20 países del celular, iguales a los formularios del sitio): login en tarjeta fija, tarjetas "1 · Tus datos" y "2 · Pago", columna derecha fija, errores bajo cada campo, avisos de Woo con estilo y Openpay con el aspecto del sitio (`specs/checkout.md`). Probado por CDP y por el usuario en el sandbox (pago, rechazo y nuevo pago sin recargar). Falta probar en un celular el teclado del número de documento.
 - **`check.mjs`:** design-import 1.41.0 marca 6 avisos en `_shared.md` (componentes como `testimonios-slider`). Ya estaban antes de la auditoría y están por revisar. Con la versión anterior daba 0.
-- **El Local tiene datos de prueba por borrar** (se borran al final de la F5-e, decisión del usuario):
-    - `datos-f5.php tienda` (cursos y productos 1294 a 1311);
-    - `renovar` (la alumna `renovar-f5@angelitozzz.local`);
-    - los pedidos pagados en el sandbox 1316 y 1317, y los fallidos 1313 a 1315;
-    - la copia `zz-datos-f5.php` en `app/public`.
-    - `datos-f5.php crear` (rehecho en la F5-e: la lección A3 con Vimeo);
-    - el curso de prueba 1386 de la instructora, que dejó `cdp-constructor.mjs` (con sus archivos privados subidos).
-- Los reembolsos de la F6 ya se hicieron (2026-11-27). Falta volver a correr `cdp-renovar.mjs` con datos nuevos y después borrar todo con `renovar-borrar`, `tienda-borrar` y `borrar`, más el curso 1386 desde el administrador.
+- **Datos de prueba del Local: borrados (2026-11-27).** Antes, `cdp-renovar.mjs` pasó entero con una alumna nueva (`renovar`). Después se borraron `renovar-borrar`, `tienda-borrar` (con los pedidos de los productos de prueba, también los de la cuenta del usuario), `borrar` y el curso 1386 que dejó `cdp-constructor.mjs` (lección, producto, portada y 5 archivos privados), y la copia `app/public/zz-datos-f5.php`. Comprobado: sin usuarias `@angelitozzz.local`, sin opciones `angelitozzz_prueba*`, sin productos "(prueba)", pedidos, archivos privados ni inscripciones. Queda un curso en borrador "tes" (ID 981) que no es de los scripts: decidir si se borra antes de migrar la base.
 - **Entorno de esta PC:** Local con PHP 8.4.28 y el entorno de pruebas armado con `instalar.mjs`. La regla de Nginx de la carpeta privada responde 403.
 
 - **Auditoría de seguridad del plugin: terminada** (corrida 1 y correcciones 0.12.1 y 0.13.0; F7 → "Auditoría de seguridad completa").
@@ -30,9 +23,8 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
     - **Pendiente:** las pruebas en producción al publicar.
     - El detalle está en F7 → "Auditoría de seguridad completa".
 - **Lo siguiente, en este orden:**
-    1. Cerrar las pruebas del Local: volver a correr `cdp-renovar.mjs` con datos nuevos (`renovar-borrar` y `renovar`) y después borrar los datos de prueba (arriba).
-    2. Revisar con ventana la lección con Vimeo (F5-e, bloque 3) y pedirle a la clienta los videos y la configuración de privacidad de Vimeo.
-    3. El resto de la F7.
+    1. Revisar con ventana una lección con Vimeo (F5-e, bloque 3; los datos de prueba se recrean con `datos-f5.php crear`) y pedirle a la clienta los videos y la configuración de privacidad de Vimeo.
+    2. El resto de la F7.
 
 - **F6 en curso** (Pagos y Angelita Pro). El detalle está en la sección F6.
     - **Hecho:**
@@ -588,7 +580,7 @@ Decisión de la clienta y del usuario (2026-11-27): la clienta tiene sus videos 
         - Pruebas en Chrome:
             - `cdp-bloque4.mjs` y `cdp-formularios.mjs` pasan;
             - `cdp-compra.mjs` pasa (0 avisos de PHP);
-            - `cdp-renovar.mjs` falla igual en `main`, porque la alumna `renovar-f5` ya renovó hoy (pedido 1317). Hay que volver a correrla con `datos-f5.php renovar` después de los reembolsos.
+            - `cdp-renovar.mjs` falla igual en `main`, porque la alumna `renovar-f5` ya renovó hoy (pedido 1317). Hay que volver a correrla con `datos-f5.php renovar` después de los reembolsos. **Hecho (2026-11-27):** con una alumna nueva, `cdp-renovar.mjs` pasa entera.
         - **Ya estaba antes (no es de la 0.13.0):** en `cdp-bloque4.mjs`, el enlace de reseteo del correo de Mailpit abre una página de error en Chrome ("No se puede acceder a este sitio"), también en `main`. Hay que revisar el enlace que arma la prueba.
     - [x] Tema, corrida 1 (2026-11-26, skill de Cloudflare `c1c8a8c`, perfil `standard`, tema `b40a6c1`). El tope era de 20 agentes y se subió a 23 por decisión del usuario, para revisar la unidad que pidió el crítico. Se usaron los 23.
         - **Resultado:** 0 confirmados y 4 por validar, todos dependientes de la caché o el proxy del hosting. Las 26 unidades quedaron cubiertas y el crítico final salió limpio.
