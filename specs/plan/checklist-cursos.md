@@ -28,7 +28,7 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
     - **Pendiente:** las pruebas en producción al publicar.
     - El detalle está en F7 → "Auditoría de seguridad completa".
 - **Lo siguiente, en este orden:**
-    1. Los reembolsos de la F6 **desde el 2026-11-27**. Son independientes: se pueden hacer en cualquier momento de ese día.
+    1. Volver a correr `cdp-renovar.mjs` con datos nuevos (`renovar-borrar` y `renovar`) y después borrar los datos de prueba (`tienda-borrar` y `renovar-borrar`).
     2. El resto de la F7.
 
 - **F6 en curso** (Pagos y Angelita Pro). El detalle está en la sección F6.
@@ -37,7 +37,7 @@ Avance del plan de cursos: LMS a medida en el plugin `angelitozzz-cursos`, con c
         - Reintento tras un pago fallido arreglado (0.11.1).
         - Renovación manual de Angelita Pro construida y pagada en el sandbox, con el estado "Renovado" (0.12.0).
         - Rechazos (3001 y 3003) y rechazada seguida de aprobada sin recargar (2026-11-26).
-    - **Lo siguiente, en el Local:** reembolsos **desde el 2026-11-27** de los pedidos pagados el 2026-11-26: el curso (pedido 1316, Recién Nacidos Go) y la renovación (pedido 1317, Angelita Pro). No borrar esos datos antes.
+        - Reembolsos en el sandbox (2026-11-27): el curso (pedido 1316) y la renovación (pedido 1317). Openpay devolvió los dos cargos y el acceso quedó como se esperaba.
     - **Esperando a Openpay:** si su sandbox de Perú tiene 3D Secure (error 1000).
     - **Solo en producción:** webhook, credenciales reales y la compra de $1.
 - **Después, la F7** (Cierre): QA, auditoría de seguridad, manual, ajustes reales de la clienta y deploy.
@@ -504,9 +504,13 @@ Decisión del usuario (2026-11-25): los videos de las lecciones dejan Vimeo y se
     - [x] Probado a mano el 2026-11-26 (datos de `datos-f5.php tienda`): compra de 1 curso, Horarios con 3 etapas, cupón y regalo
     - [x] Reintento tras un pago fallido (plugin 0.11.1, 2026-11-26). Pasó en el pedido 1289: un primer intento con 3D Secure dio 1000 en Openpay, y los cinco reintentos (ya en Directo) dieron **1006 "The order_id has already been processed"**, porque Woo reutiliza el pedido fallido y Openpay no acepta un `order_id` repetido. Ahora un pedido de Openpay que pasa a `failed` sale de la sesión y el siguiente intento crea otro (`includes/pagos.php`, con su prueba). Comprobado a mano el 2026-11-26 en Firefox: rechazada (`4222…2220`, pedido 1315, 3001) y, sin recargar, aprobada (`4111…`) en un pedido **nuevo**, el 1316, con inscripción
     - [x] Rechazos (2026-11-26, Firefox): `4222 2222 2222 2220` (pedido 1313, 3001) y `4444 4444 4444 4448` (pedido 1314, 3003) muestran "Error en la transacción: No se pudo completar tu pago." y quedan "Fallido" sin inscripción. El aviso "SANDBOX MODE ENABLED" es del plugin de Openpay y solo sale en el sandbox. Openpay cobra una comisión (10 PEN en el cargo de $67 del sandbox)
-    - [ ] Reembolso de la línea completa desde el pedido de Woo **desde el día siguiente a la compra**: Openpay Perú responde 1003 "La venta no se podrá reembolsar hasta el día siguiente" (2026-11-26, pedido 1290). Comprobar la nota "Payment was also refunded in Openpay" y que el curso queda Cancelado. Si Openpay lo rechaza, su plugin deja igual el reembolso en Woo (con HPOS no lo puede borrar): se borra a mano en el pedido. Va en el manual (F7)
+    - [x] Reembolso de la línea completa desde el pedido de Woo **desde el día siguiente a la compra**: Openpay Perú responde 1003 "La venta no se podrá reembolsar hasta el día siguiente" (2026-11-26, pedido 1290). Probado el 2026-11-27 con el pedido 1316 (reembolso 1332): Openpay devolvió los $67 (`trcstclfzv9w22tjtoqj`, `completed`), el pedido quedó Reembolsado y su línea dice "Cancelado" en el historial. Otra compra del mismo curso (pedido 1331) siguió "Activo". Va en el manual (F7):
+        - El botón es **"Reembolsar $X manualmente"**: el plugin "Openpay Cards" 3.2.0 no declara reembolsos en la pasarela, pero escucha `woocommerce_order_refunded` y devuelve el cargo por su API (`openpay_cards.php:281-288`).
+        - Si sale bien, el pedido tiene la nota "Payment was also refunded in Openpay".
+        - Si falla, la nota es "There was an error refunding charge in Openpay: …": su plugin borra el reembolso y vuelve el pedido a Procesando (`Services/class-wc-openpay-refund-service.php`). Revisar entonces que el curso de la alumna siga como estaba.
+        - La comisión de Openpay (10 PEN en el sandbox) no figura en la devolución: el reembolso devuelve el monto del cargo.
     - [ ] 3D Secure: el sandbox responde 1000 "Internal server error, contact support" (ID `3cc55a81-1567-4e7c-a63c-f1f6c2c4df76`). Preguntar a soporte de Openpay si el sandbox de Perú tiene 3D Secure activo para el comercio. Mientras tanto, Directo (decisión del usuario, 2026-11-26)
-- [ ] Angelita Pro cada 4 meses. **Decidido (usuario, 2026-11-26):** renovación manual por WooCommerce (aviso por correo y botón "Renovar" que lleva al checkout; la compra nueva se encadena al acceso vigente, como ya hace el plugin). Los "7 días" son la garantía de devolución que ya existe, no una prueba gratis. Sin cobro automático ni suscripciones de la API de Openpay
+- [x] Angelita Pro cada 4 meses. **Decidido (usuario, 2026-11-26):** renovación manual por WooCommerce (aviso por correo y botón "Renovar" que lleva al checkout; la compra nueva se encadena al acceso vigente, como ya hace el plugin). Los "7 días" son la garantía de devolución que ya existe, no una prueba gratis. Sin cobro automático ni suscripciones de la API de Openpay
     - [x] Construido (plugin 0.12.0, 2026-11-26; `cursos-datos.md` → `renovacion`):
         - `includes/renovacion.php`: quién puede renovar, la URL de "Renovar" y los correos de la tarea diaria (7 días antes y al vencer, una vez por fecha).
         - `renovar_url` en la tarjeta de "Mis cursos" y en la línea del historial (`usuario-cursos.md`, `usuario-historial-pedido.md`).
@@ -518,7 +522,7 @@ Decisión del usuario (2026-11-25): los videos de las lecciones dejan Vimeo y se
         - Datos: `datos-f5.php renovar` / `renovar-avisar` / `renovar-borrar`. `tienda` ahora crea "Angelita Pro (prueba)" de tipo `suscripcion`.
     - **Ojo:** desde la consola, el PHP de Local no manda correos ("No se ha podido establecer la función de correo"). `renovar-avisar` se corre con `php -d SMTP=127.0.0.1 -d smtp_port=<SMTP de Mailpit> …` (`specs/pruebas/LEEME.md`). En el sitio y en el cron del hosting no pasa.
     - [x] Renovación pagada en el sandbox por el usuario (2026-11-26, pedidos 1292 y 1293): "Renovar" desaparece y el nuevo acceso va del 1 de diciembre de 2026 al 1 de abril de 2027, sin días perdidos. En el historial la compra anterior decía "Por expirar" y confundía: ahora dice "Renovado" (decisión del usuario, plugin 0.12.0, con su prueba)
-    - [ ] Falta: reembolsar una renovación **desde el día siguiente** a la compra (con un pedido nuevo: los datos del 2026-11-26 se borran) y comprobar que vuelve el vencimiento anterior y "Por expirar" con "Renovar"
+    - [x] Reembolso de una renovación (2026-11-27, pedido 1317, reembolso 1333): Openpay devolvió los $67 (`trz7l9i5gwqqnc6jysdd`, `completed`). En el historial, el 1317 dice "Cancelado" y la compra anterior (1312) vuelve a "Por expirar" con "Renovar", que también sale en "Mis cursos"
 - [ ] Openpay en producción: credenciales de producción cargadas por el usuario y webhook registrado con la URL del sitio
 - [ ] Compra real de prueba en producción: un producto oculto de $1 ligado a un curso de prueba, pagado con una tarjeta real. Comprobar que el cargo se aprueba en Directo (sin rechazo por falta de 3D Secure), la inscripción, el correo y el webhook. Después, reembolsarlo desde el pedido de Woo, que según el código del plugin devuelve el cargo por la API de Openpay (`openpay_cards.php:281-288`): comprobar que llega a la tarjeta y que se quita el acceso. Borrar el producto y el curso de prueba. Preguntar si Openpay cobra comisión por ese cargo aunque se devuelva
     - (Opcional, en vez del producto de $1) Un cupón de descuento fijo, de un solo uso y limitado a un curso real, que deje el total en $1 (p. ej. $398 sobre A Dormir Por Fin). Así no hay que crear ni borrar productos; después se borra el cupón. Un cupón que deje el total en $0 no sirve para esto: con total $0, WooCommerce no pasa por la pasarela (prueba la inscripción y el correo, pero no Openpay). Confirmar con Openpay si acepta un cargo de $1
