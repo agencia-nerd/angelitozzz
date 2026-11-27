@@ -8,7 +8,8 @@
 // ni menú del clic derecho; la marca de agua con el correo cambia de esquina a los 30 s y sigue a la vista en la
 // pantalla completa del marco; si un pedazo falla (403), el JS pide una dirección nueva y sigue en la misma posición;
 // la dirección copiada no sirve sin la sesión ni después de cerrarla; íconos por tipo y <audio> solo en el MP3; la
-// vista previa sin sesión tiene video sin marca. Puerto 9351.
+// vista previa sin sesión tiene video sin marca. F5-e: la lección A3 con Vimeo (miniatura antes de play, iframe con
+// dnt y autoplay sin allowfullscreen, marca y pantalla del marco; sin sesión, sin el enlace en el HTML). Puerto 9351.
 import { writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -249,8 +250,56 @@ await c.ev(`document.querySelector('#leccion-materiales-pestana')?.click(); docu
 await sleep(400);
 await foto('4-materiales-1440.png');
 
-// 9. La dirección copiada no sirve sin la sesión, ni en este navegador después de cerrarla.
+// 8b. Vimeo (F5-e): la lección A3 tiene un enlace de Vimeo. Antes de play, solo la miniatura y ningún pedido a
+// player.vimeo.com; al pulsar, su iframe con dnt=1 y autoplay=1, sin allowfullscreen, con la marca y la pantalla
+// completa del marco. Sin la ruta de renovación (es solo del archivo privado).
 const src = await c.ev(`return document.querySelector('[data-video-leccion] video').currentSrc;`);
+const aVimeo = [];
+c.escuchar('Network.requestWillBeSent', ({ request }) => {
+    if (/player\.vimeo\.com/.test(request.url)) aVimeo.push(request.url);
+});
+await c.ir(LECCION.replace('video-1-bienvenida', 'video-3-la-rutina-de-la-noche'), 1500);
+const vimeoAntes = await c.ev(`
+    const marco = document.querySelector('[data-video-leccion]');
+    const t = marco?.querySelector('template')?.content;
+    return {
+        marco: !!marco,
+        iframeEnPagina: !!document.querySelector('[data-video-leccion] > [data-angelitozzz-video] iframe, [data-video-leccion] [data-angelitozzz-video] iframe:not(template *)'),
+        enPlantilla: t?.querySelector('iframe')?.getAttribute('src') || '',
+        tipo: t?.querySelector('[data-angelitozzz-video]')?.dataset.angelitozzzVideoTipo || '',
+        portada: marco?.querySelector('[data-video-leccion-portada]')?.getAttribute('src') || '',
+        ruta: marco?.dataset.videoLeccionUrl || '',
+    };
+`);
+out.vimeoAntes = { ...vimeoAntes, pedidos: aVimeo.length };
+c.comprobar('Vimeo: antes de play, el iframe solo está en la plantilla y no se pidió nada a Vimeo', vimeoAntes.marco && !vimeoAntes.iframeEnPagina && aVimeo.length === 0 && /^https:\/\/player\.vimeo\.com\/video\/76979871\?dnt=1$/.test(vimeoAntes.enPlantilla) && vimeoAntes.tipo === 'vimeo', out.vimeoAntes);
+c.comprobar('Vimeo: la portada es la miniatura de Vimeo y no hay ruta de renovación', /^https:\/\/[^/]+\.vimeocdn\.com\//.test(vimeoAntes.portada) && vimeoAntes.ruta === '', vimeoAntes);
+await foto('7-vimeo-portada-1440.png');
+const playVimeo = await c.ev(`const b = document.querySelector('[data-video-leccion-play]'); b.scrollIntoView({ block: 'center' }); await new Promise((r) => setTimeout(r, 300)); const r = b.getBoundingClientRect(); return { x: r.left + r.width / 2, y: r.top + r.height / 2 };`);
+await c.clic(playVimeo.x, playVimeo.y);
+await sleep(2500);
+const vimeo = await c.ev(`
+    const marco = document.querySelector('[data-video-leccion]');
+    const f = marco.querySelector('[data-angelitozzz-video] iframe');
+    window.__pidioVimeo = [];
+    marco.requestFullscreen = () => { window.__pidioVimeo.push('marco'); return Promise.resolve(); };
+    marco.querySelector('[data-angelitozzz-video-pantalla]')?.click();
+    return {
+        src: f?.getAttribute('src') || '',
+        allowfullscreen: f?.hasAttribute('allowfullscreen'),
+        foco: document.activeElement === f,
+        marca: marco.querySelector('[data-angelitozzz-video-marca]')?.textContent || '',
+        esquina: marco.querySelector('[data-angelitozzz-video-marca]')?.dataset.esquina || '',
+        portada: !!marco.querySelector('[data-video-leccion-portada]'),
+        pantalla: window.__pidioVimeo,
+    };
+`);
+out.vimeo = { ...vimeo, pedidos: aVimeo.length };
+c.comprobar('Vimeo: al pulsar play carga el iframe con dnt=1 y autoplay=1, sin allowfullscreen, con el foco', /^https:\/\/player\.vimeo\.com\/video\/76979871\?dnt=1&autoplay=1$/.test(vimeo.src) && vimeo.allowfullscreen === false && vimeo.foco && !vimeo.portada && aVimeo.length > 0, out.vimeo);
+c.comprobar('Vimeo: la marca de agua con el correo y "Pantalla completa" pide el marco', vimeo.marca === ALUMNA && vimeo.esquina === 'arriba-izquierda' && vimeo.pantalla.length === 1 && vimeo.pantalla[0] === 'marco', vimeo);
+await foto('8-vimeo-reproduciendo-1440.png');
+
+// 9. La dirección copiada no sirve sin la sesión, ni en este navegador después de cerrarla.
 const sinCookie = await fetch(src, { headers: { Range: 'bytes=0-99' } });
 out.sinCookie = sinCookie.status;
 c.comprobar('la dirección copiada, sin la sesión, da 403', sinCookie.status === 403, sinCookie.status);
@@ -275,6 +324,12 @@ const previa = await c.ev(`
 `);
 out.vistaPrevia = previa;
 c.comprobar('vista previa sin sesión: video sin marca y sin materiales', previa.video && !previa.marca && !previa.materiales, previa);
+
+// 10b. Vimeo sin sesión: la lección A3 (no es de vista previa) no deja el enlace en el HTML.
+const sinSesionVimeo = await fetch(sitio + LECCION.replace('video-1-bienvenida', 'video-3-la-rutina-de-la-noche'));
+const htmlSinSesion = await sinSesionVimeo.text();
+out.vimeoSinSesion = { estado: sinSesionVimeo.status, url: sinSesionVimeo.url, vimeo: htmlSinSesion.includes('player.vimeo.com') };
+c.comprobar('Vimeo: sin sesión la lección no tiene player.vimeo.com en el HTML', !out.vimeoSinSesion.vimeo, out.vimeoSinSesion);
 c.cerrar();
 
 if (capturas) {

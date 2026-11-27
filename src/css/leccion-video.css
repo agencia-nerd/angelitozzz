@@ -1,6 +1,6 @@
 /*
  * Reproductor de la lección (specs/leccion.md → video). El marcado lo arma el plugin
- * (angelitozzz_cursos_video_html(): [data-angelitozzz-video] con el <video>, la marca de agua y el
+ * (angelitozzz_cursos_video_html(): [data-angelitozzz-video] con el iframe de Vimeo o el <video>, la marca de agua y el
  * botón "Pantalla completa"), así que se le da forma por sus atributos data-*, no con clases.
  * El marco es .leccion-video (template-parts/pages/leccion/video.php); el JS es
  * src/js/modules/video-leccion.js (esquina de la marca y pantalla completa del marco entero).
@@ -18,6 +18,14 @@
         width: 100%;
         height: 100%;
         object-fit: contain;
+    }
+
+    /* Vimeo (F5-e): el iframe ocupa el marco; la marca y el botón van encima, como con el <video>. */
+    [data-angelitozzz-video] iframe {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: 0;
     }
 
     /* Marca de agua: el correo de la alumna, encima del video, sin tapar los controles. */

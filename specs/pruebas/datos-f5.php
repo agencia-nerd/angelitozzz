@@ -449,6 +449,11 @@ if ($video) {
     update_post_meta($a2, '_angelitozzz_video', (string) $video);
 }
 
+// F5-e: A3 con un video público de Vimeo (de su cuenta oficial), para probar el otro tipo de video. El plugin
+// lee su duración y su miniatura por oEmbed al guardarlo (sin red, quedan vacías y la lección se ve igual).
+update_post_meta($a3, '_angelitozzz_video', 'https://vimeo.com/76979871');
+echo 'vimeo en A3: duración ', (int) get_post_meta($a3, '_angelitozzz_duracion', true), " s\n";
+
 // Materiales de A1, uno de cada tipo (el ícono y el audio de la pestaña Materiales), y un PDF del curso.
 $materiales_a1 = array_filter([
     $archivo($pdf, 'Guía de horarios.pdf', 'material'),
