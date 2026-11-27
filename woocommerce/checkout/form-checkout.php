@@ -102,8 +102,14 @@ $boton_permitido = [
             <?php do_action('woocommerce_checkout_order_review'); ?>
         </div>
 
-        <div class="flex w-full justify-center max-lg:order-7">
+        <div class="flex w-full flex-col items-center gap-3 max-lg:order-7">
             <?= wp_kses(apply_filters('woocommerce_order_button_html', $boton_html), $boton_permitido) ?>
+
+            <?php // Aviso de confianza junto al pago (la tarjeta la tokeniza Openpay; el sitio no la guarda). ?>
+            <p class="flex items-center justify-center gap-1.5 text-center text-caption text-tinta/70">
+                <svg class="size-[12px] shrink-0" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="7" width="10" height="7" rx="1.5" /><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" /></svg>
+                <span><?= esc_html__('Pago seguro con Openpay', 'angelitozzz') ?></span>
+            </p>
         </div>
 
         <div class="w-full max-lg:order-4">
